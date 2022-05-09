@@ -1,5 +1,0 @@
----
-title: "photography/"
----
-
-coming soon...

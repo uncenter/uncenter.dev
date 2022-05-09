@@ -1,5 +1,5 @@
 ---
-title: "code/"
+title: "/code"
 ---
 
 coming soon...

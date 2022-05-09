@@ -1,15 +1,35 @@
 ---
-title: "main/"
+title: "/home"
 ---
 
+
+```
+                        __
+                      /` ,\__
+                     |    ).-'
+                    / .--'
+                   / /
+     ,      _.==''`  \
+   .'(  _.='         |
+  {   ``  _.='       |
+   {    \`     ;    /
+    `.   `'=..'  .='
+      `=._    .='
+        '-`\\`__
+            `-._{
+\/\\/\/\\/\/\\\\/\\\\\////\\\///\\/\\//\\\/\/\\/\/\\\/\/\\/\/\/\\//
+```
+## Welcome!
 hey! i'm uncenter; nice to meet you!
-this website is all about my hobbies, interests, and [thoughts](https://www.uncenter.org/blog/). 
-i enjoy [playing games](https://www.uncenter.org/games/), [programming](https://www.uncenter.org/code/), [cooking](https://www.uncenter.org/cooking/), [photography](https://www.uncenter.org/photography/), and [my pets](https://www.uncenter.org/pets/)!
+this website is all about my [hobbies](/hobbies), projects, and [thoughts](/blog). 
 
 
 
------
 
-[Github](https://github.com/intricateavocado) | [Twitter](https://twitter.com/uncenteristaken)
+
+## About
+uncenter.org is configured using [11ty](https://www.11ty.dev/) and hosted using [Netlify](https://www.netlify.com/), with the domain being provided through [Cloudflare](https://www.cloudflare.com/).
+
+
 
 

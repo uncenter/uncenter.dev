@@ -1,5 +1,5 @@
 ---
-title: "pets/"
+title: "/pets"
 ---
 
 coming soon...

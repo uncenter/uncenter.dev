@@ -6,47 +6,25 @@ body {
     color:darkseagreen;
   }
   a:visited {
-    color:olive;
+    color:forestgreen;
   }
   .site-footer
 {
   background-color:#26272b;
-  padding:45px 0 20px;
+  padding:10px 0 0px;
   font-size:15px;
-  line-height:24px;
+  line-height:22px;
   color:#737373;
-}
-.site-footer hr
-{
-  border-top-color:#bbb;
-  opacity:0.5
-}
-.site-footer hr.small
-{
-  margin:20px 0
 }
 .site-footer h6
 {
-  color:#fff;
+  color:bisque;
   font-size:16px;
   text-transform:uppercase;
-  margin-top:5px;
-  letter-spacing:2px
+  margin-top:20px;
+  letter-spacing:1px
 }
-.footer-links
-{
-  padding-left:0;
-  list-style:none
-}
-.footer-links li
-{
-  display:block
-}
-.footer-links.inline li
-{
-  display:inline-block
-}
-.site-footer .social-icons
+.social-icons
 {
   text-align:right
 }
@@ -60,10 +38,7 @@ body {
   border-radius:100%;
   background-color:#33353d
 }
-.copyright-text
-{
-  margin:0
-}
+
 @media (max-width:991px)
 {
   .site-footer [class^=col-]
@@ -85,7 +60,7 @@ body {
 .social-icons
 {
   padding-left:0;
-  margin-bottom:0;
+  margin-bottom:100px;
   list-style:none
 }
 .social-icons li
@@ -134,7 +109,19 @@ body {
 }
 .social-icons a.linkedin:hover
 {
-  background-color:#007bb6
+  background-color:cornflowerblue
+}
+.social-icons a.github:hover
+{
+  background-color:coral
+}
+.social-icons a.email:hover
+{
+  background-color:rebeccapurple
+}
+.social-icons a.star-repo:hover
+{
+  background-color:gold
 }
 @media (max-width:767px)
 {
