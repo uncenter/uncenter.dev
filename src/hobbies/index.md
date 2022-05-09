@@ -1,6 +1,7 @@
 ---
 title: " "
 layout: "hobbies.njk"
+style: "subdir.css"
 ---
 
 i enjoy...    

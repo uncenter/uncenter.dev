@@ -1,0 +1,10 @@
+body {
+    background-color: #26272b;
+    color: #ffffff;
+  }
+  a:link {
+    color:plum;
+  }
+  a:visited {
+    color:rebeccapurple;
+  }
