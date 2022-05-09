@@ -2,9 +2,9 @@ body {
     background-color: #26272b;
     color: #ffffff;
   }
-  a:link {
+  body a:link {
     color:lightsalmon;
   }
-  a:visited {
+  body a:visited {
     color:tomato;
   }
