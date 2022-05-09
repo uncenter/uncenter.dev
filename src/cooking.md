@@ -1,5 +1,5 @@
 ---
-title: "/uncenter/cooking"
+title: "cooking/"
 ---
 
 coming soon...

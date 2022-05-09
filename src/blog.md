@@ -1,5 +1,5 @@
 ---
-title: "/uncenter/blog"
+title: "blog/"
 ---
 
 coming soon...

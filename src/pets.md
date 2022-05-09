@@ -1,5 +1,5 @@
 ---
-title: "/uncenter/pets"
+title: "pets/"
 ---
 
 coming soon...

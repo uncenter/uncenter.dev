@@ -1,5 +1,5 @@
 ---
-title: "/uncenter/code"
+title: "code/"
 ---
 
 coming soon...

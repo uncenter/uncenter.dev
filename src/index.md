@@ -1,5 +1,5 @@
 ---
-title: "/uncenter"
+title: "main/"
 ---
 
 hey! i'm uncenter; nice to meet you!

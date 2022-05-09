@@ -1,5 +1,5 @@
 ---
-title: "/uncenter/foto"
+title: "foto/"
 ---
 
 coming soon...
