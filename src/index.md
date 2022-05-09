@@ -10,6 +10,6 @@ i enjoy [playing games](https://www.uncenter.org/games/), [programming](https://
 
 -----
 
-Contact me @ uncenteristaken@gmail.com - [Github](https://github.com/intricateavocado) | [Twitter](https://twitter.com/uncenteristaken)
+[Github](https://github.com/intricateavocado) | [Twitter](https://twitter.com/uncenteristaken)
 
 

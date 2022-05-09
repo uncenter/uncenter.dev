@@ -1,5 +1,5 @@
 ---
-title: "foto/"
+title: "photography/"
 ---
 
 coming soon...
