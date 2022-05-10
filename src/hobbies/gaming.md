@@ -6,4 +6,12 @@ directory: "/hobbies"
 bicolor: "royalblue"
 ---
 
-hi! i like to play valorant and (kinda) minecraft!
+hi! i like to play valorant and minecraft!
+
+## valorant
+ign: [toasted#2018]()
+
+## minecraft
+
+## play a game right here!
+{% include "src/embeds/mario.html" %}
