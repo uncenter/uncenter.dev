@@ -1,5 +1,6 @@
 ---
 title: "/blog"
+webtitle: "Blog"
 bicolor: "violet"
 ---
 

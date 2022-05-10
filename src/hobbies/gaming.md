@@ -1,5 +1,6 @@
 ---
 title: "/gaming"
+webtitle: "Hobbies - Gaming"
 layout: "subdir.njk"
 directory: "/hobbies"
 bicolor: "royalblue"

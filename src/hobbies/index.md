@@ -1,5 +1,6 @@
 ---
 title: "/hobbies"
+webtitle: "Hobbies"
 layout: "base.njk"
 directory: "/hobbies"
 bicolor: "violet"
