@@ -1,13 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/style.css">
-    {% if style %}<link rel="stylesheet" href="/{{style}}">{% endif %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="icon" type="image/x-icon" href="src/images/favicon.ico">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ webtitle }}</title>
+    {% include "src/_includes/head.njk" %}
   </head>
   <style>
     h2, a {
@@ -25,32 +19,6 @@
     </div>
   </body>
     <div class="content">
-      <footer class="site-footer">
-        <hr>
-        <div class="container">
-            <div class="pages">
-              <h6 style="color:#ace1af">Pages</h6>
-              <ul class="footer-links">
-                <li><a href="/" style="color:#ace1af">Home</a></li>
-                <li><a href="/hobbies" style="color:#ace1af">Hobbies</a></li>
-                <li><a href="/blog" style="color:#ace1af">Projects/Blog</a></li>
-              </ul>
-            </div>
-          </div>
-          <hr>
-        <div class="container">
-          <div class="copyright">
-            <p class="copyright-text">Copyright &copy; 2022 by <i>uncenter</i> &hearts;</p>
-          </div>
-          <div class="socials">
-            <ul class="social-icons">
-              <li><a class="twitter" href="https://twitter.com/uncenteristaken/"><span title="Visit my Twitter!"><i class="fa fa-twitter"></i></span></a></li>
-              <li><a class="github" href="https://github.com/intricateavocado/"><span title="Visit my GitHub!"><i class="fa fa-github"></i></span></a></li>
-              <li><a class="linkedin" href="#"><span title="Visit my LinkedIn!"><i class="fa fa-linkedin"></i></span></a></li>   
-              <li><a class="email" href="/contact"><span title="Contact me!"><i class="fa fa-envelope-square"></i></span></a></li>   
-              <li><a class="star-repo" href="https://github.com/intricateavocado/site"><span title="Star this repository on GitHub!"><i class="fa fa-star"></i></span></a></li> 
-            </div>
-        </div>
-  </footer>
+      {% include "src/_includes/foot.njk" %}
   </div>
 </html>
