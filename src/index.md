@@ -1,3 +1,7 @@
+---
+bicolor: "deeppink"
+
+---
 ```
                         __
                       /` ,\__
@@ -14,7 +18,8 @@
             `-._{
 \/\\/\/\\/\/\\\\/\\\\\////\\\///\\/\\//\\\/\/\\/\/\\\/\/\\/\/\/\\//
 ```
-## Welcome!
+## welcome!
+
 hey! i'm uncenter; nice to meet you!
 this website is all about my [hobbies](/hobbies), projects, and [thoughts](/blog). 
 
@@ -22,7 +27,7 @@ this website is all about my [hobbies](/hobbies), projects, and [thoughts](/blog
 
 
 
-## About
+## about
 uncenter.org is configured using [11ty](https://www.11ty.dev/) and hosted using [Netlify](https://www.netlify.com/), with the domain being provided through [Cloudflare](https://www.cloudflare.com/).
 
 

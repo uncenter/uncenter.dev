@@ -1,7 +1,8 @@
 ---
-title: " "
-layout: "hobbies.njk"
-style: "subdir.css"
+title: "/hobbies"
+layout: "base.njk"
+directory: "/hobbies"
+bicolor: "violet"
 ---
 
 i enjoy...    

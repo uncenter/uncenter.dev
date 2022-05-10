@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
-  
   <head>
-    <link rel="stylesheet" href="/dir.css">
     <link rel="stylesheet" href="/style.css">
     {% if style %}<link rel="stylesheet" href="/{{style}}">{% endif %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -11,38 +9,37 @@
     <title>{{ title }}</title>
   </head>
   <style>
-.content {
-  max-width: 800px;
-  margin: auto;
-}
-</style>
+    h2, a {
+      color:{{bicolor}}
+    }
+    .content {
+      max-width: 800px;
+      margin: auto;
+    }
+  </style>
   <body>
     <div class="content">
-    <h1><a href="/" style="color:lightskyblue">/uncenter</a><a href="{{title}}" style="color:plum">{{title}}</a></h1>
-    {{ content | safe }}
+      <h1><a href="/" style="color:deeppink">/uncenter</a><a href="{{title}}" style="color:violet">{{title}}</a></h1>
+      {{ content | safe }}
     </div>
   </body>
-  <div class="content">
-    <footer class="site-footer">
-      <hr>
-      <div class="container">
-        <div class="row">
-          <div class="pages">
-            <h6>Pages</h6>
-            <ul class="footer-links">
-              <li><a href="/">Home</a></li>
-              <li><a href="/hobbies">Hobbies</a></li>
-              <li><a href="/blog">Projects/Blog</a></li>
-            </ul>
-          </div>
-        </div>
+    <div class="content">
+      <footer class="site-footer">
         <hr>
-      </div>
-      <div class="container">
-        <div class="row">
+        <div class="container">
+            <div class="pages">
+              <h6 style="color:#ace1af">Pages</h6>
+              <ul class="footer-links">
+                <li><a href="/" style="color:#ace1af">Home</a></li>
+                <li><a href="/hobbies" style="color:#ace1af">Hobbies</a></li>
+                <li><a href="/blog" style="color:#ace1af">Projects/Blog</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        <div class="container">
           <div class="copyright">
-            <p class="copyright-text">Copyright &copy; 2022 by <i>uncenter</i>.
-            </p>
+            <p class="copyright-text">Copyright &copy; 2022 by <i>uncenter</i> &hearts;</p>
           </div>
           <div class="socials">
             <ul class="social-icons">
@@ -51,9 +48,8 @@
               <li><a class="linkedin" href="#"><span title="Visit my LinkedIn!"><i class="fa fa-linkedin"></i></span></a></li>   
               <li><a class="email" href="/contact"><span title="Contact me!"><i class="fa fa-envelope-square"></i></span></a></li>   
               <li><a class="star-repo" href="https://github.com/intricateavocado/site"><span title="Star this repository on GitHub!"><i class="fa fa-star"></i></span></a></li> 
-          </div>
+            </div>
         </div>
-      </div>
-</footer>
-</div>
+  </footer>
+  </div>
 </html>

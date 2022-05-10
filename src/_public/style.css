@@ -1,4 +1,43 @@
-  .site-footer
+body {
+  font-family: monaco, Consolas, Lucida Console, monospace;
+  background-color: #26272b;
+  color: #ffffff;
+} 
+@keyframes birotate {
+  0%   {color:deeppink;}
+  33%  {color:violet;}
+  66%  {color:royalblue;}
+}
+@keyframes greenrotate {
+  0%  {color:#98FB98;}
+  6%   {color:#76FF7A;}
+  12%  {color:#90EE90;}
+  18%  {color:#ACE1AF;}
+  24%  {color:#50C878;}
+  30%  {color:#50C878;}
+  35%  {color:#50C878;}
+  40%  {color:#3CB371;}
+  45%  {color:#00A877;}
+  50%  {color:#00A550;}
+  55%  {color:#00A550;}
+  60%  {color:#00A877;}
+  65%  {color:#3CB371;}
+  71%  {color:#50C878;}
+  77%  {color:#50C878;}
+  83%  {color:#50C878;}
+  89%  {color:#ACE1AF;}
+  94%  {color:#90EE90;}
+  99%   {color:#76FF7A;}
+  100%  {color:#98FB98;}
+}
+.copyright-text {
+  color: gi;
+  animation-name: greenrotate;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.site-footer
 {
   background-color:#26272b;
   padding:10px 0 0px;
