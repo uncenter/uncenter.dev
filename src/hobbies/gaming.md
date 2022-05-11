@@ -14,4 +14,3 @@ ign: [toasted#2018]()
 ## minecraft
 
 ## play a game right here!
-{% include "src/embeds/mario.html" %}

@@ -3,6 +3,10 @@ body {
   background-color: #26272b;
   color: #ffffff;
 } 
+.light-mode {
+  background-color: white;
+  color: black;
+}
 @keyframes birotate {
   0%   {color:deeppink;}
   33%  {color:violet;}
@@ -32,18 +36,16 @@ body {
 }
 .copyright-text {
   color: gi;
-  animation-name: greenrotate;
+  animation-name: birotate;
   animation-duration: 12s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 .site-footer
 {
-  background-color:#26272b;
   padding:10px 0 0px;
   font-size:15px;
   line-height:22px;
-  color:#737373;
 }
 .site-footer h6
 {
