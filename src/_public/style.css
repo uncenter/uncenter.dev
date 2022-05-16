@@ -2,17 +2,25 @@ body {
   font-family: monaco, Consolas, Lucida Console, monospace;
   background-color: #26272b;
   color: #ffffff;
-} 
-.light-mode {
-  background-color: white;
-  color: black;
 }
-@keyframes birotate {
+h2 {
+  color:#6CB4EE;
+}
+a {
+  color:#89CFF0;
+}
+a:visited {
+  color:#5085b9;
+}
+a:hover {
+  color:#7DF9FF;
+}
+@keyframes colorswitch {
   0%   {color:deeppink;}
   33%  {color:violet;}
   66%  {color:royalblue;}
 }
-@keyframes greenrotate {
+@keyframes greenswitch {
   0%  {color:#98FB98;}
   6%   {color:#76FF7A;}
   12%  {color:#90EE90;}
@@ -34,33 +42,27 @@ body {
   99%   {color:#76FF7A;}
   100%  {color:#98FB98;}
 }
-.copyright-text {
-  color: gi;
-  animation-name: birotate;
-  animation-duration: 12s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+.hello-message {
+  font-size: 1.35rem;
+  font-weight: bold;
 }
-.site-footer
-{
+.site-footer {
+  background-color:#26272b;
   padding:10px 0 0px;
   font-size:15px;
   line-height:22px;
 }
-.site-footer h6
-{
+.site-footer h6 {
   color:bisque;
   font-size:16px;
   text-transform:uppercase;
   margin-top:20px;
   letter-spacing:1px
 }
-.social-icons
-{
+.social-icons, .copyright-text {
   text-align:right
 }
-.site-footer .social-icons a
-{
+.site-footer .social-icons a {
   width:40px;
   height:40px;
   line-height:40px;
@@ -88,14 +90,12 @@ body {
     text-align:center
   }
 }
-.social-icons
-{
+.social-icons {
   padding-left:0;
-  margin-bottom:100px;
+  margin-bottom:50px;
   list-style:none
 }
-.social-icons li
-{
+.social-icons li {
   display:inline-block;
   margin-bottom:4px
 }
@@ -107,7 +107,7 @@ body {
   font-weight:700;
   font-size:13px
 }
-.social-icons a{
+.social-icons a {
   background-color:#eceeef;
   color:#818a91;
   font-size:16px;

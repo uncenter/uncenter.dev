@@ -1,0 +1,27 @@
+---
+title: "projects"
+webtitle: "Projects"
+---
+below are my projects! some are hardware-related, some are software!
+
+# current
+
+## uncenter.org
+this very website! my current feature plans are:
+- dark mode/light mode toggle
+- color theme toggles
+- improved navigation menus
+- a blog!
+
+
+
+# upcoming/planned
+
+## databases
+im working with a few databases right now using SQLite and hoping to develop a web app for them
+
+## garden-monitor
+since i was much younger, i have loved the idea of gardening; being able to care for these plants, watering, weeding, until you could finally harvest your produce. the idea is powered by a Raspberry Pi, in a custom outdoor/waterproof enclosure, connected to a variety of sensors (temp, humidity, soil temp, soil moisture, UV light, etc). at the moment, the hold up is powering the device (solar?) and data storage. ideally, the device would collect sensor data multiple times per day, storing it, and then can be later analyzed to see how different plants performed in different parts of the season.
+
+## cox box
+as a rower of a team with constantly failing equipment, i aim to replicate and reduce the costs of some of the equipment we use, such as cox boxes. the market for rowing cox boxes is entirely controlled by NK Sports, and the price of these (relatively simple) devices is extremely high; $689 at the time of writing. all that, for a waterproof box that indicates stroke rate, time, and split. oh, and for GPS, you need to put down an additional $200. why 

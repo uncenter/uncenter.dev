@@ -1,7 +1,9 @@
 ---
-title: "/blog"
+title: "blog"
 webtitle: "Blog"
-bicolor: "violet"
+templateEngineOverride: njk,md
 ---
 
-coming soon...
+## Blog Posts
+
+{% include "postlist.njk" %}
