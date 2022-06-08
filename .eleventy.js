@@ -1,3 +1,4 @@
+const Image = require("@11ty/eleventy-img")
 module.exports = function(eleventyConfig){
     eleventyConfig.addPassthroughCopy({"src/_public/": "."});
     eleventyConfig.addFilter("randomItem", (arr) => {

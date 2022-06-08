@@ -9,17 +9,37 @@
       margin: auto;
     }
   </style>
-  <script>
-  function lightToggle() {
-   var element = document.body;
-   var element_footer = document.footer;
-   element.classList.toggle("light-mode");
-   element_footer.classList.toggle("light-mode");
-  }
-</script>
   <body>
     <div class="content">
-      <h1><a href="/">/uncenter</a><a href="/{{title}}">/{{title}}</a></h1>
+      {% if subdir %}
+      <div>{% include "src/_includes/subdir_title.njk" %}</div>
+      {% else %}
+      <h1><a href="/">/uncenter</a><a href="/{{linktitle}}">/{{linktitle}}</a></h1>      
+      {% endif %}
+      <aside class="hello-message">
+        {% for message in hello | randomItem %}
+          <span title="{{ message.language }}"><p>{{ message.hello }}! 👋</p></span>
+        {% endfor %}
+      </aside>
+      <!-- 
+        hidden duck!
+        <code>                        __
+                                    /` ,\__
+                                  |    ).-'
+                                  / .--'
+                                / /
+                  ,      _.==''`  \
+                .'(  _.='         |
+                {   ``  _.='       |
+                {    \`     ;    /
+                  `.   `'=..'  .='
+                    `=._    .='
+                      '-`\\`__
+                          `-._{
+              \/\\/\/\\/\/\\\\/\\\\\////\\\///\\/\\//\\\/\/\\/\/\\\/\/\\/\/\/\\//
+        </code>
+
+      -->
       {{ content | safe }}
     </div>
   </body>
@@ -27,6 +47,5 @@
       <footer>
         {% include "src/_includes/foot.njk" %}
       </footer>
-       <!-- <button onclick="lightToggle()">&diams; Light/Dark &diams;</button> -->
   </div>
 </html>

@@ -1,6 +1,6 @@
 ---
-title: "contact"
-webtitle: "Contact"
+linktitle: "contact"
+title: "Contact"
 ---
 
 by email: contact@?!?!?!.org

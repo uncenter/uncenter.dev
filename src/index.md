@@ -1,26 +1,10 @@
 ---
-webtitle: "Home"
+title: "Home"
 ---
-```
-                        __
-                      /` ,\__
-                     |    ).-'
-                    / .--'
-                   / /
-     ,      _.==''`  \
-   .'(  _.='         |
-  {   ``  _.='       |
-   {    \`     ;    /
-    `.   `'=..'  .='
-      `=._    .='
-        '-`\\`__
-            `-._{
-\/\\/\/\\/\/\\\\/\\\\\////\\\///\\/\\//\\\/\/\\/\/\\\/\/\\/\/\/\\//
-```
 ## welcome!
 
 hey! i'm uncenter; a rower, incompetent programmer, and photographer.
-this website is all about my [projects](/projects) and [other](/other) passions i enjoy. visit my blog [here](/blog)!
+this website is all about my [projects](/projects) and [other](/other) passions i enjoy, such as [photography](/photography).
 
 
 
