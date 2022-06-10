@@ -3,49 +3,19 @@
   <head>
     {% include "src/_includes/head.njk" %}
   </head>
-  <style>
-    .content {
-      max-width: 800px;
-      margin: auto;
-    }
-  </style>
   <body>
-    <div class="content">
+    <div class="menu">
       {% if subdir %}
-      <div>{% include "src/_includes/subdir_title.njk" %}</div>
+      <h1 class="nav-menu"><a href="/">/uncenter</a><a href="/{{subdir}}">/{{subdir}}</a><a href="/{{subdir}}/{{linktitle}}">/{{linktitle}}</a></h1>
       {% else %}
-      <h1><a href="/">/uncenter</a><a href="/{{linktitle}}">/{{linktitle}}</a></h1>      
+      <h1 class="nav-menu"><a href="/">/uncenter</a><a href="/{{linktitle}}">/{{linktitle}}</a></h1>      
       {% endif %}
-      <aside class="hello-message">
-        {% for message in hello | randomItem %}
-          <span title="{{ message.language }}"><p>{{ message.hello }}! 👋</p></span>
-        {% endfor %}
-      </aside>
-      <!-- 
-        hidden duck!
-        <code>                        __
-                                    /` ,\__
-                                  |    ).-'
-                                  / .--'
-                                / /
-                  ,      _.==''`  \
-                .'(  _.='         |
-                {   ``  _.='       |
-                {    \`     ;    /
-                  `.   `'=..'  .='
-                    `=._    .='
-                      '-`\\`__
-                          `-._{
-              \/\\/\/\\/\/\\\\/\\\\\////\\\///\\/\\//\\\/\/\\/\/\\\/\/\\/\/\/\\//
-        </code>
-
-      -->
+    </div>
+    <div class="content">
       {{ content | safe }}
     </div>
   </body>
-    <div class="content">
-      <footer>
-        {% include "src/_includes/foot.njk" %}
-      </footer>
-  </div>
+    <footer class="menu">
+      {% include "src/_includes/foot.njk" %}
+    </footer>
 </html>

@@ -18,7 +18,7 @@ this very website! my current feature plans are:
 # upcoming/planned
 
 ## databases
-im working with a few databases right now using SQLite and hoping to develop a web app for them
+I'm working with a few databases right now using SQLite and hoping to develop a web app for them
 
 ## garden-monitor
 the idea is powered by a Raspberry Pi, in a custom outdoor/waterproof enclosure, connected to a variety of sensors (temp, humidity, soil temp, soil moisture, UV light, etc). at the moment, the hold up is powering the device (solar?) and data storage. ideally, the device would collect sensor data multiple times per day, storing it, and then can be later analyzed to see how different plants performed in different parts of the season.
