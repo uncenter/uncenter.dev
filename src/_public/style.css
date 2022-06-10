@@ -2,10 +2,6 @@
 :root {
   --bgcolor: #26272b;
 }
-* {
-  max-width: 800px;
-  margin: auto;
-}
 body {
   font-family: monaco, Consolas, Lucida Console, monospace;
   background-color: var(--bgcolor);
