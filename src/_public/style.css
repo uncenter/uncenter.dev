@@ -7,7 +7,6 @@ body {
   background-color: var(--bgcolor);
   color: #ffffff;
 }
-
 /* --EMBEDS-- */
 .h_iframe iframe {
   width:100%;
@@ -15,7 +14,11 @@ body {
 .h_iframe {
   height: 100%;
 }
-
+@media only screen and (max-width:640px) {
+  html {
+    margin: 15px;
+  }
+}
 /* --LINKS + HEADERS-- */
 h2, h3 {
   color:#6CB4EE;
