@@ -1,7 +1,6 @@
 ---
 linktitle: "projects"
 title: "Projects"
-subdir: "projects"
 ---
 
 below are my projects!
