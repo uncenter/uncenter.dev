@@ -110,7 +110,14 @@ h2, h3 {
   right: 0;
   border-color: #9370DB;
 }
-
+.content .link-default {
+  color:#87CEEB;
+  text-decoration: underline;
+}
+.content .link-default:hover {
+  color:#FFFFFF;
+  text-decoration: underline;
+}
 /* --FOOTER-- */
 .site-footer {
   background-color:#26272b;
