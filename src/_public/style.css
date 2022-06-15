@@ -111,10 +111,14 @@ h2, h3 {
   border-color: #9370DB;
 }
 .content .link-default {
-  color:#87CEEB;
+  color:#6CB4EE;
   text-decoration: underline;
 }
 .content .link-default:hover {
+  color:#FFFFFF;
+  text-decoration: underline;
+}
+.content .link-default:hover::after {
   color:#FFFFFF;
   text-decoration: underline;
 }
