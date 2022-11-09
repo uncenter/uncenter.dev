@@ -1,6 +1,6 @@
 ---
-linktitle: "coxbox"
-title: "Coxbox"
+linktitle: "wordle"
+title: "Wordle"
 subdir: "projects"
 ---
 

@@ -1,6 +1,6 @@
 ---
-linktitle: "randfact"
-title: "Random Fact Bot"
+linktitle: "learnchinese"
+title: "Learn Chinese"
 subdir: "projects"
 ---
 

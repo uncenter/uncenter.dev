@@ -1,6 +1,6 @@
 ---
-linktitle: "ergapp"
-title: "Erg App"
+linktitle: "randomfact"
+title: "Random Fact Bot"
 subdir: "projects"
 ---
 
