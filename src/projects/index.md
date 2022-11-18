@@ -21,13 +21,13 @@ this very website! my current feature plans are:
 ## databases
 I'm working with a few databases right now using SQLite and hoping to develop a web app for them
 
-## [randomfact](/projects/randomfact){.link-default}
+## [randomfact](/projects/randomfact){.link}
 discord py bot for a friend, might make it public, sends a random daily fact w/ customizable scheduling, history, and more commands
 
-## [learn chinese app](/projects/learnchinese){.link-default}
+## [learn chinese app](/projects/learnchinese){.link}
 this one is just a concept atm, but the idea is: an easy way to learn/study chinese characters with a dictionary, practice, stroke order, etc
 
-## [wordle bot](/projects/wordle){.link-default}
+## [wordle bot](/projects/wordle){.link}
 my own wordle bot! just want to replicate some already existing designs and see how they work
 
 

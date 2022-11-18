@@ -33,31 +33,6 @@ h2, h3 {
   text-decoration: none;
 }
 /* root content links*/
-.content a {
-  color: #cb4154;
-  text-decoration: none;
-  position: relative;
-  transition: color .4s ease-out;
-}
-.content a::after {
-  border-top: .1em solid #ef3038;
-  content: "";
-  position: absolute;
-    right: 100%;
-    bottom: .01em;
-    left: 0;
-  transition: right .4s cubic-bezier(0,.5,0,1),
-              border-color .4s ease-out;
-
-}
-.content a:hover {
-  color: #ef3038;
-  text-decoration: none;
-}
-.content a:hover::after {
-  right: 0;
-  border-color: #ef3038;
-}
 /* social links */
 .content .social-link{
   color: #90EE90;
@@ -74,7 +49,6 @@ h2, h3 {
     left: 0;
   transition: right .4s cubic-bezier(0,.5,0,1),
               border-color .4s ease-out;
-
 }
 .content .social-link:hover {
   color: #32CD32;
@@ -100,7 +74,6 @@ h2, h3 {
     left: 0;
   transition: right .4s cubic-bezier(0,.5,0,1),
               border-color .4s ease-out;
-
 }
 .content .external-link:hover {
   color: #9370DB;
@@ -110,17 +83,55 @@ h2, h3 {
   right: 0;
   border-color: #9370DB;
 }
-.content .link-default {
-  color:#6CB4EE;
-  text-decoration: underline;
+.content .link {
+  color: #6CB4EE;
+  text-decoration: none;
+  position: relative;
+  transition: color .4s ease-out;
 }
-.content .link-default:hover {
-  color:#FFFFFF;
-  text-decoration: underline;
+.content .link::after {
+  border-top: .1em solid #1e7ecc;
+  content: "";
+  position: absolute;
+    right: 100%;
+    bottom: .01em;
+    left: 0;
+  transition: right .4s cubic-bezier(0,.5,0,1),
+              border-color .4s ease-out;
+
 }
-.content .link-default:hover::after {
-  color:#FFFFFF;
-  text-decoration: underline;
+.content .link:hover {
+  color: #1e7ecc;
+  text-decoration: none;
+}
+.content .link:hover::after {
+  right: 0;
+  border-color: #1e7ecc;
+}
+.content a {
+  color: #cb4154;
+  text-decoration: none;
+  position: relative;
+  transition: color .4s ease-out;
+}
+.content a::after {
+  border-top: .1em solid #ef3038;
+  content: "";
+  position: absolute;
+    right: 100%;
+    bottom: .01em;
+    left: 0;
+  transition: right .4s cubic-bezier(0,.5,0,1),
+              border-color .4s ease-out;
+
+}
+.content a:hover {
+  color: #ef3038;
+  text-decoration: none;
+}
+.content a:hover::after {
+  right: 0;
+  border-color: #ef3038;
 }
 /* --FOOTER-- */
 .site-footer {

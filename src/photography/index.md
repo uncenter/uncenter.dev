@@ -6,4 +6,4 @@ subdir:
 
 ## Projects
 
-- [Final](/photography/final)
+- [Final](/photography/final){.link}
