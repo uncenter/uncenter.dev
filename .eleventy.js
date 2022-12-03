@@ -11,7 +11,7 @@ const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs)
 
 module.exports = function(eleventyConfig){
     eleventyConfig.addPassthroughCopy({"src/_public/": "."});
-    eleventyConfig.addPassthroughCopy({ "img": "/" });
+    eleventyConfig.addPassthroughCopy("img/favicon.ico")
     eleventyConfig.setLibrary('md', markdownLib);
     eleventyConfig.addFilter("randomItem", (arr) => {
         arr.sort(() => {
