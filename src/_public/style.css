@@ -1,6 +1,7 @@
 /* --BODY-- */
 :root {
   --bgcolor: #26272b;
+  padding-top: 50px;
 }
 body {
   font-family: monaco, Consolas, Lucida Console, monospace;
@@ -147,7 +148,7 @@ h2, h3 {
   margin-top:20px;
   letter-spacing:1px
 }
-.social-icons, .copyright-text {
+.social-icons, .desc-text {
   text-align:right
 }
 .site-footer .social-icons a {
@@ -172,7 +173,7 @@ h2, h3 {
   {
     padding-bottom:0
   }
-  .site-footer .copyright-text,.site-footer .social-icons
+  .site-footer .desc-text,.site-footer .social-icons
   {
     text-align:center
   }

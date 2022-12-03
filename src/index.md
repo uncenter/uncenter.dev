@@ -3,7 +3,4 @@ title: "Home"
 ---
 
 ## 你好! 👋
-welcome! feel free to check out some of my [projects](/projects) and [photography](/photography), as well as 
-and [other](/other) hobbies I enjoy.
-
-last updated on 11/18/22
+welcome! this website is intentionally very simple. you can check out my [portfolio](/portfolio) and [other](/other) things about me! if you have any questions or need to contact me, do so [here](/contact). details about how this website was made can be found [here](/about).
