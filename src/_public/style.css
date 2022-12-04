@@ -35,6 +35,61 @@ h2, h3 {
 }
 /* root content links*/
 /* social links */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 140px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 5px;
+  width: 20%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #D22B2B;
+}
+.popup .close {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #DE3163;
+}
+.popup .close:hover {
+  color: #000000;
+
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+  color: black;
+}
+
+@media screen and (max-width: 700px){
+  .popup{
+    width: 70%;
+  }
+}
 .content .social-link{
   color: #90EE90;
   text-decoration: none;
@@ -222,6 +277,14 @@ h2, h3 {
   width:34px;
   font-size:14px
 }
+.social-icons a.umami:hover
+{
+  background-color:#0096FF
+}
+.social-icons a.heart:hover
+{
+  background-color:#D22B2B
+}
 .social-icons a.twitter:hover
 {
   background-color:#00aced
@@ -238,7 +301,7 @@ h2, h3 {
 {
   background-color:rebeccapurple
 }
-.social-icons a.star-repo:hover
+.social-icons a.site-repo:hover
 {
   background-color:gold
 }
