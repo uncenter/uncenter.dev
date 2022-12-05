@@ -11,7 +11,7 @@ body {
   color: var(--light);
   padding-left: calc(100vw - 100%);
 }
-header {
+.nav-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +24,7 @@ header {
   padding-bottom: 25px;
 }
 button {
-  color: var(--light) !important;
+  color: var(--light);
   margin-right: 40px;
   font-weight: 600;
   padding: 9px 30px;
@@ -32,12 +32,12 @@ button {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease 0s !important;
+  transition: all 0.3s ease 0s;
 }
 button:hover {
   background-color: rgba(141, 90, 151, 0.8);
 }
-.page-not-found a {
+.nav-bar a {
   font-weight: 1000;
   font-size: 16px;
   color: var(--light);
