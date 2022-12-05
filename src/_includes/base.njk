@@ -20,14 +20,12 @@
   }
   </style>
   <body>
-    {% if page == '404' %}
-      <h1>Oops! Page Not Found</h1>
-        <p>This page doesn't exist. It might have been removed or never existed in the first place.</p>
-        <p><a class="page-not-found" href="/"><button>Return to the home page?</button></a></p>
-    {% endif %}
     <div class="content">
       {{ content | safe }}
     </div>
+    {% if page == '404' %}
+      <a class="page-not-found" href="/"><button>Return to the home page?</button></a>
+    {% endif %}
   </body>
     <footer>
       {% include "src/_includes/foot.njk" %}
