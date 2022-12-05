@@ -23,7 +23,7 @@ header {
   background-color: var(--dark);
   padding-bottom: 25px;
 }
-.page-not-found button {
+button {
   color: var(--light);
   margin-right: 40px;
   font-weight: 600;
@@ -34,21 +34,7 @@ header {
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
-.page-not-found button:hover {
-  background-color: rgba(141, 90, 151, 0.8);
-}
-.nav-bar button {
-  color: var(--light);
-  margin-right: 40px;
-  font-weight: 600;
-  padding: 9px 30px;
-  background-color: rgba(141, 90, 151, 1);
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-.nav-bar button:hover {
+button:hover {
   background-color: rgba(141, 90, 151, 0.8);
 }
 .nav-bar li a {
