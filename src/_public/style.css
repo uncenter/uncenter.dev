@@ -24,7 +24,7 @@ header {
   padding-bottom: 25px;
 }
 button {
-  color: var(--light);
+  color: var(--light) !important;
   margin-right: 40px;
   font-weight: 600;
   padding: 9px 30px;
@@ -32,7 +32,7 @@ button {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s !important;
 }
 button:hover {
   background-color: rgba(141, 90, 151, 0.8);
