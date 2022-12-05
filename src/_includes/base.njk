@@ -2,6 +2,16 @@
 <html lang="en">
   <head>
     {% include "src/_includes/head.njk" %}
+    <header class="nav-bar">      
+      <nav>
+        <ul class="bar-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/about">About</a></li>
+          </ul>
+        </nav>
+        <a class="cta" href="https://www.dev.uncenter.org"><button>Launch</button></a>
+      </header>
   </head>
   <style>
   body, footer {
@@ -10,18 +20,13 @@
   }
   </style>
   <body>
-    <div class="menu">
-      {% if subdir %}
-      <h1 class="nav-menu"><a href="/">/uncenter</a><a href="/{{subdir}}">/{{subdir}}</a><a href="/{{subdir}}/{{linktitle}}">/{{linktitle}}</a></h1>
-      {% else %}
-      <h1 class="nav-menu"><a href="/">/uncenter</a><a href="/{{linktitle}}">/{{linktitle}}</a></h1>      
-      {% endif %}
-    </div>
     <div class="content">
       {{ content | safe }}
     </div>
   </body>
-    <footer class="menu">
+  <br>
+  <br>
+    <footer>
       {% include "src/_includes/foot.njk" %}
     </footer>
 </html>

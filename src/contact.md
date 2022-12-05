@@ -3,4 +3,5 @@ linktitle: "contact"
 title: "Contact"
 ---
 
-by email: uncenteristaken@gmail.com
+by email: contact@uncenter.org
+ ↳ secondary email: uncenteristaken@gmail.com
