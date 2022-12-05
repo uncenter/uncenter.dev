@@ -11,7 +11,7 @@ body {
   color: var(--light);
   padding-left: calc(100vw - 100%);
 }
-.nav-bar {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,7 +37,7 @@ button {
 button:hover {
   background-color: rgba(141, 90, 151, 0.8);
 }
-.nav-bar a {
+.page-not-found a {
   font-weight: 1000;
   font-size: 16px;
   color: var(--light);
