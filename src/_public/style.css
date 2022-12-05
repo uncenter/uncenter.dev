@@ -21,6 +21,7 @@ header {
   margin-left: 10%;
   padding: 0;
   background-color: var(--dark);
+  padding-bottom: 25px;
 }
 .nav-bar button {
   color: var(--light);
@@ -215,8 +216,12 @@ h1, h2, h3 {
   right: 0;
   border-color: #ef3038;
 }
+footer {
+  padding-top: 35px;
+}
 .site-footer {
   padding:10px 0 0px;
+  padding-top: 35px;
   font-size:15px;
   line-height:22px;
 }
