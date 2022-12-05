@@ -37,6 +37,12 @@ button {
 button:hover {
   background-color: rgba(141, 90, 151, 0.8);
 }
+.page-not-found a {
+  font-weight: 1000;
+  font-size: 16px;
+  color: var(--light);
+  text-decoration: none;
+}
 .nav-bar li a {
   font-weight: 1000;
   font-size: 16px;
