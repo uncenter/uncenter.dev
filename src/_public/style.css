@@ -225,16 +225,10 @@ h1, h2, h3 {
 footer {
   padding-top: 35px;
 }
-.site-footer {
-  padding:10px 0 0px;
-  padding-top: 35px;
-  font-size:15px;
-  line-height:22px;
-}
 .social-icons, .description {
   text-align:center
 }
-.site-footer .social-icons a {
+ .social-icons a {
   width:40px;
   height:40px;
   line-height:40px;
@@ -244,11 +238,7 @@ footer {
 }
 @media (max-width:767px)
 {
-  .site-footer
-  {
-    padding-bottom:0
-  }
-  .site-footer .description, .site-footer .social-icons
+  .description, .social-icons
   {
     text-align:center
   }
