@@ -1,5 +1,5 @@
 ---
-linktitle: "analytics"
 title: "Analytics"
+date: "git Last Modified"
 ---
 

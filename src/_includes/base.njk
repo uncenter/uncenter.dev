@@ -10,7 +10,7 @@
           <li><a href="/about">About</a></li>
           </ul>
         </nav>
-        <a class="cta" href="https://www.dev.uncenter.org"><button>Launch</button></a>
+        <a class="cta" href="#"><button>Launch</button></a>
       </header>
   </head>
   <style>
@@ -23,11 +23,6 @@
     <div class="content">
       {{ content | safe }}
     </div>
-    {% if page == '404' %}
-      <a class="page-not-found" href="/"><button>Return to the home page?</button></a>
-    {% endif %}
   </body>
-    <footer>
-      {% include "src/_includes/foot.njk" %}
-    </footer>
+    {% include "src/_includes/foot.njk" %}
 </html>

@@ -1,6 +1,6 @@
 ---
-linktitle: "about"
 title: "About"
+date: "git Last Modified"
 ---
 
 ## **quick explaination**:
