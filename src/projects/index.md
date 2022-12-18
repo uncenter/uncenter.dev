@@ -3,6 +3,7 @@ title: "Projects"
 date: "git Last Modified"
 ---
 
+# Projects{.title-header}
 
 ## uncenter.org {.disabled-link}
 this very website. it is definetly a work in progress, but at the moment my current feature plans are as follows.

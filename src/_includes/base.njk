@@ -2,27 +2,51 @@
 <html lang="en">
   <head>
     {% include "src/_includes/head.njk" %}
-    <header class="nav-bar">      
+    <header class="nav-top">
       <nav>
-        <ul class="bar-links">
+        <ul class="nav-links">
           <li><a href="/">Home</a></li>
           <li><a href="/projects">Projects</a></li>
           <li><a href="/about">About</a></li>
-          </ul>
-        </nav>
-        <a class="cta" href="#"><button>Launch</button></a>
-      </header>
+          <li><a href="/posts">Blog</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#"><button>Coming soon...</button></a>
+    </header>
   </head>
-  <style>
-  body, footer {
-    max-width: 800px;
-    margin: auto;
-  }
-  </style>
   <body>
     <div class="content">
       {{ content | safe }}
     </div>
   </body>
-    {% include "src/_includes/foot.njk" %}
+  {% include "src/_includes/foot.njk" %}
+  <button class="btp hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" class="btp-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
+    </svg>
+    <script>
+      const showOnPx = 90;
+      const backToTopButton = document.querySelector(".btp");
+
+      const scrollContainer = () => {
+        return document.documentElement || document.body;
+      };
+
+      const goToTop = () => {
+        document.body.scrollIntoView({
+          behavior: "smooth"
+        });
+      };
+
+      document.addEventListener("scroll", () => {
+        if (scrollContainer().scrollTop > showOnPx) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      });
+
+      backToTopButton.addEventListener("click", goToTop);
+    </script>
+  </button>
 </html>
