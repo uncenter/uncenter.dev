@@ -1,7 +1,7 @@
 ---
 tags: 'general'
 title: "First Post"
-date: "git Last Modified"
+date: 2001-01-01
 ---
 
 <!-- Excerpt Start -->

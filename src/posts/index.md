@@ -8,6 +8,7 @@ pagination:
   reverse: true
 ---
 
+
 <h1 class="title-header">Blog</h1>
 
 <div class="articles">
@@ -16,7 +17,7 @@ pagination:
     <h1>
       <a href="{{ post.url | url }}">{{ post.data.title }}</a>
     </h1>
-     <p class="desc-text">{{ page.date | postDate }}</p>
+     <p class="desc-text">{{ post.date | postDate }}</p>
     <p>{% excerpt post %}</p>
   </article>
 {% endfor %}
