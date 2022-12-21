@@ -14,6 +14,7 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
     eleventyConfig.addPassthroughCopy({"src/_public/": "."});
     eleventyConfig.addPassthroughCopy("src/img/favicon.ico")
+    eleventyConfig.addPassthroughCopy('src/_redirects');
     eleventyConfig.setLibrary('md', markdownLib);
     eleventyConfig.addFilter("randomItem", (arr) => {
         arr.sort(() => {
