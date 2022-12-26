@@ -38,5 +38,5 @@ my email service is with [Migadu](https://www.migadu.com/){.external-link}, whic
 
 <hr>
 
-## **how-can-i-do-this-myself explaination**
+## **how-can-i-do-this-myself explanation**
 coming soon!
