@@ -8,9 +8,6 @@ pagination:
   reverse: true
 ---
 
-
-<h1 class="title-header">Blog</h1>
-
 <div class="articles">
 {% for post in posts %}
   <article>

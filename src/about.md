@@ -3,14 +3,12 @@ title: "About"
 date: "git Last Modified"
 ---
 
-# About{.title-header}
-
-## **quick explaination**:
+## quick explaination:
 this website is configured using [11ty](https://www.11ty.dev/){.external-link} and hosted using [Netlify](https://www.netlify.com/){.external-link}, with the domain being provided through [Cloudflare](https://www.cloudflare.com/){.external-link}. usage statistics are done using [umami](https://umami.is/){.external-link}, with the database and hosting for that through [Railway](https://railway.app/){.external-link}. email service is with [Migadu](https://www.migadu.com/){.external-link}.
 
 <hr>
 
-## **a-little-bit-longer explaination**:
+## a-little-bit-longer explaination:
 
 #### site generation (11ty)
 this website is 'self-coded'. however, much of the work is being done by a 'static site generator', in this case being [11ty](https://www.11ty.dev/){.external-link}. here's what they have to say about themselves:
@@ -38,5 +36,5 @@ my email service is with [Migadu](https://www.migadu.com/){.external-link}, whic
 
 <hr>
 
-## **how-can-i-do-this-myself explanation**
+## how-can-i-do-this-myself explanation
 coming soon!
