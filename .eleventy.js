@@ -1,21 +1,21 @@
-const Image = require("@11ty/eleventy-img")
-const markdownIt = require('markdown-it')
-const markdownItAttrs = require('markdown-it-attrs')
-const markdownItOptions = {
-  html: true,
-  breaks: true,
-  linkify: true
-}
-const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs)
-
+const markdownIt = require("markdown-it");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const codeClipboard = require("eleventy-plugin-code-clipboard");
 const { DateTime } = require("luxon");
 
+
 module.exports = function(eleventyConfig){
+    let markdownLibrary = markdownIt({
+      html: true,
+      linkify: true
+    }).use(codeClipboard.markdownItCopyButton);
+    eleventyConfig.setLibrary("md", markdownLibrary);
+    eleventyConfig.addPlugin(codeClipboard);
+    eleventyConfig.addPlugin(syntaxHighlight);
+    eleventyConfig.setLibrary("md", markdownLibrary);
     eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
     eleventyConfig.addPassthroughCopy({"src/_public/": "."});
     eleventyConfig.addPassthroughCopy("src/img/favicon.ico")
-    eleventyConfig.addPassthroughCopy('src/_redirects');
-    eleventyConfig.setLibrary('md', markdownLib);
     eleventyConfig.addFilter("randomItem", (arr) => {
         arr.sort(() => {
           return 0.5 - Math.random();

@@ -4,5 +4,6 @@ date: "git Last Modified"
 ---
 
 ## contact options
-by email: contact@uncenter.org
- ↳ secondary email: uncenteristaken@gmail.com
+by email: contact[at]uncenter[dot]org
+
+↳ secondary email: uncenteristaken[at]gmail[dot]com
