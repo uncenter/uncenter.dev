@@ -1,6 +1,5 @@
 ---
 title: "Contact"
-date: "git Last Modified"
 ---
 
 ## contact options

@@ -1,0 +1,22 @@
+.article-card {
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.article-card-content {
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	border-radius: 10px;
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.article-card-content .description {
+	color: #5A5A5A;
+}
+
+.description-date svg {
+	vertical-align: top;
+	display: inline-block;
+}

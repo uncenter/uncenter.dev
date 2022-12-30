@@ -2,7 +2,9 @@
 <html class="light" lang="en">
   <head>
     {% include "src/_includes/head.njk" %}
+    </head>
     <header class="navigation-bar">
+      <h1 class="logo">&lt;uncenter&gt;</h1>
       <nav>
         <ul class="navigation-links">
           <li><a href="/">Home</a></li>
@@ -11,21 +13,34 @@
           <li><a href="/about">About</a></li>
         </ul>
       </nav>
+      <div id="toggle">
+        <i class="indicator"></i>
+      <script>
+        const toggle = document.getElementById("toggle");
+        const html = document.querySelector("html");
+        toggle.onclick = function() {
+          html.classList.toggle("light");
+          html.classList.toggle("dark");
+          toggle.classList.toggle("active");
+        };
+      </script>
+      </div>
     </header>
-  </head>
-  <body>
-    {% initClipboardJS %}
-    <div class="content">
-      {% if titleheader %}<h1 class="title-header">{{titleheader}}</h1>{% else %} <h1 class="title-header">{{title}}</h1>{% endif %}
+  <div class="content">
+    {% if article %}
+    {% include "src/_includes/article.njk" %}
+    {% else %}
+    <article>
+      {% if heading %}<h1 class="page-heading">{{ heading }}</h1>{% else %} <h1 class="page-heading">{{ title }}</h1>{% endif %}
       {{ content | safe }}
-    </div>
+    </article>
+    {% endif %}
     <button class="back-to-top" title="Back to top">^</button>
-  </body>
-  {% include "src/_includes/foot.njk" %}
-</html>
-<script>
-  const showOnPx = 30;
+    <script>
+  const showOnPx = 90;
+  const headerScrollPx = 1;
   const backToTopButton = document.querySelector(".back-to-top");
+  const header = document.querySelector(".navigation-bar");
 
   const scrollContainer = () => {
     return document.documentElement || document.body;
@@ -39,13 +54,24 @@
     });
   };
 
+
   document.addEventListener("scroll", () => {
     if (scrollContainer().scrollTop > showOnPx) {
       backToTopButton.style.display = "block";
     } else {
       backToTopButton.style.display = "none";
     }
+    if (scrollContainer().scrollTop > headerScrollPx) {
+          if(!header.classList.contains('scrolled')){
+            header.classList.add('scrolled');
+          }
+      }else{
+          header.classList.remove('scrolled');
+      }
   });
 
   backToTopButton.addEventListener("click", goToTop);
 </script>
+  {% include "src/_includes/foot.njk" %}
+  </div>
+</html>

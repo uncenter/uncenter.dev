@@ -1,17 +1,28 @@
 const markdownIt = require("markdown-it");
+const markdownItAnchor = require('markdown-it-anchor')
+
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const codeClipboard = require("eleventy-plugin-code-clipboard");
-const { DateTime } = require("luxon");
+const pluginTOC = require('eleventy-plugin-nesting-toc')
+const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
+const recentChanges = require('eleventy-plugin-recent-changes');
 
+const { DateTime } = require("luxon");
+const moment = require('moment');
 
 module.exports = function(eleventyConfig){
     let markdownLibrary = markdownIt({
       html: true,
       linkify: true
-    }).use(codeClipboard.markdownItCopyButton);
+    }).use(codeClipboard.markdownItCopyButton, {
+      title: 'Copy code to clipboard',
+    }).use(markdownItAnchor);
     eleventyConfig.setLibrary("md", markdownLibrary);
     eleventyConfig.addPlugin(codeClipboard);
     eleventyConfig.addPlugin(syntaxHighlight);
+    eleventyConfig.addPlugin(pluginTOC);
+    eleventyConfig.addPlugin(emojiReadTime, { showEmoji: false, label: "min read" });
+    eleventyConfig.addPlugin(recentChanges,  {commits: 5});
     eleventyConfig.setLibrary("md", markdownLibrary);
     eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
     eleventyConfig.addPassthroughCopy({"src/_public/": "."});
@@ -22,14 +33,23 @@ module.exports = function(eleventyConfig){
         });
         return arr.slice(0, 1);
       });
-    eleventyConfig.addFilter("postDate", (dateObj) => {
+    eleventyConfig.addFilter("shortenedJSDate", (dateObj) => {
       return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+    });
+    eleventyConfig.addFilter("shortenedISODate", (dateObj) => {
+      return DateTime.fromISO(formatDateISO(dateObj)).toFormat('LLL dd yyyy');
     });
     return {
         dir:{
             input:"src"
         }
     }
+}
+function formatDateISO(dateString) {
+  const date = moment(dateString).toDate();
+  const isoString = date.toISOString();
+  return isoString
+
 }
 
 function extractExcerpt(article) {
