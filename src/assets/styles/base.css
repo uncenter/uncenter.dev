@@ -1,6 +1,9 @@
 @import "/assets/styles/_components.css";
 @import "/assets/styles/_footer.css";
 @import "/assets/styles/_blog.css";
+* {
+	scroll-behavior: smooth;
+}
 
 :root {
 	--accent-purple: #625DA4;

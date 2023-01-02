@@ -1,6 +1,6 @@
 ---
 title: "Posts"
-style: article.css
+layout: base
 pagination:
   data: collections.general
   alias: posts

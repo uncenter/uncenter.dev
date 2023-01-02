@@ -1,6 +1,5 @@
 ---
 tags: 'general'
-article: true
 title: "First Post"
 date: 2001-01-01
 ---
