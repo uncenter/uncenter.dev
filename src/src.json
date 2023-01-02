@@ -1,4 +1,4 @@
 {
-    "layout":"base.njk",
-    "date":"git Last Modified"
+    "layout":"base",
+    "date":"Last Modified"
 }

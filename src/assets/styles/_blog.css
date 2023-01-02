@@ -1,0 +1,39 @@
+.blog-posts {
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+    position: relative;
+}
+
+.blog-posts:hover .post-content:not(:hover) {
+    filter: blur(1px);
+    opacity: 80%;
+    transition: 0.3s all linear;
+}
+
+.post-content:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 10px 16px 10px;
+    transition: 0.3s box-shadow linear;
+}
+
+.post-content {
+	text-align: center;
+    transition: 0.5s box-shadow linear;
+}
+
+.post-content .description {
+	color: #5A5A5A;
+}
+
+.description-date svg {
+	vertical-align: top;
+	display: inline-block;
+}
+
+.description-date p {
+    font-size: small;
+}
+
+article {
+    padding-bottom: 100px;
+}

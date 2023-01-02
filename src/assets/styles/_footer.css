@@ -1,0 +1,96 @@
+footer {
+    padding-top: 50px;
+}
+
+footer hr {
+	background-color: #a6a6a6;
+	height: 2px;
+    border: none;
+}
+
+.footer-icons,
+footer .description {
+	text-align: center
+}
+
+.footer-icons a {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 6px;
+	border-radius: 100%;
+}
+
+.footer-icons {
+	padding-left: 0;
+	margin-bottom: 50px;
+	list-style: none
+}
+
+.footer-icons li {
+	display: inline-block;
+	margin-bottom: 4px
+}
+
+.footer-icons a {
+	background-color: var(--bg-color);
+	color: #818a91;
+	font-size: 16px;
+	display: inline-block;
+	line-height: 44px;
+	width: 44px;
+	height: 44px;
+	text-align: center;
+	margin-right: 8px;
+	border-radius: 100%;
+	-webkit-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear
+}
+
+.footer-icons a:active,
+.footer-icons a:hover {
+	color: var(--bg-color);
+}
+
+.footer-icons.size-sm a {
+	line-height: 34px;
+	height: 34px;
+	width: 34px;
+	font-size: 14px
+}
+
+.footer-icons a.umami:hover {
+	background-color: #0096FF
+}
+
+.footer-icons a.heart:hover {
+	background-color: #D22B2B
+}
+
+.footer-icons a.twitter:hover {
+	background-color: #00aced
+}
+
+.footer-icons a.linkedin:hover {
+	background-color: cornflowerblue
+}
+
+.footer-icons a.github:hover {
+	background-color: coral
+}
+
+.footer-icons a.email:hover {
+	background-color: rebeccapurple
+}
+
+.footer-icons a.site-repo:hover {
+	background-color: gold
+}
+
+@media (max-width:700px) {
+	.footer-icons li.title {
+		display: block;
+		margin-right: 0;
+	}
+}

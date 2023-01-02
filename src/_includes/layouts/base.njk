@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="{{ site.authorName }}">
+    <meta name="description" content="{{ site.description }}">
+    <link href="https://github.com/intricateavocado" rel="me">
+
+    <link rel="stylesheet" href="/assets/styles/base.css">
+    <link rel="stylesheet" href="/assets/styles/prism.css">
+    {% if style %}<link rel="stylesheet" href="/assets/styles/{{style}}">{% endif %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/19.1.1/tooltips.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="icon" href="{{ site.favicon }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ site.favicon }}" type="image/x-icon"/>
+
+    <script src="https://kit.fontawesome.com/b69b285d21.js" crossorigin="anonymous"></script>
+    <script async defer data-website-id="dea82084-7eb8-4337-b02c-23f6ace1afc1" src="https://analytics.uncenter.org/umami.js"></script>
+    
+    <title>{{ title }}</title>
+  </head>
+  {% include "src/_includes/partials/header.njk" %}
+  <body>
+    {% if heading %}<h1 class="title">{{ heading }}</h1>{% else %}<h1 class="title">{{ title }}</h1>{% endif %}
+    <main>
+      {{ content | safe }}
+    </main>
+  </body>
+  <button class="back-to-top" title="Back to top">^</button>
+  <script src="/assets/scripts/events.js"></script>
+  {% if script %}<script src="/assets/scripts/{{script}}"></script>{% endif %}
+  {% include "src/_includes/partials/footer.njk" %}
+</html>

@@ -1,8 +1,7 @@
 ---
 title: "About"
-article: true
+layout: article
 ---
-
 
 ## short answer
 this website is configured using [11ty](https://www.11ty.dev/) and hosted using [Netlify](https://www.netlify.com/), with the domain being provided through [Cloudflare](https://www.cloudflare.com/). usage statistics are done using [umami](https://umami.is/), with the database and hosting for that through [Railway](https://railway.app/). email service is with [Migadu](https://www.migadu.com/).
