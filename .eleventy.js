@@ -15,6 +15,7 @@ const codeClipboard = require("eleventy-plugin-code-clipboard");
 const pluginTOC = require('eleventy-plugin-nesting-toc')
 const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
 const recentChanges = require('eleventy-plugin-recent-changes');
+const genFavicons = require('eleventy-plugin-gen-favicons')
 
 // utils
 const filters = require("./utils/filters.js");
@@ -57,6 +58,7 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addPlugin(pluginTOC);
     eleventyConfig.addPlugin(emojiReadTime, { showEmoji: false, label: "min read" });
     eleventyConfig.addPlugin(recentChanges,  { commits: 5 });
+    eleventyConfig.addPlugin(genFavicons, { generateManifest: false, outputDir: './dist'});
 
     Object.keys(filters).forEach((filter) => {
       eleventyConfig.addFilter(filter, filters[filter]);
