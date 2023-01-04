@@ -231,3 +231,8 @@ mark {
 	top: .15em;
 	position: relative;
 }
+
+.task-list {
+	list-style: none;
+	padding-left: 0;
+}

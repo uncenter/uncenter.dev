@@ -26,6 +26,14 @@ module.exports = function(eleventyConfig){
       html: true,
       breaks: true,
     })
+    .use(require('markdown-it-task-checkbox'),{
+      disabled: true,
+      divWrap: false,
+      divClass: 'checkbox',
+      idPrefix: 'cbx_',
+      ulClass: 'task-list',
+      liClass: 'task-list-item'
+    })
     .use(codeClipboard.markdownItCopyButton, { 
     iconClass: 'icon icon-copy', 
     iconDefinition: 'icon-copy', 
