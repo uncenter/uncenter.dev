@@ -7,7 +7,11 @@ module.exports = {
 
     shortenedISODate: (dateObj) => {
         return DateTime.fromISO(formatDateISO(dateObj)).toFormat('LLL dd yyyy');
-    }
+    },
+
+    dropContentFolder: (path, folder) => {
+        return path.replace(new RegExp(folder + "\/"), "");
+    },
 };
 
 function formatDateISO(dateString) {

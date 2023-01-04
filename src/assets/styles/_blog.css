@@ -37,3 +37,27 @@
 article {
     padding-bottom: 100px;
 }
+
+.read-more-button {
+	align-items: center;
+	background-color: var(--theme);
+	border-radius: 8px;
+	border-style: none;
+	box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+	box-sizing: border-box;
+	color: #fff;
+	margin: 0;
+	z-index: 50;
+	padding: 8px 15px;
+	text-align: center;
+	transition: background-color 0.3s linear;
+}
+
+.read-more-button:hover {
+	background-color: var(--accent-purple);
+	transition: background-color 0.3s linear;
+}
+
+.description.read-time {
+    text-align: center;
+}

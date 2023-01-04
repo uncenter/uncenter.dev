@@ -1,21 +1,20 @@
 ---
 tags: 'general'
-title: "First Post"
-date: 2001-01-01
+title: "Style Guide/Testing"
+date: 2023-01-04
 ---
 
-<!-- Excerpt Start -->
-My first post!
-This is included. This post is a testing article to test how my blog will react! Hopefully, all of this text should show up in the excerpt card on the /posts/ page. Does **bolding** work? _Italics_? How long will this excerpt be?<!-- Excerpt End -->
-This will not be included.
+<!--START-->
+This post is a testing article to test how my blog will react! Hopefully, all of this text should show up in the excerpt card on the /posts/ page. Does **bolding** work? _Italics_?<!--END-->
+This will not be included in the excerpt.
 
-H~2~0
+Subscript: H~2~0
 
-1^st^ place!
+Superscript: 1^st^ place!
 
-Testing ^[Testing this shit.]
+Lorum ipsum dolor. ^[This references 'lorum ipsum dolor'.]
 
-Here is some sample code:
+Sample code and code highlighting:
 ```js
 function myFunction() {
   return true;
@@ -46,18 +45,10 @@ Here's how you can add a color gradient to text:
 
 Inline code: `print("Hello World")`
 
-# H1
+# Heading 1
 
-## H2
+## Heading 2
 
-### H3
+### Heading 3
 
-#### H4
-
-But see if I skip one header...
-
-# H1
-
-## H2
-
-#### H4 (skipped H3!)
+#### Heading 4

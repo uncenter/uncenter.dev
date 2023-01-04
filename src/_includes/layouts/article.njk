@@ -4,7 +4,7 @@ layout: base
 
 {% initClipboardJS %}
 <article>
-    <p class="description read-time" style="text-align: center"><svg style="vertical-align: center; display: inline-block;"stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" class="text-lg" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> {{ content | emojiReadTime }}</p>
+    <p class="description read-time"><svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg> {{ content | emojiReadTime }}</p>
     {% include "src/_includes/partials/toc.njk" %}
     {{ content | safe }}
 </article>
@@ -21,7 +21,4 @@ layout: base
         data-lang="en"
         crossorigin="anonymous"
         async>
-</script>
-<script>
-    giscus();
 </script>

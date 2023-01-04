@@ -3,11 +3,11 @@ title: "Home"
 heading: Hello!
 ---
 
-👋 welcome! you can check out my [projects](/projects) and if you have any questions or need to contact me, do so [here](/contact). details about how this website was made can be found [here](/about).
+👋 welcome! you can check out my [projects](/projects), [contact me](/contact), or vist the [about](/about) page to learn how this website works.
 
 <br>
 
-### recent changes
+## recent changes
 :::card
 <ul>
 {%- for commit in collections.recentChanges %}

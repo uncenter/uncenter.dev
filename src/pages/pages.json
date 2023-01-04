@@ -1,0 +1,5 @@
+{
+    "layout":"base",
+    "date":"Last Modified",
+    "permalink":"{{ page.filePathStem | dropContentFolder: \"pages\" }}.html"
+}

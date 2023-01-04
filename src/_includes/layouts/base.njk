@@ -6,24 +6,21 @@
     <meta name="author" content="{{ site.authorName }}">
     <meta name="description" content="{{ site.description }}">
     <link href="https://github.com/intricateavocado" rel="me">
+    {% favicons 'src/assets/images/logo-color.svg' %}
+    <title>{{ title }}</title>
 
     <link rel="stylesheet" href="/assets/styles/base.css">
     <link rel="stylesheet" href="/assets/styles/prism.css">
     {% if style %}<link rel="stylesheet" href="/assets/styles/{{style}}">{% endif %}
-
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Questrial&family=Titillium+Web:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/19.1.1/tooltips.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    {% favicons 'src/assets/images/logo-color.svg' %}
-
-    <script src="https://kit.fontawesome.com/b69b285d21.js" crossorigin="anonymous"></script>
     <script async defer data-website-id="dea82084-7eb8-4337-b02c-23f6ace1afc1" src="https://analytics.uncenter.org/umami.js"></script>
-    
-    <title>{{ title }}</title>
+    <script defer src="/assets/scripts/theme.js"></script>
+    {% if layout == 'article' %}<script defer>giscus();</script>{% endif %}
   </head>
   {% include "src/_includes/partials/header.njk" %}
+  {% include "src/assets/symbols.svg" %}
   <body>
     {% if heading %}<h1 class="title">{{ heading }}</h1>{% else %}<h1 class="title">{{ title }}</h1>{% endif %}
     <main>

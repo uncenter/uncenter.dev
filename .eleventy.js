@@ -1,6 +1,7 @@
 // markdown-it plugins
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require('markdown-it-anchor');
+const markdownItAttrs = require('markdown-it-attrs');
 const markdownItLinkAttributes = require('markdown-it-link-attributes');
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItMark = require('markdown-it-mark');
@@ -11,8 +12,8 @@ const markdownItContainer = require('markdown-it-container');
 
 // eleventy plugins
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const codeClipboard = require("eleventy-plugin-code-clipboard");
-const pluginTOC = require('eleventy-plugin-nesting-toc')
+const codeClipboard = require("./config/code-clipboard/.eleventy");
+const pluginTOC = require('eleventy-plugin-toc')
 const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
 const recentChanges = require('eleventy-plugin-recent-changes');
 const genFavicons = require('eleventy-plugin-gen-favicons')
@@ -25,7 +26,12 @@ module.exports = function(eleventyConfig){
       html: true,
       breaks: true,
     })
-    .use(codeClipboard.markdownItCopyButton, { title: 'Copy code to clipboard' })
+    .use(codeClipboard.markdownItCopyButton, { 
+    iconClass: 'icon icon-copy', 
+    iconDefinition: 'icon-copy', 
+    renderMode: 'svg-sprite',
+    iconStyle: "color: white;", 
+    })
     .use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.ariaHidden({
         placement: "after",
@@ -45,6 +51,7 @@ module.exports = function(eleventyConfig){
         }
       }
     ])
+    .use(markdownItAttrs)
     .use(markdownItFootnote)
     .use(markdownItMark)
     .use(markdownItAbbr)
@@ -59,21 +66,24 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addPlugin(emojiReadTime, { showEmoji: false, label: "min read" });
     eleventyConfig.addPlugin(recentChanges,  { commits: 5 });
     eleventyConfig.addPlugin(genFavicons, { generateManifest: false, outputDir: './dist'});
-
     Object.keys(filters).forEach((filter) => {
       eleventyConfig.addFilter(filter, filters[filter]);
+    });
+    eleventyConfig.addShortcode("insertSVG", function (def) {
+        
+      const svgRef = 'icon-' + def
+      const svgClass = 'icon ' + svgRef
+  
+      return `<svg class="${svgClass}"><use xlink:href="#${svgRef}"></use></svg>`;
     });
     eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
 
     eleventyConfig.addLayoutAlias('base', 'base.njk');
-    eleventyConfig.addLayoutAlias('page', 'page.njk');
     eleventyConfig.addLayoutAlias('blog', 'blog.njk');
-    eleventyConfig.addLayoutAlias('post', 'post.njk');
 
     ['src/assets/styles/', 'src/assets/images/', 'src/assets/scripts/'].forEach(path =>
       eleventyConfig.addPassthroughCopy(path)
     );
-
     eleventyConfig.addWatchTarget("/src/assets/styles");
 
     return {
@@ -95,9 +105,8 @@ function extractExcerpt(article) {
   let excerpt = null;
   const content = article.templateContent;
 
-  // The start and end separators to try and match to extract the excerpt
   const separatorsList = [
-  { start: '<!-- Excerpt Start -->', end: '<!-- Excerpt End -->' },
+  { start: '<!--START-->', end: '<!--END-->' },
   { start: '<p>', end: '</p>' }
   ];
 

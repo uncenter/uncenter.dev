@@ -1,6 +1,6 @@
 @import "/assets/styles/_components.css";
 @import "/assets/styles/_footer.css";
-@import "/assets/styles/_blog.css";
+
 * {
 	scroll-behavior: smooth;
 }
@@ -40,7 +40,7 @@ header {
 	position: fixed;
 	top: 0;
 	left: 0;
-	font-family: century-gothic, sans-serif;
+	font-family: 'Questrial', sans-serif;
 	text-transform: lowercase;
 	width: 100vw;
 	z-index: 99;
@@ -128,15 +128,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: Helvetica, Sans-Serif;
+	font-family: 'Inter', Sans-Serif;
 	color: var(--heading-color);
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
+hgroup {
 	color: var(--sub-heading-color);
 }
 
@@ -145,7 +141,6 @@ h6 {
 	text-transform: lowercase;
 	color: var(--accent-purple);
 }
-
 
 .description {
 	font-size: small;
@@ -169,13 +164,13 @@ main a[href^="https://"]::after {
 	display: inline-block;
 }
 
-main a:not(.toc, .direct-link) {
+main a:not(.toc a, .direct-link, .footnote-ref a) {
 	color: var(--text-color);
 	text-decoration: none;
 	position: relative;
 }
 
-main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a)::before {
+main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a, .toc a)::before {
 	content: '';
 	background-color: var(--accent-blue);
 	position: absolute;
@@ -199,40 +194,40 @@ main a[href^="https://"]::before {
 	transition: all .3s ease-in-out;
 }
 
-main a:hover::before {
+main h2 a:hover::before, main h3 a:hover::before, main h4 a:hover::before, a:hover::before {
 	bottom: 0;
 	height: 100%;
 }
 
-main p a:hover::before,
-.toc a:hover::before {
+main p a:hover::before {
 	bottom: 0;
 	height: 80%;
 }
 
-a.direct-link {
-	color: #5A5A5A;
+.direct-link {
+	color: #e28031;
+	opacity: 0%;
 }
-.read-more-button {
-	align-items: center;
-	background-color: var(--theme);
-	border-radius: 8px;
-	border-style: none;
-	box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-	box-sizing: border-box;
-	color: #fff;
-	margin: 0;
-	z-index: 50;
-	padding: 8px 15px;
-	text-align: center;
-	transition: background-color 0.3s linear;
+.footnote-ref a {
+	color: #e28031;
 }
 
-.read-more-button:hover {
-	background-color: var(--accent-purple);
-	transition: background-color 0.3s linear;
+h1:hover .direct-link, 
+h2:hover .direct-link, 
+h3:hover .direct-link, 
+h4:hover .direct-link {
+    opacity: 100%;
+	transition: opacity .1s linear;
 }
 
 mark {
 	background: #FACFDC;
+}
+.icon {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	align-self: center;
+	top: .15em;
+	position: relative;
 }

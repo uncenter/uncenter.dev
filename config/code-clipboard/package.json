@@ -1,0 +1,30 @@
+{
+  "name": "code-clipboard",
+  "version": "0.0.1",
+  "description": "eleventy plugin to copy code fence into clipboard",
+  "main": ".eleventy.js",
+  "scripts": {
+    "test": "jest ./test/test.js",
+    "test:update-snapshot": "jest ./test/test.js --updateSnapshot",
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint ."
+  },
+  "author": "kudoh",
+  "license": "MIT",
+  "keywords": [
+    "11ty-plugin",
+    "eleventy-plugin",
+    "clipboard",
+    "markdown-it"
+  ],
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.3.4",
+    "jest": "^27.4.5"
+  },
+  "dependencies": {
+    "uglify-js": "^3.14.5"
+  }
+}
