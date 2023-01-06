@@ -12,6 +12,21 @@ module.exports = {
     dropContentFolder: (path, folder) => {
         return path.replace(new RegExp(folder + "\/"), "");
     },
+
+    caseUpper: (str) => {
+        return str.toUpperCase();
+    },
+
+    caseLower: (str) => {
+        return str.toLowerCase();
+    },
+    
+    toArray: (value) =>{
+        if (Array.isArray(value)) {
+            return value;
+        }
+        return [value];
+    }
 };
 
 function formatDateISO(dateString) {

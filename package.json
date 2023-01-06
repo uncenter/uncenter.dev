@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx eleventy --serve"
+    "start": "npx eleventy --serve",
+    "clean": "rm -rf dist",
+    "clean:start": "npm run clean && npm start"
   },
   "keywords": [],
   "author": "",

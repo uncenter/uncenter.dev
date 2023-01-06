@@ -4,7 +4,7 @@ layout: base
 
 {% initClipboardJS %}
 <article>
-    <p class="description read-time"><svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg> {{ content | emojiReadTime }}</p>
+    <p class="description read-time display-tag">{% insertSVG 'clock' %} {{ content | emojiReadTime }}</p>
     {% include "src/_includes/partials/toc.njk" %}
     {{ content | safe }}
 </article>

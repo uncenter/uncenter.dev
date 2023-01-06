@@ -4,5 +4,6 @@
     "authorName": "uncenter",
     "authorUrl": "https://uncenter.org",
     "description": "A personal blog and portfolio showing off my work and design.",
-    "favicon": "https://www.uncenter.org/img/favicon.ico"
+    "favicon": "https://www.uncenter.org/img/favicon.ico",
+    "generator": "Eleventy"
 }
