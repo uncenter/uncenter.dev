@@ -1,6 +1,4 @@
 {% if content | toc %}
-<div class="toc-wrapper">
-    <h3>Table of Contents</h2>
-    {{ content | toc | safe }}
-</div>
+<h3>Table of Contents</h2>
+{{ content | toc | safe }}
 {% endif %}

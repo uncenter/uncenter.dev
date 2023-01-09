@@ -1,7 +1,7 @@
 ---
 title: "About"
 layout: article
-style: _blog.css
+styles: _blog.css
 ---
 
 ## short answer

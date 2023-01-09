@@ -1,0 +1,30 @@
+---
+title: "Demo of Demo"
+order: 1
+date: 2023-01-05
+language: CSS
+---
+
+<link rel="stylesheet" href="/assets/styles/demo.css">
+
+{% set description %}
+
+This is a demo demo.
+
+{% endset %}
+
+{% set css %}
+
+.text {
+  text-align: center;
+}
+
+{% endset %}
+
+{% set html %}
+<div class="text">
+  <p>This is a demo of the demo template.</p>
+</div>
+{% endset %}
+
+{% include "src/_includes/partials/demo.njk" %}

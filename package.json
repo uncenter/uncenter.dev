@@ -23,6 +23,7 @@
   "dependencies": {
     "@11ty/eleventy-img": "^2.0.1",
     "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
+    "@aloskutov/eleventy-plugin-external-links": "^1.4.3",
     "eleventy-plugin-recent-changes": "^1.0.1",
     "eleventy-plugin-toc": "^1.1.5",
     "markdown-it-abbr": "^1.0.4",

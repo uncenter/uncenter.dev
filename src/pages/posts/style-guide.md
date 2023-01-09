@@ -43,9 +43,7 @@ Here's how you can add a color gradient to text:
 }
 ```
 
-Inline code: `print("Hello World")`
-
-# Heading 1
+Inline code: You can use the built-in function of Python `print()` to display text to the console. Just add your text like this `print("Hello World")` and voila.
 
 ## Heading 2
 

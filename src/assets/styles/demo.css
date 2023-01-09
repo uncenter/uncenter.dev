@@ -1,0 +1,29 @@
+@import '/assets/styles/prism-base16-ateliersulphurpool.light.css';
+
+details {
+    margin: 2rem 0 0;
+}
+
+details pre[class*="language-"] {
+    margin-top: 10px;
+}
+
+summary {
+    padding: 0.35em 0.5em;
+    background-color: var(--accent-blue);
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+summary:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+.demo {
+    min-height: 300%;
+    margin-top: 10px;
+    padding: 1rem;
+    border: 4px solid var(--accent-blue);
+}

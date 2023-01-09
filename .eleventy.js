@@ -17,6 +17,7 @@ const pluginTOC = require('eleventy-plugin-toc')
 const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
 const recentChanges = require('eleventy-plugin-recent-changes');
 const genFavicons = require('eleventy-plugin-gen-favicons')
+const externalLinks = require("@aloskutov/eleventy-plugin-external-links");
 
 // utils
 const filters = require("./utils/filters.js");
@@ -38,7 +39,7 @@ module.exports = function(eleventyConfig){
     iconClass: 'icon icon-copy', 
     iconDefinition: 'icon-copy', 
     renderMode: 'svg-sprite',
-    iconStyle: "color: white;", 
+    iconStyle: "", 
     })
     .use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.ariaHidden({
@@ -74,6 +75,7 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addPlugin(emojiReadTime, { showEmoji: false, label: "min read" });
     eleventyConfig.addPlugin(recentChanges,  { commits: 5 });
     eleventyConfig.addPlugin(genFavicons, { generateManifest: false, outputDir: './dist'});
+    eleventyConfig.addPlugin(externalLinks, {url: 'https://uncenter.org', rel: ['noreferrer', 'noopener', 'external'], overwrite: false});
     Object.keys(filters).forEach((filter) => {
       eleventyConfig.addFilter(filter, filters[filter]);
     });
@@ -85,6 +87,12 @@ module.exports = function(eleventyConfig){
       return `<svg class="${svgClass}"><use xlink:href="#${svgRef}"></use></svg>`;
     });
     eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
+
+    eleventyConfig.addCollection("orderedDemos", function (collection) {
+      return collection.getFilteredByTag("demos").sort((a, b) => {
+        return a.data.order - b.data.order;
+      });
+    });
 
     eleventyConfig.addLayoutAlias('base', 'base.njk');
     eleventyConfig.addLayoutAlias('blog', 'blog.njk');

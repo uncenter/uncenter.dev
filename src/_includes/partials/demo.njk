@@ -1,0 +1,18 @@
+{{ description | safe }}
+
+<style>
+{{ css | safe }}
+</style>
+
+<details>
+    <summary>{{ language }} for "{{ title }}"</summary>
+    {% highlight 'css' %}
+    {{ css | safe }}
+    {% endhighlight %}
+
+</details>
+
+
+<div class="demo">
+{{ html | safe }}
+</div>
