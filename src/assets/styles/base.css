@@ -1,4 +1,4 @@
-@import "/assets/styles/_footer.css";
+@import "/assets/styles/footer.css";
 
 * {
 	scroll-behavior: smooth;
@@ -14,11 +14,8 @@ html {
 	--accent-blue: #53B2D5BF;
 	--accent-orange: #e28031;
 	--theme: #2c2a4a;
-}
-
-:root[data-theme="light"] {
 	--bg-color: #ffffff;
-	--bg-color-opacity: #ffffff33;
+	--bg-color-opacity: #FFFFFF;
 	--text-color: #26272b;
 	--shadow-color: #e1e1e1;
 	--code-background: #f5f7ff;
@@ -26,7 +23,8 @@ html {
 }
 :root[data-theme="dark"] {
 	--bg-color: #26272b;
-	--bg-color-opacity: #26272b33;
+	--bg-color-opacity: #26272b;
+	--shadow-color: #2d2e30;
 	--text-color: #FFFFFFFC;
 	--code-background: #2f2f2f;
 	--code-color: #c08b30;
@@ -64,16 +62,17 @@ header {
 	z-index: 100;
 	font-family: 'Questrial', sans-serif;
 	text-transform: lowercase;
-	width: 80%;
+	width: 90%;
 	border-radius: 10px;
 	background-color: var(--bg-color-opacity);
+	border: 1px solid transparent;
 	height: 70px;
 }
 
 header.scrolled {
 	box-shadow: 2px 2px 4px var(--shadow-color);
-	border: 1px solid #e1e1e1;
-	backdrop-filter: blur(20px);
+	border: 1px solid var(--shadow-color);
+	backdrop-filter: blur(5px);
 	transition: all 0.3s ease-in-out;
 }
 
@@ -273,7 +272,7 @@ mark {
 	padding-left: 0;
 }
 .icon-copy {
-	color: #26272b;
+	color: #FFF;
 }
 
 .back-to-top {

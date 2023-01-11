@@ -3,7 +3,8 @@
     "url": "https://uncenter.org",
     "authorName": "uncenter",
     "authorUrl": "https://uncenter.org",
-    "description": "A personal blog and portfolio showing off my work and design.",
+    "description": "A personal blog and portfolio.",
     "favicon": "https://www.uncenter.org/img/favicon.ico",
-    "generator": "Eleventy"
-}
+    "generator": "Eleventy",
+    "githubUsername": "uncenter"
+} 

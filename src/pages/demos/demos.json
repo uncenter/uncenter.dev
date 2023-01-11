@@ -1,5 +1,4 @@
 {
     "tags": "demos",
-    "permalink": false,
-    "styles": ["demo.css", "prism-base16-ateliersulphurpool.light.css"]
+    "permalink": false
 }

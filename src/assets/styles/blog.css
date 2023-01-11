@@ -6,14 +6,14 @@
 }
 
 .blog-posts:hover .post-content:not(:hover) {
-    filter: blur(1px);
-    opacity: 80%;
-    transition: 0.3s all linear;
+    filter: blur(0.5px);
+    opacity: 95%;
+    transition: 0.2s all linear;
 }
 
 .post-content:hover {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 10px 16px 10px;
-    transition: 0.3s box-shadow linear;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 5px 8px 5px;
+    transition: 0.2s all linear;
 }
 
 .post-content {
@@ -50,14 +50,18 @@ article {
 	z-index: 50;
 	padding: 8px 15px;
 	text-align: center;
-	transition: background-color 0.3s linear;
+	transition: background-color 0.2s linear;
 }
 
 .read-more-button:hover {
 	background-color: var(--accent-purple);
-	transition: background-color 0.3s linear;
+	transition: background-color 0.2s linear;
 }
 
 .description.read-time {
     text-align: center;
+}
+
+.icon-clock {
+	stroke: var(--text-color);
 }

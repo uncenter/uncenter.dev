@@ -1,4 +1,4 @@
 {
     "layout": "article",
-    "styles": ["_blog.css", "prism-base16-ateliersulphurpool.light.css"]
+    "styles": ["blog.css", "prism-oceanic-next.css"]
 }
