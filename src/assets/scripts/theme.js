@@ -1,25 +1,21 @@
 const toggle = document.getElementById("toggle");
-const html = document.querySelector("html");
-const media = window.matchMedia('(prefers-color-scheme: dark)');
 
-function setTheme (color) {
-    if (color === undefined) {
-        console.log('Undefined color. Switching to opposite theme.')
+function setTheme (theme) {
+    if (theme === undefined) {
         if (html.dataset.theme === "dark") {
-            color = "light";
+            theme = "light";
         } else {
-            color = "dark";
+            theme = "dark";
         }
     }
-    localStorage.setItem('colorTheme', color);
-    html.dataset.theme = color;
-    checkToggle(color)
-    toggle.ariaLabel = `Switch to ${color} mode`;
-    changeGiscusTheme(color);
+    localStorage.setItem('colorTheme', theme);
+    html.dataset.theme = theme;
+    checkToggle(theme)
+    changeGiscusTheme(theme);
 }
 
-function checkToggle (value) {
-    if (value === "dark") {
+function checkToggle (theme) {
+    if (theme === "dark") {
         if (toggle.classList.contains("active") === false) { 
             toggle.classList.add("active");
         }
@@ -30,32 +26,9 @@ function checkToggle (value) {
     }
 }
 
-function initTheme() {
-    theme = localStorage.getItem('colorTheme')
-    if (theme !== null) {
-        setTheme(theme);
-        console.log('Theme initialized from local storage.');
-    } else {
-        setTheme(getSystemTheme())
-        console.log('Theme initialized from system preference.');
-    }
-};
-
-
-media.onchange = () => {
-    setTheme(getSystemTheme());
-}
-
 const getSystemTheme = () => {
     return media.matches ? "dark" : "light";
 }
-
-
-document.onload = initTheme();
-toggle.onclick = function() {
-        setTheme();
-        console.log('Toggle clicked. Theme updated.');
-};
 
 function sendMessage(message) {
     const iframe = document.querySelector('iframe.giscus-frame');
@@ -69,10 +42,14 @@ function changeGiscusTheme(theme) {
         theme: theme,
         },
     });
-    console.log("Giscus theme updated to: " + theme + "")
-
 }
 
-function giscus() {
-    toggle.addEventListener('click', changeGiscusTheme);
+media.onchange = () => {
+    setTheme(getSystemTheme());
 }
+
+toggle.onclick = function() {
+    setTheme();
+};
+
+checkToggle(theme);
