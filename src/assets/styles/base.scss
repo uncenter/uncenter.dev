@@ -3,8 +3,6 @@ $accent-orange: #e28031;
 $accent-purple: #625DA4;
 $theme: #2c2a4a;
 
-@import 'blog';
-@import 'demo';
 @import 'variables';
 
 :root[data-theme="dark"] {
@@ -155,18 +153,22 @@ main hr {
 	border: none;
 	height: 3px;
 }
-main a[href^="https://"]::after {
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
+a {
+	display: inline-block;
+}
+a[rel*="noopener"]:not([href*="uncenter.org"])::after {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='external-link-icon' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+	background-color: var(--text-color);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
 	content: "";
 	display: inline-block;
 	height: 11px;
 	margin-left: 4px;
 	width: 11px;
 }
-main a:not(.toc a, .direct-link, .footnote-ref a) {
+a:not(.toc a, .direct-link, .footnote-ref a) {
 	color: var(--text-color);
 	position: relative;
 	text-decoration: none;
@@ -182,7 +184,7 @@ main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a, .t
 	width: 100%;
 	z-index: -1;
 }
-main a[href^="https://"]::before {
+a[rel*="noopener"]:not([href*="uncenter.org"])::before {
 	background-color: $accent-purple;
 	bottom: 1px;
 	content: '';
@@ -193,13 +195,13 @@ main a[href^="https://"]::before {
 	width: 100%;
 	z-index: -1;
 }
-main h2 a:hover::before, main h3 a:hover::before, main h4 a:hover::before, a:hover::before {
-	bottom: 0;
-	height: 100%;
-}
-main p a:hover::before {
+a:hover::before, main a[rel*="noopener"]:not([href*="uncenter.org"]):hover::before {
 	bottom: 0;
 	height: 80%;
+}
+h2 a:hover::before, main h3 a:hover::before, main h4 a:hover::before, a:hover::before {
+	bottom: 0;
+	height: 100%;
 }
 .direct-link {
 	color: $accent-blue;
@@ -254,8 +256,7 @@ mark {
 	z-index: 99;
 }
 .back-to-top:hover {
-	background-color: $theme;
-	color: var(--bg-color);
+	background-color: $accent-blue;
 }
 .webring a {
 	color: var(--text-color);
@@ -389,3 +390,6 @@ footer .description {
 		margin-right: 0;
 	}
 }
+
+@import 'blog';
+@import 'demo';
