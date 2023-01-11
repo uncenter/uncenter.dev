@@ -26,7 +26,7 @@ pre[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-	background: var(--code-background);
+	background: #f5f7ff;
 	color: #5e6687;
 }
 
@@ -57,8 +57,8 @@ pre[class*="language-"] {
 :not(pre)>code {
 	font-size: 10pt;
 	border-radius: .3em;
-	background-color: var(--code-background);
-	color: var(--code-color);
+	background-color: #f5f7ff;
+	color: #5e6687;
 	padding: .2em .2em .2em;
 	white-space: normal;
 }

@@ -1,25 +1,25 @@
+$accent-blue: #53B2D5BF;
+$accent-orange: #e28031;
+$accent-purple: #625DA4;
+$theme: #2c2a4a;
+
+@import 'blog';
+@import 'demo';
+@import 'variables';
+
+:root[data-theme="dark"] {
+	--bg-color: #{$black};
+	--text-color: #{$white};
+	--shadow-color: #{$shadow-dark};
+}
+:root[data-theme="light"] {
+	--bg-color: #{$white};
+	--text-color: #{$black};
+	--shadow-color: #{$shadow-light};
+}
 html {
 	scroll-padding-top: 6rem;
-}
-:root {
-	--accent-blue: #53B2D5BF;
-	--accent-orange: #e28031;
-	--accent-purple: #625DA4;
-	--bg-color: #ffffff;
-	--bg-color-opacity: #FFFFFF;
-	--code-background: #f5f7ff;
-	--code-color: #5e6687;
-	--shadow-color: #e1e1e1;
-	--text-color: #26272b;
-	--theme: #2c2a4a;
-}
-:root[data-theme="dark"] {
-	--bg-color: #26272b;
-	--bg-color-opacity: #26272b;
-	--code-background: #2f2f2f;
-	--code-color: #c08b30;
-	--shadow-color: #2d2e30;
-	--text-color: #FFFFFFFC;
+	scroll-behavior: smooth;
 }
 body {
 	background-color: var(--bg-color);
@@ -38,7 +38,7 @@ main p {
 }
 header {
 	align-items: center;
-	background-color: var(--bg-color-opacity);
+	background-color: var(--bg-color);
 	border: 1px solid transparent;
 	border-radius: 10px;
 	display: flex;
@@ -119,7 +119,7 @@ header li a {
 	transition: color 0.3s ease 0s;
 }
 .nav-links li a:hover {
-	color: var(--accent-purple);
+	color: $accent-purple;
 }
 nav {
 	flex: 1;
@@ -136,14 +136,14 @@ h3,
 h4,
 h5,
 h6 {
-	color: var(--heading-color);
+	color: var(--text-color);
 	font-family: 'Inter', Sans-Serif;
 }
 hgroup {
-	color: var(--sub-heading-color);
+	color: var(--text-color);
 }
 .title {
-	color: var(--accent-blue);
+	color: $accent-blue;
 	font-size: 28pt;
 	text-transform: lowercase;
 }
@@ -151,7 +151,7 @@ hgroup {
 	font-size: small;
 }
 main hr {
-	background-color: var(--accent-blue);
+	background-color: $accent-blue;
 	border: none;
 	height: 3px;
 }
@@ -172,7 +172,7 @@ main a:not(.toc a, .direct-link, .footnote-ref a) {
 	text-decoration: none;
 }
 main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a, .toc a)::before {
-	background-color: var(--accent-blue);
+	background-color: $accent-blue;
 	bottom: 1px;
 	content: '';
 	height: 4px;
@@ -183,7 +183,7 @@ main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a, .t
 	z-index: -1;
 }
 main a[href^="https://"]::before {
-	background-color: var(--accent-purple);
+	background-color: $accent-purple;
 	bottom: 1px;
 	content: '';
 	height: 4px;
@@ -202,11 +202,11 @@ main p a:hover::before {
 	height: 80%;
 }
 .direct-link {
-	color: var(--accent-blue);
+	color: $accent-blue;
 	opacity: 0%;
 }
 .footnote-ref a {
-	color: var(--accent-blue);
+	color: $accent-blue;
 }
 h1:hover .direct-link, 
 h2:hover .direct-link, 
@@ -240,7 +240,7 @@ mark {
 	border: 2px solid var(--text-color);
 	border-radius: 30px;
 	bottom: 100px;
-	color: var(--test-color);
+	color: var(--text-color);
 	cursor: pointer;
 	display: none;
 	font-size: xx-large;
@@ -254,7 +254,7 @@ mark {
 	z-index: 99;
 }
 .back-to-top:hover {
-	background-color: var(--theme);
+	background-color: $theme;
 	color: var(--bg-color);
 }
 .webring a {
@@ -262,20 +262,18 @@ mark {
 	text-decoration: none;
 }
 .toc {
-	color: var(--accent-blue);
+	color: $accent-blue;
 	filter: blur(0px);
 	transition: 0.5s -webkit-filter linear;
-	webkit-filter: blur(0px);
 }
 .toc a {
 	color: var(--text-color);
 	text-decoration: underline;
-	text-decoration-color: var(--accent-blue);
+	text-decoration-color: $accent-blue;
 }
 .toc:hover {
 	filter: blur(0px);
 	transition: 0s -webkit-filter linear;
-	webkit-filter: blur(0px);
 }
 .toc,
 .toc ol {
@@ -347,10 +345,8 @@ footer .description {
 	height: 44px;
 	line-height: 44px;
 	margin-right: 8px;
-	o-transition: all .2s linear;
 	text-align: center;
 	transition: all .2s linear;
-	webkit-transition: all .2s linear;
 	width: 44px;
 }
 .footer-icons a:active,

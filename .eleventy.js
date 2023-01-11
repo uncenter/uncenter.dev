@@ -28,7 +28,7 @@ module.exports = function(eleventyConfig){
       html: true,
       breaks: true,
     })
-    .use(require('markdown-it-task-checkbox'),{
+    .use(require('markdown-it-task-checkbox'), {
       disabled: true,
       divWrap: false,
       divClass: 'checkbox',

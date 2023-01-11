@@ -1,4 +1,4 @@
 {
     "layout": "article",
-    "styles": ["blog.css", "prism-oceanic-next.css"]
+    "styles": ["prism-oceanic-next.css"]
 }
