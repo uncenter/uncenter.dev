@@ -236,11 +236,11 @@ mark {
 .back-to-top {
 	animation-duration: 0.5s;
 	animation-name: fadeIn;
-	background-color: var(--text-color);
+	background-color: var(--bg-color);
 	border: 2px solid var(--text-color);
 	border-radius: 30px;
 	bottom: 100px;
-	color: var(--bg-color);
+	color: var(--test-color);
 	cursor: pointer;
 	display: none;
 	font-size: xx-large;
@@ -254,8 +254,8 @@ mark {
 	z-index: 99;
 }
 .back-to-top:hover {
-	background-color: var(--bg-color);
-	color: var(--text-color);
+	background-color: var(--theme);
+	color: var(--bg-color);
 }
 .webring a {
 	color: var(--text-color);

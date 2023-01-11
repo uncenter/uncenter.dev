@@ -18,6 +18,7 @@ const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
 const recentChanges = require('eleventy-plugin-recent-changes');
 const genFavicons = require('eleventy-plugin-gen-favicons')
 const externalLinks = require("@aloskutov/eleventy-plugin-external-links");
+const purgeCSS = require("eleventy-plugin-purgecss");
 
 // utils
 const filters = require("./utils/filters.js");
@@ -76,6 +77,10 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addPlugin(recentChanges,  { commits: 5 });
     eleventyConfig.addPlugin(genFavicons, { generateManifest: false, outputDir: './dist'});
     eleventyConfig.addPlugin(externalLinks, {url: 'https://uncenter.org', rel: ['noreferrer', 'noopener', 'external'], overwrite: false});
+    eleventyConfig.addPlugin(purgeCSS, {
+      config: "./purgecss.config.js",
+        quiet: false,
+    });
     Object.keys(filters).forEach((filter) => {
       eleventyConfig.addFilter(filter, filters[filter]);
     });
@@ -101,6 +106,9 @@ module.exports = function(eleventyConfig){
       eleventyConfig.addPassthroughCopy(path)
     );
     eleventyConfig.addWatchTarget("/src/assets/styles");
+    eleventyConfig.setBrowserSyncConfig(
+      require('./config/browsersync.config')('dist')
+    );
 
     return {
         dir:{
