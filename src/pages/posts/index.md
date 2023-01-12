@@ -1,5 +1,5 @@
 ---
-title: "Posts"
+title: "Blog"
 layout: base
 pagination:
   data: collections.general

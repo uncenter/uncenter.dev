@@ -1,4 +1,6 @@
 {% if content | toc %}
-<h3>Table of Contents</h2>
-{{ content | toc | safe }}
+<nav aria-labelledby="secondary-navigation">
+    <h3>table of contents</h2>
+    {{ content | toc | safe }}
+</nav>
 {% endif %}

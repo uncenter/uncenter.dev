@@ -37,5 +37,5 @@ my email service is with [Migadu](https://www.migadu.com/), which lets me manage
 
 <hr>
 
-## how to do DIY
+## how to do it yourself
 coming soon!

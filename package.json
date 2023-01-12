@@ -9,7 +9,9 @@
     "build:sass": "sass src/assets/styles:dist/assets/styles",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
-    "start": "npm-run-all build:sass --parallel watch:*",
+    "postcss": "postcss base.css --replace",
+    "_:postcss": "postcss base.css --replace --watch",
+    "start": "npm-run-all --parallel watch:*",
     "build": "npm-run-all build:*"
   },
   "keywords": [],
@@ -42,6 +44,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.14",
-    "postcss": "^8.4.21"
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0"
   }
 }

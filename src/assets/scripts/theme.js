@@ -37,6 +37,9 @@ function sendMessage(message) {
 }
 
 function changeGiscusTheme(theme) {
+    if (theme === undefined) {
+        theme = html.dataset.theme
+    }
     sendMessage({
         setConfig: {
         theme: theme,
