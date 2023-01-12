@@ -102,7 +102,7 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addLayoutAlias('base', 'base.njk');
     eleventyConfig.addLayoutAlias('blog', 'blog.njk');
 
-    ['src/assets/styles/', 'src/assets/images/', 'src/assets/scripts/'].forEach(path =>
+    ['src/assets/styles/', 'src/assets/images/', 'src/assets/scripts/', 'src/assets/fonts/'].forEach(path =>
       eleventyConfig.addPassthroughCopy(path)
     );
     eleventyConfig.addWatchTarget("/src/assets/styles");
