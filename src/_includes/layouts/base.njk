@@ -25,8 +25,6 @@
 
     <link rel="stylesheet" href="/assets/styles/base.css">
     {% if styles %}{% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/styles/{{ style }}">{% endfor %}{% endif %}
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Questrial&family=Titillium+Web:wght@400;600;700&display=swap">
     <script async defer data-website-id="dea82084-7eb8-4337-b02c-23f6ace1afc1" src="https://analytics.uncenter.org/umami.js"></script>
   </head>
   {% include "src/assets/symbols.svg" %}
