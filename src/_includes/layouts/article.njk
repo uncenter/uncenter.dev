@@ -3,22 +3,36 @@ layout: base
 ---
 
 {% initClipboardJS %}
-<p class="description read-time display-tag">{% insertSVG 'clock' %} {{ content | emojiReadTime }}</p>
+<div class="tags">
+    <div class="description description-date">
+        <p class="inline-card blue">{% insertSVG 'calendar' %} {{ page.date | shortenedJSDate }}</p>
+    </div>
+    <div class="description description-read">
+        <p class="inline-card green">{% insertSVG 'clock' %} {{ content | emojiReadTime }}</p>
+    </div>
+</div>
 {% include "src/_includes/partials/toc.njk" %}
 {{ content | safe }}
 <aside>
-    <script src="https://giscus.app/client.js"
-            data-repo="{{ site.githubUsername }}/uncenter.org"
-            data-repo-id="R_kgDOHSjhjQ"
-            data-category-id="DIC_kwDOHSjhjc4CTQUr"
-            data-mapping="title"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="light"
-            data-lang="en"
-            crossorigin="anonymous"
-            async>
+    <script>
+        let giscusTheme = html.dataset.theme
+        let giscusAttributes = {
+            "src": "https://giscus.app/client.js",
+            "data-repo": "{{ site.githubUsername }}/uncenter.org",
+            "data-repo-id": "R_kgDOHSjhjQ",
+            "data-category-id": "DIC_kwDOHSjhjc4CTQUr",
+            "data-mapping": "title",
+            "data-reactions-enabled": "1",
+            "data-emit-metadata": "0",
+            "data-input-position": "top",
+            "data-theme": giscusTheme,
+            "data-lang": "en",
+            "crossorigin": "anonymous",
+            "async": "",
+        };
+        
+        let giscusScript = document.createElement("script");
+        Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+        document.body.appendChild(giscusScript);
     </script>
 </aside>

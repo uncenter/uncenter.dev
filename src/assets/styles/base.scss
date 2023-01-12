@@ -2,9 +2,9 @@
 @import 'fonts';
 
 $accent-blue: $frost-blue;
-$accent-orange: #e28031;
-$accent-purple: #625DA4;
 $theme: #2c2a4a;
+$main: $aurora-green;
+$main-extra: $aurora-orange;
 
 
 :root[data-theme="dark"] {
@@ -20,6 +20,7 @@ $theme: #2c2a4a;
 html {
 	scroll-padding-top: 6rem;
 	scroll-behavior: smooth;
+	overflow-y: scroll;
 }
 body {
 	background-color: var(--bg-color);
@@ -30,7 +31,6 @@ body {
 	justify-content: center;
 	margin: 0 auto;
 	max-width: 700px;
-	padding-left: calc(100vw - 100%);
 	padding-top: 80px;
 }
 main p {
@@ -121,7 +121,7 @@ header li a {
 	padding: 4px;
 }
 .nav-links li a:hover, .nav-links li a.active {
-	background-color: $aurora-red;
+	background-color: $main;
 	border-radius: 5px;
 	padding: 4px;
 }
@@ -143,8 +143,9 @@ h6 {
 	color: var(--text-color);
 	font-family: 'Inter', Sans-Serif;
 }
-hgroup {
+h2, h3, h4 {
 	color: var(--text-color);
+	text-decoration: underline;
 }
 .title {
 	color: $accent-blue;
@@ -191,7 +192,7 @@ main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a, .t
 	z-index: -1;
 }
 main a[rel*="noopener"]:not([href*="uncenter.org"])::before {
-	background-color: $aurora-red;
+	background-color: $main;
 	bottom: 1px;
 	content: '';
 	height: 4px;
@@ -208,6 +209,9 @@ main p a:hover::before, main a[rel*="noopener"]:not([href*="uncenter.org"]):hove
 main h2 a:hover::before {
 	bottom: 0;
 	height: 100%;
+}
+img {
+	width: clamp(300px, 100%, 672px);
 }
 .direct-link {
 	color: $accent-blue;
@@ -295,13 +299,35 @@ mark {
 	padding-top: 10px;
 }
 .inline-card {
-	border-radius: 10px;
+	border-radius: 5px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 4px 0px;
 	display: inline;
 	padding-bottom: 3px;
 	padding-left: 7px;
 	padding-right: 7px;
 	padding-top: 3px;
+	background-color: var(--bg-color);
+}
+.inline-card.red {
+	background-color: $aurora-red;
+}
+.inline-card.orange {
+	background-color: $aurora-orange;
+}
+.inline-card.yellow {
+	background-color: $aurora-yellow;
+}
+.inline-card.blue {
+	background-color: $aurora-blue;
+}
+.inline-card.purple {
+	background-color: $aurora-purple;
+}
+.inline-card.pink {
+	background-color: $aurora-pink;
+}
+.inline-card.green {
+	background-color: $aurora-green;
 }
 @keyframes fadeIn {
 	from {
