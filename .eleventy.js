@@ -9,6 +9,7 @@ const markdownItAbbr = require('markdown-it-abbr');
 const markdownItSup = require('markdown-it-sup');
 const markdownItSub = require('markdown-it-sub');
 const markdownItContainer = require('markdown-it-container');
+const markdownItKBD = require('markdown-it-kbd');
 
 // eleventy plugins
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -19,27 +20,11 @@ const recentChanges = require('eleventy-plugin-recent-changes');
 const genFavicons = require('eleventy-plugin-gen-favicons')
 const externalLinks = require("@aloskutov/eleventy-plugin-external-links");
 const purgeCSS = require("eleventy-plugin-purgecss");
-const Image = require("@11ty/eleventy-img");
+
 
 // utils
 const filters = require("./utils/filters.js");
 
-
-async function imageShortcode(src, alt, sizes) {
-  let metadata = await Image(src, {
-    widths: [300, 600],
-    formats: ["avif", "jpeg"]
-  });
-
-  let imageAttributes = {
-    alt,
-    sizes,
-    loading: "lazy",
-    decoding: "async",
-  };
-
-  return Image.generateHTML(metadata, imageAttributes);
-}
 
 module.exports = function(eleventyConfig){
     let markdownLibrary = markdownIt({
@@ -85,7 +70,8 @@ module.exports = function(eleventyConfig){
     .use(markdownItAbbr)
     .use(markdownItSup)
     .use(markdownItSub)
-    .use(markdownItContainer, 'card');
+    .use(markdownItContainer, 'card')
+    .use(markdownItKBD);
 
     eleventyConfig.setLibrary("md", markdownLibrary);
     eleventyConfig.addPlugin(codeClipboard);
@@ -110,8 +96,6 @@ module.exports = function(eleventyConfig){
       return `<svg class="${svgClass}"><use xlink:href="#${svgRef}"></use></svg>`;
     });
     eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
-    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-    eleventyConfig.addLiquidShortcode("image", imageShortcode);
 
     eleventyConfig.addCollection("orderedDemos", function (collection) {
       return collection.getFilteredByTag("demos").sort((a, b) => {

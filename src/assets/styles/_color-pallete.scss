@@ -1,0 +1,99 @@
+.palleteA .swatch.A {
+	background-color: $aurora-red;
+}
+.palleteA .swatch.B {
+	background-color: $aurora-orange;
+}
+.palleteA .swatch.C {
+	background-color: $aurora-yellow;
+}
+.palleteA .swatch.D {
+	background-color: $aurora-green;
+}
+.palleteA .swatch.E {
+	background-color: $aurora-blue;
+}
+.palleteA .swatch.F {
+	background-color: $aurora-purple;
+}
+.palleteA .swatch.G {
+	background-color: $aurora-pink;
+}
+
+.palleteB .swatch.A {
+	background-color: $light-100;
+}
+.palleteB .swatch.B {
+	background-color: $light-200;
+}
+.palleteB .swatch.C {
+	background-color: $light-300;
+}
+.palleteB .swatch.D {
+	background-color: $light-400;
+}
+.palleteB .swatch.E {
+	background-color: $light-500;
+}
+.palleteB .swatch.F {
+	background-color: $light-600;
+}
+.color-swatches {
+	text-align: center;
+	max-width: fit-content;
+	align-items: center;
+}
+.pallete {
+	display: flex;
+	justify-content: center;
+	padding: 25px 0px 40px 0px;
+	font-family: 'Inter', sans-serif;
+	text-transform: none;
+}
+.color-swatches .pallete-title {
+	font-size: 24px;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.swatch-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	padding: 10px 10px 10px 10px;
+}
+
+.swatch {
+	width: 50px;
+	height: 50px;
+	margin: 3px;
+	border-radius: 10px;
+}
+.tooltip {
+	position: relative;
+	display: inline-block;
+	/* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltip-text {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: -100%;
+	left: 50%;
+	margin-left: -60px;
+	text-transform: uppercase;
+}
+
+.tooltip:hover .tooltip-text {
+	visibility: visible;
+}

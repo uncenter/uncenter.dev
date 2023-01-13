@@ -1,6 +1,6 @@
 {% if content | toc %}
 <nav aria-labelledby="secondary-navigation">
-    <h3>table of contents</h2>
+    <p class="toc-heading">table of contents<p>
     {{ content | toc | safe }}
 </nav>
 {% endif %}

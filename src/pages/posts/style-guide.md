@@ -8,6 +8,65 @@ date: 2023-01-04
 This post is a testing article to test how my blog will react! Hopefully, all of this text should show up in the excerpt card on the /posts/ page. Does **bolding** work? _Italics_?<!--END-->
 This will not be included in the excerpt.
 
+## Colors
+
+<section class="pallete palleteA">
+	<div class="color-swatches">
+		<div class="pallete-title">Nord Aurora</div>
+		<div class="swatch-container">
+			<div class="swatch A tooltip">
+				<span class="tooltip-text">#bf616a</span>
+			</div>
+			<div class="swatch B tooltip">
+				<span class="tooltip-text">#d08770</span>
+			</div>
+			<div class="swatch C tooltip">
+				<span class="tooltip-text">#ebcb8b</span>
+			</div>
+			<div class="swatch D tooltip">
+				<span class="tooltip-text">#a3be8c</span>
+			</div>
+			<div class="swatch E tooltip">
+				<span class="tooltip-text">#ACB4D7</span>
+			</div>
+			<div class="swatch F tooltip">
+				<span class="tooltip-text">#A7ACD9</span>
+			</div>
+			<div class="swatch G tooltip">
+				<span class="tooltip-text">#b48ead</span>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="pallete palleteB">
+	<div class="color-swatches">
+		<div class="pallete-title">Nord Aurora</div>
+		<div class="swatch-container">
+			<div class="swatch A tooltip">
+				<span class="tooltip-text">#eceff4</span>
+			</div>
+			<div class="swatch B tooltip">
+				<span class="tooltip-text">#e5e9f0</span>
+			</div>
+			<div class="swatch C tooltip">
+				<span class="tooltip-text">#d8dee9</span>
+			</div>
+			<div class="swatch D tooltip">
+				<span class="tooltip-text">#CBD3E1</span>
+			</div>
+			<div class="swatch E tooltip">
+				<span class="tooltip-text">#BEC8DA</span>
+			</div>
+			<div class="swatch F tooltip">
+				<span class="tooltip-text">#B1BDD2</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+MacOS: [[⌘]] + [[Shift]] + [[P]]
+Windows: [[Ctrl]] + [[Shift]] + [[P]]
+
 Subscript: H~2~0
 
 Superscript: 1^st^ place!
