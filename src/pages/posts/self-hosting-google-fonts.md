@@ -6,8 +6,9 @@ date: 2023-01-12
 
 
 ## picking font variations
-
-<!--START-->Fonts are notoriously slow and clunky, but I love my website and I love my fonts (it just doesn’t look the same without). For some performance benefits, and to further separate myself from Google, I setup self-hosting these fonts.<!--END--> I use three fonts on this blog (I know, I know). I use *Titillium Web* for the body text, *Inter* for my headings, and *Questrial* for my header. When picking a font, say on [Google Fonts](https://fonts.google.com), you will probably see options like this: 
+<!--START-->
+Fonts are notoriously slow and clunky, but I love my website and I love my fonts (it just doesn’t look the same without). For some performance benefits, and to further separate myself from Google, I setup self-hosting these fonts.<!--END-->
+I use three fonts on this blog (I know, I know). I use *Titillium Web* for the body text, *Inter* for my headings, and *Questrial* for my header. When picking a font, say on [Google Fonts](https://fonts.google.com), you will probably see options like this: 
 
 - 100 – Thin
 - 200 – Extra Light (Ultra Light)
