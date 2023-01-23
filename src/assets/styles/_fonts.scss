@@ -6,7 +6,7 @@
     src: local(''),
          url('/assets/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
          url('/assets/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    font-display: optional
+    font-display: fallback
 }
 
 /* inter-700 - latin */
@@ -17,7 +17,7 @@
     src: local(''),
          url('/assets/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
          url('/assets/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    font-display: optional
+    font-display: fallback
 }
 
 /* titillium-web-regular - latin */
@@ -28,7 +28,7 @@
     src: local(''),
          url('/assets/fonts/titillium-web-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
          url('/assets/fonts/titillium-web-v15-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    font-display: optional
+    font-display: fallback
 }
 
 /* titillium-web-italic - latin */
@@ -39,7 +39,7 @@
     src: local(''),
          url('/assets/fonts/titillium-web-v15-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
          url('/assets/fonts/titillium-web-v15-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    font-display: optional
+    font-display: fallback
 }
 
 /* titillium-web-700 - latin */
@@ -50,7 +50,7 @@
     src: local(''),
          url('/assets/fonts/titillium-web-v15-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
          url('/assets/fonts/titillium-web-v15-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    font-display: optional
+    font-display: fallback
 }
 
 /* titillium-web-700italic - latin */
@@ -61,7 +61,7 @@
     src: local(''),
          url('/assets/fonts/titillium-web-v15-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
          url('/assets/fonts/titillium-web-v15-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    font-display: optional
+    font-display: fallback
 }
 
 /* questrial-regular - latin */
@@ -72,5 +72,5 @@
     src: local(''),
          url('/assets/fonts/questrial-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
          url('/assets/fonts/questrial-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    font-display: optional
+    font-display: fallback
 }
