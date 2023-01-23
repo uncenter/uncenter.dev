@@ -1,6 +1,7 @@
 ---
 tags: 'general'
 title: "Code Demos"
+eleventyExcludeFromCollections: true
 date: 2023-01-09
 ---
 

@@ -10,9 +10,9 @@ pagination:
 
 <div class="blog-posts">
 {% for post in posts %}
-  <a href="{{ post.url | url }}" class="card-container">
+  <div class="card-container">
     <div class="post-content card">
-      <h3>{{ post.data.title }}</h3>
+      <h3><a aria-label="Return to homepage" href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
       <div class="tags">
         <div class="description description-date">
           <p class="inline-card blue">{% insertSVG 'calendar' %} {{ post.date | shortenedJSDate }}</p>
@@ -22,8 +22,7 @@ pagination:
         </div>
       </div>
       <p>{% excerpt post %}</p>
-      <button class="read-more-button">Read more...</button>
     </div>
-  </a>
+  </div>
 {% endfor %}
 </div>

@@ -35,12 +35,12 @@
   <body>
     {% include "src/_includes/partials/header.njk" %}
     <main>
+      <article>
       {% if heading %}
         <h1 class="title">{{ heading }}</h1>
       {% else %}
         <h1 class="title">{{ title }}</h1>
       {% endif %}
-      <article>
         {{ content | safe }}
       </article>
     </main>
