@@ -22,7 +22,7 @@ I use three fonts on this blog (I know, I know). I use *Titillium Web* for the b
 
 These are used to give the browser the exact typeface to use for specific font weights - without these, there is a phenomenon called **faux bold** (it also happens with italics) - when a website tries to use a font without the proper font files, and the browser attempts to emulate it (albeit incorrectly). Here is a great example from Google Fonts — it’s a small but noticeable difference.
 
-<img src="/assets/images/faux-bold-italic-example.svg" alt="An example of faux (fake) bold and faux italic text. On the left, true italics, bolds, and small caps; on the right, faux italics, faux bolds, and faux small caps." width="200"/>
+<img src="/assets/images/content/faux-bold-italic-example.svg" alt="An example of faux (fake) bold and faux italic text. On the left, true italics, bolds, and small caps; on the right, faux italics, faux bolds, and faux small caps." width="200"/>
 <aside class="img-description">
 On the left, true italics, bolds, and small caps; on the right, faux italics, faux bolds, and faux small caps. Note how the faux italic has radically different forms, the faux bold appears too crowded, and the faux small caps are considerably lighter in weight.
 </aside>

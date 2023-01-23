@@ -23,6 +23,7 @@ code[class*="language-"] {
   -ms-hyphens: none;
   hyphens: none;
 }
+
 pre[class*="language-"]::selection,
 code[class*="language-"]::selection,
 pre[class*="language-"]::mozselection,
@@ -30,12 +31,15 @@ code[class*="language-"]::mozselection {
   text-shadow: none;
   background: none;
 }
+
 @media print {
+
   pre[class*="language-"],
   code[class*="language-"] {
     text-shadow: none;
   }
 }
+
 pre[class*="language-"] {
   padding: 1em;
   margin: .5em 0;
@@ -43,27 +47,32 @@ pre[class*="language-"] {
   background: #22272F;
   border-radius: 8px;
 }
-:not(pre) > code[class*="language-"] {
+
+:not(pre)>code[class*="language-"] {
   padding: .1em;
   border-radius: .3em;
   color: #d8dee9;
   background: #22272F;
 }
+
 /*********************************************************
 * Tokens
 */
 .namespace {
   opacity: .7;
 }
+
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
   color: #606e87;
 }
+
 .token.punctuation {
   color: #81a1c1;
 }
+
 .token.property,
 .token.tag,
 .token.boolean,
@@ -73,6 +82,7 @@ pre[class*="language-"] {
 .token.deleted {
   color: #b48ead;
 }
+
 .token.selector,
 .token.attr-name,
 .token.string,
@@ -81,6 +91,7 @@ pre[class*="language-"] {
 .token.inserted {
   color: #a2bf8c;
 }
+
 .token.operator,
 .token.entity,
 .token.url,
@@ -89,39 +100,48 @@ pre[class*="language-"] {
   color: #80a2c1;
   background: none;
 }
+
 .token.atrule,
 .token.attr-value,
 .token.keyword {
   color: #81a1c1;
 }
+
 .token.function {
   color: #8fbcbc;
 }
+
 .token.regex,
 .token.important,
 .token.variable {
   color: #ee9900;
 }
+
 .token.important,
 .token.bold {
   font-weight: bold;
 }
+
 .token.italic {
   font-style: italic;
 }
+
 .token.entity {
   cursor: help;
 }
+
 /*********************************************************
 * Line highlighting
 */
 pre[data-line] {
   position: relative;
 }
-pre[class*="language-"] > code[class*="language-"] {
+
+pre[class*="language-"]>code[class*="language-"] {
   position: relative;
   z-index: 1;
 }
+
 .line-highlight {
   position: absolute;
   left: 0;

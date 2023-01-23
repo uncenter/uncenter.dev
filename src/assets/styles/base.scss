@@ -1,7 +1,8 @@
 @import 'variables';
 @import 'fonts';
 
-$accent-blue: $frost-blue;
+// $accent-blue: $frost-blue;
+$accent-blue: #74acf6;
 $theme: #2c2a4a;
 $main: $aurora-red;
 $main-extra: $aurora-orange;
@@ -12,16 +13,19 @@ $main-extra: $aurora-orange;
 	--text-color: #{$light-100};
 	--shadow-color: #{$dark-300};
 }
+
 :root[data-theme="light"] {
 	--bg-color: #{$light-100};
 	--text-color: #{$dark-100};
 	--shadow-color: #{$light-500};
 }
+
 html {
 	scroll-padding-top: 6rem;
 	scroll-behavior: smooth;
 	overflow-y: scroll;
 }
+
 body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
@@ -33,14 +37,17 @@ body {
 	max-width: 850px;
 	padding-top: 80px;
 }
-@media screen and (max-width: 900px){
+
+@media screen and (max-width: 900px) {
 	body {
 		max-width: 85%;
 	}
 }
+
 main p {
 	font-size: 14pt;
 }
+
 header {
 	align-items: center;
 	background-color: var(--bg-color);
@@ -62,23 +69,26 @@ header {
 	width: 90%;
 	z-index: 100;
 }
+
 header.active {
 	border: 1px solid var(--shadow-color);
 	box-shadow: 2px 2px 4px var(--shadow-color);
 	transition: all 0.3s ease-in-out;
 }
+
 .logo {
 	color: var(--text-color);
 	cursor: pointer;
 	letter-spacing: -2px;
 	margin-left: 30px;
 }
+
 #toggle {
 	background: var(--bg-color);
 	border-radius: 25px;
 	box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1),
-				inset 0 2px 8px rgba(0, 0, 0, 0.1),
-				inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+		inset 0 2px 8px rgba(0, 0, 0, 0.1),
+		inset 0 -2px 4px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 	display: block;
 	height: 25px;
@@ -87,6 +97,7 @@ header.active {
 	transition: 0.5s;
 	width: 50px;
 }
+
 #toggle .indicator {
 	background: $dark-400;
 	border-radius: 50%;
@@ -98,34 +109,42 @@ header.active {
 	transition: 0.5s;
 	width: 25px;
 }
+
 #toggle.active {
 	background: $dark-400;
 	box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1);
 }
+
 #toggle.active .indicator {
 	background: var(--text-color);
 	left: 25px;
 }
+
 header li a {
 	color: var(--text-color);
 	font-weight: 1000;
 	text-decoration: none;
 }
+
 .nav-links {
 	list-style: none;
 	margin-right: 30px;
 }
+
 .nav-links li {
 	display: inline-block;
 	padding: 0px 20px;
 }
+
 .nav-links li a {
 	transition: background-color 0.3s ease-in-out;
 	background-color: var(--bg-color);
 	border-radius: 5px;
 	padding: 4px;
 }
-.nav-links li a:hover, .nav-links li a.active {
+
+.nav-links li a:hover,
+.nav-links li a.active {
 	background-color: $main;
 	border-radius: 5px;
 	padding: 4px;
@@ -134,12 +153,15 @@ header li a {
 nav {
 	flex: 1;
 }
+
 main {
 	flex: 3;
 }
+
 aside {
 	flex: 2;
 }
+
 h1,
 h2,
 h3,
@@ -149,26 +171,34 @@ h6 {
 	color: var(--text-color);
 	font-family: 'Inter', Sans-Serif;
 }
-h2, h3, h4 {
+
+h2,
+h3,
+h4 {
 	color: var(--text-color);
 	text-decoration: underline;
 }
+
 .title {
 	color: $accent-blue;
 	font-size: 28pt;
 	text-transform: lowercase;
 }
+
 .description {
 	font-size: small;
 }
+
 main hr {
 	background-color: $accent-blue;
 	border: none;
 	height: 3px;
 }
+
 a {
 	display: inline-block;
 }
+
 main a[rel*="noopener"]:not([href*="uncenter.org"])::after {
 	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='external-link-icon' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
 	background-color: var(--text-color);
@@ -181,11 +211,13 @@ main a[rel*="noopener"]:not([href*="uncenter.org"])::after {
 	margin-left: 4px;
 	width: 11px;
 }
+
 main a:not(.toc a, .direct-link, .footnote-ref a) {
 	color: var(--text-color);
 	position: relative;
 	text-decoration: none;
 }
+
 main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a, .toc a)::before {
 	background-color: $accent-blue;
 	bottom: 1px;
@@ -197,6 +229,7 @@ main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a, .t
 	width: 100%;
 	z-index: -1;
 }
+
 main a[rel*="noopener"]:not([href*="uncenter.org"])::before {
 	background-color: $main;
 	bottom: 1px;
@@ -208,17 +241,22 @@ main a[rel*="noopener"]:not([href*="uncenter.org"])::before {
 	width: 100%;
 	z-index: -1;
 }
-main p a:hover::before, main a[rel*="noopener"]:not([href*="uncenter.org"]):hover::before {
+
+main p a:hover::before,
+main a[rel*="noopener"]:not([href*="uncenter.org"]):hover::before {
 	bottom: 0;
 	height: 80%;
 }
+
 main h2 a:hover::before {
 	bottom: 0;
 	height: 100%;
 }
+
 img {
 	width: clamp(300px, 100%, 800px);
 }
+
 .img-description {
 	content: 📷;
 	color: $gray-200;
@@ -226,26 +264,32 @@ img {
 	padding-left: 5px;
 	padding-right: 5px;
 }
+
 .direct-link {
 	color: $accent-blue;
 	opacity: 0%;
 }
+
 .footnote-ref a {
 	color: $accent-blue;
 }
-h1:hover .direct-link, 
-h2:hover .direct-link, 
-h3:hover .direct-link, 
+
+h1:hover .direct-link,
+h2:hover .direct-link,
+h3:hover .direct-link,
 h4:hover .direct-link {
 	opacity: 100%;
 	transition: opacity .1s linear;
 }
+
 mark {
 	background: $aurora-yellow;
 }
+
 abbr:hover {
 	cursor: help;
 }
+
 .icon {
 	align-self: center;
 	fill: currentColor;
@@ -254,13 +298,16 @@ abbr:hover {
 	top: .15em;
 	width: 1em;
 }
+
 .task-list {
 	list-style: none;
 	padding-left: 0;
 }
+
 .icon-copy {
 	color: #FFFFFF;
 }
+
 .back-to-top {
 	animation-duration: 0.5s;
 	animation-name: fadeIn;
@@ -281,31 +328,38 @@ abbr:hover {
 	transition: all 0.3s ease-in-out;
 	z-index: 99;
 }
+
 .back-to-top:hover {
 	background-color: $accent-blue;
 }
+
 .webring a {
 	color: var(--text-color);
 	text-decoration: none;
 }
+
 .toc {
 	color: $accent-blue;
 	filter: blur(0px);
 	transition: 0.3s -webkit-filter linear;
 }
+
 .toc a {
 	color: var(--text-color);
 	text-decoration: underline;
 	text-decoration-color: $accent-blue;
 }
+
 .toc:hover {
 	filter: blur(0px);
 	transition: 0s -webkit-filter linear;
 }
+
 .toc,
 .toc ol {
 	list-style-type: disc;
 }
+
 .card {
 	border-radius: 10px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -314,6 +368,7 @@ abbr:hover {
 	padding-right: 10px;
 	padding-top: 10px;
 }
+
 .inline-card {
 	border-radius: 5px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 4px 0px;
@@ -324,51 +379,65 @@ abbr:hover {
 	padding-top: 3px;
 	background-color: var(--bg-color);
 }
+
 .inline-card.red {
 	background-color: $aurora-red;
 }
+
 .inline-card.orange {
 	background-color: $aurora-orange;
 }
+
 .inline-card.yellow {
 	background-color: $aurora-yellow;
 }
+
 .inline-card.blue {
 	background-color: $aurora-blue;
 }
+
 .inline-card.purple {
 	background-color: $aurora-purple;
 }
+
 .inline-card.pink {
 	background-color: $aurora-pink;
 }
+
 .inline-card.green {
 	background-color: $aurora-green;
 }
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
 }
+
 .code-copy {
 	background-color: transparent;
 	border: none;
 }
+
 footer {
 	padding-top: 50px;
 }
+
 footer hr {
 	background-color: $gray-100;
 	border: none;
 	height: 2px;
 }
+
 .footer-icons,
 footer .description {
 	text-align: center;
 }
+
 .footer-icons a {
 	border-radius: 100%;
 	height: 40px;
@@ -376,15 +445,18 @@ footer .description {
 	margin-left: 3px;
 	width: 40px;
 }
+
 .footer-icons {
 	list-style: none;
 	margin-bottom: 50px;
 	padding-left: 0;
 }
+
 .footer-icons li {
 	display: inline-block;
 	margin-bottom: 4px;
 }
+
 .footer-icons a {
 	background-color: var(--bg-color);
 	border-radius: 100%;
@@ -398,40 +470,51 @@ footer .description {
 	transition: all .3s ease-in-out;
 	width: 35px;
 }
+
 .footer-icons a:active,
 .footer-icons a:hover {
 	color: $light-200;
 }
+
 .footer-icons.size-sm a {
 	font-size: 14px;
 	height: 34px;
 	line-height: 34px;
 	width: 34px;
 }
+
 .footer-icons a.umami:hover {
 	background-color: #0096FF;
 }
+
 .footer-icons a.heart:hover {
 	background-color: #D22B2B;
 }
+
 .footer-icons a.twitter:hover {
 	background-color: #00aced;
 }
+
 .footer-icons a.linkedin:hover {
 	background-color: cornflowerblue;
 }
+
 .footer-icons a.github:hover {
 	background-color: coral;
 }
+
 .footer-icons a.email:hover {
 	background-color: rebeccapurple;
 }
+
 .footer-icons a.site-repo:hover {
 	background-color: gold;
 }
+
 .footer-icons a.dev:hover {
 	background-color: black;
 }
+
 @media (max-width:700px) {
 	.footer-icons li.title {
 		display: block;
@@ -447,21 +530,26 @@ kbd {
 	margin: 0 4px;
 	vertical-align: text-center;
 }
+
 .note {
 	background-color: var(--note-color);
-	background-image: linear-gradient(rgba(255,255,255,.75),rgba(255,255,255,.75));
+	background-image: linear-gradient(rgba(255, 255, 255, .75), rgba(255, 255, 255, .75));
 	border-left: 4px solid var(--note-color);
 	padding: 4px 8px;
 }
+
 .note--tip {
 	--note-color: #{$aurora-green};
 }
+
 .note--warning {
 	--note-color: #{$aurora-red};
 }
+
 .note--archive {
 	--note-color: #{$aurora-orange};
 }
+
 .toc-heading {
 	font-size: x-large;
 	font-weight: 700;

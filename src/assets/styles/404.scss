@@ -1,4 +1,3 @@
-
 /* -------------------------------- 
 
 404 animation
@@ -15,7 +14,7 @@ Source: https://codyhouse.co/ds/components/app/404
 	padding-top: 50px;
 }
 
-	#i-fof-browser {
+#i-fof-browser {
 	transform-origin: 260px 304px;
 	animation: i-fof-browser 4s infinite;
 }
@@ -26,17 +25,24 @@ Source: https://codyhouse.co/ds/components/app/404
 }
 
 @keyframes i-fof-browser {
-	0%, 100% {
+
+	0%,
+	100% {
 		transform: translateY(0) scale(1);
 	}
+
 	50% {
 		transform: translateY(-10%) scale(0.9);
 	}
 }
+
 @keyframes i-fof-shadow {
-	0%, 100% {
+
+	0%,
+	100% {
 		transform: scale(1);
 	}
+
 	50% {
 		transform: scale(0.8);
 	}

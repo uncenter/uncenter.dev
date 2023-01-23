@@ -1,21 +1,27 @@
 .palleteA .swatch.A {
 	background-color: $aurora-red;
 }
+
 .palleteA .swatch.B {
 	background-color: $aurora-orange;
 }
+
 .palleteA .swatch.C {
 	background-color: $aurora-yellow;
 }
+
 .palleteA .swatch.D {
 	background-color: $aurora-green;
 }
+
 .palleteA .swatch.E {
 	background-color: $aurora-blue;
 }
+
 .palleteA .swatch.F {
 	background-color: $aurora-purple;
 }
+
 .palleteA .swatch.G {
 	background-color: $aurora-pink;
 }
@@ -23,26 +29,33 @@
 .palleteB .swatch.A {
 	background-color: $light-100;
 }
+
 .palleteB .swatch.B {
 	background-color: $light-200;
 }
+
 .palleteB .swatch.C {
 	background-color: $light-300;
 }
+
 .palleteB .swatch.D {
 	background-color: $light-400;
 }
+
 .palleteB .swatch.E {
 	background-color: $light-500;
 }
+
 .palleteB .swatch.F {
 	background-color: $light-600;
 }
+
 .color-swatches {
 	text-align: center;
 	max-width: fit-content;
 	align-items: center;
 }
+
 .pallete {
 	display: flex;
 	justify-content: center;
@@ -50,6 +63,7 @@
 	font-family: 'Inter', sans-serif;
 	text-transform: none;
 }
+
 .color-swatches .pallete-title {
 	font-size: 24px;
 	margin-bottom: 15px;
@@ -72,6 +86,7 @@
 	margin: 3px;
 	border-radius: 10px;
 }
+
 .tooltip {
 	position: relative;
 	display: inline-block;

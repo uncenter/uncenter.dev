@@ -2,20 +2,22 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 10px;
-    position: relative;
+	position: relative;
 }
+
 .post-content:hover {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 5px 8px 5px;
-    transition: 0.2s all linear;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 5px 8px 5px;
+	transition: 0.2s all linear;
 }
+
 .post-content {
 	text-align: center;
-    transition: 0.5s box-shadow linear;
+	transition: 0.5s box-shadow linear;
 }
 
 :root[data-theme="dark"] .post-content {
 	text-align: center;
-    transition: 0.5s box-shadow linear;
+	transition: 0.5s box-shadow linear;
 	background-color: $dark-000;
 }
 
@@ -25,12 +27,12 @@
 }
 
 .tags .description p {
-    font-size: small;
+	font-size: small;
 	color: $dark-000;
 }
 
 article {
-    padding-bottom: 100px;
+	padding-bottom: 100px;
 }
 
 .read-more-button {
