@@ -1,3 +1,7 @@
+// eleventyConfig.setBrowserSyncConfig(
+//     require('./config/browsersync.config')('dist')
+// );
+
 const fs = require('fs');
 const url = require('url');
 

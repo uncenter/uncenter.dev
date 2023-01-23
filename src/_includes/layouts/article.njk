@@ -5,10 +5,12 @@ layout: base
 {% initClipboardJS %}
 <div class="tags">
     <div class="description description-date">
-        <p class="inline-card blue">{% insertSVG 'calendar' %} {{ page.date | shortenedJSDate }}</p>
+        <p class="inline-card blue">{% insertSVG 'calendar' %}
+            {{ page.date | shortenedJSDate }}</p>
     </div>
     <div class="description description-read">
-        <p class="inline-card green">{% insertSVG 'clock' %} {{ content | emojiReadTime }}</p>
+        <p class="inline-card green">{% insertSVG 'clock' %}
+            {{ content | emojiReadTime }}</p>
     </div>
 </div>
 {% include "src/_includes/partials/toc.njk" %}
@@ -28,11 +30,15 @@ layout: base
             "data-theme": giscusTheme,
             "data-lang": "en",
             "crossorigin": "anonymous",
-            "async": "",
+            "async": ""
         };
-        
+
         let giscusScript = document.createElement("script");
-        Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-        document.body.appendChild(giscusScript);
+        Object
+            .entries(giscusAttributes)
+            .forEach(([key, value]) => giscusScript.setAttribute(key, value));
+        document
+            .body
+            .appendChild(giscusScript);
     </script>
 </aside>

@@ -1,4 +1,3 @@
-// markdown-it plugins
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItAttrs = require('markdown-it-attrs');
@@ -11,7 +10,6 @@ const markdownItSub = require('markdown-it-sub');
 const markdownItContainer = require('markdown-it-container');
 const markdownItKBD = require('markdown-it-kbd');
 
-// eleventy plugins
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const codeClipboard = require("./config/code-clipboard/.eleventy");
 const pluginTOC = require('eleventy-plugin-toc')
@@ -21,10 +19,9 @@ const genFavicons = require('eleventy-plugin-gen-favicons')
 const externalLinks = require("@aloskutov/eleventy-plugin-external-links");
 const purgeCSS = require("eleventy-plugin-purgecss");
 
-
 // utils
 const filters = require("./utils/filters.js");
-
+const htmlmin = require("html-minifier");
 
 module.exports = function(eleventyConfig){
     let markdownLibrary = markdownIt({
@@ -46,12 +43,9 @@ module.exports = function(eleventyConfig){
     iconStyle: "", 
     })
     .use(markdownItAnchor, {
-      permalink: markdownItAnchor.permalink.ariaHidden({
-        placement: "after",
-        class: "direct-link",
-        symbol: "#",
-        level: [1, 2, 3, 4],
-      })
+      permalink: true,
+      permalinkClass: "direct-link",
+      permalinkSymbol: "#",
     })
     .use(markdownItLinkAttributes, [
       {
@@ -70,10 +64,12 @@ module.exports = function(eleventyConfig){
     .use(markdownItAbbr)
     .use(markdownItSup)
     .use(markdownItSub)
-    .use(markdownItContainer, 'card')
+    .use(markdownItContainer, 
+      'card'
+    )
     .use(markdownItKBD);
-
     eleventyConfig.setLibrary("md", markdownLibrary);
+
     eleventyConfig.addPlugin(codeClipboard);
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(pluginTOC);
@@ -89,14 +85,24 @@ module.exports = function(eleventyConfig){
       eleventyConfig.addFilter(filter, filters[filter]);
     });
     eleventyConfig.addShortcode("insertSVG", function (def) {
-        
       const svgRef = 'icon-' + def
       const svgClass = 'icon ' + svgRef
-  
       return `<svg class="${svgClass}"><use xlink:href="#${svgRef}"></use></svg>`;
     });
     eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
-
+    eleventyConfig.addTransform("htmlmin", function(content) {
+      // Prior to Eleventy 2.0: use this.outputPath instead
+      if( this.page.outputPath && this.page.outputPath.endsWith(".html") ) {
+        let minified = htmlmin.minify(content, {
+          useShortDoctype: true,
+          removeComments: true,
+          collapseWhitespace: true
+        });
+        return minified;
+      }
+  
+      return content;
+    });
     eleventyConfig.addCollection("orderedDemos", function (collection) {
       return collection.getFilteredByTag("demos").sort((a, b) => {
         return a.data.order - b.data.order;
@@ -110,9 +116,6 @@ module.exports = function(eleventyConfig){
       eleventyConfig.addPassthroughCopy(path)
     );
     eleventyConfig.addWatchTarget("/src/assets/styles");
-    eleventyConfig.setBrowserSyncConfig(
-      require('./config/browsersync.config')('dist')
-    );
 
     return {
         dir:{

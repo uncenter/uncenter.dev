@@ -1,16 +1,26 @@
 <header>
-    <input class="checkbox" type="checkbox" name="" id="" />
+    <input class="checkbox" type="checkbox" name="" id=""/>
     <div class="hamburger-lines">
         <span class="line line1"></span>
         <span class="line line2"></span>
         <span class="line line3"></span>
-    </div>  
-    <h1 class="logo"><a style="text-decoration: none; color: var(--text-color);" href="/">&lt;u&gt;</a></h1>
+    </div>
+    <h1 class="logo">
+        <a style="text-decoration: none; color: var(--text-color);" href="/">&lt;u&gt;</a>
+    </h1>
     <ul class="nav-links">
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/posts">Blog</a></li>
+        <li>
+            <a href="/projects">Projects</a>
+        </li>
+        <li>
+            <a href="/about">About</a>
+        </li>
+        <li>
+            <a href="/contact">Contact</a>
+        </li>
+        <li>
+            <a href="/posts">Blog</a>
+        </li>
     </ul>
     <div id="toggle">
         <i class="indicator"></i>
@@ -19,11 +29,13 @@
 <script>
     var currentUrl = window.location.pathname;
     var headerLinks = document.querySelectorAll("header a");
-    
-    headerLinks.forEach(function(link) {
+
+    headerLinks.forEach(function (link) {
         var linkUrl = link.getAttribute("href");
         if (currentUrl.includes(linkUrl)) {
-            link.classList.add("active");
+            link
+                .classList
+                .add("active");
             console.log(currentUrl, linkUrl)
         }
     });

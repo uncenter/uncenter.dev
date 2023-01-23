@@ -6,11 +6,13 @@
       const media = window.matchMedia('(prefers-color-scheme: dark)');
       theme = localStorage.getItem('colorTheme')
       if (theme !== null) {
-          html.dataset.theme = theme;
+        html.dataset.theme = theme;
       } else {
-          theme = media.matches ? "dark" : "light";
-          html.dataset.theme = theme;
-          localStorage.setItem('colorTheme', theme);
+        theme = media.matches
+          ? "dark"
+          : "light";
+        html.dataset.theme = theme;
+        localStorage.setItem('colorTheme', theme);
       }
     </script>
     <meta charset="utf-8">
@@ -24,22 +26,30 @@
     <title>{{ title }}</title>
 
     <link rel="stylesheet" href="/assets/styles/base.css">
-    {% if styles %}{% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/styles/{{ style }}">{% endfor %}{% endif %}
+    {% if styles %}
+      {% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/styles/{{ style }}">{% endfor %}
+    {% endif %}
     <script async defer data-website-id="dea82084-7eb8-4337-b02c-23f6ace1afc1" src="https://analytics.uncenter.org/umami.js"></script>
   </head>
   {% include "src/assets/symbols.svg" %}
   <body>
     {% include "src/_includes/partials/header.njk" %}
     <main>
-    {% if heading %}<h1 class="title">{{ heading }}</h1>{% else %}<h1 class="title">{{ title }}</h1>{% endif %}
+      {% if heading %}
+        <h1 class="title">{{ heading }}</h1>
+      {% else %}
+        <h1 class="title">{{ title }}</h1>
+      {% endif %}
       <article>
         {{ content | safe }}
       </article>
     </main>
-  <button class="back-to-top" title="Back to top">^</button>
-  <script src="/assets/scripts/events.js"></script>
-  {% if script %}<script src="/assets/scripts/{{script}}"></script>{% endif %}
-  {% include "src/_includes/partials/footer.njk" %}
+    <button class="back-to-top" title="Back to top">^</button>
+    <script src="/assets/scripts/events.js"></script>
+    {% if script %}
+      <script src="/assets/scripts/{{script}}"></script>
+    {% endif %}
+    {% include "src/_includes/partials/footer.njk" %}
   </body>
 </html>
 <script src="/assets/scripts/theme.js"></script>
