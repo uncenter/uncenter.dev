@@ -39,8 +39,9 @@ This is where we diverge from Google. We picked our fonts, and now we can use th
 
 To start using this tool, search for one of your fonts and select the font variations that you decided on. GWFH gives you two options for the CSS `@font-face` , and I opted for the ‘Modern Browsers’ option - This provides `.woff` and `.woff2` files, since I assume anyone reading my blog isn't using Internet Explorer (`.woff` is supported by Edge, Firefox, Chrome, Safari, Opera, iOS, and Android).
 
-<aside class="note note--tip"> If you are interested in learning more about different support for font formats, <a style="text-decoration: underline;" href="https://medium.com/@aitareydesign/understanding-of-font-formats-ttf-otf-woff-eot-svg-e55e00a1ef2">read this great article that goes into depth on each format</a>.
-</aside>
+{% note "tip" %}
+If you are interested in learning more about different support for font formats, [read this great article that goes into depth on each format](https://medium.com/@aitareydesign/understanding-of-font-formats-ttf-otf-woff-eot-svg-e55e00a1ef2).
+{% endnote %}
 
 For example, here is what the CSS for my *Inter* font-family looked like.
 
