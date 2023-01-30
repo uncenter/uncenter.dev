@@ -1,3 +1,23 @@
+.color-swatches .pallete-title {
+	font-size: 24px;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.color-swatches {
+	text-align: center;
+	max-width: fit-content;
+	align-items: center;
+}
+
+.pallete {
+	display: flex;
+	justify-content: center;
+	padding: 25px 0px 40px 0px;
+	font-family: 'Inter', sans-serif;
+	text-transform: none;
+}
+
 .palleteA .swatch.A {
 	background-color: $aurora-red;
 }
@@ -50,24 +70,11 @@
 	background-color: $light-600;
 }
 
-.color-swatches {
-	text-align: center;
-	max-width: fit-content;
-	align-items: center;
-}
-
-.pallete {
-	display: flex;
-	justify-content: center;
-	padding: 25px 0px 40px 0px;
-	font-family: 'Inter', sans-serif;
-	text-transform: none;
-}
-
-.color-swatches .pallete-title {
-	font-size: 24px;
-	margin-bottom: 15px;
-	display: block;
+.swatch {
+	width: 50px;
+	height: 50px;
+	margin: 3px;
+	border-radius: 10px;
 }
 
 .swatch-container {
@@ -78,19 +85,6 @@
 	background-color: #FFFFFF;
 	border-radius: 10px;
 	padding: 10px 10px 10px 10px;
-}
-
-.swatch {
-	width: 50px;
-	height: 50px;
-	margin: 3px;
-	border-radius: 10px;
-}
-
-.tooltip {
-	position: relative;
-	display: inline-block;
-	/* border-bottom: 1px dotted black; */
 }
 
 .tooltip .tooltip-text {
@@ -107,6 +101,11 @@
 	left: 50%;
 	margin-left: -60px;
 	text-transform: uppercase;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
 }
 
 .tooltip:hover .tooltip-text {

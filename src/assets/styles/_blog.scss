@@ -1,3 +1,13 @@
+:root[data-theme="dark"] .post-content {
+	text-align: center;
+	transition: 0.5s box-shadow linear;
+	background-color: $dark-000;
+}
+
+article {
+	padding-bottom: 50px;
+}
+
 .blog-posts {
 	display: flex;
 	flex-direction: column;
@@ -5,19 +15,17 @@
 	position: relative;
 }
 
+.description svg {
+	display: inline-block;
+}
+
+.icon-clock {
+	stroke: $dark-000;
+}
+
 .post-content {
 	text-align: center;
 	transition: 0.5s box-shadow linear;
-}
-
-:root[data-theme="dark"] .post-content {
-	text-align: center;
-	transition: 0.5s box-shadow linear;
-	background-color: $dark-000;
-}
-
-.description svg {
-	display: inline-block;
 }
 
 .tags .description p {
@@ -25,18 +33,8 @@
 	color: $dark-000;
 }
 
-article {
-	padding-bottom: 50px;
-}
-
 .tags {
 	display: flex;
 	justify-content: center;
 	gap: 10px;
 }
-
-.icon-clock {
-	stroke: $dark-000;
-}
-
-@import 'color-pallete';
