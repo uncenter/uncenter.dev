@@ -1,5 +1,5 @@
 ---
-tags: ['11ty', 'fonts', 'performance', 'webdev']
+tags: ['11ty', 'fonts', 'performance']
 title: "Self-Hosting (Google) Fonts"
 date: 2023-01-12
 ---
@@ -9,7 +9,7 @@ date: 2023-01-12
 Bye Google and hello self-hosted fonts!<!--END-->
 I recently decided to self-host my fonts on this site, and I thought I’d share my process for anyone who is interested in doing the same. I use three fonts on this blog; *Titillium Web* for the body text, *Inter* for my headings, and *Questrial* for my header, and it adds up quickly. Hopefully self-hosting can help me shave off a few milliseconds of load time! 🤞
 
-## picking font variations
+## Picking font variations
 When picking a font, say on [Google Fonts](https://fonts.google.com), you will probably see options like this: 
 
 - 100 – Thin
@@ -63,17 +63,17 @@ For example, here is what the CSS for my *Inter* font-family looked like.
 /* ...more @font-face rules */
 ```
 
-### downloading and using fonts
+### Downloading and using fonts
 
 The helper will give you a nice little button that downloads a zip of the requested files, and you can add those into your project. For my blog, I added the fonts into `/assets/fonts/`, the `@font-face` rules to a `_fonts.scss`  (don’t forget to change the file path to wherever you stored your fonts), and imported the fonts into my base stylesheet. 
 
-## cleaning up
+## Cleaning up
 
 If you are forgetful like me, you might have forgotten to remove the Google Font `<link>` tags from your HTML — get rid of those!
 
 <hr>
 
-## further reading
+## Further reading
 
 - [Self-Hosting Google Web Fonts](https://mranftl.com/2014/12/23/self-hosting-google-web-fonts/) by Mario Ranftl
 - [How to use @font-face in CSS](https://css-tricks.com/snippets/css/using-font-face-in-css/)
