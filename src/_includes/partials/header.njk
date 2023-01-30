@@ -2,16 +2,13 @@
     <a aria-label="Return to homepage" title="Homepage" class="logo" style="text-decoration: none;" href="/">{% include "src/assets/images/laptop.svg" %}</a>
     <ul class="nav-links">
         <li>
-            <a href="/projects">Projects</a>
+            <a href="/posts">{% insertSVG 'edit' %} Blog</a>
         </li>
         <li>
-            <a href="/about">About</a>
+            <a href="/changelog">{% insertSVG 'clock' %} Changelog</a>
         </li>
         <li>
-            <a href="/contact">Contact</a>
-        </li>
-        <li>
-            <a href="/posts">Blog</a>
+            <a href="/about">{% insertSVG 'info' %} About</a>
         </li>
     </ul>
     <div id="toggle">
