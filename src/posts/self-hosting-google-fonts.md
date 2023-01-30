@@ -5,10 +5,12 @@ date: 2023-01-12
 ---
 
 
-## picking font variations
 <!--START-->
-Fonts are notoriously slow and clunky, but I love my website and I love my fonts (it just doesn’t look the same without). For some performance benefits, and to further separate myself from Google, I setup self-hosting these fonts.<!--END-->
-I use three fonts on this blog (I know, I know). I use *Titillium Web* for the body text, *Inter* for my headings, and *Questrial* for my header. When picking a font, say on [Google Fonts](https://fonts.google.com), you will probably see options like this: 
+Bye Google and hello self-hosted fonts!<!--END-->
+I recently decided to self-host my fonts on this site, and I thought I’d share my process for anyone who is interested in doing the same. I use three fonts on this blog; *Titillium Web* for the body text, *Inter* for my headings, and *Questrial* for my header, and it adds up quickly. Hopefully self-hosting can help me shave off a few milliseconds of load time! 🤞
+
+## picking font variations
+When picking a font, say on [Google Fonts](https://fonts.google.com), you will probably see options like this: 
 
 - 100 – Thin
 - 200 – Extra Light (Ultra Light)
@@ -22,10 +24,10 @@ I use three fonts on this blog (I know, I know). I use *Titillium Web* for the b
 
 These are used to give the browser the exact typeface to use for specific font weights - without these, there is a phenomenon called **faux bold** (it also happens with italics) - when a website tries to use a font without the proper font files, and the browser attempts to emulate it (albeit incorrectly). Here is a great example from Google Fonts — it’s a small but noticeable difference.
 
-<img src="/assets/images/content/faux-bold-italic-example.svg" alt="An example of faux (fake) bold and faux italic text. On the left, true italics, bolds, and small caps; on the right, faux italics, faux bolds, and faux small caps." width="200"/>
-<aside class="img-description">
-On the left, true italics, bolds, and small caps; on the right, faux italics, faux bolds, and faux small caps. Note how the faux italic has radically different forms, the faux bold appears too crowded, and the faux small caps are considerably lighter in weight.
-</aside>
+<figure>
+  <img src="/assets/images/content/faux-bold-italic-example.svg" alt="" width="200"/>
+  <figcaption>An example of faux (fake) bold and faux italic text. On the left, true italics, bolds, and small caps; on the right, faux italics, faux bolds, and faux small caps.<figcaption>
+</figure>
 
 Not all typefaces have all of these, but for *Titillium Web* I grabbed 400 (Normal) and 700 (Bold), both with italic variations, so that I have the option to **bold** text. For the other two, I’m probably not going to be bolding or italicizing anything in my headings and header, so I just grabbed the regular font-weight for those.
 
@@ -35,9 +37,9 @@ This is where we diverge from Google. We picked our fonts, and now we can use th
 
 ### @font-family and CSS
 
-To start using this tool, just search your font (one at a time) in the top-left search bar and select the font variations that you decided on. GWFH gives you two options for the CSS `@font-face` , and I opted for the ‘Modern Browsers’ option - This provides `.woff` and `.woff2` files, since I assume anyone reading my blog is using anything but Internet Explorer (`.woff` is supported by Edge, Firefox, Chrome, Safari, Opera, iOS, and Android)
+To start using this tool, search for one of your fonts and select the font variations that you decided on. GWFH gives you two options for the CSS `@font-face` , and I opted for the ‘Modern Browsers’ option - This provides `.woff` and `.woff2` files, since I assume anyone reading my blog isn't using Internet Explorer (`.woff` is supported by Edge, Firefox, Chrome, Safari, Opera, iOS, and Android).
 
-<aside class="note note--tip" style="color: #2e3440;"> If you are interested in learning more about different support for font formats, <a style="text-decoration: underline; color:#2e3440;" href="https://medium.com/@aitareydesign/understanding-of-font-formats-ttf-otf-woff-eot-svg-e55e00a1ef2">read this great article that goes into depth on each format</a>.
+<aside class="note note--tip"> If you are interested in learning more about different support for font formats, <a style="text-decoration: underline;" href="https://medium.com/@aitareydesign/understanding-of-font-formats-ttf-otf-woff-eot-svg-e55e00a1ef2">read this great article that goes into depth on each format</a>.
 </aside>
 
 For example, here is what the CSS for my *Inter* font-family looked like.
@@ -66,7 +68,7 @@ The helper will give you a nice little button that downloads a zip of the reques
 
 ## cleaning up
 
-If you are forgetful like me, you might have forgotten to remove your `<link>` tags from your HTML — get rid of those pesky external references!
+If you are forgetful like me, you might have forgotten to remove the Google Font `<link>` tags from your HTML — get rid of those!
 
 <hr>
 
