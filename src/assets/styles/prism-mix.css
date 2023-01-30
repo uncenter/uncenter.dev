@@ -47,13 +47,6 @@ pre[class*="language-"] {
   border-radius: 8px;
 }
 
-:not(pre)>code[class*="language-"] {
-  padding: .1em;
-  border-radius: .3em;
-  color: #d8dee9;
-  background: #22272F;
-}
-
 /*********************************************************
 * Tokens
 */
@@ -153,13 +146,4 @@ pre[class*="language-"]>code[class*="language-"] {
   pointer-events: none;
   line-height: inherit;
   white-space: pre;
-}
-
-:not(pre)>code {
-  font-size: 10pt;
-  border-radius: .3em;
-  background-color: #22272F;
-  color: #d8dee9;
-  padding: .2em .2em .2em;
-  white-space: normal;
 }

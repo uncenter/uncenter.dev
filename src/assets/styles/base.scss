@@ -44,8 +44,17 @@ body {
 	}
 }
 
-main p {
+main p, main li {
 	font-size: 14pt;
+}
+
+:not(pre)>code {
+	font-size: 10pt;
+	border-radius: .3em;
+	background-color: #22272F;
+	color: #d8dee9;
+	padding: .2em .2em .2em;
+	white-space: normal;
 }
 
 header {
@@ -190,7 +199,7 @@ main a:not(.toc a, .direct-link, .footnote-ref a) {
 	text-decoration: none;
 }
 
-main a:not(.direct-link, .card-container a, .footnote-backref, .footnote-ref a, .toc a)::before {
+main a:not(.direct-link, .card-container a, .note a, .footnote-backref, .footnote-ref a, .toc a)::before {
 	background-color: $accent-blue;
 	bottom: 1px;
 	content: '';
@@ -202,7 +211,7 @@ main a:not(.direct-link, .card-container a, .footnote-backref, .footnote-ref a, 
 	z-index: -1;
 }
 
-main a[rel*="noopener"]:not([href*="uncenter.org"])::before {
+main a[rel*="noopener"]:not([href*="uncenter.org"], .note a)::before {
 	background-color: $main;
 	bottom: 1px;
 	content: '';
@@ -310,7 +319,7 @@ mark {
 	color: $accent-blue;
 	filter: blur(0px);
 	transition: 0.3s -webkit-filter linear;
-	
+
 	a {
 		color: var(--text-color);
 		text-decoration: underline;
@@ -499,22 +508,28 @@ kbd {
 }
 
 .note {
-	background-color: var(--note-color);
-	background-image: linear-gradient(rgba(255, 255, 255, .75), rgba(255, 255, 255, .75));
-	border-left: 4px solid var(--note-color);
-	padding: 4px 8px;
-}
-
-.note--tip {
-	--note-color: #{$aurora-green};
+	margin-bottom: 15px;
+	padding: 4px 12px;
+	color: var(--text-color);
 }
 
 .note--warning {
-	--note-color: #{$aurora-red};
+	background-color: #ffdddd;
+	border-left: 6px solid #f44336;
+}
+
+.note--tip {
+	border-left: 6px solid #04AA6D;
+}
+
+.note--info {
+	background-color: #e7f3fe;
+	border-left: 6px solid #2196F3;
 }
 
 .note--archive {
-	--note-color: #{$aurora-orange};
+	background-color: #ffffcc;
+	border-left: 6px solid #ffeb3b;
 }
 
 .toc-heading {
