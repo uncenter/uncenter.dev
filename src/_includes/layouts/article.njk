@@ -3,26 +3,25 @@ layout: base
 ---
 
 {% initClipboardJS %}
-<div class="tags">
-    <div class="description description-date">
-        <p class="inline-card blue">{% insertSVG 'calendar' %}
+<ul class="tags">
+    <li class="description description-date">
+        <p class="inline-card blue">{%- insertSVG 'calendar' %}
             {{ page.date | shortenedJSDate }}</p>
-    </div>
-    <div class="description description-read">
-        <p class="inline-card green">{% insertSVG 'clock' %}
+    </li>
+    <li class="description description-read">
+        <p class="inline-card green">{%- insertSVG 'clock' %}
             {{ content | emojiReadTime }}</p>
-    </div>
-    {% if tags %}
-        {% for tag in tags %}
-            <div class="description description-tag">
+    </li>
+    {%- if tags -%}
+        {%- for tag in tags -%}
+            <li class="description description-tag">
                 <a href="/tags/{{ tag | slug }}">
-                    <p class="inline-card white">{% insertSVG 'tag' %}
-                        {{ tag }}</p>
+                    <p class="inline-card white">{%- insertSVG 'tag' %}{{ tag }}</p>
                 </a>
-            </div>
-        {% endfor %}
-    {% endif %}
-</div>
+            </li>
+        {%- endfor -%}
+    {%- endif -%}
+</ul>
 {% include "src/_includes/partials/toc.njk" %}
 {{ content | safe }}
 <aside>
