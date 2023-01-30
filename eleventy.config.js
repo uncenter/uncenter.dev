@@ -74,7 +74,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPlugin(pluginTOC);
 	eleventyConfig.addPlugin(emojiReadTime, { showEmoji: false, label: "min read" });
-	eleventyConfig.addPlugin(recentChanges, { commits: 5 });
+	eleventyConfig.addPlugin(recentChanges, { commits: 15 });
 	eleventyConfig.addPlugin(genFavicons, { generateManifest: false, outputDir: './dist' });
 	eleventyConfig.addPlugin(externalLinks, { url: 'https://uncenter.org', rel: ['noreferrer', 'noopener', 'external'], overwrite: false });
 	eleventyConfig.addPlugin(purgeCSS, {
