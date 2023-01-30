@@ -2,7 +2,6 @@
 title: "Contact"
 ---
 
-## contact options
 :::card
 **by email**: contact[at]uncenter[dot]org
 
