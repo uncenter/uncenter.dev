@@ -1,5 +1,5 @@
 ---
-tags: 'general'
+tags: ['11ty', 'fonts', 'performance', 'webdev']
 title: "Self-Hosting (Google) Fonts"
 date: 2023-01-12
 ---

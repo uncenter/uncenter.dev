@@ -1,5 +1,5 @@
 ---
-tags: 'general'
+tags: 'other'
 title: "Style Guide/Testing"
 eleventyExcludeFromCollections: true
 date: 2023-01-04
