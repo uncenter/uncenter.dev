@@ -26,6 +26,9 @@ article {
 .post-content {
 	text-align: center;
 	transition: 0.5s box-shadow linear;
+	a:hover {
+		color: var(--text-color);
+	}
 }
 
 .tags .description p {
