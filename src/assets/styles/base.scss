@@ -209,9 +209,12 @@ h4:hover .direct-link {
 	color: var(--text-color);
 }
 
-.toc,
-.toc ol {
-	list-style-type: disc;
+.toc {
+	padding-top: 10px;
+
+	ol {
+		list-style-type: disc;
+	}
 }
 
 .card {
@@ -316,11 +319,6 @@ kbd {
 .note--warning {
 	background-color: #FFE7AD;
 	border-left: 6px solid #FFD166;
-}
-
-.toc-heading {
-	font-size: x-large;
-	font-weight: 700;
 }
 
 blockquote {
