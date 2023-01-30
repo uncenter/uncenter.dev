@@ -15,7 +15,7 @@ layout: base
     {%- if tags -%}
         {%- for tag in tags -%}
             <li class="description description-tag">
-                <a href="/tags/{{ tag | slug }}">
+                <a class="no-style" href="/tags/{{ tag | slug }}">
                     <p class="inline-card white">{%- insertSVG 'tag' %}{{ tag }}</p>
                 </a>
             </li>
