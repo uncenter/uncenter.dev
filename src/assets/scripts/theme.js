@@ -17,17 +17,11 @@ function setTheme (theme) {
 function checkToggle (theme) {
     const svg = toggle.querySelector('.icon');
     if (theme === "dark") {
-        if (toggle.classList.contains("active") === false) { 
-            toggle.classList.add("active");
-            svg.classList.replace('moon', 'sun')
-            svg.querySelector('use').setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#icon-sun');
-        }
+        svg.classList.replace('moon', 'sun')
+        svg.querySelector('use').setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#icon-sun');
     } else {
-        if (toggle.classList.contains("active") === true) { 
-            toggle.classList.remove("active");
-            svg.classList.replace('sun', 'moon')
-            svg.querySelector('use').setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#icon-moon');
-        }
+        svg.classList.replace('sun', 'moon')
+        svg.querySelector('use').setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#icon-moon');
     }
 }
 
