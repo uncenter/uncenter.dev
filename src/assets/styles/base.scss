@@ -34,7 +34,7 @@ body {
 	font-family: 'Titillium Web', sans-serif;
 	justify-content: center;
 	margin: 0 auto;
-	max-width: 850px;
+	max-width: 750px;
 	padding-top: 80px;
 }
 
@@ -72,7 +72,7 @@ header {
 	&.active {
 		border: 1px solid var(--shadow-color);
 		box-shadow: 2px 2px 4px var(--shadow-color);
-		transition: all 0.3s ease-in-out;
+		transition: background-color 0.3s ease-in-out;
 	}
 }
 
@@ -95,7 +95,6 @@ header {
 	display: block;
 	margin-right: 30px;
 	position: relative;
-	transition: 0.5s;
 }
 
 #toggle.active {
@@ -154,7 +153,6 @@ h2,
 h3,
 h4 {
 	color: var(--text-color);
-	text-decoration: underline;
 }
 
 .title {
@@ -192,7 +190,7 @@ main a:not(.toc a, .direct-link, .footnote-ref a) {
 	text-decoration: none;
 }
 
-main a:not(.direct-link, .card-container, .footnote-backref, .footnote-ref a, .toc a)::before {
+main a:not(.direct-link, .card-container a, .footnote-backref, .footnote-ref a, .toc a)::before {
 	background-color: $accent-blue;
 	bottom: 1px;
 	content: '';
