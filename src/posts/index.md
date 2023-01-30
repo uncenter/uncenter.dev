@@ -1,15 +1,11 @@
 ---
+eleventyExcludeFromCollections: true
 title: "Blog"
 layout: base
-pagination:
-  data: collections.blog
-  alias: posts
-  size: 10
-  reverse: true
 ---
 
 <div class="blog-posts">
-{% for post in posts %}
+{% for post in collections.blog %}
   <div class="card-container">
     <div class="post-content card">
       <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
