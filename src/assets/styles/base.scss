@@ -371,6 +371,10 @@ mark {
 	background-color: $aurora-green;
 }
 
+.inline-card.white {
+	background-color: $light-600;
+}
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;

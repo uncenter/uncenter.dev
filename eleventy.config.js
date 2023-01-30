@@ -91,7 +91,6 @@ module.exports = function(eleventyConfig){
     });
     eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
     eleventyConfig.addTransform("htmlmin", function(content) {
-      // Prior to Eleventy 2.0: use this.outputPath instead
       if( this.page.outputPath && this.page.outputPath.endsWith(".html") ) {
         let minified = htmlmin.minify(content, {
           useShortDoctype: true,
@@ -108,6 +107,10 @@ module.exports = function(eleventyConfig){
         return a.data.order - b.data.order;
       });
     });
+    eleventyConfig.addCollection('blog', collection => {
+      return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
+    });
+    
 
     eleventyConfig.addLayoutAlias('base', 'base.njk');
     eleventyConfig.addLayoutAlias('blog', 'blog.njk');

@@ -12,6 +12,16 @@ layout: base
         <p class="inline-card green">{% insertSVG 'clock' %}
             {{ content | emojiReadTime }}</p>
     </div>
+    {% if tags %}
+        {% for tag in tags %}
+            <div class="description description-tag">
+                <a href="/tags/{{ tag | slug }}">
+                    <p class="inline-card white">{% insertSVG 'tag' %}
+                        {{ tag }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}
 </div>
 {% include "src/_includes/partials/toc.njk" %}
 {{ content | safe }}
