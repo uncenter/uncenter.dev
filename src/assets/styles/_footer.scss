@@ -1,3 +1,10 @@
+@media (max-width:700px) {
+	.footer-icons li.title {
+		display: block;
+		margin-right: 0;
+	}
+}
+
 footer hr {
 	background-color: $gray-100;
 	border: none;
@@ -79,6 +86,7 @@ footer {
 .footer-icons,
 footer .description {
 	text-align: center;
+	font-size: 10pt;
 }
 
 .footer-icons.size-sm a {
