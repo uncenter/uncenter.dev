@@ -22,14 +22,15 @@ html {
 	scroll-padding-top: 6rem;
 	scroll-behavior: smooth;
 	overflow-y: scroll;
+	font-family: ui-sans-serif, system-ui, Roboto, Helvetica Neue;
 }
 
 body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	display: flex;
+	font-size: 12pt;
 	flex-direction: column;
-	font-family: 'Titillium Web', sans-serif;
 	justify-content: center;
 	margin: 0 auto;
 	max-width: 750px;
@@ -70,12 +71,6 @@ h4 {
 	color: var(--text-color);
 }
 
-/* Arbitary */
-main p,
-main li {
-	font-size: 16pt;
-}
-
 :not(pre)>code {
 	font-size: 10pt;
 	border-radius: .3em;
@@ -86,9 +81,8 @@ main li {
 }
 
 .title {
-	color: $accent-blue;
 	font-size: 28pt;
-	text-transform: lowercase;
+	font-weight: 700;
 }
 
 main hr {
@@ -110,7 +104,7 @@ main a {
 	padding: 0 1px;
 	transition: color ease 0.3s;
 
-	&::before {
+	&:not(.no-style)::before {
 		content: '';
 		position: absolute;
 		z-index: -1;
@@ -150,14 +144,6 @@ main a {
 
 img {
 	width: clamp(300px, 100%, 800px);
-}
-
-.img-description {
-	content: 📷;
-	color: $gray-200;
-	border: $gray-300 1px dotted;
-	padding-left: 5px;
-	padding-right: 5px;
 }
 
 .direct-link {
@@ -215,9 +201,12 @@ h4:hover .direct-link {
 	z-index: 99;
 }
 
+:root[data-theme="dark"] .back-to-top {
+	background: $dark-400;
+}
+
 .webring a {
 	color: var(--text-color);
-	text-decoration: none;
 }
 
 .toc,
@@ -292,14 +281,6 @@ h4:hover .direct-link {
 	border: none;
 }
 
-
-@media (max-width:700px) {
-	.footer-icons li.title {
-		display: block;
-		margin-right: 0;
-	}
-}
-
 kbd {
 	border: 1px solid;
 	border-radius: 4px;
@@ -316,12 +297,6 @@ kbd {
 	padding-bottom: 0px;
 	padding-left: 12px;
 	color: var(--text-color);
-
-	a {
-		text-decoration: underline;
-		color: var(--text-color);
-		position: relative;
-	}
 }
 
 .note--danger {
