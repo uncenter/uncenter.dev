@@ -1,5 +1,5 @@
 @import 'variables';
-@import 'fonts';
+// @import 'fonts';
 
 $accent-blue: $frost-blue;
 $duck: #74acf6;
@@ -62,7 +62,6 @@ h4,
 h5,
 h6 {
 	color: var(--text-color);
-	font-family: 'Inter', Sans-Serif;
 }
 
 h2,
