@@ -3,13 +3,16 @@ title: "Changelog"
 ---
 
 :::card
-<ul>
-{%- for commit in collections.recentChanges %}
-    <li>{{ commit.authorDate | shortenedISODate}}
+<dl>
+{%- for group in collections.recentChangesByDate %}
+  <dt>{{ group[0] | shortenedISODate}}</dt>
+  <dd>
     <ul>
+      {%- for commit in group[1] %}
         <li>{{ commit.subject }}</li>
+      {%- endfor %}
     </ul>
-    </li>
+  </dd>
 {%- endfor %}
-</ul>
+</dl>
 :::

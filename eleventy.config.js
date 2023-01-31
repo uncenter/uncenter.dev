@@ -9,6 +9,8 @@ const markdownItSup = require('markdown-it-sup');
 const markdownItSub = require('markdown-it-sub');
 const markdownItContainer = require('markdown-it-container');
 const markdownItKBD = require('markdown-it-kbd');
+const gitlog = require('gitlog').default;
+const { DateTime } = require("luxon");
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const codeClipboard = require("./plugins/code-clipboard/.eleventy");
@@ -97,6 +99,26 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addCollection('blog', collection => {
 		return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
 	});
+	eleventyConfig.addCollection("recentChangesByDate", () => {
+		const settings = {
+			repo: __dirname,
+			number: 35,
+			fields: ['hash', 'abbrevHash', 'subject', 'authorName', 'authorDate']
+		}
+		const recentChanges = gitlog(settings)
+
+		const grouped = new Map();
+
+		for (const change of recentChanges) {
+			let { authorDate } = change;
+			authorDate = DateTime.fromISO(new Date(authorDate).toISOString()).toFormat('LLL dd yyyy');
+			if (!grouped.has(authorDate)) {
+				grouped.set(authorDate, []);
+			}
+			grouped.get(authorDate).push(change);
+		}
+		return Array.from(grouped.entries());
+	});
 
 	// Other Config
 	eleventyConfig.addLayoutAlias('base', 'base.njk');
@@ -105,7 +127,7 @@ module.exports = function (eleventyConfig) {
 	['src/assets/styles/', 'src/assets/images/content', 'src/assets/scripts/', 'src/assets/fonts/'].forEach(path =>
 		eleventyConfig.addPassthroughCopy(path)
 	);
-	
+
 	eleventyConfig.addPassthroughCopy({ "src/assets/images/icons": "." })
 	eleventyConfig.addWatchTarget("/src/assets/styles");
 
