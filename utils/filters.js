@@ -45,6 +45,9 @@ module.exports = {
         }
         return str.split(":")[1]
     },
+    hasMergeSkip: (str) => {
+        return !str.includes("Merge branch 'master' of")
+    },
     charLength: (str) => {
         return str.length + 'ch'
     }
