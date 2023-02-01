@@ -16,14 +16,11 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const codeClipboard = require("./plugins/code-clipboard/.eleventy");
 const pluginTOC = require('eleventy-plugin-toc')
 const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
-const recentChanges = require('eleventy-plugin-recent-changes');
-const genFavicons = require('eleventy-plugin-gen-favicons')
 const externalLinks = require("@aloskutov/eleventy-plugin-external-links");
 const purgeCSS = require("eleventy-plugin-purgecss");
 
 // utils
 const filters = require("./utils/filters.js");
-const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {
 	let markdownLibrary = markdownIt({
@@ -76,8 +73,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPlugin(pluginTOC);
 	eleventyConfig.addPlugin(emojiReadTime, { showEmoji: false, label: "min read" });
-	eleventyConfig.addPlugin(recentChanges, { commits: 15 });
-	eleventyConfig.addPlugin(genFavicons, { generateManifest: false, outputDir: './dist' });
 	eleventyConfig.addPlugin(externalLinks, { url: 'https://uncenter.org', rel: ['noreferrer', 'noopener', 'external'], overwrite: false });
 	eleventyConfig.addPlugin(purgeCSS, {
 		config: "./purgecss.config.js",
