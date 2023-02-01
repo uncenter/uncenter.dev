@@ -7,9 +7,13 @@ heading: Hello!
 
 :::card
 Some other pages you might be interested in:
-- [me](/me)
-- [style guide](/style)
-- [uses](/uses)
+<div class="more-pages-container">
+
+- {% insertSVG 'user' %} [me](/me)
+- {% insertSVG 'palette' %} [style guide](/style)
+- {% insertSVG 'bookmark' %}[uses](/uses)
+
+</div>
 :::
 
 <br>
