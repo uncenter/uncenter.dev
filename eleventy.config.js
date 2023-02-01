@@ -107,6 +107,7 @@ module.exports = function (eleventyConfig) {
 		for (const change of recentChanges) {
 			let { subject, authorDate } = change;
 			if (!subject.startsWith("Merge branch 'master' of")) {
+				subject = subject.replace(/[<>]/g, '');
 				authorDate = DateTime.fromISO(new Date(authorDate).toISOString()).toFormat('LLL dd yyyy');
 				if (!grouped.has(authorDate)) {
 					grouped.set(authorDate, []);
