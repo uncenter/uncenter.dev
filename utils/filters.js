@@ -1,4 +1,6 @@
 const { DateTime } = require("luxon");
+const markdownIt = require("markdown-it");
+const markdownItEmoji = require("markdown-it-emoji");
 
 module.exports = {
     shortenedJSDate: (dateObj) => {
@@ -26,6 +28,25 @@ module.exports = {
             return value;
         }
         return [value];
+    },
+    splitColonFirst: (str) => {
+        return str.split(":")[0]
+    },
+    splitColonSecond: (str) => {
+        if (str.split(":").length > 2) {
+            let emoji = ''
+            for (let i = 2; i < str.split(":").length; i++) {
+                emoji += ":" + str.split(":")[i]
+            }
+            const md = new markdownIt({
+                html: true
+            }).use(markdownItEmoji);
+            return md.renderInline(emoji.trim())
+        }
+        return str.split(":")[1]
+    },
+    charLength: (str) => {
+        return str.length + 'ch'
     }
 };
 
