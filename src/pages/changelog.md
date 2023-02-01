@@ -9,7 +9,7 @@ title: "Changelog"
   <dd>
     <ul>
       {%- for commit in group[1] %}
-        {%- if commit.subject | hasMergeSkip -%}<li data-type="{{ commit.subject | splitColonFirst }}"><span class="inline-card" data-type="{{ commit.subject | splitColonFirst }}">{{ commit.subject | splitColonFirst }}</span> - {%- if commit.subject -%}{{ commit.subject | splitColonSecond }}{%- else -%}[no commit message]{%- endif -%}{%- endif -%}
+      <li data-type="{{ commit.subject | getCommitCategory }}"><span class="inline-card" data-type="{{ commit.subject | getCommitCategory }}">{{ commit.subject | getCommitCategory }}</span> - {%- if commit.subject -%}{{ commit.subject | getCommitMessage }}{%- else -%}[no commit message]{%- endif -%}
         </li>
       {%- endfor -%}
     </ul>

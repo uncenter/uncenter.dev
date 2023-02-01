@@ -105,12 +105,17 @@ module.exports = function (eleventyConfig) {
 		const grouped = new Map();
 
 		for (const change of recentChanges) {
-			let { authorDate } = change;
-			authorDate = DateTime.fromISO(new Date(authorDate).toISOString()).toFormat('LLL dd yyyy');
-			if (!grouped.has(authorDate)) {
-				grouped.set(authorDate, []);
+			let { subject, authorDate } = change;
+			if (!subject.startsWith("Merge branch 'master' of")) {
+				authorDate = DateTime.fromISO(new Date(authorDate).toISOString()).toFormat('LLL dd yyyy');
+				if (!grouped.has(authorDate)) {
+					grouped.set(authorDate, []);
+				}
+				const forThisDate = grouped.get(authorDate);
+				if (!forThisDate.some(({ subject: subj }) => subj === subject)) {
+					forThisDate.push({ ...change, subject });
+				}
 			}
-			grouped.get(authorDate).push(change);
 		}
 		return Array.from(grouped.entries());
 	});

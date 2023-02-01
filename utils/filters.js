@@ -29,10 +29,10 @@ module.exports = {
         }
         return [value];
     },
-    splitColonFirst: (str) => {
+    getCommitCategory: (str) => {
         return str.split(":")[0]
     },
-    splitColonSecond: (str) => {
+    getCommitMessage: (str) => {
         if (str.split(":").length > 2) {
             let emoji = ''
             for (let i = 2; i < str.split(":").length; i++) {
@@ -44,9 +44,6 @@ module.exports = {
             return md.renderInline(emoji.trim())
         }
         return str.split(":")[1]
-    },
-    hasMergeSkip: (str) => {
-        return !str.includes("Merge branch 'master' of")
     },
     charLength: (str) => {
         return str.length + 'ch'
