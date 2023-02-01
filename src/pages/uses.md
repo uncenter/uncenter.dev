@@ -2,7 +2,7 @@
 title: Uses
 ---
 
-All sorts of things that I use; on my computer, on my phone, services, etc.
+All sorts of things that I use; on my computer, on my phone, services, etc. Partly for my own reference, partly for anyone who's curious. To see other /uses pages, check out [uses.tech](https://uses.tech/).
 
 ## Apps
 
