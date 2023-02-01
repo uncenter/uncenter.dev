@@ -192,12 +192,13 @@ h4:hover .direct-link {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	position: fixed;
-	right: 10%;
+	right: 100px;
 	transition: all 0.3s ease-in-out;
 	z-index: 99;
 }
 
-.btn, button {
+.btn,
+button {
 	background: var(--bg-color);
 	color: var(--text-color);
 	border-radius: 5px;
@@ -334,6 +335,62 @@ blockquote {
 	margin: 0 0 0 24px;
 }
 
+.changelog {
+	li {
+		margin: 10px 0;
+		list-style-type: none;
+		text-align: left;
+	}
+
+	dt {
+		text-align: center;
+		font-weight: bold;
+	}
+
+	dd {
+		margin-bottom: 30px;
+	}
+
+	span {
+		color: white;
+	}
+}
+
+span[data-type="feat"] {
+	background-color: #22577A;
+}
+
+span[data-type="chore"] {
+	background-color: #ff8f40;
+}
+
+span[data-type="perf"] {
+	background-color: #FDE74C;
+}
+
+span[data-type="refactor"] {
+	background-color: #6b7a8b;
+}
+
+span[data-type="content"] {
+	background-color: #7FB069;
+}
+
+span[data-type="fix"] {
+	background-color: #F24333;
+}
+
+span[data-type="style"] {
+	background-color: #a37acc;
+}
+
+span[data-type="docs"] {
+	background-color: #FEEFDD;
+}
+
+span[data-type="conf"] {
+	background-color: #50B2C0;
+}
 
 @import 'blog';
 @import 'demo';
