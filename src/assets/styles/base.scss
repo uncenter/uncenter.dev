@@ -225,8 +225,11 @@ button {
 	}
 }
 
-main li a {
-	font-size: 14pt;
+.more-pages-container li, .toc li {
+	margin-bottom: 5px;
+	a {
+		font-size: 13pt;
+	}
 }
 
 .card {
