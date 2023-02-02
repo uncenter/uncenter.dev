@@ -8,7 +8,7 @@ layout: base
     {%- for post in collections.blog -%}
         <div class="card-container">
             <div class="post-content card">
-                <h3><a class="no-style" href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+                <h2><a class="no-style" href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
                 <ul class="tags">
                     <li class="description description-date">
                         <p class="inline-card blue">{%- insertSVG 'calendar' %} {{ post.date | shortenedJSDate }}</p>
