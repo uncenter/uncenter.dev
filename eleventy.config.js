@@ -9,6 +9,7 @@ const markdownItSup = require('markdown-it-sup');
 const markdownItSub = require('markdown-it-sub');
 const markdownItContainer = require('markdown-it-container');
 const markdownItKBD = require('markdown-it-kbd');
+const markdownItEmoji = require('markdown-it-emoji');
 const gitlog = require('gitlog').default;
 const { DateTime } = require("luxon");
 
@@ -66,7 +67,8 @@ module.exports = function (eleventyConfig) {
 		.use(markdownItContainer,
 			'card'
 		)
-		.use(markdownItKBD);
+		.use(markdownItKBD)
+		.use(markdownItEmoji);
 	eleventyConfig.setLibrary("md", markdownLibrary);
 
 	eleventyConfig.addPlugin(codeClipboard);
@@ -94,6 +96,22 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addCollection('blog', collection => {
 		return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
 	});
+	const collections = new Map();
+    eleventyConfig.addCollection("morePages", (collectionApi) => {
+        for (const p of collectionApi.getAll()) {
+            const { collection } = p.data;
+            if (!collections.has(collection)) {
+                collections.set(collection, []);
+            }
+			collections.get(collection).push(p);
+        }
+    });
+	for (const [c, ps] of collections.entries()) {
+		if (c !== undefined) {
+			eleventyConfig.addCollection(`collection-${c}`, () => ps);
+		}
+    }
+
 	eleventyConfig.addCollection("recentChangesByDate", () => {
 		const settings = {
 			repo: __dirname,

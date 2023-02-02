@@ -1,7 +1,8 @@
 ---
 title: Style
 styles: ['prism-mix.css', 'pallete.css']
-eleventyExcludeFromCollections: true
+collection: 'more'
+SVG: "palette"
 ---
 
 {% note "warning" %}
