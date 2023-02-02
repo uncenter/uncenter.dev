@@ -20,14 +20,15 @@
 </header>
 <script>
     var currentUrl = window.location.pathname;
-    var headerLinks = document.querySelectorAll("header a");
+    var headerLinks = document.querySelectorAll(".nav-links a");
+    var moreLink = document.querySelector(".nav-links a[href='/more']");
 
     headerLinks.forEach(function (link) {
         var linkUrl = link.getAttribute("href");
         if (currentUrl.includes(linkUrl)) {
-            link
-                .classList
-                .add("active");
+            link.classList.add("active");
+        } else if (!Array.from(headerLinks).some(link => link.getAttribute("href").includes(currentUrl)) && currentUrl !== "/") {
+            moreLink.classList.add("active");
         }
     });
 </script>
