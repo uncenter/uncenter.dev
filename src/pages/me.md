@@ -1,5 +1,7 @@
 ---
 title: "Me"
+collection: 'more'
+SVG: "user"
 ---
 
 I've talked a lot about development and this website, but I don't think I've really had a chance to talk about myself. Keep reading if you want to get to know me a bit better!

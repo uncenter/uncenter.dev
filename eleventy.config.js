@@ -96,21 +96,21 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addCollection('blog', collection => {
 		return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
 	});
-	const collections = new Map();
-    eleventyConfig.addCollection("morePages", (collectionApi) => {
-        for (const p of collectionApi.getAll()) {
-            const { collection } = p.data;
-            if (!collections.has(collection)) {
-                collections.set(collection, []);
-            }
+	eleventyConfig.addCollection("customCollections", (collectionApi) => {
+		const collections = new Map();
+
+		for (const p of collectionApi.getAll()) {
+			const { collection } = p.data;
+			if (collection === undefined) {
+				continue;
+			}
+			if (!collections.has(collection)) {
+				collections.set(collection, []);
+			}
 			collections.get(collection).push(p);
-        }
-    });
-	for (const [c, ps] of collections.entries()) {
-		if (c !== undefined) {
-			eleventyConfig.addCollection(`collection-${c}`, () => ps);
 		}
-    }
+		return Object.fromEntries(collections.entries());
+	});
 
 	eleventyConfig.addCollection("recentChangesByDate", () => {
 		const settings = {
