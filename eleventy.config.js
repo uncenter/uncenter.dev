@@ -94,7 +94,7 @@ module.exports = function (eleventyConfig) {
 		});
 	});
 	eleventyConfig.addCollection('blog', collection => {
-		return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
+		return [...collection.getFilteredByGlob('./src/blog/*.md')].reverse();
 	});
 	eleventyConfig.addCollection("customCollections", (collectionApi) => {
 		const collections = new Map();
