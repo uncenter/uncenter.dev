@@ -116,7 +116,7 @@ module.exports = function (eleventyConfig) {
 		const settings = {
 			repo: __dirname,
 			number: 35,
-			fields: ['hash', 'abbrevHash', 'subject', 'authorName', 'authorDate']
+			fields: ['hash', 'abbrevHash', 'subject', 'authorName', 'authorDate', 'committerDate', 'committerDateRel']
 		}
 		const recentChanges = gitlog(settings)
 

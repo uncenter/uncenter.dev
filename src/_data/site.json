@@ -6,5 +6,6 @@
     "description": "A personal blog and portfolio.",
     "favicon": "https://www.uncenter.org/img/favicon.ico",
     "generator": "Eleventy",
-    "githubUsername": "uncenter"
+    "githubUsername": "uncenter",
+    "githubRepo": "uncenter.org"
 } 

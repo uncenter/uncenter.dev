@@ -98,7 +98,6 @@ a {
 main a {
 	position: relative;
 	text-decoration: none;
-	display: inline-block;
 	color: var(--text-color);
 	padding: 0 1px;
 	transition: color ease 0.3s;
@@ -138,6 +137,15 @@ main a {
 
 	&[rel*="noopener"]:not([href*="uncenter.org"]):hover::after {
 		background-color: var(--bg-color);
+	}
+}
+
+main a.no-style{
+	&::before {
+		display: none;
+	}
+	&:hover {
+		color: var(--text-color);
 	}
 }
 
@@ -343,6 +351,10 @@ blockquote {
 }
 
 .changelog {
+	a.no-style{
+		text-decoration: underline;
+		display: inline;
+	}
 	li {
 		margin: 10px 0;
 		list-style-type: none;
@@ -363,39 +375,39 @@ blockquote {
 	}
 }
 
-span[data-type="feat"] {
+span[data-category="feat"] {
 	background-color: #22577A;
 }
 
-span[data-type="chore"] {
+span[data-category="chore"] {
 	background-color: #ff8f40;
 }
 
-span[data-type="perf"] {
+span[data-category="perf"] {
 	background-color: #FDE74C;
 }
 
-span[data-type="refactor"] {
+span[data-category="refactor"] {
 	background-color: #6b7a8b;
 }
 
-span[data-type="content"] {
+span[data-category="content"] {
 	background-color: #7FB069;
 }
 
-span[data-type="fix"] {
+span[data-category="fix"] {
 	background-color: #F24333;
 }
 
-span[data-type="style"] {
+span[data-category="style"] {
 	background-color: #a37acc;
 }
 
-span[data-type="docs"] {
+span[data-category="docs"] {
 	background-color: #FEEFDD;
 }
 
-span[data-type="conf"] {
+span[data-category="conf"] {
 	background-color: #50B2C0;
 }
 
