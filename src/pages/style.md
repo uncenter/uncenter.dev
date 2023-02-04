@@ -6,24 +6,23 @@ SVG: "palette"
 ---
 
 {% note "warning" %}
-🚧 **Work-In-Progress**:
+:construction: **Work-In-Progress**<br>
 This document is evolving slowly! Nothing is final...
 {% endnote %}
 
 This is my style guide. You can also read my [about page](/about) if you want to read how I *created* this website. This document talks more about the visual design.
 
 {% note "info" %}
-🚧 **Inspiration**
-
+:book: **Inspiration**<br>
 This page is inspired and based of off [Binyamin's style guide](https://binyam.in/style/), which took inspiration from [Brian Devries's style guide](https://brianjdevries.com/style-guide/).
 {% endnote %}
 
 
-## typography
+## Typography
 - Fonts are Titillium Web for the body text, Inter for my headings, and Questrial for the header.
 - Body font sizeis 14pt, but I probably should make it 16pt.
 
-## block-level elements
+## Block-level elements
 
 > This is a blockquote
 
@@ -41,7 +40,7 @@ function foo(bar) {
 
 <button class="btn">Button</button>
 
-## Inline Elements
+## Inline elements
 - Keyboard Input: [[⌘]] + [[Shift]] + [[P]]
 - Inline code - `Inline Code`
 - [This is an internal text link](#).
@@ -68,7 +67,7 @@ function foo(bar) {
 [^1]: This is a footnote.
 
 
-## colors
+## Colors
 
 <section class="pallete palleteA">
 	<div class="color-swatches">
