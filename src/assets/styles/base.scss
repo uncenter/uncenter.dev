@@ -416,6 +416,14 @@ span[data-category="conf"] {
 	padding-left: 0;
 }
 
+.tags-list {
+	display: flex;
+	align-items: stretch;
+	list-style-type: none;
+	justify-content: center;
+	gap: 10px;
+}
+
 @import 'blog';
 @import 'demo';
 @import 'footer';

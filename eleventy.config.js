@@ -111,7 +111,18 @@ module.exports = function (eleventyConfig) {
 		}
 		return Object.fromEntries(collections.entries());
 	});
+	function filterTagList(tags) {
+		return (tags || []).filter(tag => ["all"].indexOf(tag) === -1);
+	}
+	eleventyConfig.addFilter("filterTagList", filterTagList)
+	eleventyConfig.addCollection("tagList", function (collection) {
+		let tagSet = new Set();
+		collection.getAll().forEach(item => {
+			(item.data.tags || []).forEach(tag => tagSet.add(tag));
+		});
 
+		return filterTagList([...tagSet]);
+	});
 	eleventyConfig.addCollection("recentChangesByDate", () => {
 		const settings = {
 			repo: __dirname,
@@ -124,7 +135,7 @@ module.exports = function (eleventyConfig) {
 
 		for (const change of recentChanges) {
 			let { subject, authorDate } = change;
-			if (/^(fix|feat|docs|style|refactor|perf|test|chore|content)\b/i.test(subject)) {				
+			if (/^(fix|feat|docs|style|refactor|perf|test|chore|content)\b/i.test(subject)) {
 				subject = subject.replace(/[<>]/g, '');
 				authorDate = DateTime.fromISO(new Date(authorDate).toISOString()).toFormat('LLL dd yyyy');
 				if (!grouped.has(authorDate)) {
