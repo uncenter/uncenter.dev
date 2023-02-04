@@ -217,8 +217,19 @@ button {
 	display: block;
 }
 
-:root[data-theme="dark"] .btn {
-	background: $dark-400;
+:root[data-theme="dark"] {
+	.note {
+		&, a {
+			color: var(--bg-color);
+		}
+		a[rel*="noopener"]:not([href*="uncenter.org"])::after {
+			background-color: var(--bg-color);
+		}
+	}
+
+	.btn {
+		background: $dark-400;
+	}
 }
 
 .webring a {
@@ -317,10 +328,9 @@ kbd {
 }
 
 .note {
-	margin-bottom: 15px;
-	padding-top: 4px;
+	padding-top: 6px;
 	padding-right: 12px;
-	padding-bottom: 0px;
+	padding-bottom: 4px;
 	padding-left: 12px;
 	color: var(--text-color);
 }

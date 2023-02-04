@@ -1,10 +1,11 @@
 const markdownIt = require("markdown-it");
+const markdownItEmoji = require("markdown-it-emoji");
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPairedShortcode('note', (content, type = "info") => {
         const md = new markdownIt({
             html: true
-        });
+        }).use(markdownItEmoji);
         if (['info', 'warning', 'danger', 'tip'].includes(type) === false) type = "info";
 
         return (
