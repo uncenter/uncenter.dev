@@ -1,7 +1,7 @@
 @import 'variables';
 // @import 'fonts';
 
-$accent-blue: $frost-blue;
+$accent-blue: $frost-3;
 $duck: #74acf6;
 $main: #74acf6;
 
@@ -80,8 +80,10 @@ h4 {
 }
 
 .title {
-	font-size: 28pt;
-	font-weight: 700;
+	font-size: 3.5rem;
+	font-weight: 800;
+	letter-spacing: -.025em;
+	line-height: 1;
 }
 
 main hr {
@@ -187,22 +189,13 @@ h4:hover .direct-link {
 	color: #FFFFFF;
 }
 
-.back-to-top {
-	animation-duration: 0.5s;
-	animation-name: fadeIn;
-	background-color: var(--bg-color);
-	font-size: 14pt;
-	display: none;
-	bottom: 100px;
-	color: var(--text-color);
-	padding-left: 15px;
-	padding-right: 15px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	position: fixed;
-	right: 100px;
-	transition: all 0.3s ease-in-out;
-	z-index: 99;
+.article-end {
+	&.back-to-top {
+		float: left;
+	}
+	&.open-in-github {
+		float: right;
+	}
 }
 
 .btn,
@@ -227,7 +220,7 @@ button {
 		}
 	}
 
-	.btn {
+	.btn, button {
 		background: $dark-400;
 	}
 }
@@ -253,11 +246,26 @@ button {
 
 .card {
 	border-radius: 10px;
+	background-color: $light-200;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	padding-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
 	padding-top: 10px;
+	transition: 0.3s background-color ease-in-out;
+	&.card-interactive:hover {
+		background-color: $light-300;
+		transition: 0.3s background-color ease-in-out;
+	}
+}
+
+html[data-theme="dark"] .card {
+	background-color: $dark-200;
+	box-shadow: rgba(76, 86, 106, 0.2) 0px 2px 8px 0px;
+	transition: 0.3s background-color ease-in-out;
+	&.card-interactive:hover {
+		background-color: $dark-300;
+	}
 }
 
 .inline-card {
@@ -284,15 +292,11 @@ button {
 }
 
 .inline-card.blue {
-	background-color: $aurora-blue;
+	background-color: $frost-3;
 }
 
 .inline-card.purple {
 	background-color: $aurora-purple;
-}
-
-.inline-card.pink {
-	background-color: $aurora-pink;
 }
 
 .inline-card.green {
@@ -432,6 +436,15 @@ span[data-category="conf"] {
 	list-style-type: none;
 	justify-content: center;
 	gap: 10px;
+}
+::selection {
+	background: $dark-300;
+	color: $light-300;
+}
+
+html[data-theme="dark"] ::selection {
+	background: $light-300;
+	color: $dark-300;
 }
 
 @import 'blog';

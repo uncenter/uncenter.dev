@@ -1,9 +1,3 @@
-:root[data-theme="dark"] .post-content {
-	text-align: center;
-	transition: 0.5s box-shadow linear;
-	background-color: $dark-000;
-}
-
 article {
 	padding-bottom: 50px;
 }
@@ -20,7 +14,7 @@ article {
 }
 
 .icon-clock {
-	stroke: $dark-000;
+	stroke: $dark-100;
 }
 
 .post-content {
@@ -32,7 +26,8 @@ article {
 }
 
 .tags .description p {
-	color: $dark-000;
+	color: $dark-100;
+	font-size: smaller;
 }
 
 .tags {

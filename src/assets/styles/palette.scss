@@ -29,6 +29,10 @@
 	overflow: hidden;
 }
 
+.wrapper .palette-card:hover {
+	box-shadow: rgba(184, 194, 215, 0.35) 0px 10px 20px 2px;
+}
+
 .palette {
 	display: flex;
 	overflow: hidden;
