@@ -56,8 +56,9 @@
         {% endif %}
         {{ content | safe }}
       </article>
+      <button class="article-end back-to-top">Back to top {% insertSVG 'arrow-up' %}</button>
+      <a class="no-style btn article-end open-in-github" href="https://github.com/{{ site.githubUsername }}/{{ site.githubRepo }}/blob/master/{{ page.inputPath }}">Open in Github {% insertSVG 'external' %}</a>
     </main>
-    <button aria-label="Return to top of page" class="back-to-top btn" title="Back to top">{% insertSVG 'up' %}</button>
     <script src="/assets/scripts/events.js"></script>
     {% if script %}
       <script src="/assets/scripts/{{script}}"></script>
