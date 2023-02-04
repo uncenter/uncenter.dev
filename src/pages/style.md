@@ -72,44 +72,79 @@ function foo(bar) {
 <div class="colors-container">
 	<div id="aurora" class="wrapper">
 	<h1 class="title">Aurora</h1>
-	<div class="palette-card">
-		<div class="palette">
-		<div class="swatch-box">
-			<div data-color="#bf616a" class="color"></div>
+		<div class="palette-card">
+			<div class="palette">
+			<div class="swatch-box">
+				<div data-color="#bf616a" class="color"></div>
+			</div>
+			<div class="swatch-box">
+				<div data-color="#d08770" class="color"></div>
+			</div>
+			<div class="swatch-box">
+				<div data-color="#ebcb8b" class="color"></div>
+			</div>
+			<div class="swatch-box">
+				<div data-color="#a3be8c" class="color"></div>
+			</div>
+			<div class="swatch-box">
+				<div data-color="#b48ead" class="color"></div>
+			</div>
+			</div>
 		</div>
-		<div class="swatch-box">
-			<div data-color="#d08770" class="color"></div>
-		</div>
-		<div class="swatch-box">
-			<div data-color="#ebcb8b" class="color"></div>
-		</div>
-		<div class="swatch-box">
-			<div data-color="#a3be8c" class="color"></div>
-		</div>
-		<div class="swatch-box">
-			<div data-color="#b48ead" class="color"></div>
-		</div>
-		</div>
-	</div>
 	</div>
 	<div id="frost" class="wrapper">
-	<h1 class="title">Frost</h1>
-	<div class="palette-card">
-		<div class="palette">
-		<div class="swatch-box">
-			<div data-color="#8fbcbb" class="color"></div>
-		</div>
-		<div class="swatch-box">
-			<div data-color="#88c0d0" class="color"></div>
-		</div>
-		<div class="swatch-box">
-			<div data-color="#81a1c1" class="color"></div>
-		</div>
-		<div class="swatch-box">
-			<div data-color="#5e81ac" class="color"></div>
-		</div>
+		<h1 class="title">Frost</h1>
+		<div class="palette-card">
+			<div class="palette">
+				<div class="swatch-box">
+					<div data-color="#8fbcbb" class="color"></div>
+				</div>
+				<div class="swatch-box">
+					<div data-color="#88c0d0" class="color"></div>
+				</div>
+				<div class="swatch-box">
+					<div data-color="#81a1c1" class="color"></div>
+				</div>
+				<div class="swatch-box">
+					<div data-color="#5e81ac" class="color"></div>
+				</div>
+			</div>
 		</div>
 	</div>
+	<div id="polar-night" class="wrapper">
+		<h1 class="title">Polar Night</h1>
+		<div class="palette-card">
+			<div class="palette">
+				<div class="swatch-box">
+					<div data-color="#2e3440" class="color"></div>
+				</div>
+				<div class="swatch-box">
+					<div data-color="#3b4252" class="color"></div>
+				</div>
+				<div class="swatch-box">
+					<div data-color="#434c5e" class="color"></div>
+				</div>
+				<div class="swatch-box">
+					<div data-color="#4c566a" class="color"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="snow-storm" class="wrapper">
+		<h1 class="title">Snow Storm</h1>
+		<div class="palette-card">
+			<div class="palette">
+				<div class="swatch-box">
+					<div data-color="#d8dee9" class="color"></div>
+				</div>
+				<div class="swatch-box">
+					<div data-color="#e5e9f0" class="color"></div>
+				</div>
+				<div class="swatch-box">
+					<div data-color="#eceff4" class="color"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
