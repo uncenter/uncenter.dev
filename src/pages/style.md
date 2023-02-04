@@ -1,6 +1,6 @@
 ---
 title: Style
-styles: ['prism-mix.css', 'pallete.css']
+styles: ['prism-mix.css', 'palette.css']
 collection: 'more'
 SVG: "palette"
 ---
@@ -69,56 +69,68 @@ function foo(bar) {
 
 ## Colors
 
-<section class="pallete palleteA">
-	<div class="color-swatches">
-		<div class="pallete-title">Nord Aurora</div>
-		<div class="swatch-container">
-			<div class="swatch A tooltip">
-				<span class="tooltip-text">#bf616a</span>
-			</div>
-			<div class="swatch B tooltip">
-				<span class="tooltip-text">#d08770</span>
-			</div>
-			<div class="swatch C tooltip">
-				<span class="tooltip-text">#ebcb8b</span>
-			</div>
-			<div class="swatch D tooltip">
-				<span class="tooltip-text">#a3be8c</span>
-			</div>
-			<div class="swatch E tooltip">
-				<span class="tooltip-text">#ACB4D7</span>
-			</div>
-			<div class="swatch F tooltip">
-				<span class="tooltip-text">#A7ACD9</span>
-			</div>
-			<div class="swatch G tooltip">
-				<span class="tooltip-text">#b48ead</span>
-			</div>
+<div class="colors-container">
+	<div id="aurora" class="wrapper">
+	<h1 class="title">Aurora</h1>
+	<div class="palette-card">
+		<div class="palette">
+		<div class="swatch-box">
+			<div data-color="#bf616a" class="color"></div>
+		</div>
+		<div class="swatch-box">
+			<div data-color="#d08770" class="color"></div>
+		</div>
+		<div class="swatch-box">
+			<div data-color="#ebcb8b" class="color"></div>
+		</div>
+		<div class="swatch-box">
+			<div data-color="#a3be8c" class="color"></div>
+		</div>
+		<div class="swatch-box">
+			<div data-color="#b48ead" class="color"></div>
+		</div>
 		</div>
 	</div>
-</section>
-<section class="pallete palleteB">
-	<div class="color-swatches">
-		<div class="pallete-title">Nord Aurora</div>
-		<div class="swatch-container">
-			<div class="swatch A tooltip">
-				<span class="tooltip-text">#eceff4</span>
-			</div>
-			<div class="swatch B tooltip">
-				<span class="tooltip-text">#e5e9f0</span>
-			</div>
-			<div class="swatch C tooltip">
-				<span class="tooltip-text">#d8dee9</span>
-			</div>
-			<div class="swatch D tooltip">
-				<span class="tooltip-text">#CBD3E1</span>
-			</div>
-			<div class="swatch E tooltip">
-				<span class="tooltip-text">#BEC8DA</span>
-			</div>
-			<div class="swatch F tooltip">
-				<span class="tooltip-text">#B1BDD2</span>
-			</div>
+	</div>
+	<div id="frost" class="wrapper">
+	<h1 class="title">Frost</h1>
+	<div class="palette-card">
+		<div class="palette">
+		<div class="swatch-box">
+			<div data-color="#8fbcbb" class="color"></div>
+		</div>
+		<div class="swatch-box">
+			<div data-color="#88c0d0" class="color"></div>
+		</div>
+		<div class="swatch-box">
+			<div data-color="#81a1c1" class="color"></div>
+		</div>
+		<div class="swatch-box">
+			<div data-color="#5e81ac" class="color"></div>
+		</div>
 		</div>
 	</div>
-</section>
+	</div>
+</div>
+
+<script>
+	const swatches = document.querySelectorAll(".swatch-box");
+	swatches.forEach((swatch) => {
+  		const divColor = swatch.querySelector(".color");
+  		const background = divColor.getAttribute("data-color");
+  		divColor.style.backgroundColor = background;
+
+  		const divLabel = document.createElement("div");
+  		divLabel.classList.add("label");
+  		divLabel.textContent = background;
+  		swatch.appendChild(divLabel);
+
+  		const button = document.createElement("button");
+  		button.innerHTML = '<svg id="icon-copy" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg>';
+  		button.addEventListener("click", (event) => {
+    		navigator.clipboard.writeText(background);
+  		});
+
+		divLabel.appendChild(button);
+	});
+</script>
