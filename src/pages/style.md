@@ -73,7 +73,7 @@ function foo(bar) {
 	<div id="aurora" class="wrapper">
 	<h1 class="title">Aurora</h1>
 		<div class="palette-card">
-			<div class="palette">
+			<div class="palette large">
 			<div class="swatch-box">
 				<div data-color="#bf616a" class="color"></div>
 			</div>
@@ -133,7 +133,7 @@ function foo(bar) {
 	<div id="snow-storm" class="wrapper">
 		<h1 class="title">Snow Storm</h1>
 		<div class="palette-card">
-			<div class="palette">
+			<div class="palette small">
 				<div class="swatch-box">
 					<div data-color="#d8dee9" class="color"></div>
 				</div>
@@ -151,21 +151,25 @@ function foo(bar) {
 <script>
 	const swatches = document.querySelectorAll(".swatch-box");
 	swatches.forEach((swatch) => {
-  		const divColor = swatch.querySelector(".color");
-  		const background = divColor.getAttribute("data-color");
-  		divColor.style.backgroundColor = background;
+		const divColor = swatch.querySelector(".color");
+		const background = divColor.getAttribute("data-color");
+		divColor.style.backgroundColor = background;
 
-  		const divLabel = document.createElement("div");
-  		divLabel.classList.add("label");
-  		divLabel.textContent = background;
-  		swatch.appendChild(divLabel);
+		const divLabel = document.createElement("div");
+		divLabel.classList.add("label");
+		const divLabelText = document.createElement("span");
+		divLabelText.classList.add("text");
+		divLabelText.textContent = background;
+		swatch.appendChild(divLabel);
+		divLabel.append(divLabelText);
 
-  		const button = document.createElement("button");
-  		button.innerHTML = '<svg id="icon-copy" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg>';
-  		button.addEventListener("click", (event) => {
-    		navigator.clipboard.writeText(background);
-  		});
-
-		divLabel.appendChild(button);
+		const divLabelButton = document.createElement("button");
+		divLabelButton.innerHTML =
+			'<svg id="icon-copy" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg>';
+		divLabelButton.addEventListener("click", (event) => {
+			navigator.clipboard.writeText(background);
 	});
+
+	divLabel.appendChild(divLabelButton);
+});
 </script>
