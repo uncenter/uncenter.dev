@@ -244,20 +244,20 @@ button {
 }
 
 .card {
-	border-radius: 10px;
-	// background: $light-100;
 	z-index: -2;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	padding-bottom: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 10px;
-	transition: 0.3s background-color ease-in-out;
+	box-shadow: rgba(184, 194, 215, 0.35) 4px 6px 10px 4px;
+	border-radius: 0.5em;
+	transition: box-shadow 0.3s ease-in-out 0s,
+		background-color 0.3s ease-in-out 0s;
+	overflow: hidden;
+}
 
-	&.card-interactive:hover {
-		background-color: $light-300;
-		transition: 0.3s background-color ease-in-out;
-	}
+.card-interactive:hover {
+	box-shadow: rgba(184, 194, 215, 0.35) 3px 3px 14px 10px;
 }
 
 html[data-theme="dark"] .card {
