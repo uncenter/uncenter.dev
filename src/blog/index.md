@@ -7,7 +7,7 @@ layout: base
 <div class="blog-posts">
     {%- for post in collections.blog -%}
         <div class="card-container">
-            <div class="post-content card">
+            <div class="post-content card card-interactive">
                 <h2><a class="no-style" href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
                 <ul class="tags">
                     <li class="description description-date">
@@ -19,7 +19,7 @@ layout: base
                     {%- if post.data.tags -%}
                         {%- for tag in post.data.tags -%}
                             <li class="description description-tag">
-                                <a class="no-style" href="/tags/{{ tag | slug }}">
+                                <a class="no-style" href="/tags/{{ tag | slugify }}">
                                     <p class="inline-card white">{%- insertSVG 'tag' %} {{ tag }}</p>
                                 </a>
                             </li>

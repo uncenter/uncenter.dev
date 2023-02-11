@@ -1,6 +1,6 @@
 const toggle = document.getElementById("toggle");
 
-function setTheme (theme) {
+function setTheme(theme) {
     if (theme === undefined) {
         if (html.dataset.theme === "dark") {
             theme = "light";
@@ -8,49 +8,57 @@ function setTheme (theme) {
             theme = "dark";
         }
     }
-    localStorage.setItem('colorTheme', theme);
+    localStorage.setItem("colorTheme", theme);
     html.dataset.theme = theme;
-    checkToggle(theme)
+    checkToggle(theme);
     changeGiscusTheme(theme);
 }
 
-function checkToggle (theme) {
-    const svg = toggle.querySelector('.icon');
+function checkToggle(theme) {
+    const svg = toggle.querySelector(".icon");
     if (theme === "dark") {
-        svg.classList.replace('moon', 'sun')
-        svg.querySelector('use').setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#icon-sun');
+        svg.classList.replace("moon", "sun");
+        svg.querySelector("use").setAttributeNS(
+            "http://www.w3.org/1999/xlink",
+            "xlink:href",
+            "#icon-sun"
+        );
     } else {
-        svg.classList.replace('sun', 'moon')
-        svg.querySelector('use').setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#icon-moon');
+        svg.classList.replace("sun", "moon");
+        svg.querySelector("use").setAttributeNS(
+            "http://www.w3.org/1999/xlink",
+            "xlink:href",
+            "#icon-moon"
+        );
     }
 }
 
 const getSystemTheme = () => {
     return media.matches ? "dark" : "light";
-}
+};
 
 function sendMessage(message) {
-    const iframe = document.querySelector('iframe.giscus-frame');
+    const iframe = document.querySelector("iframe.giscus-frame");
     if (!iframe) return;
-    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    iframe.contentWindow.postMessage({ giscus: message }, "https://giscus.app");
 }
 
 function changeGiscusTheme(theme) {
     if (theme === undefined) {
-        theme = html.dataset.theme
+        theme = html.dataset.theme;
     }
     sendMessage({
         setConfig: {
-        theme: theme,
+            theme: theme,
         },
     });
 }
 
 media.onchange = () => {
     setTheme(getSystemTheme());
-}
+};
 
-toggle.onclick = function() {
+toggle.onclick = function () {
     setTheme();
 };
 
