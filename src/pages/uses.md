@@ -6,7 +6,7 @@ SVG: "bookmark"
 
 All sorts of things that I use; on my computer, on my phone, services, etc. Partly for my own reference, partly for anyone who's curious. To see other /uses pages, check out [uses.tech](https://uses.tech/).
 
-## Apps
+## Software
 
 ### General
 
@@ -25,6 +25,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [VS Code](https://code.visualstudio.com/) for all programming
 - [Fig](https://fig.io/) for CLI autocomplete
 - [oh-my-zsh](https://ohmyz.sh/) for shell management
+- [Homebrew](https://brew.sh/) for system package management
 
 ### Utilities
 
@@ -41,26 +42,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [Refined GitHub](https://github.com/refined-github/refined-github) for better GitHub
 - [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
 
-## Developer tooling
-
-### Package management
-
-- [Homebrew](https://brew.sh/) for system package management
-
-
-### Web Development
-
-- [Eleventy](https://www.11ty.dev/) for content-oriented static sites
-
-## Services
-
-### General
-
-- [1Password](https://1password.com/) for password management
-- [Notion](https://notion.so/) for personal documents and databases
-- [Spotify](https://spotify.com/) for music
-
-### Web Development
+### Developer services
 
 - [GitHub](https://github.com/) for project source code hosting
 - [Vercel](https://vercel.com/) for some web app hosting
@@ -68,3 +50,20 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [Netlify](https://www.netlify.com/) for some static site hosting
 - [Umami](https://umami.is/) for the best simple, easy, privacy-respecting analytics
 - [Railway](https://railway.app/) for hosting and managing databases
+
+## Hardware
+
+### Day-to-day
+- [MacBook Pro 13" (2020 M1)](https://www.apple.com/macbook-pro-13/) for general use
+- [iPhone 13](https://www.apple.com/iphone-13/)
+
+### PC
+- [Ryzen 5 3600](https://www.amd.com/en/products/cpu/amd-ryzen-5-3600) for CPU
+- [Asus Prime B350 Plus](https://www.asus.com/us/Motherboards/PRIME-B350-PLUS/) for motherboard
+- Asus GTX 1660 Super
+- [Corsair Vengeance LPX 2x8GB](https://www.corsair.com/us/en/Categories/Products/Memory/VENGEANCE-LPX/p/CMK16GX4M2B3200C16) for RAM
+
+### Peripherals
+- [Glorious Model O](https://www.gloriousgaming.com/products/glorious-model-o-black) for mouse
+- [Glorious GMMK](https://www.gloriousgaming.com/products/gmmk-full-brown-switch) for keyboard
+- [DT 770 Pro](https://north-america.beyerdynamic.com/dt-770-pro.html) for headphones (250 ohm)
