@@ -3,9 +3,7 @@ title: "Contact"
 ---
 
 :::card
-**by email**: contact[at]uncenter[dot]org
-
-↳ secondary email: uncenteristaken[at]gmail[dot]com
-
-**by discord**: uncenter#1078
+**mastodon**: [fosstodon.org/@uncenter](https://fosstodon.org/@uncenter)
+**email**: contact[at]uncenter[dot]org
+**discord**: uncenter#1078
 :::
