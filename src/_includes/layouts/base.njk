@@ -33,6 +33,9 @@
     <link rel="shortcut icon" href="/favicon.ico?v=2">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:image" content="https://og.uncenter.org/api/og?title={{ title }}&date={{ date | shortenedJSDate }}&time={{ content | emojiReadTime }}"/>
 
     <link rel="manifest" href="/site.webmanifest">
     <link rel="canonical" href="https://www.uncenter.org{{ page.url }}">
