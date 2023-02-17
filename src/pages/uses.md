@@ -11,6 +11,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 ### General
 
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/) for web browsing
+    - [Polypane](https://polypane.app/) for testing responsive websites
 - [1Password](https://1password.com/) for password management
 - [Notion](https://notion.so/) for personal writing and databases
 - [Spotify](https://spotify.com/) for music
@@ -23,6 +24,8 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 
 - [Hyper](https://hyper.is/) for terminal
 - [VS Code](https://code.visualstudio.com/) for all programming
+- [PyCharm](https://www.jetbrains.com/pycharm/) for Python
+- [Sublime Text](https://www.sublimetext.com/) for quick text editing
 - [Fig](https://fig.io/) for CLI autocomplete
 - [oh-my-zsh](https://ohmyz.sh/) for shell management
 - [Homebrew](https://brew.sh/) for system package management
@@ -32,15 +35,27 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [Raycast](https://raycast.com/) to replace the default MacOS spotlight search
     - [Coffee](https://www.raycast.com/mooxl/coffee) to prevent sleep
 - [Stats](https://github.com/exelban/stats) for menubar stats
+- [AltTab](https://alt-tab-macos.netlify.app/) for window switching
 
 ### Browser Extensions
 
+#### General
 - [uBlock Origin](https://github.com/gorhill/uBlock/) for ad and tracker blocking
-- [1Password browser extension](https://1password.com/downloads/browser-extension/)
+- [1Password](https://1password.com/downloads/browser-extension/)
 - [Notion web clipper](https://www.notion.so/web-clipper) for saving web pages to Notion
+- [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
+- [flameshot](https://flameshot.org/) for taking screenshots
+- [Grammarly](https://www.grammarly.com/) for grammar and spelling
+- [Tab Stash](https://josh-berry.github.io/tab-stash/) for saving tabs for later
+
+#### Development
 - [Web Developer](https://chrispederick.com/work/web-developer/) for basic web development tools
 - [Refined GitHub](https://github.com/refined-github/refined-github) for better GitHub
-- [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
+- [SVG Gobbler](https://www.svggobbler.com/) for grabbing SVGs from websites
+- [Fontanello](https://fontanello.app/) for finding fonts on websites
+- [Github Repo Size](https://github.com/Shywim/github-repo-size) for seeing repo sizes on GitHub
+- [Visbug](https://github.com/GoogleChromeLabs/ProjectVisBug) for taking a look at styling on websites
+- [Web Developer](https://chrispederick.com/work/web-developer/) for quick web development tools
 
 ### Developer services
 
