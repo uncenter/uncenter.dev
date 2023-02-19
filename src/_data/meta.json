@@ -1,0 +1,24 @@
+{
+    "name": "uncenter",
+    "url": "https://uncenter.org",
+    "description": "A personal blog and portfolio.",
+    "generator": "Eleventy",
+    "github" : {
+        "username": "uncenter",
+        "repo": "uncenter.org"
+    },
+    "social": {
+        "email": {
+            "main": "contact@uncenter.org",
+            "obfuscated": "contact[at]uncenter[dot]org"
+        },
+        "mastodon": {
+            "username": "uncenter",
+            "instance": "fosstodon.org"
+        },
+        "discord" : {
+            "username": "uncenter",
+            "tag": "1078"
+        }
+    }
+}

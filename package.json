@@ -1,53 +1,32 @@
 {
-  "name": "eleventy",
+  "name": "inte11igent",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An intelligent starter for Eleventy using TailwindCSS, SASS/SCSS, and more.",
   "scripts": {
     "clean": "rm -rf dist",
-    "watch:sass": "sass --watch src/assets/styles:dist/assets/styles",
-    "build:sass": "sass src/assets/styles:dist/assets/styles",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
-    "postcss": "postcss base.css --replace",
-    "_:postcss": "postcss base.css --replace --watch",
-    "start": "npm-run-all --parallel watch:*",
-    "build": "npm-run-all build:*"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uncenter/inte11igent-starter.git"
+  },
+  "author": {
+    "name": "uncenter",
+    "email": "contact@uncenter.org",
+    "url": "https://uncenter.org/"
+  },
+  "homepage": "https://github.com/uncenter/inte11igent-starter",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.0-beta.2",
-    "@11ty/eleventy-img": "^2.0.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
-    "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
-    "@aloskutov/eleventy-plugin-external-links": "^1.4.3",
-    "eleventy-plugin-gen-favicons": "^1.1.2",
-    "eleventy-plugin-purgecss": "^0.3.0",
-    "eleventy-plugin-recent-changes": "^1.0.1",
-    "eleventy-plugin-toc": "^1.1.5",
-    "html-minifier": "^4.0.0",
-    "markdown-it-abbr": "^1.0.4",
-    "markdown-it-anchor": "^8.6.6",
-    "markdown-it-attrs": "^4.1.6",
-    "markdown-it-container": "^3.0.0",
+    "@11ty/eleventy": "^2.0.0",
+    "fs": "^0.0.1-security",
+    "gitlog": "^4.0.4",
+    "luxon": "^3.2.1",
+    "markdown-it": "^13.0.1",
     "markdown-it-emoji": "^2.0.2",
-    "markdown-it-footnote": "^3.0.3",
-    "markdown-it-kbd": "^2.2.2",
-    "markdown-it-link-attributes": "^4.0.1",
-    "markdown-it-mark": "^3.0.1",
-    "markdown-it-sub": "^1.0.0",
-    "markdown-it-sup": "^1.0.0",
-    "markdown-it-task-checkbox": "^1.0.6",
-    "npm-run-all": "^4.1.5",
-    "sass": "^1.57.1",
-    "slugify": "^1.6.5"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "cssnano": "^5.1.14",
-    "postcss": "^8.4.21",
-    "postcss-cli": "^10.1.0"
+    "striptags": "^3.2.0"
   }
 }
