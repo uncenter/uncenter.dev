@@ -3,7 +3,7 @@ title: "Contact"
 ---
 
 :::card
-**mastodon**: [{ site.social.mastodon.instance }/@{ site.social.mastodon.username }](https://{ site.social.mastodon.instance }/@{ site.social.mastodon.username })
-**email**: { site.social.email.main }
-**discord**: { site.social.discord.username }#{ site.social.discord.tag }
+**mastodon**: [@{{ meta.social.mastodon.username }}@{{ meta.social.mastodon.instance }}](https://{{ meta.social.mastodon.instance }}/@{{ meta.social.mastodon.username }})
+**email**: {{ meta.social.email.main }}
+**discord**: {{ meta.social.discord.username }}#{{ meta.social.discord.tag }}
 :::
