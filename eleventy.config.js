@@ -35,13 +35,17 @@ module.exports = function (eleventyConfig) {
 	// 	}
 	// 	return Array.from(grouped.entries());
 	// });
+	// eleventyConfig.addCollection('icon', collection => {
+	// 	return [...collection.getFilteredByGlob('/icons/*.svg')];
+	// });
 
     eleventyConfig.addLayoutAlias('base', 'base.njk');
     eleventyConfig.addLayoutAlias('post', 'post.njk');
 
     eleventyConfig.addPassthroughCopy({ "src/assets/images/favicon": "." });
-    // eleventyConfig.addPassthroughCopy("src/assets/icons");
-    eleventyConfig.addPassthroughCopy("src/assets/js");
+    eleventyConfig.addPassthroughCopy({"src/assets/js": "/assets/js"});
+	eleventyConfig.addPassthroughCopy({"src/assets/css": "/assets/css"});
+
     return {
         dir: {
             input: "src/content",
@@ -50,5 +54,7 @@ module.exports = function (eleventyConfig) {
             data: "../_data",
             output: "dist",
         },
+		templateFormats: [ 'md', 'njk', 'html', 'css' ],
+		markdownTemplateEngine: 'njk',
     };
 };
