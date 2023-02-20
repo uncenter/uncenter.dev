@@ -3,6 +3,7 @@ const markdownItEmoji = require("markdown-it-emoji");
 const fs = require("fs");
 const path = require("path");
 const { htmlToText } = require("html-to-text");
+const meta = require("../src/_data/meta.json");
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPairedShortcode(
@@ -98,6 +99,41 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addShortcode("year", () => {
         return new Date().getFullYear();
+    });
+
+    eleventyConfig.addShortcode("date", (date) => {
+        return new Date(date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        });
+    });
+
+    eleventyConfig.addShortcode("giscus", () => {
+        const repo = "R_kgDOHSjhjQ";
+        const category = "DIC_kwDOHSjhjc4CTQUr";
+        const reactions = "1";
+        return `
+        <script>
+        let giscusTheme = "light";
+        let giscusAttributes = {
+            "src": "https://giscus.app/client.js",
+            "data-repo": "${meta.github.username}/${meta.github.repo}",
+            "data-repo-id": "${repo}",
+            "data-category-id": "${category}",
+            "data-mapping": "title",
+            "data-reactions-enabled": "${reactions}",
+            "data-emit-metadata": "0",
+            "data-input-position": "top",
+            "data-theme": giscusTheme,
+            "data-lang": "en",
+            "crossorigin": "anonymous",
+            "async": ""
+        };
+        let giscusScript = document.createElement("script");
+        Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+        document.body.appendChild(giscusScript);
+        </script>`;
     });
 };
 
