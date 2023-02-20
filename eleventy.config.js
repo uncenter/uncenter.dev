@@ -4,7 +4,7 @@ const { DateTime } = require("luxon");
 
 const filters = require("./utils/filters.js");
 const shortcodes = require("./utils/shortcodes.js");
-const inProduction = process.env.NODE_ENV === "prod";
+const inProduction = process.env.NODE_ENV === "production";
 
 const markdownIt = require("markdown-it");
 const markdownItChecklist = require("markdown-it-task-checkbox");
@@ -21,16 +21,16 @@ const markdownItKBD = require("markdown-it-kbd");
 const markdownItEmoji = require("markdown-it-emoji");
 
 // const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginTOC = require("eleventy-plugin-toc");
-const externalLinks = require("@aloskutov/eleventy-plugin-external-links");
+const eleventyTOC = require("eleventy-plugin-toc");
+const eleventyExternalLinks = require("@aloskutov/eleventy-plugin-external-links");
 
 module.exports = function (eleventyConfig) {
     Object.keys(filters).forEach((filter) => {
         eleventyConfig.addFilter(filter, filters[filter]);
     });
     eleventyConfig.addPlugin(shortcodes);
-    eleventyConfig.addPlugin(pluginTOC);
-    eleventyConfig.addPlugin(externalLinks, {
+    eleventyConfig.addPlugin(eleventyTOC);
+    eleventyConfig.addPlugin(eleventyExternalLinks, {
         url: "https://uncenter.org",
         rel: ["noreferrer", "noopener", "external"],
         overwrite: false,
@@ -123,6 +123,7 @@ module.exports = function (eleventyConfig) {
             return htmlmin.minify(content, {
                 collapseWhitespace: true,
                 useShortDoctype: true,
+                removeComments: true
             });
         } else {
             return content;
