@@ -1,55 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <title>{{ title }}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="{{ meta.name }}">
-        <meta name="description" content="{{ description }}">
-        <meta name="generator" content="{{ meta.generator }}">
-        <meta name="color-scheme" content="dark light">
-        <meta property="og:title" content="{{ title }}" />
-        <meta property="og:description" content="{{ description }}" />
-        <meta property="og:image" content="https://og.uncenter.org/api/og?title={{ title }}&date={{ date | shortenedJSDate }}&time={{ content | readingTime }}"/>
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
-        <link rel="manifest" href="/site.webmanifest?v=2">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg?v=2" color="#5bbad5">
-        <link rel="shortcut icon" href="/favicon.ico?v=2">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
-        <link href="https://github.com/{{ meta.github.username }}" rel="me">
-        <link href="https://{{ meta.social.mastodon.instance }}/@{{ meta.social.mastodon.username }}" rel="me">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="canonical" href="https://www.uncenter.org{{ page.url }}">
-        <script async defer data-website-id="dea82084-7eb8-4337-b02c-23f6ace1afc1" src="https://analytics.uncenter.org/umami.js"></script>
-
-        <link rel="stylesheet" href="/assets/css/index.css">
-        <link rel="stylesheet" href="/assets/css/tailwind.css">
-        {% if styles %}
-        {% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/css/{{ style }}">{% endfor %}
-        {% endif %}
+        {% include "../components/head.njk" %}
     </head>
-    <body>
-    {% include "../components/header.njk" %}
-    <main>
-      <article>
-        <h1 class="title">{{ title }}</h1>
-        {{ content | safe }}
-      </article>
-    </main>
-    {% include "../components/footer.njk" %}
-    {% iconSheet %}
+    <body class="flex flex-col justify-center w-3/5 mx-auto">
+        <header>
+            <a aria-label="Home" {% if page.url === "/" %}aria-current="page"{% endif %} title="Home" class="logo" style="text-decoration: none;" href="/">{% include "src/assets/images/laptop.svg" %}</a>
+            <ul class="nav-links">
+                {% for item in nav.top %}
+                    <li>
+                        <a href="{{ item.url }}" {% if page.url === link.url %}aria-current="page"{% endif %}>{% icon item.icon %}
+                            {{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <button aria-label="Open settings">
+                {% icon 'wrench' %}
+            </button>
+        </header>
+        <main>
+            <h1 class="title">{{ title }}</h1>
+            {{ content | safe }}
+        </main>
+        <footer>
+            <hr>
+            <div class="description">
+                <p>last updated {{ page.date | shortenedJSDate }}</p>
+                <div class="webring">
+                    <a href="https://xn--sr8hvo.ws/%E2%86%95%EF%B8%8F%F0%9F%8F%9D%F0%9F%93%81/previous">←</a>
+                    an <a href="https://xn--sr8hvo.ws">IndieWeb webring</a> 🕸💍
+                    <a href="https://xn--sr8hvo.ws/%E2%86%95%EF%B8%8F%F0%9F%8F%9D%F0%9F%93%81/next">→</a>
+                </div>
+            </div>
+            <ul class="footer-icons">
+                {% for item in nav.bottom %}
+                    <li title="{{ item.title }}">
+                        <a aria-label="{{ item.title }}" href="{{ item.url }}">{% icon item.icon %}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </footer>
+        {% iconSheet %}
     </body>
     <script src="/assets/scripts/index.js"></script>
     {% if script %}
-      <script src="/assets/scripts/{{script}}"></script>
+        <script src="/assets/scripts/{{script}}"></script>
     {% endif %}
 </html>
 <script src="/assets/scripts/theme.js"></script>
