@@ -19,7 +19,7 @@
     "url": "https://uncenter.org/"
   },
   "homepage": "https://github.com/uncenter/inte11igent-starter",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^2.0.0",
     "@aloskutov/eleventy-plugin-external-links": "^1.4.4",
