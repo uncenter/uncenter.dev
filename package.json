@@ -27,6 +27,7 @@
     "fs": "^0.0.1-security",
     "gitlog": "^4.0.4",
     "html-minifier": "^4.0.0",
+    "html-to-text": "^9.0.4",
     "luxon": "^3.2.1",
     "markdown-it": "^13.0.1",
     "markdown-it-abbr": "^1.0.4",
