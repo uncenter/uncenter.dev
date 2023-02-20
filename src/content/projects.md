@@ -10,7 +10,6 @@ This website! I've been working on it for a while, and I'm pretty happy with it.
 ### To-do
 </s>
 
-{% note "warning" %}
-:package: **This section has been moved!**<br>
+{% callout "package", "This section has been moved!", "warning" %}
 This section has been moved to the [Roadmap](/roadmap).
-{% endnote %}
+{% endcallout %}

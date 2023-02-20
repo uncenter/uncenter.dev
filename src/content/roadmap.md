@@ -6,10 +6,10 @@ SVG: "pin"
 
 ## Design and User Interface
 
-- [x] Implement dark mode and light mode toggle
+- [ ] Implement dark mode and light mode toggle
 - [ ] Allow users to switch between color themes
 - [ ] Enhance navigation menus with hamburger-style design and ensure mobile responsiveness
-- [ ] Add open graph images for better social media sharing
+- [x] Add open graph images for better social media sharing
 - [ ] Use project cards and images for visual appeal
 
 ## Development
@@ -17,6 +17,7 @@ SVG: "pin"
 - [x] Optimize website loading speed by using SVG sprites
 - [x] Streamline the development process by using SASS workflow
 - [x] Add favicons for a professional touch
+- [x] TailwindCSS for consistency
 - [ ] Introduce draft functionality to enable content editing without publishing
 - [ ] Implement history and revision tracking for version control
 - [ ] Switch to Shiki for syntax highlighting for a better user experience
