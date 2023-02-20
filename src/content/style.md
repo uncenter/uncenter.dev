@@ -17,8 +17,6 @@ This page is inspired and based of off [Binyamin's style guide](https://binyam.i
 
 
 ## Typography
-- Fonts are Titillium Web for the body text, Inter for my headings, and Questrial for the header.
-- Body font sizeis 14pt, but I probably should make it 16pt.
 
 ## Block-level elements
 
@@ -38,6 +36,8 @@ function foo(bar) {
 
 <button class="btn">Button</button>
 
+*[CSS]: Cascading Style Sheets
+
 ## Inline elements
 - Keyboard Input: [[⌘]] + [[Shift]] + [[P]]
 - Inline code - `Inline Code`
@@ -53,7 +53,8 @@ function foo(bar) {
 - Superscript^®^.
 - Subscript for things like H~2~O.
 - <small>This small text is small for for fine print, etc.</small>
-- Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr>
+- Abbreviation: <abbr title="Hyper Text Markup Language">HTML</abbr>
+	- CSS using the markdown-it-abbr plugin.
 - <q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q>
 - <cite>This is a citation.</cite>
 - The <dfn>dfn element</dfn> indicates a definition.

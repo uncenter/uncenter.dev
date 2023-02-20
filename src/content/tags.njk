@@ -27,17 +27,17 @@ permalink: /tags/{{ tag | slugify }}/
                 <h2><a class="no-style" href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
                 <ul class="tags">
                     <li class="description description-date">
-                        <p class="inline-card blue">{%- insertSVG 'calendar' %} {{ post.date | shortenedJSDate }}</p>
+                        <p class="inline-card blue">{%- icon 'calendar' %} {{ post.date | shortenedJSDate }}</p>
                     </li>
                     {%- if post.content -%}
                     <li class="description description-read">
-                        <p class="inline-card green">{%- insertSVG 'clock' %} {{ post.content | emojiReadTime }}</p>
+                        <p class="inline-card green">{%- icon 'clock' %} {{ post.content | readingTime }}</p>
                     </li>
                     {%- endif -%}
                     {%- for tag in post.data.tags -%}
                         <li class="description description-tag">
                             <a class="no-style" href="/tags/{{ tag | slugify }}">
-                                <p class="inline-card white">{%- insertSVG 'tag' %} {{ tag }}</p>
+                                <p class="inline-card white">{%- icon 'tag' %} {{ tag }}</p>
                             </a>
                         </li>
                     {%- endfor -%}
