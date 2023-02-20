@@ -5,17 +5,15 @@ collection: 'more'
 SVG: "palette"
 ---
 
-{% note "warning" %}
-:construction: **Work-In-Progress**<br>
+{% callout "Work-In-Progress", "construction", "warning" %}
 This document is evolving slowly! Nothing is final...
-{% endnote %}
+{% endcallout %}
 
 This is my style guide. You can also read my [about page](/about) if you want to read how I *created* this website. This document talks more about the visual design.
 
-{% note "info" %}
-:book: **Inspiration**<br>
+{% callout "Inspiration", "book", "info" %}
 This page is inspired and based of off [Binyamin's style guide](https://binyam.in/style/), which took inspiration from [Brian Devries's style guide](https://brianjdevries.com/style-guide/).
-{% endnote %}
+{% endcallout %}
 
 
 ## Typography

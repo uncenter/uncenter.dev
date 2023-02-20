@@ -1,62 +1,85 @@
 const markdownIt = require("markdown-it");
 const markdownItEmoji = require("markdown-it-emoji");
+const fs = require("fs");
+const path = require("path");
 
 module.exports = function (eleventyConfig) {
-    // Legacy shortcode for backwards compatibility
-    eleventyConfig.addPairedShortcode("note", (content, type = "info") => {
-        const md = new markdownIt({
-            html: true,
-        }).use(markdownItEmoji);
-        if (["info", "warning", "danger", "tip"].includes(type) === false)
-            type = "info";
-        return (
-            `<div class="note note--${type}">\n` +
-            `${md.renderInline(content)}\n` +
-            "</div>"
-        );
-    });
+    eleventyConfig.addPairedShortcode(
+        "callout",
+        (content, title, emoji, type) => {
+            const md = new markdownIt({
+                html: true,
+            }).use(markdownItEmoji);
+            const titleEmoji = md.renderInline(`:${emoji}:`);
+            const titleText = md.renderInline(`**${title}**`);
+            const contentHtml = md.render(content);
 
-    // New shortcode for more flexibility
-    eleventyConfig.addPairedShortcode("callout", (emoji, title, content, type) => {
-        const md = new markdownIt({
-            html: true,
-        }).use(markdownItEmoji);
-        const titleEmoji = md.renderInline(`:${emoji}:`);
-        const titleText = md.renderInline(`**${title}**`);
-        const contentHtml = md.render(content);
-
-        if (["info", "warning", "archived", "future", "tip", "quote"].includes(type) === false) {
-            type = "info";
+            if (
+                [
+                    "info",
+                    "warning",
+                    "archived",
+                    "future",
+                    "tip",
+                    "quote",
+                ].includes(type) === false
+            ) {
+                type = "info";
+            }
+            return (
+                `<div class="note note--${type}">\n` +
+                `<div class="note__title">\n` +
+                `${titleEmoji} ${titleText}\n` +
+                `</div>\n` +
+                `<div class="note__content">\n` +
+                `${contentHtml}\n` +
+                `</div>\n` +
+                `</div>`
+            );
         }
-        return (
-            `<div class="note note--${type}">\n` +
-            `<div class="note__title">\n` +
-            `${titleEmoji} ${titleText}\n` +
-            `</div>\n` +
-            `<div class="note__content">\n` +
-            `${contentHtml}\n` +
-            `</div>\n` +
-            `</div>`
-        )
-    });
+    );
 
-    // Legacy shortcode for backwards compatibility
-    eleventyConfig.addShortcode("insertSVG", function (def) {
-        const svgRef = "icon-" + def;
-        const svgClass = "icon " + svgRef;
-        return `<svg class="${svgClass}"><use xlink:href="#${svgRef}"></use></svg>`;
-    });
-
-    // New shortcode for more flexibility
     // Combined with https://bennypowers.dev/posts/11ty-svg-sprites/ and previous snippet
-    eleventyConfig.addShortcode("icon", function icon(name, kwargs) {
-        this.ctx.page.icons ||= new Set();
-        this.ctx.page.icons.add(name);
-        const { __keywords, ...attrs } = kwargs ?? {};
-        const attributes = Object.entries(attrs)
-            .map(([name, value]) => `${name}="${value}"`)
-            .join(" ");
-        return `<svg class="icon icon-${name}" ${attributes}><use href="#icon-${name}"></use></svg>`;
+    eleventyConfig.addShortcode("icon", function icon(name) {
+        if (!this.ctx.page.icons) {
+            this.ctx.page.icons = [];
+        }
+        if (!this.ctx.page.icons.includes(name)) {
+            this.ctx.page.icons.push(name);
+        }
+        return `<svg class="icon icon-${name}"><use href="#icon-${name}"></use></svg>`;
+    });
+
+    eleventyConfig.addShortcode("iconSheet", function iconSheet() {
+        const sourceDir = path.join(__dirname, "../src/assets/icons");
+        const icons = fs.readdirSync(sourceDir); // Thanks ChatGPT :D
+        let pageIcons = this.ctx.page.icons || [];
+        pageIcons = pageIcons.filter(icon => icon !== undefined);
+
+        let sprite =
+            '<svg class="hidden-svg-sprite-sheet" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n<defs>\n';
+
+        let symbols = "";
+        icons.forEach((icon) => {
+            const iconPath = path.join(sourceDir, icon);
+            const iconName = path.parse(icon).name;
+            const content = fs.readFileSync(iconPath, "utf8");
+            const viewBox = content.match(/viewBox="(.+?)"/)[1];  // Thanks ChatGPT :D
+            const symbol = content
+                .replace(
+                    /<svg([^>]+)>/,
+                    `<symbol id="icon-${iconName}" viewBox="${viewBox}">`
+                )
+                .replace("</svg>", "</symbol>").replace(/<!--(.*?)-->/g, ""); // Remove comments thanks to https://stackoverflow.com/q/5653207/17378715
+            if (pageIcons.includes(iconName)) {
+                symbols += symbol + "\n";
+            }
+        });
+        if (symbols !== "") {
+            sprite += symbols + "</defs>\n</svg>\n";
+            return sprite;
+        }
+        return "";
     });
 
     // Modified from https://www.jonathanyeong.com/garden/excerpts-with-eleventy/

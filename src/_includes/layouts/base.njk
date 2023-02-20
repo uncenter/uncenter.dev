@@ -44,17 +44,7 @@
       </article>
     </main>
     {% include "../components/footer.njk" %}
-    {% if page.icons %}
-    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-      {% for icon in collections.icon %}
-        {% if page.icons.has(icon.fileSlug) %}
-        <symbol id="icon-{{ icon.fileSlug }}" viewBox="0 0 32 32">{{ icon.content | grabInnerSVG }}</symbol>
-        {% endif %}
-      {% endfor %}
-      </defs>
-    </svg>
-    {% endif %}
+    {% iconSheet %}
     </body>
     <script src="/assets/scripts/index.js"></script>
     {% if script %}

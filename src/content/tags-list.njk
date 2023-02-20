@@ -5,6 +5,6 @@ title: Tags
 
 <ul class="tags-list">
 {% for tag in collections.tagList %}
-    <li><a class="inline-card no-style" href="/tags/{{ tag | slugify }}" class="post-tag">{%- insertSVG 'tag' %} {{ tag }}</a></li>
+    <li><a class="inline-card no-style" href="/tags/{{ tag | slugify }}" class="post-tag">{%- icon 'tag' %} {{ tag }}</a></li>
 {% endfor %}
 </ul>

@@ -62,7 +62,7 @@ module.exports = {
     },
 
     grabInnerSVG: (html) => {
-        return striptags(html, ["path", "g", "defs"]);
+        return striptags(html, ["path", "g", "defs", "title"]);
     },
 
     // Adapted from https://github.com/johanbrook/eleventy-plugin-reading-time
@@ -70,7 +70,7 @@ module.exports = {
         const htmlContent = typeof content === "string" ? content : content.content; // If content is a raw already, use it directly. If it's a page object, use the content.
 
         if (!htmlContent) {
-            return `0 ${useSeconds ? "seconds" : "minutes"}`;
+            return combineText(preText, "0", postText);
         }
 
         content = striptags(content)
@@ -94,27 +94,45 @@ module.exports = {
             const min = Math.ceil(count / speed);
 
             if (format === true) {
-                if (preText !== "" && postText !== "") {
-                    est = preText + " " + min + " " + postText;
-                }
-                else if (postText !== "") {
-                    est = est + " ${postText}"
-                }
-                else if (preText !== "") {
-                    est = preText + " " + est;
-                }
-                else {
-                    est = min;
-                }
+                est = combineText(preText, min, postText);
             } else {
                 est = min;
             }
         }
-
         return est;
+    },
+
+    wordCount: (content, { preText = "", postText = "words" } = {}) => {
+        const htmlContent = typeof content === "string" ? content : content.content; // If content is a raw already, use it directly. If it's a page object, use the content.
+
+        if (!htmlContent) {
+            return combineText(preText, "0", postText);
+        }
+
+        content = striptags(content)
+        const matches = content.match(/[\u0400-\u04FF]+|\S+\s*/g);
+        const count = matches !== null ? matches.length : 0;
+
+
+        return combineText(preText, count, postText);
     },
 };
 
 function formatDateISO(dateString) {
     return new Date(dateString).toISOString();
+}
+
+function combineText(pre, value, post) {
+    if (pre !== "" && postText !== "") {
+        return pre + " " + value + " " + post;
+    }
+    else if (post !== "") {
+        return value + " " + post;
+    }
+    else if (pre !== "") {
+        return pre + " " + value;
+    }
+    else {
+        return value;
+    }
 }
