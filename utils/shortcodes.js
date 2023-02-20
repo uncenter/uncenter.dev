@@ -95,6 +95,10 @@ module.exports = function (eleventyConfig) {
 
         return excerptBetter(content);
     });
+
+    eleventyConfig.addShortcode("year", () => {
+        return new Date().getFullYear();
+    });
 };
 
 function excerptBetter(content) {

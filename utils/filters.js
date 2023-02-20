@@ -116,6 +116,13 @@ module.exports = {
 
         return combineText(preText, count, postText);
     },
+
+    renderMarkdown: (content) => {
+        const md = new markdownIt({
+            html: true,
+        }).use(markdownItEmoji);
+        return md.render(content);
+    }
 };
 
 function formatDateISO(dateString) {
