@@ -1,0 +1,46 @@
+/*
+Usage: https://codyhouse.co/license
+Source: https://codyhouse.co/ds/components/app/404
+*/
+
+.animation svg {
+	display: block;
+	max-width: 520px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+}
+
+#i-fof-browser {
+	transform-origin: 260px 304px;
+	animation: i-fof-browser 4s infinite;
+}
+
+#i-fof-shadow {
+	transform-origin: 282px 410px;
+	animation: i-fof-shadow 4s infinite;
+}
+
+@keyframes i-fof-browser {
+
+	0%,
+	100% {
+		transform: translateY(0) scale(1);
+	}
+
+	50% {
+		transform: translateY(-10%) scale(0.9);
+	}
+}
+
+@keyframes i-fof-shadow {
+
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.8);
+	}
+}
