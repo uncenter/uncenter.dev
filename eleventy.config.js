@@ -1,5 +1,6 @@
 const gitlog = require("gitlog").default;
 const htmlmin = require("html-minifier");
+const htmlpretty = require("html-prettify");
 const { DateTime } = require("luxon");
 
 const filters = require("./utils/filters.js");
@@ -118,16 +119,27 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/assets/js": "/assets/js" });
     eleventyConfig.addPassthroughCopy({ "src/assets/css": "/assets/css" });
 
-    eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
-        if (inProduction && outputPath.endsWith(".html")) {
-            return htmlmin.minify(content, {
-                collapseWhitespace: true,
+    eleventyConfig.addTransform("minify", function (content) {
+        if (
+            inProduction &&
+            this.page.outputPath &&
+            this.page.outputPath.endsWith(".html")
+        ) {
+            let minified = htmlmin.minify(content, {
                 useShortDoctype: true,
-                removeComments: true
+                removeComments: true,
+                collapseWhitespace: true,
             });
-        } else {
-            return content;
+            return minified;
         }
+        return content;
+    });
+
+    eleventyConfig.addTransform("prettify", function (content, outputPath) {
+        if (!inProduction && outputPath && outputPath.endsWith(".html")) {
+            return htmlpretty(content, { char: '    ', count: 1 });
+        }
+        return content;
     });
 
     let markdownLibrary = markdownIt({
