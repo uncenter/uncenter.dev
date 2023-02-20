@@ -24,33 +24,18 @@
     "bottom": [
         {
             "title": "Visit my GitHub profile!",
-            "url": "https://github.com/{{ meta.github.username }}/",
+            "url": "https://github.com/{{ site.github.username }}/",
             "icon": "github"
         },
         {
             "title": "Follow me on Mastodon!",
-            "url": "https://twitter.com/{{ meta.social.twitter.username }}/",
+            "url": "https://twitter.com/{{ site.social.twitter.username }}/",
             "icon": "mastodon"
         },
         {
             "title": "Subscribe to my RSS feed!",
             "url": "/feed.xml",
             "icon": "rss"
-        },
-        {
-            "title": "Contact me!",
-            "url": "/contact/",
-            "icon": "mail"
-        },
-        {
-            "title": "View this repository on GitHub!",
-            "url": "https://github.com/{{ meta.github.username }}/{{ meta.github.repo }}/",
-            "icon": "git-branch"
-        },
-        {
-            "title": "View the open-source analytics of this website!",
-            "url": "https://analytics.uncenter.org/share/LRerfjMi/uncenter",
-            "icon": "activity"
         }
     ]
 }
