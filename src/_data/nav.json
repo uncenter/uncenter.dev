@@ -1,0 +1,34 @@
+{
+    "top": [
+        {
+            "title": "About",
+            "url": "/about/",
+            "icon": "info"
+        },
+        {
+            "title": "Blog",
+            "url": "/blog/",
+            "icon": "edit"
+        },
+        {
+            "title": "Changelog",
+            "url": "/changelog/",
+            "icon": "clock"
+        },
+        {
+            "title": "More Pages",
+            "url": "/more/",
+            "icon": "more"
+        }
+    ],
+    "bottom": [
+        {
+            "title": "Imprint",
+            "url": "/imprint/"
+        },
+        {
+            "title": "Privacy",
+            "url": "/privacy/"
+        }
+    ]
+}

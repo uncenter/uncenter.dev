@@ -1,0 +1,13 @@
+<header>
+    <a aria-label="Return to homepage" title="Homepage" class="logo" style="text-decoration: none;" href="/">{% include "src/assets/images/laptop.svg" %}</a>
+    <ul class="nav-links">
+        {% for item in nav.top %}
+        <li>
+            <a href="{{ item.url }}">{% icon item.icon %} {{ item.title }}</a>
+        <li>
+        {% endfor %}
+    </ul>
+    <button aria-label="Open settings">
+        {% icon 'wrench' %}
+    </button>
+</header>
