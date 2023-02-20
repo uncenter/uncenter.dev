@@ -6,3 +6,10 @@
     stroke: currentColor;
     fill: currentColor;
 }
+
+html {
+	/* scroll-padding-top: 4rem; */
+	scroll-behavior: smooth;
+	overflow-y: scroll;
+	font-family: ui-sans-serif, system-ui, Roboto, Helvetica Neue;
+}

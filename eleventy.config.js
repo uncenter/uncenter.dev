@@ -4,7 +4,7 @@ const { DateTime } = require("luxon");
 
 const filters = require("./utils/filters.js");
 const shortcodes = require("./utils/shortcodes.js");
-const inProduction = process.env.NODE_ENV === "production";
+const inProduction = process.env.NODE_ENV === "prod";
 
 const markdownIt = require("markdown-it");
 const markdownItChecklist = require("markdown-it-task-checkbox");

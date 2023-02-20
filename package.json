@@ -4,10 +4,8 @@
   "description": "An intelligent starter for Eleventy using TailwindCSS, SASS/SCSS, and more.",
   "scripts": {
     "clean": "rm -rf dist",
-    "watch:eleventy": "eleventy --serve",
-    "build:eleventy": "eleventy",
-    "start": "eleventy --serve",
-    "build": "eleventy"
+    "start": "NODE_ENV=dev eleventy --serve & tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css --watch",
+    "build": "NODE_ENV=prod eleventy && tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css"
   },
   "repository": {
     "type": "git",
@@ -44,5 +42,11 @@
     "markdown-it-task-checkbox": "^1.0.6",
     "path": "^0.12.7",
     "striptags": "^3.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
   }
 }
