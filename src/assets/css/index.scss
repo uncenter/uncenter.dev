@@ -1,0 +1,23 @@
+@import "../../../node_modules/nord/src/sass/nord.scss";
+
+html {
+    /* scroll-padding-top: 4rem; */
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    font-family: ui-sans-serif, system-ui, Roboto, Helvetica Neue;
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.logo-laptop {
+    height: 100px;
+    width: 100px;
+}
+
