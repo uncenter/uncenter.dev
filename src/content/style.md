@@ -1,6 +1,6 @@
 ---
 title: Style
-styles: ['prism-mix.css', 'palette.css']
+styles: ['syntax.css', 'palette.css']
 collection: 'more'
 SVG: "palette"
 ---
@@ -20,6 +20,32 @@ This page is inspired and based of off [Binyamin's style guide](https://binyam.i
 
 ## Block-level elements
 
+### Callouts
+
+{% callout "Callout", "test_tube", "info" %}
+Sample callout.
+{% endcallout %}
+
+{% callout "Callout", "test_tube", "danger" %}
+Sample callout.
+{% endcallout %}
+
+{% callout "Callout", "test_tube", "warning" %}
+Sample callout.
+{% endcallout %}
+
+{% callout "Callout", "test_tube", "future" %}
+Sample callout.
+{% endcallout %}
+
+{% callout "Callout", "test_tube", "tip" %}
+Sample callout.
+{% endcallout %}
+
+{% callout "Callout", "test_tube", "note" %}
+Sample callout.
+{% endcallout %}
+
 > This is a blockquote
 
 1. List
@@ -31,6 +57,8 @@ This page is inspired and based of off [Binyamin's style guide](https://binyam.i
 function foo(bar) {
     return bar;
 }
+
+console.log(foo("bar"));
 ```
 
 
