@@ -2,7 +2,7 @@
 @import "variables";
 
 html {
-    /* scroll-padding-top: 4rem; */
+    scroll-padding-top: 2rem;
     scroll-behavior: smooth;
     overflow-y: scroll;
     font-family: ui-sans-serif, system-ui, Roboto, Helvetica Neue;
@@ -31,3 +31,78 @@ body {
     height: 100px;
     width: 100px;
 }
+
+.note {
+    border-radius: 5px;
+    padding: 10px 10px 0px 10px;
+    margin: 10px -20px;
+    position: relative;
+
+    .note__title {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    &::after {
+        position: absolute;
+        right: 1rem;
+        top: -0.5rem;
+        font-weight: 600;
+        font-size: 0.8rem;
+        padding: 0 0.25rem;
+        text-transform: uppercase;
+        line-height: 1;
+        background: #FFF;
+        // src: https://brianjdevries.com/style-guide/
+    }
+
+    &.note--info {
+        border: 3px solid $sky-700;
+        &::after {
+            color: $sky-600;
+            content: "Info";
+        }
+    }
+
+    &.note--danger {
+        border: 3px solid $orange-400;
+        &::after {
+            color: $orange-500;
+            content: "Warning";
+        }
+    }
+
+    &.note--warning {
+        border: 3px solid $amber-400;
+        &::after {
+            color: $amber-500;
+            content: "Archived";
+        }
+    }
+
+    &.note--future {
+        border: 3px solid $cyan-500;
+        &::after {
+            color: $cyan-600;
+            content: "A message from the future";
+        }
+    }
+
+    &.note--tip {
+        border: 3px solid $green-500;
+        &::after {
+            color: $green-600;
+            content: "Tip";
+        }
+    }
+
+    &.note--note {
+        border: 3px solid $gray-500;
+        &::after {
+            color: $gray-500;
+            content: "Note";
+        }
+    }
+}
+
+@import "palette";
