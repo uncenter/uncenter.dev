@@ -1,0 +1,25 @@
+---
+eleventyExcludeFromCollections: true
+pagination:
+    data: collections
+    size: 1
+    alias: tag
+    filter:
+        - all
+        - blog
+        - customCollections
+        - recentChangesByDate
+eleventyComputed:
+    title: Tagged “{{ tag }}”
+permalink: /tags/{{ tag | slugify }}/
+---
+
+<p>See <a href="/tags/">all tags</a>.</p>
+
+{% set posts = collections[ tag ] %}
+
+{% if posts.length %}
+    {% include "components/posts.njk" %}
+{% else %}     
+    <p>No posts tagged “{{ tag }}”.</p>
+{% endif %}

@@ -1,0 +1,41 @@
+{
+    "top": [
+        {
+            "title": "About",
+            "url": "/about/",
+            "icon": "info"
+        },
+        {
+            "title": "Blog",
+            "url": "/posts/",
+            "icon": "edit"
+        },
+        {
+            "title": "Changelog",
+            "url": "/changelog/",
+            "icon": "clock"
+        },
+        {
+            "title": "More",
+            "url": "/more/",
+            "icon": "circle-ellipsis"
+        }
+    ],
+    "bottom": [
+        {
+            "title": "Visit my GitHub profile!",
+            "url": "https://github.com/uncenter/",
+            "icon": "github"
+        },
+        {
+            "title": "Follow me on Mastodon!",
+            "url": "https://fosstodon.org/@uncenter",
+            "icon": "mastodon"
+        },
+        {
+            "title": "Subscribe to my RSS feed!",
+            "url": "#",
+            "icon": "rss"
+        }
+    ]
+}
