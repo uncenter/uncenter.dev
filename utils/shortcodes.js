@@ -51,10 +51,9 @@ module.exports = function (eleventyConfig) {
         }
         return `<svg class="icon icon-${name}"><use href="#icon-${name}"></use></svg>`;
     });
-
     eleventyConfig.addShortcode("iconSheet", function iconSheet() {
         const sourceDir = path.join(__dirname, "../src/assets/icons");
-        const icons = fs.readdirSync(sourceDir); // Thanks ChatGPT :D
+        const icons = fs.readdirSync(sourceDir);
         let pageIcons = this.ctx.page.icons || [];
         pageIcons = pageIcons.filter((icon) => icon !== undefined);
 
@@ -66,14 +65,21 @@ module.exports = function (eleventyConfig) {
             const iconPath = path.join(sourceDir, icon);
             const iconName = path.parse(icon).name;
             const content = fs.readFileSync(iconPath, "utf8");
-            const viewBox = content.match(/viewBox="(.+?)"/)[1]; // Thanks ChatGPT :D
+            const viewBox = content.match(/viewBox="(.+?)"/)[1];
+            let classname = content.match(/class="(.+?)"/);
+            if (classname) {
+                classname = classname[1];
+            } else {
+                classname = "";
+            }
             const symbol = content
                 .replace(
                     /<svg([^>]+)>/,
-                    `<symbol id="icon-${iconName}" viewBox="${viewBox}">`
+                    `<symbol id="icon-${iconName}" viewBox="${viewBox}"${classname ? "" : ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'}>`
                 )
                 .replace("</svg>", "</symbol>")
-                .replace(/<!--(.*?)-->/g, ""); // Remove comments thanks to https://stackoverflow.com/q/5653207/17378715
+                .replace(/<!--(.*?)-->/g, "");
+                
             if (pageIcons.includes(iconName)) {
                 symbols += symbol + "\n";
             }
@@ -158,7 +164,6 @@ function excerptBetter(content) {
     // Split plain text into phrases and concatenate until length cutoff [From https://github.com/mpcsh/eleventy-plugin-description]
 
     // Copyright (c) 2020, Mark Cohen
-
 
     // All rights reserved.
 

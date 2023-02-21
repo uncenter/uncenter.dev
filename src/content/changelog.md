@@ -2,7 +2,6 @@
 title: "Changelog"
 ---
 
-:::card
 <dl>
 {%- for group in collections.recentChangesByDate -%}
   <dt>{{ group[0] | shortenedISODate }}</dt>
@@ -16,4 +15,3 @@ title: "Changelog"
   </dd>
 {%- endfor -%}
 </dl>
-:::

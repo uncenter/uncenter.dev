@@ -66,14 +66,24 @@ module.exports = {
     },
 
     // Adapted from https://github.com/johanbrook/eleventy-plugin-reading-time
-    readingTime: (content, { useSeconds = false, format = true, speed = 235, preText = "", postText = "min" } = {}) => {
-        const htmlContent = typeof content === "string" ? content : content.content; // If content is a raw already, use it directly. If it's a page object, use the content.
+    readingTime: (
+        content,
+        {
+            useSeconds = false,
+            format = true,
+            speed = 235,
+            preText = "",
+            postText = "min",
+        } = {}
+    ) => {
+        const htmlContent =
+            typeof content === "string" ? content : content.content; // If content is a raw already, use it directly. If it's a page object, use the content.
 
         if (!htmlContent) {
             return combineText(preText, "0", postText);
         }
 
-        content = striptags(content)
+        content = striptags(content);
         const matches = content.match(/[\u0400-\u04FF]+|\S+\s*/g);
         const count = matches !== null ? matches.length : 0;
 
@@ -103,26 +113,26 @@ module.exports = {
     },
 
     wordCount: (content, { preText = "", postText = "words" } = {}) => {
-        const htmlContent = typeof content === "string" ? content : content.content; // If content is a raw already, use it directly. If it's a page object, use the content.
+        const htmlContent =
+            typeof content === "string" ? content : content.content; // If content is a raw already, use it directly. If it's a page object, use the content.
 
         if (!htmlContent) {
             return combineText(preText, "0", postText);
         }
 
-        content = striptags(content)
+        content = striptags(content);
         const matches = content.match(/[\u0400-\u04FF]+|\S+\s*/g);
         const count = matches !== null ? matches.length : 0;
-
 
         return combineText(preText, count, postText);
     },
 
-    renderMarkdown: (content) => {
+    mdify: (content) => {
         const md = new markdownIt({
             html: true,
         }).use(markdownItEmoji);
         return md.render(content);
-    }
+    },
 };
 
 function formatDateISO(dateString) {
@@ -132,14 +142,11 @@ function formatDateISO(dateString) {
 function combineText(pre, value, post) {
     if (pre !== "" && postText !== "") {
         return pre + " " + value + " " + post;
-    }
-    else if (post !== "") {
+    } else if (post !== "") {
         return value + " " + post;
-    }
-    else if (pre !== "") {
+    } else if (pre !== "") {
         return pre + " " + value;
-    }
-    else {
+    } else {
         return value;
     }
 }

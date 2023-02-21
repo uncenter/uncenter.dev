@@ -1,7 +1,7 @@
 ---
 title: "Projects"
 collection: 'more'
-SVG: "folder"
+SVG: "folder-closed"
 ---
 
 ## Personal website

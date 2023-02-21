@@ -1,6 +1,5 @@
 ---
 title: "About"
-layout: post
 ---
 
 [Looking for an about page *about me*?](/me).
@@ -16,7 +15,7 @@ According to 11ty's website:
 For me, 11ty converts Markdown files (`.md`) into HTML pages, making it simply and easy to make the pages while letting me design the frontend.
 
 ## Site hosting
-After the website is built, it's just a folder on my desktop (or source code in [a Github repository](https://www.github.com/{ site.github.username }/{ site.github.repo })). I use [Netlify](https://www.netlify.com/), a free hosting service, to auto-deploy the website from the Github repository.
+After the website is built, it's just a folder on my desktop (or source code in [a Github repository](https://www.github.com/{{ meta.github.username }}/{{ meta.github.repo }})). I use [Netlify](https://www.netlify.com/), a free hosting service, to auto-deploy the website from the Github repository.
 
 ## Domain proivder
 The domain is provided by [Cloudflare](https://www.cloudflare.com/).
