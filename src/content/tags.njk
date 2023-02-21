@@ -8,9 +8,7 @@ pagination:
         - all
         - blog
         - customCollections
-        - orderedDemos
         - recentChangesByDate
-        - demos
 eleventyComputed:
     title: Tagged “{{ tag }}”
 permalink: /tags/{{ tag | slugify }}/
@@ -18,32 +16,10 @@ permalink: /tags/{{ tag | slugify }}/
 
 <p>See <a href="/tags/">all tags</a>.</p>
 
-{% set postTags = collections[ tag ] %}
+{% set posts = collections[ tag ] %}
 
-<div class="blog-posts">
-    {%- for post in postTags  -%}
-        <div class="card-container">
-            <div class="post-content card">
-                <h2><a class="no-style" href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-                <ul class="tags">
-                    <li class="description description-date">
-                        <p class="inline-card blue">{%- icon 'calendar' %} {{ post.date | shortenedJSDate }}</p>
-                    </li>
-                    {%- if post.content -%}
-                    <li class="description description-read">
-                        <p class="inline-card green">{%- icon 'clock' %} {{ post.content | readingTime }}</p>
-                    </li>
-                    {%- endif -%}
-                    {%- for tag in post.data.tags -%}
-                        <li class="description description-tag">
-                            <a class="no-style" href="/tags/{{ tag | slugify }}">
-                                <p class="inline-card white">{%- icon 'tag' %} {{ tag }}</p>
-                            </a>
-                        </li>
-                    {%- endfor -%}
-                </ul>
-                <p>{%- excerpt post -%}</p>
-            </div>
-        </div>
-    {%- endfor -%}
-</div>
+{% if posts.length %}
+    {% include "components/posts.njk" %}
+{% else %}     
+    <p>No posts tagged “{{ tag }}”.</p>
+{% endif %}
