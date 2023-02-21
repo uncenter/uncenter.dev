@@ -20,31 +20,34 @@ This page is inspired and based of off [Binyamin's style guide](https://binyam.i
 
 ## Block-level elements
 
-### Callouts
+<details>
+  <summary style="font-size: 1.25em; font-weight: 700;">Callouts</summary>
 
-{% callout "Callout", "test_tube", "info" %}
+{% callout "Callout", "mount_fuji", "info" %}
 Sample callout.
 {% endcallout %}
 
-{% callout "Callout", "test_tube", "danger" %}
+{% callout "Callout", "mount_fuji", "danger" %}
 Sample callout.
 {% endcallout %}
 
-{% callout "Callout", "test_tube", "warning" %}
+{% callout "Callout", "mount_fuji", "warning" %}
 Sample callout.
 {% endcallout %}
 
-{% callout "Callout", "test_tube", "future" %}
+{% callout "Callout", "mount_fuji", "future" %}
 Sample callout.
 {% endcallout %}
 
-{% callout "Callout", "test_tube", "tip" %}
+{% callout "Callout", "mount_fuji", "tip" %}
 Sample callout.
 {% endcallout %}
 
-{% callout "Callout", "test_tube", "note" %}
+{% callout "Callout", "mount_fuji", "note" %}
 Sample callout.
 {% endcallout %}
+
+</details>
 
 > This is a blockquote
 
@@ -53,14 +56,18 @@ Sample callout.
 3. Things
 
 
-```js
-function foo(bar) {
-    return bar;
-}
-
-console.log(foo("bar"));
+```py
+print("Hello World!") # [sh! highlight]
+def sum(a, b):
+  return a + b
 ```
 
+```js
+console.log("Hello World!") // [sh! --]
+function sum(a, b) { // [sh! ++]
+  return a + b;
+}
+```
 
 <button class="btn">Button</button>
 

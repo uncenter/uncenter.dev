@@ -1,6 +1,8 @@
 const gitlog = require("gitlog").default;
 const htmlmin = require("html-minifier");
 const htmlpretty = require("html-prettify");
+const shiki = require("shiki");
+const shikier = require('./utils/shikier/index.cjs'); 
 const { DateTime } = require("luxon");
 
 const filters = require("./utils/filters.js");
@@ -36,6 +38,7 @@ module.exports = function (eleventyConfig) {
         rel: ["noreferrer", "noopener", "external"],
         overwrite: false,
     });
+    eleventyConfig.addPlugin(shikier);
 
     eleventyConfig.addCollection("blog", (collection) => {
         return [
@@ -121,7 +124,6 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addTransform("minify", function (content) {
         if (
-            inProduction &&
             this.page.outputPath &&
             this.page.outputPath.endsWith(".html")
         ) {
@@ -135,12 +137,12 @@ module.exports = function (eleventyConfig) {
         return content;
     });
 
-    eleventyConfig.addTransform("prettify", function (content, outputPath) {
-        if (!inProduction && outputPath && outputPath.endsWith(".html")) {
-            return htmlpretty(content, { char: '    ', count: 1 });
-        }
-        return content;
-    });
+    // eleventyConfig.addTransform("prettify", function (content, outputPath) {
+    //     if (!inProduction && outputPath && outputPath.endsWith(".html")) {
+    //         return htmlpretty(content, { char: "    ", count: 1 });
+    //     }
+    //     return content;
+    // });
 
     let markdownLibrary = markdownIt({
         html: true,

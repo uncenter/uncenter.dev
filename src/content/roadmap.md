@@ -20,7 +20,7 @@ SVG: "pin"
 - [x] TailwindCSS for consistency
 - [ ] Introduce draft functionality to enable content editing without publishing
 - [ ] Implement history and revision tracking for version control
-- [ ] Switch to Shiki for syntax highlighting for a better user experience
+- [x] Switch to Shiki for syntax highlighting for a better user experience
 - [ ] Fetch and display GitHub statistics for each project
 - [ ] Import posts from Notion for improved content management
 
@@ -35,9 +35,9 @@ SVG: "pin"
 - [ ] Create a two-column layout with an improved table of contents for better readability
 - [ ] Add an information section to each post for quick reference
     - [ ] Last edited
-    - [ ] Estimated reading time
-    - [ ] Word count
-    - [ ] Tags
+    - [x] Estimated reading time
+    - [x] Word count
+    - [x] Tags
     - [ ] Related posts
     - [ ] First published
     - [ ] Views
