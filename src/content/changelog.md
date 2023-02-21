@@ -4,7 +4,7 @@ title: "Changelog"
 
 <dl>
 {%- for group in collections.recentChangesByDate -%}
-  <dt>{{ group[0] | shortenedISODate }}</dt>
+  <dt class="font-semibold text-center">{{ group[0] | shortenedISODate }}</dt>
   <dd>
     <ul>
       {%- for commit in group[1] %}
