@@ -3,28 +3,24 @@
     <head>
         {% include "../components/head.njk" %}
     </head>
-    <body class="flex flex-col justify-center w-3/5 mx-auto">
-        <header>
-            <a aria-label="Home" {% if page.url === "/" %}aria-current="page"{% endif %} title="Home" class="logo" style="text-decoration: none;" href="/">{% include "src/assets/images/laptop.svg" %}</a>
-            <ul class="nav-links">
+    <body class="flex flex-col justify-center w-4/5 mx-auto">
+        <header class="flex flex-col md:flex-row md:justify-between md:items-center md:px-8 py-8 md:mb-10 gap-y-10 md:gap-y-0">
+            <a aria-label="Home" {% if page.url === "/" %}aria-current="page"{% endif %} title="Home" class="logo flex gap-x-3 items-center md:px-3" style="text-decoration: none;" href="/">{% include "src/assets/images/laptop.svg" %}</a>
+            <div class="flex flex-col gap-y-2 md:flex-row md:items-center md:gap-x-4 md:gap-y-0">
                 {% for item in nav.top %}
-                    <li>
-                        <a href="{{ item.url }}" {% if page.url === link.url %}aria-current="page"{% endif %}>{% icon item.icon %}
-                            {{ item.title }}</a>
-                    </li>
+                    <a class="flex flex-row gap-x-3 items-center font-semibold md:px-3 transition {% if page.url === item.url -%} underline decoration-3 underline-offset-8 {%- else -%} link {%- endif %}" href="{{ item.url}}" {% if page.url === link.url %}aria-current="page"{% endif %}>{% icon item.icon %}{{ item.title }}</a>
                 {% endfor %}
-            </ul>
+            </div>
             <button aria-label="Open settings">
                 {% icon 'wrench' %}
             </button>
         </header>
-        <main>
-            <h1 class="title">{{ title }}</h1>
+        <main class="flex flex-col w-full max-w-[70ch] mx-auto prose">
+            <h1 class="text-nord0 font-bold text-6xl">{{ title }}</h1>
             {{ content | safe }}
         </main>
-        <footer>
-            <hr>
-            <div class="description">
+        <footer class="mt-36 mb-9 flex flex-col items-center gap-y-6 w-full self-center">
+            <div class="text-xs text-center max-w-[30ch] transition-colors text-gray-600">
                 <p>last updated {{ page.date | shortenedJSDate }}</p>
                 <div class="webring">
                     <a href="https://xn--sr8hvo.ws/%E2%86%95%EF%B8%8F%F0%9F%8F%9D%F0%9F%93%81/previous">←</a>
@@ -32,7 +28,7 @@
                     <a href="https://xn--sr8hvo.ws/%E2%86%95%EF%B8%8F%F0%9F%8F%9D%F0%9F%93%81/next">→</a>
                 </div>
             </div>
-            <ul class="footer-icons">
+            <ul class="flex items-center gap-3">
                 {% for item in nav.bottom %}
                     <li title="{{ item.title }}">
                         <a aria-label="{{ item.title }}" href="{{ item.url }}">{% icon item.icon %}</a>

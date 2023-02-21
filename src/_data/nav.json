@@ -7,7 +7,7 @@
         },
         {
             "title": "Blog",
-            "url": "/blog/",
+            "url": "/posts/",
             "icon": "edit"
         },
         {
@@ -16,25 +16,25 @@
             "icon": "clock"
         },
         {
-            "title": "More Pages",
+            "title": "More",
             "url": "/more/",
-            "icon": "more"
+            "icon": "circle-ellipsis"
         }
     ],
     "bottom": [
         {
             "title": "Visit my GitHub profile!",
-            "url": "https://github.com/{{ site.github.username }}/",
+            "url": "https://github.com/uncenter/",
             "icon": "github"
         },
         {
             "title": "Follow me on Mastodon!",
-            "url": "https://twitter.com/{{ site.social.twitter.username }}/",
+            "url": "https://fosstodon.org/@uncenter",
             "icon": "mastodon"
         },
         {
             "title": "Subscribe to my RSS feed!",
-            "url": "/feed.xml",
+            "url": "#",
             "icon": "rss"
         }
     ]
