@@ -4,8 +4,6 @@
 
 @layer components {
     .prose a {
-        display: inline-block;
-        position: relative;
         color: #71717a;
         font-weight: 700;
     }
