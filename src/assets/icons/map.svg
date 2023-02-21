@@ -1,6 +1,6 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-<title>map</title>
-<path fill="none" stroke="#000" stroke-width="2.6667" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M1.333 8v21.333l9.333-5.333 10.667 5.333 9.333-5.333v-21.333l-9.333 5.333-10.667-5.333-9.333 5.333z"></path>
-<path fill="none" stroke="#000" stroke-width="2.6667" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M10.667 2.667v21.333"></path>
-<path fill="none" stroke="#000" stroke-width="2.6667" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M21.333 8v21.333"></path>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+  <line x1="9" y1="3" x2="9" y2="18"></line>
+  <line x1="15" y1="6" x2="15" y2="21"></line>
+
 </svg>

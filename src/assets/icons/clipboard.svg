@@ -1,5 +1,5 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-<title>clipboard</title>
-<path fill="none" stroke="#000" stroke-width="2.6667" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M21.333 5.333h2.667c1.473 0 2.667 1.194 2.667 2.667v0 18.667c0 1.473-1.194 2.667-2.667 2.667v0h-16c-1.473 0-2.667-1.194-2.667-2.667v0-18.667c0-1.473 1.194-2.667 2.667-2.667v0h2.667"></path>
-<path fill="none" stroke="#000" stroke-width="2.6667" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M12 2.667h8c0.736 0 1.333 0.597 1.333 1.333v2.667c0 0.736-0.597 1.333-1.333 1.333h-8c-0.736 0-1.333-0.597-1.333-1.333v-2.667c0-0.736 0.597-1.333 1.333-1.333z"></path>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+
 </svg>
