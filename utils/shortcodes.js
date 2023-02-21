@@ -19,14 +19,14 @@ module.exports = function (eleventyConfig) {
             if (
                 [
                     "info",
+                    "danger",
                     "warning",
-                    "archived",
                     "future",
                     "tip",
-                    "quote",
+                    "note",
                 ].includes(type) === false
             ) {
-                type = "info";
+                type = "note";
             }
             return (
                 `<div class="note note--${type}">\n` +
