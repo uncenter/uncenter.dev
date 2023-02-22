@@ -30,7 +30,7 @@ pre.shiki .language-id {
 .line.sh--add.sh--highlight,
 .line.sh--remove.sh--highlight {
     background: #ff02;
-    box-shadow: inset 0.5rem 0 0 #ff0;
+    box-shadow: inset 0.3rem 0 0 #ff0;
 }
 
 .sh--focus~.line:not(.sh--focus),
@@ -61,7 +61,7 @@ pre.shiki .language-id {
 .shiki .line::before {
     content: counter(step);
     counter-increment: step;
-    width: 1.2rem;
+    width: 1.8rem;
     margin-right: 0.5rem;
     padding-right: 0.5rem;
     display: inline-block;
