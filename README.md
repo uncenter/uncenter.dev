@@ -11,7 +11,7 @@
 
 # About
 
-Generic icons sourced from [Feather Icons](https://feathericons.com/) and [Lucide Icons](https://lucide.dev/), and brand icons from [Simple Icons](https://simpleicons.org/) and [Devicons](https://devicon.dev/).
+Generic icons sourced from [Lucide](https://lucide.dev/), technology and development icons from [Devicons](https://devicon.dev/), and brand icons from [SVG Logos by Gil Barbara](https://github.com/gilbarbara/logos). 
 
 # Credits
 Many thanks to the 11ty community for their ideas and plugins.
