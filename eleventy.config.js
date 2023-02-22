@@ -2,7 +2,7 @@ const gitlog = require("gitlog").default;
 const htmlmin = require("html-minifier");
 const htmlpretty = require("html-prettify");
 const shiki = require("shiki");
-const shikier = require('./utils/shikier/index.cjs'); 
+const shikier = require('./utils/shikier/index.cjs');
 const { DateTime } = require("luxon");
 
 const filters = require("./utils/filters.js");
@@ -121,6 +121,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/assets/images/favicon": "." });
     eleventyConfig.addPassthroughCopy({ "src/assets/js": "/assets/js" });
     eleventyConfig.addPassthroughCopy({ "src/assets/css": "/assets/css" });
+    eleventyConfig.addPassthroughCopy({ "src/assets/images/content": "/assets/images/content" });
 
     eleventyConfig.addTransform("minify", function (content) {
         if (
