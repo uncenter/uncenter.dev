@@ -64,7 +64,7 @@ body {
         }
     }
 
-    &.note--danger {
+    &.note--warning {
         border: 3px solid $orange-400;
         &::after {
             color: $orange-500;
@@ -72,19 +72,19 @@ body {
         }
     }
 
-    &.note--warning {
+    &.note--caution {
         border: 3px solid $amber-400;
         &::after {
             color: $amber-500;
-            content: "Archived";
+            content: "Caution";
         }
     }
 
-    &.note--future {
+    &.note--update {
         border: 3px solid $cyan-500;
         &::after {
             color: $cyan-600;
-            content: "A message from the future";
+            content: "Update";
         }
     }
 
@@ -100,9 +100,16 @@ body {
         border: 3px solid $gray-500;
         &::after {
             color: $gray-500;
-            content: "Note";
         }
     }
+}
+
+.prose .checklist {
+    list-style-type: none;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 @import "palette";

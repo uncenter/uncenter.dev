@@ -5,13 +5,13 @@ collection: 'more'
 SVG: "palette"
 ---
 
-{% callout "Work-In-Progress", "construction", "warning" %}
+{% callout ":construction: Work-In-Progress", "warning" %}
 This document is evolving slowly! Nothing is final...
 {% endcallout %}
 
 This is my style guide. You can also read my [about page](/about) if you want to read how I *created* this website. This document talks more about the visual design.
 
-{% callout "Inspiration", "book", "info" %}
+{% callout ":book: Inspiration", "info" %}
 This page is inspired and based of off [Binyamin's style guide](https://binyam.in/style/), which took inspiration from [Brian Devries's style guide](https://brianjdevries.com/style-guide/).
 {% endcallout %}
 
@@ -23,38 +23,53 @@ This page is inspired and based of off [Binyamin's style guide](https://binyam.i
 <details>
   <summary style="font-size: 1.25em; font-weight: 700;">Callouts</summary>
 
-{% callout "Callout", "mount_fuji", "info" %}
-Sample callout.
+{% callout ":book: Info", "info" %}
+Laborum deserunt duis aliquip fugiat sint laborum sint. Ex culpa proident labore ullamco ut Lorem dolor veniam. Adipisicing ipsum exercitation anim commodo esse nisi officia proident dolor enim. Nulla aute anim excepteur proident id velit cupidatat.
 {% endcallout %}
 
-{% callout "Callout", "mount_fuji", "danger" %}
-Sample callout.
+{% callout ":construction: Warning", "warning" %}
+Tempor sit ipsum laborum labore Lorem nisi velit amet. Ut est magna deserunt commodo irure cillum dolor ut labore sit ex est. Esse excepteur voluptate dolore veniam occaecat velit voluptate. Fugiat mollit Lorem cupidatat commodo. Officia dolore duis sint deserunt nisi ipsum nulla eu. Irure id et esse deserunt nostrud adipisicing labore aute pariatur culpa id tempor cupidatat cillum.
 {% endcallout %}
 
-{% callout "Callout", "mount_fuji", "warning" %}
-Sample callout.
+{% callout ":warning: Caution", "caution" %}
+Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
-{% callout "Callout", "mount_fuji", "future" %}
-Sample callout.
+{% callout ":hourglass: Update", "update" %}
+Fugiat deserunt dolore cupidatat mollit nisi. Et elit id aute pariatur deserunt labore do tempor exercitation. Adipisicing culpa officia deserunt ad eiusmod commodo Lorem veniam sint consectetur. Cupidatat anim anim dolore aute incididunt culpa veniam labore in pariatur anim consequat laborum anim. Consectetur nulla ex do consequat elit Lorem aliquip id labore aliquip minim laboris voluptate culpa.
 {% endcallout %}
 
-{% callout "Callout", "mount_fuji", "tip" %}
-Sample callout.
+{% callout ":thumbsup: Tip", "tip" %}
+Non cillum esse veniam minim.
 {% endcallout %}
 
-{% callout "Callout", "mount_fuji", "note" %}
-Sample callout.
+{% callout "Note" %}
+Deserunt elit duis pariatur commodo velit proident in consequat sunt pariatur nisi excepteur. Et exercitation exercitation qui proident occaecat ut ut sunt excepteur eiusmod. Nostrud esse nostrud dolore amet esse deserunt.
 {% endcallout %}
 
 </details>
 
 > This is a blockquote
 
-1. List
-2. of
-3. Things
+Numbered list:
 
+1. A
+2. B
+3. C
+
+Bulleted list:
+- List
+- of
+- Things
+
+Task list:
+- [ ] Task
+- [x] List
+
+Indented list:
+- Lorem
+  - Ipsum
+    - Dolor
 
 ```py
 print("Hello World!") # [sh! highlight]
@@ -67,6 +82,26 @@ console.log("Hello World!") // [sh! --]
 function sum(a, b) { // [sh! ++]
   return a + b;
 }
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"> <!-- [sh! focus:start] -->
+        <title></title>
+        <meta name="description" content=""> <!-- [sh! focus:end] -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" href="/favicon.ico" sizes="any">
+        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+    </body>
+</html>
 ```
 
 <button class="btn">Button</button>

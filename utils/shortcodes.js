@@ -8,20 +8,19 @@ const meta = require("../src/_data/meta.json");
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPairedShortcode(
         "callout",
-        (content, title, emoji, type) => {
+        (content, title, type) => {
             const md = new markdownIt({
                 html: true,
             }).use(markdownItEmoji);
-            const titleEmoji = md.renderInline(`:${emoji}:`);
             const titleText = md.renderInline(`**${title}**`);
             const contentHtml = md.render(content);
 
             if (
                 [
                     "info",
-                    "danger",
                     "warning",
-                    "future",
+                    "caution",
+                    "update",
                     "tip",
                     "note",
                 ].includes(type) === false
@@ -31,7 +30,7 @@ module.exports = function (eleventyConfig) {
             return (
                 `<div class="note note--${type}">\n` +
                 `<div class="note__title">\n` +
-                `${titleEmoji} ${titleText}\n` +
+                `${titleText}\n` +
                 `</div>\n` +
                 `<div class="note__content">\n` +
                 `${contentHtml}\n` +
