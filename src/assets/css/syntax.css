@@ -4,6 +4,10 @@ pre.shiki {
     counter-reset: linenumber;
     border-radius: 5px;
     margin: 10px 0;
+    min-width: 110%;
+    max-width: 130%;
+    align-self: center;
+    overflow: scroll;
 }
 
 pre.shiki .language-id {
@@ -14,6 +18,10 @@ pre.shiki .language-id {
     font-size: 0.8rem;
     position: sticky;
     left: 0;
+}
+
+pre.shiki .line {
+    padding-right: 20px;
 }
 
 pre.shiki .line::before {
