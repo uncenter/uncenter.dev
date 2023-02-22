@@ -2,6 +2,7 @@
 tags: ['11ty']
 title: The Great Eleventy Reset
 date: 2023-02-21
+description: A new structure, new icons, and a fresh look!
 ---
 
 It's coming up on a year now that I have this website, and I released v2.0 on January 2nd, 2023 - exactly 50 days ago. As of that release, I have made **149 commits** to the repository. I think it's time for v3.0. 
