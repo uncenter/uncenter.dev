@@ -20,6 +20,7 @@
     "license": "MIT",
     "dependencies": {
         "@11ty/eleventy": "^2.0.0",
+        "@11ty/eleventy-fetch": "^3.0.0",
         "@aloskutov/eleventy-plugin-external-links": "^1.4.4",
         "@tailwindcss/typography": "^0.5.9",
         "eleventy-plugin-toc": "^1.1.5",
@@ -42,6 +43,7 @@
         "markdown-it-sub": "^1.0.0",
         "markdown-it-sup": "^1.0.0",
         "markdown-it-task-checkbox": "^1.0.6",
+        "md5": "^2.3.0",
         "nord": "^0.2.1",
         "path": "^0.12.7",
         "pretty": "^2.0.0",

@@ -51,6 +51,8 @@ Deserunt elit duis pariatur commodo velit proident in consequat sunt pariatur ni
 
 > This is a blockquote
 
+{% stoot "fosstodon.org", "109831021584581354" %}
+
 Numbered list:
 
 1. A

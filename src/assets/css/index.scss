@@ -112,4 +112,58 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
+.toot-blockquote {
+    width: 90%;
+    a {
+        text-decoration: none;
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 1em;
+        line-height: 1.35em;
+    }
+    .toot-header {
+        display: flex;
+        flex-direction: row;
+        .toot-profile {
+            margin-right: .5em;
+            justify-content: center;
+            img {
+                border-radius: 9999px;
+                width: 48px;
+                height: auto;
+            }
+        }
+        .toot-author {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .toot-author-name {
+                font-weight: bold;
+            }
+            .toot-author-handle {
+                font-size: small;
+                font-weight: 500;
+            }
+        }
+    }
+    .toot-body {
+        margin-top: -2rem;
+        &::before {
+            content: "" !important;
+        }
+    }
+    .toot-footer {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        color: $gray-500;
+        font-size: smaller;
+    }
+}
+
+.invisible {
+    display: none;
+}
+
 @import "palette";
