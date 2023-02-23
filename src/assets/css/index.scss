@@ -34,13 +34,17 @@ body {
 
 .note {
     border-radius: 5px;
-    padding: 10px 10px 0px 10px;
+    padding-top: 1.5rem;
+    padding-bottom: 0px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
     margin: 10px 0px;
     position: relative;
+    border: 2px solid #1e293b;
 
     .note__title {
         font-weight: bold;
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
 
     &::after {
@@ -48,7 +52,7 @@ body {
         right: 1rem;
         top: -0.5rem;
         font-weight: 600;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         padding: 0 0.25rem;
         text-transform: uppercase;
         line-height: 1;
@@ -57,7 +61,6 @@ body {
     }
 
     &.note--info {
-        border: 3px solid $sky-700;
         &::after {
             color: $sky-600;
             content: "Info";
@@ -65,7 +68,6 @@ body {
     }
 
     &.note--warning {
-        border: 3px solid $orange-400;
         &::after {
             color: $orange-500;
             content: "Warning";
@@ -73,7 +75,6 @@ body {
     }
 
     &.note--caution {
-        border: 3px solid $amber-400;
         &::after {
             color: $amber-500;
             content: "Caution";
@@ -81,7 +82,6 @@ body {
     }
 
     &.note--update {
-        border: 3px solid $cyan-500;
         &::after {
             color: $cyan-600;
             content: "Update";
@@ -89,7 +89,6 @@ body {
     }
 
     &.note--tip {
-        border: 3px solid $green-500;
         &::after {
             color: $green-600;
             content: "Tip";
@@ -97,7 +96,6 @@ body {
     }
 
     &.note--note {
-        border: 3px solid $gray-500;
         &::after {
             color: $gray-500;
         }
