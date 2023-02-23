@@ -16,19 +16,14 @@ This page is inspired and based of off [Binyamin's style guide](https://binyam.i
 {% endcallout %}
 
 
-## Typography
-
 ## Block-level elements
 
-<details>
-  <summary style="font-size: 1.25em; font-weight: 700;">Callouts</summary>
-
 {% callout ":book: Info", "info" %}
-Laborum deserunt duis aliquip fugiat sint laborum sint. Ex culpa proident labore ullamco ut Lorem dolor veniam. Adipisicing ipsum exercitation anim commodo esse nisi officia proident dolor enim. Nulla aute anim excepteur proident id velit cupidatat.
+Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
 {% callout ":construction: Warning", "warning" %}
-Tempor sit ipsum laborum labore Lorem nisi velit amet. Ut est magna deserunt commodo irure cillum dolor ut labore sit ex est. Esse excepteur voluptate dolore veniam occaecat velit voluptate. Fugiat mollit Lorem cupidatat commodo. Officia dolore duis sint deserunt nisi ipsum nulla eu. Irure id et esse deserunt nostrud adipisicing labore aute pariatur culpa id tempor cupidatat cillum.
+Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
 {% callout ":warning: Caution", "caution" %}
@@ -36,42 +31,32 @@ Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
 {% callout ":hourglass: Update", "update" %}
-Fugiat deserunt dolore cupidatat mollit nisi. Et elit id aute pariatur deserunt labore do tempor exercitation. Adipisicing culpa officia deserunt ad eiusmod commodo Lorem veniam sint consectetur. Cupidatat anim anim dolore aute incididunt culpa veniam labore in pariatur anim consequat laborum anim. Consectetur nulla ex do consequat elit Lorem aliquip id labore aliquip minim laboris voluptate culpa.
+Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
 {% callout ":thumbsup: Tip", "tip" %}
-Non cillum esse veniam minim.
+Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
 {% callout "Note" %}
-Deserunt elit duis pariatur commodo velit proident in consequat sunt pariatur nisi excepteur. Et exercitation exercitation qui proident occaecat ut ut sunt excepteur eiusmod. Nostrud esse nostrud dolore amet esse deserunt.
+Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
-
-</details>
 
 > This is a blockquote
 
-{% stoot "fosstodon.org", "109831021584581354" %}
+{% stoot "fosstodon.org", "109792555995860965" %}
 
-Numbered list:
 
-1. A
-2. B
-3. C
+1. A numbered list
 
-Bulleted list:
-- List
-- of
-- Things
+* A bulleted list
 
-Task list:
-- [ ] Task
-- [x] List
-
-Indented list:
 - Lorem
   - Ipsum
-    - Dolor
+
+- [ ] An incomplete task
+- [x] A completed task
+
 
 ```py
 print("Hello World!") # [sh! highlight]
@@ -145,7 +130,7 @@ It needs some work... but it's a start! For you Firefox users (*cough* me *cough
 [^1]: This is a footnote.
 
 
-## Colors
+## Nord Theme
 
 <div class="colors-container">
 	<div id="aurora" class="wrapper">
