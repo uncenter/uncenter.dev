@@ -26,6 +26,7 @@ const markdownItEmoji = require("markdown-it-emoji");
 // const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyTOC = require("eleventy-plugin-toc");
 const eleventyExternalLinks = require("@aloskutov/eleventy-plugin-external-links");
+const eleventyRSS = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
     Object.keys(filters).forEach((filter) => {
@@ -39,6 +40,7 @@ module.exports = function (eleventyConfig) {
         overwrite: false,
     });
     eleventyConfig.addPlugin(shikier);
+    eleventyConfig.addPlugin(eleventyRSS);
 
     eleventyConfig.addCollection("blog", (collection) => {
         return [
