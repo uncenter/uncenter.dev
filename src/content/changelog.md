@@ -3,7 +3,7 @@ title: "Changelog"
 ---
 
 <dl>
-{%- for group in collections.recentChangesByDate -%}
+{%- for group in collections.recentChanges -%}
   <dt class="font-semibold text-center">{{ group[0] | shortenedISODate }}</dt>
   <dd>
     <ul>

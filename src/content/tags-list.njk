@@ -4,7 +4,7 @@ title: Tags
 ---
 
 <ul class="tags-list">
-{% for tag in collections.tagList %}
+{% for tag in collections.allTags %}
     <li><a class="inline-card no-style" href="/tags/{{ tag | slugify }}" class="post-tag">{%- icon 'tag' %} {{ tag }}</a></li>
 {% endfor %}
 </ul>
