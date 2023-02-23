@@ -1,6 +1,18 @@
 ---
 layout: base
 ---
+
+<div class="flex flex-row flex-wrap gap-6 border-slate-800 border-2 px-5 rounded-[5px]">
+    <p>{%- icon 'calendar' %} {{ page.date | shortenedJSDate }}</p>
+    {%- if content -%}
+        <p>{%- icon 'file-text' %} {{ content | wordCount }}</p>
+        <p>{%- icon 'clock' %} {{ content | readingTime }}</p>
+    {%- endif -%}
+    {%- if tags -%}
+        {%- for tag in tags -%}<a href="/tags/{{ tag | slugify }}"><p>{%- icon 'tag' -%} {{ tag }}</p></a>
+        {%- endfor -%}
+    {%- endif -%}
+</div>
 {% if content | toc %}
     <nav aria-labelledby="secondary-navigation">
         {{ content | toc | safe }}

@@ -4,17 +4,14 @@
             <h2>
                 <a href="{{ post.url | url }}">{{ post.data.title }}</a>
             </h2>
-            <div class="flex flex-row flex-wrap gap-6">
-                    <p>{%- icon 'calendar' %} {{ post.date | shortenedJSDate }}</p>
-                    {%- if post.content -%}
-                        <p>{%- icon 'file-text' %} {{ post.content | wordCount }}</p>
-                        <p>{%- icon 'clock' %} {{ post.content | readingTime }}</p>
-                    {%- endif -%}
+            <div class="flex flex-row flex-wrap gap-6 border-slate-800 border-2 px-5 rounded-[5px]">
+                <p>{%- icon 'calendar' %} {{ post.date | shortenedJSDate }}</p>
+                {%- if post.content -%}
+                    <p>{%- icon 'file-text' %} {{ post.content | wordCount }}</p>
+                    <p>{%- icon 'clock' %} {{ post.content | readingTime }}</p>
+                {%- endif -%}
                 {%- if post.data.tags -%}
-                    {%- for tag in post.data.tags -%}
-                        <a href="/tags/{{ tag | slugify }}">
-                            <p>{%- icon 'tag' -%} {{ tag }}</p>
-                        </a>
+                    {%- for tag in post.data.tags -%}<a href="/tags/{{ tag | slugify }}"><p>{%- icon 'tag' -%} {{ tag }}</p></a>
                     {%- endfor -%}
                 {%- endif -%}
             </div>
