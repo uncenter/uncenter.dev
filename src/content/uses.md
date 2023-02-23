@@ -35,7 +35,9 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [Raycast](https://raycast.com/) to replace the default MacOS spotlight search
     - [Coffee](https://www.raycast.com/mooxl/coffee) to prevent sleep
 - [Stats](https://github.com/exelban/stats) for menubar stats
+- [flameshot](https://flameshot.org/) for taking screenshots
 - [AltTab](https://alt-tab-macos.netlify.app/) for window switching
+- [PurePaste](https://sindresorhus.com/pure-paste) for clipboard management
 
 ### Browser Extensions
 
@@ -44,7 +46,6 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [1Password](https://1password.com/downloads/browser-extension/)
 - [Notion web clipper](https://www.notion.so/web-clipper) for saving web pages to Notion
 - [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
-- [flameshot](https://flameshot.org/) for taking screenshots
 - [Grammarly](https://www.grammarly.com/) for grammar and spelling
 - [Tab Stash](https://josh-berry.github.io/tab-stash/) for saving tabs for later
 
