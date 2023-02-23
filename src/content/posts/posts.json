@@ -1,3 +1,4 @@
 {
-    "styles": "syntax.css"
+    "styles": "syntax.css",
+    "layout": "post"
 }
