@@ -32,7 +32,7 @@ module.exports = function (eleventyConfig) {
         eleventyConfig.addFilter(filter, filters[filter]);
     });
     eleventyConfig.addPlugin(shortcodes);
-    eleventyConfig.addPlugin(eleventyTOC);
+    eleventyConfig.addPlugin(eleventyTOC, { ul: true });
     eleventyConfig.addPlugin(eleventyExternalLinks, {
         url: "https://uncenter.org",
         rel: ["noreferrer", "noopener", "external"],
