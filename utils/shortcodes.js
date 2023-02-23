@@ -144,6 +144,7 @@ module.exports = function (eleventyConfig) {
         </script>`;
     });
 
+    // https://www.brycewray.com/posts/2022/08/static-embeds-eleventy/
     eleventyConfig.addNunjucksAsyncShortcode("stoot", async (instance, id) => {
         let stringToRet = ``
         let tootLink, handleInst, mediaMD5, urlToGet, mediaStuff, videoStuff, gifvStuff, cardStuff, pollStuff = ''
