@@ -1,7 +1,7 @@
 const fs = require("fs");
 const striptags = require("striptags");
 const { DateTime } = require("luxon");
-const { markdownLibrary } = require("../index");
+const { markdownLibrary } = require("../plugins/markdown");
 
 const getShortenedJSDate = (dateObj) => {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
@@ -28,6 +28,10 @@ const toArray = (value) => {
         return value;
     }
     return [value];
+};
+
+const toHTML = (content) => {
+    return markdownLibrary.render(content);
 };
 
 const getCommitCategory = (str) => {
@@ -111,8 +115,8 @@ const getWordCount = (content, { preText = "", postText = "words" } = {}) => {
     return combineText(preText, count, postText);
 };
 
-const mdify = (content) => {
-    return markdownLibrary.render(content);
+const stripTags = (content) => {
+    return striptags(content);
 };
 
 module.exports = {
@@ -122,12 +126,13 @@ module.exports = {
     toCaseUpper,
     toCaseLower,
     toArray,
+    toHTML,
     getCommitCategory,
     getCommitMessage,
     printFileContents,
     getReadingTime,
     getWordCount,
-    mdify,
+    stripTags,
 };
 
 function formatDateISO(dateString) {

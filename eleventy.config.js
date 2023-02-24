@@ -1,12 +1,12 @@
 const {
     createCallout,
-    insertIcon,
-    insertIconSheet,
     getExcerpt,
     insertYear,
     insertDate,
+    insertIcon,
+    insertIconSheet,
     insertGiscusScript,
-    createStaticToot
+    createStaticToot,
 } = require("./utils/shortcodes/index.js");
 const {
     getPosts,
@@ -21,21 +21,22 @@ const {
     toCaseUpper,
     toCaseLower,
     toArray,
+    toHTML,
     getCommitCategory,
     getCommitMessage,
     printFileContents,
     getReadingTime,
     getWordCount,
-    mdify,
+    stripTags,
 } = require("./utils/filters/index.js");
 
-const { markdownLibrary } = require("./utils/index.js");
+const { markdownLibrary } = require("./utils/plugins/markdown.js");
 const inProduction = process.env.NODE_ENV === "production";
 
 const pluginTOC = require("eleventy-plugin-toc");
 const pluginExternalLinks = require("@aloskutov/eleventy-plugin-external-links");
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
-const pluginShikier = require("./utils/plugins/shikier/index.cjs");
+const pluginShikier = require("./utils/plugins/shikier.js");
 
 module.exports = function (eleventyConfig) {
     /* Collections */
@@ -51,22 +52,23 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("caseUpper", toCaseUpper);
     eleventyConfig.addFilter("caseLower", toCaseLower);
     eleventyConfig.addFilter("toArray", toArray);
+    eleventyConfig.addFilter("toHTML", toHTML);
     eleventyConfig.addFilter("getCommitCategory", getCommitCategory);
     eleventyConfig.addFilter("getCommitMessage", getCommitMessage);
     eleventyConfig.addFilter("printFileContents", printFileContents);
     eleventyConfig.addFilter("readingTime", getReadingTime);
     eleventyConfig.addFilter("wordCount", getWordCount);
-    eleventyConfig.addFilter("mdify", mdify);
+    eleventyConfig.addFilter("stripTags", stripTags);
 
     /* Shortcodes */
-    eleventyConfig.addShortcode("callout", createCallout);
+    eleventyConfig.addPairedShortcode("callout", createCallout);
     eleventyConfig.addShortcode("icon", insertIcon);
     eleventyConfig.addShortcode("iconSheet", insertIconSheet);
     eleventyConfig.addShortcode("excerpt", getExcerpt);
     eleventyConfig.addShortcode("year", insertYear);
     eleventyConfig.addShortcode("date", insertDate);
     eleventyConfig.addShortcode("giscus", insertGiscusScript);
-    eleventyConfig.addShortcode("stoot", createStaticToot);
+    eleventyConfig.addNunjucksAsyncShortcode("stoot", createStaticToot);
 
     /* Plugins */
     eleventyConfig.addPlugin(pluginTOC, { ul: true });

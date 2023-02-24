@@ -3,7 +3,7 @@ const markdownItEmoji = require("markdown-it-emoji");
 const fs = require("fs");
 const path = require("path");
 const { htmlToText } = require("html-to-text");
-const meta = require("../src/_data/meta.json");
+const meta = require("../../src/_data/meta.json");
 const EleventyFetch = require("@11ty/eleventy-fetch")
 const md5 = require('md5')
 const { DateTime } = require("luxon")
@@ -39,7 +39,7 @@ const createCallout = (content, title, type) => {
     );
 };
 
-const insertIcon = (name) => {
+const insertIcon = function icon(name) {
     if (!this.ctx.page.icons) {
         this.ctx.page.icons = [];
     }
@@ -49,8 +49,8 @@ const insertIcon = (name) => {
     return `<svg class="icon icon-${name}"><use href="#icon-${name}"></use></svg>`;
 };
 
-const insertIconSheet = () => {
-    const sourceDir = path.join(__dirname, "../src/assets/icons");
+const insertIconSheet = function iconsheet() {
+    const sourceDir = path.join(__dirname, "../../src/assets/icons");
     const icons = fs.readdirSync(sourceDir);
     let pageIcons = this.ctx.page.icons || [];
     pageIcons = pageIcons.filter((icon) => icon !== undefined);
