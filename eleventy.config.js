@@ -28,6 +28,7 @@ const {
     getReadingTime,
     getWordCount,
     stripTags,
+    cleanFeedContent,
 } = require("./utils/filters/index.js");
 
 const { markdownLibrary } = require("./utils/plugins/markdown.js");
@@ -59,6 +60,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("readingTime", getReadingTime);
     eleventyConfig.addFilter("wordCount", getWordCount);
     eleventyConfig.addFilter("stripTags", stripTags);
+    eleventyConfig.addFilter("cleanFeed", cleanFeedContent);
 
     /* Shortcodes */
     eleventyConfig.addPairedShortcode("callout", createCallout);

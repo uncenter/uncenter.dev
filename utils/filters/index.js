@@ -119,6 +119,14 @@ const stripTags = (content) => {
     return striptags(content);
 };
 
+const cleanFeedContent = (content) => {
+    // <a class="direct-link" href="https://uncenter.org/posts/magical-icons/#other-implementations">#</a>
+    // <div class="language-id">js</div>
+    content = content
+        .replace(/<a class="direct-link" href=".*?">#<\/a>/g, "")
+        .replace(/<div class="language-id">.*?<\/div>/g, "");
+    return content;
+};
 module.exports = {
     getShortenedJSDate,
     getShortenedISODate,
@@ -133,6 +141,7 @@ module.exports = {
     getReadingTime,
     getWordCount,
     stripTags,
+    cleanFeedContent,
 };
 
 function formatDateISO(dateString) {
