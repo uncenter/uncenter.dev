@@ -15,6 +15,7 @@ const markdownItEmoji = require("markdown-it-emoji");
 const markdownLibrary = markdownIt({
     html: true,
     breaks: true,
+    linkify: true,
 })
     .use(markdownItChecklist, {
         disabled: true,
