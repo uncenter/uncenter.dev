@@ -19,8 +19,6 @@ const createCallout = (content, title, type) => {
         [
             "info",
             "warning",
-            "caution",
-            "update",
             "tip",
             "note",
         ].includes(type) === false

@@ -26,14 +26,6 @@ Officia consectetur in labore deserunt qui laborum.
 Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
-{% callout ":warning: Caution", "caution" %}
-Officia consectetur in labore deserunt qui laborum.
-{% endcallout %}
-
-{% callout ":hourglass: Update", "update" %}
-Officia consectetur in labore deserunt qui laborum.
-{% endcallout %}
-
 {% callout ":thumbsup: Tip", "tip" %}
 Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
