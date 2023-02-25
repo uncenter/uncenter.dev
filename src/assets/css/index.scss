@@ -49,6 +49,7 @@ body {
     .note__title {
         font-weight: bold;
         font-size: 1.4em;
+        color: var(--note-color)
     }
 
     &::after {
@@ -61,48 +62,36 @@ body {
         text-transform: uppercase;
         line-height: 1;
         background: #FFF;
+        color: var(--note-color);
         // src: https://brianjdevries.com/style-guide/
     }
 
     &.note--info {
+        --note-color: #{$sky-600};
+
         &::after {
-            color: $sky-600;
-            content: "Info";
+            content: "\01F4D6  Info";
         }
     }
 
     &.note--warning {
-        &::after {
-            color: $orange-500;
-            content: "Warning";
-        }
-    }
+        --note-color: #{$nord11};
 
-    &.note--caution {
         &::after {
-            color: $amber-500;
-            content: "Caution";
-        }
-    }
-
-    &.note--update {
-        &::after {
-            color: $cyan-600;
-            content: "Update";
+            content: "\01F6A7  Warning";
         }
     }
 
     &.note--tip {
+        --note-color: #7c9963;
+
         &::after {
-            color: $green-600;
-            content: "Tip";
+            content: "\002705  Tip";
         }
     }
 
     &.note--note {
-        &::after {
-            color: $gray-500;
-        }
+        --note-color: #{$gray-900};
     }
 }
 
@@ -116,45 +105,56 @@ input[type="checkbox"] {
 
 .toot-blockquote {
     width: 90%;
+
     a {
         text-decoration: none;
     }
+
     p {
         margin-top: 0;
         margin-bottom: 1em;
         line-height: 1.35em;
     }
+
     .toot-header {
         display: flex;
         flex-direction: row;
+
         .toot-profile {
             margin-right: .5em;
             justify-content: center;
+
             img {
                 border-radius: 9999px;
                 width: 48px;
                 height: auto;
             }
         }
+
         .toot-author {
             display: flex;
             flex-direction: column;
             justify-content: center;
+
             .toot-author-name {
                 font-weight: bold;
             }
+
             .toot-author-handle {
                 font-size: small;
                 font-weight: 500;
             }
         }
     }
+
     .toot-body {
         margin-top: -2rem;
+
         &::before {
             content: "" !important;
         }
     }
+
     .toot-footer {
         margin-top: 1rem;
         display: flex;

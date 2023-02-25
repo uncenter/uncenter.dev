@@ -5,28 +5,28 @@ collection: 'more'
 SVG: "palette"
 ---
 
-{% callout ":construction: Work-In-Progress", "warning" %}
+{% callout "Work-In-Progress", "warning" %}
 This document is evolving slowly! Nothing is final...
 {% endcallout %}
 
 This is my style guide. You can also read my [about page](/about) if you want to read how I *created* this website. This document talks more about the visual design.
 
-{% callout ":book: Inspiration", "info" %}
+{% callout "Inspiration", "info" %}
 This page is inspired and based of off [Binyamin's style guide](https://binyam.in/style/), which took inspiration from [Brian Devries's style guide](https://brianjdevries.com/style-guide/).
 {% endcallout %}
 
 
 ## Block-level elements
 
-{% callout ":book: Info", "info" %}
+{% callout "Info", "info" %}
 Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
-{% callout ":construction: Warning", "warning" %}
+{% callout "Warning", "warning" %}
 Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 
-{% callout ":thumbsup: Tip", "tip" %}
+{% callout "Tip", "tip" %}
 Officia consectetur in labore deserunt qui laborum.
 {% endcallout %}
 

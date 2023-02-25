@@ -1,5 +1,3 @@
-const markdownIt = require("markdown-it");
-const markdownItEmoji = require("markdown-it-emoji");
 const fs = require("fs");
 const path = require("path");
 const { htmlToText } = require("html-to-text");
@@ -7,13 +5,11 @@ const meta = require("../../src/_data/meta.json");
 const EleventyFetch = require("@11ty/eleventy-fetch")
 const md5 = require('md5')
 const { DateTime } = require("luxon")
+const { markdownLibrary } = require("../plugins/markdown")
 
 const createCallout = (content, title, type) => {
-    const md = new markdownIt({
-        html: true,
-    }).use(markdownItEmoji);
-    const titleText = md.renderInline(`**${title}**`);
-    const contentHtml = md.render(content);
+    const titleText = markdownLibrary.renderInline(`${title}`);
+    const contentHtml = markdownLibrary.render(content);
 
     if (
         [
