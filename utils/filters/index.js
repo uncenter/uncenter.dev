@@ -44,10 +44,7 @@ const getCommitMessage = (str) => {
         for (let i = 2; i < str.split(":").length; i++) {
             emoji += ":" + str.split(":")[i];
         }
-        const md = new markdownIt({
-            html: true,
-        }).use(markdownItEmoji);
-        return md.renderInline(emoji.trim());
+        return markdownLibrary.renderInline(emoji.trim());
     }
     return str.split(":")[1];
 };
