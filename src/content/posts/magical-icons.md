@@ -1,6 +1,6 @@
 ---
 tags: ['11ty', 'icons']
-title: Icons, Icons, Icons
+title: Magical Icons
 date: 2023-02-22
 description: A simple way to include only the icons you actually use!
 ---
