@@ -2,7 +2,7 @@ const gitlog = require("gitlog").default;
 const { DateTime } = require("luxon");
 
 const getPosts = (collectionApi) => {
-    return [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md")].reverse();
+    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
 };
 
 const getCustomCollections = (collectionApi) => {
@@ -21,7 +21,7 @@ const getCustomCollections = (collectionApi) => {
     return Object.fromEntries(collections.entries());
 };
 
-const getAllTags = (collectionApi) => { // Formerly tagList
+const getAllTags = (collectionApi) => {
     let tagSet = new Set();
     collectionApi.getAll().forEach((item) => {
         (item.data.tags || []).forEach((tag) => tagSet.add(tag));
@@ -50,7 +50,11 @@ const getRecentChangesByDate = () => {
 
     for (const change of recentChanges) {
         let { subject, authorDate } = change;
-        if (/^(fix|feat|docs|style|refactor|perf|test|chore|content)\b/i.test(subject)) {
+        if (
+            /^(fix|feat|docs|style|refactor|perf|test|chore|content)\b/i.test(
+                subject
+            )
+        ) {
             subject = subject.replace(/[<>]/g, "");
             authorDate = DateTime.fromISO(
                 new Date(authorDate).toISOString()
@@ -59,14 +63,48 @@ const getRecentChangesByDate = () => {
                 grouped.set(authorDate, []);
             }
             const forThisDate = grouped.get(authorDate);
-            if (
-                !forThisDate.some(({ subject: subj }) => subj === subject)
-            ) {
+            if (!forThisDate.some(({ subject: subj }) => subj === subject)) {
                 forThisDate.push({ ...change, subject });
             }
         }
     }
     return Array.from(grouped.entries());
+};
+
+const getSeries = (collectionApi) => {
+    const posts = [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md")].reverse()
+    const mapping = new Map();
+
+    for (const post of posts) {
+        const { series, seriesDescription, date } = post.data;
+
+        if (series === undefined) {
+            continue;
+        }
+
+        if (!mapping.has(series)) {
+            mapping.set(series, {
+                posts: [],
+                description: seriesDescription,
+                date,
+            });
+        }
+
+        const existing = mapping.get(series);
+
+        existing.posts.push(post.url);
+        existing.date = date;
+    }
+
+    const normalized = [];
+
+    for (const [k, { posts, description, date }] of mapping.entries()) {
+        if (posts.length > 1) {
+            normalized.push({ title: k, posts, description, date });
+        }
+    }
+
+    return normalized;
 };
 
 module.exports = {
