@@ -7,7 +7,6 @@ const fixUTC  = (dateObj) => {
     return DateTime.fromJSDate(dateObj).toUTC();
 }
 const readableDate = (dateObj) => {
-    console.log(dateObj.toLocaleString(DateTime.DATE_MED));
     return dateObj.toLocaleString(DateTime.DATE_MED);
 }
 
