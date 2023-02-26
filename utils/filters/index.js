@@ -3,9 +3,13 @@ const striptags = require("striptags");
 const { DateTime } = require("luxon");
 const { markdownLibrary } = require("../plugins/markdown");
 
-const getShortenedJSDate = (dateObj) => {
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
-};
+const fixUTC  = (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toUTC();
+}
+const readableDate = (dateObj) => {
+    console.log(dateObj.toLocaleString(DateTime.DATE_MED));
+    return dateObj.toLocaleString(DateTime.DATE_MED);
+}
 
 const getShortenedISODate = (dateObj) => {
     return DateTime.fromISO(formatDateISO(dateObj)).toFormat("LLL dd yyyy");
@@ -124,8 +128,14 @@ const cleanFeedContent = (content) => {
         .replace(/<div class="language-id">.*?<\/div>/g, "");
     return content;
 };
+
+const getIndexOfCollection = (collection, index) => {
+    return collection[index];
+};
+
 module.exports = {
-    getShortenedJSDate,
+    fixUTC,
+    readableDate,
     getShortenedISODate,
     dropContentFolder,
     toCaseUpper,
@@ -139,6 +149,7 @@ module.exports = {
     getWordCount,
     stripTags,
     cleanFeedContent,
+    getIndexOfCollection,
 };
 
 function formatDateISO(dateString) {

@@ -3,7 +3,7 @@
     <div><h2 class="mt-1">
             <a href="{{ post.url | url }}">{{ post.data.title }}</a>
         </h2>
-        <div class="flex flex-row flex-wrap gap-6 container"><p>{%- icon 'calendar' %} {{ post.date | shortenedJSDate }}</p>
+        <div class="flex flex-row flex-wrap gap-6 container"><p>{%- icon 'calendar' %} {{ post.date | fixUTC | readableDate }}</p>
             {%- if post.content -%}<p>{%- icon 'file-text' %} {{ post.content | wordCount }}</p><p>{%- icon 'clock' %} {{ post.content | readingTime }}</p>
             {%- endif -%}
             {%- if post.data.tags -%}

@@ -16,7 +16,8 @@ const {
     getRecentChangesByDate,
 } = require("./utils/collections/index.js");
 const {
-    getShortenedJSDate,
+    fixUTC,
+    readableDate,
     getShortenedISODate,
     dropContentFolder,
     toCaseUpper,
@@ -50,7 +51,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addCollection("recentChanges", getRecentChangesByDate);
 
     /* Filters */
-    eleventyConfig.addFilter("shortenedJSDate", getShortenedJSDate);
+    eleventyConfig.addFilter("fixUTC", fixUTC);
+    eleventyConfig.addFilter("readableDate", readableDate);
     eleventyConfig.addFilter("shortenedISODate", getShortenedISODate);
     eleventyConfig.addFilter("dropContentFolder", dropContentFolder);
     eleventyConfig.addFilter("caseUpper", toCaseUpper);
@@ -78,7 +80,11 @@ module.exports = function (eleventyConfig) {
 
     /* Plugins */
     eleventyConfig.addPlugin(pluginTOC, { ul: true });
-    eleventyConfig.addPlugin(pluginExternalLinks, { url: "https://uncenter.org", rel: ["noreferrer", "noopener", "external"], overwrite: false });
+    eleventyConfig.addPlugin(pluginExternalLinks, {
+        url: "https://uncenter.org",
+        rel: ["noreferrer", "noopener", "external"],
+        overwrite: false,
+    });
     eleventyConfig.addPlugin(pluginShikier);
     eleventyConfig.addPlugin(pluginRSS);
 
