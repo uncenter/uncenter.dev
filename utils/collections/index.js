@@ -5,6 +5,10 @@ const getPosts = (collectionApi) => {
     return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
 };
 
+const getMicroPosts = (collectionApi) => {
+    return collectionApi.getFilteredByGlob("./src/content/micro/**/*.md");
+};
+
 const getCustomCollections = (collectionApi) => {
     const collections = new Map();
 
@@ -109,6 +113,7 @@ const getSeries = (collectionApi) => {
 
 module.exports = {
     getPosts,
+    getMicroPosts,
     getCustomCollections,
     getAllTags,
     getRecentChangesByDate,

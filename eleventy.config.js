@@ -10,6 +10,7 @@ const {
 } = require("./utils/shortcodes/index.js");
 const {
     getPosts,
+    getMicroPosts,
     getCustomCollections,
     getAllTags,
     getRecentChangesByDate,
@@ -29,6 +30,7 @@ const {
     getWordCount,
     stripTags,
     cleanFeedContent,
+    getIndexOfCollection,
 } = require("./utils/filters/index.js");
 
 const { markdownLibrary } = require("./utils/plugins/markdown.js");
@@ -42,6 +44,7 @@ const pluginShikier = require("./utils/plugins/shikier.js");
 module.exports = function (eleventyConfig) {
     /* Collections */
     eleventyConfig.addCollection("blog", getPosts);
+    eleventyConfig.addCollection("micro", getMicroPosts);
     eleventyConfig.addCollection("custom", getCustomCollections);
     eleventyConfig.addCollection("allTags", getAllTags);
     eleventyConfig.addCollection("recentChanges", getRecentChangesByDate);
@@ -61,6 +64,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("wordCount", getWordCount);
     eleventyConfig.addFilter("stripTags", stripTags);
     eleventyConfig.addFilter("cleanFeed", cleanFeedContent);
+    eleventyConfig.addFilter("getIndexOfCollection", getIndexOfCollection);
 
     /* Shortcodes */
     eleventyConfig.addPairedShortcode("callout", createCallout);
