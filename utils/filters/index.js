@@ -6,8 +6,29 @@ const { markdownLibrary } = require("../plugins/markdown");
 const fixUTC  = (dateObj) => {
     return DateTime.fromJSDate(dateObj).toUTC();
 }
+
+const luxonDateShort = (dateObj) => {
+    return dateObj.toLocaleString(DateTime.DATE_SHORT); // 10/14/1983
+}
+
 const readableDate = (dateObj) => {
-    return dateObj.toLocaleString(DateTime.DATE_MED);
+    return dateObj.toLocaleString(DateTime.DATE_MED); // Oct 14, 1983
+}
+
+const luxonDateFull = (dateObj) => {
+    return dateObj.toLocaleString(DateTime.DATE_FULL); // Tuesday, October 14, 1983
+}
+
+const luxonDateTimeShort = (dateObj) => {
+    return dateObj.toLocaleString(DateTime.DATETIME_SHORT); // 10/14/1983, 10:30 AM
+}
+
+const luxonDateTimeMed = (dateObj) => {
+    return dateObj.toLocaleString(DateTime.DATETIME_MED); // Oct 14, 1983, 10:30 AM
+}
+
+const luxonDateTimeFull = (dateObj) => {
+    return dateObj.toLocaleString(DateTime.DATETIME_FULL);  // Tuesday, October 14, 1983 at 10:30:00 AM GMT+1
 }
 
 const getShortenedISODate = (dateObj) => {
@@ -134,7 +155,12 @@ const getIndexOfCollection = (collection, index) => {
 
 module.exports = {
     fixUTC,
+    luxonDateShort,
     readableDate,
+    luxonDateFull,
+    luxonDateTimeShort,
+    luxonDateTimeMed,
+    luxonDateTimeFull,
     getShortenedISODate,
     dropContentFolder,
     toCaseUpper,

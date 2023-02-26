@@ -17,7 +17,12 @@ const {
 } = require("./utils/collections/index.js");
 const {
     fixUTC,
+    luxonDateShort,
     readableDate,
+    luxonDateFull,
+    luxonDateTimeShort,
+    luxonDateTimeMed,
+    luxonDateTimeFull,
     getShortenedISODate,
     dropContentFolder,
     toCaseUpper,
@@ -52,7 +57,12 @@ module.exports = function (eleventyConfig) {
 
     /* Filters */
     eleventyConfig.addFilter("fixUTC", fixUTC);
+    eleventyConfig.addFilter("luxonDateShort", luxonDateShort);
     eleventyConfig.addFilter("readableDate", readableDate);
+    eleventyConfig.addFilter("luxonDateFull", luxonDateFull);
+    eleventyConfig.addFilter("luxonDateTimeShort", luxonDateTimeShort);
+    eleventyConfig.addFilter("luxonDateTimeMed", luxonDateTimeMed);
+    eleventyConfig.addFilter("luxonDateTimeFull", luxonDateTimeFull);
     eleventyConfig.addFilter("shortenedISODate", getShortenedISODate);
     eleventyConfig.addFilter("dropContentFolder", dropContentFolder);
     eleventyConfig.addFilter("caseUpper", toCaseUpper);
