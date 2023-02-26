@@ -1,6 +1,6 @@
 ---
 tags: ['Tailwind']
-title: Disabling a Tailwind Component
+title: Disabling a Tailwind component
 date: 2023-02-25
 description: Quick fix for a Tailwind component that you don't want to use.
 ---
