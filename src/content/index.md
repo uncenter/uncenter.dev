@@ -6,10 +6,10 @@ heading: Hello!
 👋 Welcome! This site is mostly just a blog right now, but hopefully it will eventually host my portfolio and projects. For now, you can [reach out to me](/contact), [read my blog](/posts/), or just take a look around. Thanks for stopping by!
 
 
-## Recent writings
+## Recent writing
 
 <div class="flex flex-row my-10 justify-between gap-5">
-{% set recentPost = collections.blog | reverse | last %}
+{% set recentPost = collections.blog | reverse | getIndexOfCollection(0) %}
 <div class="container flex-1">
     <h3><a href="{{ recentPost.url }}">{{ recentPost.data.title }}</a></h3>
     <p>{{ recentPost.data.description }}</p>
