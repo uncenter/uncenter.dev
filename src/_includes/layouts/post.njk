@@ -2,7 +2,7 @@
 layout: base
 ---
 
-<div class="flex flex-row flex-wrap gap-6 border-slate-800 border-2 px-5 rounded-[5px]">
+<div class="flex flex-row flex-wrap gap-6 container">
     <p>{%- icon 'calendar' %} {{ page.date | shortenedJSDate }}</p>
     {%- if content -%}
         <p>{%- icon 'file-text' %} {{ content | wordCount }}</p>

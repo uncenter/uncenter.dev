@@ -4,7 +4,7 @@
             <h2>
                 <a href="{{ post.url | url }}">{{ post.data.title }}</a>
             </h2>
-            <div class="flex flex-row flex-wrap gap-6 border-slate-800 border-2 px-5 rounded-[5px]">
+            <div class="flex flex-row flex-wrap gap-6 container">
                 <p>{%- icon 'calendar' %} {{ post.date | shortenedJSDate }}</p>
                 {%- if post.content -%}
                     <p>{%- icon 'file-text' %} {{ post.content | wordCount }}</p>

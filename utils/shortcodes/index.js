@@ -22,7 +22,7 @@ const createCallout = (content, title, type) => {
         type = "note";
     }
     return (
-        `<div class="note note--${type}">\n` +
+        `<div class="container note note--${type}">\n` +
         `<div class="note__title">\n` +
         `${titleText}\n` +
         `</div>\n` +
@@ -151,7 +151,9 @@ const insertGiscusScript = () => {
     };
     let giscusScript = document.createElement("script");
     Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-    document.body.appendChild(giscusScript);
+    window.onload = (event) => {
+        document.querySelector('#giscus').appendChild(giscusScript);
+    };
     </script>`;
 };
 

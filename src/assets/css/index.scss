@@ -37,14 +37,10 @@ body {
 }
 
 .note {
-    border-radius: 5px;
     padding-top: 1.5rem;
     padding-bottom: 0px;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
     margin: 10px 0px;
     position: relative;
-    border: 2px solid #1e293b;
 
     .note__title {
         font-weight: bold;
@@ -166,6 +162,14 @@ input[type="checkbox"] {
 
 .invisible {
     display: none;
+}
+
+.container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem; 
+    border-width: 2px; 
+    border-radius: 5px;
+    border-color: #1e293b;
 }
 
 @import "palette";

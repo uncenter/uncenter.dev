@@ -21,5 +21,8 @@ module.exports = {
             },
         },
     },
+    corePlugins: {
+        container: false,
+    },
     plugins: [require("tailwind-nord"), require("@tailwindcss/typography")],
 };
