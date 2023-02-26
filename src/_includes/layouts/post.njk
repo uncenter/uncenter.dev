@@ -20,3 +20,18 @@ layout: base
 {% endif %}
 {{ content | safe }}
 {% giscus %}
+<div id="giscus"></div>
+{% set previousPost = collections.blog | getPreviousCollectionItem %}
+{% set nextPost = collections.blog | getNextCollectionItem %}
+<div class="flex flex-row font-bold my-10 justify-between gap-5">
+{% if previousPost %}
+    <div class="w-1/2 py-10 container text-center">
+        {%- icon 'arrow-left' %} <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></div>
+{% else %}
+    <div class="w-1/2 py-10"></div>
+{% endif %}
+{% if nextPost %}
+    <div class="w-1/2 py-10 container text-center">
+    <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a> {% icon 'arrow-right' -%}</div>
+{% endif %}
+</div>
