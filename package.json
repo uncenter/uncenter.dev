@@ -1,7 +1,7 @@
 {
-    "name": "inte11igent",
+    "name": "site",
     "version": "1.0.0",
-    "description": "An intelligent starter for Eleventy using TailwindCSS, SASS/SCSS, and more.",
+    "description": "My personal site using Eleventy and TailwindCSS!",
     "scripts": {
         "clean": "rm -rf dist",
         "start": "NODE_ENV=development eleventy --serve & tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css --watch & sass --watch ./src/assets/css:./dist/assets/css",
@@ -9,14 +9,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/uncenter/inte11igent-starter.git"
+        "url": "https://github.com/uncenter/uncenter.org.git"
     },
     "author": {
         "name": "uncenter",
         "email": "contact@uncenter.org",
         "url": "https://uncenter.org/"
     },
-    "homepage": "https://github.com/uncenter/inte11igent-starter",
+    "homepage": "https://github.com/uncenter/uncenter.org",
     "license": "MIT",
     "dependencies": {
         "@11ty/eleventy": "^2.0.0",
