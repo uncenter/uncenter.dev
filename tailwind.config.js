@@ -6,6 +6,7 @@ const disabledCSS = {
 	'pre code': false,
 	'code::before': false,
 	'code::after': false,
+    a: false,
 }
 
 module.exports = {
