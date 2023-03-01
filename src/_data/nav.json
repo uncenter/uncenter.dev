@@ -1,19 +1,19 @@
 {
     "top": [
         {
-            "title": "About",
-            "url": "/about/",
-            "icon": "info"
+            "title": "Projects",
+            "url": "/projects/",
+            "icon": "folder-closed"
+        },
+        {
+            "title": "Uses",
+            "url": "/uses/",
+            "icon": "bookmark"
         },
         {
             "title": "Writing",
             "url": "/posts/",
             "icon": "edit"
-        },
-        {
-            "title": "Changelog",
-            "url": "/changelog/",
-            "icon": "clock"
         },
         {
             "title": "Other",

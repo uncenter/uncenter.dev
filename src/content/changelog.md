@@ -1,5 +1,7 @@
 ---
 title: "Changelog"
+collection: 'more'
+SVG: 'clock'
 ---
 
 <dl>

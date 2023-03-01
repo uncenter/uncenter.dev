@@ -1,5 +1,7 @@
 ---
 title: "About"
+collection: 'more'
+SVG: "circle-ellipsis"
 ---
 
 [Looking for an about page *about me*?](/me).
