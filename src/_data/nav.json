@@ -6,14 +6,14 @@
             "icon": "folder-closed"
         },
         {
-            "title": "Uses",
-            "url": "/uses/",
-            "icon": "bookmark"
-        },
-        {
             "title": "Writing",
             "url": "/posts/",
             "icon": "edit"
+        },
+        {
+            "title": "Uses",
+            "url": "/uses/",
+            "icon": "bookmark"
         },
         {
             "title": "Other",

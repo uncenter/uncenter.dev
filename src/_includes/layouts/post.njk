@@ -30,6 +30,6 @@ layout: base
     <div class="w-1/2 py-10"></div>
 {% endif %}
 {% if nextPost %}
-    <a class="w-1/2 py-10 container text-center hover:border-green-600 text-bold no-underline" href="{{ nextPost.url }}">{%- icon 'arrow-right' %} {{ nextPost.data.title }}</a>
+    <a class="w-1/2 py-10 container text-center hover:border-green-600 text-bold no-underline" href="{{ nextPost.url }}">{{ nextPost.data.title }} {% icon 'arrow-right' -%}</a>
 {% endif %}
 </div>
