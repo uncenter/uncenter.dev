@@ -167,9 +167,9 @@ input[type="checkbox"] {
 .container {
     padding-left: 1.25rem;
     padding-right: 1.25rem; 
-    border-width: 2px; 
     border-radius: 5px;
-    border-color: #1e293b;
+    border: 1px solid #dadde1;
+    transition: cubic-bezier(0.08,0.52,0.52,1) 200ms;
 }
 
 @import "palette";

@@ -2,7 +2,7 @@
 layout: base
 ---
 
-<div class="flex flex-row flex-wrap gap-6 container">
+<div class="flex flex-wrap gap-6 container">
     <p>{%- icon 'calendar' %} {{ page.date | fixUTC | readableDate }}</p>
     {%- if content -%}
         <p>{%- icon 'file-text' %} {{ content | wordCount }}</p>
@@ -14,7 +14,7 @@ layout: base
     {%- endif -%}
 </div>
 {% if content | toc %}
-    <nav aria-labelledby="secondary-navigation">
+    <nav class="container mt-3" aria-labelledby="secondary-navigation">
         {{ content | toc | safe }}
     </nav>
 {% endif %}
@@ -25,13 +25,11 @@ layout: base
 {% set nextPost = collections.blog | getNextCollectionItem %}
 <div class="flex flex-row font-bold my-10 justify-between gap-5">
 {% if previousPost %}
-    <div class="w-1/2 py-10 container text-center">
-        {%- icon 'arrow-left' %} <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></div>
+    <a class="w-1/2 py-10 container text-center hover:border-green-600 text-bold no-underline" href="{{ previousPost.url }}">{%- icon 'arrow-left' %} {{ previousPost.data.title }}</a>
 {% else %}
     <div class="w-1/2 py-10"></div>
 {% endif %}
 {% if nextPost %}
-    <div class="w-1/2 py-10 container text-center">
-    <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a> {% icon 'arrow-right' -%}</div>
+    <a class="w-1/2 py-10 container text-center hover:border-green-600 text-bold no-underline" href="{{ nextPost.url }}">{%- icon 'arrow-right' %} {{ nextPost.data.title }}</a>
 {% endif %}
 </div>
