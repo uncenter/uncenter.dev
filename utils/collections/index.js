@@ -2,6 +2,10 @@ const gitlog = require("gitlog").default;
 const { DateTime } = require("luxon");
 
 const getPosts = (collectionApi) => {
+    return [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md"), ...collectionApi.getFilteredByGlob("./src/content/micro/**/*.md")]
+}
+
+const getBlogPosts = (collectionApi) => {
     return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
 };
 
@@ -113,6 +117,7 @@ const getSeries = (collectionApi) => {
 
 module.exports = {
     getPosts,
+    getBlogPosts,
     getMicroPosts,
     getCustomCollections,
     getAllTags,

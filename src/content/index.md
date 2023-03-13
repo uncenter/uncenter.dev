@@ -10,7 +10,7 @@ heading: Hello!
 
 <div class="flex flex-col sm:flex-row my-10 justify-between gap-5">
 {% set recentPost = collections.blog | reverse | getIndexOfCollection(0) %}
-{% set recentPostSecond = collections.blog | reverse | getIndexOfCollection(1) %}
+{% set recentPostSecond = collections.micro | reverse | getIndexOfCollection(1) %}
 <a class="container flex-1 hover:border-green-600 text-bold no-underline" style="height: 50%;" href="{{ recentPost.url }}">
     <h3 style="margin-top: 0.6em;">{{ recentPost.data.title }}</h3>
     <p>{{ recentPost.data.description }}</p>
