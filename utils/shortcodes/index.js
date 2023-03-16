@@ -98,10 +98,8 @@ const getExcerpt = (page) => {
         content = content.substring(0, nextHeadingIndex);
     }
 
-    // Convert content to plain text
     const plainText = htmlToText(content, {
         wordwrap: false,
-        ignoreHref: true,
         ignoreImage: true,
         uppercaseHeadings: false,
     });

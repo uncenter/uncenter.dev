@@ -1,6 +1,7 @@
 <div>
     {%- for post in posts -%}
-    <div><h2 class="mt-1">
+    <div>
+        <h2 class="mt-1">
             <a href="{{ post.url | url }}">{{ post.data.title }}</a>
         </h2>
         <div class="flex flex-row flex-wrap gap-6 container"><p>{%- icon 'calendar' %} {{ post.date | fixUTC | readableDate }}</p>
