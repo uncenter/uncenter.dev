@@ -1,16 +1,12 @@
 const gitlog = require("gitlog").default;
 const { DateTime } = require("luxon");
 
+// const getPosts = (collectionApi) => {
+//     return [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md"), ...collectionApi.getFilteredByGlob("./src/content/micro/**/*.md")].sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
+// }
+
 const getPosts = (collectionApi) => {
-    return [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md"), ...collectionApi.getFilteredByGlob("./src/content/micro/**/*.md")].sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
-}
-
-const getBlogPosts = (collectionApi) => {
     return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
-};
-
-const getMicroPosts = (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/content/micro/**/*.md");
 };
 
 const getCustomCollections = (collectionApi) => {
@@ -117,8 +113,6 @@ const getSeries = (collectionApi) => {
 
 module.exports = {
     getPosts,
-    getBlogPosts,
-    getMicroPosts,
     getCustomCollections,
     getAllTags,
     getRecentChangesByDate,

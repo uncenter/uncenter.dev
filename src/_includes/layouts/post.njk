@@ -2,8 +2,8 @@
 layout: base
 ---
 
-<div class="flex flex-wrap gap-6 container">
-    <p>{%- icon 'calendar' %} {{ page.date | fixUTC | readableDate }}</p>
+<div class="flex flex-row flex-wrap justify-evenly items-center gap-2 container">
+    <p class="inline-block">{%- icon 'calendar' %} {{ page.date | fixUTC | readableDate }}</p>
     {%- if content -%}
         <p>{%- icon 'file-text' %} {{ content | wordCount }}</p>
         <p>{%- icon 'clock' %} {{ content | readingTime }}</p>
@@ -21,8 +21,8 @@ layout: base
 {{ content | safe }}
 {% giscus %}
 <div id="giscus"></div>
-{% set previousPost = collections.blog | getPreviousCollectionItem %}
-{% set nextPost = collections.blog | getNextCollectionItem %}
+{% set previousPost = collections.posts | getPreviousCollectionItem %}
+{% set nextPost = collections.posts | getNextCollectionItem %}
 <div class="flex flex-row font-bold my-10 justify-between gap-5">
 {% if previousPost %}
     <a class="w-1/2 py-10 container text-center hover:border-green-600 text-bold no-underline" href="{{ previousPost.url }}">{%- icon 'arrow-left' %} {{ previousPost.data.title }}</a>

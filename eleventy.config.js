@@ -10,8 +10,6 @@ const {
 } = require("./utils/shortcodes/index.js");
 const {
     getPosts,
-    getBlogPosts,
-    getMicroPosts,
     getCustomCollections,
     getAllTags,
     getRecentChangesByDate,
@@ -51,8 +49,6 @@ const pluginShikier = require("./utils/plugins/shikier.js");
 module.exports = function (eleventyConfig) {
     /* Collections */
     eleventyConfig.addCollection("posts", getPosts);
-    eleventyConfig.addCollection("blog", getBlogPosts);
-    eleventyConfig.addCollection("micro", getMicroPosts);
     eleventyConfig.addCollection("custom", getCustomCollections);
     eleventyConfig.addCollection("allTags", getAllTags);
     eleventyConfig.addCollection("recentChanges", getRecentChangesByDate);
