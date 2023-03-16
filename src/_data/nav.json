@@ -36,6 +36,11 @@
             "title": "Subscribe to my RSS feed!",
             "url": "/feed.xml",
             "icon": "rss"
+        },
+        {
+            "title": "Contact me via Element/Matrix!",
+            "url": "https://matrix.to/#/#uncenter:matrix.org",
+            "icon": "elementio"
         }
     ]
 }
