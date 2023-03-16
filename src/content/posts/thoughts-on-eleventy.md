@@ -13,7 +13,7 @@ One of the very few gripes I have with Eleventy is a bit of a large gripe- the w
 
 ### The homepage
 
-My first "ick" about the homepage lies in the very first section you see after opening 11ty.dev.
+My first observation about the homepage lies in the very first section you see after opening 11ty.dev.
 
 ![The first section on the Eleventy homepage, with links to Docs, Search, Blog, and social medias.](/assets/images/content/first-homepage-section.png)
 
