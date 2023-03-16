@@ -66,7 +66,7 @@ body {
         --note-color: #{$sky-600};
 
         &::after {
-            content: "\01F4D6  Info";
+            content: "Info";
         }
     }
 
@@ -74,7 +74,7 @@ body {
         --note-color: #{$nord11};
 
         &::after {
-            content: "\01F6A7  Warning";
+            content: "Warning";
         }
     }
 
@@ -82,7 +82,7 @@ body {
         --note-color: #7c9963;
 
         &::after {
-            content: "\002705  Tip";
+            content: "Tip";
         }
     }
 
