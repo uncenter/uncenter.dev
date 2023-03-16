@@ -2,7 +2,7 @@ const gitlog = require("gitlog").default;
 const { DateTime } = require("luxon");
 
 const getPosts = (collectionApi) => {
-    return [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md"), ...collectionApi.getFilteredByGlob("./src/content/micro/**/*.md")]
+    return [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md"), ...collectionApi.getFilteredByGlob("./src/content/micro/**/*.md")].sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
 }
 
 const getBlogPosts = (collectionApi) => {
