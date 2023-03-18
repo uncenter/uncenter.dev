@@ -8,15 +8,19 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 
 ### General
 
-- [Firefox](https://www.mozilla.org/en-US/firefox/new/) for web browsing
+- [Arc](https://arc.net/) for web browsing
     - [Polypane](https://polypane.app/) for testing responsive websites
 - [1Password](https://1password.com/) for password management
 - [Notion](https://notion.so/) for personal writing and databases
 - [Spotify](https://spotify.com/) for music
+- [iina](https://iina.io/) for video
+- [MacDown](https://macdown.uranusjr.com/) for Markdown editing
+- [NetNewsWire](https://ranchero.com/netnewswire/) for RSS feeds
+
 
 ### Social
 
-- [Discord](https://discord.com/) for messaging and community
+- [Discord](https://discord.com/) for messaging
 
 ### Development
 
@@ -32,10 +36,13 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 
 - [Raycast](https://raycast.com/) to replace the default MacOS spotlight search
     - [Coffee](https://www.raycast.com/mooxl/coffee) to prevent sleep
-- [Stats](https://github.com/exelban/stats) for menubar stats
+- [eul](https://github.com/gao-sun/eul) for system monitoring
 - [flameshot](https://flameshot.org/) for taking screenshots
-- [AltTab](https://alt-tab-macos.netlify.app/) for window switching
+- [AltTab](https://alt-tab-macos.netlify.app/) for quick window switching
 - [PurePaste](https://sindresorhus.com/pure-paste) for clipboard management
+- [dat-weather-doe](https://github.com/inderdhir/DatWeatherDoe) for weather
+- [Rectangle](https://rectangleapp.com/) for window management
+- [Shareful](https://sindresorhus.com/shareful) for copying, sharing, and saving files
 
 ### Browser Extensions
 
@@ -44,8 +51,6 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [1Password](https://1password.com/downloads/browser-extension/)
 - [Notion web clipper](https://www.notion.so/web-clipper) for saving web pages to Notion
 - [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
-- [Grammarly](https://www.grammarly.com/) for grammar and spelling
-- [Tab Stash](https://josh-berry.github.io/tab-stash/) for saving tabs for later
 
 #### Development
 - [Web Developer](https://chrispederick.com/work/web-developer/) for basic web development tools
@@ -69,7 +74,6 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 
 ### Day-to-day
 - [MacBook Pro 13" (2020 M1)](https://www.apple.com/macbook-pro-13/) for general use
-- [iPhone 13](https://www.apple.com/iphone-13/)
 
 ### PC
 - [Ryzen 5 3600](https://www.amd.com/en/products/cpu/amd-ryzen-5-3600) for CPU

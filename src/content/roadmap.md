@@ -28,8 +28,7 @@ SVG: "pin"
 
 - [ ] Add a site search feature (i.e. [Pagefind](https://pagefind.app/))
 - [x] Add searching by tags
-- [ ] Add RSS feed for blog posts
-- [ ] Incorporate microblog for short-form content
+- [x] Add RSS feed for blog posts
 - [ ] Enable Webmentions and Mastodon integration for comments and replies
 - [ ] Add a contact form for feedback and inquiries
 - [ ] Create a two-column layout with an improved table of contents for better readability
@@ -46,7 +45,3 @@ SVG: "pin"
 - [ ] Include a /now page or similar to provide up-to-date information about current activities
 - [ ] Track overall blog statistics such as word count, views, total written words, etc.
 - [ ] Display featured projects on homepage for easy access
-
-## Content
-
-- [ ] Write some blog post series such as how to setup a blog, how to setup a website, etc.
