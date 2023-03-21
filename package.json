@@ -4,6 +4,9 @@
     "description": "My personal site using Eleventy and TailwindCSS!",
     "scripts": {
         "clean": "rm -rf dist",
+        "spell:run": "cspell src/content/posts/**/*.md",
+        "spell:update": "node ./utils/plugins/cspell/auto.js",
+        "spell": "npm run spell:run",
         "start": "NODE_ENV=development eleventy --serve & tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css --watch & sass --watch ./src/assets/css:./dist/assets/css",
         "build": "NODE_ENV=production eleventy && sass ./src/assets/css:./dist/assets/css && tailwindcss -i ./dist/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css"
     },
@@ -54,6 +57,7 @@
     },
     "devDependencies": {
         "autoprefixer": "^10.4.13",
+        "cspell": "^6.30.2",
         "npm-run-all": "^4.1.5",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.2.7"
