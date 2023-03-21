@@ -25,9 +25,9 @@ Another noticable problem with the homepage is the Quick Start section, as seen 
 
 On a better note though, here is a part I actually like about the homepage.
 
-{% image "faster-and-faster-websites.png", "The speed race visual/anmation showcasing 11ty's prowess over competing SSGs." %}
+{% image "faster-and-faster-websites.png", "The speed race visual/anmation showcasing 11ty's prowess over competing web frameworks." %}
 
-I love this animation and it's a convincing visual. Makes me glad I started with Eleventy instead of Hugo or Jekyll!
+I love this animation and it's a convincing visual. Makes me glad I started with Eleventy instead of Gatsby or Next.js.
 
 ### The documentation
 I want to start thinking about this by putting yourself in someone else's shoes, a beginner's shoes. You are super excited to try this awesome and easy static site generator that your friend mentioned, and after finding the *completely normal sized* documentation button on the homepage, you landed here, at the documentation overview page.
