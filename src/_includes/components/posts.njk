@@ -18,7 +18,9 @@
                 <p class="my-0 bg-yellow-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">MICRO</p>
             {%- endif -%}
         </div>
-        {% if includeExcerpt === undefined %}
+        {% if post.data.excerpt %}
+            <p>{{ post.data.excerpt }}</p>
+        {% else %}
             <p>{%- excerpt post -%}</p>
         {% endif %}
     </div>
