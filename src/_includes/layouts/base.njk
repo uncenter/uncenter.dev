@@ -11,9 +11,9 @@
                     <a class="flex flex-row gap-x-3 items-center font-semibold md:px-3 transition {% if item.url in page.url -%} underline decoration-3 underline-offset-8 {%- endif %}" href="{{ item.url}}" {% if page.url === link.url %}aria-current="page"{% endif %}>{% icon item.icon %}{{ item.title }}</a>
                 {% endfor %}
             </div>
-            <button aria-label="Open settings">
+            {# <button aria-label="Open settings">
                 {% icon 'settings-2' %}
-            </button>
+            </button> #}
         </header>
         <main class="flex flex-col w-full max-w-[70ch] mx-auto prose">
             <h1 class="text-nord0 font-bold text-6xl">{{ title }}</h1>
