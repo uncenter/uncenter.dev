@@ -8,7 +8,7 @@ SVG: "pin"
 
 - [ ] Implement dark mode and light mode toggle
 - [ ] Allow users to switch between color themes
-- [ ] Enhance navigation menus with hamburger-style design and ensure mobile responsiveness
+- [x] Enhance navigation menus with hamburger-style design and ensure mobile responsiveness
 - [x] Add open graph images for better social media sharing
 - [ ] Use project cards and images for visual appeal
 
