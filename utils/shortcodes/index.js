@@ -295,6 +295,10 @@ const createStaticToot = async (instance, id) => {
     return stringToRet;
 };
 
+const insertImage = (img, alt) => {
+    return `<img class="container" src="/assets/images/content/${img}" alt="${alt}" loading="lazy" />`;
+};
+
 module.exports =  {
     createCallout,
     insertIcon,
@@ -303,5 +307,6 @@ module.exports =  {
     insertYear,
     insertDate,
     insertGiscusScript,
-    createStaticToot
+    createStaticToot,
+    insertImage
 };

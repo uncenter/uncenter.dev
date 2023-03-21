@@ -172,4 +172,8 @@ input[type="checkbox"] {
     transition: cubic-bezier(0.08,0.52,0.52,1) 200ms;
 }
 
+img.container {
+    padding: 2rem;
+}
+
 @import "palette";

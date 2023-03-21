@@ -7,6 +7,7 @@ const {
     insertIconSheet,
     insertGiscusScript,
     createStaticToot,
+    insertImage,
 } = require("./utils/shortcodes/index.js");
 const {
     getPosts,
@@ -86,6 +87,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("date", insertDate);
     eleventyConfig.addShortcode("giscus", insertGiscusScript);
     eleventyConfig.addNunjucksAsyncShortcode("stoot", createStaticToot);
+    eleventyConfig.addShortcode("image", insertImage);
 
     /* Plugins */
     eleventyConfig.addPlugin(pluginTOC, { ul: true });
