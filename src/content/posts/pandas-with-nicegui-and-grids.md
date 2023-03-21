@@ -5,7 +5,7 @@ date: 2023-03-13
 description: How I used a Pandas DataFrames inside NiceGUI's AGGrid.
 ---
 
-In the process of making my [`chemic`](https://github.com/uncenter/chemic) package, I wanted to make a GUI for it. I found [NiceGUI](https://nicegui.io) and for a Python frontend... it's... not too bad. 
+In the process of making my [`chemic`](https://github.com/uncenter/chemic) package, I wanted to make a GUI for it. I found [NiceGUI](https://nicegui.io) and for a Python frontend it is not too terrible.
 
 Anyway, I wanted to use a Pandas DataFrame inside a NiceGUI Grid. I couldn't find any examples of this, so I thought I'd write one up.
 
@@ -41,11 +41,3 @@ grid = ui.aggrid(
     }
 )
 ```
-
-## A note on `"rowSelection"`
-
-For some reason, the NiceGUI docs don't mention this [^1], but `"rowSelection"` can be set to `"single"` or `"multiple"`.[^2]
-
-[^1]: Understandably, since it uses the actual AGGrid JavaScript library, they just expect you to read the [AGGrid docs](https://www.ag-grid.com/javascript-data-grid/). But, I think it's worth mentioning here.
-
-[^2]: https://www.ag-grid.com/javascript-data-grid/row-selection/

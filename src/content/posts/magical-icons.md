@@ -2,18 +2,15 @@
 tags: ['11ty', 'icons']
 title: Magical Icons
 date: 2023-02-22
-description: A simple way to include only the icons you actually use!
+description: A simple way to include only the icons you actually use
 ---
 
-Icons pile up fast. You start with just the basics, but then you want to add more. And more. And more. And before you know it, you have a huge collection of icons that you don't even use. I've been there. I've done that. And it's easy enough to just include every icon you can find in your HTML, but that's not the best way to do it.
-
-## Other implementations
 
 While I was working on this project, I found a few other implementations of icon systems that I thought were worth mentioning. Benny Powers wrote about [a way to include sprites only when necessary](https://bennypowers.dev/posts/11ty-svg-sprites/) about a month ago, but sadly I couldn't get it to work, nor did I understand it enough to try to fix it. There are a few plugins for 11ty that do interesting things with SVGs[^1], but all I needed was a way to include SVGs on a page-by-page basis, which none of them did.
 
 ## The solution
 
-The solution is quite simple. First, it starts with a folder of SVGs. I have a folder at `src/assets/icons` that contains all of my SVGs. Now we need a way to embed them on our site. 
+First, make sure you have a folder with all of your icons. I have a folder at `src/assets/icons` that contains all of my SVGs. Now we need a way to embed them on our site. 
 
 ### Adding icons to a page
 

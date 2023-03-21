@@ -1,6 +1,11 @@
 [build]
-  publish = "dist/"
-  command = "npm run build"
+publish = "dist/"
+command = "npm run build"
 
 [[plugins]]
-  package = "@netlify/plugin-lighthouse"
+package = "@netlify/plugin-lighthouse"
+
+[[redirects]]
+from = "/posts/add-non-python-files-to-poetry-package/"
+to = "/posts/add-extra-files-python/"
+status = 301

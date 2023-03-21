@@ -66,7 +66,7 @@ The core of the shortcode is the RegEx to identify the first heading and each ph
 
 ## What's next?
 
-I'm hoping to really round of the site soon with some of these features.
+I'm hoping to really round off the site soon with some of these features.
 
 ### Dark/light mode and color themes
 
@@ -81,4 +81,4 @@ I know it's easy - just add a plugin and I'm done. Not sure why I haven't done i
 
 ### Webmentions and Mastodon comments
 
-I already (sorta) have comments through Giscus, but I would love to implement some type of fetch-comments-from-Mastodon functionality. I'm not sure how I would do this, but I'm sure it's possible. And Webmentions should be easy with a plugin or two.
+I already (sorta) have comments through Giscus, but I would love to implement some type of fetch-comments-from-Mastodon functionality. And Webmentions should be easy with a plugin or two.

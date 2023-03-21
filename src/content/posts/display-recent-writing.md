@@ -6,7 +6,7 @@ description: How I display my recent writing on my homepage.
 # cspell:ignore micro-blog
 ---
 
-I recently added a section to my homepage that displays my most recent writing, from both my articles and my micro-blog. Here is a quick rundown of how I did it!
+I recently added a section to my homepage that displays my most recent writing, from both my articles and my micro-blog.
 
 ## Simple solution
 
@@ -62,7 +62,5 @@ I added some Tailwind classes and a little bit of inline styling to make it look
 </div>
 </div>{% endraw %}
 ```
-
-## Results
 
 {% image "recent-writing-example.png", "Screenshot of my homepage with the recent writing section" %}
