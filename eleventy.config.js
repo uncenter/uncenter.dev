@@ -46,6 +46,7 @@ const pluginExternalLinks = require("@aloskutov/eleventy-plugin-external-links")
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const pluginShikier = require("./utils/plugins/shikier.js");
 
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
     /* Collections */
     eleventyConfig.addCollection("posts", getPosts);
@@ -121,6 +122,7 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.setLibrary("md", markdownLibrary);
+    eleventyConfig.setQuietMode(!inProduction);
 
     return {
         dir: {
