@@ -2,17 +2,11 @@
 layout: base
 ---
 
-<div class="flex flex-row flex-wrap justify-evenly items-center gap-2 container">
-    <p class="inline-block">{%- icon 'calendar' %} {{ page.date | fixUTC | readableDate }}</p>
-    {%- if content -%}
-        <p>{%- icon 'file-text' %} {{ content | wordCount }}</p>
-        <p>{%- icon 'clock' %} {{ content | readingTime }}</p>
-    {%- endif -%}
-    {%- if tags -%}
-        {%- for tag in tags -%}<a href="/tags/{{ tag | slugify }}"><p>{%- icon 'tag' -%} {{ tag }}</p></a>
-        {%- endfor -%}
-    {%- endif -%}
-</div>
+{% set DATE = page.date %}
+{% set CONTENT = content %}
+{% set TAGS = tags %}
+{% set MICRO = micro %}
+{% include "../components/tags.njk" %}
 {% if content | toc %}
     <nav class="container mt-3" aria-labelledby="secondary-navigation">
         {{ content | toc | safe }}
