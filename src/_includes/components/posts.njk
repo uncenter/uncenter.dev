@@ -1,15 +1,16 @@
 <div>
     {%- for post in posts -%}
-    <div class="mt-12">
-        <h2 class="mt-1 mb-1 text-2xl font-bold">
+    <div class="mt-14">
+        <h2 class="mb-6 text-2xl font-bold">
             <a href="{{ post.url | url }}">{{ post.data.title }}</a>
         </h2>
-        <div class="flex flex-row flex-wrap gap-6 container"><p>{%- icon 'calendar' %} {{ post.date | fixUTC | readableDate }}</p>
-            {%- if post.content -%}<p>{%- icon 'file-text' %} {{ post.content | wordCount }}</p><p>{%- icon 'clock' %} {{ post.content | readingTime }}</p>
+        <div class="flex flex-row flex-wrap gap-6 container py-4 mb-4">
+            <p class="my-0">{%- icon 'calendar' %} {{ post.date | fixUTC | readableDate }}</p>
+            {%- if post.content -%}<p class="my-0">{%- icon 'file-text' %} {{ post.content | wordCount }}</p><p class="my-0">{%- icon 'clock' %} {{ post.content | readingTime }}</p>
             {%- endif -%}
             {%- if post.data.tags -%}
                 {%- for tag in post.data.tags -%}
-                    <a href="/tags/{{ tag | slugify }}"><p>{%- icon 'tag' -%} {{ tag }}</p></a>
+                    <a href="/tags/{{ tag | slugify }}"><p class="my-0">{%- icon 'tag' -%} {{ tag }}</p></a>
                 {%- endfor -%}
             {%- endif -%}
         </div>
