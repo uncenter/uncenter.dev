@@ -2,7 +2,7 @@
 tags: ['11ty']
 title: Displaying my recent writing
 date: 2023-02-25
-description: How I display my recent writing on my homepage.
+description: How I display my recent writing on my homepage
 micro: true
 # cspell:ignore micro-blog
 ---

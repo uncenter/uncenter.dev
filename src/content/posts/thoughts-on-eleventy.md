@@ -2,15 +2,15 @@
 tags: ['11ty']
 title: My thoughts on Eleventy
 date: 2023-03-16
-description: A few thoughts on Eleventy and the Eleventy website.
+description: A few thoughts on Eleventy and the Eleventy website
 # cspell:ignore darthmall
 ---
 
-## A thank you to 11ty
+## Foreword - Thank you, Eleventy
 Eleventy is awesome. This website is built on Eleventy, and I've actually learned more than just how to make a website; I've learned how to write a blog, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS, and even JavaScript. I made the [first commit to this site on May 6, 2022](https://github.com/uncenter/uncenter.org/commit/11b536cd596463e42e2175a312dbf0439ca77103), so coming up on a year with Eleventy in a few months. I think I am more than qualified to give my thoughts!
 
-## Observations
-One of the very few unpleasant experiences I have had with Eleventy is the website. Instead of attempting to articulate myself well, I'll show you.
+## The website...
+One of the very very few unpleasant experiences I have had with Eleventy is the website. Instead of attempting to articulate myself well, I'll show you.
 
 ### The homepage
 

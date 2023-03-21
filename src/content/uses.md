@@ -59,7 +59,6 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [Fontanello](https://fontanello.app/) for finding fonts on websites
 - [Github Repo Size](https://github.com/Shywim/github-repo-size) for seeing repo sizes on GitHub
 - [Visbug](https://github.com/GoogleChromeLabs/ProjectVisBug) for taking a look at styling on websites
-- [Web Developer](https://chrispederick.com/work/web-developer/) for quick web development tools
 
 ### Developer services
 
