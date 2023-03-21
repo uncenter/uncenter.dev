@@ -3,6 +3,7 @@ tags: ['11ty']
 title: The Great Eleventy Reset
 date: 2023-02-21
 description: A new structure, new icons, and a fresh look!
+# cspell:ignore Barabara Devries
 ---
 
 It's coming up on a year now that I have this website, and I released v2.0 on January 2nd, 2023 - exactly 50 days ago. As of that release, I have made **149 commits** to the repository. I think it's time for v3.0. 
@@ -11,7 +12,7 @@ It's coming up on a year now that I have this website, and I released v2.0 on Ja
 
 ### New design
 
-For now, I am using [Tailwind's "Preflight" CSS reset](https://tailwindcss.com/docs/preflight) along with their [Typography plugin](https://tailwindcss.com/docs/typography-plugin). It looks quite nice without any work, though it is a little annoying to disable some of the styling. I haven't implemented dark/light mode or any color scheme yet, but thats on the menu for later. I'm still deciding between a minimalistic design with little to no accents, a rainbowish theme, or just one accent color. 
+For now, I am using [Tailwind's "Preflight" CSS reset](https://tailwindcss.com/docs/preflight) along with their [Typography plugin](https://tailwindcss.com/docs/typography-plugin). It looks quite nice without any work, though it is a little annoying to disable some of the styling. I haven't implemented dark/light mode or any color scheme yet, but thats on the menu for later. I'm still deciding between a minimalistic design with little to no accents, a rainbow-ish theme, or just one accent color. 
 
 ### New icons
 
@@ -19,7 +20,7 @@ After months of constantly changing and tweaking the icons, I have finally settl
 
 ### Updated shortcodes and filters
 
-I updated the `readingTime` filter for easier customizability in the future, and I created a new `wordCount` filter as well. I have also updated the callout (previously note) shortcode with new callout types and along with each type... new styling! One neat thing is each callout has a text marker in the top right, inspired by [Bryan Devries](https://brianjdevries.com/style-guide/).
+I updated the `readingTime` filter and I created a new `wordCount` filter as well. I have also updated the `callout` (previously `note`) shortcode with new types and along with each type... new styling! One neat thing is each callout has a text marker in the top right, inspired by [Bryan Devries](https://brianjdevries.com/style-guide/).
 Finally, I spent more time than I would like to admit on a new `excerpt` shortcode that "intelligently" truncates the excerpt at 200 characters or less. 
 
 ```js
@@ -69,7 +70,7 @@ I'm hoping to really round of the site soon with some of these features.
 
 ### Dark/light mode and color themes
 
-I had a dark/light mode toggle in v2, decently well implemented. It stored preference in localStorage and used `prefers-color-scheme` on initial visits. However, I want to expand this concept into a full site settings menu: a dark, light, and auto/reset toggle; a theme toggle; and maybe a language toggle if I decide to add i18n. I'm hoping to find a better way to implement it in v3, but I'm struggling to create the dropdown/popup menu in an elegant and accesible way.
+I had a dark/light mode toggle in v2, decently well implemented. It stored preference in localStorage and used `prefers-color-scheme` on initial visits. However, I want to expand this concept into a full site settings menu: a dark, light, and auto/reset toggle; a theme toggle; and maybe a language toggle if I decide to add i18n. I'm hoping to find a better way to implement it in v3, but I'm struggling to create the dropdown/popup menu in an elegant and accessible way.
 
 ### Search
 I have almost zero content on this site, but I still think it would be cool to add search functionality. I've heard good things about [Pagefind](https://pagefind.app/), which is a fully static search that runs after 11ty and has super easy integration.

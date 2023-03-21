@@ -3,9 +3,10 @@ tags: ['11ty']
 title: Making Create Eleventy App
 date: 2023-03-05
 description: The process of making a new tool for creating Eleventy sites!
+# cspell:ignore Bjankord
 ---
 
-The other day, after exploring Node and CLI tools with [unvarify](https://github.com/uncenter/unvarify), I was eager to make something else. There are already some existing projects like this out there, such as [create-eleventy-site by Bjankord](https://github.com/bjankord/create-eleventy-site), but I wanted to make something that was a little less opinionated and more customizable. It needs to be clear, concise, and easy to use for people new to Eleventy but also provide advanced configuration for people familiar with Eleventy to quickly jumpstart a new site.
+The other day, after exploring Node and CLI tools with [unvarify](https://github.com/uncenter/unvarify), I was eager to make something else. There are already some existing projects like this out there, such as [create-eleventy-site by Bjankord](https://github.com/bjankord/create-eleventy-site), but I wanted to make something that was a little less opinionated and more customizable. It needs to be clear, concise, and easy to use for people new to Eleventy but also provide advanced configuration for people familiar with Eleventy to quickly jump-start a new site.
 
 ## The process
 
@@ -19,7 +20,7 @@ Generating the project starts with creating a new directory. This directory will
 
 Starting with the Eleventy config file, we take the filename from the prompt (`eleventy.config.js`, `eleventy.config.cjs`, and `.eleventy.js` are the options as per the documentation). There are a few parts of the config file, so I'll break it down into sections.
 
-For the "addons" as I'm calling them (filters, shortcodes, collections), we take the answers from the `addons` prompt or by gathering the addons via the selected bundles. "Bundles" are simply pre-made sets of addons to make it easier for new users. For example, the `blog` bundle includes addons useful for blogs. For each addon, we have to seperate the imports and the actual function, which are then added seperatly to the config file (imports at the top, functions with the rest of the configuration).
+For the "addons" as I'm calling them (filters, shortcodes, collections), we take the answers from the `addons` prompt or by gathering the addons via the selected bundles. "Bundles" are simply pre-made sets of addons to make it easier for new users. For example, the `blog` bundle includes addons useful for blogs. For each addon, we have to separate the imports and the actual function, which are then added separately to the config file (imports at the top, functions with the rest of the configuration).
 
 Also at the top of the file, we add the Eleventy plugins and `markdown-it` plugins. These are added based on the answers from the `plugins` prompt.
 

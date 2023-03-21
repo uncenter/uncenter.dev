@@ -3,6 +3,7 @@ tags: ['Python', 'Poetry']
 title: Add non-Python files to a Poetry package
 date: 2023-03-13
 description: A simple explanation of how to add non-Python files to a Poetry package.
+# cspell:ignore importlib
 ---
 
 Since it took me long enough to find a solution, thought it might be worthwhile to put this out there.

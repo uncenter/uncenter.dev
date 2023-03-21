@@ -3,9 +3,10 @@ tags: ['11ty']
 title: Displaying my recent writing
 date: 2023-02-25
 description: How I display my recent writing on my homepage.
+# cspell:ignore micro-blog
 ---
 
-I recently added a section to my homepage that displays my most recent writing, from both my articles and my microblog. Here is a quick rundown of how I did it!
+I recently added a section to my homepage that displays my most recent writing, from both my articles and my micro-blog. Here is a quick rundown of how I did it!
 
 ## Simple solution
 
