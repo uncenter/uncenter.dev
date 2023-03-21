@@ -29,7 +29,7 @@ Finally, we add the `dir` section of the config file. This is where we set the i
 
 Next, we add the assets and dotfiles. The `index.md` homepage is based on the `create-eleventy-site` template, which is designed to look like the other `create-____-app` tools.
 
-![Screenshot of the homepage](/assets/images/content/create-eleventy-app-homepage.png)
+{% image "create-eleventy-app-homepage.png", "Screenshot of the generated homepage" %}
 
 For the homepage, we copy over the images, styling, layout, and `index.md` page.
 
