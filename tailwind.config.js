@@ -28,6 +28,9 @@ module.exports = {
                 xl: { css: disabledCSS },
                 '2xl': { css: disabledCSS },
             },
+            lineHeight: {
+                none: 'unset'
+            },
         },
     },
     corePlugins: {

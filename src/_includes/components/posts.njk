@@ -6,12 +6,16 @@
         </h2>
         <div class="flex flex-row flex-wrap gap-6 container py-4 mb-4">
             <p class="my-0">{%- icon 'calendar' %} {{ post.date | fixUTC | readableDate }}</p>
-            {%- if post.content -%}<p class="my-0">{%- icon 'file-text' %} {{ post.content | wordCount }}</p><p class="my-0">{%- icon 'clock' %} {{ post.content | readingTime }}</p>
+            {%- if not post.data.micro -%}
+                {%- if post.content -%}<p class="my-0">{%- icon 'file-text' %} {{ post.content | wordCount }}</p><p class="my-0">{%- icon 'clock' %} {{ post.content | readingTime }}</p>{%- endif -%}
             {%- endif -%}
             {%- if post.data.tags -%}
                 {%- for tag in post.data.tags -%}
                     <a href="/tags/{{ tag | slugify }}"><p class="my-0">{%- icon 'tag' -%} {{ tag }}</p></a>
                 {%- endfor -%}
+            {%- endif -%}
+            {%- if post.data.micro -%}
+                <p class="my-0 bg-yellow-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">MICRO</p>
             {%- endif -%}
         </div>
         {% if includeExcerpt === undefined %}

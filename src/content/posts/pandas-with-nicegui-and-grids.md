@@ -3,6 +3,7 @@ tags: ['Pandas', 'Python', 'NiceGUI']
 title: Using Pandas DataFrames with NiceGUI's Grid
 date: 2023-03-13
 description: How I used a Pandas DataFrames inside NiceGUI's AGGrid.
+micro: true
 ---
 
 In the process of making my [`chemic`](https://github.com/uncenter/chemic) package, I wanted to make a GUI for it. I found [NiceGUI](https://nicegui.io) and for a Python frontend it is not too terrible.

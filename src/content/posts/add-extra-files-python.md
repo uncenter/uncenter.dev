@@ -3,6 +3,7 @@ tags: ['Python']
 title: Add extra files to a Python package
 date: 2023-03-13
 description: How to add extra files to a Python package
+micro: true
 # cspell:ignore importlib
 ---
 
