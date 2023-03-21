@@ -6,6 +6,7 @@ const EleventyFetch = require("@11ty/eleventy-fetch")
 const md5 = require('md5')
 const { DateTime } = require("luxon")
 const { markdownLibrary } = require("../plugins/markdown")
+const turndown = require("turndown")
 
 const createCallout = (content, title, type) => {
     const titleText = markdownLibrary.renderInline(`${title}`);
@@ -98,16 +99,13 @@ const getExcerpt = (page) => {
         content = content.substring(0, nextHeadingIndex);
     }
 
-    const plainText = htmlToText(content, {
-        wordwrap: false,
-        ignoreImage: true,
-        uppercaseHeadings: false,
-    });
+    turndownRenderer = new turndown()
+    text = turndownRenderer.turndown(content)
 
     // Split plain text into phrases and concatenate until length cutoff 
     // Adapted https://github.com/mpcsh/eleventy-plugin-description]
 
-    const phrases = plainText.split(/(\p{Terminal_Punctuation}\p{White_Space})/gu);
+    const phrases = text.split(/(\p{Terminal_Punctuation}\p{White_Space})/gu);
     let excerpt = "";
     while (phrases.length > 0 && excerpt.length < 200) {
         excerpt += phrases.shift();
@@ -115,7 +113,7 @@ const getExcerpt = (page) => {
 
     // Append ending characters and return excerpt
     excerpt += "...";
-    return excerpt;
+    return markdownLibrary.render(excerpt);
 }
 
 const insertYear = () => {
