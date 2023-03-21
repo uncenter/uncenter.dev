@@ -51,7 +51,7 @@ I also want to reference [the Github issue](https://github.com/11ty/eleventy/iss
 
 I love this idea. And actually, Eleventy does have most of these, but unfortunately they aren't presented in the best way. The Getting Started section is fine, but it isn't a real tutorial as defined above. Again, I put myself in a new user's shoes while thinking about this and I want to point out that there don't seem to be any other good options either! To test this theory, I opened an Incognito tab to see what pops up when I search from "make an eleventy website" on Youtube.
 
-{% image "youtube-search-for-eleventy.png", "The results of the search \"make an eleventy website\" on Youtube." %}
+{% image "youtube-search-for-eleventy.png", "The results of the search 'make an eleventy website' on Youtube." %}
 
 Neither of the first two results are recent- the videos in Bryan Robinson's tutorial series were produced between May and September of 2019, almost three years ago. And the 11ty Rocks! video was published over two years ago as of last month. And the often-recommended [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/) tutorial is sadly plastered with warnings of outdated content (most of it is up to date actually, but I understand the reasoning behind the warning).
 
