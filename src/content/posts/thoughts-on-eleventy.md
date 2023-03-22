@@ -6,7 +6,7 @@ description: A few thoughts on Eleventy and the Eleventy website
 # cspell:ignore darthmall
 ---
 
-## Foreword - Thank you, Eleventy
+## Foreword
 Eleventy is awesome. This website is built on Eleventy, and I've actually learned more than just how to make a website; I've learned how to write a blog, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS, and even JavaScript. I made the [first commit to this site on May 6, 2022](https://github.com/uncenter/uncenter.org/commit/11b536cd596463e42e2175a312dbf0439ca77103), so coming up on a year with Eleventy in a few months. I'm really grateful for the learning experience I have had with Eleventy, and I'm really grateful for the community that has helped me along the way. On that note, I think this makes me somewhat qualified to give my thoughts on Eleventy!
 
 ## The website...
