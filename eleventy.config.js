@@ -37,6 +37,7 @@ const {
     stripTags,
     cleanFeedContent,
     getIndexOfCollection,
+    renderMarkdown,
 } = require("./utils/filters/index.js");
 
 const { markdownLibrary } = require("./utils/plugins/markdown.js");
@@ -77,6 +78,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("stripTags", stripTags);
     eleventyConfig.addFilter("cleanFeed", cleanFeedContent);
     eleventyConfig.addFilter("getIndexOfCollection", getIndexOfCollection);
+    eleventyConfig.addFilter("renderMarkdown", renderMarkdown);
 
     /* Shortcodes */
     eleventyConfig.addPairedShortcode("callout", createCallout);

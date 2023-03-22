@@ -153,6 +153,10 @@ const getIndexOfCollection = (collection, index) => {
     return collection[index];
 };
 
+const renderMarkdown = (content) => {
+    return markdownLibrary.render(content); 
+}
+
 module.exports = {
     fixUTC,
     luxonDateShort,
@@ -175,6 +179,7 @@ module.exports = {
     stripTags,
     cleanFeedContent,
     getIndexOfCollection,
+    renderMarkdown,
 };
 
 function formatDateISO(dateString) {

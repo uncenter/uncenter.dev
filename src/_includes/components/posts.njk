@@ -10,7 +10,7 @@
             {% set MICRO = post.data.micro %}
             {% include "./tags.njk" %}
             {% if post.data.excerpt %}
-                <p>{{ post.data.excerpt }}</p>
+                <p>{{ post.data.excerpt | renderMarkdown | safe }}</p>
             {% else %}
                 <p>{%- excerpt post -%}</p>
             {% endif %}
