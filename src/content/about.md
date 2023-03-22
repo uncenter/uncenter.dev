@@ -4,17 +4,13 @@ collection: 'more'
 SVG: "circle-ellipsis"
 ---
 
-[Looking for an about page *about me*?](/me).
-
 ## Site structure
-This website is a self-coded project, with the help of a static site generator - [11ty](https://www.11ty.dev/). 11ty converts Markdown files into HTML pages, making it easy for me to design the frontend while keeping the process simple.
+This website uses the [Eleventy (11ty)](https://www.11ty.dev/) static site generator. 11ty converts Markdown files, like blog posts and other pages, into HTML, making it easy for me to design the frontend while focusing on the content.
 
 According to 11ty's website:
 - Eleventy is a simple static site generator.
 - It quickly builds fast websites.
 - It's a popular modern web site generator.
-
-For me, 11ty converts Markdown files (`.md`) into HTML pages, making it simply and easy to make the pages while letting me design the frontend.
 
 ## Site hosting
 After the website is built, it's just a folder on my desktop (or source code in [a Github repository](https://www.github.com/{{ meta.github.username }}/{{ meta.github.repo }})). I use [Netlify](https://www.netlify.com/), a free hosting service, to auto-deploy the website from the Github repository.
