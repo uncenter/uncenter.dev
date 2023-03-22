@@ -7,10 +7,10 @@ description: A few thoughts on Eleventy and the Eleventy website
 ---
 
 ## Foreword - Thank you, Eleventy
-Eleventy is awesome. This website is built on Eleventy, and I've actually learned more than just how to make a website; I've learned how to write a blog, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS, and even JavaScript. I made the [first commit to this site on May 6, 2022](https://github.com/uncenter/uncenter.org/commit/11b536cd596463e42e2175a312dbf0439ca77103), so coming up on a year with Eleventy in a few months. I think I am more than qualified to give my thoughts!
+Eleventy is awesome. This website is built on Eleventy, and I've actually learned more than just how to make a website; I've learned how to write a blog, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS, and even JavaScript. I made the [first commit to this site on May 6, 2022](https://github.com/uncenter/uncenter.org/commit/11b536cd596463e42e2175a312dbf0439ca77103), so coming up on a year with Eleventy in a few months. I'm really grateful for the learning experience I have had with Eleventy, and I'm really grateful for the community that has helped me along the way. On that note, I think this makes me somewhat qualified to give my thoughts on Eleventy!
 
 ## The website...
-One of the very very few unpleasant experiences I have had with Eleventy is the website. Instead of attempting to articulate myself well, I'll show you.
+One of the **very, very** few unpleasant experiences I have had with Eleventy is the website. Let me show you what I mean.
 
 ### The homepage
 
@@ -64,4 +64,4 @@ Furthermore, none of those are official Eleventy resources. My conclusion from a
 
 I don't want to self-promote but I have actually tried to solve a few of this issues by making a CLI tool that scaffolds your project for you. [Try it out](https://github.com/uncenter/create-eleventy-app) or [read about how I made it](https://www.uncenter.org/posts/making-create-eleventy-app/).
 
-Overall, I think there is a lot that needs to be done. And I'm not writing about this as a criticism, but rather I wish the best for Eleventy and it is important to me to have it succeed!
+I think there is definitely a lot that needs to be done. And I'm not writing about this as a criticism, but rather I wish the best for Eleventy and it is important to me to have it succeed! If you have any thoughts or ideas, please share them in the comments below. I'd love to hear them.
