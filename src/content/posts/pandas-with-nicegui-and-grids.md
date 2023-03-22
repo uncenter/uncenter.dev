@@ -2,7 +2,7 @@
 tags: ['Pandas', 'Python', 'NiceGUI']
 title: Pandas DataFrame & NiceGUI
 date: 2023-03-13
-description: How I used a Pandas DataFrame inside NiceGUI's AGGrid
+description: How I used a Pandas DataFrame inside NiceGUI's AGGrid component.
 micro: true
 archived: true
 ---

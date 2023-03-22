@@ -2,7 +2,7 @@
 tags: ['11ty']
 title: The Great Eleventy Reset
 date: 2023-02-21
-description: A new structure, new icons, and a fresh look
+description: "v3.0: A new structure, new icons, and a fresh look!"
 archived: true
 # cspell:ignore Barabara Devries
 ---

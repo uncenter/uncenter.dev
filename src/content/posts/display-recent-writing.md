@@ -1,9 +1,10 @@
 ---
 tags: ['11ty']
-title: Displaying my recent writing
+title: Display recent posts with Eleventy
 date: 2023-02-25
-description: How I display my recent writing on my homepage
+description: How I display my recent blog posts on my homepage
 micro: true
+archived: true
 # cspell:ignore micro-blog
 ---
 

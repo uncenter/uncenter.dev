@@ -1,8 +1,8 @@
 ---
 tags: []
-title: Spellchecking my Markdown posts
+title: Spellchecking Posts with Eleventy
 date: 2023-03-22
-description: How to spellcheck your blog posts with cSpell
+description: How to spellcheck your Eleventy blog posts with cSpell!
 draft: true
 # cspell:ignore
 ---

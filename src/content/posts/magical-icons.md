@@ -1,8 +1,8 @@
 ---
 tags: ['11ty', 'icons']
-title: Magical Icons
+title: Including icons on a page-by-page basis with Eleventy
 date: 2023-02-22
-description: A simple way to include only the icons you actually use
+description: A simple way to include only the icons you actually use.
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 tags: ['11ty']
-title: My thoughts on Eleventy
+title: A few thoughts on Eleventy
 date: 2023-03-16
-description: A few thoughts on Eleventy and the Eleventy website
+description: A few thoughts on Eleventy and the Eleventy website.
 # cspell:ignore darthmall
 ---
 
