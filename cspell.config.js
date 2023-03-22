@@ -29,7 +29,7 @@ module.exports = {
         'endcallout',
     ],
     flagWords: [],
-    dictionaries: ["eleventy", "repos", "py", "njk", "brands"],
+    dictionaries: ["repos", "njk"],
     dictionaryDefinitions: [
         { "name": "repos", "path": "./utils/plugins/cspell/dicts/repos.txt" },
         { "name": "njk", "path": "./utils/plugins/cspell/dicts/njk.txt" },
