@@ -3,8 +3,13 @@ title: "Projects"
 ---
 
 ## uncenter.org
-This website! I've been working on it for a while, and I'm pretty happy with it. I'm still working on it, and I'm always looking for feedback. If you have any suggestions, feel free to [contact me](/contact)!
+This website! It's built with [11ty/Eleventy](https://www.11ty.dev/) (and [Tailwind CSS](https://tailwindcss.com/)). You can check out the source code on [GitHub](https://github.com/{{ meta.github.username }}/{{ meta.github.repo }}).
 
 {% callout ":package: This section has been moved!", "caution" %}
 The "to-do" section has been moved to the [Roadmap](/roadmap).
 {% endcallout %}
+
+## `create-eleventy-app`
+A CLI tool to create a new Eleventy site with a few extra features. It's still in development, but I think it's already pretty useful. You can check it out on [GitHub](https://github.com/{{ meta.github.username }}/create-eleventy-app) or [npm](https://www.npmjs.com/package/create-eleventy-app).
+
+{% image "create-eleventy-app-homepage.png", "Screenshot of the generated homepage" %}

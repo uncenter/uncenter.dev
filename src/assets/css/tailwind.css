@@ -22,4 +22,11 @@
         margin-left: 4px;
         width: 11px;
     }
+    .prose :not(pre)>code {
+        border-radius: 0.3em;
+        background-color: #22272F;
+        color: #d8dee9;
+        padding: 0.2em 0.4em;
+        white-space: normal;
+    }
 }
