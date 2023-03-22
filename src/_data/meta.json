@@ -1,6 +1,7 @@
 {
     "name": "uncenter",
     "url": "https://uncenter.org",
+    "analytics": "https://analytics.uncenter.org/share/LRerfjMi/uncenter",
     "description": "A personal blog and portfolio.",
     "generator": "Eleventy",
     "github" : {

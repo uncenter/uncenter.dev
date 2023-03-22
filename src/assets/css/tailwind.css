@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-    .prose a:not(.no-underline) {
+    main a:not(.no-underline), footer a:not(.no-underline) {
         text-decoration: underline;
         text-decoration-color: #16a34a;
     }
-    .prose a:not(.no-underline):hover {
+    main a:not(.no-underline):hover, footer a:not(.no-underline):hover {
         text-decoration-thickness: 2px;
     }
     main a[rel*="noopener"]:not([href*="uncenter.org"], .base-link, .base-link a)::after {
