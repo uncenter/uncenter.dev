@@ -12,12 +12,12 @@ const isTokenComment = (token) =>
     );
 
 const resolveCommandShortcuts = (command) =>
-    ({
-        "**": "focus",
-        "++": "add",
-        "--": "remove",
-        "~~": "highlight",
-    }[command] || command);
+({
+    "**": "focus",
+    "++": "add",
+    "--": "remove",
+    "~~": "highlight",
+}[command] || command);
 
 const extractLineShikierCommands = (line) => {
     const shikierCommandsExtractor = /\[sh!(?<commands>[^\]]*)\]/gu;
@@ -195,9 +195,7 @@ const highlight = (code, lang, highlighter) => {
 };
 
 module.exports = (eleventyConfig, { theme = "nord" } = {}) => {
-    
-    
-    eleventyConfig.amendLibrary("md", () => {});
+    eleventyConfig.amendLibrary("md", () => { });
 
     eleventyConfig.on("eleventy.before", async () => {
         const highlighter = await shiki.getHighlighter({ theme });
