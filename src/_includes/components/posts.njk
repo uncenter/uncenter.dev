@@ -8,6 +8,7 @@
             {% set CONTENT = post.content %}
             {% set TAGS = post.data.tags %}
             {% set MICRO = post.data.micro %}
+            {% set ARCHIVED = post.data.archived %}
             {% include "./tags.njk" %}
             {% if post.data.excerpt %}
                 <p>{{ post.data.excerpt | renderMarkdown | safe }}</p>
