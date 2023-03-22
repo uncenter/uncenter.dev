@@ -5,8 +5,16 @@ const { DateTime } = require("luxon");
 //     return [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md"), ...collectionApi.getFilteredByGlob("./src/content/micro/**/*.md")].sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
 // }
 
-const getPosts = (collectionApi) => {
+const getAllPosts = (collectionApi) => {
     return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
+};
+
+const getArchivedPosts = (collectionApi) => {
+    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md").filter((post) => post.data.archived === true);
+};
+
+const getPosts = (collectionApi) => {
+    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md").filter((post) => post.data.archived !== true);
 };
 
 const getCustomCollections = (collectionApi) => {
@@ -113,6 +121,8 @@ const getSeries = (collectionApi) => {
 
 module.exports = {
     getPosts,
+    getAllPosts,
+    getArchivedPosts,
     getCustomCollections,
     getAllTags,
     getRecentChangesByDate,
