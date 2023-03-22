@@ -1,3 +1,7 @@
+// from blakeembrey/change-case
+// https://github.com/blakeembrey/change-case/blob/master/packages/title-case/src/index.ts
+// license: MIT
+
 const SMALL_WORDS =
     /\b(?:an?d?|a[st]|because|but|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b/i;
 const TOKENS = /[^\s:–—-]+|./g;
