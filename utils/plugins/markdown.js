@@ -25,9 +25,11 @@ const markdownLibrary = markdownIt({
         liClass: "checklist-item",
     })
     .use(markdownItAnchor, {
-        permalink: true,
-        permalinkClass: "direct-link",
-        permalinkSymbol: "#",
+        permalink: markdownItAnchor.permalink.ariaHidden({
+            placement: 'after',
+            class: 'anchor',
+            symbol: '#',         
+        })
     })
     .use(markdownItLinkAttributes, [
         {
