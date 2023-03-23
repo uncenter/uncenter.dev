@@ -1,6 +1,6 @@
 ---
 tags: ['11ty', 'icons']
-title: Including icons on a page-by-page basis with Eleventy
+title: Include icons selectively with 11ty
 date: 2023-02-22
 description: A simple way to include only the icons you actually use.
 ---

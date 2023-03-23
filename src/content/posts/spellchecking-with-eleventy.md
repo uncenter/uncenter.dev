@@ -1,6 +1,6 @@
 ---
 tags: []
-title: Spellchecking Posts with Eleventy
+title: Spellchecking posts with Eleventy
 date: 2023-03-22
 description: How to spellcheck your Eleventy blog posts with cSpell!
 draft: true
