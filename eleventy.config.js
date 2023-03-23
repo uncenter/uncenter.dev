@@ -44,6 +44,7 @@ const {
 
 const { markdownLibrary } = require("./utils/plugins/markdown.js");
 const inProduction = process.env.NODE_ENV === "production";
+require('dotenv').config()
 
 const pluginTOC = require("eleventy-plugin-toc");
 const pluginExternalLinks = require("@aloskutov/eleventy-plugin-external-links");
