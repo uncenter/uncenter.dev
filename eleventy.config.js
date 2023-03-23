@@ -18,29 +18,24 @@ const {
     getRecentChangesByDate,
 } = require("./utils/collections/index.js");
 const {
-    fixUTC,
-    luxonDateShort,
-    readableDate,
-    luxonDateFull,
-    luxonDateTimeShort,
-    luxonDateTimeMed,
-    luxonDateTimeFull,
-    getShortenedISODate,
-    dropContentFolder,
-    toCaseUpper,
-    toCaseLower,
+    fromJS,
+    toShortDate,
+    toMedDate,
+    toFullDate,
+    toShortDateTime,
+    toMedDateTime,
+    toFullDateTime,
+    formatISO,
     toArray,
     toHTML,
     getCommitCategory,
     getCommitMessage,
-    printFileContents,
     getReadingTime,
     getWordCount,
-    stripTags,
-    cleanFeedContent,
-    getIndexOfCollection,
-    renderMarkdown,
-    isNew,
+    getIndex,
+    isRecent,
+    dumpContents,
+    filterForRSS,
     includes,
 } = require("./utils/filters/index.js");
 
@@ -64,29 +59,24 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addCollection("recentChanges", getRecentChangesByDate);
 
     /* Filters */
-    eleventyConfig.addFilter("fixUTC", fixUTC);
-    eleventyConfig.addFilter("luxonDateShort", luxonDateShort);
-    eleventyConfig.addFilter("readableDate", readableDate);
-    eleventyConfig.addFilter("luxonDateFull", luxonDateFull);
-    eleventyConfig.addFilter("luxonDateTimeShort", luxonDateTimeShort);
-    eleventyConfig.addFilter("luxonDateTimeMed", luxonDateTimeMed);
-    eleventyConfig.addFilter("luxonDateTimeFull", luxonDateTimeFull);
-    eleventyConfig.addFilter("shortenedISODate", getShortenedISODate);
-    eleventyConfig.addFilter("dropContentFolder", dropContentFolder);
-    eleventyConfig.addFilter("caseUpper", toCaseUpper);
-    eleventyConfig.addFilter("caseLower", toCaseLower);
+    eleventyConfig.addFilter("fromJS", fromJS);
+    eleventyConfig.addFilter("toShortDate", toShortDate);
+    eleventyConfig.addFilter("toMedDate", toMedDate);
+    eleventyConfig.addFilter("toFullDate", toFullDate);
+    eleventyConfig.addFilter("toShortDateTime", toShortDateTime);
+    eleventyConfig.addFilter("toMedDateTime", toMedDateTime);
+    eleventyConfig.addFilter("toFullDateTime", toFullDateTime);
+    eleventyConfig.addFilter("formatISO", formatISO);
     eleventyConfig.addFilter("toArray", toArray);
     eleventyConfig.addFilter("toHTML", toHTML);
     eleventyConfig.addFilter("getCommitCategory", getCommitCategory);
     eleventyConfig.addFilter("getCommitMessage", getCommitMessage);
-    eleventyConfig.addFilter("printFileContents", printFileContents);
     eleventyConfig.addFilter("readingTime", getReadingTime);
     eleventyConfig.addFilter("wordCount", getWordCount);
-    eleventyConfig.addFilter("stripTags", stripTags);
-    eleventyConfig.addFilter("cleanFeed", cleanFeedContent);
-    eleventyConfig.addFilter("getIndexOfCollection", getIndexOfCollection);
-    eleventyConfig.addFilter("renderMarkdown", renderMarkdown);
-    eleventyConfig.addFilter("isNew", isNew);
+    eleventyConfig.addFilter("getIndex", getIndex);
+    eleventyConfig.addFilter("isRecent", isRecent);
+    eleventyConfig.addFilter("dumpContents", dumpContents);
+    eleventyConfig.addFilter("cleanFeed", filterForRSS);
     eleventyConfig.addFilter("includes", includes);
 
     /* Shortcodes */

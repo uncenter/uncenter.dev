@@ -3,48 +3,36 @@ const striptags = require("striptags");
 const { DateTime } = require("luxon");
 const { markdownLibrary } = require("../plugins/markdown");
 
-const fixUTC  = (dateObj) => {
-    return DateTime.fromJSDate(dateObj).toUTC();
+const fromJS = (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toLocaleString(DateTime.DATE_FULL);
 }
 
-const luxonDateShort = (dateObj) => {
+const toShortDate = (dateObj) => {
     return dateObj.toLocaleString(DateTime.DATE_SHORT); // 10/14/1983
 }
 
-const readableDate = (dateObj) => {
+const toMedDate = (dateObj) => {
     return dateObj.toLocaleString(DateTime.DATE_MED); // Oct 14, 1983
 }
 
-const luxonDateFull = (dateObj) => {
+const toFullDate = (dateObj) => {
     return dateObj.toLocaleString(DateTime.DATE_FULL); // Tuesday, October 14, 1983
 }
 
-const luxonDateTimeShort = (dateObj) => {
+const toShortDateTime = (dateObj) => {
     return dateObj.toLocaleString(DateTime.DATETIME_SHORT); // 10/14/1983, 10:30 AM
 }
 
-const luxonDateTimeMed = (dateObj) => {
+const toMedDateTime = (dateObj) => {
     return dateObj.toLocaleString(DateTime.DATETIME_MED); // Oct 14, 1983, 10:30 AM
 }
 
-const luxonDateTimeFull = (dateObj) => {
+const toFullDateTime = (dateObj) => {
     return dateObj.toLocaleString(DateTime.DATETIME_FULL);  // Tuesday, October 14, 1983 at 10:30:00 AM GMT+1
 }
 
-const getShortenedISODate = (dateObj) => {
-    return DateTime.fromISO(formatDateISO(dateObj)).toFormat("LLL dd yyyy");
-};
-
-const dropContentFolder = (path, folder) => {
-    return path.replace(new RegExp(folder + "/"), "");
-};
-
-const toCaseUpper = (str) => {
-    return str.toUpperCase();
-};
-
-const toCaseLower = (str) => {
-    return str.toLowerCase();
+const formatISO = (dateObj, format) => {
+    return DateTime.fromISO(new Date(dateObj).toISOString()).toFormat(format);
 };
 
 const toArray = (value) => {
@@ -56,7 +44,7 @@ const toArray = (value) => {
 
 const toHTML = (content) => {
     return markdownLibrary.render(content);
-};
+}
 
 const getCommitCategory = (str) => {
     return str.split(":")[0];
@@ -75,7 +63,7 @@ const getCommitMessage = (str) => {
 
 // Example: {{ '/icons/example.svg' | printFileContents }}
 // Taken from https://bnijenhuis.nl/notes/load-file-contents-in-eleventy/
-const printFileContents = (filePath) => {
+const dumpContents = (filePath) => {
     const relativeFilePath = `.` + filePath;
     const fileContents = fs.readFileSync(relativeFilePath, (err, data) => {
         if (err) throw err;
@@ -123,7 +111,7 @@ const getReadingTime = (content, { useSeconds = false, format = true, speed = 23
 
 const getWordCount = (content, { preText = "", postText = "words" } = {}) => {
     const htmlContent =
-    typeof content === "string" ? content : content.content; // If content is a raw already, use it directly. If it's a page object, use the content.
+        typeof content === "string" ? content : content.content;
 
     if (!htmlContent) {
         return combineText(preText, "0", postText);
@@ -136,28 +124,11 @@ const getWordCount = (content, { preText = "", postText = "words" } = {}) => {
     return combineText(preText, count, postText);
 };
 
-const stripTags = (content) => {
-    return striptags(content);
+const getIndex = (iterable, index) => {
+    return iterable[index];
 };
 
-const cleanFeedContent = (content) => {
-    // <a class="direct-link" href="https://uncenter.org/posts/magical-icons/#other-implementations">#</a>
-    // <div class="language-id">js</div>
-    content = content
-        .replace(/<a class="direct-link" href=".*?">#<\/a>/g, "")
-        .replace(/<div class="language-id">.*?<\/div>/g, "");
-    return content;
-};
-
-const getIndexOfCollection = (collection, index) => {
-    return collection[index];
-};
-
-const renderMarkdown = (content) => {
-    return markdownLibrary.render(content); 
-}
-
-const isNew = (date, days) => {
+const isRecent = (date, days) => {
     const today = new Date();
     const dateObj = new Date(date);
     const diffTime = Math.abs(today - dateObj);
@@ -177,36 +148,34 @@ const includes = (check, value) => {
     return check.includes(value);
 }
 
+const filterForRSS = (content) => {
+    content = content
+        .replace(/<a class="anchor" href=".*?">#<\/a>/g, "")
+        .replace(/<div class="language-id">.*?<\/div>/g, "");
+    return content;
+};
+
 module.exports = {
-    fixUTC,
-    luxonDateShort,
-    readableDate,
-    luxonDateFull,
-    luxonDateTimeShort,
-    luxonDateTimeMed,
-    luxonDateTimeFull,
-    getShortenedISODate,
-    dropContentFolder,
-    toCaseUpper,
-    toCaseLower,
+    fromJS,
+    toShortDate,
+    toMedDate,
+    toFullDate,
+    toShortDateTime,
+    toMedDateTime,
+    toFullDateTime,
+    formatISO,
     toArray,
     toHTML,
     getCommitCategory,
     getCommitMessage,
-    printFileContents,
     getReadingTime,
     getWordCount,
-    stripTags,
-    cleanFeedContent,
-    getIndexOfCollection,
-    renderMarkdown,
-    isNew,
+    getIndex,
+    isRecent,
+    dumpContents,
+    filterForRSS,
     includes
 };
-
-function formatDateISO(dateString) {
-    return new Date(dateString).toISOString();
-}
 
 function combineText(pre, value, post) {
     if (pre !== "" && postText !== "") {

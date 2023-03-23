@@ -13,7 +13,7 @@
             {% set DRAFT = post.data.draft %}
             {% include "./tags.njk" %}
             {% if post.data.excerpt %}
-                <p>{{ post.data.excerpt | renderMarkdown | safe }}</p>
+                <p>{{ post.data.excerpt | toHTML | safe }}</p>
             {% else %}
                 <p>{%- excerpt post -%}</p>
             {% endif %}
