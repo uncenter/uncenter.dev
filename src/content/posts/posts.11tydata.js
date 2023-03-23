@@ -1,9 +1,10 @@
 const Chalk = require("chalk")
 const fetch = require('node-fetch');
 const isDevelopment = process.env.NODE_ENV === 'development';
+require('dotenv').config()
 
 function excludeDraft(data) {
-	return !isDevelopment && data.draft;
+    return !isDevelopment && data.draft;
 }
 
 async function getUmamiToken() {
@@ -29,26 +30,22 @@ async function getUmamiToken() {
         });
 }
 
-async function getPageViews (originalUrl) {
-    if (process.env.NODE_ENV !== 'production') {
-        // console.log(`${Chalk.cyan('[data]')} Returning mock views for ${Chalk.blue(originalUrl)}`);
-        return Math.floor(Math.random() * 100);
-    }
+async function getPageViews(originalUrl, originalDate) {
 
-    console.log(`${Chalk.cyan('[data]')} Fetching views for ${Chalk.blue(originalUrl)}`);
+    const url = `https://analytics.uncenter.org/api/websites/dea82084-7eb8-4337-b02c-23f6ace1afc1/pageviews?url=${originalUrl}&start_at=${Date.parse(originalDate)}&end_at=${Date.now()}&unit=day&tz=America/Los_Angeles`;
 
-    const url = `https://analytics.uncenter.org/api/websites/dea82084-7eb8-4337-b02c-23f6ace1afc1/pageviews?url=${originalUrl}`;
-
-    const res = await EleventyFetch(url, {
-        fetchOptions: {
-            headers: { Authorization: `Bearer ${process.env.UMAMI_TOKEN}` },
+    const options = {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${process.env.UMAMI_TOKEN}`,
         },
-        duration: '1d',
-        type: 'json',
-    });
-    console.log(res);
-    return res.results.pageviews.value;
+    };
+
+    const res = await fetch(url, options)
+    const json = await res.json();
+    return json;
 };
+
 
 module.exports = {
     eleventyComputed: {
@@ -60,7 +57,30 @@ module.exports = {
             }
         },
         views: async (data) => {
-            return await getPageViews(data.url);
+            if (excludeDraft(data)) {
+                console.log(Chalk.red(`Excluding draft: ${Chalk.dim(data.title)}`));
+                return "N/A";
+            }
+            if (data.eleventyExcludeFromCollections) {
+                console.log(Chalk.red(`Excluding from collections: ${Chalk.dim(data.title)}`));
+                return;
+            }
+            if (process.env.NODE_ENV !== 'production') {
+                console.log(Chalk.blue(`Not in production: generating mock views for: ${Chalk.dim(data.title)}`));
+                return Math.floor(Math.random() * 100);
+            }
+            if (data.page.url === undefined) {
+                console.log(Chalk.red(`No URL for: ${Chalk.dim(data.title)}`));
+                return 0;
+            }
+            const originalUrl = data.page.url;
+            const originalDate = data.page.date;
+            const res = await getPageViews(originalUrl, originalDate);
+            views = 0;
+            for (let i = 0; i < res.pageviews.length; i++) {
+                views += res.pageviews[i].y;
+            }
+            return views;
         }
     },
 };
