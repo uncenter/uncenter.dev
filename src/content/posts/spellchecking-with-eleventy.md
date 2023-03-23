@@ -1,9 +1,8 @@
 ---
-tags: []
+tags: ['11ty', 'cSpell']
 title: Spellchecking posts with Eleventy
 date: 2023-03-22
 description: How to spellcheck your Eleventy blog posts with cSpell!
-draft: true
 # cspell:ignore
 ---
 
