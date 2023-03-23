@@ -66,7 +66,7 @@ module.exports = {
                 return;
             }
             if (process.env.NODE_ENV !== 'production') {
-                console.log(Chalk.blue(`Not in production: generating mock views for: ${Chalk.dim(data.title)}`));
+                console.log(Chalk.cyan(`Generating mock views for: `) + Chalk.dim(data.title));
                 return Math.floor(Math.random() * 100);
             }
             if (data.page.url === undefined) {
