@@ -1,15 +1,14 @@
 ---
 tags: ['11ty', 'cSpell']
-title: Spellchecking posts with Eleventy
-date: 2023-03-22
+title: Spellchecking posts in Eleventy
+date: 2023-03-23
 description: How to spellcheck your Eleventy blog posts with cSpell!
-draft: true
 # cspell:ignore
 ---
 
 After I realized more than one other person was reading my blog, I panicked and proofread/edited all my posts. Turns out that I rely on autocorrect a little too much and I had way too many typos! I came across [an article](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) by TJ Addison that explained how to do this with a tool called `cSpell` (the backbone of the [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). That article was super helpful and works perfectly, but I wanted to add a few things to it to improve the experience.
 
-## Add a script to package.json
+## Add a script to your `package.json`
 
 Self explanatory. I added a script to my `package.json` file to run the cSpell command:
 
@@ -23,7 +22,7 @@ Self explanatory. I added a script to my `package.json` file to run the cSpell c
 }
 ```
 
-## The cSpell config file
+## Add a config file
 
 The tool allows multiple filenames for its configuration but I went with `cspell.config.js` for consistency with my other config files.
 
@@ -57,18 +56,18 @@ Next, you can define specific words to exclude/flag. I added some 11ty specific 
     flagWords: [], // Words to always be considered incorrect
 ```
 
-In addition to the `words` property, you can also define dictionaries. There isn't a dictionary for `.njk` files by default so I scanned the docs and added a few common terms to a dictionary file. I also added a dictionary for my GitHub repos (I have a lot of repos and I don't want to add them all to the `words` property). I added the following to the config file:
+In addition to the `words` property, you can also define dictionaries. I also added a dictionary for my GitHub repos (I have a lot of repos and I don't want to add them all to the `words` property). I added the following to the config file:
+
 ```js
-    dictionaries: ["repos", "njk"],
+    dictionaries: ["repos"],
     dictionaryDefinitions: [
         { "name": "repos", "path": "./utils/plugins/cspell/dicts/repos.txt" },
-        { "name": "njk", "path": "./utils/plugins/cspell/dicts/njk.txt" },
     ],
 ```
-For the `repos` dictionary, I wrote a script to scan my GitHub repos and add them to a file:
-```js
-#!/usr/bin/env node
 
+For the `repos` dictionary, I wrote a script to scan my GitHub repos and add them to a file:
+
+```js
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
@@ -85,23 +84,16 @@ function getRepos() {
         fs.writeFileSync(reposFile, repos.join('\n'));
     })();
 }
-
-getRepos();
 ```
 
 Finally, the config file allows you to define patterns to ignore. I added a few patterns to ignore code blocks and Nunjucks expressions:
 
 ```js
-    // List the named patterns to ignor
-    ignoreRegExpList: ["nunjucksExpression", "importStatement", "markdownCodeBlock", "markdownInlineCode"],
+    ignoreRegExpList: ["nunjucksExpression", "markdownCodeBlock", "markdownInlineCode"],
     patterns: [
         {
             name: "nunjucksExpression",
-            pattern: /\\{\\{.*?\\}\\}/gi
-        },
-        {
-            name: "importStatement",
-            pattern: /import.*?;/gi
+            pattern: /{%.*?%}/gis
         },
         {
             name: "markdownCodeBlock",
@@ -112,15 +104,16 @@ Finally, the config file allows you to define patterns to ignore. I added a few 
             pattern: /`[^`]*`/gi
         }
     ],
-};
 ```
 
-I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common libraries and methods being flagged as typos.
+I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common libraries and methods being flagged as typos. Additionally, I use a custom shortcode, `callout`, that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.
 
-## The cSpell dictionary files
+## Dictionaries
 
-Each of the dictionary files is a simple text file with one word per line (and comments can be added with `#`).
-Here are the contents of my `njk.txt` file:
+Each of the dictionary files is a simple text file with one word per line (and comments can be added with `#`). Before I added the `nunjucksExpression` pattern, I made a dictionary file for Nunjucks expressions (I used the [Nunjucks docs](https://mozilla.github.io/nunjucks/templating.html) to get a list of all the expressions).
+
+If anyone is interested, here is the list of Nunjucks expressions I added to the dictionary file:
+
 ```txt
 if
 endif
@@ -189,5 +182,3 @@ urlencode
 urlize
 wordcount
 ```
-
-To be honest, the patterns I defined earlier should be enough to ignore Nunjucks expressions but I wanted to be extra sure :sweat_smile:.
