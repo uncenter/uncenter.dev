@@ -6,9 +6,9 @@ description: How to disable Tailwind component that you don't want to use
 micro: true
 ---
 
-Ran into an issue with Tailwind components today. I tried to reduce redundancy in my Tailwind classes by making a class for all of my containers/cards, but in doing so stumbled upon the [Container component](https://tailwindcss.com/docs/container) (I tried using the `.container` class). By default, it messes with `width`/`max-width`, which totally messed up lots of my code. 
+Ran into an issue with Tailwind components today. I tried to reduce redundancy in my Tailwind classes by making a class for all of my containers/cards, but in doing so stumbled upon the [Container component](https://tailwindcss.com/docs/container) (I tried using the `.container` class). By default, it sets with `width`/`max-width`, which messed up the layout.
 
-Here is what worked! I added the following to my `tailwind.config.js` file:
+Since the Container component is a "corePlugin", you can disable it by adding the following to your `tailwind.config.js` file:
 
 ```js
 module.exports = {

@@ -21,7 +21,7 @@ After months of constantly changing and tweaking the icons, I have finally settl
 
 ### Updated shortcodes and filters
 
-I updated the `readingTime` filter and I created a new `wordCount` filter as well. I have also updated the `callout` (previously `note`) shortcode with new types and along with each type... new styling! One neat thing is each callout has a text marker in the top right, inspired by [Bryan Devries](https://brianjdevries.com/style-guide/).
+I updated the `readingTime` filter and I created a new `wordCount` filter as well. I have also updated the `callout` (previously `note`) shortcode with new types and along with each type... new styling! One neat thing is each block has a text marker in the top right, inspired by [Bryan Devries](https://brianjdevries.com/style-guide/).
 Finally, I spent more time than I would like to admit on a new `excerpt` shortcode that "intelligently" truncates the excerpt at 200 characters or less. 
 
 ```js

@@ -7,9 +7,7 @@ micro: true
 archived: true
 ---
 
-In the process of making my [`chemic`](https://github.com/uncenter/chemic) package, I wanted to make a GUI for it. I found [NiceGUI](https://nicegui.io) and for a Python frontend it is not too terrible.
-
-Anyway, I wanted to use a Pandas DataFrame inside a NiceGUI Grid. I couldn't find any examples of this, so I thought I'd write one up.
+In the process of making a GUI for my [`chemic`](https://github.com/uncenter/chemic) package through [NiceGUI](https://nicegui.io), I couldn't figure out how to use a Pandas DataFrame inside a NiceGUI Grid.
 
 Here's NiceGUI's example reference for the AGGrid (edited a bit to make it more readable):
 
