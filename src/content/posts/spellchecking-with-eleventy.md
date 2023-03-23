@@ -1,5 +1,5 @@
 ---
-tags: ['11ty', 'cSpell']
+tags: ['11ty']
 title: Spellchecking posts in Eleventy
 date: 2023-03-23
 description: How to spellcheck your Eleventy blog posts with cSpell!
@@ -8,7 +8,7 @@ description: How to spellcheck your Eleventy blog posts with cSpell!
 
 After I realized more than one other person was reading my blog, I panicked and proofread/edited all my posts. Turns out that I rely on autocorrect a little too much and I had way too many typos! I came across [an article](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) by TJ Addison that explained how to do this with a tool called `cSpell` (the backbone of the [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). That article was super helpful and works perfectly, but I wanted to add a few things to it to improve the experience.
 
-## Add a script to your `package.json`
+## Add a script to your package.json
 
 Self explanatory. I added a script to my `package.json` file to run the cSpell command:
 
@@ -26,18 +26,21 @@ Self explanatory. I added a script to my `package.json` file to run the cSpell c
 
 The tool allows multiple filenames for its configuration but I went with `cspell.config.js` for consistency with my other config files.
 
-The config file is a JavaScript file that exports an object with the following properties:
+The config file starts with the `version` and `language` properties. Set the version to `0.2` and the language to either `en` or `en-GB` (default is `en`):
 ```js
 module.exports = {
-    version: '0.2', // Always 0.2
-    language: 'en', // Can be either 'en' or 'en-GB' (defaults to 'en')
+    version: '0.2', // [sh! ++]
+    language: 'en', // [sh! ++]
 };
 ```
 
 Next, you can define specific words to exclude/flag. I added some 11ty specific terminology and a few brand names that I have mentioned:
 
 ```js
-    words: [ // Words to always be considered correct (case insensitive)
+module.exports = {
+    version: '0.2',
+    language: 'en',
+    words: [ // [sh! focus:start]
         // Eleventy
         '11ty',
         'eleventy',
@@ -53,16 +56,37 @@ Next, you can define specific words to exclude/flag. I added some 11ty specific 
         'Netlify',
         '11ty',
     ],
-    flagWords: [], // Words to always be considered incorrect
+    flagWords: [], // [sh! focus:end]
+};
 ```
 
 In addition to the `words` property, you can also define dictionaries. I also added a dictionary for my GitHub repos (I have a lot of repos and I don't want to add them all to the `words` property). I added the following to the config file:
 
 ```js
-    dictionaries: ["repos"],
+module.exports = {
+    version: '0.2',
+    language: 'en',
+    words: [
+        // Eleventy
+        '11ty',
+        'eleventy',
+        'jamstack',
+        'shortcode',
+        'shortcodes',
+        'pagination',
+        'frontmatter',
+        'webc',
+
+        // Brands
+        'Eleventy',
+        'Netlify',
+        '11ty',
+    ],
+    flagWords: [],
+    dictionaries: ["repos"], // [sh! focus:start]
     dictionaryDefinitions: [
         { "name": "repos", "path": "./utils/plugins/cspell/dicts/repos.txt" },
-    ],
+    ], // [sh! focus:end]
 ```
 
 For the `repos` dictionary, I wrote a script to scan my GitHub repos and add them to a file:
@@ -89,6 +113,7 @@ function getRepos() {
 Finally, the config file allows you to define patterns to ignore. I added a few patterns to ignore code blocks and Nunjucks expressions:
 
 ```js
+    {% raw %}// ... 
     ignoreRegExpList: ["nunjucksExpression", "markdownCodeBlock", "markdownInlineCode"],
     patterns: [
         {
@@ -103,7 +128,7 @@ Finally, the config file allows you to define patterns to ignore. I added a few 
             name: "markdownInlineCode",
             pattern: /`[^`]*`/gi
         }
-    ],
+    ], {% endraw %}
 ```
 
 I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common libraries and methods being flagged as typos. Additionally, I use a custom shortcode, `callout`, that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.
