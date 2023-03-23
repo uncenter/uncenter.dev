@@ -71,7 +71,7 @@ const insertIconSheet = function iconsheet() {
             )
             .replace("</svg>", "</symbol>")
             .replace(/<!--(.*?)-->/g, "");
-            
+
         if (pageIcons.includes(iconName)) {
             symbols += symbol + "\n";
         }
@@ -238,7 +238,7 @@ const createStaticToot = async (instance, id) => {
         })
     }
 
-    if(Json.card !== null) {
+    if (Json.card !== null) {
         cardStuff = ``;
         cardStuff = cardStuff + `<a href="${Json.card.url}" rel="noopener"><div class="toot-card"><div class="toot-card-image"><img src="${Json.card.image}" alt="Card image from ${instance} toot ${id}" loading="lazy" class="toot-card-image-image" /></div><div class="toot-card-content"><p class="card-title">${Json.card.title}</p><p class="card-description">${Json.card.description}</p></div></div></a>`;
     }
@@ -248,8 +248,8 @@ const createStaticToot = async (instance, id) => {
         let pollIterator = 0;
         pollStuff = ``;
         pollStuff = pollStuff + `<div class="toot-poll-wrapper">`;
-        Json.poll.options.forEach(( options ) => {
-            pollStuff = pollStuff + `<div class="toot-poll-count"><strong>${((Json.poll.options[pollIterator].votes_count)/(votesCount)).toLocaleString("en", {style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1})}</strong></div><div class="toot-poll-meter"><meter id="vote-count" max="${votesCount}" value=${Json.poll.options[pollIterator].votes_count}></meter></div><div class="toot-poll-title">${Json.poll.options[pollIterator].title}</div>`;
+        Json.poll.options.forEach((options) => {
+            pollStuff = pollStuff + `<div class="toot-poll-count"><strong>${((Json.poll.options[pollIterator].votes_count) / (votesCount)).toLocaleString("en", { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 })}</strong></div><div class="toot-poll-meter"><meter id="vote-count" max="${votesCount}" value=${Json.poll.options[pollIterator].votes_count}></meter></div><div class="toot-poll-title">${Json.poll.options[pollIterator].title}</div>`;
             pollIterator = ++pollIterator;
         })
         pollStuff = pollStuff + `</div><p class="legal toot-poll-total">${votesCount} people</p>`;
@@ -265,26 +265,26 @@ const createStaticToot = async (instance, id) => {
                 </div>
             </div>
             <p class="toot-body">${Json.content}</p>`
-            if (mediaStuff) {
-                stringToRet += `<div>${mediaStuff}</div>`
-            }
-            if (videoStuff) {
-                stringToRet += `<div>${videoStuff}</div>`
-            }
-            if (gifvStuff) {
-                stringToRet += `<div>${gifvStuff}</div>`
-            }
-            if (cardStuff) {
-                stringToRet += `<div>${cardStuff}</div>`
-            }
-            if (pollStuff) {
-                stringToRet += `<div>${pollStuff}</div>`
-            }
+        if (mediaStuff) {
+            stringToRet += `<div>${mediaStuff}</div>`
+        }
+        if (videoStuff) {
+            stringToRet += `<div>${videoStuff}</div>`
+        }
+        if (gifvStuff) {
+            stringToRet += `<div>${gifvStuff}</div>`
+        }
+        if (cardStuff) {
+            stringToRet += `<div>${cardStuff}</div>`
+        }
+        if (pollStuff) {
+            stringToRet += `<div>${pollStuff}</div>`
+        }
 
-            let timeToFormat = Json.created_at
-            let formattedTime = DateTime.fromISO(timeToFormat, { zone: "utc" }).toFormat("h:mm a • MMMM d, yyyy")
+        let timeToFormat = Json.created_at
+        let formattedTime = DateTime.fromISO(timeToFormat, { zone: "utc" }).toFormat("h:mm a • MMMM d, yyyy")
 
-            stringToRet += `<div class="toot-footer">
+        stringToRet += `<div class="toot-footer">
                 <a href="https://${instance}/@${Json.account.acct}/${Json.id}" class="toot-date base-link" rel="noopener">${formattedTime}</a>&nbsp;<span class="legal">(UTC)</span>
             </div>
         </blockquote>`
@@ -297,7 +297,7 @@ const insertImage = (img, alt) => {
     return `<img class="container" src="/assets/images/content/${img}" alt="${alt}" loading="lazy" />`;
 };
 
-module.exports =  {
+module.exports = {
     createCallout,
     insertIcon,
     insertIconSheet,
@@ -306,5 +306,5 @@ module.exports =  {
     insertDate,
     insertGiscusScript,
     createStaticToot,
-    insertImage
+    insertImage,
 };
