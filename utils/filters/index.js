@@ -157,6 +157,22 @@ const renderMarkdown = (content) => {
     return markdownLibrary.render(content); 
 }
 
+const isNew = (date, days) => {
+    const today = new Date();
+    const dateObj = new Date(date);
+    const diffTime = Math.abs(today - dateObj);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    if (typeof days === "array") {
+        for (let i = 0; i < days.length; i++) {
+            if (diffDays <= days[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    return diffDays <= days;
+}
+
 module.exports = {
     fixUTC,
     luxonDateShort,
@@ -180,6 +196,7 @@ module.exports = {
     cleanFeedContent,
     getIndexOfCollection,
     renderMarkdown,
+    isNew
 };
 
 function formatDateISO(dateString) {

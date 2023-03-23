@@ -18,7 +18,7 @@
         {%- endfor -%}
     {%- endif -%}
     {%- if MICRO -%}
-        <p class="my-0 bg-green-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">MICRO</p>
+        <p class="my-0 bg-purple-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">MICRO</p>
     {%- endif -%}
     {%- if ARCHIVED -%}
         <p class="my-0 bg-yellow-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">ARCHIVED</p>
@@ -26,4 +26,7 @@
     {%- if DRAFT -%}
         <p class="my-0 bg-blue-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">DRAFT</p>
     {%- endif -%}
+    {% if not DRAFT and DATE | isNew(7) %}
+        <p class="my-0 bg-green-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">NEW</p>
+    {% endif %}
 </div>
