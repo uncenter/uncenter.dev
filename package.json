@@ -1,7 +1,7 @@
 {
-    "name": "site",
+    "name": "uncenter.org",
     "version": "1.0.0",
-    "description": "My personal site using Eleventy and TailwindCSS!",
+    "description": "uncenter's personal website",
     "scripts": {
         "clean": "rm -rf dist",
         "spell:run": "cspell src/content/posts/**/*.md",
@@ -35,7 +35,6 @@
         "gitlog": "^4.0.4",
         "html-minifier": "^4.0.0",
         "html-prettify": "^1.0.7",
-        "html-to-text": "^9.0.4",
         "lodash": "^4.17.21",
         "luxon": "^3.2.1",
         "markdown-it": "^13.0.1",
