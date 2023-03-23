@@ -41,6 +41,7 @@ const {
     getIndexOfCollection,
     renderMarkdown,
     isNew,
+    includes,
 } = require("./utils/filters/index.js");
 
 const { markdownLibrary } = require("./utils/plugins/markdown.js");
@@ -86,6 +87,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("getIndexOfCollection", getIndexOfCollection);
     eleventyConfig.addFilter("renderMarkdown", renderMarkdown);
     eleventyConfig.addFilter("isNew", isNew);
+    eleventyConfig.addFilter("includes", includes);
 
     /* Shortcodes */
     eleventyConfig.addPairedShortcode("callout", createCallout);

@@ -3,21 +3,34 @@
         {
             "title": "Projects",
             "url": "/projects/",
+            "urls": [
+                "/projects/"
+            ],
             "icon": "folder-closed"
         },
         {
             "title": "Blog",
             "url": "/posts/",
+            "urls": [
+                "/posts/",
+                "/archive/"
+            ],
             "icon": "edit"
         },
         {
             "title": "Uses",
             "url": "/uses/",
+            "urls": [
+                "/uses/"
+            ],
             "icon": "bookmark"
         },
         {
             "title": "Other",
             "url": "/more/",
+            "urls": [
+                "/more/"
+            ],
             "icon": "circle-ellipsis"
         }
     ],

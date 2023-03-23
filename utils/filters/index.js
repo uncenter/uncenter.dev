@@ -173,6 +173,10 @@ const isNew = (date, days) => {
     return diffDays <= days;
 }
 
+const includes = (check, value) => {
+    return check.includes(value);
+}
+
 module.exports = {
     fixUTC,
     luxonDateShort,
@@ -196,7 +200,8 @@ module.exports = {
     cleanFeedContent,
     getIndexOfCollection,
     renderMarkdown,
-    isNew
+    isNew,
+    includes
 };
 
 function formatDateISO(dateString) {
