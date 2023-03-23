@@ -1,6 +1,6 @@
 <div class="flex flex-row flex-wrap gap-6 container py-4 mb-4">
-    <p class="my-0">{%- icon 'calendar' %}
-        {{ DATE | fixUTC | readableDate }}</p>
+    <p class="my-0">{%- icon 'calendar' %} {{ DATE | fixUTC | readableDate }}</p>
+    <p class="my-0">{%- icon 'eye' %} {{ VIEWS }}</p>
     {%- if not MICRO -%}
         {%- if CONTENT -%}
             <p class="my-0">{%- icon 'file-text' %}
