@@ -32,7 +32,7 @@ async function getUmamiToken() {
 
 async function getPageViews(originalUrl, originalDate) {
 
-    const url = `https://analytics.uncenter.org/api/websites/dea82084-7eb8-4337-b02c-23f6ace1afc1/pageviews?url=${originalUrl}&start_at=${Date.parse(originalDate)}&end_at=${Date.now()}&unit=day&tz=America/Los_Angeles`;
+    const url = `https://analytics.uncenter.org/api/websites/dea82084-7eb8-4337-b02c-23f6ace1afc1/pageviews?url=${originalUrl}&start_at=${Date.parse(originalDate)}&end_at=${Date.now()}&unit=day&tz=America/New_York`;
 
     const options = {
         method: 'GET',
@@ -58,11 +58,11 @@ module.exports = {
         },
         views: async (data) => {
             if (excludeDraft(data)) {
-                console.log(Chalk.red(`Excluding draft: ${Chalk.dim(data.title)}`));
+                console.log(Chalk.red(`Excluding draft: `) + Chalk.dim(data.title));
                 return "N/A";
             }
             if (data.eleventyExcludeFromCollections) {
-                console.log(Chalk.red(`Excluding from collections: ${Chalk.dim(data.title)}`));
+                console.log(Chalk.red(`Excluding from collections: `) + Chalk.dim(data.title));
                 return;
             }
             if (process.env.NODE_ENV !== 'production') {
@@ -70,7 +70,7 @@ module.exports = {
                 return Math.floor(Math.random() * 100);
             }
             if (data.page.url === undefined) {
-                console.log(Chalk.red(`No URL for: ${Chalk.dim(data.title)}`));
+                console.log(Chalk.red(`No URL for: `) + Chalk.dim(data.title));
                 return 0;
             }
             const originalUrl = data.page.url;
