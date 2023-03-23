@@ -35,8 +35,8 @@ const {
     getIndex,
     isRecent,
     dumpContents,
-    filterForRSS,
     includes,
+    cleanFeed,
 } = require("./utils/filters/index.js");
 
 const { markdownLibrary } = require("./utils/plugins/markdown.js");
@@ -76,18 +76,18 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("getIndex", getIndex);
     eleventyConfig.addFilter("isRecent", isRecent);
     eleventyConfig.addFilter("dumpContents", dumpContents);
-    eleventyConfig.addFilter("cleanFeed", filterForRSS);
     eleventyConfig.addFilter("includes", includes);
+    eleventyConfig.addFilter("cleanFeed", cleanFeed);
 
     /* Shortcodes */
+    eleventyConfig.addNunjucksAsyncShortcode("stoot", createStaticToot);
     eleventyConfig.addPairedShortcode("callout", createCallout);
     eleventyConfig.addShortcode("icon", insertIcon);
     eleventyConfig.addShortcode("iconSheet", insertIconSheet);
     eleventyConfig.addShortcode("excerpt", getExcerpt);
-    eleventyConfig.addShortcode("year", insertYear);
     eleventyConfig.addShortcode("date", insertDate);
+    eleventyConfig.addShortcode("year", insertYear);
     eleventyConfig.addShortcode("giscus", insertGiscusScript);
-    eleventyConfig.addNunjucksAsyncShortcode("stoot", createStaticToot);
     eleventyConfig.addShortcode("image", insertImage);
 
     /* Plugins */

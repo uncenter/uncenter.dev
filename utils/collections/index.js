@@ -1,21 +1,18 @@
 const gitlog = require("gitlog").default;
 const { DateTime } = require("luxon");
 
-// const getPosts = (collectionApi) => {
-//     return [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md"), ...collectionApi.getFilteredByGlob("./src/content/micro/**/*.md")].sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
-// }
-
-const getAllPosts = (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
+const getPosts = (collectionApi) => {
+    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md").filter((post) => post.data.archived !== true);
 };
 
 const getArchivedPosts = (collectionApi) => {
     return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md").filter((post) => post.data.archived === true);
 };
 
-const getPosts = (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md").filter((post) => post.data.archived !== true);
+const getAllPosts = (collectionApi) => {
+    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
 };
+
 
 const getCustomCollections = (collectionApi) => {
     const collections = new Map();
@@ -34,6 +31,9 @@ const getCustomCollections = (collectionApi) => {
 };
 
 const getAllTags = (collectionApi) => {
+    function filterTagList(tags) {
+        return (tags || []).filter((tag) => ["all"].indexOf(tag) === -1);
+    }
     let tagSet = new Set();
     collectionApi.getAll().forEach((item) => {
         (item.data.tags || []).forEach((tag) => tagSet.add(tag));
@@ -127,7 +127,3 @@ module.exports = {
     getAllTags,
     getRecentChangesByDate,
 };
-
-function filterTagList(tags) {
-    return (tags || []).filter((tag) => ["all"].indexOf(tag) === -1);
-}

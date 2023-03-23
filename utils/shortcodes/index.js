@@ -1,12 +1,42 @@
+const turndown = require("turndown")
 const fs = require("fs");
 const path = require("path");
-const { htmlToText } = require("html-to-text");
 const meta = require("../../src/_data/meta.json");
 const EleventyFetch = require("@11ty/eleventy-fetch")
 const md5 = require('md5')
+
 const { DateTime } = require("luxon")
 const { markdownLibrary } = require("../plugins/markdown")
-const turndown = require("turndown")
+
+const getExcerpt = (page) => {
+    if (!page.hasOwnProperty("content")) {
+        return null;
+    }
+
+    let content = page.content.trim();
+
+    content = content.replace(/^(\s*\n*)?<h\d[^>]*>.*?<\/h\d>(\s*\n*)?/i, "");
+
+    const nextHeadingIndex = content.search(/<h\d[^>]*>/i);
+    if (nextHeadingIndex !== -1) {
+        content = content.substring(0, nextHeadingIndex);
+    }
+
+    turndownRenderer = new turndown()
+    text = turndownRenderer.turndown(content)
+
+    // Split plain text into phrases and concatenate until length cutoff 
+    // Adapted https://github.com/mpcsh/eleventy-plugin-description]
+
+    const phrases = text.split(/(\p{Terminal_Punctuation}\p{White_Space})/gu);
+    let excerpt = "";
+    while (phrases.length > 0 && excerpt.length < 200) {
+        excerpt += phrases.shift();
+    }
+
+    excerpt += "...";
+    return markdownLibrary.render(excerpt);
+}
 
 const createCallout = (content, title, type) => {
     const titleText = markdownLibrary.renderInline(`${title}`);
@@ -32,125 +62,6 @@ const createCallout = (content, title, type) => {
         `</div>\n` +
         `</div>`
     );
-};
-
-const insertIcon = function icon(name) {
-    if (!this.ctx.page.icons) {
-        this.ctx.page.icons = [];
-    }
-    if (!this.ctx.page.icons.includes(name)) {
-        this.ctx.page.icons.push(name);
-    }
-    return `<svg class="icon icon-${name}"><use href="#icon-${name}"></use></svg>`;
-};
-
-const insertIconSheet = function iconsheet() {
-    const sourceDir = path.join(__dirname, "../../src/assets/icons");
-    const icons = fs.readdirSync(sourceDir);
-    let pageIcons = this.ctx.page.icons || [];
-    pageIcons = pageIcons.filter((icon) => icon !== undefined);
-
-    let sprite = '<svg class="hidden-svg-sprite-sheet" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n<defs>\n';
-    let symbols = "";
-
-    icons.forEach((icon) => {
-        const iconPath = path.join(sourceDir, icon);
-        const iconName = path.parse(icon).name;
-        const content = fs.readFileSync(iconPath, "utf8");
-        const viewBox = content.match(/viewBox="(.+?)"/)[1];
-        let classname = content.match(/class="(.+?)"/);
-        if (classname) {
-            classname = classname[1];
-        } else {
-            classname = "";
-        }
-        const symbol = content
-            .replace(
-                /<svg([^>]+)>/,
-                `<symbol id="icon-${iconName}" viewBox="${viewBox}"${classname ? "" : ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'}>`
-            )
-            .replace("</svg>", "</symbol>")
-            .replace(/<!--(.*?)-->/g, "");
-
-        if (pageIcons.includes(iconName)) {
-            symbols += symbol + "\n";
-        }
-    });
-    if (symbols !== "") {
-        sprite += symbols + "</defs>\n</svg>\n";
-        return sprite;
-    }
-    return "";
-};
-
-const getExcerpt = (page) => {
-    if (!page.hasOwnProperty("content")) {
-        return null;
-    }
-
-    let content = page.content.trim();
-
-    // Remove the first HTML heading if it exists
-    content = content.replace(/^(\s*\n*)?<h\d[^>]*>.*?<\/h\d>(\s*\n*)?/i, "");
-
-    // Truncate content before the next heading (if any)
-    const nextHeadingIndex = content.search(/<h\d[^>]*>/i);
-    if (nextHeadingIndex !== -1) {
-        content = content.substring(0, nextHeadingIndex);
-    }
-
-    turndownRenderer = new turndown()
-    text = turndownRenderer.turndown(content)
-
-    // Split plain text into phrases and concatenate until length cutoff 
-    // Adapted https://github.com/mpcsh/eleventy-plugin-description]
-
-    const phrases = text.split(/(\p{Terminal_Punctuation}\p{White_Space})/gu);
-    let excerpt = "";
-    while (phrases.length > 0 && excerpt.length < 200) {
-        excerpt += phrases.shift();
-    }
-
-    // Append ending characters and return excerpt
-    excerpt += "...";
-    return markdownLibrary.render(excerpt);
-}
-
-const insertYear = () => {
-    return new Date().getFullYear();
-};
-
-const insertDate = () => {
-    return new Date().toISOString();
-};
-
-const insertGiscusScript = () => {
-    const repo = "R_kgDOHSjhjQ";
-    const category = "DIC_kwDOHSjhjc4CTQUr";
-    const reactions = "1";
-    return `
-    <script>
-    let giscusTheme = "light";
-    let giscusAttributes = {
-        "src": "https://giscus.app/client.js",
-        "data-repo": "${meta.github.username}/${meta.github.repo}",
-        "data-repo-id": "${repo}",
-        "data-category-id": "${category}",
-        "data-mapping": "title",
-        "data-reactions-enabled": "${reactions}",
-        "data-emit-metadata": "0",
-        "data-input-position": "top",
-        "data-theme": giscusTheme,
-        "data-lang": "en",
-        "crossorigin": "anonymous",
-        "async": ""
-    };
-    let giscusScript = document.createElement("script");
-    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-    window.onload = (event) => {
-        document.querySelector('#giscus').appendChild(giscusScript);
-    };
-    </script>`;
 };
 
 // https://www.brycewray.com/posts/2022/08/static-embeds-eleventy/
@@ -293,18 +204,104 @@ const createStaticToot = async (instance, id) => {
     return stringToRet;
 };
 
+const insertIcon = function icon(name) {
+    if (!this.ctx.page.icons) {
+        this.ctx.page.icons = [];
+    }
+    if (!this.ctx.page.icons.includes(name)) {
+        this.ctx.page.icons.push(name);
+    }
+    return `<svg class="icon icon-${name}"><use href="#icon-${name}"></use></svg>`;
+};
+
+const insertIconSheet = function iconsheet() {
+    const sourceDir = path.join(__dirname, "../../src/assets/icons");
+    const icons = fs.readdirSync(sourceDir);
+    let pageIcons = this.ctx.page.icons || [];
+    pageIcons = pageIcons.filter((icon) => icon !== undefined);
+
+    let sprite = '<svg class="hidden-svg-sprite-sheet" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n<defs>\n';
+    let symbols = "";
+
+    icons.forEach((icon) => {
+        const iconPath = path.join(sourceDir, icon);
+        const iconName = path.parse(icon).name;
+        const content = fs.readFileSync(iconPath, "utf8");
+        const viewBox = content.match(/viewBox="(.+?)"/)[1];
+        let classname = content.match(/class="(.+?)"/);
+        if (classname) {
+            classname = classname[1];
+        } else {
+            classname = "";
+        }
+        const symbol = content
+            .replace(
+                /<svg([^>]+)>/,
+                `<symbol id="icon-${iconName}" viewBox="${viewBox}"${classname ? "" : ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'}>`
+            )
+            .replace("</svg>", "</symbol>")
+            .replace(/<!--(.*?)-->/g, "");
+
+        if (pageIcons.includes(iconName)) {
+            symbols += symbol + "\n";
+        }
+    });
+    if (symbols !== "") {
+        sprite += symbols + "</defs>\n</svg>\n";
+        return sprite;
+    }
+    return "";
+};
+
+const insertYear = () => {
+    return new Date().getFullYear();
+};
+
+const insertDate = () => {
+    return new Date().toISOString();
+};
+
+const insertGiscusScript = () => {
+    const repo = "R_kgDOHSjhjQ";
+    const category = "DIC_kwDOHSjhjc4CTQUr";
+    const reactions = "1";
+    return `
+    <script>
+    let giscusTheme = "light";
+    let giscusAttributes = {
+        "src": "https://giscus.app/client.js",
+        "data-repo": "${meta.github.username}/${meta.github.repo}",
+        "data-repo-id": "${repo}",
+        "data-category-id": "${category}",
+        "data-mapping": "title",
+        "data-reactions-enabled": "${reactions}",
+        "data-emit-metadata": "0",
+        "data-input-position": "top",
+        "data-theme": giscusTheme,
+        "data-lang": "en",
+        "crossorigin": "anonymous",
+        "async": ""
+    };
+    let giscusScript = document.createElement("script");
+    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+    window.onload = (event) => {
+        document.querySelector('#giscus').appendChild(giscusScript);
+    };
+    </script>`;
+};
+
 const insertImage = (img, alt) => {
     return `<img class="container" src="/assets/images/content/${img}" alt="${alt}" loading="lazy" />`;
 };
 
 module.exports = {
+    getExcerpt,
     createCallout,
+    createStaticToot,
     insertIcon,
     insertIconSheet,
-    getExcerpt,
-    insertYear,
     insertDate,
+    insertYear,
     insertGiscusScript,
-    createStaticToot,
     insertImage,
 };

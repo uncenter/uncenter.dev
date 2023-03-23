@@ -4,7 +4,7 @@ const { DateTime } = require("luxon");
 const { markdownLibrary } = require("../plugins/markdown");
 
 const fromJS = (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toLocaleString(DateTime.DATE_FULL);
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
 }
 
 const toShortDate = (dateObj) => {
@@ -148,7 +148,7 @@ const includes = (check, value) => {
     return check.includes(value);
 }
 
-const filterForRSS = (content) => {
+const cleanFeed = (content) => {
     content = content
         .replace(/<a class="anchor" href=".*?">#<\/a>/g, "")
         .replace(/<div class="language-id">.*?<\/div>/g, "");
@@ -173,8 +173,8 @@ module.exports = {
     getIndex,
     isRecent,
     dumpContents,
-    filterForRSS,
-    includes
+    includes,
+    cleanFeed,
 };
 
 function combineText(pre, value, post) {

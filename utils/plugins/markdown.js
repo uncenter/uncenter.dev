@@ -28,7 +28,7 @@ const markdownLibrary = markdownIt({
         permalink: markdownItAnchor.permalink.ariaHidden({
             placement: 'after',
             class: 'anchor',
-            symbol: '#',         
+            symbol: '#',
         })
     })
     .use(markdownItLinkAttributes, [
