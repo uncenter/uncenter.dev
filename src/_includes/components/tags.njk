@@ -1,12 +1,12 @@
 <div class="flex flex-row flex-wrap gap-6 container py-4 mb-4">
     <time class="my-0" datetime="{{ PUBLISHED | toDateTime }}" data-tooltip="Published">{%- icon 'calendar' %}
         {{ PUBLISHED | toShortDate }}</time>
-    {% if UPDATED and (UPDATED | toShortDate) != (PUBLISHED | toShortDate) %}
+    {% if UPDATED and(UPDATED | toShortDate) != (PUBLISHED | toShortDate) %}
         <p class="my-0" data-tooltip="Edited">{%- icon 'edit-2' %}
             {{ UPDATED | toShortDate }}</p>
     {% endif %}
     <p class="my-0">{%- icon 'eye' %}
-        {{ VIEWS }}</p>
+        {{ VIEWS }} views</p>
     {%- if not MICRO -%}
         {%- if CONTENT -%}
             <p class="my-0">{%- icon 'file-text' %}
@@ -32,7 +32,7 @@
     {%- if DRAFT -%}
         <p class="my-0 bg-blue-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">DRAFT</p>
     {%- endif -%}
-    {% if not DRAFT and (PUBLISHED | isRecent(7)) %}
+    {% if not DRAFT and(PUBLISHED | isRecent(7)) %}
         <p class="my-0 bg-green-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">NEW</p>
     {% endif %}
 </div>
