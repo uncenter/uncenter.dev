@@ -106,9 +106,9 @@ module.exports = {
                 timestamp = new Date(timestamp)
                 if (timestamp.getTimezoneOffset() === 0) {
                     console.log(Chalk.magenta(`UTC: `));
-                    corrected = DateTime.fromJSDate(timestamp, { zone: 'America/New_York' }).setZone('utc').toISO();
+                    corrected = DateTime.fromJSDate(timestamp).setZone('America/New_York').setZone('utc', { keepLocalTime: true }).toISO();
                 } else {
-                    corrected = DateTime.fromObject(DateTime.fromJSDate(timestamp).toObject(), { zone: 'utc' }).toISO();
+                    corrected = DateTime.fromJSDate(timestamp).setZone('utc', { keepLocalTime: true }).toISO();
                 }
                 console.log(Chalk.blue(`[UPDATED] Raw: `) + `${timestamp} | ` + Chalk.blue(`Computed: `) + `${corrected}`);
                 return corrected;
