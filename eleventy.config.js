@@ -18,14 +18,13 @@ const {
     getRecentChangesByDate,
 } = require("./utils/collections/index.js");
 const {
-    fromJS,
+    toDateTime,
     toShortDate,
     toMedDate,
     toFullDate,
     toShortDateTime,
     toMedDateTime,
     toFullDateTime,
-    formatISO,
     toArray,
     toHTML,
     getCommitCategory,
@@ -59,14 +58,13 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addCollection("recentChanges", getRecentChangesByDate);
 
     /* Filters */
-    eleventyConfig.addFilter("fromJS", fromJS);
+    eleventyConfig.addFilter("toDateTime", toDateTime);
     eleventyConfig.addFilter("toShortDate", toShortDate);
     eleventyConfig.addFilter("toMedDate", toMedDate);
     eleventyConfig.addFilter("toFullDate", toFullDate);
     eleventyConfig.addFilter("toShortDateTime", toShortDateTime);
     eleventyConfig.addFilter("toMedDateTime", toMedDateTime);
     eleventyConfig.addFilter("toFullDateTime", toFullDateTime);
-    eleventyConfig.addFilter("formatISO", formatISO);
     eleventyConfig.addFilter("toArray", toArray);
     eleventyConfig.addFilter("toHTML", toHTML);
     eleventyConfig.addFilter("getCommitCategory", getCommitCategory);

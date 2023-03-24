@@ -22,7 +22,7 @@
         </main>
         <footer class="mt-36 mb-9 flex flex-col items-center gap-y-6 w-full self-center">
             <div class="text-xs text-center max-w-[30ch] text-gray-600">
-                <p>last updated {{ page.date | fromJS | toShortDateTime }}</p>
+                <p>last updated {{ collections.recentChanges[0][0] }}
                 <div>
                     <a class="mr-2" href="{{ meta.analytics }}">view analytics</a> | <a class="ml-2" href="https://github.com/{{ meta.github.username }}/{{ meta.github.repo }}">view source</a>
                 </div>

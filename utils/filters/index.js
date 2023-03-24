@@ -3,36 +3,57 @@ const striptags = require("striptags");
 const { DateTime } = require("luxon");
 const { markdownLibrary } = require("../plugins/markdown");
 
-const fromJS = (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
+function JStoUTC(dateObj) {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' });
 }
 
-const toShortDate = (dateObj) => {
-    return dateObj.toLocaleString(DateTime.DATE_SHORT); // 10/14/1983
+const toDateTime = (dateObj, UTC=false) => {
+    if (UTC) {
+        return JStoUTC(dateObj).toISODate()
+    }
+    return DateTime.fromJSDate(dateObj).toISODate();
 }
 
-const toMedDate = (dateObj) => {
-    return dateObj.toLocaleString(DateTime.DATE_MED); // Oct 14, 1983
-}
+const toShortDate = (dateObj, UTC=false) => {
+    if (UTC) {
+        return JStoUTC(dateObj).toLocaleString(DateTime.DATE_SHORT);
+    }
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_SHORT);
+};
 
-const toFullDate = (dateObj) => {
-    return dateObj.toLocaleString(DateTime.DATE_FULL); // Tuesday, October 14, 1983
-}
+const toMedDate = (dateObj, UTC=false) => {
+    if (UTC) {
+        return JStoUTC(dateObj).toLocaleString(DateTime.DATE_MED);
+    }
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+};
 
-const toShortDateTime = (dateObj) => {
-    return dateObj.toLocaleString(DateTime.DATETIME_SHORT); // 10/14/1983, 10:30 AM
-}
+const toFullDate = (dateObj, UTC=false) => {
+    if (UTC) {
+        return JStoUTC(dateObj).toLocaleString(DateTime.DATE_FULL);
+    }
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_FULL);
+};
 
-const toMedDateTime = (dateObj) => {
-    return dateObj.toLocaleString(DateTime.DATETIME_MED); // Oct 14, 1983, 10:30 AM
-}
+const toShortDateTime = (dateObj, UTC=false) => {
+    if (UTC) {
+        return JStoUTC(dateObj).toLocaleString(DateTime.DATETIME_SHORT);
+    }
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATETIME_SHORT);
+};
 
-const toFullDateTime = (dateObj) => {
-    return dateObj.toLocaleString(DateTime.DATETIME_FULL);  // Tuesday, October 14, 1983 at 10:30:00 AM GMT+1
-}
+const toMedDateTime = (dateObj, UTC=false) => {
+    if (UTC) {
+        return JStoUTC(dateObj).toLocaleString(DateTime.DATETIME_MED);
+    }
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATETIME_MED);
+};
 
-const formatISO = (dateObj, format) => {
-    return DateTime.fromISO(new Date(dateObj).toISOString()).toFormat(format);
+const toFullDateTime = (dateObj, UTC=false) => {
+    if (UTC) {
+        return JStoUTC(dateObj).toLocaleString(DateTime.DATETIME_FULL);
+    }
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATETIME_FULL);
 };
 
 const toArray = (value) => {
@@ -156,14 +177,13 @@ const cleanFeed = (content) => {
 };
 
 module.exports = {
-    fromJS,
+    toDateTime,
     toShortDate,
     toMedDate,
     toFullDate,
     toShortDateTime,
     toMedDateTime,
     toFullDateTime,
-    formatISO,
     toArray,
     toHTML,
     getCommitCategory,

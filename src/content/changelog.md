@@ -6,7 +6,7 @@ SVG: 'clock'
 
 <dl>
 {%- for group in collections.recentChanges -%}
-  <dt class="font-semibold text-center">{{ group[0] | toMedDate }}</dt>
+  <dt class="font-semibold text-center">{{ group[0] }}</dt>
   <dd>
     <ul>
       {%- for commit in group[1] %}
