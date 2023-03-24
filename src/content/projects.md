@@ -1,5 +1,7 @@
 ---
 title: "Projects"
+collection: 'more'
+SVG: "folder-closed"
 ---
 
 ## uncenter.org

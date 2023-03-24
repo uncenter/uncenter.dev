@@ -1,16 +1,7 @@
 {
     "top": [
         {
-            "title": "Projects",
-            "url": "/projects/",
-            "urls": [
-                "/projects/"
-            ],
-            "icon": "folder-closed"
-        },
-        {
             "title": "Blog",
-            "url": "/posts/",
             "urls": [
                 "/posts/",
                 "/archive/"
@@ -19,15 +10,20 @@
         },
         {
             "title": "Uses",
-            "url": "/uses/",
             "urls": [
                 "/uses/"
             ],
             "icon": "bookmark"
         },
         {
+            "title": "About",
+            "urls": [
+                "/about/"
+            ],
+            "icon": "info"
+        },
+        {
             "title": "Other",
-            "url": "/more/",
             "urls": [
                 "/more/"
             ],

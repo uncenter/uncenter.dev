@@ -1,7 +1,5 @@
 ---
 title: "About"
-collection: 'more'
-SVG: "circle-ellipsis"
 ---
 
 ## Site structure
