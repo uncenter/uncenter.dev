@@ -1,6 +1,7 @@
 const Chalk = require("chalk")
 const fetch = require('node-fetch');
 const spawn = require("cross-spawn");
+const { DateTime } = require("luxon");
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 require('dotenv').config()
@@ -102,9 +103,13 @@ module.exports = {
         updated: (data) => {
             let timestamp = getGitLastUpdated(data.page.inputPath);
             if (timestamp) {
-                return new Date(timestamp);
+                timestamp = new Date(timestamp);
+                return DateTime.fromObject(DateTime.fromJSDate(timestamp).toObject(), { zone: 'utc' }).toISO();
             }
             return false;
+        },
+        published: (data) => {
+            return DateTime.fromJSDate(data.date).setZone('utc').toISO()
         },
     },
 };

@@ -3,57 +3,39 @@ const striptags = require("striptags");
 const { DateTime } = require("luxon");
 const { markdownLibrary } = require("../plugins/markdown");
 
-function JStoUTC(dateObj) {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' });
+
+const toDateTime = (dateObj) => {
+    return dateObj;
 }
 
-const toDateTime = (dateObj, UTC=false) => {
-    if (UTC) {
-        return JStoUTC(dateObj).toISODate()
-    }
-    return DateTime.fromJSDate(dateObj).toISODate();
-}
-
-const toShortDate = (dateObj, UTC=false) => {
-    if (UTC) {
-        return JStoUTC(dateObj).toLocaleString(DateTime.DATE_SHORT);
-    }
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_SHORT);
+const toShortDate = (dateObj) => {
+    // 10/14/1983
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat("MM/dd/yyyy");
 };
 
-const toMedDate = (dateObj, UTC=false) => {
-    if (UTC) {
-        return JStoUTC(dateObj).toLocaleString(DateTime.DATE_MED);
-    }
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+const toMedDate = (dateObj) => {
+    // Oct 14, 1983
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat("MMM dd, yyyy");
 };
 
-const toFullDate = (dateObj, UTC=false) => {
-    if (UTC) {
-        return JStoUTC(dateObj).toLocaleString(DateTime.DATE_FULL);
-    }
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_FULL);
+const toFullDate = (dateObj) => {
+    // October 14, 1983
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat("MMMM dd, yyyy");
 };
 
-const toShortDateTime = (dateObj, UTC=false) => {
-    if (UTC) {
-        return JStoUTC(dateObj).toLocaleString(DateTime.DATETIME_SHORT);
-    }
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATETIME_SHORT);
+const toShortDateTime = (dateObj) => {
+    // 10/14/1983, 10:30 PM
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat("MM/dd/yyyy, hh:mm a");
 };
 
-const toMedDateTime = (dateObj, UTC=false) => {
-    if (UTC) {
-        return JStoUTC(dateObj).toLocaleString(DateTime.DATETIME_MED);
-    }
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATETIME_MED);
+const toMedDateTime = (dateObj) => {
+    // Oct 14, 1983, 10:30 PM
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat("MMM dd, yyyy, hh:mm a");
 };
 
-const toFullDateTime = (dateObj, UTC=false) => {
-    if (UTC) {
-        return JStoUTC(dateObj).toLocaleString(DateTime.DATETIME_FULL);
-    }
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATETIME_FULL);
+const toFullDateTime = (dateObj) => {
+    // October 14, 1983, 10:30 PM
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat("MMMM dd, yyyy, hh:mm a");
 };
 
 const toArray = (value) => {
