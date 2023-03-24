@@ -79,11 +79,11 @@ module.exports = {
                 return "N/A";
             }
             if (data.eleventyExcludeFromCollections) {
-                console.log(Chalk.red(`Excluding excluded page: `) + Chalk.dim(data.title));
+                // console.log(Chalk.red(`Excluding excluded page: `) + Chalk.dim(data.title));
                 return;
             }
             if (process.env.NODE_ENV !== 'production') {
-                console.log(Chalk.blue(`Randomizing views for: `) + Chalk.dim(data.title));
+                // console.log(Chalk.blue(`Randomizing views for: `) + Chalk.dim(data.title));
                 return Math.floor(Math.random() * 100);
             }
             if (data.page.url === undefined) {
