@@ -104,11 +104,13 @@ module.exports = {
             let timestamp = getGitLastUpdated(data.page.inputPath);
             if (timestamp) {
                 timestamp = new Date(timestamp);
+                console.log(Chalk.blue(`[UPDATED] Raw: `) + `${timestamp} | ` + Chalk.blue(`Computed: `) + `${DateTime.fromObject(DateTime.fromJSDate(timestamp).toObject(), { zone: 'utc' }).toISO()}`);
                 return DateTime.fromObject(DateTime.fromJSDate(timestamp).toObject(), { zone: 'utc' }).toISO();
             }
             return false;
         },
         published: (data) => {
+            console.log(Chalk.blue(`[PUBLISHED] Raw: `) + `${data.date} | ` + Chalk.blue(`Computed: `) + `${DateTime.fromJSDate(data.date).setZone('utc').toISO()}`);
             return DateTime.fromJSDate(data.date).setZone('utc').toISO()
         },
     },
