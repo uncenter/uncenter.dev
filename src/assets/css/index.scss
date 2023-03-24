@@ -166,14 +166,75 @@ input[type="checkbox"] {
 
 .container {
     padding-left: 1.25rem;
-    padding-right: 1.25rem; 
+    padding-right: 1.25rem;
     border-radius: 5px;
     border: 1px solid #dadde1;
-    transition: cubic-bezier(0.08,0.52,0.52,1) 200ms;
+    transition: cubic-bezier(0.08, 0.52, 0.52, 1) 200ms;
 }
 
 img.container {
     padding: 2rem;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+    display: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    margin-left: calc((-1 * (100% + 10px)) / 2);
+    padding: 7px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 5px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    width: calc(100% + 10px);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+    -webkit-animation: fadeIn 0.4s;
+    animation: fadeIn 0.4s;
+}
+
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    display: block;
 }
 
 @import "palette";

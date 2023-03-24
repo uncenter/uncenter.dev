@@ -1,8 +1,8 @@
 <div class="flex flex-row flex-wrap gap-6 container py-4 mb-4">
-    <time class="my-0" datetime="{{ PUBLISHED | toDateTime }}">{%- icon 'calendar' %}
+    <time class="my-0" datetime="{{ PUBLISHED | toDateTime }}" data-tooltip="Published">{%- icon 'calendar' %}
         {{ PUBLISHED | toShortDate }}</time>
     {% if UPDATED and (UPDATED | toShortDate) != (PUBLISHED | toShortDate) %}
-        <p class="my-0">{%- icon 'edit-2' %}
+        <p class="my-0" data-tooltip="Edited">{%- icon 'edit-2' %}
             {{ UPDATED | toShortDate }}</p>
     {% endif %}
     <p class="my-0">{%- icon 'eye' %}
