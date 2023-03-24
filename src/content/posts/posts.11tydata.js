@@ -106,7 +106,7 @@ module.exports = {
                 timestamp = new Date(timestamp)
                 if (timestamp.getTimezoneOffset() === 0) {
                     console.log(Chalk.magenta(`UTC: `));
-                    corrected = DateTime.fromJSDate(timestamp).toISO();
+                    corrected = DateTime.fromJSDate(timestamp, { zone: 'America/New_York' }).setZone('utc').toISO();
                 } else {
                     corrected = DateTime.fromObject(DateTime.fromJSDate(timestamp).toObject(), { zone: 'utc' }).toISO();
                 }
