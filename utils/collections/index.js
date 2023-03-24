@@ -45,7 +45,7 @@ const getAllTags = (collectionApi) => {
 const getRecentChangesByDate = () => {
     const settings = {
         repo: __dirname,
-        number: 35,
+        number: 100,
         fields: [
             "hash",
             "abbrevHash",
