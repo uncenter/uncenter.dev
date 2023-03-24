@@ -8,6 +8,7 @@
         "spell:update": "node ./utils/plugins/cspell/auto.js",
         "spell": "npm run spell:run",
         "write": "node ./utils/plugins/write.js",
+        "restart": "npm run clean && npm run start",
         "start": "NODE_ENV=development eleventy --serve & tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css --watch & sass --watch ./src/assets/css:./dist/assets/css",
         "build": "NODE_ENV=production eleventy && sass ./src/assets/css:./dist/assets/css && tailwindcss -i ./dist/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css"
     },
