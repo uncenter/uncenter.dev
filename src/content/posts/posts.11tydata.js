@@ -103,9 +103,15 @@ module.exports = {
         updated: (data) => {
             let timestamp = getGitLastUpdated(data.page.inputPath);
             if (timestamp) {
-                timestamp = new Date(timestamp);
-                console.log(Chalk.blue(`[UPDATED] Raw: `) + `${timestamp} | ` + Chalk.blue(`Computed: `) + `${DateTime.fromObject(DateTime.fromJSDate(timestamp).toObject(), { zone: 'utc' }).toISO()}`);
-                return DateTime.fromObject(DateTime.fromJSDate(timestamp).toObject(), { zone: 'utc' }).toISO();
+                timestamp = new Date(timestamp)
+                if (timestamp.getTimezoneOffset() === 0) {
+                    console.log(Chalk.magenta(`UTC: `));
+                    corrected = DateTime.fromJSDate(timestamp).toISO();
+                } else {
+                    corrected = DateTime.fromObject(DateTime.fromJSDate(timestamp).toObject(), { zone: 'utc' }).toISO();
+                }
+                console.log(Chalk.blue(`[UPDATED] Raw: `) + `${timestamp} | ` + Chalk.blue(`Computed: `) + `${corrected}`);
+                return corrected;
             }
             return false;
         },
