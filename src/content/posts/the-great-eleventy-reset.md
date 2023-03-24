@@ -1,8 +1,8 @@
 ---
 tags: ['11ty']
-title: The Great Eleventy Reset
+title: Starting from Scratch - v3.0
 date: 2023-02-21
-description: "v3.0: A new structure, new icons, and new styling."
+description: "A new structure, new icons, and new styling."
 archived: true
 # cspell:ignore Barabara Devries
 ---

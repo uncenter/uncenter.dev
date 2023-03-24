@@ -1,6 +1,6 @@
 ---
 tags: ['11ty']
-title: Spellchecking posts in Eleventy
+title: Spellchecking Markdown posts
 date: 2023-03-23
 description: How to spellcheck your Eleventy blog posts with cSpell!
 # cspell:ignore
