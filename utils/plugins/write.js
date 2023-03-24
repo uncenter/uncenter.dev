@@ -109,11 +109,11 @@ async function run() {
     tags: [${tagString}]
     title: ${title}
     date: ${date}
-    description: ...
-    # cspell:ignore ...
+    description:
+    draft: true
+    # cspell:ignore 
     ---
-
-    Voluptate cupidatat ut consequat sunt sint consequat eu duis deserunt velit deserunt culpa ea.
+    
     `;
 
     fs.writeFileSync(filepath, content);
