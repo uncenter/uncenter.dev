@@ -1,8 +1,9 @@
 ---
-eleventyExcludeFromCollections: true
 title: "Articles"
+description: "All of my articles in one place."
 layout: base
 templateEngineOverride: njk
+eleventyExcludeFromCollections: true
 ---
 
 <p>You can find all of my articles here. For archived articles, see <a href="/archive/">my archives</a>.</p>

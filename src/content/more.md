@@ -1,5 +1,5 @@
 ---
-title: "More Pages"
+title: More Pages
 ---
 
 :::card

@@ -1,5 +1,6 @@
 ---
-title: "Projects"
+title: Projects
+description: A list of my projects.
 collection: 'more'
 SVG: "folder-closed"
 ---

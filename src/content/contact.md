@@ -1,5 +1,6 @@
 ---
-title: "Contact"
+title: Contact
+description: Need to get in touch with me?
 ---
 
 :::card

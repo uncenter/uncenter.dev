@@ -1,5 +1,6 @@
 ---
-title: "About"
+title: About
+description: Everything you need to know about this website.
 ---
 
 ## Site structure
