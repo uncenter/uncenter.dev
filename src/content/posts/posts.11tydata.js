@@ -4,11 +4,7 @@ const spawn = require("cross-spawn");
 const { DateTime } = require("luxon");
 
 const isDevelopment = process.env.NODE_ENV === 'development';
-require('dotenv').config()
-
-function excludeDraft(data) {
-    return !isDevelopment && data.draft;
-}
+require('dotenv').config();
 
 async function getUmamiToken() {
     const url = `https://analytics.uncenter.org/api/auth/login`;
@@ -64,27 +60,23 @@ function getGitLastUpdated(filePath) {
     );
 }
 
-
 module.exports = {
     eleventyComputed: {
         eleventyExcludeFromCollections: (data) => {
-            if (excludeDraft(data)) {
+            if (!isDevelopment && data.draft) {
                 return true;
             } else {
                 return data.eleventyExcludeFromCollections;
             }
         },
         views: async (data) => {
-            if (excludeDraft(data)) {
-                console.log(Chalk.red(`Excluding draft: `) + Chalk.dim(data.title));
+            if (!isDevelopment && data.draft) {
                 return "N/A";
             }
             if (data.eleventyExcludeFromCollections) {
-                // console.log(Chalk.red(`Excluding excluded page: `) + Chalk.dim(data.title));
                 return;
             }
             if (process.env.NODE_ENV !== 'production') {
-                // console.log(Chalk.blue(`Randomizing views for: `) + Chalk.dim(data.title));
                 return Math.floor(Math.random() * 100);
             }
             if (data.page.url === undefined) {
@@ -118,5 +110,12 @@ module.exports = {
             // console.log(Chalk.blue(`[PUBLISHED] Raw: `) + `${data.date} | ` + Chalk.blue(`Computed: `) + `${DateTime.fromJSDate(data.date).setZone('utc').toISO()}`);
             return DateTime.fromJSDate(data.date).setZone('utc').toISO()
         },
+        description(data) {
+            if (data.description) {
+                return data.description;
+            }
+            console.log(Chalk.red(`No description for: `) + Chalk.dim(data.title));
+            return "An Untitled Post";
+        }
     },
 };

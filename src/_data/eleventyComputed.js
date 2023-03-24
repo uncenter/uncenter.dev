@@ -1,13 +1,8 @@
-const meta = require("../_data/meta.json");
-
 module.exports = {
     title(data) {
         if (data.title) return data.title; // If 'title' is defined in the front matter, use it.
         return toTitleCase(data.page.fileSlug.replace("-", " ")); // Otherwise, use the file name.
     },
-    description(data) {
-        return data.description || meta.description;
-    }
 };
 
 function toTitleCase(str) {
