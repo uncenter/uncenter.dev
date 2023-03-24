@@ -32,7 +32,7 @@
     {%- if DRAFT -%}
         <p class="my-0 bg-blue-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">DRAFT</p>
     {%- endif -%}
-    {% if not DRAFT and DATE | isRecent(7) %}
+    {% if not DRAFT and (PUBLISHED | isRecent(7)) %}
         <p class="my-0 bg-green-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">NEW</p>
     {% endif %}
 </div>
