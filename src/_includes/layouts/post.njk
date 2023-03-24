@@ -16,7 +16,11 @@ layout: base
         {{ content | toc | safe }}
     </nav>
 {% endif %}
-{{ content | safe }}
+{% if content !== "" %}
+    {{ content | safe }}
+{% else %}
+    <p class="text-center text-red-500">{% icon "alert-circle" %} No content found.</p>
+{% endif %}
 {% giscus %}
 <div id="giscus"></div>
 {% set previousPost = collections.posts | getPreviousCollectionItem %}
