@@ -5,6 +5,7 @@
                 <a href="{{ post.url | url }}">{{ post.data.title }}</a>
             </h2>
             {% set DATE = post.date %}
+            {% set UPDATED = post.data.updated %}
             {% set CONTENT = post.content %}
             {% set TAGS = post.data.tags %}
             {% set MICRO = post.data.micro %}

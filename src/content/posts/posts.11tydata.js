@@ -1,5 +1,7 @@
 const Chalk = require("chalk")
 const fetch = require('node-fetch');
+const spawn = require("cross-spawn");
+
 const isDevelopment = process.env.NODE_ENV === 'development';
 require('dotenv').config()
 
@@ -46,6 +48,21 @@ async function getPageViews(originalUrl, originalDate) {
     return json;
 };
 
+// https://github.com/11ty/eleventy/blob/master/src/Util/DateGitLastUpdated.js
+// MIT License: https://github.com/11ty/eleventy/blob/master/LICENSE
+function getGitLastUpdated(filePath) {
+    return (
+        parseInt(
+            spawn
+                .sync(
+                    "git",
+                    ["log", "-1", "--format=%at", filePath]
+                )
+                .stdout.toString("utf-8")
+        ) * 1000
+    );
+}
+
 
 module.exports = {
     eleventyComputed: {
@@ -81,6 +98,13 @@ module.exports = {
                 views += res.pageviews[i].y;
             }
             return views;
-        }
+        },
+        updated: (data) => {
+            let timestamp = getGitLastUpdated(data.page.inputPath);
+            if (timestamp) {
+                return new Date(timestamp);
+            }
+            return false;
+        },
     },
 };

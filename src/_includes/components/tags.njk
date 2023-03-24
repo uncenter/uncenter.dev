@@ -1,6 +1,10 @@
 <div class="flex flex-row flex-wrap gap-6 container py-4 mb-4">
     <p class="my-0">{%- icon 'calendar' %}
         {{ DATE | fromJS | toMedDate }}</p>
+    {% if UPDATED and (UPDATED | fromJS | toMedDate) != (DATE | fromJS | toMedDate) %}
+        <p class="my-0">{%- icon 'edit-2' %}
+            {{ UPDATED | fromJS | toMedDate }}</p>
+    {% endif %}
     <p class="my-0">{%- icon 'eye' %}
         {{ VIEWS }}</p>
     {%- if not MICRO -%}
