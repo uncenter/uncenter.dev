@@ -105,18 +105,17 @@ module.exports = {
             if (timestamp) {
                 timestamp = new Date(timestamp)
                 if (timestamp.getTimezoneOffset() === 0) {
-                    console.log(Chalk.magenta(`UTC: `));
                     corrected = DateTime.fromJSDate(timestamp).setZone('America/New_York').setZone('utc', { keepLocalTime: true }).toISO();
                 } else {
                     corrected = DateTime.fromJSDate(timestamp).setZone('utc', { keepLocalTime: true }).toISO();
                 }
-                console.log(Chalk.blue(`[UPDATED] Raw: `) + `${timestamp} | ` + Chalk.blue(`Computed: `) + `${corrected}`);
+                // console.log(Chalk.blue(`[UPDATED] Raw: `) + `${timestamp} | ` + Chalk.blue(`Computed: `) + `${corrected}`);
                 return corrected;
             }
             return false;
         },
         published: (data) => {
-            console.log(Chalk.blue(`[PUBLISHED] Raw: `) + `${data.date} | ` + Chalk.blue(`Computed: `) + `${DateTime.fromJSDate(data.date).setZone('utc').toISO()}`);
+            // console.log(Chalk.blue(`[PUBLISHED] Raw: `) + `${data.date} | ` + Chalk.blue(`Computed: `) + `${DateTime.fromJSDate(data.date).setZone('utc').toISO()}`);
             return DateTime.fromJSDate(data.date).setZone('utc').toISO()
         },
     },
