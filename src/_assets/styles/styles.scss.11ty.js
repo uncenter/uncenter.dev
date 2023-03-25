@@ -2,7 +2,7 @@ const postcss = require('postcss');
 const fs = require('fs/promises');
 const sass = require('sass');
 
-const logSize = require('../../../utils/logSize.js');
+const logSize = require('../../_11ty/utils/logSize.js');
 
 class Page {
     data() {

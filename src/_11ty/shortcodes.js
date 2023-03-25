@@ -1,13 +1,13 @@
 const turndown = require("turndown")
 const fs = require("fs");
 const path = require("path");
-const meta = require("../../src/_data/meta.json");
+const meta = require("../_data/meta.json");
 const EleventyFetch = require("@11ty/eleventy-fetch")
 const md5 = require('md5')
 
 const { DateTime } = require("luxon")
-const { markdownLibrary } = require("../plugins/markdown")
-const { getWordCount, getReadingTime} = require("../filters/index.js")
+const { markdownLibrary } = require("../../utils/plugins/markdown")
+const { getWordCount, getReadingTime} = require("./filters.js")
 
 const getExcerpt = (page) => {
     if (!page.hasOwnProperty("content")) {

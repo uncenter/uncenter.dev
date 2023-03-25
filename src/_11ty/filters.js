@@ -1,7 +1,7 @@
 const fs = require("fs");
 const striptags = require("striptags");
 const { DateTime } = require("luxon");
-const { markdownLibrary } = require("../plugins/markdown");
+const { markdownLibrary } = require("../../utils/plugins/markdown");
 
 
 const toDateTime = (dateObj) => {

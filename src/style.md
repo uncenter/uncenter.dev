@@ -1,7 +1,6 @@
 ---
 title: Style
 description: This is my style guide.
-styles: ['syntax.css', 'palette.css']
 collection: 'more'
 SVG: "palette"
 ---

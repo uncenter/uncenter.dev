@@ -13,7 +13,6 @@ const getAllPosts = (collectionApi) => {
     return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
 };
 
-
 const getCustomCollections = (collectionApi) => {
     const collections = new Map();
 
