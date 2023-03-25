@@ -1,5 +1,6 @@
 const postcss = require('postcss');
 const fs = require('fs');
+const Blob = require('buffer').Blob;
 const sass = require('sass');
 
 const logOutput = require('../../_11ty/utils/logOutput.js');
