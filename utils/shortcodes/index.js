@@ -7,6 +7,7 @@ const md5 = require('md5')
 
 const { DateTime } = require("luxon")
 const { markdownLibrary } = require("../plugins/markdown")
+const { getWordCount, getReadingTime} = require("../filters/index.js")
 
 const getExcerpt = (page) => {
     if (!page.hasOwnProperty("content")) {
@@ -36,6 +37,22 @@ const getExcerpt = (page) => {
 
     excerpt += "...";
     return markdownLibrary.render(excerpt);
+}
+
+const getCollectionWordCount = (posts) => {
+    let wordCount = 0;
+    posts.forEach((post) => {
+        wordCount += parseInt(getWordCount(post.content, { preText: "", postText: "" }));
+    });
+    return wordCount;
+}
+
+const getCollectionReadingTime = (posts) => {
+    let readingTime = 0;
+    posts.forEach((post) => {
+        readingTime += parseInt(getReadingTime(post.content, { useSeconds: false, format: false, speed: 235, preText: "", postText: "" }));
+    });
+    return readingTime;
 }
 
 const createCallout = (content, title, type) => {
@@ -296,6 +313,8 @@ const insertImage = (img, alt) => {
 
 module.exports = {
     getExcerpt,
+    getCollectionWordCount,
+    getCollectionReadingTime,
     createCallout,
     createStaticToot,
     insertIcon,

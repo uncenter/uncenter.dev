@@ -1,12 +1,14 @@
 const {
-    createCallout,
     getExcerpt,
-    insertYear,
-    insertDate,
+    getCollectionWordCount,
+    getCollectionReadingTime,
+    createCallout,
+    createStaticToot,
     insertIcon,
     insertIconSheet,
+    insertDate,
+    insertYear,
     insertGiscusScript,
-    createStaticToot,
     insertImage,
 } = require("./utils/shortcodes/index.js");
 const {
@@ -78,11 +80,13 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("cleanFeed", cleanFeed);
 
     /* Shortcodes */
+    eleventyConfig.addShortcode("excerpt", getExcerpt);
+    eleventyConfig.addShortcode("totalWordCount", getCollectionWordCount);
+    eleventyConfig.addShortcode("totalReadingTime", getCollectionReadingTime);
     eleventyConfig.addNunjucksAsyncShortcode("stoot", createStaticToot);
     eleventyConfig.addPairedShortcode("callout", createCallout);
     eleventyConfig.addShortcode("icon", insertIcon);
     eleventyConfig.addShortcode("iconSheet", insertIconSheet);
-    eleventyConfig.addShortcode("excerpt", getExcerpt);
     eleventyConfig.addShortcode("date", insertDate);
     eleventyConfig.addShortcode("year", insertYear);
     eleventyConfig.addShortcode("giscus", insertGiscusScript);
