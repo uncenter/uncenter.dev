@@ -114,8 +114,7 @@ module.exports = {
             if (data.description) {
                 return data.description;
             }
-            console.log(Chalk.red(`No description for: `) + Chalk.dim(data.title));
-            return "An Untitled Post";
+            return "";
         }
     },
 };
