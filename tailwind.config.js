@@ -1,4 +1,4 @@
-const disabledCSS = {
+const disabled = {
 	'code::before': false,
 	'code::after': false,
 	pre: false,
@@ -18,15 +18,18 @@ const disabledCSS = {
 }
 
 module.exports = {
-    content: ["./dist/**/*.html"],
+    content: [
+        './src/**/*.{11ty.js,njk,md}',
+        './utils/**/*.{js}',
+    ],
     theme: {
         extend: {
             typography: {
-                DEFAULT: { css: disabledCSS },
-                sm: { css: disabledCSS },
-                lg: { css: disabledCSS },
-                xl: { css: disabledCSS },
-                '2xl': { css: disabledCSS },
+                DEFAULT: { css: disabled },
+                sm: { css: disabled },
+                lg: { css: disabled },
+                xl: { css: disabled },
+                '2xl': { css: disabled },
             },
             lineHeight: {
                 none: 'unset'
