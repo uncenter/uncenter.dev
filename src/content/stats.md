@@ -5,8 +5,6 @@ collection: 'more'
 SVG: "bar-chart-3"
 ---
 
-## Blog stats
-
 <table class="text-center">
     <thead>
         <tr>
