@@ -10,7 +10,7 @@ const {
     insertYear,
     insertGiscusScript,
     insertImage,
-} = require("./utils/shortcodes/index.js");
+} = require("./src/_11ty/shortcodes.js");
 const {
     getPosts,
     getAllPosts,
@@ -18,7 +18,7 @@ const {
     getCustomCollections,
     getAllTags,
     getRecentChangesByDate,
-} = require("./utils/collections/index.js");
+} = require("./src/_11ty/collections.js");
 const {
     toDateTime,
     toShortDate,
@@ -38,7 +38,7 @@ const {
     dumpContents,
     includes,
     cleanFeed,
-} = require("./utils/filters/index.js");
+} = require("./src/_11ty/filters.js");
 
 const { markdownLibrary } = require("./utils/plugins/markdown.js");
 const inProduction = process.env.NODE_ENV === "production";
@@ -132,11 +132,11 @@ module.exports = function (eleventyConfig) {
 
     return {
         dir: {
-            input: "src/content",
-            includes: "../_includes",
-            layouts: "../_includes/layouts",
-            data: "../_data",
+            input: "src",
             output: "dist",
+            includes: "_includes",
+            layouts: "_layouts",
+            data: "_data",
         },
         templateFormats: ["md", "njk", "html", "css", "11ty.js"],
         markdownTemplateEngine: "njk",
