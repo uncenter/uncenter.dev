@@ -37,9 +37,6 @@ Officia consectetur in labore deserunt qui laborum.
 
 > This is a blockquote
 
-{% stoot "fosstodon.org", "109792555995860965" %}
-
-
 1. A numbered list
 
 * A bulleted list
