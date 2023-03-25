@@ -18,7 +18,7 @@ permalink: /tags/{{ tag | slugify }}/
 {% set posts = collections[ tag ] %}
 
 {% if posts.length %}
-    {% include "components/posts.njk" %}
+    {% include "posts.njk" %}
 {% else %}     
     <p>No posts tagged “{{ tag }}”.</p>
 {% endif %}

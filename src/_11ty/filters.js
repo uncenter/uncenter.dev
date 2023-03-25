@@ -64,11 +64,10 @@ const getCommitMessage = (str) => {
     return str.split(":")[1];
 };
 
-// Example: {{ '/icons/example.svg' | printFileContents }}
+// Example: {{ '/icons/example.svg' | dumpContents }}
 // Taken from https://bnijenhuis.nl/notes/load-file-contents-in-eleventy/
 const dumpContents = (filePath) => {
-    const relativeFilePath = `.` + filePath;
-    const fileContents = fs.readFileSync(relativeFilePath, (err, data) => {
+    const fileContents = fs.readFileSync(filePath, (err, data) => {
         if (err) throw err;
         return data;
     });

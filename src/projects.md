@@ -10,5 +10,3 @@ This website! It's built with [11ty/Eleventy](https://www.11ty.dev/) (and [Tailw
 
 ## create-eleventy-app
 A CLI tool to create a new Eleventy site with a few extra features. It's still in development, but I think it's already pretty useful. You can check it out on [GitHub](https://github.com/{{ meta.github.username }}/create-eleventy-app) or [npm](https://www.npmjs.com/package/create-eleventy-app).
-
-{% image "create-eleventy-app-homepage.png", "Screenshot of the generated homepage" %}

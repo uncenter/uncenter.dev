@@ -19,8 +19,8 @@ const disabled = {
 
 module.exports = {
     content: [
-        './src/**/*.{11ty.js,njk,md}',
-        './utils/**/*.{js}',
+        './src/**/*.{11ty.js,js,md,njk,html}',
+        './utils/**/*.js',
     ],
     theme: {
         extend: {

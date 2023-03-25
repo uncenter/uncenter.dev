@@ -1,16 +1,16 @@
 {
     "name": "uncenter.org",
-    "version": "1.0.0",
-    "description": "uncenter's personal website",
+    "version": "4.0.0",
+    "description": "my website",
     "scripts": {
         "clean": "rm -rf dist",
-        "spell:run": "cspell src/content/posts/**/*.md",
-        "spell:update": "node ./utils/plugins/cspell/auto.js",
+        "spell:run": "cspell src/posts/**/*.md",
+        "spell:update": "node ./utils/cspell.js",
         "spell": "npm run spell:run",
-        "write": "node ./utils/plugins/write.js",
+        "write": "node ./utils/write.js",
         "restart": "npm run clean && npm run start",
-        "start": "NODE_ENV=development eleventy --serve & tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css --watch & sass --watch ./src/assets/css:./dist/assets/css",
-        "build": "NODE_ENV=production eleventy && sass ./src/assets/css:./dist/assets/css && tailwindcss -i ./dist/assets/css/tailwind.css -o ./dist/assets/css/tailwind.css"
+        "start": "NODE_ENV=development eleventy --serve",
+        "build": "NODE_ENV=production eleventy"
     },
     "repository": {
         "type": "git",
@@ -26,10 +26,12 @@
     "dependencies": {
         "@11ty/eleventy": "^2.0.0",
         "@11ty/eleventy-fetch": "^3.0.0",
+        "@11ty/eleventy-img": "^3.0.0",
         "@11ty/eleventy-plugin-rss": "^1.2.0",
         "@aloskutov/eleventy-plugin-external-links": "^1.4.4",
         "@tailwindcss/typography": "^0.5.9",
         "cross-spawn": "^7.0.3",
+        "cssnano": "^5.1.15",
         "eleventy-plugin-toc": "^1.1.5",
         "fs": "^0.0.1-security",
         "gitlog": "^4.0.4",
@@ -62,7 +64,7 @@
     "devDependencies": {
         "autoprefixer": "^10.4.13",
         "chalk": "^4.1.2",
-        "cspell": "^6.30.2",
+        "cspell": "^6.31.1",
         "dotenv": "^16.0.3",
         "inquirer": "^8.2.5",
         "npm-run-all": "^4.1.5",

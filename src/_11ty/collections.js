@@ -2,15 +2,15 @@ const gitlog = require("gitlog").default;
 const { DateTime } = require("luxon");
 
 const getPosts = (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md").filter((post) => post.data.archived !== true);
+    return collectionApi.getFilteredByGlob("./src/posts/**/*.md").filter((post) => post.data.archived !== true);
 };
 
 const getArchivedPosts = (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md").filter((post) => post.data.archived === true);
+    return collectionApi.getFilteredByGlob("./src/posts/**/*.md").filter((post) => post.data.archived === true);
 };
 
 const getAllPosts = (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/content/posts/**/*.md");
+    return collectionApi.getFilteredByGlob("./src/posts/**/*.md");
 };
 
 const getCustomCollections = (collectionApi) => {
@@ -83,7 +83,7 @@ const getRecentChangesByDate = () => {
 };
 
 const getSeries = (collectionApi) => {
-    const posts = [...collectionApi.getFilteredByGlob("./src/content/posts/**/*.md")].reverse()
+    const posts = [...collectionApi.getFilteredByGlob("./src/posts/**/*.md")].reverse()
     const mapping = new Map();
 
     for (const post of posts) {

@@ -26,14 +26,14 @@ Another noticeable problem with the homepage is the Quick Start section, as seen
 
 On a better note though, here is a part I actually like about the homepage.
 
-{% image "faster-and-faster-websites.png", "The speed race visual/animation showcasing 11ty's prowess over competing web frameworks." %}
+{% image "faster-websites-animation.png", "The speed race visual/animation showcasing 11ty's prowess over competing web frameworks." %}
 
 I love this animation and it's a convincing visual. Makes me glad I started with Eleventy instead of Gatsby or Next.js.
 
 ### The documentation
 I want to start thinking about this by putting yourself in someone else's shoes, a beginner's shoes. You are super excited to try this awesome and easy static site generator that your friend mentioned, and after finding the *completely normal sized* documentation button on the homepage, you landed here, at the documentation overview page.
 
-{% image "eleventy-documentation.png", "The documentation homepage on the 11ty website." %}
+{% image "docs-homepage.png", "The documentation homepage on the 11ty website." %}
 
 There are two things I'd like to mention here. First, the "trusted by" section. While it is amazing to see all of those well known companies and websites use Eleventy or whatever, I think the placement is odd. The page that the documentation opens up to sounds more like a pitch for why you should use Eleventy, rather than a convenient resource to guide your site. I think it would be better suited to be on the homepage, since by the time you reach the documentation, you are most likely already interested in using it. Second, the table of contents. For the most part, it's fine. My issue lies in the order of the content suggested by the table of contents. The pitch I mentioned earlier for Eleventy continues here. Again, moving these and the testimonials to the homepage might make more sense. And the same goes for the Community section in the table of contents.
 

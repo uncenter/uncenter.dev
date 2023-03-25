@@ -1,13 +1,20 @@
 const turndown = require("turndown")
 const fs = require("fs");
 const path = require("path");
-const meta = require("../_data/meta.json");
-const EleventyFetch = require("@11ty/eleventy-fetch")
 const md5 = require('md5')
+const Chalk = require('chalk');
+
+const { escape } = require('lodash');
+const Image = require('@11ty/eleventy-img');
+const EleventyFetch = require("@11ty/eleventy-fetch")
+const meta = require("../_data/meta.json");
 
 const { DateTime } = require("luxon")
 const { markdownLibrary } = require("../../utils/plugins/markdown")
-const { getWordCount, getReadingTime} = require("./filters.js")
+const { getWordCount, getReadingTime } = require("./filters.js")
+const stringifyAttributes = require("./utils/stringifyAttributes.js")
+const logOutput = require("./utils/logOutput.js")
+const logSize = require("./utils/logSize.js")
 
 const getExcerpt = (page) => {
     if (!page.hasOwnProperty("content")) {
@@ -232,7 +239,7 @@ const insertIcon = function icon(name) {
 };
 
 const insertIconSheet = function iconsheet() {
-    const sourceDir = path.join(__dirname, "../../src/assets/icons");
+    const sourceDir = path.join(__dirname, "../../src/_assets/icons");
     const icons = fs.readdirSync(sourceDir);
     let pageIcons = this.ctx.page.icons || [];
     pageIcons = pageIcons.filter((icon) => icon !== undefined);
@@ -307,8 +314,81 @@ const insertGiscusScript = () => {
     </script>`;
 };
 
-const insertImage = (img, alt) => {
-    return `<img class="container" src="/assets/images/content/${img}" alt="${alt}" loading="lazy" />`;
+const insertImage = async function genImage(src, alt, baseFormat = 'jpeg', optimizedFormats = ['webp'], widths = [400, 800], sizes = '100vw', className = '', isLinked = true, isLazy = true,) {
+    originalFileSize = fs.statSync(path.join(__dirname, '../', this.page.url, src)).size / 1000;
+
+    pathToImage = path.join(__dirname, '../', this.page.url, src);
+
+    const imageOptions = {
+        // Always include the original image width in the output
+        widths: [null, ...widths],
+        // List optimized formats before the base format so that the output contains webp sources before jpegs.
+        formats: [...optimizedFormats, baseFormat],
+        // Where the generated image files get saved
+        outputDir: 'dist/assets/images',
+        // Public URL path that's referenced in the img tag's src attribute 
+        urlPath: '/assets/images',
+        filenameFormat: function (id, src, width, format, options) {
+            const extension = path.extname(src);
+            const name = path.basename(src, extension);
+        
+            return `${name}-${width}w.${format}`;
+        }
+        
+    };
+    const imageMetadata = await Image(pathToImage, imageOptions);
+    logOutput({ prefix: 'assets:images', action: 'optimizing', file: this.page.url + src, extra: { content: `${logSize(imageMetadata[baseFormat][0].size)} --> ${logSize(originalFileSize)}`, size: false } });
+
+    const getLargestImage = (format) => {
+        const images = imageMetadata[format];
+        return images[images.length - 1];
+    };
+
+    const largestImages = {
+        base: getLargestImage(baseFormat),
+        optimized: getLargestImage(optimizedFormats[0]),
+    };
+
+    const { width, height } = largestImages.base;
+
+    const pictureAttributes = '';
+
+    const imgAttributes = stringifyAttributes({
+        width,
+        height,
+        class: 'container',
+        src: largestImages.base.url,
+        alt: escape(alt),
+        loading: isLazy ? 'lazy' : undefined,
+        decoding: 'async',
+    });
+
+    /** Returns source elements as an HTML string. */
+    const sources = Object.values(imageMetadata)
+        .map((formatEntries) => {
+            const { sourceType } = formatEntries[0];
+            const srcset = formatEntries.map((image) => image.srcset).join(', ');
+
+            const sourceAttributes = stringifyAttributes({
+                type: sourceType,
+                srcset,
+                sizes,
+            });
+
+            return `<source ${sourceAttributes}>`;
+        })
+        .join('\n');
+
+    const picture = (
+    `${(isLinked) ? `<a class="no-underline" href="${largestImages.optimized.url}">` : ''}
+    <picture ${pictureAttributes}>
+        ${sources}
+        <img ${imgAttributes}>
+    </picture>
+${(isLinked) ? '</a>' : ''}
+`);
+
+    return picture;
 };
 
 module.exports = {

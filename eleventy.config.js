@@ -90,7 +90,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("date", insertDate);
     eleventyConfig.addShortcode("year", insertYear);
     eleventyConfig.addShortcode("giscus", insertGiscusScript);
-    eleventyConfig.addShortcode("image", insertImage);
+    eleventyConfig.addNunjucksAsyncShortcode("image", insertImage);
 
     /* Plugins */
     eleventyConfig.addPlugin(pluginTOC, { ul: true });
@@ -107,11 +107,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addLayoutAlias("post", "post.njk");
 
     /* Passthrough Copy */
-    eleventyConfig.addPassthroughCopy({ "src/assets/images/favicon": "." });
-    eleventyConfig.addPassthroughCopy({ "src/assets/css": "/assets/css" });
-    eleventyConfig.addPassthroughCopy({ "src/assets/js": "/assets/js" });
+    eleventyConfig.addPassthroughCopy({ "src/_assets/images/favicon": "." });
+    eleventyConfig.addPassthroughCopy({"src/_assets/scripts": "/assets/scripts"});
     eleventyConfig.addPassthroughCopy({
-        "src/assets/images/content": "/assets/images/content",
+        "src/_assets/images/content": "/assets/images/content",
     });
 
     /* Other Config */

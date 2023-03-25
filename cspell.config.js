@@ -25,11 +25,12 @@ module.exports = {
 
         // Misc
         'dotfiles',
+        'callout',
     ],
     flagWords: [],
     dictionaries: ["repos"],
     dictionaryDefinitions: [
-        { "name": "repos", "path": "./utils/plugins/cspell/dicts/repos.txt" },
+        { "name": "repos", "path": "./utils/dicts/repos.txt" },
     ],
     ignoreRegExpList: ["nunjucksExpression", "markdownCodeBlock", "markdownInlineCode"],
     patterns: [

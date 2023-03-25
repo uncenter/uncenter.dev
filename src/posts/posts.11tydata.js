@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 const spawn = require("cross-spawn");
 const { DateTime } = require("luxon");
 
+const logOutput = require("../_11ty/utils/logOutput");
 const isDevelopment = process.env.NODE_ENV === 'development';
 require('dotenv').config();
 
@@ -70,18 +71,16 @@ module.exports = {
             }
         },
         views: async (data) => {
-            if (!isDevelopment && data.draft) {
-                return "N/A";
+            if (!data.page.url || data.views === false) {
+                return;
             }
-            if (data.eleventyExcludeFromCollections) {
+            if ((!isDevelopment && data.draft) || data.eleventyExcludeFromCollections) {
+                logOutput({ prefix: 'data:views', action: 'skipping views for', file: data.page.url });
                 return;
             }
             if (process.env.NODE_ENV !== 'production') {
+                logOutput({ prefix: 'data:views', action: 'randomizing views for', file: data.page.url });
                 return Math.floor(Math.random() * 100);
-            }
-            if (data.page.url === undefined) {
-                console.log(Chalk.red(`No URL for: `) + Chalk.dim(data.title));
-                return 0;
             }
             const originalUrl = data.page.url;
             const originalDate = data.page.date;
@@ -90,6 +89,7 @@ module.exports = {
             for (let i = 0; i < res.pageviews.length; i++) {
                 views += res.pageviews[i].y;
             }
+            logOutput({ type: 'data', action: 'computing views for', file: data.page.url, extra: { content: `${views} views`, size: false } });
             return views;
         },
         updated: (data) => {

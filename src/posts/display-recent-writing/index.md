@@ -65,4 +65,4 @@ I added some Tailwind classes and a little bit of inline styling to make it look
 </div>{% endraw %}
 ```
 
-{% image "recent-writing-example.png", "Screenshot of my homepage with the recent writing section" %}
+{% image "result.png", "Screenshot of my homepage with the recent writing section" %}

@@ -10,7 +10,7 @@ layout: base
 {% set ARCHIVED = archived %}
 {% set DRAFT = draft %}
 {% set VIEWS = views %}
-{% include "../components/tags.njk" %}
+{% include "tags.njk" %}
 {% if content | toc %}
     <nav class="container mt-3" aria-labelledby="secondary-navigation">
         {{ content | toc | safe }}
