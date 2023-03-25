@@ -21,23 +21,23 @@ body {
     }
 }
 
-#giscus {
-    margin-top: 6rem;
-}
-
 .icon {
     display: inline-block;
     width: 1em;
     height: 1em;
-}
 
-.icon-rss {
-    fill: #FFF;
+    .icon-rss {
+        fill: #FFF;
+    }
 }
 
 .logo-laptop {
     height: 100px;
     width: 100px;
+}
+
+#giscus {
+    margin-top: 6rem;
 }
 
 .note {
@@ -164,10 +164,6 @@ input[type="checkbox"] {
     }
 }
 
-.invisible {
-    display: none;
-}
-
 .container {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
@@ -177,7 +173,7 @@ input[type="checkbox"] {
 }
 
 img.container {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 @-webkit-keyframes fadeIn {
@@ -206,13 +202,11 @@ img.container {
     cursor: pointer;
 }
 
-/* Hide the tooltip content by default */
 [data-tooltip]:before,
 [data-tooltip]:after {
     display: none;
 }
 
-/* Position tooltip above the element */
 [data-tooltip]:before {
     position: absolute;
     bottom: 110%;
@@ -234,11 +228,45 @@ img.container {
     animation: fadeIn 0.4s;
 }
 
-
-/* Show tooltip content on hover */
 [data-tooltip]:hover:before,
 [data-tooltip]:hover:after {
     display: block;
 }
 
 @import "palette";
+@import "syntax";
+
+/* TAILWIND */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    main a:not(.no-underline), footer a:not(.no-underline) {
+        text-decoration: underline;
+        text-decoration-color: #16a34a;
+    }
+    main a:not(.no-underline):hover, footer a:not(.no-underline):hover {
+        text-decoration-thickness: 2px;
+    }
+    main a[rel*="noopener"]:not([href*="uncenter.org"], .base-link, .base-link a)::after {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='external-link-icon' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+        background-color: #000;
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        content: "";
+        display: inline-block;
+        height: 11px;
+        margin-left: 4px;
+        width: 11px;
+    }
+    .prose :not(pre)>code {
+        border-radius: 0.3em;
+        background-color: #22272F;
+        color: #d8dee9;
+        padding: 0.2em 0.4em;
+        white-space: normal;
+    }
+}
