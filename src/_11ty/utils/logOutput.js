@@ -13,6 +13,9 @@ module.exports = (options) => {
         data: Chalk.cyan,
     };
     // TYPE: [11ty][category:type]
+    if (prefix === undefined) {
+        return;
+    }
     let temp = prefix.split(':');
     if (temp.length === 1) {
         prefix = `[11ty][${temp}]`;

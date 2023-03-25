@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const spawn = require("cross-spawn");
 const { DateTime } = require("luxon");
 
-const logOutput = require("../_11ty/utils/logOutput");
+const logOutput = require("../_11ty/utils/logOutput.js");
 const isDevelopment = process.env.NODE_ENV === 'development';
 require('dotenv').config();
 
@@ -89,7 +89,7 @@ module.exports = {
             for (let i = 0; i < res.pageviews.length; i++) {
                 views += res.pageviews[i].y;
             }
-            logOutput({ type: 'data', action: 'computing views for', file: data.page.url, extra: { content: `${views} views`, size: false } });
+            logOutput({ prefix: 'data:views', action: 'fetching views for', file: data.page.url, extra: { content: `${views} views`, size: false } });
             return views;
         },
         updated: (data) => {
