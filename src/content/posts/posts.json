@@ -1,4 +1,5 @@
 {
     "styles": "syntax.css",
+    "script": "copyCode.js",
     "layout": "post"
 }

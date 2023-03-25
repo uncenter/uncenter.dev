@@ -12,11 +12,31 @@ pre.shiki {
 pre.shiki .language-id {
     text-transform: uppercase;
     color: #ccc;
-    padding: 0.3rem 0.5rem 0.1rem 0.5rem;
+    padding: 0.3rem 0.5rem 0.2rem 0.5rem;
     background: #fff2;
     font-size: 0.8rem;
     position: sticky;
     left: 0;
+}
+
+pre.shiki .language-id button.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ccc;
+    padding: 0.25rem;
+    position: absolute;
+    right: 0.2rem;
+    top: 0;
+    box-shadow: none;
+
+}
+
+pre.shiki .language-id button.copy-button svg {
+    width: 1em;
+    height: 1em;
+    display: inline;
+    margin-left: 0.5rem;
 }
 
 .shiki code {
