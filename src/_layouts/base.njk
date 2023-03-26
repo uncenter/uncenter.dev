@@ -4,8 +4,8 @@
         {% include "head.njk" %}
     </head>
     <body class="flex flex-col justify-center w-4/5 mx-auto">
-        <header class="flex flex-row justify-between md:items-center md:px-8 py-8 md:mb-10 gap-y-10 md:gap-y-0">
-            <a aria-label="Home"{% if page.url === "/" %} aria-current="page"{% endif %} title="Home" class="logo flex gap-x-3 items-center md:px-3" style="text-decoration: none;" href="/">{% include "laptop.njk" %}</a>
+        <header class="flex flex-row justify-between py-8 md:items-center md:px-8 md:mb-10 gap-y-10 md:gap-y-0">
+            <a aria-label="Home"{% if page.url === "/" %} aria-current="page"{% endif %} title="Home" class="flex items-center logo gap-x-3 md:px-3" style="text-decoration: none;" href="/">{% include "laptop.njk" %}</a>
             <div class="flex flex-col gap-y-2 md:flex-row md:items-center md:gap-x-4 md:gap-y-0">
                 {% for item in nav.top %}
                     <a class="flex flex-row gap-x-3 items-center font-semibold md:px-3 transition{%- for link in item.urls -%}{%- if page.url | includes(link) %} underline decoration-3 underline-offset-8{% endif -%}{%- endfor -%}"{% for link in item.urls -%}{% if page.url === link %} aria-current="page"{% endif %}{%- endfor -%} href="{{ item.urls | getIndex(0) }}">{% icon item.icon %}{{ item.title }}</a>
@@ -13,14 +13,14 @@
             </div>
         </header>
         <main class="flex flex-col w-full max-w-[70ch] mx-auto prose">
-            <h1 class="text-nord0 font-bold text-6xl">{{ title }}</h1>
+            <h1 class="text-6xl font-bold text-nord0">{{ title }}</h1>
             {% if content %}
                 {{ content | safe }}
             {% else %}
                 <p class="text-center text-red-500">{% icon "alert-circle" %} No content found.</p>
             {% endif %}
         </main>
-        <footer class="mt-36 mb-9 flex flex-col items-center gap-y-6 w-full self-center">
+        <footer class="flex flex-col items-center self-center w-full mt-36 mb-9 gap-y-6">
             <div class="text-xs text-center max-w-[30ch] text-gray-600">
                 <p>last updated {{ collections.recentChanges[0][0] }}
                     <div>

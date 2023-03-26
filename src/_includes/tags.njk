@@ -1,4 +1,4 @@
-<div class="flex flex-row flex-wrap gap-6 container py-4 mb-4">
+<div class="container flex flex-row flex-wrap gap-6 py-4 mb-4">
     <time class="my-0" datetime="{{ PUBLISHED | toDateTime }}" data-tooltip={% if UPDATED and (UPDATED | toShortDate) != (PUBLISHED | toShortDate) %}"Edited {{ UPDATED | toShortDate }}"{% else %}"No updates since publication"{% endif %}>
         {%- icon 'calendar' %} {{ PUBLISHED | toShortDate }}</time>
     <p class="my-0">
@@ -20,15 +20,15 @@
         {%- endfor -%}
     {%- endif -%}
     {%- if MICRO -%}
-        <p class="my-0 bg-purple-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">MICRO</p>
+        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-purple-200 rounded-full">MICRO</p>
     {%- endif -%}
     {%- if ARCHIVED -%}
-        <p class="my-0 bg-yellow-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">ARCHIVED</p>
+        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-yellow-200 rounded-full">ARCHIVED</p>
     {%- endif -%}
     {%- if DRAFT -%}
-        <p class="my-0 bg-blue-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">DRAFT</p>
+        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-blue-200 rounded-full">DRAFT</p>
     {%- endif -%}
     {% if not DRAFT and(PUBLISHED | isRecent(7)) %}
-        <p class="my-0 bg-green-200 rounded-full px-2 py-1 text-xs font-semibold leading-none">NEW</p>
+        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-green-200 rounded-full">NEW</p>
     {% endif %}
 </div>

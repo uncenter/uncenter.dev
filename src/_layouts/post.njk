@@ -25,15 +25,15 @@ layout: base
 <div id="giscus"></div>
 {% set previousPost = collections.posts | getPreviousCollectionItem %}
 {% set nextPost = collections.posts | getNextCollectionItem %}
-<div class="flex flex-row font-bold my-10 justify-between gap-5">
+<div class="flex flex-row justify-between gap-5 my-10 font-bold">
     {% if previousPost %}
-        <a class="w-1/2 py-10 container text-center hover:border-green-600 text-bold no-underline" href="{{ previousPost.url }}">{%- icon 'arrow-left' %}
+        <a class="container w-1/2 py-10 text-center no-underline hover:border-green-600 text-bold" href="{{ previousPost.url }}">{%- icon 'arrow-left' %}
             {{ previousPost.data.title }}</a>
     {% else %}
         <div class="w-1/2 py-10"></div>
     {% endif %}
     {% if nextPost %}
-        <a class="w-1/2 py-10 container text-center hover:border-green-600 text-bold no-underline" href="{{ nextPost.url }}">{{ nextPost.data.title }}
+        <a class="container w-1/2 py-10 text-center no-underline hover:border-green-600 text-bold" href="{{ nextPost.url }}">{{ nextPost.data.title }}
             {% icon 'arrow-right' -%}</a>
     {% endif %}
 </div>
