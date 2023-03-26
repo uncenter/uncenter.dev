@@ -186,12 +186,28 @@ const highlight = (code, lang, highlighter) => {
     const lineOptions = isShikierEnabled(lang) ? getLineOptions(tokenized) : [];
 
     const theme = highlighter.getTheme();
-    return shiki.renderToHtml(tokenized, {
+    const outputHtml = shiki.renderToHtml(tokenized, {
         bg: theme.bg,
         fg: theme.fg,
         langId: cleanLang,
         lineOptions,
     });
+    // The last line is always empty, so we remove it.
+    // <span class="line"><span style="color: #d8dee9ff"></span></span></code></pre>
+    if (/<span class="line"><span style="color: #\w+"><\/span><\/span><\/code><\/pre>/u.test(outputHtml)) {
+        return outputHtml.replace(
+            /<span class="line"><span style="color: #\w+"><\/span><\/span><\/code><\/pre>$/u,
+            "</code></pre>"
+        );
+    }
+    // <span class="line"></span></code></pre>
+    if (/<span class="line"><\/span><\/code><\/pre>/u.test(outputHtml)) {
+        return outputHtml.replace(
+            /<span class="line"><\/span><\/code><\/pre>$/u,
+            "</code></pre>"
+        );
+    }
+    return outputHtml;
 };
 
 module.exports = (eleventyConfig, { theme = "nord" } = {}) => {
