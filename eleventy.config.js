@@ -6,8 +6,6 @@ const {
     createStaticToot,
     insertIcon,
     insertIconSheet,
-    insertDate,
-    insertYear,
     insertGiscusScript,
     insertImage,
 } = require("./src/_11ty/shortcodes.js");
@@ -88,8 +86,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPairedShortcode("callout", createCallout);
     eleventyConfig.addShortcode("icon", insertIcon);
     eleventyConfig.addShortcode("iconSheet", insertIconSheet);
-    eleventyConfig.addShortcode("insertDate", insertDate);
-    eleventyConfig.addShortcode("insertYear", insertYear);
     eleventyConfig.addShortcode("giscus", insertGiscusScript);
     eleventyConfig.addNunjucksAsyncShortcode("image", insertImage);
 

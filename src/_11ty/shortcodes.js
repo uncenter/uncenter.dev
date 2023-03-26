@@ -277,14 +277,6 @@ const insertIconSheet = function iconsheet() {
     return "";
 };
 
-const insertYear = () => {
-    return new Date().getFullYear();
-};
-
-const insertDate = () => {
-    return new Date().toISOString();
-};
-
 const insertGiscusScript = () => {
     const repo = "R_kgDOHSjhjQ";
     const category = "DIC_kwDOHSjhjc4CTQUr";
@@ -399,8 +391,6 @@ module.exports = {
     createStaticToot,
     insertIcon,
     insertIconSheet,
-    insertDate,
-    insertYear,
     insertGiscusScript,
     insertImage,
 };
