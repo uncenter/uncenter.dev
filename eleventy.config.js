@@ -43,6 +43,7 @@ const {
 const { markdownLibrary } = require("./utils/plugins/markdown.js");
 const inProduction = process.env.NODE_ENV === "production";
 require('dotenv').config()
+const Chalk = require("chalk");
 
 const pluginTOC = require("eleventy-plugin-toc");
 const pluginExternalLinks = require("@aloskutov/eleventy-plugin-external-links");
@@ -87,8 +88,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPairedShortcode("callout", createCallout);
     eleventyConfig.addShortcode("icon", insertIcon);
     eleventyConfig.addShortcode("iconSheet", insertIconSheet);
-    eleventyConfig.addShortcode("date", insertDate);
-    eleventyConfig.addShortcode("year", insertYear);
+    eleventyConfig.addShortcode("insertDate", insertDate);
+    eleventyConfig.addShortcode("insertYear", insertYear);
     eleventyConfig.addShortcode("giscus", insertGiscusScript);
     eleventyConfig.addNunjucksAsyncShortcode("image", insertImage);
 
@@ -128,6 +129,21 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.setLibrary("md", markdownLibrary);
     eleventyConfig.setQuietMode(!inProduction);
+    eleventyConfig.setServerOptions({
+        port: process.env.PORT || 8080,
+        portReassignmentRetryCount: 0,
+    });
+
+    eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
+        if (runMode === 'serve' && process.env.NODE_ENV === 'development') {
+            console.log();
+            console.log(`${Chalk.green('[11ty]')} ${Chalk.blue('Server running at')} ${Chalk.cyan('http://localhost:8080')} ${Chalk.blue('and watching for changes...')}`);
+            console.log(`${Chalk.green('[11ty]')} ${Chalk.cyan('Opening browser...')}\n`);
+            setTimeout(() => {
+                require('openurl').open('http://localhost:8080');
+            }, 1000);
+        }
+    });
 
     return {
         dir: {

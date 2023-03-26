@@ -69,6 +69,7 @@
         "cspell": "^6.31.1",
         "dotenv": "^16.0.3",
         "inquirer": "^8.2.5",
+        "openurl": "^1.1.1",
         "outdent": "^0.8.0"
     }
 }
