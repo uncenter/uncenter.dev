@@ -2,6 +2,8 @@ const {
     getExcerpt,
     getCollectionWordCount,
     getCollectionReadingTime,
+    getCollectionWordCountAverage,
+    getCollectionAverageWordLength,
     createCallout,
     createStaticToot,
     insertIcon,
@@ -82,6 +84,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("excerpt", getExcerpt);
     eleventyConfig.addShortcode("totalWordCount", getCollectionWordCount);
     eleventyConfig.addShortcode("totalReadingTime", getCollectionReadingTime);
+    eleventyConfig.addShortcode("wordCountAverage", getCollectionWordCountAverage);
+    eleventyConfig.addShortcode("wordLengthAverage", getCollectionAverageWordLength);
     eleventyConfig.addNunjucksAsyncShortcode("stoot", createStaticToot);
     eleventyConfig.addPairedShortcode("callout", createCallout);
     eleventyConfig.addShortcode("icon", insertIcon);

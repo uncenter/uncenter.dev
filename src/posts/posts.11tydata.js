@@ -115,6 +115,6 @@ module.exports = {
                 return data.description;
             }
             return "";
-        }
+        },
     },
 };

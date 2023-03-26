@@ -1,17 +1,19 @@
-const turndown = require("turndown")
 const fs = require("fs");
 const path = require("path");
 const md5 = require('md5')
-const Chalk = require('chalk');
+const turndown = require("turndown")
 
-const { escape } = require('lodash');
 const Image = require('@11ty/eleventy-img');
 const EleventyFetch = require("@11ty/eleventy-fetch")
 const meta = require("../_data/meta.json");
 
+const { escape } = require('lodash');
 const { DateTime } = require("luxon")
 const { markdownLibrary } = require("../../utils/plugins/markdown")
-const { getWordCount, getReadingTime } = require("./filters.js")
+const { getReadingTime } = require("./filters.js")
+
+const cleanContent = require("./utils/cleanContent.js")
+const wordCount = require("./utils/wordCount.js")
 const stringifyAttributes = require("./utils/stringifyAttributes.js")
 const logOutput = require("./utils/logOutput.js")
 const logSize = require("./utils/logSize.js")
@@ -47,11 +49,11 @@ const getExcerpt = (page) => {
 }
 
 const getCollectionWordCount = (posts) => {
-    let wordCount = 0;
+    let words = 0;
     posts.forEach((post) => {
-        wordCount += parseInt(getWordCount(post.content, { preText: "", postText: "" }));
+        words += parseInt(wordCount(cleanContent(post.content)));
     });
-    return wordCount;
+    return words;
 }
 
 const getCollectionReadingTime = (posts) => {
@@ -60,6 +62,25 @@ const getCollectionReadingTime = (posts) => {
         readingTime += parseInt(getReadingTime(post.content, { useSeconds: false, format: false, speed: 235, preText: "", postText: "" }));
     });
     return readingTime;
+}
+
+const getCollectionWordCountAverage = (posts) => {
+    let words = 0;
+    posts.forEach((post) => {
+        words += wordCount(cleanContent(post.content));
+    });
+    return Math.round(words / posts.length);
+}
+
+const getCollectionAverageWordLength = (posts) => {
+    averageWordLengths = []
+    posts.forEach((post) => {
+        const count = wordCount(cleanContent(post.content));
+        const contentLength = cleanContent(post.content).length;
+        const averageWordLength = Math.round(contentLength / count);
+        averageWordLengths.push(averageWordLength);
+    });
+    return Math.round(averageWordLengths.reduce((a, b) => a + b) / averageWordLengths.length);
 }
 
 const createCallout = (content, title, type) => {
@@ -323,10 +344,10 @@ const insertImage = async function genImage(src, alt, baseFormat = 'jpeg', optim
         filenameFormat: function (id, src, width, format, options) {
             const extension = path.extname(src);
             const name = path.basename(src, extension);
-        
+
             return `${name}-${width}w.${format}`;
         }
-        
+
     };
     const imageMetadata = await Image(pathToImage, imageOptions);
     logOutput({ prefix: 'assets:images', action: 'optimizing', file: this.page.url + src, extra: { content: `${logSize(imageMetadata[baseFormat][0].size)} --> ${logSize(originalFileSize)}`, size: false } });
@@ -372,7 +393,7 @@ const insertImage = async function genImage(src, alt, baseFormat = 'jpeg', optim
         .join('\n');
 
     const picture = (
-    `${(isLinked) ? `<a class="no-underline" href="${largestImages.optimized.url}">` : ''}
+        `${(isLinked) ? `<a class="no-underline" href="${largestImages.optimized.url}">` : ''}
     <picture ${pictureAttributes}>
         ${sources}
         <img ${imgAttributes}>
@@ -387,6 +408,8 @@ module.exports = {
     getExcerpt,
     getCollectionWordCount,
     getCollectionReadingTime,
+    getCollectionWordCountAverage,
+    getCollectionAverageWordLength,
     createCallout,
     createStaticToot,
     insertIcon,

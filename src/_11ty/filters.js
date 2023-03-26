@@ -1,8 +1,11 @@
 const fs = require("fs");
 const striptags = require("striptags");
+
 const { DateTime } = require("luxon");
 const { markdownLibrary } = require("../../utils/plugins/markdown");
 
+const wordCount = require("./utils/wordCount.js");
+const cleanContent = require("./utils/cleanContent.js");
 
 const toDateTime = (dateObj) => {
     return dateObj;
@@ -82,9 +85,7 @@ const getReadingTime = (content, { useSeconds = false, format = true, speed = 23
         return combineText(preText, "0", postText);
     }
 
-    content = striptags(content);
-    const matches = content.match(/[\u0400-\u04FF]+|\S+\s*/g);
-    const count = matches !== null ? matches.length : 0;
+    const count = wordCount(cleanContent(htmlContent));
 
     let est = "";
 
@@ -119,9 +120,7 @@ const getWordCount = (content, { preText = "", postText = "words" } = {}) => {
         return combineText(preText, "0", postText);
     }
 
-    content = striptags(content);
-    const matches = content.match(/[\u0400-\u04FF]+|\S+\s*/g);
-    const count = matches !== null ? matches.length : 0;
+    const count = wordCount(cleanContent(htmlContent));
 
     return combineText(preText, count, postText);
 };

@@ -5,69 +5,39 @@ collection: 'more'
 SVG: "bar-chart-3"
 ---
 
+Here are my *slightly embarrassing* stats about this site and my blog.
+
+{% for collection, label in {
+    "posts": "Published posts",
+    "archivedPosts": "Archived posts",
+    "allPosts": "Total"
+} %}
 <table class="text-center">
     <thead>
         <tr>
-            <th colspan="2">Total</th>
+            <th colspan="2">{{ label }}</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th>Posts</th>
-            <td>{{ collections.allPosts.length }}</td>
+            <td>{{ collections[collection].length }}</td>
         </tr>
         <tr>
             <th>Words</th>
-            <td>{% totalWordCount collections.allPosts %}</td>
+            <td>{% totalWordCount collections[collection] %}</td>
         </tr>
         <tr>
             <th>Reading time</th>
-            <td>{% totalReadingTime collections.allPosts %} min</td>
-        </tr>
-    </tbody>
-</table>
-
-<table class="text-center">
-    <thead>
-        <tr>
-            <th colspan="2">Published</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>Posts</th>
-            <td>{{ collections.posts.length }}</td>
+            <td>{% totalReadingTime collections[collection] %} min</td>
         </tr>
         <tr>
-            <th>Words</th>
-            <td>{% totalWordCount collections.posts %}</td>
+            <th>Average word length</th>
+            <td>{% wordLengthAverage collections[collection] %} characters</td>
         </tr>
         <tr>
-            <th>Reading time</th>
-            <td>{% totalReadingTime collections.posts %} min</td>
+            <th>Average words per post</th>
+            <td>{% wordCountAverage collections[collection] %} words</td>
         </tr>
-    </tbody>
-</table>
-
-
-<table class="text-center">
-    <thead>
-        <tr>
-            <th colspan="2">Archived</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>Posts</th>
-            <td>{{ collections.archivedPosts.length }}</td>
-        </tr>
-        <tr>
-            <th>Words</th>
-            <td>{% totalWordCount collections.archivedPosts %}</td>
-        </tr>
-        <tr>
-            <th>Reading time</th>
-            <td>{% totalReadingTime collections.archivedPosts %} min</td>
-        </tr>
-    </tbody>
-</table>
+    </table>
+{% endfor %}
