@@ -137,11 +137,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
         if (runMode === 'serve' && process.env.NODE_ENV === 'development') {
             console.log();
-            console.log(`${Chalk.green('[11ty]')} ${Chalk.blue('Server running at')} ${Chalk.cyan('http://localhost:8080')} ${Chalk.blue('and watching for changes...')}`);
-            console.log(`${Chalk.green('[11ty]')} ${Chalk.cyan('Opening browser...')}\n`);
-            setTimeout(() => {
-                require('openurl').open('http://localhost:8080');
-            }, 1000);
+            console.log(`${Chalk.dim('[11ty]')} ${Chalk.dim('Server running at')} ${Chalk.cyan('http://localhost:8080')} ${Chalk.dim('and watching for changes...')}`);
+            // console.log(`${Chalk.green('[11ty]')} ${Chalk.cyan('Opening browser...')}`);
+            // setTimeout(() => {
+            //     require('openurl').open('http://localhost:8080');
+            // }, 1000);
+            console.log();
         }
     });
 
