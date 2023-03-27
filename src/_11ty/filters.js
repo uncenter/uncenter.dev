@@ -1,5 +1,4 @@
 const fs = require("fs");
-const striptags = require("striptags");
 
 const { DateTime } = require("luxon");
 const { markdownLibrary } = require("../../utils/plugins/markdown");
