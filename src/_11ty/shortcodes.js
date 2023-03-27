@@ -260,29 +260,30 @@ const insertIcon = function icon(name) {
 };
 
 const insertIconSheet = function iconsheet() {
-    const sourceDir = path.join(__dirname, "../../src/_assets/icons");
-    const icons = fs.readdirSync(sourceDir);
+    const sourceDirectory = path.join(__dirname, "../_assets/icons");
+    const icons = fs.readdirSync(sourceDirectory);
     let pageIcons = this.ctx.page.icons || [];
+    logOutput({ prefix: 'assets:icons', action: 'inserting icon sheet into', file: this.page.url, extra: { content: pageIcons.length, size: false } });
     pageIcons = pageIcons.filter((icon) => icon !== undefined);
 
-    let sprite = '<svg class="hidden-svg-sprite-sheet" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n<defs>\n';
+    let sprite = '<svg class="sprite-sheet" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n<defs>\n';
     let symbols = "";
 
     icons.forEach((icon) => {
-        const iconPath = path.join(sourceDir, icon);
+        const iconPath = path.join(sourceDirectory, icon);
         const iconName = path.parse(icon).name;
         const content = fs.readFileSync(iconPath, "utf8");
-        const viewBox = content.match(/viewBox="(.+?)"/)[1];
-        let classname = content.match(/class="(.+?)"/);
-        if (classname) {
-            classname = classname[1];
-        } else {
-            classname = "";
-        }
+        const remove_attributes = ['width', 'height', 'class', 'xmlns'];
+        let attributes = content.match(/<svg ([^>]+)>/)[1];
+        attributes = attributes.match(/(\w-?)+="[^"]+"/g);
+        attributes = attributes.filter((attribute) => {
+            const name = attribute.split("=")[0];
+            return !remove_attributes.includes(name);
+        });
         const symbol = content
             .replace(
                 /<svg([^>]+)>/,
-                `<symbol id="icon-${iconName}" viewBox="${viewBox}"${classname ? "" : ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'}>`
+                `<symbol id="icon-${iconName}" ${attributes.join(' ')}>`
             )
             .replace("</svg>", "</symbol>")
             .replace(/<!--(.*?)-->/g, "");

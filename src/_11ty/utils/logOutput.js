@@ -7,6 +7,8 @@ module.exports = (options) => {
         styles: Chalk.magenta,
         scripts: Chalk.yellow,
         images: Chalk.blue,
+        views: Chalk.cyan,
+        icons: Chalk.yellow,
     };
     const categories = {
         assets: Chalk.green,
