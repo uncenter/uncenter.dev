@@ -2,7 +2,7 @@
 tags: ['11ty']
 title: Display recent posts with Eleventy
 date: 2023-02-25
-description: How I display my recent blog posts on my homepage
+description: How to display your most recent posts on your site with Eleventy.
 micro: true
 archived: true
 # cspell:ignore micro-blog
@@ -18,7 +18,7 @@ I recently added a section to my homepage that displays my most recent writing, 
 
 I'll leave the styling up to you, but this is the basic idea. I used the `last` [filter](https://mozilla.github.io/nunjucks/templating.html#last) to get the last item in the collection, and then you can use attributes like `recentPost.url` and `recentPost.data.title` to get the URL and title of the post. This approach assumes the collection is already sorted in reverse chronological order (i.e. older posts first), which I believe is the default for Eleventy. If the collection is sorted with newer posts first, you can use the `first` [filter](https://mozilla.github.io/nunjucks/templating.html#first) instead of `last`.
 
-This works great if you only want to display one post; if you want to display more than just the most recent post, you could probably just do `collections.blog[0]`, `collections.blog[1]`, etc. I actually haven't tried this, but it should work. I made a filter for it instead:
+This works great if you only want to display one post; if you want to display more than just the most recent post, you could probably just do `collections.blog[0]`, `collections.blog[1]`, etc. I made a filter for it instead:
 
 ```js
 const getIndexOfCollection = (collection, index) => {
@@ -27,7 +27,7 @@ const getIndexOfCollection = (collection, index) => {
 // Why am I using a filter? Because I can.
 ```
 
-So now I can get the nth item of my collections like this:
+So now I can get the `n`th item of my collections like this:
 
 ```twig
 {% raw %}{% set recentPost = collections.blog | reverse | getIndexOfCollection(0) %}
@@ -40,7 +40,7 @@ So now I can get the nth item of my collections like this:
 I added some Tailwind classes and a little bit of inline styling to make it look a little nicer. Here's the final code:
 
 ```twig
-{% raw %}<div class="flex flex-row my-10 justify-between gap-5">
+{% raw %}<div class="flex flex-row justify-between gap-5 my-10">
 {% set recentPost = collections.blog | reverse | getIndexOfCollection(0) %}
 <div class="container flex-1">
     <h3><a href="{{ recentPost.url }}">{{ recentPost.data.title }}</a></h3>

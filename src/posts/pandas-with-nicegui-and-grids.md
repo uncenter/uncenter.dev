@@ -2,12 +2,12 @@
 tags: ['Pandas', 'Python', 'NiceGUI']
 title: Pandas DataFrame & NiceGUI
 date: 2023-03-13
-description: How I used a Pandas DataFrame inside NiceGUI's AGGrid component.
+description: How to use a Pandas DataFrame with NiceGUI Grid element.
 micro: true
 archived: true
 ---
 
-In the process of making a GUI for my [`chemic`](https://github.com/uncenter/chemic) package through [NiceGUI](https://nicegui.io), I couldn't figure out how to use a Pandas DataFrame inside a NiceGUI Grid.
+In the process of making a GUI for my [`chemic`](https://github.com/uncenter/chemic) package through [NiceGUI](https://nicegui.io), I couldn't figure out how to use a Pandas DataFrame inside a NiceGUI Grid element.
 
 Here's NiceGUI's example reference for the AGGrid (edited a bit to make it more readable):
 

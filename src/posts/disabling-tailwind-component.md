@@ -2,7 +2,7 @@
 tags: ['Tailwind']
 title: Disabling a Tailwind component
 date: 2023-02-25
-description: How to disable Tailwind component that you don't want to use
+description: How to disable Tailwind component that you don't want to use.
 micro: true
 ---
 
