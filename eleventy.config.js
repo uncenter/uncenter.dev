@@ -6,8 +6,6 @@ const {
     getCollectionAverageWordLength,
     createCallout,
     createStaticToot,
-    insertIcon,
-    insertIconSheet,
     insertGiscusScript,
     insertImage,
 } = require("./src/_11ty/shortcodes.js");
@@ -49,6 +47,7 @@ const pluginTOC = require("eleventy-plugin-toc");
 const pluginExternalLinks = require("@aloskutov/eleventy-plugin-external-links");
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const pluginShikier = require("./utils/plugins/shikier.js");
+const pluginIcons = require("eleventy-plugin-icons");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -88,8 +87,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("wordLengthAverage", getCollectionAverageWordLength);
     eleventyConfig.addNunjucksAsyncShortcode("stoot", createStaticToot);
     eleventyConfig.addPairedShortcode("callout", createCallout);
-    eleventyConfig.addShortcode("icon", insertIcon);
-    eleventyConfig.addShortcode("iconSheet", insertIconSheet);
     eleventyConfig.addShortcode("giscus", insertGiscusScript);
     eleventyConfig.addNunjucksAsyncShortcode("image", insertImage);
 
@@ -102,6 +99,16 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.addPlugin(pluginShikier);
     eleventyConfig.addPlugin(pluginRSS);
+    eleventyConfig.addPlugin(pluginIcons, {
+        mode: 'sprite',
+        sources: {
+            custom: "./src/_assets/icons",
+        },
+        default: "custom",
+        insertSpriteSheet: {
+            shortcode: "iconSheet",
+        }
+    });
 
     /* Layouts */
     eleventyConfig.addLayoutAlias("base", "base.njk");

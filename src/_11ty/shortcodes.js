@@ -249,56 +249,6 @@ const createStaticToot = async (instance, id) => {
     return stringToRet;
 };
 
-const insertIcon = function icon(name) {
-    if (!this.ctx.page.icons) {
-        this.ctx.page.icons = [];
-    }
-    if (!this.ctx.page.icons.includes(name)) {
-        this.ctx.page.icons.push(name);
-    }
-    return `<svg class="icon icon-${name}"><use href="#icon-${name}"></use></svg>`;
-};
-
-const insertIconSheet = function iconsheet() {
-    const sourceDirectory = path.join(__dirname, "../_assets/icons");
-    const icons = fs.readdirSync(sourceDirectory);
-    let pageIcons = this.ctx.page.icons || [];
-    logOutput({ prefix: 'assets:icons', action: 'inserting icon sheet into', file: this.page.url, extra: { content: pageIcons.length, size: false } });
-    pageIcons = pageIcons.filter((icon) => icon !== undefined);
-
-    let sprite = '<svg class="sprite-sheet" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n<defs>\n';
-    let symbols = "";
-
-    icons.forEach((icon) => {
-        const iconPath = path.join(sourceDirectory, icon);
-        const iconName = path.parse(icon).name;
-        const content = fs.readFileSync(iconPath, "utf8");
-        const remove_attributes = ['width', 'height', 'class', 'xmlns'];
-        let attributes = content.match(/<svg ([^>]+)>/)[1];
-        attributes = attributes.match(/(\w-?)+="[^"]+"/g);
-        attributes = attributes.filter((attribute) => {
-            const name = attribute.split("=")[0];
-            return !remove_attributes.includes(name);
-        });
-        const symbol = content
-            .replace(
-                /<svg([^>]+)>/,
-                `<symbol id="icon-${iconName}" ${attributes.join(' ')}>`
-            )
-            .replace("</svg>", "</symbol>")
-            .replace(/<!--(.*?)-->/g, "");
-
-        if (pageIcons.includes(iconName)) {
-            symbols += symbol + "\n";
-        }
-    });
-    if (symbols !== "") {
-        sprite += symbols + "</defs>\n</svg>\n";
-        return sprite;
-    }
-    return "";
-};
-
 const insertGiscusScript = () => {
     const repo = "R_kgDOHSjhjQ";
     const category = "DIC_kwDOHSjhjc4CTQUr";
@@ -413,8 +363,6 @@ module.exports = {
     getCollectionAverageWordLength,
     createCallout,
     createStaticToot,
-    insertIcon,
-    insertIconSheet,
     insertGiscusScript,
     insertImage,
 };
