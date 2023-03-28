@@ -19,16 +19,5 @@
             </a>
         {%- endfor -%}
     {%- endif -%}
-    {%- if MICRO -%}
-        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-purple-200 rounded-full">MICRO</p>
-    {%- endif -%}
-    {%- if ARCHIVED -%}
-        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-yellow-200 rounded-full">ARCHIVED</p>
-    {%- endif -%}
-    {%- if DRAFT -%}
-        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-blue-200 rounded-full">DRAFT</p>
-    {%- endif -%}
-    {% if not DRAFT and(PUBLISHED | isRecent(7)) %}
-        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-green-200 rounded-full">NEW</p>
-    {% endif %}
+    {% include "bubbles.njk" %}
 </div>

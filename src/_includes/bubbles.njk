@@ -1,0 +1,12 @@
+{%- if MICRO -%}
+    <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-purple-200 rounded-full w-fit h-min">MICRO</p>
+{%- endif -%}
+{%- if ARCHIVED -%}
+    <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-yellow-200 rounded-full w-fit h-min">ARCHIVED</p>
+{%- endif -%}
+{%- if DRAFT -%}
+    <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-blue-200 rounded-full w-fit h-min">DRAFT</p>
+{%- endif -%}
+{% if not DRAFT and(PUBLISHED | isRecent(7)) %}
+    <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-green-200 rounded-full w-fit h-min">NEW</p>
+{% endif %}
