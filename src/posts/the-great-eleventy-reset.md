@@ -55,7 +55,7 @@ eleventyConfig.addShortcode("excerpt", (page) => {
     let excerpt = "";
     while (phrases.length > 0 && excerpt.length < 200) {
         excerpt += phrases.shift();
-    }
+    };
 
     // Append ending characters and return excerpt
     excerpt += "...";
@@ -65,7 +65,8 @@ eleventyConfig.addShortcode("excerpt", (page) => {
 
 There is one issue I'm still working out, which is that links are not being properly formatted. I'm not sure if it's an issue with the `html-to-text` library but I'm still looking into it.
 
-{% callout "Update" "info" %}
+
+{% callout "Update", "info" %}
 I have since solved the issue! It turns out I wasn't configuring the `html-to-text` library properly. Here's what it looks like now:
 
 ```js
@@ -85,7 +86,9 @@ module.exports = (content) => {
     });
 };
 ```
+
 The library has a lot of options, so I'm still playing around with it to see what I can do. I'm mostly using selectors so that I can skip over certain elements, like code blocks (`pre.shiki`) and footnotes (`section.footnotes`). I also have to skip over the anchor links (`a.anchor`) because by default, the `href` is put after the text content of the link (e.g. `"This is a link [https://example.com]"`).
+
 {% endcallout %}
 
 ## What's next?
