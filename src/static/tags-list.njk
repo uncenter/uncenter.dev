@@ -2,7 +2,6 @@
 permalink: /tags/
 title: Tags
 ---
-
 <ul>
 {% for tag in collections.allTags %}
     <li><a href="/tags/{{ tag | slugify }}">{%- icon 'tag' %} {{ tag }}</a></li>

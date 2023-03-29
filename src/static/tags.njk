@@ -12,7 +12,6 @@ eleventyComputed:
     title: Tagged “{{ tag }}”
 permalink: /tags/{{ tag | slugify }}/
 ---
-
 <p>See <a href="/tags/">all tags</a>.</p>
 
 {% set posts = collections[ tag ] %}
