@@ -150,8 +150,8 @@ const includes = (check, value) => {
 
 const cleanFeed = (content) => {
     content = content
-        .replace(/<a class="anchor" href=".*?">#<\/a>/g, "")
-        .replace(/<div class="language-id">.*?<\/div>/g, "");
+        .replace(/<a class="anchor" href=".*?" aria-hidden="true">#<\/a>/g, "")
+        .replace(/<div class="language-id">.*?<\/div>/g, "")
     return content;
 };
 
