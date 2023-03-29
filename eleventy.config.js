@@ -11,6 +11,7 @@ const {
 } = require("./src/_11ty/shortcodes.js");
 const {
     getPosts,
+    getMicroPosts,
     getAllPosts,
     getArchivedPosts,
     getCustomCollections,
@@ -53,6 +54,7 @@ const pluginIcons = require("eleventy-plugin-icons");
 module.exports = function (eleventyConfig) {
     /* Collections */
     eleventyConfig.addCollection("posts", getPosts);
+    eleventyConfig.addCollection("microPosts", getMicroPosts);
     eleventyConfig.addCollection("allPosts", getAllPosts);
     eleventyConfig.addCollection("archivedPosts", getArchivedPosts);
     eleventyConfig.addCollection("custom", getCustomCollections);

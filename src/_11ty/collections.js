@@ -2,11 +2,15 @@ const gitlog = require("gitlog").default;
 const { DateTime } = require("luxon");
 
 const getPosts = (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/posts/**/*.md").filter((post) => post.data.archived !== true);
+    return collectionApi.getFilteredByGlob("./src/posts/**/*.md").filter((post) => post.data.archived !== true && post.data.micro !== true);
+};
+
+const getMicroPosts = (collectionApi) => {
+    return collectionApi.getFilteredByGlob("./src/posts/**/*.md").filter((post) => post.data.archived !== true && post.data.micro === true);
 };
 
 const getArchivedPosts = (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/posts/**/*.md").filter((post) => post.data.archived === true);
+    return collectionApi.getFilteredByGlob("./src/posts/**/*.md").filter((post) => post.data.archived === true && post.data.micro !== true);
 };
 
 const getAllPosts = (collectionApi) => {
@@ -120,6 +124,7 @@ const getSeries = (collectionApi) => {
 
 module.exports = {
     getPosts,
+    getMicroPosts,
     getAllPosts,
     getArchivedPosts,
     getCustomCollections,
