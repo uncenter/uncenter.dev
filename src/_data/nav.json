@@ -34,22 +34,22 @@
         {
             "title": "Visit my GitHub profile!",
             "url": "https://github.com/uncenter/",
-            "icon": "github"
+            "icon": "social:github"
         },
         {
             "title": "Follow me on Mastodon!",
             "url": "https://fosstodon.org/@uncenter",
-            "icon": "mastodon"
+            "icon": "social:mastodon"
         },
         {
             "title": "Subscribe to my RSS feed!",
             "url": "/feed.xml",
-            "icon": "rss"
+            "icon": "social:rss"
         },
         {
             "title": "Contact me via Element/Matrix!",
             "url": "https://matrix.to/#/#uncenter:matrix.org",
-            "icon": "elementio"
+            "icon": "social:elementio"
         }
     ]
 }
