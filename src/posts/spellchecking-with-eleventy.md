@@ -2,8 +2,7 @@
 tags: ['11ty']
 title: Spellchecking my blog posts with cSpell
 date: 2023-03-23
-description: How I added spellchecking to my blog posts.
-# cspell:ignore
+description: A little magic to help me catch typos.
 ---
 
 After I realized more than one other person was reading my blog, I panicked and proofread/edited all my posts. Turns out that I rely on autocorrect a little too much and I have way too many typos without it! I came across [an article](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) by TJ Addison that explained how to do this with a tool called `cSpell` - the backbone of the [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker). That article was super helpful and works perfectly, but I wanted to add a few things to it to improve the experience.
