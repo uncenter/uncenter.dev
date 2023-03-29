@@ -113,7 +113,10 @@ module.exports = {
             if (data.description) {
                 return data.description;
             }
-            return "";
+            if (data.micro) {
+                return "A tiny post about a tiny thing.";
+            }
+            return "A post about a thing.";
         },
         permalink: (data) => {
             if (data.permalink) {
