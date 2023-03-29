@@ -115,5 +115,13 @@ module.exports = {
             }
             return "";
         },
+        permalink: (data) => {
+            if (data.permalink) {
+                return data.permalink;
+            }
+            if (data.micro) {
+                return `micro/${data.page.fileSlug}/`;
+            }
+        }
     },
 };

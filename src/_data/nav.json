@@ -6,7 +6,14 @@
                 "/posts/",
                 "/archive/"
             ],
-            "icon": "edit"
+            "icon": "pencil"
+        },
+        {
+            "title": "Microblog",
+            "urls": [
+                "/micro/"
+            ],
+            "icon": "minimize-2"
         },
         {
             "title": "Uses",
@@ -21,13 +28,6 @@
                 "/about/"
             ],
             "icon": "info"
-        },
-        {
-            "title": "Other",
-            "urls": [
-                "/more/"
-            ],
-            "icon": "circle-ellipsis"
         }
     ],
     "bottom": [
