@@ -2,7 +2,7 @@
 title: Stats
 description: Stats about my blog and this site.
 collection: 'more'
-SVG: "bar-chart-3"
+icon: "bar-chart-3"
 ---
 
 Here are my *slightly embarrassing* stats about this site and my blog.

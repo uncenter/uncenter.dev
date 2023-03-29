@@ -1,6 +1,6 @@
 ---
 title: Archives
-description: All of my (archived) articles in one place.
+description: The ugly ducklings of my writing.
 templateEngineOverride: njk
 eleventyExcludeFromCollections: true
 ---

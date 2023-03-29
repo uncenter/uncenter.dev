@@ -1,8 +1,8 @@
 ---
 title: Style
-description: This is my style guide.
+description: Just a style guide.
 collection: 'more'
-SVG: "palette"
+icon: "palette"
 ---
 
 This is my style guide! You can also read my [about page](/about) if you want to read how I *created* this website. This document showcases the styles that I use on this website, and is meant to be a reference for myself and others.

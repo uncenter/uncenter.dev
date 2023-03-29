@@ -2,7 +2,7 @@
 title: Roadmap
 description: A roadmap for the future of this site!
 collection: 'more'
-SVG: "pin"
+icon: "pin"
 ---
 
 ## Design and User Interface

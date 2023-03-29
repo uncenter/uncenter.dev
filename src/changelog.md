@@ -2,7 +2,7 @@
 title: Changelog
 description: A list of recent changes I've made to this site.
 collection: 'more'
-SVG: 'clock'
+icon: 'clock'
 ---
 
 <dl>

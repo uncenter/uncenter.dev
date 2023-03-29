@@ -2,7 +2,7 @@
 title: Projects
 description: A list of my projects.
 collection: 'more'
-SVG: "folder-closed"
+icon: "folder-closed"
 ---
 
 ## uncenter.org
