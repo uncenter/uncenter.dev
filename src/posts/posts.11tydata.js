@@ -1,4 +1,3 @@
-const Chalk = require("chalk")
 const fetch = require('node-fetch');
 const spawn = require("cross-spawn");
 const { DateTime } = require("luxon");
@@ -110,7 +109,7 @@ module.exports = {
             // console.log(Chalk.blue(`[PUBLISHED] Raw: `) + `${data.date} | ` + Chalk.blue(`Computed: `) + `${DateTime.fromJSDate(data.date).setZone('utc').toISO()}`);
             return DateTime.fromJSDate(data.date).setZone('utc').toISO()
         },
-        description(data) {
+        description: (data) => {
             if (data.description) {
                 return data.description;
             }

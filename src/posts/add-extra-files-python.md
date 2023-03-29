@@ -2,8 +2,6 @@
 tags: ['Python']
 title: Add extra files to a Python package
 date: 2023-03-13
-description: How to add extra files to a Python package
-excerpt: Say you have a Poetry package and you have a few `.txt` or `.json` or `.csv` files that you want to use somewhere in your package - here's how to do it!
 micro: true
 # cspell:ignore importlib
 ---
