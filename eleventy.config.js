@@ -43,6 +43,7 @@ const { markdownLibrary } = require("./utils/plugins/markdown.js");
 const inProduction = process.env.NODE_ENV === "production";
 require('dotenv').config()
 const Chalk = require("chalk");
+const fs = require("fs");
 
 const pluginTOC = require("eleventy-plugin-toc");
 const pluginExternalLinks = require("@aloskutov/eleventy-plugin-external-links");
@@ -143,6 +144,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.setServerOptions({
         port: process.env.PORT || 8080,
         portReassignmentRetryCount: 0,
+    });
+    styles = fs.readdirSync("./src/_assets/styles");
+    styles.forEach((style) => {
+        eleventyConfig.addWatchTarget(`./src/_assets/styles/${style}`);
     });
 
     eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
