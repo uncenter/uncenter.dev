@@ -35,7 +35,7 @@
             <link href="{{ absolutePostUrl }}"/>
             <updated>{{ post.date | dateToRfc3339 }}</updated>
             <id>{{ absolutePostUrl }}</id>
-            <content xml:lang="{{ metadata.language }}" type="html">{{ post.data.description | safe }}</content>
+            <content xml:lang="{{ metadata.language }}" type="html"><p>{{ post.data.description | safe }}</p></content>
         </entry>
     {%- endfor %}
 </feed>
