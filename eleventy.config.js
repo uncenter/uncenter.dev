@@ -20,6 +20,7 @@ const {
 } = require('./src/_11ty/collections.js');
 const {
 	toDateTime,
+	toRFC3339,
 	toShortDate,
 	toMedDate,
 	toFullDate,
@@ -64,6 +65,7 @@ module.exports = function (eleventyConfig) {
 
 	/* Filters */
 	eleventyConfig.addFilter('toDateTime', toDateTime);
+	eleventyConfig.addFilter('toRFC3339', toRFC3339);
 	eleventyConfig.addFilter('toShortDate', toShortDate);
 	eleventyConfig.addFilter('toMedDate', toMedDate);
 	eleventyConfig.addFilter('toFullDate', toFullDate);

@@ -33,9 +33,9 @@
         <entry>
             <title>{{ post.data.title }}</title>
             <link href="{{ absolutePostUrl }}"/>
-            <updated>{{ post.date | dateToRfc3339 }}</updated>
+            <updated>{{ post.data.updated | toRFC3339 }}</updated>
             <id>{{ absolutePostUrl }}</id>
-            <content xml:lang="{{ metadata.language }}" type="html">&lt;p&gt;{{ post.data.description | safe }}&lt;/p&gt;</content>
+            <content xml:lang="{{ metadata.language }}" type="html">{{ post.content| cleanFeed | escape }}</content>
         </entry>
     {%- endfor %}
 </feed>

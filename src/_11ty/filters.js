@@ -10,6 +10,12 @@ const toDateTime = (dateObj) => {
 	return dateObj;
 };
 
+const toRFC3339 = (dateObj) => {
+	let split = dateObj.split('.');
+	split.pop();
+	return split.join('') + 'Z';
+};
+
 const toShortDate = (dateObj) => {
 	// 10/14/1983
 	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('MM/dd/yyyy');
@@ -165,12 +171,15 @@ const includes = (check, value) => {
 const cleanFeed = (content) => {
 	content = content
 		.replace(/<a class="anchor" href=".*?" aria-hidden="true">#<\/a>/g, '')
-		.replace(/<div class="language-id">.*?<\/div>/g, '');
+		.replace(/<div class="language-id">.*?<\/div>/g, '')
+		.replace(/<div id="section-tags" [^>]*>.*?<\/div>/g, '')
+		.replace(/<nav id="section-toc" [^>]*>.*?<\/nav>/g, '');
 	return content;
 };
 
 module.exports = {
 	toDateTime,
+	toRFC3339,
 	toShortDate,
 	toMedDate,
 	toFullDate,

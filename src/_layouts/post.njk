@@ -12,7 +12,7 @@ layout: base
 {% set VIEWS = views %}
 {% include "tags.njk" %}
 {% if content | toc %}
-    <nav class="container mt-3" aria-labelledby="secondary-navigation">
+    <nav id="section-toc" class="container mt-3" aria-labelledby="secondary-navigation">
         {{ content | toc | safe }}
     </nav>
 {% endif %}
