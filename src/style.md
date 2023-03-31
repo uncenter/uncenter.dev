@@ -2,15 +2,14 @@
 title: Style
 description: Just a style guide.
 collection: 'more'
-icon: "palette"
+icon: 'palette'
 ---
 
-This is my style guide! You can also read my [about page](/about) if you want to read how I *created* this website. This document showcases the styles that I use on this website, and is meant to be a reference for myself and others.
+This is my style guide! You can also read my [about page](/about) if you want to read how I _created_ this website. This document showcases the styles that I use on this website, and is meant to be a reference for myself and others.
 
 {% callout "Inspiration", "info" %}
 This page is inspired and based of off [Binyamin's style guide](https://binyam.in/style/), which took inspiration from [Brian Devries's style guide](https://brianjdevries.com/style-guide/).
 {% endcallout %}
-
 
 ## Block-level elements
 
@@ -34,14 +33,14 @@ Officia consectetur in labore deserunt qui laborum.
 
 1. A numbered list
 
-* A bulleted list
+- A bulleted list
 
-- Lorem
+* Lorem
+
   - Ipsum
 
-- [ ] An incomplete task
-- [x] A completed task
-
+* [ ] An incomplete task
+* [x] A completed task
 
 ```py
 print("Hello World!") # [sh! highlight]
@@ -50,44 +49,46 @@ def sum(a, b):
 ```
 
 ```js
-console.log("Hello World!") // [sh! --]
-function sum(a, b) { // [sh! ++]
-  return a + b;
+console.log('Hello World!'); // [sh! --]
+function sum(a, b) {
+	// [sh! ++]
+	return a + b;
 }
 ```
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"> <!-- [sh! focus:start] -->
-        <title></title>
-        <meta name="description" content=""> <!-- [sh! focus:end] -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8" />
+		<!-- [sh! focus:start] -->
+		<title></title>
+		<meta name="description" content="" />
+		<!-- [sh! focus:end] -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
 
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-
-    </body>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body></body>
 </html>
 ```
 
 {% callout ":book: Info", "info" %}
 The above code block is using the [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) selector to blur the code that is not in focus. This is a new CSS selector that is not yet supported in all browsers. It should work in Chrome and Safari, but not in Firefox yet. I tried to enable it in Firefox with the `layout.css.has-selector.enabled` flag... and it looks like this:
 ![Broken implementation of the :has() selector in Firefox](/assets/images/content/firefox-has-selector-failed.png)
-It needs some work... but it's a start! For you Firefox users (*cough* me *cough*), here's what it **should** look like:
+It needs some work... but it's a start! For you Firefox users (_cough_ me _cough_), here's what it **should** look like:
 ![Working implementation of the :has() selector in Safari](/assets/images/content/has-selector.png)
 {% endcallout %}
 
 <button class="btn">Button</button>
 
-*[CSS]: Cascading Style Sheets
+\*[CSS]: Cascading Style Sheets
 
 ## Inline elements
+
 - Keyboard Input: [[⌘]] + [[Shift]] + [[P]]
 - Inline code - `Inline Code`
 - [This is an internal text link](#).
@@ -103,7 +104,7 @@ It needs some work... but it's a start! For you Firefox users (*cough* me *cough
 - Subscript for things like H~2~O.
 - <small>This small text is small for for fine print, etc.</small>
 - Abbreviation: <abbr title="Hyper Text Markup Language">HTML</abbr>
-	- CSS using the markdown-it-abbr plugin.
+  - CSS using the markdown-it-abbr plugin.
 - <q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q>
 - <cite>This is a citation.</cite>
 - The <dfn>dfn element</dfn> indicates a definition.
@@ -111,9 +112,7 @@ It needs some work... but it's a start! For you Firefox users (*cough* me *cough
 - The <var>variable element</var>, such as <var>x</var> = <var>y</var>.
 - A footnote is... a footnote[^1].
 
-
 [^1]: This is a footnote.
-
 
 ## Nord Theme
 

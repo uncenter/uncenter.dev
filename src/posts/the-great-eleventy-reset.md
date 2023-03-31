@@ -22,49 +22,50 @@ After months of constantly changing and tweaking the icons, I have finally settl
 ### Updated shortcodes and filters
 
 I updated the `readingTime` filter and I created a new `wordCount` filter as well. I have also updated the `callout` (previously `note`) shortcode with new types and along with each type... new styling! One neat thing is each block has a text marker in the top right, inspired by [Bryan Devries](https://brianjdevries.com/style-guide/).
-Finally, I spent more time than I would like to admit on a new `excerpt` shortcode that "intelligently" truncates the excerpt at 200 characters or less. 
+Finally, I spent more time than I would like to admit on a new `excerpt` shortcode that "intelligently" truncates the excerpt at 200 characters or less.
 
 ```js
-eleventyConfig.addShortcode("excerpt", (page) => {
-    // Make sure the page has content
-    if (!page.hasOwnProperty("content")) {
-        return null;
-    }
+eleventyConfig.addShortcode('excerpt', (page) => {
+	// Make sure the page has content
+	if (!page.hasOwnProperty('content')) {
+		return null;
+	}
 
-    // Trim whitespace and remove first heading
-    let content = page.content.trim();
-    content = content.replace(/^(\s*\n*)?<h\d[^>]*>.*?<\/h\d>(\s*\n*)?/i, "");
+	// Trim whitespace and remove first heading
+	let content = page.content.trim();
+	content = content.replace(/^(\s*\n*)?<h\d[^>]*>.*?<\/h\d>(\s*\n*)?/i, '');
 
-    // Remove all content after next heading
-    const nextHeadingIndex = content.search(/<h\d[^>]*>/i);
-    if (nextHeadingIndex !== -1) {
-        content = content.substring(0, nextHeadingIndex);
-    }
+	// Remove all content after next heading
+	const nextHeadingIndex = content.search(/<h\d[^>]*>/i);
+	if (nextHeadingIndex !== -1) {
+		content = content.substring(0, nextHeadingIndex);
+	}
 
-    // Convert HTML to plain text
-    const plainText = htmlToText(content, {
-        wordwrap: false,
-        ignoreHref: true,
-        ignoreImage: true,
-        uppercaseHeadings: false,
-    });
+	// Convert HTML to plain text
+	const plainText = htmlToText(content, {
+		wordwrap: false,
+		ignoreHref: true,
+		ignoreImage: true,
+		uppercaseHeadings: false,
+	});
 
-    // Split plain text into phrases and concatenate until length cutoff
-    // From https://github.com/mpcsh/eleventy-plugin-description
-    const phrases = plainText.split(/(\p{Terminal_Punctuation}\p{White_Space})/gu);
-    let excerpt = "";
-    while (phrases.length > 0 && excerpt.length < 200) {
-        excerpt += phrases.shift();
-    };
+	// Split plain text into phrases and concatenate until length cutoff
+	// From https://github.com/mpcsh/eleventy-plugin-description
+	const phrases = plainText.split(
+		/(\p{Terminal_Punctuation}\p{White_Space})/gu,
+	);
+	let excerpt = '';
+	while (phrases.length > 0 && excerpt.length < 200) {
+		excerpt += phrases.shift();
+	}
 
-    // Append ending characters and return excerpt
-    excerpt += "...";
-    return excerpt;
+	// Append ending characters and return excerpt
+	excerpt += '...';
+	return excerpt;
 });
 ```
 
 There is one issue I'm still working out, which is that links are not being properly formatted. I'm not sure if it's an issue with the `html-to-text` library but I'm still looking into it.
-
 
 {% callout "Update", "info" %}
 I have since solved the issue! It turns out I wasn't configuring the `html-to-text` library properly. Here's what it looks like now:
@@ -74,16 +75,16 @@ I have since solved the issue! It turns out I wasn't configuring the `html-to-te
 const { convert } = require('html-to-text');
 
 module.exports = (content) => {
-    return convert(content, {
-        selectors: [
-            { selector: 'pre.shiki', format: 'skip' },
-            { selector: 'a.anchor', format: 'skip' },
-            { selector: 'picture', format: 'skip' },
-            { selector: 'a', options: { ignoreHref: true } },
-            { selector: 'section.footnotes', format: 'skip' },
-        ],
-        wordwrap: false,
-    });
+	return convert(content, {
+		selectors: [
+			{ selector: 'pre.shiki', format: 'skip' },
+			{ selector: 'a.anchor', format: 'skip' },
+			{ selector: 'picture', format: 'skip' },
+			{ selector: 'a', options: { ignoreHref: true } },
+			{ selector: 'section.footnotes', format: 'skip' },
+		],
+		wordwrap: false,
+	});
 };
 ```
 

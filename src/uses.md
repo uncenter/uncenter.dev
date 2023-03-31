@@ -8,8 +8,9 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 ## Software
 
 ### General
+
 - [Arc](https://arc.net/) for web browsing
-    - [Polypane](https://polypane.app/) for testing responsive websites
+  - [Polypane](https://polypane.app/) for testing responsive websites
 - [1Password](https://1password.com/) for password management
 - [iina](https://iina.io/) for video
 - [MacDown](https://macdown.uranusjr.com/) for Markdown editing
@@ -19,6 +20,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [Discord](https://discord.com/) for messaging
 
 ### Development
+
 - [Fig](https://fig.io/) for CLI autocomplete
 - [Homebrew](https://brew.sh/) for system package management
 - [Hyper](https://hyper.is/) for terminal
@@ -28,6 +30,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [VS Code](https://code.visualstudio.com/) for all programming
 
 ### Utilities
+
 - [AltTab](https://alt-tab-macos.netlify.app/) for quick window switching
 - [BatteryBuddy](https://batterybuddy.app/) for a cute battery indicator
 - [Coffee](https://www.raycast.com/mooxl/coffee) to prevent sleep
@@ -36,7 +39,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [flameshot](https://flameshot.org/) for taking screenshots
 - [PurePaste](https://sindresorhus.com/pure-paste) for clipboard management
 - [Raycast](https://raycast.com/) to replace the default MacOS spotlight search
-    - [Shareful](https://sindresorhus.com/shareful) for copying, sharing, and saving files
+  - [Shareful](https://sindresorhus.com/shareful) for copying, sharing, and saving files
 - [Rectangle](https://rectangleapp.com/) for window management
 
 ### Browser Extensions
@@ -47,6 +50,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [uBlock Origin](https://github.com/gorhill/uBlock/) for ad and tracker blocking
 
 ### Browser Extensions (Development)
+
 - [Fontanello](https://fontanello.app/) for finding fonts on websites
 - [Github Repo Size](https://github.com/Shywim/github-repo-size) for seeing repo sizes on GitHub
 - [Refined GitHub](https://github.com/refined-github/refined-github) for better GitHub
@@ -55,6 +59,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [Web Developer](https://chrispederick.com/work/web-developer/) for basic web development tools
 
 # Developer services
+
 - [Cloudflare](https://cloudflare.com/) for DNS
 - [GitHub](https://github.com/) for project source code hosting
 - [Netlify](https://www.netlify.com/) for some static site hosting
@@ -65,15 +70,18 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 ## Hardware
 
 ### Day-to-day
+
 - [MacBook Pro 13" (2020 M1)](https://www.apple.com/macbook-pro-13/) for general use
 
 ### PC
+
 - [Asus Prime B350 Plus](https://www.asus.com/us/Motherboards/PRIME-B350-PLUS/) for motherboard
 - Asus GTX 1660 Super
 - [Corsair Vengeance LPX 2x8GB](https://www.corsair.com/us/en/Categories/Products/Memory/VENGEANCE-LPX/p/CMK16GX4M2B3200C16) for RAM
 - [Ryzen 5 3600](https://www.amd.com/en/products/cpu/amd-ryzen-5-3600) for CPU
 
 ### Peripherals
+
 - [Glorious Model O](https://www.gloriousgaming.com/products/glorious-model-o-black) for mouse
 - [Glorious GMMK](https://www.gloriousgaming.com/products/gmmk-full-brown-switch) for keyboard
 - [DT 770 Pro](https://north-america.beyerdynamic.com/dt-770-pro.html) for headphones (250 ohm)

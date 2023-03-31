@@ -11,10 +11,11 @@ Since the Container component is a "corePlugin", you can disable it by adding th
 
 ```js
 module.exports = {
-    // ...
-    corePlugins: { // [sh! focus:start]
-        container: false,
-    }, // [sh! focus:end]
+	// ...
+	corePlugins: {
+		// [sh! focus:start]
+		container: false,
+	}, // [sh! focus:end]
 };
 ```
 

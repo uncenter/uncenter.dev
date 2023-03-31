@@ -7,7 +7,7 @@
 	flex-direction: column;
 	-moz-box-pack: center;
 	place-content: center;
-    margin: 20px 0px;
+	margin: 20px 0px;
 }
 
 .wrapper .title {
@@ -76,7 +76,6 @@
 	border: none;
 	cursor: pointer;
 }
-
 
 @media screen and (max-width: 800px) {
 	.swatch-box .label button {

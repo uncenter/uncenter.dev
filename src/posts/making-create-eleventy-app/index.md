@@ -38,7 +38,7 @@ Other than those essential files, I included a `site.json` in the data directory
 
 #### Installing dependencies
 
-Finally, we install the dependencies. This is done by running `npm install` for each of the selected Eleventy plugins and `markdown-it` plugins, and of course `@11ty/eleventy` and `markdown-it` themselves. 
+Finally, we install the dependencies. This is done by running `npm install` for each of the selected Eleventy plugins and `markdown-it` plugins, and of course `@11ty/eleventy` and `markdown-it` themselves.
 
 ## Conclusion
 

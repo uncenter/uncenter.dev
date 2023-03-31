@@ -2,16 +2,17 @@
 title: Stats
 description: Stats about my blog and this site.
 collection: 'more'
-icon: "bar-chart-3"
+icon: 'bar-chart-3'
 ---
 
-Here are my *slightly embarrassing* stats about this site and my blog.
+Here are my _slightly embarrassing_ stats about this site and my blog.
 
 {% for collection, label in {
     "posts": "Published posts",
     "archivedPosts": "Archived posts",
     "allPosts": "Total"
 } %}
+
 <table class="text-center">
     <thead>
         <tr>

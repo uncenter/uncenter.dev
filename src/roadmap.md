@@ -2,7 +2,7 @@
 title: Roadmap
 description: A roadmap for the future of this site!
 collection: 'more'
-icon: "pin"
+icon: 'pin'
 ---
 
 ## Design and User Interface
@@ -33,13 +33,13 @@ icon: "pin"
 - [ ] Add a contact form for feedback and inquiries
 - [ ] Create a two-column layout with an improved table of contents for better readability
 - [ ] Add an information section to each post for quick reference
-    - [x] Last edited
-    - [x] Estimated reading time
-    - [x] Word count
-    - [x] Tags
-    - [ ] Related posts
-    - [x] First published
-    - [x] Views
+  - [x] Last edited
+  - [x] Estimated reading time
+  - [x] Word count
+  - [x] Tags
+  - [ ] Related posts
+  - [x] First published
+  - [x] Views
 - [ ] Add a "share" button for easy social media sharing
 - [ ] Include a /now page or similar to provide up-to-date information about current activities
 - [ ] Track overall blog statistics such as word count, views, total written words, etc.

@@ -7,9 +7,11 @@ description: Some opinionated observations about the Eleventy website.
 ---
 
 ## Foreword
+
 Eleventy is awesome. This website is built on Eleventy, and I've actually learned more than just how to make a website; I've learned how to write a blog, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS, and even JavaScript. I made the [first commit to this site on May 6, 2022](https://github.com/uncenter/uncenter.org/commit/11b536cd596463e42e2175a312dbf0439ca77103), so coming up on a year with Eleventy in a few months. I'm really grateful for the learning experience I have had with Eleventy, and I'm really grateful for the community that has helped me along the way. On that note, I think this makes me somewhat qualified to give my thoughts on Eleventy.
 
 ## The website...
+
 One of the **very, very** few experiences in which I have been frustrated with Eleventy is on the website. Let me show you what I mean.
 
 ### The homepage
@@ -31,7 +33,8 @@ On a better note though, here is a part I actually like about the homepage.
 I love this animation and it's a convincing visual. Makes me glad I started with Eleventy instead of Gatsby or Next.js. Go Eleventy!
 
 ### The documentation
-I want to start thinking about this by putting yourself in someone else's shoes, a beginner's shoes. You are super excited to try this awesome and easy static site generator that your friend mentioned, and after finding the *completely normal sized* documentation button on the homepage, you landed here, at the documentation overview page.
+
+I want to start thinking about this by putting yourself in someone else's shoes, a beginner's shoes. You are super excited to try this awesome and easy static site generator that your friend mentioned, and after finding the _completely normal sized_ documentation button on the homepage, you landed here, at the documentation overview page.
 
 {% image "docs-homepage.png", "The documentation homepage on the 11ty website." %}
 
@@ -40,13 +43,13 @@ There are two things I'd like to mention here. First, the "trusted by" section. 
 I also want to reference [the Github issue](https://github.com/11ty/eleventy/issues/2855) on that led to writing this post. I was really interested in [@darthmall's comment](https://github.com/11ty/eleventy/issues/2855#issuecomment-1463988371) about the four types of documentation (copied from the issue, edited with my own words):
 
 - Tutorials
-	- A **complete** lesson that walks you through accomplishing a real, applicable task.
+  - A **complete** lesson that walks you through accomplishing a real, applicable task.
 - How-tos
-	- Short recipes or "tips" for accomplishing very specific things, the likes of [11ty.recipes](https://11ty.recipes/) and [11ty.rocks](https://11ty.rocks/)
+  - Short recipes or "tips" for accomplishing very specific things, the likes of [11ty.recipes](https://11ty.recipes/) and [11ty.rocks](https://11ty.rocks/)
 - Reference
-	- The actual specification/dictionary of everything there is to know (what most people consider documentation, like all the `eleventyConfig` options).
+  - The actual specification/dictionary of everything there is to know (what most people consider documentation, like all the `eleventyConfig` options).
 - Key topics
-	- Higher level concepts that probably aren't useful to new users but are important to explain, like the data cascade or `eleventy.before`/`eleventy.after`.
+  - Higher level concepts that probably aren't useful to new users but are important to explain, like the data cascade or `eleventy.before`/`eleventy.after`.
 
 I love this idea. And actually, Eleventy does have most of these, but unfortunately they aren't presented in the best way. The Getting Started section is fine, but it isn't a real tutorial as defined above. Again, I put myself in a new user's shoes while thinking about this and I want to point out that there don't seem to be any other good options either! To test this theory, I opened an Incognito tab to see what pops up when I search from "make an eleventy website" on Youtube.
 

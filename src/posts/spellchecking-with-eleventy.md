@@ -13,11 +13,11 @@ Self explanatory. I added a script to my `package.json` file to run the cSpell c
 
 ```json
 {
-    // ...
-    "scripts": {
-        // ...
-        "spell": "cspell src/posts/**/*.md"
-    }
+	// ...
+	"scripts": {
+		// ...
+		"spell": "cspell src/posts/**/*.md"
+	}
 }
 ```
 
@@ -26,36 +26,38 @@ Self explanatory. I added a script to my `package.json` file to run the cSpell c
 The tool allows multiple filenames for its configuration but I went with `cspell.config.js` for consistency with my other config files.
 
 The config file starts with the `version` and `language` properties. Set the config version to `0.2` (currently always 0.2) and the language to either `en` or `en-GB` (default is `en`):
+
 ```js
 module.exports = {
-    version: '0.2', // [sh! ++]
-    language: 'en', // [sh! ++]
+	version: '0.2', // [sh! ++]
+	language: 'en', // [sh! ++]
 };
 ```
 
-Next, you can define specific words to exclude or flag. I excluded some 11ty specific terminology and a few brand names that I have written about in my posts. 
+Next, you can define specific words to exclude or flag. I excluded some 11ty specific terminology and a few brand names that I have written about in my posts.
 
 ```js
 module.exports = {
-    version: '0.2',
-    language: 'en',
-    words: [ // [sh! focus:start]
-        // Eleventy
-        '11ty',
-        'eleventy',
-        'jamstack',
-        'shortcode',
-        'shortcodes',
-        'pagination',
-        'frontmatter',
-        'webc',
+	version: '0.2',
+	language: 'en',
+	words: [
+		// [sh! focus:start]
+		// Eleventy
+		'11ty',
+		'eleventy',
+		'jamstack',
+		'shortcode',
+		'shortcodes',
+		'pagination',
+		'frontmatter',
+		'webc',
 
-        // Brands
-        'Eleventy',
-        'Netlify',
-        '11ty',
-    ],
-    flagWords: [], // [sh! focus:end]
+		// Brands
+		'Eleventy',
+		'Netlify',
+		'11ty',
+	],
+	flagWords: [], // [sh! focus:end]
 };
 ```
 
@@ -96,23 +98,23 @@ const fs = require('fs');
 const path = require('path');
 
 function getRepos() {
-    const reposFile = path.join(__dirname, '<PATH_TO_DICT_FILE>');
-    const reposURL = 'https://api.github.com/users/<USERNAME>/repos';
+	const reposFile = path.join(__dirname, '<PATH_TO_DICT_FILE>');
+	const reposURL = 'https://api.github.com/users/<USERNAME>/repos';
 
-    (async () => {
-        const repos = await fetch(reposURL)
-            .then(res => res.json())
-            .then(json => json.map(repo => repo.name));
+	(async () => {
+		const repos = await fetch(reposURL)
+			.then((res) => res.json())
+			.then((json) => json.map((repo) => repo.name));
 
-        fs.writeFileSync(reposFile, repos.join('\n'));
-    })();
+		fs.writeFileSync(reposFile, repos.join('\n'));
+	})();
 }
 ```
 
 Finally, the config file allows you to define patterns to ignore. I added a few patterns to ignore code blocks and Nunjucks expressions.
 
 ```js
-    {% raw %}// ... 
+    {% raw %}// ...
     ignoreRegExpList: ["nunjucksExpression", "markdownCodeBlock", "markdownInlineCode"],
     patterns: [
         {

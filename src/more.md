@@ -1,7 +1,7 @@
 ---
 title: More Pages
 templateEngineOverride: njk
-description: "Other, less important pages."
+description: 'Other, less important pages.'
 ---
 
 <ul>
