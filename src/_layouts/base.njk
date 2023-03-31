@@ -4,7 +4,7 @@
         {% include "head.njk" %}
     </head>
     <body class="flex flex-col justify-center w-4/5 mx-auto">
-        <header class="flex flex-row justify-between py-8 md:items-center md:px-8 md:mb-10 gap-y-10 md:gap-y-0">
+        <header class="flex flex-row justify-between py-6 md:items-center md:mb-10 gap-y-10 md:gap-y-0">
             <a aria-label="Home"{% if page.url === "/" %} aria-current="page"{% endif %} title="Home" class="flex items-center logo gap-x-3 md:px-3" style="text-decoration: none;" href="/">{% include "laptop.njk" %}</a>
             <div class="flex flex-col gap-y-2 md:flex-row md:items-center md:gap-x-4 md:gap-y-0">
                 {% for item in nav.top %}
