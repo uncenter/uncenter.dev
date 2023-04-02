@@ -25,7 +25,7 @@ const markdownLibrary = markdownIt({
 		liClass: 'checklist-item',
 	})
 	.use(markdownItAnchor, {
-		permalink: markdownItAnchor.permalink.ariaHidden({
+		permalink: markdownItAnchor.permalink.linkInsideHeader({
 			placement: 'after',
 			class: 'anchor',
 			symbol: '#',
