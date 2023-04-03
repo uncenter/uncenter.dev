@@ -3,7 +3,7 @@
 	"version": "4.0.0",
 	"description": "my website",
 	"scripts": {
-		"clean": "rm -rf dist",
+		"clean": "rimraf dist",
 		"spell:run": "cspell src/posts/**/*.md",
 		"spell:update": "node ./utils/cspell.js",
 		"spell": "npm run spell:run",
@@ -60,6 +60,7 @@
 		"nord": "^0.2.1",
 		"path": "^0.12.7",
 		"postcss": "^8.4.21",
+		"rimraf": "^4.4.1",
 		"sass": "^1.60.0",
 		"shiki": "^0.14.1",
 		"tailwind-nord": "^1.3.0",
