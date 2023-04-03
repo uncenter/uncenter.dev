@@ -160,21 +160,21 @@ module.exports = function (eleventyConfig) {
 		eleventyConfig.addWatchTarget(`./src/_assets/styles/${style}`);
 	});
 
+	let timesRun = 0;
 	eleventyConfig.on(
 		'eleventy.after',
 		async ({ dir, results, runMode, outputMode }) => {
 			if (runMode === 'serve' && process.env.NODE_ENV === 'development') {
-				console.log();
-				console.log(
-					`[11ty] ${Chalk.blue('Server running at')} ${Chalk.cyan(
-						'http://localhost:8080',
-					)} ${Chalk.blue('and watching for changes...')}`,
-				);
-				// console.log(`${Chalk.green('[11ty]')} ${Chalk.dim('Opening browser...')}`);
-				// setTimeout(() => {
-				//     require('openurl').open('http://localhost:8080');
-				// }, 1000);
-				console.log();
+				timesRun++;
+				if (timesRun > 1) {
+					console.log();
+					console.log(Chalk.blue('[11ty] Server at http://localhost:8080/'));
+					// console.log(Chalk.green('[11ty] Opening browser...'));
+					// setTimeout(() => {
+					//     require('openurl').open('http://localhost:8080');
+					// }, 1000);
+					console.log();
+				}
 			}
 		},
 	);
