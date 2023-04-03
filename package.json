@@ -9,7 +9,7 @@
 		"spell": "npm run spell:run",
 		"site": "node ./utils/site.js",
 		"restart": "npm run clean && npm run start",
-		"start": "NODE_ENV=development eleventy --serve",
+		"start": "NODE_ENV=development eleventy --serve --incremental",
 		"build": "NODE_ENV=production eleventy"
 	},
 	"repository": {
