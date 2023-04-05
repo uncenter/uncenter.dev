@@ -33,7 +33,11 @@
         <entry>
             <title>{{ post.data.title }}</title>
             <link href="{{ absolutePostUrl }}"/>
-            <updated>{{ post.data.updated | toRFC3339 }}</updated>
+            <updated>
+                {% if post.data.updated %}{{ post.data.updated | toRFC3339 }}
+                {% else %}{{ post.date | dateToRfc3339 }}
+                {% endif %}
+            </updated>
             <id>{{ absolutePostUrl }}</id>
             <content xml:lang="{{ metadata.language }}" type="html">{{ post.content| cleanFeed | escape }}</content>
         </entry>
