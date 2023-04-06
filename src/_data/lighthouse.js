@@ -15,7 +15,7 @@ module.exports = async function () {
 		'lighthouseResult.categories.*.score,lighthouseResult.categories.*.title',
 	);
 	params.append('prettyPrint', false);
-	params.append('strategy', 'mobile');
+	params.append('strategy', 'desktop');
 	params.append('category', 'PERFORMANCE');
 	params.append('category', 'ACCESSIBILITY');
 	params.append('category', 'BEST-PRACTICES');
