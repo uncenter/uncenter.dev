@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 require('dotenv').config();
 
 async function getUmamiToken() {
-	const url = `https://analytics.uncenter.org/api/auth/login`;
+	const url = `https://stats.uncenter.org/api/auth/login`;
 
 	const data = {
 		username: process.env.UMAMI_USERNAME,
@@ -30,7 +30,7 @@ async function getUmamiToken() {
 }
 
 async function getPageViews(originalUrl, originalDate) {
-	const url = `https://analytics.uncenter.org/api/websites/dea82084-7eb8-4337-b02c-23f6ace1afc1/pageviews?url=${originalUrl}&start_at=${Date.parse(
+	const url = `https://stats.uncenter.org/api/websites/dea82084-7eb8-4337-b02c-23f6ace1afc1/pageviews?url=${originalUrl}&start_at=${Date.parse(
 		originalDate,
 	)}&end_at=${Date.now()}&unit=day&tz=America/New_York`;
 
