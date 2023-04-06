@@ -4,10 +4,11 @@ const { DateTime } = require('luxon');
 
 const logOutput = require('../_11ty/utils/logOutput.js');
 const isDevelopment = process.env.NODE_ENV === 'development';
+const meta = require('../_data/meta.json');
 require('dotenv').config();
 
 async function getUmamiToken() {
-	const url = `https://stats.uncenter.org/api/auth/login`;
+	const url = `${meta.analytics.url}/api/auth/login`;
 
 	const data = {
 		username: process.env.UMAMI_USERNAME,
@@ -30,7 +31,9 @@ async function getUmamiToken() {
 }
 
 async function getPageViews(originalUrl, originalDate) {
-	const url = `https://stats.uncenter.org/api/websites/dea82084-7eb8-4337-b02c-23f6ace1afc1/pageviews?url=${originalUrl}&start_at=${Date.parse(
+	const url = `${meta.analytics.url}/api/websites/${
+		meta.analytics.websiteId
+	}/pageviews?url=${originalUrl}&start_at=${Date.parse(
 		originalDate,
 	)}&end_at=${Date.now()}&unit=day&tz=America/New_York`;
 
@@ -119,13 +122,11 @@ module.exports = {
 						.setZone('utc', { keepLocalTime: true })
 						.toISO();
 				}
-				// console.log(Chalk.blue(`[UPDATED] Raw: `) + `${timestamp} | ` + Chalk.blue(`Computed: `) + `${corrected}`);
 				return corrected;
 			}
 			return false;
 		},
 		published: (data) => {
-			// console.log(Chalk.blue(`[PUBLISHED] Raw: `) + `${data.date} | ` + Chalk.blue(`Computed: `) + `${DateTime.fromJSDate(data.date).setZone('utc').toISO()}`);
 			return DateTime.fromJSDate(data.date).setZone('utc').toISO();
 		},
 		description: (data) => {

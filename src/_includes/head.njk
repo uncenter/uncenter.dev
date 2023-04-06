@@ -22,8 +22,8 @@
 
 <link href="https://github.com/{{ meta.github.username }}" rel="me">
 <link href="https://{{ meta.social.mastodon.instance }}/@{{ meta.social.mastodon.username }}" rel="me">
-<link rel="canonical" href="https://www.uncenter.org{{ page.url }}">
-<script async defer data-website-id="dea82084-7eb8-4337-b02c-23f6ace1afc1" data-domains="uncenter.org" src="https://stats.uncenter.org/beepboop.js"></script>
+<link rel="canonical" href="{{ meta.url }}{{ page.url }}">
+<script async defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
 <link rel="stylesheet" href="/assets/styles.css">
 {% if styles %}
     {% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/css/{{ style }}">{% endfor %}

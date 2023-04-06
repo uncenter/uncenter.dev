@@ -31,6 +31,11 @@ body {
 	}
 }
 
+footer .icon {
+	width: 1.2em;
+	height: 1.2em;
+}
+
 .logo-laptop {
 	height: 100px;
 	width: 100px;
@@ -176,6 +181,13 @@ img.container {
 	padding: 1rem;
 }
 
+body {
+	margin: 4rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
 @-webkit-keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -198,7 +210,6 @@ img.container {
 
 [data-tooltip] {
 	position: relative;
-	z-index: 2;
 	cursor: pointer;
 }
 
@@ -209,9 +220,6 @@ img.container {
 
 [data-tooltip]:before {
 	position: absolute;
-	bottom: 110%;
-	left: 50%;
-	margin-left: calc((-1 * (100% + 10px)) / 2);
 	padding: 7px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -220,17 +228,49 @@ img.container {
 	background-color: hsla(0, 0%, 20%, 0.9);
 	color: #fff;
 	content: attr(data-tooltip);
-	width: calc(100% + 10px);
 	text-align: center;
 	font-size: 14px;
 	line-height: 1.2;
 	-webkit-animation: fadeIn 0.4s;
 	animation: fadeIn 0.4s;
+	width: max-content;
+	height: fit-content;
+	bottom: 150%;
+	left: 50%;
+	transform: translate(-50%);
 }
 
 [data-tooltip]:hover:before,
 [data-tooltip]:hover:after {
-	display: block;
+	display: flex;
+}
+
+[data-tooltip-bottom][data-tooltip]:before {
+	top: 125%;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+[data-tooltip-top][data-tooltip]:before {
+	bottom: 125%;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+[data-tooltip-right][data-tooltip]:before {
+	bottom: 0;
+	top: 0;
+	transform: translateY(-15%) translateX(30%);
+}
+
+[data-tooltip-left][data-tooltip]:before {
+	bottom: 0;
+	top: 0;
+	transform: translateY(-15%) translateX(-125%);
+}
+
+[data-tooltip-left][data-tooltip-icon][data-tooltip]:before {
+	transform: translateY(-15%) translateX(-145%);
 }
 
 @import 'palette';

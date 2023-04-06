@@ -20,24 +20,29 @@
                 <p class="text-center text-red-500">{% icon "alert-circle" %} No content found.</p>
             {% endif %}
         </main>
-        <footer class="flex flex-col items-center self-center w-full mt-36 mb-9 gap-y-6">
-            <div class="text-xs text-center max-w-[30ch] text-gray-600">
-                <p>last updated {{ collections.recentChanges[0][0] }}
-                    <div>
-                        <a class="mr-2" href="{{ meta.analytics }}">view analytics</a> | <a class="ml-2" href="https://github.com/{{ meta.github.username }}/{{ meta.github.repo }}">view source</a>
-                    </div>
-                    <a href="/more">check out some more pages</a>
-                </p>
-                <div class="mt-2">
-                    <a href="https://xn--sr8hvo.ws/%E2%86%95%EF%B8%8F%F0%9F%8F%9D%F0%9F%93%81/previous">←</a>
-                    an <a href="https://xn--sr8hvo.ws">IndieWeb webring</a> 🕸💍
-                    <a href="https://xn--sr8hvo.ws/%E2%86%95%EF%B8%8F%F0%9F%8F%9D%F0%9F%93%81/next">→</a>
-                </div>
-            </div>
+        <footer class="flex flex-col items-center self-center w-full gap-4 my-9">
             <ul class="flex items-center gap-3">
                 {% for item in nav.bottom %}
                     <li title="{{ item.title }}">
                         <a aria-label="{{ item.title }}" href="{{ item.url }}">{% icon item.icon %}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="text-xs text-center max-w-[30ch] text-gray-600">
+                <div class="mt-2">
+                    <a class="no-underline" href="https://xn--sr8hvo.ws/%E2%86%95%EF%B8%8F%F0%9F%8F%9D%F0%9F%93%81/previous">←</a>
+                    an <a class="no-underline" href="https://xn--sr8hvo.ws">IndieWeb webring</a> 🕸💍
+                    <a class="no-underline" href="https://xn--sr8hvo.ws/%E2%86%95%EF%B8%8F%F0%9F%8F%9D%F0%9F%93%81/next">→</a>
+                </div>
+            </div>
+            <ul class="flex flex-row gap-2 m-4 mt-2 text-xs text-gray-600"
+    aria-labelledby="lighthouse-scores"
+>
+                {% for key, result in lighthouse.categories %}
+                    <li
+    class="flex items-center justify-center cursor-help rounded-full h-8 w-8 border-2 {{ 'border-[#16a34a]' if result.grade === 'good' else 'border-yellow-400' }}"
+    data-tooltip="{{ result.title }}" data-tooltip-bottom
+    >{{ result.score }}
                     </li>
                 {% endfor %}
             </ul>

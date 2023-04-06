@@ -4,11 +4,12 @@ const logSize = require('./logSize');
 module.exports = (options) => {
 	let { prefix, action, file, extra } = options;
 	const types = {
-		styles: Chalk.magenta,
+		styles: Chalk.hex('#FF00FF'),
 		scripts: Chalk.yellow,
 		images: Chalk.blue,
-		views: Chalk.cyan,
+		views: Chalk.hex('#800080'),
 		icons: Chalk.yellow,
+		lighthouse: Chalk.hex('#FFA500'),
 	};
 	const categories = {
 		assets: Chalk.green,

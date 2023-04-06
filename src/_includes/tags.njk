@@ -1,8 +1,12 @@
 <div id="section-tags" class="container flex flex-row flex-wrap gap-6 py-4 mb-4">
-    <time class="my-0" datetime="{{ PUBLISHED | toDateTime }}" data-tooltip={% if UPDATED and (UPDATED | toShortDate) != (PUBLISHED | toShortDate) %}"Edited {{ UPDATED | toShortDate }}"{% else %}"No updates since publication"{% endif %}>
-        {%- icon 'calendar' %} {{ PUBLISHED | toShortDate }}</time>
+    <p class="my-0">{%- icon 'calendar' %}
+        <time datetime="{{ PUBLISHED | toDateTime }}">{{ PUBLISHED | toShortDate }}</time>
+        {%- if UPDATED and(UPDATED | toShortDate) != (PUBLISHED | toShortDate) %} (Edited {{ UPDATED | toShortDate }})
+        {% endif %}
+    </p>
     <p class="my-0">
-        {%- icon 'eye' %} {{ VIEWS }} views</p>
+        {%- icon 'eye' %}
+        {{ VIEWS }} views</p>
     {%- if not MICRO -%}
         {%- if CONTENT -%}
             <p class="my-0">{%- icon 'file-text' %}

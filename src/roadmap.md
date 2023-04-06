@@ -42,5 +42,5 @@ icon: 'pin'
   - [x] Views
 - [ ] Add a "share" button for easy social media sharing
 - [ ] Include a /now page or similar to provide up-to-date information about current activities
-- [ ] Track overall blog statistics such as word count, views, total written words, etc.
+- [x] Track overall blog statistics such as word count, views, total written words, etc.
 - [ ] Display featured projects on homepage for easy access

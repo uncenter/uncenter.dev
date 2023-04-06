@@ -14,5 +14,5 @@ views: false
 {% if collections.archivedPosts.length > 0 %}
 
 <p class="container p-5 mt-10 bg-gray-100">
-There {% if collections.archivedPosts.length === 1 %}is{% else %}are{% endif %} also {{ collections.archivedPosts.length }} archived articles. You can find them <a href="/archive/">in the archive</a>.</p>
+There {% if collections.archivedPosts.length === 1 %}is also one archived article. You can find it {% else %}are also {{ collections.archivedPosts.length }} archived articles. You can find them {% endif %}<a href="/archive/">in the archive</a>.</p>
 {% endif %}

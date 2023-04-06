@@ -1,7 +1,16 @@
 {
 	"name": "uncenter",
+	"lang": "en",
 	"url": "https://uncenter.org",
-	"analytics": "https://stats.uncenter.org/share/LRerfjMi/uncenter",
+	"domain": "uncenter.org",
+	"analytics": {
+		"domain": "stats.uncenter.org",
+		"url": "https://stats.uncenter.org",
+		"shareLink": "https://stats.uncenter.org/share/LRerfjMi/uncenter",
+		"shareId": "LRerfjMi",
+		"websiteId": "dea82084-7eb8-4337-b02c-23f6ace1afc1",
+		"trackerScript": "beepboop"
+	},
 	"description": "Ducks, terrible articles, a lot of code, and a little bit of everything else.",
 	"generator": "Eleventy",
 	"github": {

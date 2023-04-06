@@ -4,29 +4,24 @@
     "layout": "",
     "eleventyExcludeFromCollections": true,
     "description": "RSS feed for my blog.",
-    "metadata": {
+    "feed": {
         "title": "uncenter's blog",
         "subtitle": "A blog about web development, design, and other things.",
-        "language": "en",
-        "url": "https://uncenter.org/",
-        "author": {
-            "name": "uncenter",
-            "email": "contact@uncenter.org"
-        }
+        "language": "en"
     }
 }
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.url }}">
-    <title>{{ metadata.title }}</title>
-    <subtitle>{{ metadata.subtitle }}</subtitle>
-    <link href="{{ permalink | absoluteUrl(metadata.url) }}" rel="self"/>
-    <link href="{{ metadata.url }}"/>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ meta.url }}">
+    <title>{{ feed.title }}</title>
+    <subtitle>{{ feed.subtitle }}</subtitle>
+    <link href="{{ permalink | absoluteUrl(meta.url) }}" rel="self"/>
+    <link href="{{ meta.url }}"/>
     <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-    <id>{{ metadata.url }}</id>
+    <id>{{ meta.url }}</id>
     <author>
-        <name>{{ metadata.author.name }}</name>
-        <email>{{ metadata.author.email }}</email>
+        <name>{{ meta.name }}</name>
+        <email>{{ meta.social.email.main }}</email>
     </author>
     {%- for post in collections.posts | reverse %}
         {%- set absolutePostUrl = post.url | absoluteUrl(metadata.url) %}
@@ -39,7 +34,7 @@
                 {% endif %}
             </updated>
             <id>{{ absolutePostUrl }}</id>
-            <content xml:lang="{{ metadata.language }}" type="html">{{ post.content| cleanFeed | escape }}</content>
+            <content xml:lang="{{ feed.language }}" type="html">{{ post.content| cleanFeed | escape }}</content>
         </entry>
     {%- endfor %}
 </feed>
