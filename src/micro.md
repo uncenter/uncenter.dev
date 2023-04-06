@@ -1,5 +1,5 @@
 ---
-title: 'Micro'
+title: 'Microblog - Tips & Tricks'
 description: "Tips, tricks, and other small things I've learned."
 templateEngineOverride: njk
 eleventyExcludeFromCollections: true
