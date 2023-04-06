@@ -20,11 +20,6 @@ module.exports = async function () {
 	params.append('category', 'ACCESSIBILITY');
 	params.append('category', 'BEST-PRACTICES');
 	params.append('category', 'SEO');
-	logOutput({
-		prefix: 'data:lighthouse',
-		action: 'fetching Lighthouse scores for',
-		file: meta.url,
-	});
 	let data = await EleventyFetch(
 		`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?${params}`,
 		{
@@ -49,6 +44,15 @@ module.exports = async function () {
 			data[key].score = (data[key].score * 100).toFixed();
 		}
 		data[key].grade = getGrade(data[key].score);
+	});
+	logOutput({
+		prefix: 'data:lighthouse',
+		action: 'fetched Lighthouse scores for',
+		file: meta.url,
+		extra: {
+			content: `${data.performance.score}% performance, ${data.accessibility.score}% accessibility, ${data['best-practices'].score}% best practices, ${data.seo.score}% SEO`,
+			size: false,
+		},
 	});
 
 	return {
