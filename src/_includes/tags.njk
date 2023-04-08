@@ -1,4 +1,4 @@
-<div id="section-tags" class="container flex flex-row flex-wrap gap-6 py-4 mb-4">
+<div class="container flex flex-row flex-wrap gap-6 py-4 mb-4">
     <p class="my-0">{%- icon 'calendar' %}
         <time datetime="{{ PUBLISHED | toDateTime }}">{{ PUBLISHED | toShortDate }}</time>
         {%- if UPDATED and(UPDATED | toShortDate) != (PUBLISHED | toShortDate) %} (Edited {{ UPDATED | toShortDate }})

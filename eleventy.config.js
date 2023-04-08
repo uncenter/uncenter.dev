@@ -111,14 +111,16 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginShikier);
 	eleventyConfig.addPlugin(pluginRSS);
 	eleventyConfig.addPlugin(pluginIcons, {
-		mode: 'sprite',
+		mode: 'inline',
 		sources: {
 			devicon: './src/_assets/icons/devicon',
 			social: './src/_assets/icons/social',
 			lucide: 'node_modules/lucide-static/icons',
 		},
 		default: 'lucide',
-		optimize: true,
+		icon: {
+			skipIfNotFound: true,
+		},
 		sprites: {
 			shortcode: 'iconSheet',
 		},

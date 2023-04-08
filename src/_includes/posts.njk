@@ -12,6 +12,7 @@
             {% set ARCHIVED = post.data.archived %}
             {% set VIEWS = post.data.views %}
             {% set DRAFT = post.data.draft %}
+            {%- icon 'IDONTKNOWWHYTHISWORKS' -%}
             {% include "./tags.njk" %}
             {% if post.data.excerpt %}
                 <p>{{ post.data.excerpt | toHTML | safe }}</p>
