@@ -9,29 +9,29 @@
 ![Website Status](https://img.shields.io/website?down_color=red&down_message=down&up_color=green&up_message=online&url=https%3A%2F%2Funcenter.org)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Funcenter.org)
 
-This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and [Tailwind CSS](https://tailwindcss.com/)!
+This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and [Tailwind CSS](https://tailwindcss.com/).
 
 ## About
 
 ### Features
 
 - **Syntax highlighting** for posts using [`shiki.js`](https://github.com/shikijs/shiki), configured based on [Raphael Höser's implementation](https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/)
-- **Optimized icons** by selectively loading icons on a per-page basis
-- ~~**Dark mode** with automatic switching based on the user's system preferences~~
+- **Optimized icons** by selectively loading icons on a per-page basis using my [`eleventy-plugin-icons`](https://github.com/uncenter/eleventy-plugin-icons) plugin
 - **RSS feed** for blog posts using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
 - **Open Graph images** through Vercel's [OG Image API](https://og-image.vercel.app/)
 
 ### Structure
 
-- `utils/`: scripts & utilities such as filters, shortcodes, and collections
+- `utils/`: scripts, utilities, & plugins for the website
 - `src/`: the source code for the website
-- `src/content/`: the content for the website
-- `src/content/posts/*.md`: the blog posts, written in Markdown
-- `src/assets/`: static assets such as images, fonts, and icons, as well as the CSS and JS files
+- `src/posts/*.md`: blog posts, written in Markdown
+- `src/static/`: static pages, written in Nunjucks
+- `src/_assets/`: static assets such as images, fonts, and icons, as well as the CSS and JS files
 - `src/_data/`: data files for the website
 - `src/_includes/`
-  - `src/_includes/layouts/`: layouts for the website
-  - `src/_includes/components/`: micro-components for the website
+  - `src/_layouts/`: layouts for the website
+  - `src/_includes/`: micro-components for the website
+- `src/_11ty/`: 11ty filters, shortcodes, collections, and utilities (`src/_11ty/utils/`)
 
 ## Credits
 
