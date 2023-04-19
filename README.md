@@ -1,15 +1,19 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0be102c8-f30f-48ad-a0f0-7fb84eea2740/deploy-status)](https://app.netlify.com/sites/uncenter/deploys)
-![Last Commit Date](https://img.shields.io/github/last-commit/uncenter/uncenter.org?color=pink)
-[![Wakatime](https://wakatime.com/badge/user/44269a44-02c2-486c-a2ea-494b7071737e/project/37a0a8c7-515a-4f8e-90bc-cfab440d9035.svg)](https://wakatime.com/badge/user/44269a44-02c2-486c-a2ea-494b7071737e/project/37a0a8c7-515a-4f8e-90bc-cfab440d9035)
-![](https://img.shields.io/badge/spaghetti%20code-yes-success)
+<div align="center">
 
-# uncenter.org
+![Wakatime](https://wakatime.com/badge/user/44269a44-02c2-486c-a2ea-494b7071737e/project/37a0a8c7-515a-4f8e-90bc-cfab440d9035.svg?style=for-the-badge)
 
-![GitHub](https://img.shields.io/github/license/uncenter/uncenter.org)
-![Website Status](https://img.shields.io/website?down_color=red&down_message=down&up_color=green&up_message=online&url=https%3A%2F%2Funcenter.org)
-![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Funcenter.org)
+<h1>uncenter.org</h1>
+
+![GitHub](https://img.shields.io/github/license/uncenter/uncenter.org?style=for-the-badge&color=blue)
+![Website Status](https://img.shields.io/website?down_color=red&down_message=down&up_color=a&up_message=online&url=https%3A%2F%2Funcenter.org&style=for-the-badge)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Funcenter.org&style=for-the-badge)
+![Netlify](https://img.shields.io/netlify/0be102c8-f30f-48ad-a0f0-7fb84eea2740?style=for-the-badge&color=9cf)
+![Last Commit Date](https://img.shields.io/github/last-commit/uncenter/uncenter.org?color=blueviolet&style=for-the-badge)
+![Spaghetti Code](https://img.shields.io/badge/SPAGHETTI%20CODE-yes-important?style=for-the-badge)
 
 This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and [Tailwind CSS](https://tailwindcss.com/).
+
+</div>
 
 ## About
 
