@@ -9,7 +9,7 @@ const markdownItAbbr = require('markdown-it-abbr');
 const markdownItSup = require('markdown-it-sup');
 const markdownItSub = require('markdown-it-sub');
 const markdownItContainer = require('markdown-it-container');
-const markdownItKBD = require('markdown-it-kbd');
+const markdownItKbd = require('markdown-it-kbd-better');
 const markdownItEmoji = require('markdown-it-emoji');
 
 const markdownLibrary = markdownIt({
@@ -49,7 +49,12 @@ const markdownLibrary = markdownIt({
 	.use(markdownItSup)
 	.use(markdownItSub)
 	.use(markdownItContainer, 'card')
-	.use(markdownItKBD)
+	.use(markdownItKbd, {
+		presets: [{ name: 'icons', options: { prefix: 'icon:' } }],
+		transform: (content) => {
+			return content[0].toUpperCase() + content.slice(1);
+		},
+	})
 	.use(markdownItEmoji);
 
 module.exports = {

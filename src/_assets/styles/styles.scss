@@ -282,6 +282,12 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	kbd {
+		@apply text-xs;
+	}
+}
+
 @layer components {
 	main a:not(.no-underline),
 	footer a:not(.no-underline) {

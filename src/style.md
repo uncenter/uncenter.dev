@@ -85,11 +85,12 @@ It needs some work... but it's a start! For you Firefox users (_cough_ me _cough
 
 <button class="btn">Button</button>
 
-[CSS]: Cascading Style Sheets
+<!-- prettier-ignore -->
+*[CSS]: Cascading Style Sheets
 
 ## Inline elements
 
-- Keyboard Input: [[⌘]] + [[Shift]] + [[P]]
+- Keyboard Input: [[icon:cmd]] + [[shift]] + [[p]]
 - Inline code - `Inline Code`
 - [This is an internal text link](#).
 - [This is an external text link](https://github.com)
