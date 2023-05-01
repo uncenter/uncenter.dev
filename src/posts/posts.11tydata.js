@@ -80,7 +80,6 @@ module.exports = {
 			) {
 				logOutput({
 					prefix: 'data:views',
-					action: 'skipping views for',
 					file: data.page.url,
 				});
 				return;
@@ -88,7 +87,6 @@ module.exports = {
 			if (process.env.NODE_ENV !== 'production') {
 				logOutput({
 					prefix: 'data:views',
-					action: 'randomizing views for',
 					file: data.page.url,
 				});
 				return Math.floor(Math.random() * 100);
@@ -102,32 +100,9 @@ module.exports = {
 			}
 			logOutput({
 				prefix: 'data:views',
-				action: 'fetching views for',
 				file: data.page.url,
-				extra: { content: `${views} views`, size: false },
 			});
 			return views;
-		},
-		updated: (data) => {
-			let timestamp = getGitLastUpdated(data.page.inputPath);
-			if (timestamp) {
-				timestamp = new Date(timestamp);
-				if (timestamp.getTimezoneOffset() === 0) {
-					corrected = DateTime.fromJSDate(timestamp)
-						.setZone('America/New_York')
-						.setZone('utc', { keepLocalTime: true })
-						.toISO();
-				} else {
-					corrected = DateTime.fromJSDate(timestamp)
-						.setZone('utc', { keepLocalTime: true })
-						.toISO();
-				}
-				return corrected;
-			}
-			return false;
-		},
-		published: (data) => {
-			return DateTime.fromJSDate(data.date).setZone('utc').toISO();
 		},
 		description: (data) => {
 			if (data.description) {
@@ -145,6 +120,9 @@ module.exports = {
 			if (data.micro) {
 				return `micro/${data.page.fileSlug}/`;
 			}
+		},
+		date: (data) => {
+			return DateTime.fromJSDate(new Date(data.date)).setZone('utc').toISO();
 		},
 	},
 };

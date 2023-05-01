@@ -78,14 +78,14 @@ function sum(a, b) {
 
 {% callout ":book: Info", "info" %}
 The above code block is using the [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) selector to blur the code that is not in focus. This is a new CSS selector that is not yet supported in all browsers. It should work in Chrome and Safari, but not in Firefox yet. I tried to enable it in Firefox with the `layout.css.has-selector.enabled` flag... and it looks like this:
-![Broken implementation of the :has() selector in Firefox](/assets/images/content/firefox-has-selector-failed.png)
+{% image "images/has-selector-failed.png", "Screenshot of failed implementation of the :has() selector in Firefox" %}
 It needs some work... but it's a start! For you Firefox users (_cough_ me _cough_), here's what it **should** look like:
-![Working implementation of the :has() selector in Safari](/assets/images/content/has-selector.png)
+{% image "images/has-selector-working.png", "Screenshot of working implementation of the :has() selector in Safari and Chrome" %}
 {% endcallout %}
 
 <button class="btn">Button</button>
 
-\*[CSS]: Cascading Style Sheets
+[CSS]: Cascading Style Sheets
 
 ## Inline elements
 

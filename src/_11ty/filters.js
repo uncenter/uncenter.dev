@@ -5,6 +5,7 @@ const { markdownLibrary } = require('../../utils/plugins/markdown');
 
 const wordCount = require('./utils/wordCount.js');
 const cleanContent = require('./utils/cleanContent.js');
+const combineText = require('./utils/combineText.js');
 
 const toDateTime = (dateObj) => {
 	return dateObj;
@@ -88,50 +89,6 @@ const dumpContents = (filePath) => {
 	return fileContents.toString('utf8');
 };
 
-// Adapted from https://github.com/johanbrook/eleventy-plugin-reading-time
-const getReadingTime = (
-	content,
-	{
-		useSeconds = false,
-		format = true,
-		speed = 235,
-		preText = '',
-		postText = 'min',
-	} = {},
-) => {
-	const htmlContent = typeof content === 'string' ? content : content.content; // If content is a raw already, use it directly. If it's a page object, use the content.
-
-	if (!htmlContent) {
-		return combineText(preText, '0', postText);
-	}
-
-	const count = wordCount(cleanContent(htmlContent));
-
-	let est = '';
-
-	if (useSeconds === true) {
-		const min = Math.floor(count / speed);
-		const sec = Math.floor((count % speed) / (speed / 60));
-
-		if (format === true) {
-			const mins = min + ' minute' + (min === 1 ? '' : 's') + ', ';
-			const secs = sec + ' second' + (sec === 1 ? '' : 's');
-			est = min > 0 ? mins + secs : secs;
-		} else {
-			est = min * 60 + sec;
-		}
-	} else {
-		const min = Math.ceil(count / speed);
-
-		if (format === true) {
-			est = combineText(preText, min, postText);
-		} else {
-			est = min;
-		}
-	}
-	return est;
-};
-
 const getWordCount = (content, { preText = '', postText = 'words' } = {}) => {
 	const htmlContent = typeof content === 'string' ? content : content.content;
 
@@ -177,36 +134,24 @@ const cleanFeed = (content) => {
 	return content;
 };
 
-module.exports = {
-	toDateTime,
-	toRFC3339,
-	toShortDate,
-	toMedDate,
-	toFullDate,
-	toShortDateTime,
-	toMedDateTime,
-	toFullDateTime,
-	toArray,
-	toHTML,
-	getCommitCategory,
-	getCommitMessage,
-	getReadingTime,
-	getWordCount,
-	getIndex,
-	isRecent,
-	dumpContents,
-	includes,
-	cleanFeed,
+module.exports = (eleventyConfig) => {
+	eleventyConfig.addFilter('toDateTime', toDateTime);
+	eleventyConfig.addFilter('toRFC3339', toRFC3339);
+	eleventyConfig.addFilter('toShortDate', toShortDate);
+	eleventyConfig.addFilter('toMedDate', toMedDate);
+	eleventyConfig.addFilter('toFullDate', toFullDate);
+	eleventyConfig.addFilter('toShortDateTime', toShortDateTime);
+	eleventyConfig.addFilter('toMedDateTime', toMedDateTime);
+	eleventyConfig.addFilter('toFullDateTime', toFullDateTime);
+	eleventyConfig.addFilter('toArray', toArray);
+	eleventyConfig.addFilter('toHTML', toHTML);
+	eleventyConfig.addFilter('getCommitCategory', getCommitCategory);
+	eleventyConfig.addFilter('getCommitMessage', getCommitMessage);
+	eleventyConfig.addFilter('readingTime', require('./utils/readingTime'));
+	eleventyConfig.addFilter('wordCount', getWordCount);
+	eleventyConfig.addFilter('getIndex', getIndex);
+	eleventyConfig.addFilter('isRecent', isRecent);
+	eleventyConfig.addFilter('dumpContents', dumpContents);
+	eleventyConfig.addFilter('includes', includes);
+	eleventyConfig.addFilter('cleanFeed', cleanFeed);
 };
-
-function combineText(pre, value, post) {
-	if (pre !== '' && postText !== '') {
-		return pre + ' ' + value + ' ' + post;
-	} else if (post !== '') {
-		return value + ' ' + post;
-	} else if (pre !== '') {
-		return pre + ' ' + value;
-	} else {
-		return value;
-	}
-}

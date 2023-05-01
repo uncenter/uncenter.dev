@@ -1,8 +1,8 @@
 ---
 tags: ['Pandas', 'Python', 'NiceGUI']
 title: Pandas DataFrame & NiceGUI
-date: 2023-03-13
 micro: true
+date: 2023-03-13
 ---
 
 In the process of making a GUI for my [`chemic`](https://github.com/uncenter/chemic) package through [NiceGUI](https://nicegui.io), I couldn't figure out how to use a Pandas DataFrame inside a NiceGUI Grid element.

@@ -1,8 +1,8 @@
 ---
 tags: ['Python']
 title: Add extra files to a Python package
-date: 2023-03-13
 micro: true
+date: 2023-03-13
 # cspell:ignore importlib
 ---
 

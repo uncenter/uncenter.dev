@@ -47,12 +47,8 @@ module.exports = async function () {
 	});
 	logOutput({
 		prefix: 'data:lighthouse',
-		action: 'fetched Lighthouse scores for',
 		file: meta.url,
-		extra: {
-			content: `${data.performance.score}% performance, ${data.accessibility.score}% accessibility, ${data['best-practices'].score}% best practices, ${data.seo.score}% SEO`,
-			size: false,
-		},
+		extra: `${data.performance.score}% performance, ${data.accessibility.score}% accessibility, ${data['best-practices'].score}% best practices, ${data.seo.score}% SEO`,
 	});
 
 	return {

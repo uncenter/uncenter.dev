@@ -1,8 +1,6 @@
 <div class="container flex flex-row flex-wrap gap-6 py-4 mb-4">
     <p class="my-0">{%- icon 'calendar' %}
-        <time datetime="{{ PUBLISHED | toDateTime }}">{{ PUBLISHED | toShortDate }}</time>
-        {%- if UPDATED and(UPDATED | toShortDate) != (PUBLISHED | toShortDate) %} (Edited {{ UPDATED | toShortDate }})
-        {% endif %}
+        <time datetime="{{ DATE | toDateTime }}">{{ DATE | toShortDate }}</time>
     </p>
     <p class="my-0">
         {%- icon 'eye' %}
@@ -23,5 +21,13 @@
             </a>
         {%- endfor -%}
     {%- endif -%}
-    {% include "bubbles.njk" %}
+    {%- if ARCHIVED -%}
+        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-yellow-200 rounded-full w-fit h-min">ARCHIVED</p>
+    {%- endif -%}
+    {%- if DRAFT -%}
+        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-blue-200 rounded-full w-fit h-min">DRAFT</p>
+    {%- endif -%}
+    {% if not DRAFT and(DATE | isRecent(7)) %}
+        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-green-200 rounded-full w-fit h-min">NEW</p>
+    {% endif %}
 </div>

@@ -1,8 +1,8 @@
 ---
 tags: ['11ty', 'icons']
 title: Include icons selectively with 11ty
-date: 2023-02-22
 description: A simple way to include only the icons you actually use.
+date: 2023-02-22
 ---
 
 While I was working on this project, I found a few other implementations of icon systems that I thought were worth mentioning. Benny Powers wrote about [a way to include sprites only when necessary](https://bennypowers.dev/posts/11ty-svg-sprites/) about a month ago, but sadly I couldn't get it to work, nor did I understand it enough to try to fix it. There are a few plugins for 11ty that do interesting things with SVGs[^1], but all I needed was a way to include SVGs on a page-by-page basis, which none of them did.

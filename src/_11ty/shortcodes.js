@@ -1,22 +1,18 @@
 const fs = require('fs');
-const path = require('path');
-const md5 = require('md5');
 const turndown = require('turndown');
 
 const Image = require('@11ty/eleventy-img');
-const EleventyFetch = require('@11ty/eleventy-fetch');
+const imageSize = require('image-size');
 const meta = require('../_data/meta.json');
 
 const { escape } = require('lodash');
-const { DateTime } = require('luxon');
 const { markdownLibrary } = require('../../utils/plugins/markdown');
-const { getReadingTime } = require('./filters.js');
 
+const getReadingTime = require('./utils/readingTime.js');
 const cleanContent = require('./utils/cleanContent.js');
 const wordCount = require('./utils/wordCount.js');
 const stringifyAttributes = require('./utils/stringifyAttributes.js');
 const logOutput = require('./utils/logOutput.js');
-const logSize = require('./utils/logSize.js');
 
 const getExcerpt = (page) => {
 	if (!page.hasOwnProperty('content')) {
@@ -112,201 +108,6 @@ const createCallout = (content, title, type) => {
 	);
 };
 
-// https://www.brycewray.com/posts/2022/08/static-embeds-eleventy/
-const createStaticToot = async (instance, id) => {
-	let stringToRet = ``;
-	let tootLink,
-		handleInst,
-		mediaMD5,
-		urlToGet,
-		mediaStuff,
-		videoStuff,
-		gifvStuff,
-		cardStuff,
-		pollStuff = '';
-	let imageCount,
-		votesCount = 0;
-
-	urlToGet = `https://` + instance + `/api/v1/statuses/` + id;
-
-	async function GetToot(tootURL) {
-		const response = await EleventyFetch(tootURL, {
-			duration: '2w',
-			type: 'json',
-		});
-		return response;
-	}
-
-	let Json = await GetToot(urlToGet);
-
-	if (Json.account) {
-		tootLink =
-			`https://` + instance + `@` + Json.account.acct + `/status/` + id;
-		handleInst = `@` + Json.account.acct + `@` + instance;
-	}
-
-	if (Json.media_attachments.length !== 0) {
-		mediaMD5 = md5(Json.media_attachments[0].url);
-		Json.media_attachments.forEach((type) => {
-			if (Json.media_attachments[0].type == 'image') {
-				imageCount = ++imageCount;
-			}
-		});
-		Json.media_attachments.forEach((type, meta) => {
-			if (Json.media_attachments[0].type == 'image') {
-				mediaStuff = ``;
-				mediaStuff =
-					mediaStuff +
-					`<div class="toot-img-grid-${imageCount}"><style>.img-${mediaMD5} {aspect-ratio: ${Json.media_attachments[0].meta.original.width} / ${Json.media_attachments[0].meta.original.height}}</style>`;
-				mediaStuff =
-					mediaStuff +
-					`<img src="${Json.media_attachments[0].url}" alt="Image ${Json.media_attachments[0].id} from toot ${id} on ${instance}" class="toot-media-img img-${mediaMD5}`;
-				if (Json.sensitive) {
-					mediaStuff = mediaStuff + ` toot-sens-blur`;
-				}
-				mediaStuff = mediaStuff + `" loading="lazy"`;
-				if (Json.sensitive) {
-					mediaStuff =
-						mediaStuff +
-						` onclick="this.classList.toggle('toot-sens-blur-no')"`;
-				}
-				mediaStuff = mediaStuff + `/>`;
-				if (Json.sensitive) {
-					mediaStuff =
-						mediaStuff +
-						`<div class="blur-text">Sensitive content<br />(flagged&nbsp;at&nbsp;origin)</div>`;
-				}
-				mediaStuff = mediaStuff + `</div>`;
-			}
-			if (Json.media_attachments[0].type == 'video') {
-				videoStuff = ``;
-				videoStuff =
-					videoStuff +
-					`<style>.img-${mediaMD5} {aspect-ratio: ${Json.media_attachments[0].meta.original.width} / ${Json.media_attachments[0].meta.original.height}}</style>`;
-				videoStuff =
-					videoStuff +
-					`<div class="ctr toot-video-wrapper"><video muted playsinline controls class="ctr toot-media-img img-${mediaMD5}`;
-				if (Json.sensitive) {
-					videoStuff = videoStuff + ` toot-sens-blur`;
-				}
-				videoStuff = videoStuff + `"`;
-				if (Json.sensitive) {
-					videoStuff =
-						videoStuff +
-						` onclick="this.classList.toggle('toot-sens-blur-no')"`;
-				}
-				videoStuff =
-					videoStuff +
-					`><source src="${Json.media_attachments[0].url}"><p class="legal ctr">(Your browser doesn&rsquo;t support the <code>video</code> tag.)</p></video>`;
-				if (Json.sensitive) {
-					videoStuff =
-						videoStuff +
-						`<div class="blur-text">Sensitive content<br />(flagged&nbsp;at&nbsp;origin)</div>`;
-				}
-				videoStuff = videoStuff + `</div>`;
-			}
-			if (Json.media_attachments[0].type == 'gifv') {
-				gifvStuff = ``;
-				gifvStuff =
-					gifvStuff +
-					`<style>.img-${mediaMD5} {aspect-ratio: ${Json.media_attachments[0].meta.original.width} / ${Json.media_attachments[0].meta.original.height}}</style>`;
-				gifvStuff =
-					gifvStuff +
-					`<div class="ctr toot-video-wrapper"><video loop autoplay muted playsinline controls controlslist="nofullscreen" class="ctr toot-media-img img-${mediaMD5}`;
-				if (Json.sensitive) {
-					gifvStuff = gifvStuff + `toot-sens-blur`;
-				}
-				gifvStuff = gifvStuff + `"`;
-				if (Json.sensitive) {
-					gifvStuff =
-						gifvStuff + ` onclick="this.classList.toggle('toot-sens-blur-no')"`;
-				}
-				gifvStuff =
-					gifvStuff +
-					`><source src="${Json.media_attachments[0].url}"><p class="legal ctr">(Your browser doesn&rsquo;t support the <code>video</code> tag.)</p></video>`;
-				if (Json.sensitive) {
-					gifvStuff =
-						gifvStuff +
-						`<div class="blur-text">Sensitive content<br />(flagged&nbsp;at&nbsp;origin)</div>`;
-				}
-				gifvStuff = gifvStuff + `</div>`;
-			}
-		});
-	}
-
-	if (Json.card !== null) {
-		cardStuff = ``;
-		cardStuff =
-			cardStuff +
-			`<a href="${Json.card.url}" rel="noopener"><div class="toot-card"><div class="toot-card-image"><img src="${Json.card.image}" alt="Card image from ${instance} toot ${id}" loading="lazy" class="toot-card-image-image" /></div><div class="toot-card-content"><p class="card-title">${Json.card.title}</p><p class="card-description">${Json.card.description}</p></div></div></a>`;
-	}
-
-	if (Json.poll !== null) {
-		votesCount = Json.poll.votes_count;
-		let pollIterator = 0;
-		pollStuff = ``;
-		pollStuff = pollStuff + `<div class="toot-poll-wrapper">`;
-		Json.poll.options.forEach((options) => {
-			pollStuff =
-				pollStuff +
-				`<div class="toot-poll-count"><strong>${(
-					Json.poll.options[pollIterator].votes_count / votesCount
-				).toLocaleString('en', {
-					style: 'percent',
-					minimumFractionDigits: 1,
-					maximumFractionDigits: 1,
-				})}</strong></div><div class="toot-poll-meter"><meter id="vote-count" max="${votesCount}" value=${
-					Json.poll.options[pollIterator].votes_count
-				}></meter></div><div class="toot-poll-title">${
-					Json.poll.options[pollIterator].title
-				}</div>`;
-			pollIterator = ++pollIterator;
-		});
-		pollStuff =
-			pollStuff +
-			`</div><p class="legal toot-poll-total">${votesCount} people</p>`;
-	}
-
-	if (Json.content) {
-		stringToRet = `<blockquote class="toot-blockquote base-link" cite="${tootLink}" data-pagefind-ignore>
-            <div class="toot-header">
-                <a class="toot-profile base-link" href="https://${instance}/@${Json.account.acct}" rel="noopener"><img src="${Json.account.avatar}" alt="Mastodon avatar for ${handleInst}" loading="lazy" /></a>
-                <div class="toot-author">
-                    <a class="toot-author-name base-link" href="https://${instance}/@${Json.account.acct}" rel="noopener">${Json.account.display_name}</a>
-                    <a class="toot-author-handle base-link" href="https://${instance}/@${Json.account.acct}" rel="noopener">${handleInst}</a>
-                </div>
-            </div>
-            <p class="toot-body">${Json.content}</p>`;
-		if (mediaStuff) {
-			stringToRet += `<div>${mediaStuff}</div>`;
-		}
-		if (videoStuff) {
-			stringToRet += `<div>${videoStuff}</div>`;
-		}
-		if (gifvStuff) {
-			stringToRet += `<div>${gifvStuff}</div>`;
-		}
-		if (cardStuff) {
-			stringToRet += `<div>${cardStuff}</div>`;
-		}
-		if (pollStuff) {
-			stringToRet += `<div>${pollStuff}</div>`;
-		}
-
-		let timeToFormat = Json.created_at;
-		let formattedTime = DateTime.fromISO(timeToFormat, {
-			zone: 'utc',
-		}).toFormat('h:mm a • MMMM d, yyyy');
-
-		stringToRet += `<div class="toot-footer">
-                <a href="https://${instance}/@${Json.account.acct}/${Json.id}" class="toot-date base-link" rel="noopener">${formattedTime}</a>&nbsp;<span class="legal">(UTC)</span>
-            </div>
-        </blockquote>`;
-	}
-
-	return stringToRet;
-};
-
 const insertGiscusScript = () => {
 	const repo = 'R_kgDOHSjhjQ';
 	const category = 'DIC_kwDOHSjhjc4CTQUr';
@@ -336,114 +137,86 @@ const insertGiscusScript = () => {
     </script>`;
 };
 
-const insertImage = async function genImage(
-	src,
-	alt,
-	baseFormat = 'jpeg',
-	optimizedFormats = ['webp'],
-	widths = [400, 800],
-	sizes = '100vw',
-	className = '',
-	isLinked = true,
-	isLazy = true,
-) {
-	originalFileSize =
-		fs.statSync(path.join(__dirname, '../', this.page.url, src)).size / 1000;
+const insertImage = async function (src, alt, width, height) {
+	if (!width || !height) {
+		const originalDimensions = imageSize.imageSize(src);
 
-	pathToImage = path.join(__dirname, '../', this.page.url, src);
+		width = originalDimensions.width;
+		height = originalDimensions.height;
+	}
 
-	const imageOptions = {
-		// Always include the original image width in the output
-		widths: [null, ...widths],
-		// List optimized formats before the base format so that the output contains webp sources before jpegs.
-		formats: [...optimizedFormats, baseFormat],
-		// Where the generated image files get saved
-		outputDir: 'dist/assets/images',
-		// Public URL path that's referenced in the img tag's src attribute
-		urlPath: '/assets/images',
-		filenameFormat: function (id, src, width, format, options) {
-			const extension = path.extname(src);
-			const name = path.basename(src, extension);
+	const data = await Image(src, {
+		widths: [640, 750, 828, 1080, 1200, 1920, 2048, 3840, width]
+			.filter((a) => a <= width)
+			.sort((a, b) => a - b),
+		formats: ['avif', 'webp', 'png'],
+		outputDir: 'dist/images',
+		urlPath: '/images/',
+	});
 
-			return `${name}-${width}w.${format}`;
-		},
-	};
-	const imageMetadata = await Image(pathToImage, imageOptions);
 	logOutput({
 		prefix: 'assets:images',
-		action: 'optimizing',
-		file: this.page.url + src,
-		extra: {
-			content: `${logSize(imageMetadata[baseFormat][0].size)} --> ${logSize(
-				originalFileSize,
-			)}`,
-			size: false,
-		},
+		file: src,
 	});
 
 	const getLargestImage = (format) => {
-		const images = imageMetadata[format];
+		const images = data[format];
 		return images[images.length - 1];
 	};
 
 	const largestImages = {
-		base: getLargestImage(baseFormat),
-		optimized: getLargestImage(optimizedFormats[0]),
+		base: getLargestImage('png'),
+		optimized: getLargestImage('webp'),
 	};
 
-	const { width, height } = largestImages.base;
-
-	const pictureAttributes = '';
-
-	const imgAttributes = stringifyAttributes({
-		width,
-		height,
-		class: 'container',
-		src: largestImages.base.url,
-		alt: escape(alt),
-		loading: isLazy ? 'lazy' : undefined,
-		decoding: 'async',
-	});
-
-	/** Returns source elements as an HTML string. */
-	const sources = Object.values(imageMetadata)
+	const sources = Object.values(data)
 		.map((formatEntries) => {
 			const { sourceType } = formatEntries[0];
 			const srcset = formatEntries.map((image) => image.srcset).join(', ');
 
-			const sourceAttributes = stringifyAttributes({
+			return `<source ${stringifyAttributes({
 				type: sourceType,
 				srcset,
-				sizes,
-			});
-
-			return `<source ${sourceAttributes}>`;
+				sizes: `(min-width: 70ch) 70ch, 100vw`,
+			})}>`;
 		})
 		.join('\n');
 
-	const picture = `${
-		isLinked
-			? `<a class="no-underline" href="${largestImages.optimized.url}">`
-			: ''
-	}
-    <picture ${pictureAttributes}>
+	const picture = `
+<a class="no-underline" href="${largestImages.optimized.url}">
+    <picture>
         ${sources}
-        <img ${imgAttributes}>
+        <img ${stringifyAttributes({
+					height: largestImages.base.height,
+					width: largestImages.base.width,
+					class: 'container',
+					src: largestImages.base.url,
+					alt: escape(alt),
+					loading: 'lazy',
+					decoding: 'async',
+					sizes: `(min-width: 70ch) 70ch, 100vw`,
+					style: `content-visibility: auto; background-size: cover; background-image: none;`,
+				})}>
     </picture>
-${isLinked ? '</a>' : ''}
+</a>
 `;
 
 	return picture;
 };
 
-module.exports = {
-	getExcerpt,
-	getCollectionWordCount,
-	getCollectionReadingTime,
-	getCollectionWordCountAverage,
-	getCollectionAverageWordLength,
-	createCallout,
-	createStaticToot,
-	insertGiscusScript,
-	insertImage,
+module.exports = (eleventyConfig) => {
+	eleventyConfig.addShortcode('excerpt', getExcerpt);
+	eleventyConfig.addShortcode('totalWordCount', getCollectionWordCount);
+	eleventyConfig.addShortcode('totalReadingTime', getCollectionReadingTime);
+	eleventyConfig.addShortcode(
+		'wordCountAverage',
+		getCollectionWordCountAverage,
+	);
+	eleventyConfig.addShortcode(
+		'wordLengthAverage',
+		getCollectionAverageWordLength,
+	);
+	eleventyConfig.addPairedShortcode('callout', createCallout);
+	eleventyConfig.addShortcode('giscus', insertGiscusScript);
+	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
 };

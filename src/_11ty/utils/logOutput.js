@@ -1,8 +1,7 @@
 const Chalk = require('chalk');
-const logSize = require('./logSize');
 
 module.exports = (options) => {
-	let { prefix, action, file, extra } = options;
+	let { prefix, file } = options;
 	const types = {
 		styles: Chalk.hex('#FF00FF'),
 		scripts: Chalk.yellow,
@@ -15,7 +14,6 @@ module.exports = (options) => {
 		assets: Chalk.green,
 		data: Chalk.cyan,
 	};
-	// TYPE: [11ty][category:type]
 	if (prefix === undefined) {
 		return;
 	}
@@ -31,41 +29,7 @@ module.exports = (options) => {
 	} else {
 		prefix = `[11ty][${categoryColor(category)}:${typeColor(type)}]`;
 	}
-	// ACTION: <action>
-	action = action.charAt(0).toUpperCase() + action.slice(1);
-
-	if (!extra) {
-		console.log(`${prefix} ${action} ${Chalk.bold(file)}`);
-		return;
-	} else {
-		const { content, size } = extra;
-		if (content === undefined) {
-			console.log(`${prefix} ${action} ${Chalk.bold(file)}`);
-			console.log(`\t${Chalk.red('WARNING:')} No content provided.`);
-			console.log(
-				`\t${Chalk.yellow(
-					'To fix, add a `content` property to the `extra` object or remove the `extra` object.',
-				)}`,
-			);
-			return;
-		}
-		if (size === undefined) {
-			console.log(`${prefix} ${action} ${Chalk.bold(file)}`);
-			console.log(`\t${Chalk.red('WARNING:')} No size provided.`);
-			console.log(
-				`\t${Chalk.yellow(
-					'To fix, add a `size` property (boolean) to the `extra` object or remove the `extra` object.',
-				)}`,
-			);
-			return;
-		}
-		if (!size) {
-			console.log(`${prefix} ${action} ${Chalk.bold(file)} (${content})`);
-			return;
-		}
-		const kb = parseFloat(content).toFixed(2);
-		let sizeStr = `(${logSize(kb)})`;
-		console.log(`${prefix} ${action} ${Chalk.bold(file)} ${sizeStr}`);
-		return;
-	}
+	console.log(
+		`${prefix} ${Chalk.bold(file)} ${options.extra ? options.extra : ''}`,
+	);
 };

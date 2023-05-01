@@ -1,8 +1,8 @@
 ---
 tags: ['Tailwind']
 title: Disabling a Tailwind component
-date: 2023-02-25
 micro: true
+date: 2023-02-25
 ---
 
 Ran into an issue with Tailwind components today. I tried to reduce redundancy in my Tailwind classes by making a class for all of my containers/cards, but in doing so stumbled upon the [Container component](https://tailwindcss.com/docs/container) (I tried using the `.container` class). By default, it sets with `width`/`max-width`, which messed up the layout.

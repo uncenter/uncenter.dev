@@ -4,7 +4,6 @@ const Blob = require('buffer').Blob;
 const sass = require('sass');
 
 const logOutput = require('../../_11ty/utils/logOutput.js');
-const logSize = require('../../_11ty/utils/logSize.js');
 
 class Page {
 	data() {
@@ -21,14 +20,10 @@ class Page {
 		let content = result.css.toString();
 		logOutput({
 			prefix: 'assets:styles',
-			action: 'compiling',
 			file: 'styles.scss',
-			extra: {
-				content: `${logSize(
-					new Blob([fs.readFileSync(source)]).size / 1000,
-				)} --> ${logSize(new Blob([content]).size / 1000)}`,
-				size: false,
-			},
+			extra: `${new Blob([fs.readFileSync(source)]).size / 1000} --> ${
+				new Blob([content]).size / 1000
+			}`,
 		});
 		source = `${__dirname}/styles.css`;
 
@@ -45,14 +40,10 @@ class Page {
 		});
 		logOutput({
 			prefix: 'assets:styles',
-			action: 'Tailwindifying',
 			file: 'styles.css',
-			extra: {
-				content: `${logSize(new Blob([content]).size / 1000)} --> ${logSize(
-					new Blob([css.content]).size / 1000,
-				)}`,
-				size: false,
-			},
+			extra: `${new Blob([content]).size / 1000} --> ${
+				new Blob([css.content]).size / 1000
+			}`,
 		});
 
 		return css.content;

@@ -4,7 +4,7 @@
             <h2 class="mb-6 text-2xl font-bold">
                 <a href="{{ post.url | url }}">{{ post.data.title }}</a>
             </h2>
-            {% set PUBLISHED = post.data.published %}
+            {% set DATE = post.data.date %}
             {% set UPDATED = post.data.updated %}
             {% set CONTENT = post.content %}
             {% set TAGS = post.data.tags %}

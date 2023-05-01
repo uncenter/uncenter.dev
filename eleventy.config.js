@@ -1,44 +1,6 @@
-const {
-	getExcerpt,
-	getCollectionWordCount,
-	getCollectionReadingTime,
-	getCollectionWordCountAverage,
-	getCollectionAverageWordLength,
-	createCallout,
-	createStaticToot,
-	insertGiscusScript,
-	insertImage,
-} = require('./src/_11ty/shortcodes.js');
-const {
-	getPosts,
-	getMicroPosts,
-	getAllPosts,
-	getArchivedPosts,
-	getCustomCollections,
-	getAllTags,
-	getRecentChangesByDate,
-} = require('./src/_11ty/collections.js');
-const {
-	toDateTime,
-	toRFC3339,
-	toShortDate,
-	toMedDate,
-	toFullDate,
-	toShortDateTime,
-	toMedDateTime,
-	toFullDateTime,
-	toArray,
-	toHTML,
-	getCommitCategory,
-	getCommitMessage,
-	getReadingTime,
-	getWordCount,
-	getIndex,
-	isRecent,
-	dumpContents,
-	includes,
-	cleanFeed,
-} = require('./src/_11ty/filters.js');
+const shortcodes = require('./src/_11ty/shortcodes.js');
+const collections = require('./src/_11ty/collections.js');
+const filters = require('./src/_11ty/filters.js');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const inProduction = process.env.NODE_ENV === 'production';
@@ -54,52 +16,9 @@ const pluginIcons = require('eleventy-plugin-icons');
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
-	/* Collections */
-	eleventyConfig.addCollection('posts', getPosts);
-	eleventyConfig.addCollection('microPosts', getMicroPosts);
-	eleventyConfig.addCollection('allPosts', getAllPosts);
-	eleventyConfig.addCollection('archivedPosts', getArchivedPosts);
-	eleventyConfig.addCollection('custom', getCustomCollections);
-	eleventyConfig.addCollection('allTags', getAllTags);
-	eleventyConfig.addCollection('recentChanges', getRecentChangesByDate);
-
-	/* Filters */
-	eleventyConfig.addFilter('toDateTime', toDateTime);
-	eleventyConfig.addFilter('toRFC3339', toRFC3339);
-	eleventyConfig.addFilter('toShortDate', toShortDate);
-	eleventyConfig.addFilter('toMedDate', toMedDate);
-	eleventyConfig.addFilter('toFullDate', toFullDate);
-	eleventyConfig.addFilter('toShortDateTime', toShortDateTime);
-	eleventyConfig.addFilter('toMedDateTime', toMedDateTime);
-	eleventyConfig.addFilter('toFullDateTime', toFullDateTime);
-	eleventyConfig.addFilter('toArray', toArray);
-	eleventyConfig.addFilter('toHTML', toHTML);
-	eleventyConfig.addFilter('getCommitCategory', getCommitCategory);
-	eleventyConfig.addFilter('getCommitMessage', getCommitMessage);
-	eleventyConfig.addFilter('readingTime', getReadingTime);
-	eleventyConfig.addFilter('wordCount', getWordCount);
-	eleventyConfig.addFilter('getIndex', getIndex);
-	eleventyConfig.addFilter('isRecent', isRecent);
-	eleventyConfig.addFilter('dumpContents', dumpContents);
-	eleventyConfig.addFilter('includes', includes);
-	eleventyConfig.addFilter('cleanFeed', cleanFeed);
-
-	/* Shortcodes */
-	eleventyConfig.addShortcode('excerpt', getExcerpt);
-	eleventyConfig.addShortcode('totalWordCount', getCollectionWordCount);
-	eleventyConfig.addShortcode('totalReadingTime', getCollectionReadingTime);
-	eleventyConfig.addShortcode(
-		'wordCountAverage',
-		getCollectionWordCountAverage,
-	);
-	eleventyConfig.addShortcode(
-		'wordLengthAverage',
-		getCollectionAverageWordLength,
-	);
-	eleventyConfig.addNunjucksAsyncShortcode('stoot', createStaticToot);
-	eleventyConfig.addPairedShortcode('callout', createCallout);
-	eleventyConfig.addShortcode('giscus', insertGiscusScript);
-	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
+	eleventyConfig.addPlugin(shortcodes);
+	eleventyConfig.addPlugin(collections);
+	eleventyConfig.addPlugin(filters);
 
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginTOC, { ul: true });

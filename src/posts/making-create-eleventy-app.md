@@ -1,12 +1,12 @@
 ---
 tags: ['11ty']
 title: Behind the scenes of create-eleventy-app
-date: 2023-03-05
 description: The process of making a new tool for creating Eleventy sites.
+date: 2023-03-05
 # cspell:ignore Bjankord
 ---
 
-The other day, after exploring Node and CLI tools with [unvarify](https://github.com/uncenter/unvarify), I was eager to make something else. There are already some existing projects like this out there, such as [create-eleventy-site by Bjankord](https://github.com/bjankord/create-eleventy-site), but I wanted to make something that was a little less opinionated and more customizable. It needs to be clear, concise, and easy to use for people new to Eleventy but also provide advanced configuration for people familiar with Eleventy to quickly jump-start a new site.
+The other day, after exploring Node and CLI tools with a mini-project, [unvarify](https://github.com/uncenter/unvarify), I was eager to make something else. There are already some existing projects like this out there, such as [create-eleventy-site by Bjankord](https://github.com/bjankord/create-eleventy-site), but I wanted to make something that was a little less opinionated and more customizable. It needs to be clear, concise, and easy to use for people new to Eleventy but also provide advanced configuration for people familiar with Eleventy to quickly jump-start a new site.
 
 ## The process
 
@@ -30,7 +30,7 @@ Finally, we add the `dir` section of the config file. This is where we set the i
 
 Next, we add the assets and dotfiles. The `index.md` homepage is based on the `create-eleventy-site` template, which is designed to look like the other `create-____-app` tools.
 
-{% image "example.png", "Screenshot of the generated homepage" %}
+{% image "images/making-create-eleventy-app/example.png", "Screenshot of the generated homepage" %}
 
 For the homepage, we copy over the images, styling, layout, and `index.md` page.
 

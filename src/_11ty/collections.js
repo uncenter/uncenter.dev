@@ -128,12 +128,12 @@ const getSeries = (collectionApi) => {
 	return normalized;
 };
 
-module.exports = {
-	getPosts,
-	getMicroPosts,
-	getAllPosts,
-	getArchivedPosts,
-	getCustomCollections,
-	getAllTags,
-	getRecentChangesByDate,
+module.exports = (eleventyConfig) => {
+	eleventyConfig.addCollection('posts', getPosts);
+	eleventyConfig.addCollection('microPosts', getMicroPosts);
+	eleventyConfig.addCollection('allPosts', getAllPosts);
+	eleventyConfig.addCollection('archivedPosts', getArchivedPosts);
+	eleventyConfig.addCollection('custom', getCustomCollections);
+	eleventyConfig.addCollection('allTags', getAllTags);
+	eleventyConfig.addCollection('recentChanges', getRecentChangesByDate);
 };

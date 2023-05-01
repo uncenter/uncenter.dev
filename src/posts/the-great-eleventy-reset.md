@@ -1,9 +1,9 @@
 ---
 tags: ['11ty']
 title: Starting from scratch with Eleventy
-date: 2023-02-21
 description: A new structure, new icons, and new styling.
 archived: true
+date: 2023-02-21
 # cspell:ignore Barabara Devries
 ---
 
