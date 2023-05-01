@@ -1,0 +1,11 @@
+<ul class="flex flex-row gap-2 m-4 mt-2 text-xs text-gray-600"
+    aria-labelledby="lighthouse-scores"
+>
+    {% for key, result in lighthouse.categories %}
+        <li
+    class="flex items-center justify-center cursor-help rounded-full h-8 w-8 border-2 {{ 'border-[#16a34a]' if result.grade === 'good' else 'border-yellow-400' }}"
+    data-tooltip="{{ result.title }}" data-tooltip-bottom
+    >{{ result.score }}
+        </li>
+    {% endfor %}
+</ul>

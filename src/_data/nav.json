@@ -14,11 +14,6 @@
 			"title": "Uses",
 			"urls": ["/uses/"],
 			"icon": "bookmark"
-		},
-		{
-			"title": "About",
-			"urls": ["/about/"],
-			"icon": "info"
 		}
 	],
 	"bottom": [
