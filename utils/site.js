@@ -14,39 +14,6 @@ const ASSETS_IMG_DIR = path.join(__dirname, '../src/_assets/images/content');
 
 const IGNORE_FILES = ['posts.11tydata.js', 'posts.json', 'index.md'];
 
-// from blakeembrey/change-case
-// https://github.com/blakeembrey/change-case/blob/master/packages/title-case/src/index.ts
-// license: MIT
-function titleCase(input) {
-	const SMALL_WORDS =
-		/\b(?:an?d?|a[st]|because|but|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b/i;
-	const TOKENS = /[^\s:–—-]+|./g;
-	const WHITESPACE = /\s/;
-	const IS_MANUAL_CASE = /.(?=[A-Z]|\..)/;
-	const ALPHANUMERIC_PATTERN = /[A-Za-z0-9\u00C0-\u00FF]/;
-	var result = '';
-	var m;
-	while ((m = TOKENS.exec(input)) !== null) {
-		var token = m[0],
-			index = m.index;
-		if (
-			!IS_MANUAL_CASE.test(token) &&
-			(!SMALL_WORDS.test(token) ||
-				index === 0 ||
-				index + token.length === input.length) &&
-			(input.charAt(index + token.length) !== ':' ||
-				WHITESPACE.test(input.charAt(index + token.length + 1)))
-		) {
-			result += token.replace(ALPHANUMERIC_PATTERN, function (m) {
-				return m.toUpperCase();
-			});
-			continue;
-		}
-		result += token;
-	}
-	return result;
-}
-
 function getPostTitle(filepath) {
 	const content = fs.readFileSync(filepath, 'utf8');
 	const title = content.match(/(?<=^title: ).*$/m);
@@ -102,7 +69,6 @@ async function newPost() {
 			return true;
 		},
 	});
-	title = titleCase(title.answer);
 	assets = await inquirer.prompt({
 		type: 'confirm',
 		name: 'answer',
@@ -121,7 +87,7 @@ async function newPost() {
 		'Python',
 		'Tailwind',
 	];
-	for (let word of title.split(' ')) {
+	for (let word of title.answer.split(' ')) {
 		word = word.toLowerCase();
 		for (let keyword of keywords) {
 			if (typeof keyword === 'string') {
@@ -145,7 +111,7 @@ async function newPost() {
 
 	content = outdent`---
     tags: [${tagString}]
-    title: ${title}
+    title: ${title.answer}
     date: ${date}
     description:
     draft: true
@@ -153,10 +119,10 @@ async function newPost() {
     ---\n`;
 
 	if (assets) {
-		const dirname = lodash.kebabCase(title);
+		const dirname = lodash.kebabCase(title.answer);
 		const dirpath = path.join(POSTS_DIR, dirname);
 		fs.mkdirSync(dirpath);
-		fs.writeFileSync(path.join(dirpath, 'index.md'), content);
+		await fs.promises.writeFile(path.join(dirpath, 'index.md'), content);
 		console.log(
 			Chalk.green(`✔ Success!`) +
 				` Created ${Chalk.underline(
@@ -165,82 +131,13 @@ async function newPost() {
 		);
 		return;
 	}
-	const filename = lodash.kebabCase(title) + '.md';
+	const filename = lodash.kebabCase(title.answer) + '.md';
 	const filepath = path.join(POSTS_DIR, filename);
-	fs.writeFileSync(filepath, content);
+	await fs.promises.writeFile(filepath, content);
 	console.log(
 		Chalk.green(`✔ Success!`) +
 			` Created ${Chalk.bold(filename)} (${Chalk.underline(filepath)})`,
 	);
-}
-
-async function renamePost() {
-	const existingFiles = getExistingPosts();
-	const file = await inquirer.prompt({
-		type: 'list',
-		name: 'answer',
-		message: 'Which post would you like to rename?',
-		choices: Object.values(existingFiles).map((post) => post.title),
-	});
-	let oldPath = existingFiles.find((post) => post.title === file.answer).path;
-	const oldContent = fs.readFileSync(oldPath, 'utf8');
-	const oldTitle = oldContent.match(/title: (.*)/)[1];
-	const newTitle = await inquirer.prompt({
-		type: 'input',
-		name: 'answer',
-		message: 'Enter a new title for the post:',
-		validate: function (value) {
-			if (value.trim() === '') {
-				return 'Please provide a title.';
-			}
-			if (value === oldTitle) {
-				return 'Please provide a new title.';
-			}
-			let temp = lodash.kebabCase(value);
-			if (fs.existsSync(path.join(POSTS_DIR, temp + '.md'))) {
-				return (
-					Chalk.red(`File already exists: `) + Chalk.underline(temp + '.md')
-				);
-			} else if (fs.existsSync(path.join(POSTS_DIR, temp, 'index.md'))) {
-				return (
-					Chalk.red(`File already exists: `) +
-					Chalk.underline(path.join(temp, 'index.md'))
-				);
-			}
-			return true;
-		},
-	});
-	if (oldPath.includes('index.md')) {
-		oldPath = path.dirname(oldPath);
-		console.log(oldPath);
-	}
-	let newPath;
-	if (oldPath.endsWith('.md')) {
-		newPath = path.join(POSTS_DIR, lodash.kebabCase(newTitle.answer) + '.md');
-		newContentPath = path.join(
-			POSTS_DIR,
-			lodash.kebabCase(newTitle.answer) + '.md',
-		);
-	} else {
-		newPath = path.join(POSTS_DIR, lodash.kebabCase(newTitle.answer));
-		newContentPath = path.join(
-			POSTS_DIR,
-			lodash.kebabCase(newTitle.answer),
-			'index.md',
-		);
-	}
-	fs.renameSync(oldPath, newPath);
-	fs.writeFileSync(
-		newContentPath,
-		oldContent.replace(oldTitle, titleCase(newTitle.answer)),
-	);
-	console.log(
-		Chalk.green(`✔ Success!`) +
-			` Renamed ${Chalk.bold(file.answer)} to ${Chalk.bold(
-				titleCase(newTitle.answer),
-			)} (${Chalk.underline(newPath)})`,
-	);
-	return;
 }
 
 async function deletePost() {
@@ -266,8 +163,8 @@ async function deletePost() {
 		return;
 	}
 	if (filepath.includes('index.md')) {
-		const EXISTING_ASSETS = fs
-			.readdirSync(filepath.replace('index.md', ''))
+		const EXISTING_ASSETS = await fs.promises
+			.readdir(filepath.replace('index.md', ''))
 			.filter((file) => file !== 'index.md');
 		if (EXISTING_ASSETS.length > 0) {
 			const keepAssets = await inquirer.prompt({
@@ -283,7 +180,7 @@ async function deletePost() {
 					}
 					let assetpath = path.join(filepath.replace('index.md', ''), asset);
 					if (!fs.existsSync(path.join(POSTS_DIR, asset))) {
-						fs.copyFileSync(assetpath, path.join(POSTS_DIR, asset));
+						await fs.promises.copyFile(assetpath, path.join(POSTS_DIR, asset));
 						console.log(
 							Chalk.green(`✔ Copied `) +
 								Chalk.underline(assetpath) +
@@ -291,7 +188,10 @@ async function deletePost() {
 								Chalk.underline(path.join(POSTS_DIR, asset)),
 						);
 					} else if (!fs.existsSync(path.join(ASSETS_IMG_DIR, asset))) {
-						fs.copyFileSync(assetpath, path.join(ASSETS_IMG_DIR, asset));
+						await fs.promises.copyFile(
+							assetpath,
+							path.join(ASSETS_IMG_DIR, asset),
+						);
 						console.log(
 							Chalk.green(`✔ Copied `) +
 								Chalk.underline(filepath) +
@@ -322,7 +222,7 @@ async function deletePost() {
 							choices: [POSTS_DIR, ASSETS_IMG_DIR],
 						});
 						if (overwrite.answer) {
-							fs.copyFileSync(
+							await fs.promises.copyFile(
 								path.join(filepath, asset),
 								path.join(overwritePath.answer, asset),
 							);
@@ -338,9 +238,9 @@ async function deletePost() {
 				}
 			}
 		}
-		fs.rmSync(filepath.replace('index.md', ''), { recursive: true });
+		await fs.promises.rm(filepath.replace('index.md', ''), { recursive: true });
 	} else {
-		fs.rmSync(filepath);
+		await fs.promises.rm(filepath);
 	}
 	console.log(
 		Chalk.green(`✔ Success!`) +
@@ -359,8 +259,8 @@ async function run() {
 		case 'New':
 			newPost();
 			break;
-		case 'Rename':
-			renamePost();
+		case 'Convert':
+			convertPost();
 			break;
 		case 'Delete':
 			deletePost();
