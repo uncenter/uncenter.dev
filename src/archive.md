@@ -5,7 +5,7 @@ templateEngineOverride: njk
 eleventyExcludeFromCollections: true
 ---
 
-<p>You can find all of my archived articles here. For current articles, see <a href="/posts/">my blog</a>.</p>
+<p>These articles do not match my writing standards or are no longer relevant. For current articles, see <a href="/posts/">my blog</a>.</p>
 
 {% set posts = collections.archivedPosts | reverse %}
 {% include "posts.njk" %}

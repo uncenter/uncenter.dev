@@ -1,7 +1,7 @@
 ---
 tags: ['11ty']
-title: A few thoughts on the Eleventy website
-description: Some opinionated observations about the Eleventy website.
+title: On Eleventy
+description: Some thoughts on the Eleventy website and community.
 date: 2023-03-16
 # cspell:ignore darthmall
 ---

@@ -3,6 +3,7 @@ tags: ['11ty']
 title: Behind the scenes of create-eleventy-app
 description: The process of making a new tool for creating Eleventy sites.
 date: 2023-03-05
+archived: true
 # cspell:ignore Bjankord
 ---
 

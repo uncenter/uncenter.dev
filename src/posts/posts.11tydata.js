@@ -64,7 +64,7 @@ function getGitLastUpdated(filePath) {
 module.exports = {
 	eleventyComputed: {
 		eleventyExcludeFromCollections: (data) => {
-			if (!isDevelopment && data.draft) {
+			if ((!isDevelopment && data.draft) || data.unlisted) {
 				return true;
 			} else {
 				return data.eleventyExcludeFromCollections;
@@ -112,14 +112,6 @@ module.exports = {
 				return 'A tiny post about a tiny thing.';
 			}
 			return 'A post about a thing.';
-		},
-		permalink: (data) => {
-			if (data.permalink) {
-				return data.permalink;
-			}
-			if (data.micro) {
-				return `micro/${data.page.fileSlug}/`;
-			}
 		},
 		date: (data) => {
 			return DateTime.fromJSDate(new Date(data.date)).setZone('utc').toISO();

@@ -18,6 +18,9 @@ const getExcerpt = (page) => {
 	if (!page.hasOwnProperty('content')) {
 		return null;
 	}
+	if (page.hasOwnProperty('excerpt')) {
+		return page.excerpt;
+	}
 
 	let content = page.content.trim();
 

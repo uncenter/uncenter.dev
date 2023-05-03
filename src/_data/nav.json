@@ -6,11 +6,6 @@
 			"icon": "pencil"
 		},
 		{
-			"title": "Microblog",
-			"urls": ["/micro/"],
-			"icon": "minimize-2"
-		},
-		{
 			"title": "Uses",
 			"urls": ["/uses/"],
 			"icon": "bookmark"
