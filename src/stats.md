@@ -5,8 +5,6 @@ collection: 'more'
 icon: 'bar-chart-3'
 ---
 
-Here are my _slightly embarrassing_ stats about this site and my blog.
-
 {% for collection, label in {
     "posts": "Published posts",
     "archivedPosts": "Archived posts",
@@ -22,23 +20,23 @@ Here are my _slightly embarrassing_ stats about this site and my blog.
     <tbody>
         <tr>
             <th>Posts</th>
-            <td>{{ collections[collection].length }}</td>
+            <td>{{ collections[ collection ].length }}</td>
         </tr>
         <tr>
             <th>Words</th>
-            <td>{% totalWordCount collections[collection] %}</td>
+            <td>{% totalWordCount collections[ collection ] %}</td>
         </tr>
         <tr>
             <th>Reading time</th>
-            <td>{% totalReadingTime collections[collection] %} min</td>
+            <td>{% totalReadingTime collections[ collection ] %} min</td>
         </tr>
         <tr>
             <th>Average word length</th>
-            <td>{% wordLengthAverage collections[collection] %} characters</td>
+            <td>{% wordLengthAverage collections[ collection ] %} characters</td>
         </tr>
         <tr>
             <th>Average words per post</th>
-            <td>{% wordCountAverage collections[collection] %} words</td>
+            <td>{% wordCountAverage collections[ collection ] %} words</td>
         </tr>
     </table>
 {% endfor %}

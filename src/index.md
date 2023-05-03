@@ -3,9 +3,9 @@ title: 'Home'
 heading: Hello!
 ---
 
-👋 Hi! I'm a software developer from the United States. I'm currently working on this site, and [a few other projects](/projects). You can [reach out to me](/contact), [read my blog](/posts/), or just take a look around. Thanks for stopping by!
+👋 Hi! You can [reach out to me](/contact), [read my blog](/posts/), or just take a look around.
 
-## Latest post
+## Posts
 
 <div class="flex flex-col justify-between gap-5 my-10 mt-0 sm:flex-row">
 {% set recentPost = collections.posts | reverse | getIndex(0) %}

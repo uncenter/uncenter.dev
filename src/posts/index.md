@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 views: false
 ---
 
-<p>You can find all of my articles here. For archived articles, see <a href="/archive/">my archives</a>. I also have a <a href="/stats/">stats page</a> with some brief statistics about my writing!</p>
+<p>You can find all of my articles here. For archived articles, see <a href="/archive/">my archives</a>.
 
 {% set posts = collections.posts | reverse %}
 {% include "posts.njk" %}
