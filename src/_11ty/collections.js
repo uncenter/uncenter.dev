@@ -7,12 +7,6 @@ const getPosts = (collectionApi) => {
 		.filter((post) => post.data.archived !== true && post.data.micro !== true);
 };
 
-const getMicroPosts = (collectionApi) => {
-	return collectionApi
-		.getFilteredByGlob('./src/posts/**/*.md')
-		.filter((post) => post.data.archived !== true && post.data.micro === true);
-};
-
 const getArchivedPosts = (collectionApi) => {
 	return collectionApi
 		.getFilteredByGlob('./src/posts/**/*.md')
@@ -130,7 +124,6 @@ const getSeries = (collectionApi) => {
 
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addCollection('posts', getPosts);
-	eleventyConfig.addCollection('microPosts', getMicroPosts);
 	eleventyConfig.addCollection('allPosts', getAllPosts);
 	eleventyConfig.addCollection('archivedPosts', getArchivedPosts);
 	eleventyConfig.addCollection('custom', getCustomCollections);
