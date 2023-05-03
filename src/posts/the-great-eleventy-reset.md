@@ -90,7 +90,7 @@ module.exports = (content) => {
 
 The library has a lot of options, so I'm still playing around with it to see what I can do. I'm mostly using selectors so that I can skip over certain elements, like code blocks (`pre.shiki`) and footnotes (`section.footnotes`). I also have to skip over the anchor links (`a.anchor`) because by default, the `href` is put after the text content of the link (e.g. `"This is a link [https://example.com]"`).
 
-{% endnote %}
+{% endinfo %}
 
 ## What's next?
 
