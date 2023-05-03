@@ -3,7 +3,7 @@ title: 'Home'
 heading: Hello!
 ---
 
-👋 Hi! You can [reach out to me](/contact), [read my blog](/posts/), or just take a look around.
+👋 Hi! I'm a high school student who likes to code, write, and learn. You can [reach out to me](/contact), [read my blog](/posts/), or just take a look around. Feel free to read my [colophon](/colophon/) if you're interested in how this site is built.
 
 ## Posts
 

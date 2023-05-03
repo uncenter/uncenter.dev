@@ -7,7 +7,7 @@ icon: 'folder-closed'
 
 ## uncenter.org
 
-This website! It's built with [11ty/Eleventy](https://www.11ty.dev/) (and [Tailwind CSS](https://tailwindcss.com/)). You can check out the source code on [GitHub](https://github.com/{{ meta.github.username }}/{{ meta.github.repo }}). Check out the [roadmap](/roadmap/) for a list of planned features, the [changelog](/changelog/) for recent updates, or the [about page](/about/) for more information about the site.
+This website! It's built with [11ty/Eleventy](https://www.11ty.dev/) (and [Tailwind CSS](https://tailwindcss.com/)). You can check out the source code on [GitHub](https://github.com/{{ meta.github.username }}/{{ meta.github.repo }}). Check out the [roadmap](/roadmap/) for a list of planned features, the [changelog](/changelog/) for recent updates, or the [colophon](/colophon/) for more information about the site.
 
 ## create-eleventy-app
 

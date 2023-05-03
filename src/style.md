@@ -5,29 +5,29 @@ collection: 'more'
 icon: 'palette'
 ---
 
-This is my style guide! You can also read my [about page](/about) if you want to read how I _created_ this website. This document showcases the styles that I use on this website, and is meant to be a reference for myself and others.
+This is my style guide! You can also read my [colophon page](/colophon) if you want to read how I _created_ this website. This document showcases the styles that I use on this website, and is meant to be a reference for myself and others.
 
-{% callout "Inspiration", "info" %}
+{% info "Credit where credit is due" %}
 This page is inspired and based of off [Binyamin's style guide](https://binyam.in/style/), which took inspiration from [Brian Devries's style guide](https://brianjdevries.com/style-guide/).
-{% endcallout %}
+{% endinfo %}
 
 ## Block-level elements
 
-{% callout "Info", "info" %}
+{% info "Info"%}
 Officia consectetur in labore deserunt qui laborum.
-{% endcallout %}
+{% endinfo %}
 
-{% callout "Warning", "warning" %}
+{% warning "Warning" %}
 Officia consectetur in labore deserunt qui laborum.
-{% endcallout %}
+{% endwarning %}
 
-{% callout "Tip", "tip" %}
+{% tip "Tip" %}
 Officia consectetur in labore deserunt qui laborum.
-{% endcallout %}
+{% endtip %}
 
-{% callout "Note" %}
+{% note %}
 Officia consectetur in labore deserunt qui laborum.
-{% endcallout %}
+{% endnote %}
 
 > This is a blockquote
 
@@ -76,7 +76,7 @@ function sum(a, b) {
 </html>
 ```
 
-{% callout ":book: Info", "info" %}
+{% callout "Browser support for code styling", "info" %}
 The above code block is using the [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) selector to blur the code that is not in focus. This is a new CSS selector that is not yet supported in all browsers. It should work in Chrome and Safari, but not in Firefox yet. I tried to enable it in Firefox with the `layout.css.has-selector.enabled` flag... and it looks like this:
 {% image "images/has-selector-failed.png", "Screenshot of failed implementation of the :has() selector in Firefox" %}
 It needs some work... but it's a start! For you Firefox users (_cough_ me _cough_), here's what it **should** look like:
@@ -115,7 +115,7 @@ It needs some work... but it's a start! For you Firefox users (_cough_ me _cough
 
 [^1]: This is a footnote.
 
-## Nord Theme
+<!-- ## Nord Theme
 
 <div class="colors-container">
 	<div id="aurora" class="wrapper">
@@ -220,4 +220,4 @@ It needs some work... but it's a start! For you Firefox users (_cough_ me _cough
 
 	divLabel.appendChild(divLabelButton);
 });
-</script>
+</script> -->
