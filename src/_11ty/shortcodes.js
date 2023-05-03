@@ -111,6 +111,22 @@ const createCallout = (content, title, type) => {
 	);
 };
 
+const createCalloutNote = (content, title) => {
+	return createCallout(content, title, 'note');
+};
+
+const createCalloutTip = (content, title) => {
+	return createCallout(content, title, 'tip');
+};
+
+const createCalloutWarning = (content, title) => {
+	return createCallout(content, title, 'warning');
+};
+
+const createCalloutInfo = (content, title) => {
+	return createCallout(content, title, 'info');
+};
+
 const insertGiscusScript = () => {
 	const repo = 'R_kgDOHSjhjQ';
 	const category = 'DIC_kwDOHSjhjc4CTQUr';
@@ -220,6 +236,10 @@ module.exports = (eleventyConfig) => {
 		getCollectionAverageWordLength,
 	);
 	eleventyConfig.addPairedShortcode('callout', createCallout);
+	eleventyConfig.addPairedShortcode('note', createCalloutNote);
+	eleventyConfig.addPairedShortcode('tip', createCalloutTip);
+	eleventyConfig.addPairedShortcode('warning', createCalloutWarning);
+	eleventyConfig.addPairedShortcode('info', createCalloutInfo);
 	eleventyConfig.addShortcode('giscus', insertGiscusScript);
 	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
 };
