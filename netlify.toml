@@ -1,8 +1,3 @@
 [build]
 publish = "dist/"
 command = "npm run build"
-
-[[redirects]]
-from = "/posts/add-non-python-files-to-poetry-package/"
-to = "/posts/add-extra-files-python/"
-status = 301
