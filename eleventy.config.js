@@ -38,7 +38,8 @@ module.exports = function (eleventyConfig) {
 		},
 		default: 'lucide',
 		icon: {
-			skipIfNotFound: true,
+			notFound: 'ignore',
+			combineDuplicateAttributes: true,
 		},
 		sprites: {
 			shortcode: 'iconSheet',
