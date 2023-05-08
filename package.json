@@ -6,11 +6,12 @@
 		"clean": "rimraf dist",
 		"spell:run": "cspell src/posts/**/*.md",
 		"spell:update": "node ./utils/cspell.js",
-		"spell": "npm run spell:run",
+		"spell": "npm run spell:update && npm run spell:run",
 		"site": "node ./utils/site.js",
 		"restart": "npm run clean && npm run start",
 		"start": "NODE_ENV=development eleventy --serve --incremental",
-		"build": "NODE_ENV=production eleventy"
+		"build": "NODE_ENV=production eleventy",
+		"prod": "npm run spell && npm run build"
 	},
 	"repository": {
 		"type": "git",
