@@ -242,4 +242,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addPairedShortcode('info', createCalloutInfo);
 	eleventyConfig.addShortcode('giscus', insertGiscusScript);
 	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
+	eleventyConfig.addShortcode('log', (...args) => {
+		console.log(...args);
+	});
 };
