@@ -7,6 +7,7 @@
 		"spell:run": "cspell src/posts/**/*.md",
 		"spell:update": "node ./utils/cspell.js",
 		"spell": "npm run spell:update && npm run spell:run",
+		"prettier": "prettier --write src/**/*.{njk,js,scss,json}",
 		"site": "node ./utils/site.js",
 		"restart": "npm run clean && npm run start",
 		"start": "NODE_ENV=development eleventy --serve --incremental",
@@ -78,6 +79,8 @@
 		"eslint-plugin-prettier": "^4.2.1",
 		"inquirer": "^8.2.5",
 		"openurl": "^1.1.1",
-		"outdent": "^0.8.0"
+		"outdent": "^0.8.0",
+		"prettier": "^2.8.8",
+		"prettier-plugin-tailwindcss": "^0.2.8"
 	}
 }
