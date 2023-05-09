@@ -6,11 +6,6 @@
 			"icon": "folder"
 		},
 		{
-			"title": "About",
-			"urls": ["/about/"],
-			"icon": "user"
-		},
-		{
 			"title": "Blog",
 			"urls": ["/posts/", "/archive/"],
 			"icon": "pencil"

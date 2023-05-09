@@ -116,6 +116,17 @@ const includes = (check, value) => {
 	return check.includes(value);
 };
 
+const setAttribute = (content, attribute, value = false) => {
+	const regex = new RegExp(`${attribute}=".*?"`, 'g');
+	let el = content.match(/<[^>]*>/)[0];
+	if (el.match(regex)) {
+		el = el.replace(regex, value ? `${attribute}="${value}"` : '');
+	} else {
+		el = el.replace('>', ` ${attribute}="${value}">`);
+	}
+	return content.replace(/<[^>]*>/, el);
+};
+
 const cleanFeed = (content) => {
 	content = content
 		.replace(/<a class="anchor" href=".*?" aria-hidden="true">#<\/a>/g, '')
@@ -145,4 +156,5 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('dumpContents', dumpContents);
 	eleventyConfig.addFilter('includes', includes);
 	eleventyConfig.addFilter('cleanFeed', cleanFeed);
+	eleventyConfig.addFilter('setAttr', setAttribute);
 };

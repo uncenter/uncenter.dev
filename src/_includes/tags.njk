@@ -1,37 +1,35 @@
-{% set spanClasses = "flex flex-row items-center" %}
 <div class="flex flex-row flex-wrap gap-6 py-4 mb-4">
-    <span
-        class="{{ spanClasses }}"
-    >{%- icon 'calendar', class='mr-2' -%}
+    <div>
+        {%- icon 'calendar', class='mr-2' -%}
         <time datetime="{{ DATE | toDateTime }}">{{ DATE | toShortDate }}</time>
-    </span>
-    <span class="{{ spanClasses }}">
+    </div>
+    <div>
         {%- icon 'eye', class='mr-2' -%}
-        {%- if VIEWS == 1 -%}
-            {{ VIEWS }} read
+        <span>
+            {%- if VIEWS == 1 -%}
+                {{ VIEWS }} read
         {%- else -%}
-            {{ VIEWS }} reads
+                {{ VIEWS }} reads
         {%- endif -%}
-    </span>
+        </span>
+    </div>
     {%- if not MICRO -%}
         {%- if CONTENT -%}
-            <span class="{{ spanClasses }}">
+            <div>
                 {%- icon 'file-text', class='mr-2' -%}
-                {{ CONTENT | wordCount }}
-            </span>
-            <span class="{{ spanClasses }}">
+                <span>{{ CONTENT | wordCount }}</span>
+            </div>
+            <div>
                 {%- icon 'clock', class='mr-2' -%}
-                {{ CONTENT | readingTime }}
-            </span>
+                <span>{{ CONTENT | readingTime }}</span>
+            </div>
         {%- endif -%}
     {%- endif -%}
     {%- if TAGS -%}
         {%- for tag in TAGS -%}
             <a href="/tags/{{ tag | slugify }}">
-                <span class="{{ spanClasses }}">
-                    {%- icon 'tag', class='mr-1' -%}
-                    {{ tag }}
-                </span>
+                {%- icon 'tag', class='mr-1' -%}
+                <span>{{ tag }}</span>
             </a>
         {%- endfor -%}
     {%- endif -%}

@@ -8,13 +8,6 @@ html {
 	font-family: ui-sans-serif, system-ui, Roboto, Helvetica Neue;
 }
 
-body {
-	margin: 4rem;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
 .icon {
 	display: inline-block;
 	width: 1em;
@@ -28,15 +21,6 @@ body {
 footer .icon {
 	width: 1.2em;
 	height: 1.2em;
-}
-
-.logo-laptop {
-	height: 100px;
-	width: 100px;
-}
-
-#giscus {
-	margin-top: 6rem;
 }
 
 .note {
