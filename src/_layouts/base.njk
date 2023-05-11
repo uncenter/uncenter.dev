@@ -3,14 +3,14 @@
     <head>
         {% include "head.njk" %}
     </head>
-    <body class="flex flex-col justify-center mx-auto px-6 bg-bg text-fg font-display">
+    <body class="flex flex-col justify-center mx-auto px-6 bg-bg text-fg font-serif">
         <header class="flex flex-col md:flex-row md:justify-between md:items-center md:px-6 py-16 md:mb-12 gap-y-10 md:gap-y-0">
             <a href="/" class="flex gap-x-3 items-center md:px-3 py-2 my-1 transition rounded-sm"
                 {% if page.url === "/" %}
                 aria-current="page"
                 {% endif %}>
                 {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12") | safe }}
-                <span class="tracking-tight text-2xl font-extrabold">uncenter</span></a>
+                <span class="tracking-tight text-2xl">uncenter</span></a>
             <div class="flex flex-col gap-y-2 md:flex-row md:items-center md:gap-x-4 md:gap-y-0">
                 {% for item in nav.top %}
                     {% set classes = "flex flex-row gap-x-3 items-center text-base font-medium md:px-3 transition" %}
@@ -32,7 +32,7 @@
                 {% endfor %}
             </div>
         </header>
-        <main class="flex flex-col w-full max-w-[80ch] sm:mx-auto prose">
+        <main class="flex flex-col w-full max-w-[80ch] sm:mx-auto">
             <h1 class="text-3xl font-bold break-words">{{ title }}</h1>
             {% if content %}
                 {{ content | safe }}
@@ -42,7 +42,8 @@
             <ul class="flex items-center gap-3">
                 {% for item in nav.bottom %}
                     <li title="{{ item.title }}">
-                        <a aria-label="{{ item.title }}" href="{{ item.url }}">{% icon item.icon %}</a>
+                        <a aria-label="{{ item.title }}" href="{{ item.url }}">{% icon item.icon + "-blank" %}
+                        </a>
                     </li>
                 {% endfor %}
             </ul>

@@ -2,6 +2,13 @@
 layout: base
 ---
 
+{% if page.url !== "/" %}
+    <a href="/" class="flex items-center gap-x-2 mb-4">
+        {% icon "arrow-left" %}
+        <span>Back to home</span>
+    </a>
+{% endif %}
+
 {% set DATE = date %}
 {% set UPDATED = updated %}
 {% set CONTENT = content %}

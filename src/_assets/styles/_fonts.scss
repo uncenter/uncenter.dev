@@ -1,9 +1,27 @@
 @font-face {
-	font-family: 'Inter';
-	src: url('/assets/fonts/inter/Inter-Variable.woff2?v=20230510')
-			format('woff2'),
-		url('/assets/fonts/inter/Inter-Variable.woff?v=20230510') format('woff');
-	font-weight: 100 900;
-	font-display: swap;
+	font-family: 'Berenis ADF Pro';
 	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/BerenisADFPro-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Berenis ADF Pro';
+	font-style: normal;
+	font-weight: 600;
+	src: url('../fonts/BerenisADFPro-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Berenis ADF Pro';
+	font-style: italic;
+	font-weight: 400;
+	src: url('../fonts/BerenisADFPro-Italic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Berenis ADF Pro';
+	font-style: italic;
+	font-weight: 600;
+	src: url('../fonts/BerenisADFPro-BoldItalic.woff2') format('woff2');
 }
