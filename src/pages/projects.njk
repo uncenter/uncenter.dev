@@ -1,0 +1,19 @@
+{% for project in projects.maintained %}
+    <a class="flex flex-col justify-between p-4 rounded-lg transition-all shadow-md {% if project.featured %}md:col-span-2{% endif %}" href="{{ project.link }}">
+        <div class="flex flex-col gap-y-2">
+            <h3 class="font-bold text-xl">
+                {{ project.name }}
+            </h3>
+            <p class="text-fg-dimmed">
+                {{ project.description }}
+            </p>
+        </div>
+        {% if project
+            .link
+            .startsWith("https://github.com") %}
+            {% icon 'social:github', class='block w-4 h-4 mt-4 self-end text-current' %}
+        {% else %}
+            {% icon 'external-link', class='block w-4 h-4 mt-4 self-end text-current' %}
+        {% endif %}
+    </a>
+{% endfor %}
