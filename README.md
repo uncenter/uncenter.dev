@@ -24,6 +24,20 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
 - **RSS feed** for blog posts using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
 - **Open Graph images** through Vercel's [OG Image API](https://og-image.vercel.app/)
 
+### To-Do
+
+#### Quick Fixes
+
+- [ ] Dark mode and light mode
+- [ ] Add pre-generated preview images instead of Vercel OG images
+- [ ] Fetch and display GitHub statistics for each project on projects page
+
+#### Long-Term
+
+- [ ] Color themes, i.e. Nord, Catppuccin, etc.
+- [ ] Import posts from Notion for improved content management
+- [ ] Enable Webmentions and Mastodon integration for comments and replies
+
 ### Structure
 
 - `utils/`: scripts, utilities, & plugins for the website
