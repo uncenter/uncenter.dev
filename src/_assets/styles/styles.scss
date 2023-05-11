@@ -1,11 +1,35 @@
-@import '../../../node_modules/nord/src/sass/nord.scss';
-@import 'variables';
+@import 'fonts';
 
 html {
-	scroll-padding-top: 2rem;
 	scroll-behavior: smooth;
 	overflow-y: scroll;
-	font-family: ui-sans-serif, system-ui, Roboto, Helvetica Neue;
+}
+
+:root {
+	--white: #eff1f5;
+	--beige: #e0d9e1;
+	--dark-gray: #3a343a;
+	--black: #121212;
+	--accent-light: #81a1c1;
+	--accent-dark: #4c566a;
+}
+
+@media (prefers-color-scheme: light) {
+	body {
+		--bg: var(--white);
+		--fg: var(--dark-gray);
+		--accent: var(--accent-light);
+		--surface: var(--beige);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		--bg: var(--black);
+		--fg: var(--white);
+		--accent: var(--accent-dark);
+		--surface: var(--dark-gray);
+	}
 }
 
 .icon {
@@ -23,60 +47,60 @@ footer .icon {
 	height: 1.2em;
 }
 
-.note {
-	padding-top: 1.5rem;
-	padding-bottom: 0px;
-	margin: 10px 0px;
-	position: relative;
+// .note {
+// 	padding-top: 1.5rem;
+// 	padding-bottom: 0px;
+// 	margin: 10px 0px;
+// 	position: relative;
 
-	.note__title {
-		font-weight: bold;
-		font-size: 1.4em;
-		color: var(--note-color);
-	}
+// 	.note__title {
+// 		font-weight: bold;
+// 		font-size: 1.4em;
+// 		color: var(--note-color);
+// 	}
 
-	&::after {
-		position: absolute;
-		right: 1rem;
-		top: -0.5rem;
-		font-weight: 600;
-		font-size: 0.9rem;
-		padding: 0 0.25rem;
-		text-transform: uppercase;
-		line-height: 1;
-		background: #fff;
-		color: var(--note-color);
-		// src: https://brianjdevries.com/style-guide/
-	}
+// 	&::after {
+// 		position: absolute;
+// 		right: 1rem;
+// 		top: -0.5rem;
+// 		font-weight: 600;
+// 		font-size: 0.9rem;
+// 		padding: 0 0.25rem;
+// 		text-transform: uppercase;
+// 		line-height: 1;
+// 		background: #fff;
+// 		color: var(--note-color);
+// 		// src: https://brianjdevries.com/style-guide/
+// 	}
 
-	&.note--info {
-		--note-color: #{$sky-600};
+// 	&.note--info {
+// 		--note-color: #{$sky-600};
 
-		&::after {
-			content: 'Info';
-		}
-	}
+// 		&::after {
+// 			content: 'Info';
+// 		}
+// 	}
 
-	&.note--warning {
-		--note-color: #{$nord11};
+// 	&.note--warning {
+// 		--note-color: #{$nord11};
 
-		&::after {
-			content: 'Warning';
-		}
-	}
+// 		&::after {
+// 			content: 'Warning';
+// 		}
+// 	}
 
-	&.note--tip {
-		--note-color: #7c9963;
+// 	&.note--tip {
+// 		--note-color: #7c9963;
 
-		&::after {
-			content: 'Tip';
-		}
-	}
+// 		&::after {
+// 			content: 'Tip';
+// 		}
+// 	}
 
-	&.note--note {
-		--note-color: #{$gray-900};
-	}
-}
+// 	&.note--note {
+// 		--note-color: #{$gray-900};
+// 	}
+// }
 
 @import 'syntax';
 @import 'tooltip';
