@@ -33,7 +33,7 @@ layout: index.njk
     <div id="giscus" class="mt-16"></div>
     {% set previous = collections.posts | getPreviousCollectionItem %}
     {% set next = collections.posts | getNextCollectionItem %}
-    <div class="flex flex-row justify-between font-bold">
+    <div class="flex flex-row justify-between font-bold mt-8">
         {% if previous %}
             <a class="text-center" href="{{ previous.url }}">
                 {%- icon 'arrow-left', class="mr-2" -%}
