@@ -1,6 +1,6 @@
 {% set separator = "·" %}
 
-<div class="flex flex-row flex-wrap justify-between">
+<div class="flex flex-row flex-wrap justify-between small-text gap-2">
     <div class="flex flex-row flex-wrap gap-2">
         <time datetime="{{ DATE | toDateTime }}">{{ DATE | toShortDate }}</time>
         {{ separator }}
@@ -8,10 +8,10 @@
         {{ separator }}
         <span>{{ VIEWS }} reads</span>
     </div>
-    <div class="flex flex-row flex-wrap gap-2">
+    <div class="flex flex-row flex-wrap gap-3">
         {%- if TAGS -%}
             {%- for tag in TAGS -%}
-                <a href="/tags/{{ tag | slugify }}" class="no-underline">{%- icon 'tag', class='mr-1 align-middle' -%}
+                <a href="/tags/{{ tag | slugify }}" class="no-underline">{%- icon 'tag', class='mr-[0.1em] align-middle' -%}
                     <span class="underline"
             >{{ tag }}</span></a>
             {%- endfor -%}

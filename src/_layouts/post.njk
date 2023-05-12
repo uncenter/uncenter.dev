@@ -2,49 +2,49 @@
 layout: index.njk
 ---
 
-{% if page.url !== "/" %}
-    <a href="/" class="flex items-center gap-x-2 mb-4">
-        {% icon "arrow-left" %}
-        <span>Back to posts</span>
-    </a>
-{% endif %}
-
-{% set DATE = date %}
-{% set UPDATED = updated %}
-{% set CONTENT = content %}
-{% set TAGS = tags %}
-{% set MICRO = micro %}
-{% set ARCHIVED = archived %}
-{% set DRAFT = draft %}
-{% set VIEWS = views %}
-{% include "tags.njk" %}
-{% if content | toc %}
-    <nav id="section-toc" aria-labelledby="secondary-navigation">
-        {{ content | toc | safe }}
-    </nav>
-{% endif %}
-{% if content !== "" %}
-    {{ content | safe }}
-{% else %}
-    <div class="text-center text-red-500 font-bold">{% icon "alert-circle", class="mr-2"%}
-        <span>No content.</span>
+<div class="max-w-[680px] mx-auto my-0 p-4">
+    <div class="flex flex-wrap justify-between small-text [border-bottom:2px_solid_currentColor]">
+        {% if page.url !== "/" %}
+            <a href="/" class="flex items-center gap-x-2 mb-2">
+                {% icon "arrow-left" %}
+                <span class="small-caps">All articles</span>
+            </a>
+        {% endif %}
+        {% set DATE = date %}
+        {% set UPDATED = updated %}
+        {% set CONTENT = content %}
+        {% set TAGS = tags %}
+        {% set MICRO = micro %}
+        {% set ARCHIVED = archived %}
+        {% set DRAFT = draft %}
+        {% set VIEWS = views %}
+        {% include "tags.njk" %}
     </div>
-{% endif %}
-{% giscus %}
-<div id="giscus" class="mt-16"></div>
-{% set previous = collections.posts | getPreviousCollectionItem %}
-{% set next = collections.posts | getNextCollectionItem %}
-<div class="flex flex-row justify-between font-bold">
-    {% if previous %}
-        <a class="text-center" href="{{ previous.url }}">
-            {%- icon 'arrow-left', class="mr-2" -%}
-            <span>{{ previous.data.title }}</span>
-        </a>
+
+    {% if content | toc %}
+        <nav id="section-toc" aria-labelledby="secondary-navigation">
+            {{ content | toc | safe }}
+        </nav>
     {% endif %}
-    {% if next %}
-        <a class="text-center" href="{{ next.url }}">
-            <span>{{ next.data.title }}</span>
-            {%- icon 'arrow-right', class="ml-2" -%}
-        </a>
+    {% if content !== "" %}
+        {{ content | safe }}
     {% endif %}
+    {% giscus %}
+    <div id="giscus" class="mt-16"></div>
+    {% set previous = collections.posts | getPreviousCollectionItem %}
+    {% set next = collections.posts | getNextCollectionItem %}
+    <div class="flex flex-row justify-between font-bold">
+        {% if previous %}
+            <a class="text-center" href="{{ previous.url }}">
+                {%- icon 'arrow-left', class="mr-2" -%}
+                <span>{{ previous.data.title }}</span>
+            </a>
+        {% endif %}
+        {% if next %}
+            <a class="text-center" href="{{ next.url }}">
+                <span>{{ next.data.title }}</span>
+                {%- icon 'arrow-right', class="ml-2" -%}
+            </a>
+        {% endif %}
+    </div>
 </div>

@@ -38,6 +38,12 @@ html {
 	}
 }
 
+p {
+	margin: 0 0 1.5rem 0;
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+}
+
 .icon {
 	display: inline-block;
 	width: 1em;
@@ -137,6 +143,7 @@ footer {
 		color: var(--accent);
 		transition: color 0.2s ease-in-out;
 	}
+
 	main a[rel*='noopener']:not([href*='https://uncenter.org'], .no-external-link
     )::after {
 		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='external-link-icon' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
@@ -150,9 +157,36 @@ footer {
 		margin-left: 4px;
 		width: 11px;
 	}
-	img {
+
+	img,
+	svg,
+	video,
+	canvas,
+	audio,
+	iframe,
+	embed,
+	object {
 		content-visibility: auto;
 		background-size: cover;
 		background-image: none;
+		display: block;
+		vertical-align: middle;
+		height: auto;
+		max-width: 100%;
+	}
+
+	img {
+		padding: 1rem;
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+	}
+
+	.small-text {
+		font-size: 80%;
+		font-weight: 700;
+		text-transform: lowercase;
+	}
+
+	.small-caps {
+		font-variant: small-caps;
 	}
 }
