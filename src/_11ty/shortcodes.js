@@ -214,7 +214,6 @@ const insertImage = async function (src, alt, width, height) {
 					loading: 'lazy',
 					decoding: 'async',
 					sizes: `(min-width: 70ch) 70ch, 100vw`,
-					style: `content-visibility: auto; background-size: cover; background-image: none;`,
 				})}>
     </picture>
 </a>

@@ -48,7 +48,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Layouts */
-	eleventyConfig.addLayoutAlias('base', 'base.njk');
+	eleventyConfig.addLayoutAlias('page', 'page.njk');
 	eleventyConfig.addLayoutAlias('post', 'post.njk');
 
 	/* Passthrough Copy */

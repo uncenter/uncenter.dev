@@ -2,26 +2,29 @@
 	font-family: 'Berenis ADF Pro';
 	font-style: normal;
 	font-weight: 400;
-	src: url('../fonts/BerenisADFPro-Regular.woff2') format('woff2');
+	font-display: swap;
+	src: url('/assets/fonts/BerenisADFPro-Regular.woff2') format('woff2');
 }
 
 @font-face {
 	font-family: 'Berenis ADF Pro';
 	font-style: normal;
 	font-weight: 600;
-	src: url('../fonts/BerenisADFPro-Bold.woff2') format('woff2');
+	font-display: swap;
+	src: url('/assets/fonts/BerenisADFPro-Bold.woff2') format('woff2');
 }
 
 @font-face {
 	font-family: 'Berenis ADF Pro';
 	font-style: italic;
 	font-weight: 400;
-	src: url('../fonts/BerenisADFPro-Italic.woff2') format('woff2');
+	font-display: swap;
+	src: url('/assets/fonts/BerenisADFPro-Italic.woff2') format('woff2');
 }
 
 @font-face {
 	font-family: 'Berenis ADF Pro';
 	font-style: italic;
 	font-weight: 600;
-	src: url('../fonts/BerenisADFPro-BoldItalic.woff2') format('woff2');
+	src: url('/assets/fonts/BerenisADFPro-BoldItalic.woff2') format('woff2');
 }

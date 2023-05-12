@@ -89,7 +89,7 @@ const dumpContents = (filePath) => {
 	return fileContents.toString('utf8');
 };
 
-const getWordCount = (content, { preText = '', postText = 'words' } = {}) => {
+const getWordCount = (content, { preText = '', postText = '' } = {}) => {
 	const htmlContent = typeof content === 'string' ? content : content.content;
 
 	if (!htmlContent) {
@@ -113,6 +113,9 @@ const isRecent = (date, days) => {
 };
 
 const includes = (check, value) => {
+	if (Array.isArray(value)) {
+		return value.some((v) => check.includes(v));
+	}
 	return check.includes(value);
 };
 

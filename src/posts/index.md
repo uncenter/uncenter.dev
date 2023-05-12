@@ -1,7 +1,7 @@
 ---
 title: 'Articles'
 description: 'All of my articles, the good and the bad.'
-layout: base
+layout: page
 templateEngineOverride: njk
 eleventyExcludeFromCollections: true
 views: false

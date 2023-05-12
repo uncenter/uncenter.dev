@@ -1,11 +1,11 @@
 ---
-layout: base
+layout: index.njk
 ---
 
 {% if page.url !== "/" %}
     <a href="/" class="flex items-center gap-x-2 mb-4">
         {% icon "arrow-left" %}
-        <span>Back to home</span>
+        <span>Back to posts</span>
     </a>
 {% endif %}
 
@@ -27,7 +27,8 @@ layout: base
     {{ content | safe }}
 {% else %}
     <div class="text-center text-red-500 font-bold">{% icon "alert-circle", class="mr-2"%}
-        <span>No content found.</span></div>
+        <span>No content.</span>
+    </div>
 {% endif %}
 {% giscus %}
 <div id="giscus" class="mt-16"></div>

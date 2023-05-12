@@ -1,0 +1,28 @@
+<header class="flex flex-col md:flex-row md:justify-between md:items-center md:mb-12 gap-y-10 md:gap-y-0">
+    <a href="/" class="flex items-center"
+                {% if page.url === "/" %}
+                aria-current="page"
+                {% endif %}>
+        {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12") | safe }}
+        <span class="tracking-tight text-2xl">uncenter</span></a>
+    <ul class="list-none px-0 py-4">
+        {% for item in nav.top %}
+            {% set classes = "font-bold px-2" %}
+            {% if page.url | includes(item.urls) %}
+                {% set classes = classes + " [border-left:2px_solid_currentColor]" %}
+            {% else %}
+                {% set classes = classes + " [border-left:2px_solid_transparent]" %}
+            {% endif %}
+            <li>
+                <a href="{{ item.urls[0] }}" class="{{ classes }}"
+                        {% for link in item.urls -%}
+                        {% if page.url === link %}
+                        aria-current="page"
+                        {% endif %}
+                        {%- endfor -%}>
+                    <span>{{ item.title }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</header>

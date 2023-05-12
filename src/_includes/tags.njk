@@ -1,45 +1,20 @@
-<div class="flex flex-row flex-wrap gap-6 py-4 mb-4">
-    <div>
-        {%- icon 'calendar', class='mr-2' -%}
+{% set separator = "·" %}
+
+<div class="flex flex-row flex-wrap justify-between">
+    <div class="flex flex-row flex-wrap gap-2">
         <time datetime="{{ DATE | toDateTime }}">{{ DATE | toShortDate }}</time>
+        {{ separator }}
+        <span>~{{ CONTENT | readingTime }} ({{ CONTENT | wordCount }} words)</span>
+        {{ separator }}
+        <span>{{ VIEWS }} reads</span>
     </div>
-    <div>
-        {%- icon 'eye', class='mr-2' -%}
-        <span>
-            {%- if VIEWS == 1 -%}
-                {{ VIEWS }} read
-        {%- else -%}
-                {{ VIEWS }} reads
+    <div class="flex flex-row flex-wrap gap-2">
+        {%- if TAGS -%}
+            {%- for tag in TAGS -%}
+                <a href="/tags/{{ tag | slugify }}" class="no-underline">{%- icon 'tag', class='mr-1 align-middle' -%}
+                    <span class="underline"
+            >{{ tag }}</span></a>
+            {%- endfor -%}
         {%- endif -%}
-        </span>
     </div>
-    {%- if not MICRO -%}
-        {%- if CONTENT -%}
-            <div>
-                {%- icon 'file-text', class='mr-2' -%}
-                <span>{{ CONTENT | wordCount }}</span>
-            </div>
-            <div>
-                {%- icon 'clock', class='mr-2' -%}
-                <span>{{ CONTENT | readingTime }}</span>
-            </div>
-        {%- endif -%}
-    {%- endif -%}
-    {%- if TAGS -%}
-        {%- for tag in TAGS -%}
-            <a href="/tags/{{ tag | slugify }}">
-                {%- icon 'tag', class='mr-1' -%}
-                <span>{{ tag }}</span>
-            </a>
-        {%- endfor -%}
-    {%- endif -%}
-    {%- if ARCHIVED -%}
-        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-yellow-200 rounded-full w-fit h-min">ARCHIVED</p>
-    {%- endif -%}
-    {%- if DRAFT -%}
-        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-blue-200 rounded-full w-fit h-min">DRAFT</p>
-    {%- endif -%}
-    {% if not DRAFT and(DATE | isRecent(7)) %}
-        <p class="px-2 py-1 my-0 text-xs font-semibold leading-none bg-green-200 rounded-full w-fit h-min">NEW</p>
-    {% endif %}
 </div>

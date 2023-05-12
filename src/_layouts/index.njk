@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-bg text-fg font-serif">
+    <head>
+        {% include "partials/head.njk" %}
+    </head>
+    <body class="min-h-screen flex flex-col justify-center mx-[1em] my-[3em]">
+        {{ content | safe }}
+    </body>
+    <script src="/assets/scripts/copy.js"></script>
+    {% if scripts %}
+        {% for script in (scripts | toArray) %}
+            <script src="/assets/scripts/{{script}}"></script>
+        {% endfor %}
+    {% endif %}
+</html>
