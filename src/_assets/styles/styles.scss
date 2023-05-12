@@ -38,16 +38,63 @@ html {
 	}
 }
 
-p {
-	margin: 0 0 1.5rem 0;
-	font-size: 1.125rem;
-	line-height: 1.75rem;
-}
-
 .icon {
 	display: inline-block;
 	width: 1em;
 	height: 1em;
+}
+
+p {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+}
+
+article {
+	h2 a,
+	h3 a {
+		color: var(--fg);
+		text-decoration: none;
+		&:hover {
+			color: var(--accent);
+			text-decoration: underline;
+		}
+	}
+	h2 {
+		font-weight: 600;
+		padding-bottom: 3px;
+	}
+
+	h3 {
+		font-style: italic;
+		padding-bottom: 1px;
+	}
+
+	h2 a::before,
+	h3 a::before {
+		position: absolute;
+		left: -40px;
+		width: 48px;
+		content: '§';
+		color: var(--accent);
+		transition: color 0.2s ease;
+		text-align: center;
+		opacity: 0;
+	}
+
+	h2 a:hover::before,
+	h3 a:hover::before {
+		opacity: 1;
+	}
+
+	// h2 span {
+	//     font-weight: 800;
+	//     float: right;
+	// }
+
+	// h3 span {
+	//     font-weight: 600;
+	//     float: right;
+	// }
 }
 
 footer {
@@ -141,7 +188,6 @@ footer {
 		position: relative;
 		text-decoration: underline;
 		color: var(--accent);
-		transition: color 0.2s ease-in-out;
 	}
 
 	main a[rel*='noopener']:not([href*='https://uncenter.org'], .no-external-link
@@ -181,12 +227,13 @@ footer {
 	}
 
 	.small-text {
-		font-size: 80%;
+		font-size: 90%;
 		font-weight: 700;
 		text-transform: lowercase;
 	}
 
 	.small-caps {
 		font-variant: small-caps;
+		text-transform: capitalize;
 	}
 }
