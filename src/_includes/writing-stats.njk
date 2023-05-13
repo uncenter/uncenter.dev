@@ -1,0 +1,38 @@
+<div class="text-center">
+    {% for collection, label in {
+        "posts" : "Published posts",
+        "archivedPosts" : "Archived posts",
+        "allPosts" : "Total"
+    } %}
+        <table class="text-center">
+            <thead>
+                <tr>
+                    <h3 colspan="2">{{ label }}</h3>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Posts</th>
+                    <td>{{ collections[ collection ].length }}</td>
+                </tr>
+                <tr>
+                    <th>Words</th>
+                    <td>{% totalWordCount collections[collection] %}</td>
+                </tr>
+                <tr>
+                    <th>Reading time</th>
+                    <td>{% totalReadingTime collections[collection] %} min</td>
+                </tr>
+                <tr>
+                    <th>Average word length</th>
+                    <td>{% wordLengthAverage collections[collection] %} characters</td>
+                </tr>
+                <tr>
+                    <th>Average words per post</th>
+                    <td>{% wordCountAverage collections[collection] %} words</td>
+                </tr>
+            </tbody>
+        </table>
+        {% if not loop.last %}<hr>{% endif %}
+    {% endfor %}
+</div>
