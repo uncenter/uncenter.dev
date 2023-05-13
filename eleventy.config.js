@@ -3,6 +3,7 @@ const collections = require('./src/_11ty/collections.js');
 const filters = require('./src/_11ty/filters.js');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
+const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const fs = require('fs');
 const Chalk = require('chalk');
 
@@ -48,6 +49,7 @@ module.exports = function (eleventyConfig) {
 			shortcode: 'iconSheet',
 		},
 	});
+	eleventyConfig.addPlugin(EleventyRenderPlugin);
 
 	/* Layouts */
 	eleventyConfig.addLayoutAlias('page', 'page.njk');
