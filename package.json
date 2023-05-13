@@ -43,6 +43,7 @@
 		"html-prettify": "^1.0.7",
 		"html-to-text": "^9.0.5",
 		"image-size": "^1.0.2",
+		"linkedom": "^0.14.26",
 		"lodash": "^4.17.21",
 		"lucide-static": "^0.128.0",
 		"luxon": "^3.2.1",

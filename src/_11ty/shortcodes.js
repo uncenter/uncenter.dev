@@ -1,4 +1,3 @@
-const fs = require('fs');
 const turndown = require('turndown');
 
 const Image = require('@11ty/eleventy-img');
@@ -6,6 +5,7 @@ const imageSize = require('image-size');
 const meta = require('../_data/meta.json');
 
 const { escape } = require('lodash');
+const { parseHTML } = require('linkedom');
 const { markdownLibrary } = require('../../utils/plugins/markdown');
 
 const getReadingTime = require('./utils/readingTime.js');
@@ -14,7 +14,7 @@ const wordCount = require('./utils/wordCount.js');
 const stringifyAttributes = require('./utils/stringifyAttributes.js');
 const logOutput = require('./utils/logOutput.js');
 
-const getExcerpt = (page) => {
+const getExcerpt = (page, classes = '') => {
 	if (!page.hasOwnProperty('content')) {
 		return null;
 	}
@@ -44,7 +44,9 @@ const getExcerpt = (page) => {
 	}
 
 	excerpt += '...';
-	return markdownLibrary.render(excerpt);
+	const { document } = parseHTML(markdownLibrary.render(excerpt));
+	document.firstChild.classList.add(classes);
+	return document.documentElement.outerHTML;
 };
 
 const getCollectionWordCount = (posts) => {
