@@ -1,7 +1,7 @@
 {
 	"maintained": [
 		{
-			"name": "Octotree",
+			"name": "octotree",
 			"description": "Turn Github repositories into ASCII trees.",
 			"link": "https://tree.uncenter.org/",
 			"featured": true
@@ -10,7 +10,7 @@
 			"name": "uncenter.org",
 			"description": "Me on the internet.",
 			"link": "https://github.com/uncenter/uncenter.org",
-			"featured": true
+			"hidden": true
 		},
 		{
 			"name": "create-eleventy-app",

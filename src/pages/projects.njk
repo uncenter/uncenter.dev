@@ -1,19 +1,7 @@
-{% for project in projects.maintained %}
-    <div class="flex flex-col">
-        <h2 class="font-bold text-xl flex flex-row mb-0 items-center">
-            <a class="no-external-link" href="{{ project.link }}">{{ project.name }}</a>
-            <span class="ml-auto">
-                {% if project
-                    .link
-                    .startsWith("https://github.com") %}
-                    {% icon 'social:github', class='block w-4 h-4 text-current' %}
-                {% else %}
-                    {% icon 'external-link', class='block w-4 h-4 text-current' %}
-                {% endif %}
-            </span>
-        </h2>
-        <p class="m-0">
-            {{ project.description }}
-        </p>
-    </div>
-{% endfor %}
+{% set list = projects.maintained | rejectattr("hidden") %}
+{% include "projects-list.njk" %}
+
+<hr class="separator">
+
+{% set list = projects.mini | rejectattr("hidden") %}
+{% include "projects-list.njk" %}

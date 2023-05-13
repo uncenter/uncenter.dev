@@ -1,0 +1,19 @@
+{% for project in list %}
+    <div class="flex flex-col">
+        <a class="no-external-link flex flex-row mb-0 items-center" href="{{ project.link }}">
+            <h2 class="font-bold text-xl">{{ project.name }}</h2>
+            <span class="ml-auto">
+                {% if project
+                    .link
+                    .startsWith("https://github.com") %}
+                    {% icon 'social:github', class='block w-4 h-4 text-fg' %}
+                {% else %}
+                    {% icon 'external-link', class='block w-4 h-4 text-fg' %}
+                {% endif %}
+            </span>
+        </a>
+        <p class="m-0">
+            {{ project.description }}
+        </p>
+    </div>
+{% endfor %}
