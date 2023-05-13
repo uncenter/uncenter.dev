@@ -1,16 +1,14 @@
 ---
-title: 'Home'
-heading: Hello!
+layout: page
+templateEngineOverride: njk
+eleventyExcludeFromCollections: true
 ---
 
-<p>👋 Hi! You can <a href="/contact">reach out to me</a>, <a href="/posts/">read my blog</a>, or just take a look around. Feel free to read my <a href="/colophon/">colophon</a> if you're interested in how this site is built.</p>
+{% set posts = collections.posts | reverse %}
+{% include "posts.njk" %}
+{% if collections.archivedPosts.length > 0 %}
 
-<h2>Posts</h2>
-
-<div class="flex flex-col justify-between gap-5 my-10 mt-0 sm:flex-row">
-    {% set recentPost = collections.posts | reverse | getIndex(0) %}
-    {% set recentPostSecond = collections.posts | reverse | getIndex(1) %}
-    <a class="container flex-1 no-underline hover:border-green-600 text-bold" style="height: 50%;" href="{{ recentPost.url }}">
-        <h3 style="margin-top: 0.6em;">{{ recentPost.data.title }}</h3>
-        <p>{{ recentPost.data.description }}</p>
-    </a>
+    <p class="mt-10 bg-gray-100 p-4 rounded-lg">
+There {% if collections.archivedPosts.length === 1 %}is also one archived article. You can find it {% else %}are also {{ collections.archivedPosts.length }} archived articles. You can find them {% endif %}
+        <a href="/archive/">in the archive</a>.</p>
+{% endif %}

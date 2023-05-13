@@ -224,7 +224,9 @@ footer {
 	img {
 		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
 	}
+}
 
+@layer utilities {
 	.small-text {
 		font-size: 90%;
 		font-weight: 700;
@@ -233,5 +235,9 @@ footer {
 
 	.small-caps {
 		font-variant: small-caps;
+	}
+
+	.wrap-anywhere {
+		overflow-wrap: anywhere;
 	}
 }

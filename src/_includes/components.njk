@@ -1,0 +1,39 @@
+{% macro listTags(data, opts) %}
+    {% set opts = opts | merge({
+        'separator': '·',
+        'date': true,
+        'readingTime': true,
+        'wordCount': true,
+        'views': true,
+        'tags': true
+    }) %}
+    <div class="flex flex-col flex-wrap">
+        <div class="flex flex-row flex-wrap gap-2 small-text">
+            {% if opts['date'] and data['date'] %}
+                <time datetime="{{ data['date'] | toDateTime }}">{{ data['date'] | toShortDate }}</time>
+            {% endif %}
+            {{ opts['separator'] }}
+            {% if opts['readingTime'] and data['content'] %}
+                <span>~{{ data['content'] | readingTime }}
+                    {% if opts['wordCount'] %} ({{ data['content'] | wordCount }} words){% endif %}
+                </span>
+            {% endif %}
+            {{ opts['separator'] }}
+            {% if opts['views'] %}
+                <span>{{ data['views'] }} reads</span>
+            {% endif %}
+        </div>
+
+        {% if opts['tags'] and data['tags'] %}
+            <div class="flex flex-row flex-wrap">
+                <p class="small-text m-0">
+                    <span class="mr-1 capitalize">Tagged:</span>
+                    {%- for tag in data['tags'] -%}
+                        <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+                        {%- if not (data['tags'] | last == tag)-%}, {% endif -%}
+                    {%- endfor -%}
+                </p>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

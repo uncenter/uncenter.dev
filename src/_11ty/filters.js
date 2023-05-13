@@ -139,6 +139,9 @@ const cleanFeed = (content) => {
 	return content;
 };
 
+const merge = (a, b) => {
+	return Object.assign({}, a, b);
+};
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('toDateTime', toDateTime);
 	eleventyConfig.addFilter('toRFC3339', toRFC3339);
@@ -160,4 +163,5 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('includes', includes);
 	eleventyConfig.addFilter('cleanFeed', cleanFeed);
 	eleventyConfig.addFilter('setAttr', setAttribute);
+	eleventyConfig.addFilter('merge', merge);
 };

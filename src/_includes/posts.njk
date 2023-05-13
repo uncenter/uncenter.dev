@@ -1,19 +1,18 @@
+{% from "components.njk" import listTags %}
+
 <div class="max-w-[680px] grow p-[1em]">
     {% set i = 0 %}
     {%- for post in posts -%}
         <a class="{% if i == 0 %}mt-0{% else %}mx-0 my-8{% endif %} no-underline" href="{{ post.url }}">
             {% set i = i + 1 %}
-            {% set DATE = post.data.date %}
-            {% set UPDATED = post.data.updated %}
-            {% set CONTENT = post.content %}
-            {% set TAGS = post.data.tags %}
-            {% set MICRO = post.data.micro %}
-            {% set ARCHIVED = post.data.archived %}
-            {% set VIEWS = post.data.views %}
-            {% set DRAFT = post.data.draft %}
-            {%- icon 'IDONTKNOWWHYTHISWORKS' -%}
-            {% include "./tags.njk" %}
             <h2 class="font-semibold leading-[1.2] mx-0 my-1">{{ post.data.title }}</h2>
+            {{ listTags({
+            'date': post.data.date,
+            'updated': post.data.updated,
+            'tags': post.data.tags,
+            'views': post.data.views,
+            'content': post.content
+            }) }}
             <p class="text-[80%] m-0">
                 {% if post.data.excerpt %}{{ post.data.excerpt | toHTML | safe }}
                 {% else %}{%- excerpt post -%}

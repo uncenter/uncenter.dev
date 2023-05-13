@@ -2,23 +2,26 @@
 layout: index.njk
 ---
 
-<article class="max-w-[680px] mx-auto my-0 p-4">
-    <div class="flex flex-wrap justify-between [border-bottom:2px_solid_currentColor]">
+{% from "components.njk" import listTags %}
+
+<main class="max-w-[680px] md:mx-auto my-0 p-4">
+    <div class="flex flex-wrap justify-between [border-bottom:2px_solid_currentColor] pb-2">
         {% if page.url !== "/" %}
-            <a href="/" class="flex items-center gap-x-2 mb-2">
+            <a href="/" class="flex items-center gap-x-2">
                 {% icon "arrow-left" %}
                 <span class="small-caps capitalize">All articles</span>
             </a>
         {% endif %}
-        {% set DATE = date %}
-        {% set UPDATED = updated %}
-        {% set CONTENT = content %}
-        {% set TAGS = tags %}
-        {% set MICRO = micro %}
-        {% set ARCHIVED = archived %}
-        {% set DRAFT = draft %}
-        {% set VIEWS = views %}
-        {% include "tags.njk" %}
+        {{ listTags({
+            'date': date,
+            'updated': updated,
+            'tags': tags,
+            'views': views,
+            'content': content
+            }, {
+            wordCount: false,
+            views: false
+        }) }}
     </div>
 
     {% if content | toc %}
@@ -27,7 +30,9 @@ layout: index.njk
         </nav>
     {% endif %}
     {% if content !== "" %}
-        {{ content | safe }}
+        <article class="wrap-anywhere">
+            {{ content | safe }}
+        </article>
     {% endif %}
     {% giscus %}
     <div id="giscus" class="mt-16"></div>
@@ -47,4 +52,4 @@ layout: index.njk
             </a>
         {% endif %}
     </div>
-</article>
+</main>
