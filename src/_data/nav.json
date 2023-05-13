@@ -11,6 +11,10 @@
 		{
 			"title": "Uses",
 			"urls": ["/uses/"]
+		},
+		{
+			"title": "Colophon",
+			"urls": ["/colophon/"]
 		}
 	],
 	"bottom": [
