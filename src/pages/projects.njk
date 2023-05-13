@@ -1,18 +1,18 @@
 {% for project in projects.maintained %}
     <div class="flex flex-col">
-        <h2 class="font-bold text-xl">
+        <h2 class="font-bold text-xl flex flex-row mb-0 items-center">
             <a class="no-external-link" href="{{ project.link }}">{{ project.name }}</a>
-            <span class="float-right">
+            <span class="ml-auto">
                 {% if project
                     .link
                     .startsWith("https://github.com") %}
-                    {% icon 'social:github', class='block w-4 h-4 mt-4 text-current' %}
+                    {% icon 'social:github', class='block w-4 h-4 text-current' %}
                 {% else %}
-                    {% icon 'external-link', class='block w-4 h-4 mt-4 text-current' %}
+                    {% icon 'external-link', class='block w-4 h-4 text-current' %}
                 {% endif %}
             </span>
         </h2>
-        <p>
+        <p class="m-0">
             {{ project.description }}
         </p>
     </div>
