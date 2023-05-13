@@ -93,22 +93,17 @@ const getCollectionAverageWordLength = (posts) => {
 };
 
 const createCallout = (content, title, type) => {
-	const titleText = markdownLibrary.renderInline(`${title}`);
+	const titleText =
+		title === undefined ? false : markdownLibrary.renderInline(`${title}`);
 	const contentHtml = markdownLibrary.render(content);
 
 	if (['info', 'warning', 'tip', 'note'].includes(type) === false) {
 		type = 'note';
 	}
-	return (
-		`<div class="container note note--${type}">\n` +
-		`<div class="note__title">\n` +
-		`${titleText}\n` +
-		`</div>\n` +
-		`<div class="note__content">\n` +
-		`${contentHtml}\n` +
-		`</div>\n` +
-		`</div>`
-	);
+	return `<div class="note note--${type}">
+    ${titleText ? `<div class="note__title">${titleText}</div>` : ''}
+    <div class="note__content">${contentHtml}</div>
+    </div>`;
 };
 
 const createCalloutNote = (content, title) => {
