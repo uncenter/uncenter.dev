@@ -15,14 +15,13 @@ html {
 	--accent-yellow: #ebcb8b;
 	--accent-magenta: #b48ead;
 	--accent-dark: #4c566a;
-	--pre-bg-color: hsl(210, 28%, 93%);
+	--accent: var(--accent-red);
 }
 
 @media (prefers-color-scheme: light) {
 	body {
 		--bg: var(--light);
 		--fg: var(--gray);
-		--accent: var(--accent-green);
 		--kbd-bg-color: hsl(210, 5%, 100%);
 		--kbd-border-color: hsl(210, 5%, 70%);
 	}
@@ -57,7 +56,6 @@ html {
 	body {
 		--bg: var(--dark);
 		--fg: var(--light);
-		--accent: var(--accent-blue);
 		--kbd-bg-color: hsl(210, 5%, 10%);
 		--kbd-border-color: hsl(210, 5%, 30%);
 	}
