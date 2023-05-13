@@ -26,7 +26,7 @@ html {
 	body {
 		--bg: var(--light);
 		--fg: var(--gray);
-		--accent: var(--accent-red);
+		--accent: var(--accent-blue);
 	}
 }
 
@@ -34,7 +34,7 @@ html {
 	body {
 		--bg: var(--dark);
 		--fg: var(--light);
-		--accent: var(--accent-red);
+		--accent: var(--accent-blue);
 	}
 }
 
@@ -49,7 +49,8 @@ p {
 	line-height: 1.75rem;
 }
 
-article {
+article,
+main {
 	h2 a,
 	h3 a {
 		color: var(--fg);
@@ -229,6 +230,16 @@ footer {
 
 	img {
 		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+	}
+
+	ins {
+		text-decoration: underline;
+		text-decoration-color: var(--accent-green);
+	}
+
+	del {
+		text-decoration: line-through;
+		text-decoration-color: var(--accent-red);
 	}
 }
 

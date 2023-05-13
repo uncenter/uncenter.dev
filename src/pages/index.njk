@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
 {% include "posts.njk" %}
 {% if collections.archivedPosts.length > 0 %}
 
-    <p class="mt-10 bg-gray-100 p-4 rounded-lg">
-There {% if collections.archivedPosts.length === 1 %}is also one archived article. You can find it {% else %}are also {{ collections.archivedPosts.length }} archived articles. You can find them {% endif %}
+    <p class="mt-10 bg-gray-100 rounded-lg">
+There {% if collections.archivedPosts.length === 1 %} is one additional archived article. You can find it {% else %}are {{ collections.archivedPosts.length }} additional archived articles. You can find them {% endif %}
         <a href="/archive/">in the archive</a>.</p>
 {% endif %}

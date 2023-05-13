@@ -1,10 +1,10 @@
-<header>
+<header class="min-w-[30%] p-4">
     <div class="flex items-center flex-col">
         <a href="/"
                 {% if page.url === "/" %}
                 aria-current="page"
                 {% endif %}>
-            {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12") | safe }}
+            {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12 m-auto") | safe }}
             <span class="tracking-tight text-2xl">uncenter</span></a>
         <div>Eu est fugiat non in mollit pariatur anim enim quis est.</div>
         <ul class="list-none px-0 py-4">
