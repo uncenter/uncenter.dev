@@ -128,7 +128,7 @@ const insertGiscusScript = () => {
 	const reactions = '1';
 	return `
     <script>
-    let giscusTheme = "light";
+    let giscusTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     let giscusAttributes = {
         "src": "https://giscus.app/client.js",
         "data-repo": "${meta.github.username}/${meta.github.repo}",
