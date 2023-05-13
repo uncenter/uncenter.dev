@@ -27,27 +27,28 @@ html {
 		--kbd-border-color: hsl(210, 5%, 70%);
 	}
 
-	footer {
-		.icon-github-blank {
+	.icon-github {
+		fill: #161614;
+	}
+	.icon-github-blank {
+		fill: black;
+		stroke: white;
+	}
+	.icon-mastodon-blank,
+	.icon-elementio-blank {
+		& #outer {
 			fill: black;
-			stroke: white;
 		}
-		.icon-mastodon-blank,
-		.icon-elementio-blank {
-			& #outer {
-				fill: black;
-			}
 
-			& #inner {
-				fill: white;
-			}
-		}
-		.icon-rss-blank {
+		& #inner {
 			fill: white;
+		}
+	}
+	.icon-rss-blank {
+		fill: white;
 
-			& #outer {
-				fill: black;
-			}
+		& #outer {
+			fill: black;
 		}
 	}
 }
@@ -61,27 +62,28 @@ html {
 		--kbd-border-color: hsl(210, 5%, 30%);
 	}
 
-	footer {
-		.icon-github-blank {
+	.icon-github {
+		fill: #f0f0f0;
+	}
+	.icon-github-blank {
+		fill: white;
+		stroke: black;
+	}
+	.icon-mastodon-blank,
+	.icon-elementio-blank {
+		& #outer {
 			fill: white;
-			stroke: black;
 		}
-		.icon-mastodon-blank,
-		.icon-elementio-blank {
-			& #outer {
-				fill: white;
-			}
 
-			& #inner {
-				fill: black;
-			}
-		}
-		.icon-rss-blank {
+		& #inner {
 			fill: black;
+		}
+	}
+	.icon-rss-blank {
+		fill: black;
 
-			& #outer {
-				fill: white;
-			}
+		& #outer {
+			fill: white;
 		}
 	}
 }
