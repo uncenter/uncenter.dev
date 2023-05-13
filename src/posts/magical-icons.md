@@ -1,9 +1,9 @@
 ---
 tags: ['11ty', 'icons']
-title: Include icons selectively with 11ty
+title: Including only the icons you use in 11ty
 description: A simple way to include only the icons you actually use.
 date: 2023-02-22
-excerpt: I wanted to include SVG icons on my site, but I didn't want to include all of them on every page. Here's how I did it.
+excerpt: A simple way to include only the icons you actually use.
 ---
 
 {% info "Update" %}
