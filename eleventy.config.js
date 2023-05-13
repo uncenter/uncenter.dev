@@ -28,7 +28,9 @@ module.exports = function (eleventyConfig) {
 		rel: ['noreferrer', 'noopener', 'external'],
 		overwrite: false,
 	});
-	eleventyConfig.addPlugin(pluginShikier);
+	eleventyConfig.addPlugin(pluginShikier, {
+		theme: 'poimandres',
+	});
 	eleventyConfig.addPlugin(pluginRSS);
 	eleventyConfig.addPlugin(pluginIcons, {
 		mode: 'inline',
