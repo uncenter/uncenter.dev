@@ -6,7 +6,7 @@
                 {% endif %}>
             {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12 m-auto") | safe }}
             <span class="tracking-tight text-2xl">uncenter</span></a>
-        <div>Eu est fugiat non in mollit pariatur anim enim quis est.</div>
+        <div class="max-w-[40ch] text-center">{{ meta.description }}</div>
         <ul class="list-none px-0 py-4">
             {% for item in nav.top %}
                 {% set classes = "font-bold px-2" %}
