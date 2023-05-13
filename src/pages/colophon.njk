@@ -37,12 +37,9 @@ Usage statistics are tracked using [umami](https://umami.is/), an open-source al
 {% endrenderTemplate %}
 
 {% macro insertTable(collection, label) %}
+    <div class="flex flex-col justify-center">
+    <h3 class="text-center">{{ label }}</h3>
     <table class="text-center">
-        <thead>
-            <tr>
-                <h3 colspan="2">{{ label }}</h3>
-            </tr>
-        </thead>
         <tbody>
             <tr>
                 <th>Posts</th>
@@ -66,10 +63,15 @@ Usage statistics are tracked using [umami](https://umami.is/), an open-source al
             </tr>
         </tbody>
     </table>
+    </div>
 {% endmacro %}
 
-<div class="flex flex-col space-y-4 justify-center items-center">
+<div class="flex flex-col md:flex-row items-center justify-center">
+    <div id="left-panel" class="mr-4">
     {{ insertTable("posts", "Published posts") }}
     {{ insertTable("archivedPosts", "Archived posts") }}
+    </div>
+    <div id="right-panel">
     {{ insertTable("allPosts", "Total") }}
+    </div>
 </div>
