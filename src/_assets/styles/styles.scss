@@ -219,6 +219,7 @@ footer {
 	iframe,
 	embed,
 	object {
+		box-sizing: border-box;
 		content-visibility: auto;
 		background-size: cover;
 		background-image: none;
@@ -230,6 +231,7 @@ footer {
 
 	img {
 		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+		padding: 1rem;
 	}
 
 	ins {
