@@ -2,15 +2,11 @@
 	"top": [
 		{
 			"title": "Articles",
-			"url": "/"
+			"urls": ["/"]
 		},
 		{
 			"title": "Projects",
 			"urls": ["/projects/"]
-		},
-		{
-			"title": "Blog",
-			"urls": ["/posts/", "/archive/"]
 		},
 		{
 			"title": "Uses",

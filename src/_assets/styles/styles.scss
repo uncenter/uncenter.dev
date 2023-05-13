@@ -186,8 +186,14 @@ footer {
 @layer components {
 	a {
 		position: relative;
-		text-decoration: underline;
+		text-decoration: none;
+		color: var(--fg);
+	}
+
+	main a,
+	article a {
 		color: var(--accent);
+		text-decoration: underline;
 	}
 
 	main a[rel*='noopener']:not([href*='https://uncenter.org'], .no-external-link
