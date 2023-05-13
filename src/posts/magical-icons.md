@@ -4,6 +4,7 @@ title: Including only the icons you use in 11ty
 description: A simple way to include only the icons you actually use.
 date: 2023-02-22
 excerpt: A simple way to include only the icons you actually use.
+archived: true
 ---
 
 {% info "Update" %}
