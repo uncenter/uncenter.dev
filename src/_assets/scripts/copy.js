@@ -8,7 +8,6 @@ const ICON_CLIPBOARD_CHECK = `<svg aria-hidden="true" focusable="false" fill=non
 const blocks = document.querySelectorAll('pre.shiki');
 blocks.forEach((block) => {
 	const copyButton = document.createElement('button');
-	copyButton.classList.add('copy-button');
 	copyButton.innerHTML = ICON_CLIPBOARD_COPY;
 
 	copyButton.addEventListener('click', () => {

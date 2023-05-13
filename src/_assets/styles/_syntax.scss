@@ -11,31 +11,29 @@ pre.shiki {
 
 pre.shiki .language-id {
 	text-transform: uppercase;
-	color: #ccc;
-	padding: 0.3rem 0.5rem 0.2rem 0.5rem;
-	background: #fff2;
+	color: var(--light);
+	padding: 0.3rem 0.75rem 0.2rem;
 	font-size: 0.8rem;
 	position: sticky;
-	left: 0;
-}
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
-pre.shiki .language-id button.copy-button {
-	background: none;
-	border: none;
-	cursor: pointer;
-	color: #ccc;
-	padding: 0.25rem;
-	position: absolute;
-	right: 0.2rem;
-	top: 0.15rem;
-	box-shadow: none;
-}
+	button {
+		margin: 0;
+		padding: 0;
+		background: none;
+		border: none;
+		cursor: pointer;
+		box-shadow: none;
+		color: var(--light);
 
-pre.shiki .language-id button.copy-button svg {
-	width: 1em;
-	height: 1em;
-	display: inline;
-	margin-left: 0.5rem;
+		svg {
+			width: 1em;
+			height: 1em;
+			display: inline;
+		}
+	}
 }
 
 .shiki code {
