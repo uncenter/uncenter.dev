@@ -1,9 +1,7 @@
 {% from "components.njk" import listTags %}
 
-{% set i = 0 %}
 {%- for post in posts -%}
-    <div class="{% if i == 0 %}mt-0{% else %}mx-0 my-8{% endif %} no-underline">
-        {% set i = i + 1 %}
+    <div class="{% if loop.first %}mt-0{% else %}mx-0 my-8{% endif %} no-underline">
         <h2 class="font-semibold leading-[1.2] mx-0 my-1">
             <a href="{{ post.url }}">{{ post.data.title }}</a>
         </h2>
