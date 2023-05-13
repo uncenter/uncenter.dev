@@ -243,6 +243,12 @@ footer {
 		text-decoration: line-through;
 		text-decoration-color: var(--accent-red);
 	}
+
+	blockquote {
+		border-left: 4px solid var(--accent);
+		padding-left: 1rem;
+		margin-left: 0;
+	}
 }
 
 @layer utilities {
