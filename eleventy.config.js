@@ -29,7 +29,7 @@ module.exports = function (eleventyConfig) {
 		overwrite: false,
 	});
 	eleventyConfig.addPlugin(pluginShikier, {
-		theme: 'poimandres',
+		theme: 'solarized-dark',
 	});
 	eleventyConfig.addPlugin(pluginRSS);
 	eleventyConfig.addPlugin(pluginIcons, {
