@@ -35,7 +35,7 @@
 		"autoprefixer": "^10.4.14",
 		"cross-spawn": "^7.0.3",
 		"cssnano": "^5.1.15",
-		"eleventy-plugin-icons": "^2.4.0-3",
+		"eleventy-plugin-icons": "^2.4.3",
 		"eleventy-plugin-toc": "^1.1.5",
 		"fs": "^0.0.1-security",
 		"gitlog": "^4.0.4",
