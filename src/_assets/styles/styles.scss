@@ -26,6 +26,30 @@ html {
 		--kbd-bg-color: hsl(210, 5%, 100%);
 		--kbd-border-color: hsl(210, 5%, 70%);
 	}
+
+	footer {
+		.icon-github-blank {
+			fill: black;
+			stroke: white;
+		}
+		.icon-mastodon-blank,
+		.icon-elementio-blank {
+			& #outer {
+				fill: black;
+			}
+
+			& #inner {
+				fill: white;
+			}
+		}
+		.icon-rss-blank {
+			fill: white;
+
+			& #outer {
+				fill: black;
+			}
+		}
+	}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +59,30 @@ html {
 		--accent: var(--accent-blue);
 		--kbd-bg-color: hsl(210, 5%, 10%);
 		--kbd-border-color: hsl(210, 5%, 30%);
+	}
+
+	footer {
+		.icon-github-blank {
+			fill: white;
+			stroke: black;
+		}
+		.icon-mastodon-blank,
+		.icon-elementio-blank {
+			& #outer {
+				fill: white;
+			}
+
+			& #inner {
+				fill: black;
+			}
+		}
+		.icon-rss-blank {
+			fill: black;
+
+			& #outer {
+				fill: white;
+			}
+		}
 	}
 }
 
