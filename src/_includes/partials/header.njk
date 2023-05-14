@@ -7,13 +7,13 @@
             {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12 m-auto") | safe }}
             <span class="tracking-tight text-2xl">uncenter</span></a>
         <div class="max-w-[40ch] text-center mt-1">{{ meta.description }}</div>
-        <ul class="list-none px-0 py-4">
+        <ul class="list-none px-0 py-4 sm:flex">
             {% for item in nav.top %}
-                {% set classes = "font-semibold px-2" %}
+                {% set classes = "font-semibold md:p-2 px-2" %}
                 {% if page.url | includes(item.urls)and item.urls[0] != "/" %}
-                    {% set classes = classes + " [border-left:2px_solid_currentColor]" %}
+                    {% set classes = classes + " [border-left:2px_solid_currentColor] sm:[border-bottom:2px_solid_currentColor] sm:[border-left:2px_solid_transparent]" %}
                 {% elif item.urls[0] == "/" and page.url == "/" %}
-                    {% set classes = classes + " [border-left:2px_solid_currentColor]" %}
+                    {% set classes = classes + " [border-left:2px_solid_currentColor] sm:[border-bottom:2px_solid_currentColor] sm:[border-left:2px_solid_transparent]" %}
                 {% else %}
                     {% set classes = classes + " [border-left:2px_solid_transparent]" %}
                 {% endif %}
