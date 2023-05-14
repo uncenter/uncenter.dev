@@ -4,7 +4,7 @@ description: This site and how it's made.
 collection: 'more'
 ---
 
-{% renderTemplate "njk,md" %}
+{% renderTemplate "njk,md", { meta: meta } %}
 
 What is a colophon? According to [Wikipedia](<https://en.wikipedia.org/wiki/Colophon_(publishing)>):
 
@@ -30,7 +30,7 @@ After the website is built, it's just a folder on my desktop or in a Github repo
 
 ## Visitor analytics
 
-Usage statistics are tracked using [umami](https://umami.is/), an open-source alternative to Google Analytics. Although it was a bit challenging to set up, the data presentation and graphs look great once it's up and running. The PostgreSQL database and app are hosted on [Railway](https://railway.app/), a convenient and (mostly) free platform for hosting projects like this. You can view the [analytics for this website]({{ meta.analytics.shareLink }}).
+Usage statistics are tracked using [umami](https://umami.is/), an open-source alternative to Google Analytics. Although it was a bit challenging to set up, the data presentation and graphs look great once it's up and running. The PostgreSQL database and app are hosted on [Railway](https://railway.app/), a convenient and (mostly) free platform for hosting projects like this. View the [analytics!]({{ meta.analytics.shareLink }}).
 
 ## Writing statistics
 
