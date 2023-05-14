@@ -11,12 +11,18 @@ html {
 	--pastel-green: #a3be8c;
 	--pastel-yellow: #ebcb8b;
 	--pastel-magenta: #b48ead;
-	--pastel-dark: #4c566a;
+	--contrast-blue: #517aa4;
+	--contrast-red: #ae4751;
+	--contrast-green: #74a04c;
+	--contrast-yellow: #e1b151;
+	--contrast-magenta: #93628a;
+	--gray-dark: #4c566a;
+	--gray-light: #7d89a1;
 	--light: #fff;
 	--gray: #3a343a;
 	--dark: #121212;
-	--accent: var(--pastel-red);
-	--accent-secondary: var(--pastel-dark);
+	--accent: var(--contrast-red);
+	--accent-secondary: var(--gray-dark);
 }
 
 @media (prefers-color-scheme: light) {
