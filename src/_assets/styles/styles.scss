@@ -225,7 +225,11 @@ footer {
 }
 
 .toc {
-	padding: 0.25rem 0 0.5rem 0;
+	padding: 0.5rem 0;
+}
+
+article p:first-of-type {
+	margin-top: 0;
 }
 
 @import 'syntax';
