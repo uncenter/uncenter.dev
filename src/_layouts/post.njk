@@ -47,6 +47,9 @@ layout: index.njk
                 <span>{{ previous.data.title }}</span>
             </a>
         {% endif %}
+        {% if not previous and next %}
+            <div></div>
+        {% endif %}
         {% if next %}
             <a class="text-center" href="{{ next.url }}">
                 <span>{{ next.data.title }}</span>
