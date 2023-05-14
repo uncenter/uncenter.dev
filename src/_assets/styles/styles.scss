@@ -228,7 +228,7 @@ footer {
 	padding: 0.5rem 0;
 }
 
-article p:first-of-type {
+article:has(.toc) p:first-of-type {
 	margin-top: 0;
 }
 
