@@ -1,7 +1,7 @@
 {
 	"name": "uncenter.org",
-	"version": "4.0.0",
-	"description": "my website",
+	"version": "5.0.0",
+	"description": "Ducks, badly-written articles, some half-baked ideas, and a little bit of everything else.",
 	"scripts": {
 		"clean": "rimraf dist",
 		"spell:run": "cspell src/posts/**/*.md",
@@ -23,7 +23,7 @@
 		"email": "contact@uncenter.org",
 		"url": "https://uncenter.org/"
 	},
-	"homepage": "https://github.com/uncenter/uncenter.org",
+	"homepage": "https://www.uncenter.org",
 	"license": "MIT",
 	"dependencies": {
 		"@11ty/eleventy": "^2.0.0",
