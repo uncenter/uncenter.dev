@@ -50,8 +50,7 @@ def sum(a, b):
 ```js
 console.log('Hello World!'); // [sh! --]
 function sum(a, b) {
-	// [sh! ++]
-	return a + b;
+	return a + b; // [sh! ++]
 }
 ```
 

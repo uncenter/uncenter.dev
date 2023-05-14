@@ -208,7 +208,10 @@ const highlight = (code, lang, highlighter) => {
 	return outputHtml;
 };
 
-module.exports = (eleventyConfig, { theme = 'nord' } = {}) => {
+module.exports = (eleventyConfig, { theme }) => {
+	if (!theme) {
+		throw new Error('Theme is required');
+	}
 	eleventyConfig.amendLibrary('md', () => {});
 
 	eleventyConfig.on('eleventy.before', async () => {
