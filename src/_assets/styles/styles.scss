@@ -261,8 +261,9 @@ article:has(.toc) p:first-of-type {
 		content: '';
 		display: inline-block;
 		height: 11px;
-		margin-left: 4px;
 		width: 11px;
+		margin-left: 4px;
+		margin-right: 2px;
 	}
 
 	img,
