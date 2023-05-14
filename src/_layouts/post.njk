@@ -8,7 +8,7 @@ layout: index.njk
     <div class="flex flex-wrap justify-between [border-bottom:2px_solid_currentColor] pb-2">
         {% if page.url !== "/" %}
             <a href="/" class="flex items-center gap-x-2 pr-4 pb-2">
-                {% icon "arrow-left" %}
+                {{ "src/_includes/duck-flying.svg" | dumpContents | setAttr("class", "w-4 h-4 inline-block -scale-x-100") | safe }}
                 <span class="capitalize">All articles</span>
             </a>
         {% endif %}
