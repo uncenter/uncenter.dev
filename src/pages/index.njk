@@ -5,8 +5,6 @@ layout: page
 eleventyExcludeFromCollections: true
 ---
 
-<p class="mb-12"></p>
-
 {% set posts = collections.posts | reverse %}
 {% include "posts.njk" %}
 {% if collections.archivedPosts.length > 0 %}

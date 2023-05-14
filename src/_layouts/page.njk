@@ -3,12 +3,9 @@ layout: index.njk
 ---
 <div class="flex flex-col lg:flex-row">
     {% include "partials/header.njk" %}
-    <main class="mx-auto lg:ml-6 lg:my-0 lg:mr-0 p-4 lg:p-0">
-        {% if header %}
-            <h1 class="text-3xl font-bold break-words m-0">{{ header }}</h1>
-        {% elif header == false %}
-        {% elif title %}
-            <h1 class="text-3xl font-bold break-words">{{ title }}</h1>
+    <main class="mx-auto lg:mx-6 lg:my-0 p-4 lg:p-0">
+        {% if header or title %}
+            <h1 class="text-3xl font-bold break-words m-0 mb-12">{{ header or title }}</h1>
         {% endif %}
         {% if content %}
             {{ content | safe }}

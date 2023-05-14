@@ -1,14 +1,17 @@
 ---
-title: Archives
+title: Archive
 description: The ugly ducklings of my writing.
 eleventyExcludeFromCollections: true
 ---
+<p class="mb-12">
+    {% if collections.archivedPosts.length > 0 %}
+    These articles do not match my writing standards or are no longer relevant. They are kept here for posterity.
+    {% else %}
+    There are no archived posts.
+    {% endif %}
+</p>
+
 {% if collections.archivedPosts.length > 0 %}
-
-    <p class="mb-16">These articles do not match my writing standards or are no longer relevant. They are kept here for posterity.</p>
-
     {% set posts = collections.archivedPosts | reverse %}
     {% include "posts.njk" %}
-{% else %}
-    <p class="mb-10">There are no archived posts.</p>
 {% endif %}
