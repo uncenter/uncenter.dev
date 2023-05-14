@@ -26,7 +26,7 @@
         {% if opts['tags'] and data['tags'] %}
             <div class="flex flex-row flex-wrap">
                 <p class="small-text m-0">
-                    <span class="mr-1 capitalize small-text">Tagged:</span>
+                    <span class="mr-1 capitalize">Tagged:</span>
                     {%- for tag in data['tags'] -%}
                         <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
                         {%- if not (data['tags'] | last == tag)-%}, {% endif -%}
