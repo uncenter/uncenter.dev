@@ -1,4 +1,3 @@
-const fs = require('fs');
 const turndown = require('turndown');
 
 const Image = require('@11ty/eleventy-img');
@@ -6,6 +5,7 @@ const imageSize = require('image-size');
 const meta = require('../_data/meta.json');
 
 const { escape } = require('lodash');
+const { parseHTML } = require('linkedom');
 const { markdownLibrary } = require('../../utils/plugins/markdown');
 
 const getReadingTime = require('./utils/readingTime.js');
@@ -14,7 +14,7 @@ const wordCount = require('./utils/wordCount.js');
 const stringifyAttributes = require('./utils/stringifyAttributes.js');
 const logOutput = require('./utils/logOutput.js');
 
-const getExcerpt = (page) => {
+const getExcerpt = (page, classes = '') => {
 	if (!page.hasOwnProperty('content')) {
 		return null;
 	}
@@ -44,10 +44,15 @@ const getExcerpt = (page) => {
 	}
 
 	excerpt += '...';
-	return markdownLibrary.render(excerpt);
+	const { document } = parseHTML(markdownLibrary.render(excerpt));
+	document.firstChild.classList.add(classes);
+	return document.documentElement.outerHTML;
 };
 
 const getCollectionWordCount = (posts) => {
+	if (!posts) {
+		return 0;
+	}
 	let words = 0;
 	posts.forEach((post) => {
 		words += parseInt(wordCount(cleanContent(post.content)));
@@ -56,6 +61,9 @@ const getCollectionWordCount = (posts) => {
 };
 
 const getCollectionReadingTime = (posts) => {
+	if (!posts) {
+		return 0;
+	}
 	let readingTime = 0;
 	posts.forEach((post) => {
 		readingTime += parseInt(
@@ -72,6 +80,9 @@ const getCollectionReadingTime = (posts) => {
 };
 
 const getCollectionWordCountAverage = (posts) => {
+	if (!posts) {
+		return 0;
+	}
 	let words = 0;
 	posts.forEach((post) => {
 		words += wordCount(cleanContent(post.content));
@@ -80,6 +91,9 @@ const getCollectionWordCountAverage = (posts) => {
 };
 
 const getCollectionAverageWordLength = (posts) => {
+	if (!posts) {
+		return 0;
+	}
 	averageWordLengths = [];
 	posts.forEach((post) => {
 		const count = wordCount(cleanContent(post.content));
@@ -87,28 +101,25 @@ const getCollectionAverageWordLength = (posts) => {
 		const averageWordLength = Math.round(contentLength / count);
 		averageWordLengths.push(averageWordLength);
 	});
-	return Math.round(
-		averageWordLengths.reduce((a, b) => a + b) / averageWordLengths.length,
-	);
+	return averageWordLengths && averageWordLengths.length > 0
+		? Math.round(
+				averageWordLengths.reduce((a, b) => a + b) / averageWordLengths.length,
+		  )
+		: 0;
 };
 
 const createCallout = (content, title, type) => {
-	const titleText = markdownLibrary.renderInline(`${title}`);
+	const titleText =
+		title === undefined ? false : markdownLibrary.renderInline(`${title}`);
 	const contentHtml = markdownLibrary.render(content);
 
 	if (['info', 'warning', 'tip', 'note'].includes(type) === false) {
 		type = 'note';
 	}
-	return (
-		`<div class="container note note--${type}">\n` +
-		`<div class="note__title">\n` +
-		`${titleText}\n` +
-		`</div>\n` +
-		`<div class="note__content">\n` +
-		`${contentHtml}\n` +
-		`</div>\n` +
-		`</div>`
-	);
+	return `<div class="note note--${type}">
+    ${titleText ? `<div class="note__title">${titleText}</div>` : ''}
+    <div class="note__content">${contentHtml}</div>
+    </div>`;
 };
 
 const createCalloutNote = (content, title) => {
@@ -133,7 +144,7 @@ const insertGiscusScript = () => {
 	const reactions = '1';
 	return `
     <script>
-    let giscusTheme = "light";
+    let giscusTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     let giscusAttributes = {
         "src": "https://giscus.app/client.js",
         "data-repo": "${meta.github.username}/${meta.github.repo}",
@@ -214,7 +225,6 @@ const insertImage = async function (src, alt, width, height) {
 					loading: 'lazy',
 					decoding: 'async',
 					sizes: `(min-width: 70ch) 70ch, 100vw`,
-					style: `content-visibility: auto; background-size: cover; background-image: none;`,
 				})}>
     </picture>
 </a>
@@ -242,4 +252,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addPairedShortcode('info', createCalloutInfo);
 	eleventyConfig.addShortcode('giscus', insertGiscusScript);
 	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
+	eleventyConfig.addShortcode('log', (...args) => {
+		console.log(...args);
+	});
 };

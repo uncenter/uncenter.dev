@@ -5,20 +5,24 @@ pagination:
     size: 1
     alias: tag
     filter:
-        - all
-        - customCollections
-        - recentChangesByDate
+        - custom
+        - recentChanges
 eleventyComputed:
     title: Tagged “{{ tag }}”
 permalink: /tags/{{ tag | slugify }}/
 description: Posts tagged “{{ tag }}”
 ---
-<p>See <a href="/tags/">all tags</a>.</p>
 
-{% set posts = collections[ tag ] %}
+<p class="mb-12">
+    {% if collections[tag].length %}
+        See <a href="/tags/">all tags</a>.
+    {% else %}
+        No posts tagged “{{ tag }}”.
+    {% endif %}
+</p>
+
+{% set posts = collections[tag] | reverse %}
 
 {% if posts.length %}
     {% include "posts.njk" %}
-{% else %}     
-    <p>No posts tagged “{{ tag }}”.</p>
 {% endif %}

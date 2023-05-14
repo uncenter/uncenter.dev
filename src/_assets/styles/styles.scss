@@ -1,54 +1,184 @@
-@import '../../../node_modules/nord/src/sass/nord.scss';
-@import 'variables';
+@import 'fonts';
 
 html {
-	scroll-padding-top: 2rem;
 	scroll-behavior: smooth;
 	overflow-y: scroll;
-	font-family: ui-sans-serif, system-ui, Roboto, Helvetica Neue;
 }
 
-body {
-	margin: 4rem;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+:root {
+	--pastel-blue: #81a1c1;
+	--pastel-red: #bf616a;
+	--pastel-green: #a3be8c;
+	--pastel-yellow: #ebcb8b;
+	--pastel-magenta: #b48ead;
+	--contrast-blue: #517aa4;
+	--contrast-red: #ae4751;
+	--contrast-green: #74a04c;
+	--contrast-yellow: #e1b151;
+	--contrast-magenta: #93628a;
+	--gray-dark: #4c566a;
+	--gray-light: #7d89a1;
+	--light: #fff;
+	--gray: #3a343a;
+	--dark: #121212;
+	--accent: var(--contrast-red);
+	--accent-secondary: var(--gray-dark);
+}
+
+@media (prefers-color-scheme: light) {
+	body {
+		--bg: var(--light);
+		--fg: var(--gray);
+		--kbd-bg-color: hsl(210, 5%, 100%);
+		--kbd-border-color: hsl(210, 5%, 70%);
+	}
+
+	.icon-github {
+		fill: #161614;
+	}
+	.icon-github-blank {
+		fill: black;
+		stroke: white;
+	}
+	.icon-mastodon-blank,
+	.icon-elementio-blank {
+		& #outer {
+			fill: black;
+		}
+
+		& #inner {
+			fill: white;
+		}
+	}
+	.icon-rss-blank {
+		fill: white;
+
+		& #outer {
+			fill: black;
+		}
+	}
+	.icon-duck-flying {
+		fill: black;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		--bg: var(--dark);
+		--fg: var(--light);
+		--kbd-bg-color: hsl(210, 5%, 10%);
+		--kbd-border-color: hsl(210, 5%, 30%);
+	}
+
+	.icon-github {
+		fill: #f0f0f0;
+	}
+	.icon-github-blank {
+		fill: white;
+		stroke: black;
+	}
+	.icon-mastodon-blank,
+	.icon-elementio-blank {
+		& #outer {
+			fill: white;
+		}
+
+		& #inner {
+			fill: black;
+		}
+	}
+	.icon-rss-blank {
+		fill: black;
+
+		& #outer {
+			fill: white;
+		}
+	}
+	.icon-duck-flying {
+		fill: white;
+	}
 }
 
 .icon {
 	display: inline-block;
 	width: 1em;
 	height: 1em;
+}
 
-	&.icon-rss {
-		fill: #fff;
+p {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+}
+
+article,
+main {
+	h2 a,
+	h3 a {
+		color: var(--fg);
+		text-decoration: none;
+		&:hover {
+			color: var(--accent);
+			text-decoration: underline;
+		}
+	}
+	h2 {
+		font-weight: 600;
+		padding-bottom: 3px;
+	}
+
+	h3 {
+		font-style: italic;
+		padding-bottom: 1px;
+	}
+
+	h2 a::before,
+	h3 a::before {
+		position: absolute;
+		left: -40px;
+		width: 48px;
+		content: '§';
+		color: var(--accent);
+		transition: color 0.2s ease;
+		text-align: center;
+		opacity: 0;
+	}
+
+	h2 a:hover::before,
+	h3 a:hover::before {
+		opacity: 1;
 	}
 }
 
-footer .icon {
-	width: 1.2em;
-	height: 1.2em;
-}
-
-.logo-laptop {
-	height: 100px;
-	width: 100px;
-}
-
-#giscus {
-	margin-top: 6rem;
+footer {
+	ul {
+		list-style: none;
+		display: flex;
+		justify-content: center;
+		margin: 0;
+		padding: 0;
+		li {
+			margin: 0 0.5rem;
+			a {
+				color: var(--accent);
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
 }
 
 .note {
-	padding-top: 1.5rem;
-	padding-bottom: 0px;
-	margin: 10px 0px;
+	padding: 0 1.5rem 0px 1.5rem;
+	margin: 10px 0.25rem;
 	position: relative;
+	border: 4px solid var(--note-color);
 
 	.note__title {
+		padding-top: 1.5rem;
 		font-weight: bold;
 		font-size: 1.4em;
-		color: var(--note-color);
 	}
 
 	&::after {
@@ -62,11 +192,11 @@ footer .icon {
 		line-height: 1;
 		background: #fff;
 		color: var(--note-color);
-		// src: https://brianjdevries.com/style-guide/
+		background-color: var(--bg);
 	}
 
 	&.note--info {
-		--note-color: #{$sky-600};
+		--note-color: var(--pastel-blue);
 
 		&::after {
 			content: 'Info';
@@ -74,7 +204,7 @@ footer .icon {
 	}
 
 	&.note--warning {
-		--note-color: #{$nord11};
+		--note-color: var(--pastel-yellow);
 
 		&::after {
 			content: 'Warning';
@@ -82,7 +212,7 @@ footer .icon {
 	}
 
 	&.note--tip {
-		--note-color: #7c9963;
+		--note-color: var(--pastel-green);
 
 		&::after {
 			content: 'Tip';
@@ -90,8 +220,16 @@ footer .icon {
 	}
 
 	&.note--note {
-		--note-color: #{$gray-900};
+		--note-color: var(--accent-secondary);
 	}
+}
+
+.toc {
+	padding: 0.5rem 0;
+}
+
+article:has(.toc) p:first-of-type {
+	margin-top: 0;
 }
 
 @import 'syntax';
@@ -101,16 +239,24 @@ footer .icon {
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-	kbd {
-		@apply text-xs;
-	}
-}
-
 @layer components {
-	main a[rel*='noopener']:not([href*='uncenter.org'])::after {
+	a {
+		position: relative;
+		text-decoration: none;
+		color: var(--fg);
+	}
+
+	main a,
+	article a {
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+
+	main a[rel*='noopener']:not([href*='https://uncenter.org'], .no-external-link)::after
+	{
 		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='external-link-icon' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
-		background-color: #000;
+		background-color: var(--fg);
 		mask-position: center;
 		mask-repeat: no-repeat;
 		mask-size: contain;
@@ -120,11 +266,92 @@ footer .icon {
 		margin-left: 4px;
 		width: 11px;
 	}
-	.prose :not(pre) > code {
-		border-radius: 0.3em;
-		background-color: #22272f;
-		color: #d8dee9;
-		padding: 0.2em 0.4em;
-		white-space: normal;
+
+	img,
+	svg,
+	video,
+	canvas,
+	audio,
+	iframe,
+	embed,
+	object {
+		box-sizing: border-box;
+		content-visibility: auto;
+		background-size: cover;
+		background-image: none;
+		display: block;
+		vertical-align: middle;
+		height: auto;
+		max-width: 100%;
 	}
+
+	img {
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+		padding: 1rem;
+	}
+
+	ins {
+		text-decoration: underline;
+		text-decoration-color: var(--accent-green);
+	}
+
+	del {
+		text-decoration: line-through;
+		text-decoration-color: var(--accent-red);
+	}
+
+	blockquote {
+		border-left: 4px solid var(--accent);
+		padding-left: 1rem;
+		margin-left: 0;
+	}
+
+	hr {
+		margin: 3rem 1rem;
+	}
+
+	.checklist-item label {
+		margin-left: 0.25rem;
+	}
+}
+
+@layer utilities {
+	.small-text {
+		font-size: 90%;
+	}
+
+	.small-caps {
+		font-variant: small-caps;
+	}
+
+	.petite-caps {
+		font-variant: petite-caps;
+	}
+
+	.wrap-anywhere {
+		overflow-wrap: anywhere;
+	}
+}
+
+@media (min-width: 1024px) {
+	body {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: auto auto;
+	}
+}
+
+header {
+	grid-row: 1 / 1;
+	grid-column: 1 / 1;
+}
+
+footer {
+	grid-row: 2 / 2;
+	grid-column: 1 / 1;
+}
+
+main {
+	grid-row: 1 / span 3;
+	grid-column: 2 / 2;
 }

@@ -1,3 +1,11 @@
 {
-	"layout": "post"
+	"layout": "post",
+	"post": {
+		"tags": true,
+		"return": {
+			"link": "/",
+			"text": "Back to articles"
+		},
+		"comments": true
+	}
 }

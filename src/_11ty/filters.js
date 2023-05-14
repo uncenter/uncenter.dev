@@ -89,7 +89,7 @@ const dumpContents = (filePath) => {
 	return fileContents.toString('utf8');
 };
 
-const getWordCount = (content, { preText = '', postText = 'words' } = {}) => {
+const getWordCount = (content, { preText = '', postText = '' } = {}) => {
 	const htmlContent = typeof content === 'string' ? content : content.content;
 
 	if (!htmlContent) {
@@ -113,7 +113,21 @@ const isRecent = (date, days) => {
 };
 
 const includes = (check, value) => {
+	if (Array.isArray(value)) {
+		return value.some((v) => check.includes(v));
+	}
 	return check.includes(value);
+};
+
+const setAttribute = (content, attribute, value = false) => {
+	const regex = new RegExp(`${attribute}=".*?"`, 'g');
+	let el = content.match(/<[^>]*>/)[0];
+	if (el.match(regex)) {
+		el = el.replace(regex, value ? `${attribute}="${value}"` : '');
+	} else {
+		el = el.replace('>', ` ${attribute}="${value}">`);
+	}
+	return content.replace(/<[^>]*>/, el);
 };
 
 const cleanFeed = (content) => {
@@ -123,6 +137,10 @@ const cleanFeed = (content) => {
 		.replace(/<div id="section-tags" [^>]*>.*?<\/div>/g, '')
 		.replace(/<nav id="section-toc" [^>]*>.*?<\/nav>/g, '');
 	return content;
+};
+
+const merge = (a, b) => {
+	return Object.assign({}, a, b);
 };
 
 module.exports = (eleventyConfig) => {
@@ -145,4 +163,6 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('dumpContents', dumpContents);
 	eleventyConfig.addFilter('includes', includes);
 	eleventyConfig.addFilter('cleanFeed', cleanFeed);
+	eleventyConfig.addFilter('setAttr', setAttribute);
+	eleventyConfig.addFilter('merge', merge);
 };

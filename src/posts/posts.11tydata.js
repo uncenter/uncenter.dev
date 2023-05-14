@@ -1,9 +1,9 @@
 const fetch = require('node-fetch');
-const spawn = require('cross-spawn');
 const { DateTime } = require('luxon');
 
 const logOutput = require('../_11ty/utils/logOutput.js');
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
 const meta = require('../_data/meta.json');
 require('dotenv').config();
 
@@ -49,42 +49,34 @@ async function getPageViews(originalUrl, originalDate) {
 	return json;
 }
 
-// https://github.com/11ty/eleventy/blob/master/src/Util/DateGitLastUpdated.js
-// MIT License: https://github.com/11ty/eleventy/blob/master/LICENSE
-function getGitLastUpdated(filePath) {
-	return (
-		parseInt(
-			spawn
-				.sync('git', ['log', '-1', '--format=%at', filePath])
-				.stdout.toString('utf-8'),
-		) * 1000
-	);
-}
-
 module.exports = {
 	eleventyComputed: {
 		eleventyExcludeFromCollections: (data) => {
-			if ((!isDevelopment && data.draft) || data.unlisted) {
+			// If the post is a draft and we're in production, or if the post is unlisted, exclude it from collections
+			if ((isProd && data.draft) || data.unlisted) {
 				return true;
-			} else {
-				return data.eleventyExcludeFromCollections;
 			}
+			return data.eleventyExcludeFromCollections;
+		},
+		permalink: (data) => {
+			// If the post is a draft and we're in production and it's not unlisted, don't build it
+			if (data.draft && isProd && !data.unlisted) {
+				return false;
+			}
+			return data.permalink;
 		},
 		views: async (data) => {
 			if (!data.page.url || data.views === false) {
 				return;
 			}
-			if (
-				(!isDevelopment && data.draft) ||
-				data.eleventyExcludeFromCollections
-			) {
+			if ((isProd && data.draft) || data.eleventyExcludeFromCollections) {
 				logOutput({
 					prefix: 'data:views',
 					file: data.page.url,
 				});
 				return;
 			}
-			if (process.env.NODE_ENV !== 'production') {
+			if (isDev) {
 				logOutput({
 					prefix: 'data:views',
 					file: data.page.url,
@@ -108,13 +100,22 @@ module.exports = {
 			if (data.description) {
 				return data.description;
 			}
-			if (data.micro) {
-				return 'A tiny post about a tiny thing.';
-			}
 			return 'A post about a thing.';
 		},
 		date: (data) => {
 			return DateTime.fromJSDate(new Date(data.date)).setZone('utc').toISO();
+		},
+		post: (data) => {
+			if (!data.post) {
+				return;
+			}
+			if (data.archived) {
+				return {
+					tags: data.post.tags,
+					return: { link: '/archive/', text: 'Back to archive' },
+				};
+			}
+			return data.post;
 		},
 	},
 };

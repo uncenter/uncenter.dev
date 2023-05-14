@@ -1,0 +1,15 @@
+---
+title: "Home"
+header: "Articles"
+layout: page
+eleventyExcludeFromCollections: true
+---
+
+{% set posts = collections.posts | reverse %}
+{% include "posts.njk" %}
+{% if collections.archivedPosts.length > 0 %}
+
+    <p class="mt-10 text-center lg:text-left">
+There {% if collections.archivedPosts.length === 1 %} is one additional archived article. You can find it {% else %}are {{ collections.archivedPosts.length }} additional archived articles. You can find them {% endif %}
+        <a href="/archive/">in the archive</a>.</p>
+{% endif %}

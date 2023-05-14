@@ -8,18 +8,13 @@ const ICON_CLIPBOARD_CHECK = `<svg aria-hidden="true" focusable="false" fill=non
 const blocks = document.querySelectorAll('pre.shiki');
 blocks.forEach((block) => {
 	const copyButton = document.createElement('button');
-	copyButton.classList.add('copy-button');
-
-	copyButton.textContent = 'Copy';
-	copyButton.insertAdjacentHTML('beforeend', ICON_CLIPBOARD_COPY);
+	copyButton.innerHTML = ICON_CLIPBOARD_COPY;
 
 	copyButton.addEventListener('click', () => {
 		copyContent(block.querySelector('code').textContent);
-		copyButton.textContent = 'Copied!';
-		copyButton.insertAdjacentHTML('beforeend', ICON_CLIPBOARD_CHECK);
+		copyButton.innerHTML = ICON_CLIPBOARD_CHECK;
 		setTimeout(() => {
-			copyButton.textContent = 'Copy';
-			copyButton.insertAdjacentHTML('beforeend', ICON_CLIPBOARD_COPY);
+			copyButton.innerHTML = ICON_CLIPBOARD_COPY;
 		}, 1500);
 	});
 	block.querySelector('.language-id').appendChild(copyButton);

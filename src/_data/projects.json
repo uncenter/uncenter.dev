@@ -1,0 +1,51 @@
+{
+	"maintained": [
+		{
+			"name": "octotree",
+			"description": "Turn Github repositories into ASCII trees.",
+			"link": "https://tree.uncenter.org/",
+			"featured": true
+		},
+		{
+			"name": "uncenter.org",
+			"description": "Me on the internet.",
+			"link": "https://github.com/uncenter/uncenter.org",
+			"hidden": true
+		},
+		{
+			"name": "create-eleventy-app",
+			"description": "An easy-to-use CLI tool to quickly create a fresh Eleventy project.",
+			"link": "https://github.com/uncenter/create-eleventy-app"
+		},
+		{
+			"name": "phonetic-alphabet",
+			"description": "Practice your knowledge of the phonetic alphabet with over 10,000 words and a built-in cheat sheet for when you get stuck (inspired by https://abg.ninja/alphabet).",
+			"link": "https://alphabet.uncenter.org"
+		}
+	],
+	"mini": [
+		{
+			"name": "npm-on-github",
+			"description": "A Chrome extension that displays downloads on GitHub for npm packages.",
+			"link": "https://github.com/uncenter/npm-on-github"
+		},
+		{
+			"name": "markdown-it-kbd-better",
+			"description": "Markdown-it syntax add-on for the <kbd> tag, but with tiny improvements.",
+			"link": "https://github.com/uncenter/markdown-it-kbd-better"
+		},
+		{
+			"name": "eleventy-plugin-icons",
+			"description": "A plugin for Eleventy to quickly add and manage multiple icon sets.",
+			"link": "https://npmjs.com/package/eleventy-plugin-icons"
+		}
+	],
+	"contributions": [
+		{
+			"name": "Blåhaj",
+			"description": "A multipurpose, fun Discord bot.",
+			"link": "https://github.com/ryanccn/blahaj"
+		}
+	],
+	"archived": []
+}

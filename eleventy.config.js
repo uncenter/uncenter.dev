@@ -3,16 +3,18 @@ const collections = require('./src/_11ty/collections.js');
 const filters = require('./src/_11ty/filters.js');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
-const inProduction = process.env.NODE_ENV === 'production';
-require('dotenv').config();
-const Chalk = require('chalk');
+const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const fs = require('fs');
+const Chalk = require('chalk');
 
 const pluginTOC = require('eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
 const pluginRSS = require('@11ty/eleventy-plugin-rss');
 const pluginShikier = require('./utils/plugins/shikier.js');
 const pluginIcons = require('eleventy-plugin-icons');
+
+const inProduction = process.env.NODE_ENV === 'production';
+require('dotenv').config();
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -27,7 +29,9 @@ module.exports = function (eleventyConfig) {
 		rel: ['noreferrer', 'noopener', 'external'],
 		overwrite: false,
 	});
-	eleventyConfig.addPlugin(pluginShikier);
+	eleventyConfig.addPlugin(pluginShikier, {
+		theme: 'github-dark',
+	});
 	eleventyConfig.addPlugin(pluginRSS);
 	eleventyConfig.addPlugin(pluginIcons, {
 		mode: 'inline',
@@ -38,15 +42,17 @@ module.exports = function (eleventyConfig) {
 		},
 		default: 'lucide',
 		icon: {
-			skipIfNotFound: true,
+			notFound: 'ignore',
+			combineDuplicateAttributes: true,
 		},
 		sprites: {
 			shortcode: 'iconSheet',
 		},
 	});
+	eleventyConfig.addPlugin(EleventyRenderPlugin);
 
 	/* Layouts */
-	eleventyConfig.addLayoutAlias('base', 'base.njk');
+	eleventyConfig.addLayoutAlias('page', 'page.njk');
 	eleventyConfig.addLayoutAlias('post', 'post.njk');
 
 	/* Passthrough Copy */
@@ -55,7 +61,7 @@ module.exports = function (eleventyConfig) {
 		'src/_assets/scripts': '/assets/scripts',
 	});
 	eleventyConfig.addPassthroughCopy({
-		'src/_assets/images/content': '/assets/images/content',
+		'src/_assets/fonts': '/assets/fonts',
 	});
 
 	/* Other Config */

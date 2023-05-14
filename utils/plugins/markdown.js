@@ -25,10 +25,9 @@ const markdownLibrary = markdownIt({
 		liClass: 'checklist-item',
 	})
 	.use(markdownItAnchor, {
-		permalink: markdownItAnchor.permalink.linkInsideHeader({
-			placement: 'after',
+		permalink: markdownItAnchor.permalink.headerLink({
 			class: 'anchor',
-			symbol: '#',
+			safariReaderFix: true,
 		}),
 	})
 	.use(markdownItLinkAttributes, [

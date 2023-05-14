@@ -1,39 +1,59 @@
 ---
-layout: base
+layout: index.njk
 ---
 
-{% set DATE = date %}
-{% set UPDATED = updated %}
-{% set CONTENT = content %}
-{% set TAGS = tags %}
-{% set MICRO = micro %}
-{% set ARCHIVED = archived %}
-{% set DRAFT = draft %}
-{% set VIEWS = views %}
-{% include "tags.njk" %}
-{% if content | toc %}
-    <nav id="section-toc" class="container mt-3" aria-labelledby="secondary-navigation">
-        {{ content | toc | safe }}
-    </nav>
-{% endif %}
-{% if content !== "" %}
-    {{ content | safe }}
-{% else %}
-    <p class="text-center text-red-500">{% icon "alert-circle" %} No content found.</p>
-{% endif %}
-{% giscus %}
-<div id="giscus"></div>
-{% set previousPost = collections.posts | getPreviousCollectionItem %}
-{% set nextPost = collections.posts | getNextCollectionItem %}
-<div class="flex flex-row justify-between gap-5 my-10 font-bold">
-    {% if previousPost %}
-        <a class="container w-1/2 py-10 text-center no-underline hover:border-green-600 text-bold" href="{{ previousPost.url }}">{%- icon 'arrow-left' %}
-            {{ previousPost.data.title }}</a>
-    {% else %}
-        <div class="w-1/2 py-10"></div>
+{% from "components.njk" import listTags %}
+
+<main class="max-w-[680px] md:mx-auto my-0 p-4 lg:max-w-[800px] xl:max-w-[1000px] xl:p-8">
+    <div class="flex flex-wrap justify-between [border-bottom:2px_solid_currentColor] pb-2">
+        {% if page.url !== "/" %}
+            <a href="{{ post.return.link }}" class="flex items-center gap-x-2 pr-4 pb-2">
+                {{ "src/_includes/duck-flying.svg" | dumpContents | setAttr("class", "icon-duck-flying w-4 h-4 inline-block -scale-x-100") | safe }}
+                <span>{{ post.return.text }}</span>
+            </a>
+        {% endif %}
+        {% if post.tags %}
+            {{ listTags({
+            'date': date,
+            'updated': updated,
+            'tags': tags,
+            'views': views,
+            'content': content
+            }) }}
+        {% endif %}
+    </div>
+
+    {% if content | toc %}
+        <nav id="section-toc" aria-labelledby="secondary-navigation">
+            {{ content | toc | safe }}
+        </nav>
     {% endif %}
-    {% if nextPost %}
-        <a class="container w-1/2 py-10 text-center no-underline hover:border-green-600 text-bold" href="{{ nextPost.url }}">{{ nextPost.data.title }}
-            {% icon 'arrow-right' -%}</a>
+    {% if content !== "" %}
+        <article class="wrap-anywhere">
+            {{ content | safe }}
+        </article>
     {% endif %}
-</div>
+    {% if post.comments %}
+        {% giscus %}
+        <div id="giscus" class="mt-16"></div>
+    {% endif %}
+    {% set previous = collections.posts | getPreviousCollectionItem %}
+    {% set next = collections.posts | getNextCollectionItem %}
+    <div class="flex flex-row justify-between font-bold mt-8">
+        {% if previous %}
+            <a class="text-center" href="{{ previous.url }}">
+                {%- icon 'arrow-left', class="mr-2" -%}
+                <span>{{ previous.data.title }}</span>
+            </a>
+        {% endif %}
+        {% if not previous and next %}
+            <div></div>
+        {% endif %}
+        {% if next %}
+            <a class="text-center" href="{{ next.url }}">
+                <span>{{ next.data.title }}</span>
+                {%- icon 'arrow-right', class="ml-2" -%}
+            </a>
+        {% endif %}
+    </div>
+</main>

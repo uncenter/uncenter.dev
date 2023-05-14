@@ -1,0 +1,32 @@
+<header class="min-w-[30%] px-4">
+    <div class="flex items-center flex-col leading-6">
+        <a href="/"
+                {% if page.url === "/" %}
+                aria-current="page"
+                {% endif %}>
+            {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12 m-auto") | safe }}
+            <span class="tracking-tight text-2xl">uncenter</span></a>
+        <div class="max-w-[40ch] text-center mt-1">{{ meta.description }}</div>
+        <ul class="list-none px-2 py-4 flex lg:block lg:space-y-1.5">
+            {% for item in nav.top %}
+                {% set classes = "font-semibold lg:py-0 p-2" %}
+                {% if page.url | includes(item.urls)and item.urls[0] != "/" %}
+                    {% set classes = classes + " lg:[border-left:2px_solid_currentColor] [border-bottom:2px_solid_currentColor] [border-left:2px_solid_transparent] lg:[border-bottom:2px_solid_transparent]" %}
+                {% elif item.urls[0] == "/" and page.url == "/" %}
+                    {% set classes = classes + " lg:[border-left:2px_solid_currentColor] [border-bottom:2px_solid_currentColor] [border-left:2px_solid_transparent] lg:[border-bottom:2px_solid_transparent]" %}
+                {% else %}
+                    {% set classes = classes + " [border-left:2px_solid_transparent] lg:[border-left:2px_solid_transparent]" %}
+                {% endif %}
+                <li>
+                    <a href="{{ item.urls[0] }}" class="{{ classes }}"
+                        {% for link in item.urls -%}
+                        {% if page.url === link %}
+                        aria-current="page"
+                        {% endif %}
+                        {%- endfor -%}>{{ item.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</header>

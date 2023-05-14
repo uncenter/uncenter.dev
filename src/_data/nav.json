@@ -1,24 +1,20 @@
 {
 	"top": [
 		{
+			"title": "Articles",
+			"urls": ["/"]
+		},
+		{
 			"title": "Projects",
-			"urls": ["/projects/"],
-			"icon": "folder"
-		},
-		{
-			"title": "About",
-			"urls": ["/about/"],
-			"icon": "user"
-		},
-		{
-			"title": "Blog",
-			"urls": ["/posts/", "/archive/"],
-			"icon": "pencil"
+			"urls": ["/projects/"]
 		},
 		{
 			"title": "Uses",
-			"urls": ["/uses/"],
-			"icon": "bookmark"
+			"urls": ["/uses/"]
+		},
+		{
+			"title": "Colophon",
+			"urls": ["/colophon/"]
 		}
 	],
 	"bottom": [

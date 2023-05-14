@@ -1,32 +1,30 @@
-const disabled = {
-	'code::before': false,
-	'code::after': false,
-	pre: false,
-	code: false,
-	'pre code': false,
-	'h1 code': false,
-	'h2 code': false,
-	'h3 code': false,
-	'h4 code': false,
-	'h5 code': false,
-	'h6 code': false,
-	'a code': false,
-	'pre code': false,
-	'code::before': false,
-	'code::after': false,
-	a: false,
-};
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{11ty.js,js,md,njk,html}', './utils/**/*.js'],
 	theme: {
 		extend: {
-			typography: {
-				DEFAULT: { css: disabled },
-				sm: { css: disabled },
-				lg: { css: disabled },
-				xl: { css: disabled },
-				'2xl': { css: disabled },
+			colors: {
+				bg: 'var(--bg)',
+				fg: 'var(--fg)',
+				accent: 'var(--accent)',
+			},
+			fontFamily: {
+				sans: [
+					'ui-sans-serif',
+					'system-ui',
+					'Inter',
+					'Roboto',
+					'Helvetica Neue',
+				],
+				serif: ['ui-serif', 'Georgia', 'Cambria'],
+				display: [
+					'"General Sans"',
+					'ui-sans-serif',
+					'system-ui',
+					'Inter',
+					'Roboto',
+					'Helvetica Neue',
+				],
 			},
 			lineHeight: {
 				none: 'unset',
@@ -34,7 +32,8 @@ module.exports = {
 		},
 	},
 	corePlugins: {
+		preflight: false,
 		container: false,
 	},
-	plugins: [require('tailwind-nord'), require('@tailwindcss/typography')],
+	plugins: [],
 };

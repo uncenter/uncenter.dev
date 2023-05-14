@@ -1,10 +1,10 @@
 <meta charset="utf-8">
-<title>{{ title }}</title>
+<title>{{ title }} · {{ meta.name }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="{{ meta.name }}">
 <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
 <meta name="generator" content="{{ eleventy.generator }}">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -18,7 +18,9 @@
 <link href="https://github.com/{{ meta.github.username }}" rel="me">
 <link href="https://{{ meta.social.mastodon.instance }}/@{{ meta.social.mastodon.username }}" rel="me">
 <link rel="canonical" href="{{ meta.url }}{{ page.url }}">
+<link rel="alternate" type="application/rss+xml" href="https://{{ meta.domain }}/feed.xml">
 <script async defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2?v=20230514" crossorigin="anonymous">
 <link rel="stylesheet" href="/assets/styles.css">
 {% if styles %}
     {% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/css/{{ style }}">{% endfor %}

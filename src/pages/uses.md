@@ -3,7 +3,7 @@ title: Uses
 description: All sorts of things that I use.
 ---
 
-All sorts of things that I use; on my computer, on my phone, services, etc. Partly for my own reference, partly for anyone who's curious. To see other /uses pages, check out [uses.tech](https://uses.tech/).
+<p class="mb-12">All sorts of things that I use; on my computer, on my phone, services, etc. Partly for my own reference, partly for anyone who's curious. To see other /uses pages, check out <a href="https://uses.tech/">uses.tech</a>.</p>
 
 ## Software
 
@@ -57,7 +57,7 @@ All sorts of things that I use; on my computer, on my phone, services, etc. Part
 - [Visbug](https://github.com/GoogleChromeLabs/ProjectVisBug) for taking a look at styling on websites
 - [Web Developer](https://chrispederick.com/work/web-developer/) for basic web development tools
 
-# Developer services
+## Developer services
 
 - [Cloudflare](https://cloudflare.com/) for DNS
 - [GitHub](https://github.com/) for project source code hosting

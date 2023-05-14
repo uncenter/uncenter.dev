@@ -1,0 +1,18 @@
+{% macro listTags(data, opts) %}
+    {% set opts = opts | merge({'separator': '·'}) %}
+    <div class="flex flex-col flex-wrap font-semibold">
+        <div class="flex flex-row flex-wrap gap-2 small-text lowercase">
+            {% if data['date'] %}
+                <time datetime="{{ data['date'] | toDateTime }}">{{ data['date'] | toShortDate }}</time>
+            {% endif %}
+            {% if data['tags'] %}
+                {{ opts['separator'] }}
+                <span class="capitalize">Tagged:</span>
+                {%- for tag in data['tags'] -%}
+                    <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+                    {%- if not (data['tags'] | last == tag)-%}, {% endif -%}
+                {%- endfor -%}
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}

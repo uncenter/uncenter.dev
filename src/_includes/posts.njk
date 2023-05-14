@@ -1,24 +1,27 @@
-<div>
-    {%- for post in posts -%}
-        <div class="mt-14">
-            <h2 class="mb-6 text-2xl font-bold">
-                <a href="{{ post.url | url }}">{{ post.data.title }}</a>
-            </h2>
-            {% set DATE = post.data.date %}
-            {% set UPDATED = post.data.updated %}
-            {% set CONTENT = post.content %}
-            {% set TAGS = post.data.tags %}
-            {% set MICRO = post.data.micro %}
-            {% set ARCHIVED = post.data.archived %}
-            {% set VIEWS = post.data.views %}
-            {% set DRAFT = post.data.draft %}
-            {%- icon 'IDONTKNOWWHYTHISWORKS' -%}
-            {% include "./tags.njk" %}
-            {% if post.data.excerpt %}
-                <p>{{ post.data.excerpt | toHTML | safe }}</p>
-            {% else %}
-                <p>{%- excerpt post -%}</p>
-            {% endif %}
+{% from "components.njk" import listTags %}
+
+{%- for post in posts -%}
+    <div class="{% if loop.first %}mt-0{% else %}mx-0 my-8{% endif %} no-underline">
+        <h2 class="font-semibold leading-[1.2] mx-0 my-1">
+            <a class="underline" href="{{ post.url }}">{{ post.data.title }}</a>
+        </h2>
+        {{ listTags({
+            'date': post.data.date,
+            'updated': post.data.updated,
+            'tags': post.data.tags,
+            'views': post.data.views,
+            'content': post.content
+            }) }}
+        {% if post.data.excerpt %}
+            <p class="mb-0 mt-1">
+                {{ post.data.excerpt }}
+            </p>
+        {% else %}
+            {%- excerpt post, "mb-0 mt-1" -%}
+        {% endif %}
+        <div class="flex justify-center mt-4">
+            <a href="{{ post.url }}" class="text-sm font-semibold">
+                <span class="mr-1">Read more... </span>{{ "src/_includes/duck-flying.svg" | dumpContents | setAttr("class", "icon-duck-flying w-4 h-4 inline-block") | safe }}</a>
         </div>
-    {%- endfor -%}
-</div>
+    </div>
+{%- endfor -%}

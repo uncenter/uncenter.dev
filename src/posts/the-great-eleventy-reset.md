@@ -1,13 +1,12 @@
 ---
 tags: ['11ty']
-title: Starting from scratch with Eleventy
+title: v3.0 - Rebuilding my website from scratch
 description: A new structure, new icons, and new styling.
-archived: true
 date: 2023-02-21
 # cspell:ignore Barabara Devries
 ---
 
-It's coming up on a year now that I have this website, and I released v2.0 on January 2nd, 2023 - exactly 50 days ago. As of that release, I have made **149 commits** to the repository. I have a lot of interesting ideas for the site and I want to make it better than ever. I think it's time for v3.0!
+I have been working on version 3.0 for a while now, and I am finally ready to release it! I have completely rebuilt my website from scratch, and I am very happy with the results. I found it increasingly more difficult to manage my hacky setup, so I decided to start over and do it right this time. I have learned a lot about Eleventy and web development in general over the past few months, and I am excited to put that knowledge to use.
 
 ## What's new?
 

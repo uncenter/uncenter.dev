@@ -1,8 +1,13 @@
 ---
 title: Style
 description: Just a style guide.
-collection: 'more'
-icon: 'palette'
+layout: post
+post:
+  tags: false
+  return:
+    link: '/colophon/'
+    text: Back to colophon
+  comments: false
 ---
 
 This is my style guide! You can also read my [colophon page](/colophon) if you want to read how I _created_ this website. This document showcases the styles that I use on this website, and is meant to be a reference for myself and others.
@@ -12,6 +17,12 @@ This page is inspired and based of off [Binyamin's style guide](https://binyam.i
 {% endinfo %}
 
 ## Block-level elements
+
+### Paragraphs
+
+Cillum laboris ex proident et in exercitation eu aliqua cillum magna non. Veniam incididunt id tempor qui cillum laborum reprehenderit esse nisi excepteur velit. Mollit proident consectetur ea adipisicing fugiat cillum nostrud officia ullamco officia amet fugiat. Fugiat excepteur ullamco nulla reprehenderit ipsum do sit laboris. Mollit exercitation aute cillum magna et sit irure aliquip nostrud quis. Proident nisi voluptate sunt eiusmod in duis laboris mollit amet excepteur ut magna id. Eu minim aliquip duis ad cillum enim amet esse cillum eiusmod dolore excepteur nulla.
+
+### Blockquotes/Notes
 
 {% info "Info"%}
 Officia consectetur in labore deserunt qui laborum.
@@ -31,6 +42,8 @@ Officia consectetur in labore deserunt qui laborum.
 
 > This is a blockquote
 
+### Lists
+
 1. A numbered list
 
 - A bulleted list
@@ -42,6 +55,18 @@ Officia consectetur in labore deserunt qui laborum.
 * [ ] An incomplete task
 * [x] A completed task
 
+### Code blocks
+
+<pre>
+  P R E F O R M A T T E D T E X T
+  ! " # $ % &amp; ' ( ) * + , - . /
+  0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+  @ A B C D E F G H I J K L M N O
+  P Q R S T U V W X Y Z [ \ ] ^ _
+  ` a b c d e f g h i j k l m n o
+  p q r s t u v w x y z { | } ~ 
+</pre>
+
 ```py
 print("Hello World!") # [sh! highlight]
 def sum(a, b):
@@ -51,8 +76,7 @@ def sum(a, b):
 ```js
 console.log('Hello World!'); // [sh! --]
 function sum(a, b) {
-	// [sh! ++]
-	return a + b;
+	return a + b; // [sh! ++]
 }
 ```
 
@@ -76,17 +100,25 @@ function sum(a, b) {
 </html>
 ```
 
-{% callout "Browser support for code styling", "info" %}
-The above code block is using the [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) selector to blur the code that is not in focus. This is a new CSS selector that is not yet supported in all browsers. It should work in Chrome and Safari, but not in Firefox yet. I tried to enable it in Firefox with the `layout.css.has-selector.enabled` flag... and it looks like this:
-{% image "images/has-selector-failed.png", "Screenshot of failed implementation of the :has() selector in Firefox" %}
-It needs some work... but it's a start! For you Firefox users (_cough_ me _cough_), here's what it **should** look like:
-{% image "images/has-selector-working.png", "Screenshot of working implementation of the :has() selector in Safari and Chrome" %}
-{% endcallout %}
+### Horizontal rules
+
+---
+
+### Tables
+
+| Syntax    | Description |
+| --------- | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |
+
+### Images
+
+{% image "images/placeholder.jpeg", "Placeholder/example image" %}
+
+## Inline elements
 
 <!-- prettier-ignore -->
 *[CSS]: Cascading Style Sheets
-
-## Inline elements
 
 - Keyboard Input: [[icon:cmd]] + [[shift]] + [[p]]
 - Inline code - `Inline Code`

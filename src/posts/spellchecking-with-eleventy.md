@@ -1,10 +1,8 @@
 ---
 tags: ['11ty']
-title: Spellchecking my blog posts with cSpell
-description: A little magic to help me catch typos.
+title: Spell-checking Markdown with cSpell
+description: A little magic to help catch typos in your blog posts.
 date: 2023-03-23
-archived: true
-unlisted: true
 ---
 
 After I realized more than one other person was reading my blog, I panicked and proofread/edited all my posts. Turns out that I rely on autocorrect a little too much and I have way too many typos without it! I came across [an article](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) by TJ Addison that explained how to do this with a tool called `cSpell` - the backbone of the [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker). That article was super helpful and works perfectly, but I wanted to add a few things to it to improve the experience.
@@ -31,19 +29,15 @@ The config file starts with the `version` and `language` properties. Set the con
 
 ```js
 module.exports = {
-	version: '0.2', // [sh! ++]
-	language: 'en', // [sh! ++]
+	version: '0.2',
+	language: 'en',
 };
 ```
 
 Next, you can define specific words to exclude or flag. I excluded some 11ty specific terminology and a few brand names that I have written about in my posts.
 
 ```js
-module.exports = {
-	version: '0.2',
-	language: 'en',
 	words: [
-		// [sh! focus:start]
 		// Eleventy
 		'11ty',
 		'eleventy',
@@ -59,37 +53,16 @@ module.exports = {
 		'Netlify',
 		'11ty',
 	],
-	flagWords: [], // [sh! focus:end]
-};
+	flagWords: [],
 ```
 
 In addition to the `words` property, you can also define dictionaries. I also added a dictionary for my GitHub repos (I have a lot of repos and I don't want to add them all manually to the `words` property) so I can write about them without getting flagged for typos.
 
 ```js
-module.exports = {
-    version: '0.2',
-    language: 'en',
-    words: [
-        // Eleventy
-        '11ty',
-        'eleventy',
-        'jamstack',
-        'shortcode',
-        'shortcodes',
-        'pagination',
-        'frontmatter',
-        'webc',
-
-        // Brands
-        'Eleventy',
-        'Netlify',
-        '11ty',
-    ],
-    flagWords: [],
-    dictionaries: ["repos"], // [sh! focus:start]
+    dictionaries: ["repos"],
     dictionaryDefinitions: [
         { "name": "repos", "path": "./utils/plugins/cspell/dicts/repos.txt" },
-    ], // [sh! focus:end]
+    ],
 ```
 
 For the `repos` dictionary itself, I wrote a script to scan my GitHub repos and add them to a file.
@@ -138,7 +111,7 @@ I'm surprised that there isn't a pattern for Markdown code blocks by default; I 
 
 ## Dictionaries
 
-Each of the dictionary files, like my repos dictionary, is a simple text file with one word per line (and comments can be added with `#`). Before I added the `nunjucksExpression` pattern, I made a dictionary file for Nunjucks expressions (I used the [Nunjucks docs](https://mozilla.github.io/nunjucks/templating.html) to get a list of all the expressions).
+Each of the dictionary files, like my repos dictionary, is a simple text file with one word per line (and comments can be added with `#`). Before I added the `nunjucksExpression` pattern, I had made a dictionary file for Nunjucks expressions (I used the [Nunjucks docs](https://mozilla.github.io/nunjucks/templating.html) to get a list of all the expressions).
 
 If anyone is interested, here is the list of Nunjucks expressions I added to the dictionary file:
 
@@ -211,4 +184,16 @@ urlize
 wordcount
 ```
 
-I'm pretty happy with how everything turned out! My next step is figuring out if I can hook it into my Eleventy build process instead of using a package script - there doesn't seem to be an API for it, but I'll keep looking.
+I'm pretty happy with how everything turned out! The neat thing about cSpell is you can also define words to ignore per file, so if you only use a word once, you can just ignore it in that file. For example, you could ignore the word `supercalifragilisticexpialidocious` in a file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
+
+```md
+---
+tags: [...]
+title: Magna voluptate officia cillum Lorem proident.
+description: Cupidatat excepteur ullamco laboris in veniam qui officia tempor aliquip et commodo.
+date: 2000-01-01
+# cSpell:ignore supercalifragilisticexpialidocious
+---
+```
+
+You don't have to put it in the frontmatter, but I like to keep my posts as clean & organized as possible. Let me know if you have any questions or suggestions!
