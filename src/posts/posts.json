@@ -4,7 +4,7 @@
 		"tags": true,
 		"return": {
 			"link": "/",
-			"text": "Articles"
+			"text": "Back to articles"
 		},
 		"comments": true
 	}

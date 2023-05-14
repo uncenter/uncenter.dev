@@ -112,7 +112,7 @@ module.exports = {
 			if (data.archived) {
 				return {
 					tags: data.post.tags,
-					return: { link: '/archive/', text: 'Archives' },
+					return: { link: '/archive/', text: 'Back to archive' },
 				};
 			}
 			return data.post;

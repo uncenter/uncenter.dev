@@ -6,9 +6,8 @@ post:
   tags: false
   return:
     link: '/colophon/'
-    text: Colophon
+    text: Back to colophon
   comments: false
-collection: 'more'
 ---
 
 This is my style guide! You can also read my [colophon page](/colophon) if you want to read how I _created_ this website. This document showcases the styles that I use on this website, and is meant to be a reference for myself and others.

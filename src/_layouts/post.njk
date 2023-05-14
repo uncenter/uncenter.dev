@@ -9,7 +9,7 @@ layout: index.njk
         {% if page.url !== "/" %}
             <a href="{{ post.return.link }}" class="flex items-center gap-x-2 pr-4 pb-2">
                 {{ "src/_includes/duck-flying.svg" | dumpContents | setAttr("class", "icon-duck-flying w-4 h-4 inline-block -scale-x-100") | safe }}
-                <span class="capitalize">{{ post.return.text }}</span>
+                <span>{{ post.return.text }}</span>
             </a>
         {% endif %}
         {% if post.tags %}
