@@ -7,7 +7,7 @@
             {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12 m-auto") | safe }}
             <span class="tracking-tight text-2xl">uncenter</span></a>
         <div class="max-w-[40ch] text-center mt-1">{{ meta.description }}</div>
-        <ul class="list-none px-2 py-4 flex lg:block">
+        <ul class="list-none px-2 py-4 flex lg:block lg:space-y-2">
             {% for item in nav.top %}
                 {% set classes = "font-semibold lg:py-0 p-2" %}
                 {% if page.url | includes(item.urls)and item.urls[0] != "/" %}
