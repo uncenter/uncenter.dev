@@ -3,7 +3,7 @@
 {%- for post in posts -%}
     <div class="{% if loop.first %}mt-0{% else %}mx-0 my-8{% endif %} no-underline">
         <h2 class="font-semibold leading-[1.2] mx-0 my-1">
-            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            <a class="underline" href="{{ post.url }}">{{ post.data.title }}</a>
         </h2>
         {{ listTags({
             'date': post.data.date,
@@ -20,7 +20,8 @@
             {%- excerpt post, "mb-0 mt-1" -%}
         {% endif %}
         <div class="flex justify-center mt-4">
-            <a href="{{ post.url }}" class="text-sm font-semibold">Read more {% icon "arrow-right" %}</a>
+            <a href="{{ post.url }}" class="text-sm font-semibold">
+                <span class="mr-1">Read more... </span>{{ "src/_includes/duck-flying.svg" | dumpContents | setAttr("class", "w-4 h-4 inline-block") | safe }}</a>
         </div>
     </div>
 {%- endfor -%}
