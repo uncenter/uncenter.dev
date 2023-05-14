@@ -23,13 +23,11 @@ layout: index.njk
         {% endif %}
     </div>
 
-    {% if content | toc %}
-        <nav id="section-toc" aria-labelledby="secondary-navigation">
-            {{ content | toc | safe }}
-        </nav>
-    {% endif %}
     {% if content !== "" %}
         <article class="wrap-anywhere">
+            {% if content | toc %}
+                {{ content | toc | safe }}
+            {% endif %}
             {{ content | safe }}
         </article>
     {% endif %}

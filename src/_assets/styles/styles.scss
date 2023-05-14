@@ -247,6 +247,10 @@ article:has(.toc) p:first-of-type {
 	main a,
 	article a {
 		color: var(--accent);
+	}
+
+	main a:hover,
+	article a:hover {
 		text-decoration: underline;
 		text-underline-offset: 0.2em;
 	}
