@@ -50,6 +50,9 @@ const getExcerpt = (page, classes = '') => {
 };
 
 const getCollectionWordCount = (posts) => {
+	if (!posts) {
+		return 0;
+	}
 	let words = 0;
 	posts.forEach((post) => {
 		words += parseInt(wordCount(cleanContent(post.content)));
@@ -58,6 +61,9 @@ const getCollectionWordCount = (posts) => {
 };
 
 const getCollectionReadingTime = (posts) => {
+	if (!posts) {
+		return 0;
+	}
 	let readingTime = 0;
 	posts.forEach((post) => {
 		readingTime += parseInt(
@@ -74,6 +80,9 @@ const getCollectionReadingTime = (posts) => {
 };
 
 const getCollectionWordCountAverage = (posts) => {
+	if (!posts) {
+		return 0;
+	}
 	let words = 0;
 	posts.forEach((post) => {
 		words += wordCount(cleanContent(post.content));
@@ -82,6 +91,9 @@ const getCollectionWordCountAverage = (posts) => {
 };
 
 const getCollectionAverageWordLength = (posts) => {
+	if (!posts) {
+		return 0;
+	}
 	averageWordLengths = [];
 	posts.forEach((post) => {
 		const count = wordCount(cleanContent(post.content));
@@ -89,9 +101,11 @@ const getCollectionAverageWordLength = (posts) => {
 		const averageWordLength = Math.round(contentLength / count);
 		averageWordLengths.push(averageWordLength);
 	});
-	return Math.round(
-		averageWordLengths.reduce((a, b) => a + b) / averageWordLengths.length,
-	);
+	return averageWordLengths && averageWordLengths.length > 0
+		? Math.round(
+				averageWordLengths.reduce((a, b) => a + b) / averageWordLengths.length,
+		  )
+		: 0;
 };
 
 const createCallout = (content, title, type) => {
