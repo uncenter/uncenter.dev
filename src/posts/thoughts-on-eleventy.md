@@ -3,7 +3,7 @@ tags: ['11ty']
 title: On Eleventy
 description: Some thoughts on the Eleventy website and community.
 date: 2023-03-16
-# cspell:ignore darthmall
+# cspell:ignore darthmall wordmark
 ---
 
 ## Foreword
@@ -42,7 +42,7 @@ I want to start thinking about this by putting yourself in someone else's shoes,
 
 {% image "images/thoughts-on-eleventy/docs-homepage.png", "The documentation homepage on the 11ty website." %}
 
-There are two things I'd like to mention here. First, the "trusted by" section. While it is amazing to see all of those well known companies and websites use Eleventy, the placement is definitely odd. think it would be better suited to be on the homepage, since by the time you reach the documentation, you are already interested in using Eleventy! Second, the table of contents. For the most part, it's fine, but the order of the content suggested by the table of contents lists testimonials and other unecessary categories above the rest.
+There are two things I'd like to mention here. First, the "trusted by" section. While it is amazing to see all of those well known companies and websites use Eleventy, the placement is definitely odd. think it would be better suited to be on the homepage, since by the time you reach the documentation, you are already interested in using Eleventy! Second, the table of contents. For the most part, it's fine, but the order of the content suggested by the table of contents lists testimonials and other unnecessary categories above the rest.
 
 I also want to reference [the Github issue](https://github.com/11ty/eleventy/issues/2855) on that led to writing this post. I was really interested in [@darthmall's comment](https://github.com/11ty/eleventy/issues/2855#issuecomment-1463988371) about the four types of documentation (copied from the issue, edited with my own words):
 

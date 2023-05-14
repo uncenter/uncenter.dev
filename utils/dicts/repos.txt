@@ -21,6 +21,7 @@ osmosis
 phonetic-alphabet
 ryanccn.dev
 speedlify
+templates
 timer
 uncenter
 uncenter.org
