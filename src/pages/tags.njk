@@ -5,9 +5,8 @@ pagination:
     size: 1
     alias: tag
     filter:
-        - all
-        - customCollections
-        - recentChangesByDate
+        - custom
+        - recentChanges
 eleventyComputed:
     title: Tagged “{{ tag }}”
 permalink: /tags/{{ tag | slugify }}/

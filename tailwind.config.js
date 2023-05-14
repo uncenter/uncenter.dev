@@ -18,7 +18,16 @@ module.exports = {
 					'Roboto',
 					'Helvetica Neue',
 				],
-				serif: ['"Berenis ADF Pro"', 'Georgia', 'Cambria'],
+				serif: ['ui-serif', 'Georgia', 'Cambria'],
+				display: [
+					'"General Sans"',
+					'ui-sans-serif',
+					'system-ui',
+					'Inter',
+					'Roboto',
+					'Helvetica Neue',
+				],
+				body: ['"Zodiak"', 'ui-serif', 'Georgia', 'Cambria'],
 			},
 			lineHeight: {
 				none: 'unset',
