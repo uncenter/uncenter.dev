@@ -69,6 +69,6 @@ Furthermore, none of those are official Eleventy resources. My conclusion from a
 2. It needs to be on the Eleventy website, and not just a link to a different website.
 3. It needs to be the first thing you see on website, not tucked away in a sidebar.
 
-I have actually tried to solve a few of this issues by making a CLI tool that scaffolds your project for you. [Try it out](https://github.com/uncenter/create-eleventy-app) or [read about how I made it](https://www.uncenter.org/posts/making-create-eleventy-app/).
+I have actually tried to solve a few of this issues by making a CLI tool that scaffolds your project for you. [Try it out](https://github.com/uncenter/create-eleventy-app) and let me know what you think!
 
 I think there is a lot that needs to be done. And I'm not writing about this as a criticism, but rather I wish the best for Eleventy and it is important to me to have it succeed! I hope this post was interesting and I'm looking forward to seeing what the future holds for Eleventy (including some updates to the website?!).
