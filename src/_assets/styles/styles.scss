@@ -165,7 +165,7 @@ footer {
 
 .note {
 	padding: 0 1.5rem 0px 1.5rem;
-	margin: 10px 2rem;
+	margin: 10px 0.25rem;
 	position: relative;
 	border: 4px solid var(--note-color);
 
@@ -298,6 +298,10 @@ footer {
 
 	hr {
 		margin: 3rem 1.5rem 1rem;
+	}
+
+	.checklist-item label {
+		margin-left: 0.25rem;
 	}
 }
 
