@@ -51,6 +51,9 @@ html {
 			fill: black;
 		}
 	}
+	.icon-duck-flying {
+		fill: black;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -84,6 +87,9 @@ html {
 		& #outer {
 			fill: white;
 		}
+	}
+	.icon-duck-flying {
+		fill: white;
 	}
 }
 
