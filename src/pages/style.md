@@ -7,6 +7,7 @@ post:
   return:
     link: '/colophon/'
     text: Colophon
+  comments: false
 collection: 'more'
 ---
 

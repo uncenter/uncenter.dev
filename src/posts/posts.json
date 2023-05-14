@@ -5,6 +5,7 @@
 		"return": {
 			"link": "/",
 			"text": "Articles"
-		}
+		},
+		"comments": true
 	}
 }
