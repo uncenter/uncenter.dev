@@ -25,7 +25,6 @@ module.exports = {
 					'Roboto',
 					'Helvetica Neue',
 				],
-				body: ['"Zodiak"', 'ui-serif', 'Georgia', 'Cambria'],
 			},
 			lineHeight: {
 				none: 'unset',

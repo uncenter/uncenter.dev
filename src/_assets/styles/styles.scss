@@ -6,16 +6,17 @@ html {
 }
 
 :root {
+    --pastel-blue: #81a1c1;
+	--pastel-red: #bf616a;
+	--pastel-green: #a3be8c;
+	--pastel-yellow: #ebcb8b;
+	--pastel-magenta: #b48ead;
+	--pastel-dark: #4c566a;
 	--light: #fff;
 	--gray: #3a343a;
 	--dark: #121212;
-	--accent-blue: #81a1c1;
-	--accent-red: #bf616a;
-	--accent-green: #a3be8c;
-	--accent-yellow: #ebcb8b;
-	--accent-magenta: #b48ead;
-	--accent-dark: #4c566a;
-	--accent: var(--accent-red);
+	--accent: var(--pastel-red);
+    --accent-secondary: var(--pastel-dark);
 }
 
 @media (prefers-color-scheme: light) {
@@ -180,11 +181,10 @@ footer {
 		background: #fff;
 		color: var(--note-color);
 		background-color: var(--bg);
-		// src: https://brianjdevries.com/style-guide/
 	}
 
 	&.note--info {
-		--note-color: #81a1c1;
+		--note-color: var(--pastel-blue)
 
 		&::after {
 			content: 'Info';
@@ -192,7 +192,7 @@ footer {
 	}
 
 	&.note--warning {
-		--note-color: #bf616a;
+		--note-color: var(--pastel-yellow)
 
 		&::after {
 			content: 'Warning';
@@ -200,7 +200,7 @@ footer {
 	}
 
 	&.note--tip {
-		--note-color: #7c9963;
+		--note-color: var(--pastel-green)
 
 		&::after {
 			content: 'Tip';
@@ -208,7 +208,7 @@ footer {
 	}
 
 	&.note--note {
-		--note-color: #4c566a;
+		--note-color: var(--accent-secondary)
 	}
 }
 
