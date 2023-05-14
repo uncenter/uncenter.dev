@@ -5,5 +5,3 @@ dist
 .cache
 .env
 .env.local
-
-utils/dicts/repos.txt
