@@ -1,4 +1,5 @@
 ---
+# cSpell:disable
 tags: ['Demo']
 title: Occaecat deserunt laboris
 description: This is a demo post that is archived.
