@@ -5,7 +5,7 @@
 	"scripts": {
 		"clean": "rimraf dist",
 		"spell:run": "cspell src/posts/**/*.md",
-		"spell:update": "./utils/update-dicts.js",
+		"spell:update": "node ./utils/update-dicts.js",
 		"spell": "npm run spell:update && npm run spell:run",
 		"prettier": "prettier --write src/**/*.{njk,js,scss,json}",
 		"restart": "npm run clean && npm run start",
