@@ -2,14 +2,12 @@
 module.exports = {
 	content: ['./src/**/*.{11ty.js,js,md,njk,html}', './utils/**/*.js'],
 	theme: {
-		colors: {
-			transparent: 'transparent',
-			current: 'currentColor',
-			bg: 'var(--bg)',
-			fg: 'var(--fg)',
-			accent: 'var(--accent)',
-		},
 		extend: {
+			colors: {
+				bg: 'var(--bg)',
+				fg: 'var(--fg)',
+				accent: 'var(--accent)',
+			},
 			fontFamily: {
 				sans: [
 					'ui-sans-serif',

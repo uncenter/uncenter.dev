@@ -9,7 +9,7 @@
         <div class="max-w-[40ch] text-center mt-1">{{ meta.description }}</div>
         <ul class="list-none px-0 py-4">
             {% for item in nav.top %}
-                {% set classes = "font-bold px-2" %}
+                {% set classes = "font-semibold px-2" %}
                 {% if page.url | includes(item.urls)and item.urls[0] != "/" %}
                     {% set classes = classes + " [border-left:2px_solid_currentColor]" %}
                 {% elif item.urls[0] == "/" and page.url == "/" %}
