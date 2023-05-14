@@ -6,7 +6,7 @@ html {
 }
 
 :root {
-    --pastel-blue: #81a1c1;
+	--pastel-blue: #81a1c1;
 	--pastel-red: #bf616a;
 	--pastel-green: #a3be8c;
 	--pastel-yellow: #ebcb8b;
@@ -16,7 +16,7 @@ html {
 	--gray: #3a343a;
 	--dark: #121212;
 	--accent: var(--pastel-red);
-    --accent-secondary: var(--pastel-dark);
+	--accent-secondary: var(--pastel-dark);
 }
 
 @media (prefers-color-scheme: light) {
@@ -159,7 +159,7 @@ footer {
 
 .note {
 	padding: 0 1.5rem 0px 1.5rem;
-	margin: 10px 0px;
+	margin: 10px 2rem;
 	position: relative;
 	border: 4px solid var(--note-color);
 
@@ -184,7 +184,7 @@ footer {
 	}
 
 	&.note--info {
-		--note-color: var(--pastel-blue)
+		--note-color: var(--pastel-blue);
 
 		&::after {
 			content: 'Info';
@@ -192,7 +192,7 @@ footer {
 	}
 
 	&.note--warning {
-		--note-color: var(--pastel-yellow)
+		--note-color: var(--pastel-yellow);
 
 		&::after {
 			content: 'Warning';
@@ -200,7 +200,7 @@ footer {
 	}
 
 	&.note--tip {
-		--note-color: var(--pastel-green)
+		--note-color: var(--pastel-green);
 
 		&::after {
 			content: 'Tip';
@@ -208,7 +208,7 @@ footer {
 	}
 
 	&.note--note {
-		--note-color: var(--accent-secondary)
+		--note-color: var(--accent-secondary);
 	}
 }
 

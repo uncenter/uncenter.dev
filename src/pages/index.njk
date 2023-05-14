@@ -1,9 +1,11 @@
 ---
 title: "Home"
-header: false
+header: "Articles"
 layout: page
 eleventyExcludeFromCollections: true
 ---
+
+<p class="mb-12"></p>
 
 {% set posts = collections.posts | reverse %}
 {% include "posts.njk" %}
