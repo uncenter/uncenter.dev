@@ -5,14 +5,12 @@
 	"scripts": {
 		"clean": "rimraf dist",
 		"spell:run": "cspell src/posts/**/*.md",
-		"spell:update": "node ./utils/cspell.js",
+		"spell:update": "./utils/update-dicts.js",
 		"spell": "npm run spell:update && npm run spell:run",
 		"prettier": "prettier --write src/**/*.{njk,js,scss,json}",
-		"site": "node ./utils/site.js",
 		"restart": "npm run clean && npm run start",
 		"start": "NODE_ENV=development eleventy --serve --incremental",
-		"build": "NODE_ENV=production eleventy",
-		"prod": "npm run spell && npm run build"
+		"build": "NODE_ENV=production eleventy"
 	},
 	"repository": {
 		"type": "git",
