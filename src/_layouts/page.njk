@@ -1,16 +1,14 @@
 ---
 layout: index.njk
 ---
-<div class="flex flex-col lg:flex-row">
-    {% include "partials/header.njk" %}
-    <main class="mx-auto lg:mx-6 lg:my-0 p-4 lg:p-0">
-        {% if header or title %}
-            <h1 class="text-3xl font-bold break-words m-0 mb-12">{{ header or title }}</h1>
-        {% endif %}
-        {% if content %}
-            {{ content | safe }}
-        {% endif %}
-    </main>
-</div>
+{% include "partials/header.njk" %}
+<main class="mx-auto lg:mx-6 lg:my-0 p-4 lg:p-0">
+    {% if header or title %}
+        <h1 class="text-3xl font-bold break-words m-0 mb-12">{{ header or title }}</h1>
+    {% endif %}
+    {% if content %}
+        {{ content | safe }}
+    {% endif %}
+</main>
 {% include "partials/footer.njk" %}
 {% iconSheet %}
