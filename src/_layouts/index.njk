@@ -2,11 +2,21 @@
 <html lang="en">
     <head>
         {% include "partials/head.njk" %}
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2?v=20230514" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/styles.css">
+        {% if styles %}
+            {% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/css/{{ style }}">{% endfor %}
+        {% endif %}
+        <style>
+            {{inlined.css | safe}}
+        </style>
     </head>
     <body class="mx-4 my-12 bg-bg text-fg font-display">
         {{ content | safe }}
     </body>
-    <script src="/assets/scripts/copy.js"></script>
+    <script>
+        {{ inlined.js | safe }}
+    </script>
     {% if scripts %}
         {% for script in (scripts | toArray) %}
             <script src="/assets/scripts/{{script}}"></script>

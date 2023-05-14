@@ -20,8 +20,3 @@
 <link rel="canonical" href="{{ meta.url }}{{ page.url }}">
 <link rel="alternate" type="application/rss+xml" href="https://{{ meta.domain }}/feed.xml">
 <script async defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2?v=20230514" crossorigin="anonymous">
-<link rel="stylesheet" href="/assets/styles.css">
-{% if styles %}
-    {% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/css/{{ style }}">{% endfor %}
-{% endif %}
