@@ -84,49 +84,11 @@ const getRecentChangesByDate = () => {
 	return Array.from(grouped.entries());
 };
 
-const getSeries = (collectionApi) => {
-	const posts = [
-		...collectionApi.getFilteredByGlob('./src/posts/**/*.md'),
-	].reverse();
-	const mapping = new Map();
-
-	for (const post of posts) {
-		const { series, seriesDescription, date } = post.data;
-
-		if (series === undefined) {
-			continue;
-		}
-
-		if (!mapping.has(series)) {
-			mapping.set(series, {
-				posts: [],
-				description: seriesDescription,
-				date,
-			});
-		}
-
-		const existing = mapping.get(series);
-
-		existing.posts.push(post.url);
-		existing.date = date;
-	}
-
-	const normalized = [];
-
-	for (const [k, { posts, description, date }] of mapping.entries()) {
-		if (posts.length > 1) {
-			normalized.push({ title: k, posts, description, date });
-		}
-	}
-
-	return normalized;
-};
-
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addCollection('posts', getPosts);
 	eleventyConfig.addCollection('allPosts', getAllPosts);
 	eleventyConfig.addCollection('archivedPosts', getArchivedPosts);
-	eleventyConfig.addCollection('custom', getCustomCollections);
 	eleventyConfig.addCollection('allTags', getAllTags);
 	eleventyConfig.addCollection('recentChanges', getRecentChangesByDate);
+	eleventyConfig.addCollection('custom', getCustomCollections);
 };
