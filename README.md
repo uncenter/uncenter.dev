@@ -28,28 +28,32 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
 
 #### Quick Fixes
 
-- [ ] Dark mode and light mode
+- [x] Dark mode and light mode
+- [ ] Toggle dark mode and light mode with a button
 - [ ] Add pre-generated preview images instead of Vercel OG images
 - [ ] Fetch and display GitHub statistics for each project on projects page
 
 #### Long-Term
 
-- [ ] Color themes, i.e. Nord, Catppuccin, etc.
+- [ ] ~~Color themes, i.e. Nord, Catppuccin, etc.~~
 - [ ] Import posts from Notion for improved content management
 - [ ] Enable Webmentions and Mastodon integration for comments and replies
 
 ### Structure
 
-- `utils/`: scripts, utilities, & plugins for the website
-- `src/`: the source code for the website
-- `src/posts/*.md`: blog posts, written in Markdown
-- `src/static/`: static pages, written in Nunjucks
-- `src/_assets/`: static assets such as images, fonts, and icons, as well as the CSS and JS files
-- `src/_data/`: data files for the website
-- `src/_includes/`
-  - `src/_layouts/`: layouts for the website
-  - `src/_includes/`: micro-components for the website
-- `src/_11ty/`: 11ty filters, shortcodes, collections, and utilities (`src/_11ty/utils/`)
+- `utils/`: scripts, utilities, & plugins:
+  - `utils/dicts/`: dictionary text files for spell-checking (cSpell)
+  - `utils/plugins/`: plugins for 11ty, imported in various places - currently holds `shikier.js` for syntax highlighting and `markdown.js` as the Markdown library
+- `images/`: images for posts and pages, optimized during build
+- `src/`: the source files for 11ty
+  - `src/_data/`: data files - `inlined.js` holds minified CSS and JS files for inlining in templates, `lighthouse.js` fetches Lighthouse scores, `now.js` fetches the current date and time, and the other three JSON files hold metadata for projects and in general
+  - `src/_assets/`: static assets such as images, fonts, and icons, as well as the CSS and JS files
+  - `src/posts/*.md`: blog posts, written in Markdown
+  - `src/pages/`: root pages
+  - `src/_includes/`: components and sections
+  - `src/_layouts/`: layouts - `index.njk` is the main layout with all metadata and required fields, `post.njk` is the layout for blog posts, and `page.njk` is the layout for root pages
+  - `src/_11ty/`: 11ty filters, shortcodes, collections (imported as plugins in `eleventy.config.js`)
+    - `src/_11ty/utils/`: utility functions for JavaScript data files and the other functions in `src/_11ty/`
 
 ## Credits
 
