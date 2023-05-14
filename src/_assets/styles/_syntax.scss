@@ -15,7 +15,7 @@ pre.shiki .language-id {
 	padding: 0.3rem 0.75rem 0.2rem;
 	font-size: 0.8rem;
 	position: sticky;
-	display: flex;
+	left: 0;
 	align-items: center;
 	justify-content: space-between;
 
@@ -27,6 +27,7 @@ pre.shiki .language-id {
 		cursor: pointer;
 		box-shadow: none;
 		color: var(--light);
+		float: right;
 
 		svg {
 			width: 1em;
