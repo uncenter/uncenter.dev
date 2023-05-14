@@ -23,7 +23,7 @@ module.exports = async function () {
 	let data = await EleventyFetch(
 		`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?${params}`,
 		{
-			duration: '1d',
+			duration: '12hr',
 			type: 'json',
 		},
 	);
