@@ -7,8 +7,8 @@
         'views': true,
         'tags': true
     }) %}
-    <div class="flex flex-col flex-wrap font-medium petite-caps">
-        <div class="flex flex-row flex-wrap gap-2 small-text">
+    <div class="flex flex-col flex-wrap font-medium">
+        <div class="flex flex-row flex-wrap gap-2 small-text lowercase">
             {% if opts['date'] and data['date'] %}
                 <time datetime="{{ data['date'] | toDateTime }}">{{ data['date'] | toShortDate }}</time>
             {% endif %}
@@ -26,7 +26,7 @@
         {% if opts['tags'] and data['tags'] %}
             <div class="flex flex-row flex-wrap">
                 <p class="small-text m-0">
-                    <span class="mr-1 small-text">Tagged:</span>
+                    <span class="mr-1 capitalize small-text">Tagged:</span>
                     {%- for tag in data['tags'] -%}
                         <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
                         {%- if not (data['tags'] | last == tag)-%}, {% endif -%}
