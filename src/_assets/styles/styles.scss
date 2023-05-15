@@ -1,3 +1,5 @@
+@import 'tailwind';
+
 html {
 	scroll-behavior: smooth;
 	overflow-y: scroll;
@@ -9,18 +11,44 @@ html {
 	--pastel-green: #a3be8c;
 	--pastel-yellow: #ebcb8b;
 	--pastel-magenta: #b48ead;
+
 	--contrast-blue: #517aa4;
 	--contrast-red: #ae4751;
 	--contrast-green: #74a04c;
 	--contrast-yellow: #e1b151;
 	--contrast-magenta: #93628a;
+
 	--gray-dark: #4c566a;
 	--gray-light: #7d89a1;
 	--light: #fff;
 	--gray: #3a343a;
 	--dark: #121212;
+
 	--accent: var(--contrast-red);
 	--accent-secondary: var(--gray-dark);
+}
+
+@media (min-width: 1024px) {
+	body {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: auto auto;
+	}
+}
+
+header {
+	grid-row: 1 / 1;
+	grid-column: 1 / 1;
+}
+
+footer {
+	grid-row: 2 / 2;
+	grid-column: 1 / 1;
+}
+
+main {
+	grid-row: 1 / span 3;
+	grid-column: 2 / 2;
 }
 
 @media (prefers-color-scheme: light) {
@@ -103,13 +131,36 @@ html {
 	height: 1em;
 }
 
-p {
-	font-size: 1.125rem;
-	line-height: 1.75rem;
+a {
+	position: relative;
+	text-decoration: none;
+	color: var(--fg);
 }
 
-article,
-main {
+main,
+article {
+	a {
+		color: var(--accent);
+		text-underline-offset: 0.2em;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	a[rel*='noopener']:not([href*='https://uncenter.org'], .no-external-link)::after
+	{
+		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='external-link-icon' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+		background-color: var(--fg);
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: contain;
+		content: '';
+		display: inline-block;
+		height: 11px;
+		width: 11px;
+		margin-left: 4px;
+		margin-right: 2px;
+	}
+
 	h2 a,
 	h3 a {
 		color: var(--fg);
@@ -144,26 +195,6 @@ main {
 	h2 a:hover::before,
 	h3 a:hover::before {
 		opacity: 1;
-	}
-}
-
-footer {
-	ul {
-		list-style: none;
-		display: flex;
-		justify-content: center;
-		margin: 0;
-		padding: 0;
-		li {
-			margin: 0 0.5rem;
-			a {
-				color: var(--accent);
-				text-decoration: none;
-				&:hover {
-					text-decoration: underline;
-				}
-			}
-		}
 	}
 }
 
@@ -222,6 +253,10 @@ footer {
 	}
 }
 
+.checklist-item label {
+	margin-left: 0.25rem;
+}
+
 .toc {
 	padding: 0.5rem 0;
 }
@@ -231,130 +266,3 @@ article:has(.toc) p:first-of-type {
 }
 
 @import 'syntax';
-@import 'tooltip';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer components {
-	a {
-		position: relative;
-		text-decoration: none;
-		color: var(--fg);
-	}
-
-	main a,
-	article a {
-		color: var(--accent);
-	}
-
-	main a:hover,
-	article a:hover {
-		text-decoration: underline;
-		text-underline-offset: 0.2em;
-	}
-
-	main a[rel*='noopener']:not([href*='https://uncenter.org'], .no-external-link)::after
-	{
-		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='external-link-icon' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
-		background-color: var(--fg);
-		mask-position: center;
-		mask-repeat: no-repeat;
-		mask-size: contain;
-		content: '';
-		display: inline-block;
-		height: 11px;
-		width: 11px;
-		margin-left: 4px;
-		margin-right: 2px;
-	}
-
-	img,
-	svg,
-	video,
-	canvas,
-	audio,
-	iframe,
-	embed,
-	object {
-		box-sizing: border-box;
-		content-visibility: auto;
-		background-size: cover;
-		background-image: none;
-		display: block;
-		vertical-align: middle;
-		height: auto;
-		max-width: 100%;
-	}
-
-	img {
-		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
-		padding: 1rem;
-	}
-
-	ins {
-		text-decoration: underline;
-		text-decoration-color: var(--accent-green);
-	}
-
-	del {
-		text-decoration: line-through;
-		text-decoration-color: var(--accent-red);
-	}
-
-	blockquote {
-		border-left: 4px solid var(--accent);
-		padding-left: 1rem;
-		margin-left: 0;
-	}
-
-	hr {
-		margin: 3rem 1rem;
-	}
-
-	.checklist-item label {
-		margin-left: 0.25rem;
-	}
-}
-
-@layer utilities {
-	.small-text {
-		font-size: 90%;
-	}
-
-	.small-caps {
-		font-variant: small-caps;
-	}
-
-	.petite-caps {
-		font-variant: petite-caps;
-	}
-
-	.wrap-anywhere {
-		overflow-wrap: anywhere;
-	}
-}
-
-@media (min-width: 1024px) {
-	body {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		grid-template-rows: auto auto;
-	}
-}
-
-header {
-	grid-row: 1 / 1;
-	grid-column: 1 / 1;
-}
-
-footer {
-	grid-row: 2 / 2;
-	grid-column: 1 / 1;
-}
-
-main {
-	grid-row: 1 / span 3;
-	grid-column: 2 / 2;
-}

@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	img,
+	svg,
+	video,
+	canvas,
+	audio,
+	iframe,
+	embed,
+	object {
+		box-sizing: border-box;
+		content-visibility: auto;
+		background-size: cover;
+		background-image: none;
+		display: block;
+		vertical-align: middle;
+		height: auto;
+		max-width: 100%;
+	}
+
+	img {
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+		padding: 1rem;
+	}
+
+	ins {
+		text-decoration: underline;
+		text-decoration-color: var(--accent-green);
+	}
+
+	del {
+		text-decoration: line-through;
+		text-decoration-color: var(--accent-red);
+	}
+
+	blockquote {
+		border-left: 4px solid var(--accent);
+		padding-left: 1rem;
+		margin-left: 0;
+	}
+
+	hr {
+		margin: 3rem 1rem;
+	}
+
+	p {
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
+}
+
+@layer utilities {
+	.small-text {
+		font-size: 90%;
+	}
+
+	.small-caps {
+		font-variant: small-caps;
+	}
+
+	.petite-caps {
+		font-variant: petite-caps;
+	}
+
+	.wrap-anywhere {
+		overflow-wrap: anywhere;
+	}
+}
