@@ -39,11 +39,11 @@
 	blockquote {
 		border-left: 4px solid var(--accent);
 		padding-left: 1rem;
-		margin-left: 0;
+		margin-left: $block-indent;
 	}
 
 	hr {
-		margin: 3rem 1rem;
+		margin: 3rem $block-indent;
 	}
 
 	p {

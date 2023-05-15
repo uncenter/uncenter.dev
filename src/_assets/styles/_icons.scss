@@ -1,0 +1,64 @@
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+}
+
+:root[theme='light'] {
+	.icon-github {
+		fill: #161614;
+	}
+	.icon-github-blank {
+		fill: black;
+		stroke: white;
+	}
+	.icon-mastodon-blank,
+	.icon-elementio-blank {
+		& #outer {
+			fill: black;
+		}
+
+		& #inner {
+			fill: white;
+		}
+	}
+	.icon-rss-blank {
+		fill: white;
+
+		& #outer {
+			fill: black;
+		}
+	}
+	.icon-duck-flying {
+		fill: black;
+	}
+}
+:root[theme='dark'] {
+	.icon-github {
+		fill: #f0f0f0;
+	}
+	.icon-github-blank {
+		fill: white;
+		stroke: black;
+	}
+	.icon-mastodon-blank,
+	.icon-elementio-blank {
+		& #outer {
+			fill: white;
+		}
+
+		& #inner {
+			fill: black;
+		}
+	}
+	.icon-rss-blank {
+		fill: black;
+
+		& #outer {
+			fill: white;
+		}
+	}
+	.icon-duck-flying {
+		fill: white;
+	}
+}

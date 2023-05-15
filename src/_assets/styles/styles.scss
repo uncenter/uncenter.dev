@@ -1,31 +1,9 @@
+@import 'variables';
 @import 'tailwind';
 
 html {
 	scroll-behavior: smooth;
 	overflow-y: scroll;
-}
-
-:root {
-	--pastel-blue: #81a1c1;
-	--pastel-red: #bf616a;
-	--pastel-green: #a3be8c;
-	--pastel-yellow: #ebcb8b;
-	--pastel-magenta: #b48ead;
-
-	--contrast-blue: #517aa4;
-	--contrast-red: #ae4751;
-	--contrast-green: #74a04c;
-	--contrast-yellow: #e1b151;
-	--contrast-magenta: #93628a;
-
-	--gray-dark: #4c566a;
-	--gray-light: #7d89a1;
-	--light: #fff;
-	--gray: #3a343a;
-	--dark: #121212;
-
-	--accent: var(--contrast-red);
-	--accent-secondary: var(--gray-dark);
 }
 
 @media (min-width: 1024px) {
@@ -54,81 +32,19 @@ main {
 :root[theme='light'] {
 	body {
 		--bg: var(--light);
-		--fg: var(--gray);
+		--fg: var(--dark);
 		--kbd-bg-color: hsl(210, 5%, 100%);
 		--kbd-border-color: hsl(210, 5%, 70%);
-	}
-
-	.icon-github {
-		fill: #161614;
-	}
-	.icon-github-blank {
-		fill: black;
-		stroke: white;
-	}
-	.icon-mastodon-blank,
-	.icon-elementio-blank {
-		& #outer {
-			fill: black;
-		}
-
-		& #inner {
-			fill: white;
-		}
-	}
-	.icon-rss-blank {
-		fill: white;
-
-		& #outer {
-			fill: black;
-		}
-	}
-	.icon-duck-flying {
-		fill: black;
 	}
 }
 
 :root[theme='dark'] {
 	body {
-		--bg: var(--dark);
+		--bg: var(--black);
 		--fg: var(--light);
 		--kbd-bg-color: hsl(210, 5%, 10%);
 		--kbd-border-color: hsl(210, 5%, 30%);
 	}
-
-	.icon-github {
-		fill: #f0f0f0;
-	}
-	.icon-github-blank {
-		fill: white;
-		stroke: black;
-	}
-	.icon-mastodon-blank,
-	.icon-elementio-blank {
-		& #outer {
-			fill: white;
-		}
-
-		& #inner {
-			fill: black;
-		}
-	}
-	.icon-rss-blank {
-		fill: black;
-
-		& #outer {
-			fill: white;
-		}
-	}
-	.icon-duck-flying {
-		fill: white;
-	}
-}
-
-.icon {
-	display: inline-block;
-	width: 1em;
-	height: 1em;
 }
 
 a {
@@ -136,6 +52,7 @@ a {
 	text-decoration: none;
 	color: var(--fg);
 }
+
 a:not(.not-fancy) {
 	border-bottom: 1px dotted var(--fg);
 }
@@ -250,11 +167,11 @@ article {
 }
 
 .toc {
-	padding: 0.5rem 0;
-}
-
-article:has(.toc) p:first-of-type {
-	margin-top: 0;
+	padding: 0.5rem $block-indent;
+	+ p {
+		margin-top: 0;
+	}
 }
 
 @import 'syntax';
+@import 'icons';
