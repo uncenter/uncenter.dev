@@ -51,7 +51,7 @@ main {
 	grid-column: 2 / 2;
 }
 
-@media (prefers-color-scheme: light) {
+:root[theme='light'] {
 	body {
 		--bg: var(--light);
 		--fg: var(--gray);
@@ -88,7 +88,7 @@ main {
 	}
 }
 
-@media (prefers-color-scheme: dark) {
+:root[theme='dark'] {
 	body {
 		--bg: var(--dark);
 		--fg: var(--light);
