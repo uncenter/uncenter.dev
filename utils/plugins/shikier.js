@@ -168,6 +168,7 @@ const getLineOptions = (tokenized) => {
 };
 
 // https://github.com/shikijs/shiki/blob/0b1c913e7bb9bc4c5a04d2e86846c35407145ea7/scripts/grammarSources.ts#L327
+// Adjusted
 const languageAliases = {
 	bat: ['batch'],
 	berry: ['be'],
@@ -196,7 +197,7 @@ const languageAliases = {
 	rust: ['rs'],
 	'html-ruby-erb': ['erb'],
 	shaderlab: ['shader'],
-	shellscript: ['bash', 'console', 'sh', 'shell', 'zsh'],
+	console: ['bash', 'sh', 'shell', 'zsh'],
 	stylus: ['styl'],
 	typescript: ['ts'],
 	vb: ['cmd'],
@@ -204,7 +205,6 @@ const languageAliases = {
 	vyper: ['vy'],
 	wenyan: ['文言'],
 	yaml: ['yml'],
-
 	text: ['txt'],
 };
 
