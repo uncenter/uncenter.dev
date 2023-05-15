@@ -37,7 +37,7 @@
 	}
 
 	blockquote {
-		border-left: 4px solid var(--accent);
+		border-left: $block-border-width solid var(--accent);
 		padding-left: 1rem;
 		margin-left: $block-indent;
 	}

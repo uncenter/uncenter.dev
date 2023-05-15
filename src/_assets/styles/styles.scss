@@ -111,7 +111,7 @@ article {
 	padding: 0 1.5rem 0px 1.5rem;
 	margin: 10px 0.25rem;
 	position: relative;
-	border: 4px solid var(--note-color);
+	border: $block-border-width solid var(--note-color);
 
 	.note__title {
 		padding-top: 1.5rem;
