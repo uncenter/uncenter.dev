@@ -11,12 +11,15 @@
             {{inlined.css | safe}}
         </style>
         <script>
-            {{ inlined.js | safe }}
+            {{ inlined.js.blocking | safe }}
         </script>
     </head>
     <body class="mx-4 my-12 p-4 bg-bg text-fg font-display">
         {{ content | safe }}
     </body>
+    <script>
+        {{ inlined.js.nonBlocking | safe }}
+    </script>
     {% if scripts %}
         {% for script in (scripts | toArray) %}
             <script src="/assets/scripts/{{script}}"></script>
