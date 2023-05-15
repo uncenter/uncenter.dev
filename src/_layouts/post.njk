@@ -27,6 +27,7 @@ layout: index.njk
 
     {% if content !== "" %}
         <article class="wrap-anywhere">
+            <h1 class="text-3xl font-bold mb-0">{{ title }}</h1>
             {% if content | toc %}
                 {{ content | toc | safe }}
             {% endif %}
