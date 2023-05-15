@@ -3,6 +3,7 @@
         <a href="/" class="not-fancy"
                 {% if page.url === "/" %}
                 aria-current="page"
+                aria-label="Home"
                 {% endif %}>
             {{ "src/_includes/duck.svg" | dumpContents | setAttr("class", "w-12 h-12 m-auto") | safe }}
             <span class="tracking-tight text-2xl">uncenter</span></a>
@@ -22,6 +23,7 @@
                         {% for link in item.urls -%}
                         {% if page.url === link %}
                         aria-current="page"
+                        aria-label="Go to {{ item.title }}"
                         {% endif %}
                         {%- endfor -%}>{{ item.title }}
                     </a>
