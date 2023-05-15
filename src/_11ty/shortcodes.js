@@ -139,31 +139,28 @@ const createCalloutInfo = (content, title) => {
 };
 
 const insertGiscusScript = () => {
-	const repo = 'R_kgDOHSjhjQ';
-	const category = 'DIC_kwDOHSjhjc4CTQUr';
-	const reactions = '1';
 	return `
-    <script>
-    let giscusTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    let giscusAttributes = {
-        "src": "https://giscus.app/client.js",
-        "data-repo": "${meta.github.username}/${meta.github.repo}",
-        "data-repo-id": "${repo}",
-        "data-category-id": "${category}",
-        "data-mapping": "title",
-        "data-reactions-enabled": "${reactions}",
-        "data-emit-metadata": "0",
-        "data-input-position": "top",
-        "data-theme": giscusTheme,
-        "data-lang": "en",
-        "crossorigin": "anonymous",
-        "async": ""
-    };
-    let giscusScript = document.createElement("script");
-    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-    window.onload = (event) => {
+    <script defer>
+        window.addEventListener('load', () => {
+        let giscusTheme = document.documentElement.getAttribute('theme');
+        let giscusAttributes = {
+            "src": "https://giscus.app/client.js",
+            "data-repo": "${meta.github.username}/${meta.github.repo}",
+            "data-repo-id": "R_kgDOHSjhjQ",
+            "data-category-id": "DIC_kwDOHSjhjc4CTQUr",
+            "data-mapping": "title",
+            "data-reactions-enabled": "1",
+            "data-emit-metadata": "0",
+            "data-input-position": "top",
+            "data-theme": giscusTheme,
+            "data-lang": "en",
+            "crossorigin": "anonymous",
+            "async": ""
+        };
+        let giscusScript = document.createElement("script");
+        Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
         document.querySelector('#giscus').appendChild(giscusScript);
-    };
+        });
     </script>`;
 };
 
