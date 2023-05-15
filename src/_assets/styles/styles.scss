@@ -173,5 +173,15 @@ article {
 	}
 }
 
+h1.hidden#title + p {
+	margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+	h1.hidden#title + p {
+		margin-top: unset;
+	}
+}
+
 @import 'syntax';
 @import 'icons';
