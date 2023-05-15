@@ -1,5 +1,4 @@
 function setTheme(theme) {
-	// theme: 'light' | 'dark' | 'system'
 	localStorage.setItem('theme', theme);
 	if (theme === 'system') {
 		theme = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -16,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	document
 		.getElementById('themeSelector')
 		.addEventListener('change', function () {
-			let selectedTheme = this.value.split(' ')[0]; // The value from the select: "light, "dark", or "system"
+			let selectedTheme = this.value.split(' ')[0];
 			setTheme(selectedTheme);
 		});
 });
