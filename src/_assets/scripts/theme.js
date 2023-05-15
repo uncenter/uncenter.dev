@@ -5,6 +5,9 @@ function setTheme(theme) {
 			? 'dark'
 			: 'light';
 	}
+	document
+		.querySelector('meta[name="theme-color"]')
+		.setAttribute('content', theme === 'dark' ? '#121212' : '#ffffff');
 	document.documentElement.setAttribute('theme', theme);
 }
 
