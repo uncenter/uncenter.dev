@@ -18,8 +18,8 @@ module.exports = async () => {
 	return {
 		css,
 		js: {
-			blocking: UglifyJS.minify(themeJs).code,
-			nonBlocking: UglifyJS.minify(copyJs).code,
+			before: UglifyJS.minify(themeJs).code,
+			after: UglifyJS.minify(copyJs).code,
 		},
 	};
 };
