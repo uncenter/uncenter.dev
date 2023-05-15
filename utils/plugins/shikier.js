@@ -167,6 +167,47 @@ const getLineOptions = (tokenized) => {
 	return lineOptions;
 };
 
+// https://github.com/shikijs/shiki/blob/0b1c913e7bb9bc4c5a04d2e86846c35407145ea7/scripts/grammarSources.ts#L327
+const languageAliases = {
+	bat: ['batch'],
+	berry: ['be'],
+	cadence: ['cdc'],
+	clojure: ['clj'],
+	codeql: ['ql'],
+	csharp: ['c#', 'cs'],
+	cypher: ['cql'],
+	docker: ['dockerfile'],
+	erlang: ['erl'],
+	fsharp: ['f#', 'fs'],
+	haskell: ['hs'],
+	handlebars: ['hbs'],
+	ini: ['properties'],
+	javascript: ['js'],
+	jssm: ['fsl'],
+	kusto: ['kql'],
+	make: ['makefile'],
+	markdown: ['md'],
+	'objective-c': ['objc'],
+	powershell: ['ps', 'ps1'],
+	pug: ['jade'],
+	python: ['py'],
+	raku: ['perl6'],
+	ruby: ['rb'],
+	rust: ['rs'],
+	'html-ruby-erb': ['erb'],
+	shaderlab: ['shader'],
+	shellscript: ['bash', 'console', 'sh', 'shell', 'zsh'],
+	stylus: ['styl'],
+	typescript: ['ts'],
+	vb: ['cmd'],
+	viml: ['vim', 'vimscript'],
+	vyper: ['vy'],
+	wenyan: ['文言'],
+	yaml: ['yml'],
+
+	text: ['txt'],
+};
+
 /**
  * Highlight code
  * @param {string} code Code to highlight
@@ -178,13 +219,18 @@ const highlight = (code, lang, highlighter) => {
 	const [cleanLang] = lang.split('{');
 	const tokenized = highlighter.codeToThemedTokens(code, cleanLang);
 	const lineOptions = isShikierEnabled(lang) ? getLineOptions(tokenized) : [];
+	// loop through the language aliases and check if `cleanLang` is one of the aliases, set `longLang` to the full language name
+	const longLang = Object.entries(languageAliases).reduce(
+		(acc, [key, value]) => (value.includes(cleanLang) ? key : acc),
+		null,
+	);
 
 	const theme = highlighter.getTheme();
 	const outputHtml = shiki
 		.renderToHtml(tokenized, {
 			bg: theme.bg,
 			fg: theme.fg,
-			langId: cleanLang,
+			langId: longLang || cleanLang,
 			lineOptions,
 		})
 		// Remove empty lines at the end of the code block
