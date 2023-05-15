@@ -83,8 +83,7 @@ module.exports = function (eleventyConfig) {
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,
 	});
-	styles = fs.readdirSync('./src/_assets/styles');
-	styles.forEach((style) => {
+	(fs.readdirSync('./src/_assets/styles') || []).forEach((style) => {
 		eleventyConfig.addWatchTarget(`./src/_assets/styles/${style}`);
 	});
 
