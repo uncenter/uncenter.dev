@@ -1,6 +1,6 @@
 <header class="min-w-[30%] px-4">
     <div class="flex items-center flex-col leading-6">
-        <a href="/"
+        <a href="/" class="not-fancy"
                 {% if page.url === "/" %}
                 aria-current="page"
                 {% endif %}>
@@ -9,7 +9,7 @@
         <div class="max-w-[40ch] text-center mt-1">{{ meta.description }}</div>
         <ul class="list-none px-2 py-4 flex lg:block lg:space-y-1.5">
             {% for item in nav.top %}
-                {% set classes = "font-semibold lg:py-0 p-2" %}
+                {% set classes = "not-fancy font-semibold lg:py-0 p-2" %}
                 {% if page.url | includes(item.urls)and item.urls[0] != "/" %}
                     {% set classes = classes + " lg:[border-left:2px_solid_currentColor] [border-bottom:2px_solid_currentColor] [border-left:2px_solid_transparent] lg:[border-bottom:2px_solid_transparent]" %}
                 {% elif item.urls[0] == "/" and page.url == "/" %}

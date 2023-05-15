@@ -5,22 +5,24 @@ layout: index.njk
 {% from "components.njk" import listTags %}
 
 <main class="max-w-[680px] md:mx-auto my-0 lg:max-w-[800px] xl:max-w-[1000px] xl:p-8">
-    <div class="flex flex-wrap justify-between [border-bottom:2px_solid_currentColor] pb-2">
-        {% if page.url !== "/" %}
-            <a href="{{ post.return.link }}" class="flex items-center gap-x-2 pr-4 pb-2">
-                {{ "src/_includes/duck-flying.svg" | dumpContents | setAttr("class", "icon-duck-flying w-4 h-4 inline-block -scale-x-100") | safe }}
-                <span>{{ post.return.text }}</span>
-            </a>
-        {% endif %}
-        {% if post.tags %}
-            {{ listTags({
+    <div class="[border-bottom:2px_solid_currentColor] pb-2">
+        <div class="flex flex-wrap justify-between pb-1">
+            {% if page.url !== "/" %}
+                <a href="{{ post.return.link }}" class="flex items-center gap-x-2">
+                    {{ "src/_includes/duck-flying.svg" | dumpContents | setAttr("class", "icon-duck-flying w-4 h-4 inline-block -scale-x-100") | safe }}
+                    <span>{{ post.return.text }}</span>
+                </a>
+            {% endif %}
+            {% if post.tags %}
+                {{ listTags({
             'date': date,
             'updated': updated,
             'tags': tags,
             'views': views,
             'content': content
             }) }}
-        {% endif %}
+            {% endif %}
+        </div>
     </div>
 
     {% if content !== "" %}
