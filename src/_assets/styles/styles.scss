@@ -55,12 +55,12 @@ a {
 }
 
 a:not(.not-fancy) {
-	border-bottom: 1px dotted var(--fg);
+	border-bottom: 2px dotted var(--fg);
 }
 
 a:hover:not(.not-fancy) {
 	color: var(--accent);
-	border-bottom: 1px solid var(--accent);
+	border-bottom: 2px solid var(--accent);
 }
 
 main,
