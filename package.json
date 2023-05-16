@@ -59,6 +59,7 @@
 		"markdown-it-sup": "^1.0.0",
 		"markdown-it-task-checkbox": "^1.0.6",
 		"md5": "^2.3.0",
+		"node-fetch-commonjs": "^3.2.4",
 		"nord": "^0.2.1",
 		"path": "^0.12.7",
 		"postcss": "^8.4.23",
