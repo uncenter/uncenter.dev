@@ -33,8 +33,7 @@ layout: index.njk
         </article>
     {% endif %}
     {% if post.comments %}
-        <div id="giscus" class="mt-16"></div>
-        {% giscus %}
+        <div id="comments" class="mt-16"></div>
     {% endif %}
     {% set previous = collections.posts | getPreviousCollectionItem %}
     {% set next = collections.posts | getNextCollectionItem %}

@@ -9,6 +9,7 @@ function setTheme(theme) {
 		.querySelector('meta[name="theme-color"]')
 		.setAttribute('content', theme === 'dark' ? '#121212' : '#ffffff');
 	document.documentElement.setAttribute('theme', theme);
+	loadGiscus();
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +22,9 @@ window.addEventListener('DOMContentLoaded', () => {
 			let selectedTheme = this.value.split(' ')[0];
 			setTheme(selectedTheme);
 		});
+	if (document.getElementById('giscus')) {
+		document.getElementById('giscus').innerHTML = insertGiscusScript();
+	}
 });
 
 window

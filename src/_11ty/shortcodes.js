@@ -138,32 +138,6 @@ const createCalloutInfo = (content, title) => {
 	return createCallout(content, title, 'info');
 };
 
-const insertGiscusScript = () => {
-	return `
-    <script defer>
-        window.addEventListener('load', () => {
-        let giscusTheme = document.documentElement.getAttribute('theme');
-        let giscusAttributes = {
-            "src": "https://giscus.app/client.js",
-            "data-repo": "${meta.github.username}/${meta.github.repo}",
-            "data-repo-id": "R_kgDOHSjhjQ",
-            "data-category-id": "DIC_kwDOHSjhjc4CTQUr",
-            "data-mapping": "title",
-            "data-reactions-enabled": "1",
-            "data-emit-metadata": "0",
-            "data-input-position": "top",
-            "data-theme": giscusTheme,
-            "data-lang": "en",
-            "crossorigin": "anonymous",
-            "async": ""
-        };
-        let giscusScript = document.createElement("script");
-        Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-        document.querySelector('#giscus').appendChild(giscusScript);
-        });
-    </script>`;
-};
-
 const insertImage = async function (src, alt, width, height) {
 	if (!width || !height) {
 		const originalDimensions = imageSize.imageSize(src);
@@ -247,9 +221,9 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addPairedShortcode('tip', createCalloutTip);
 	eleventyConfig.addPairedShortcode('warning', createCalloutWarning);
 	eleventyConfig.addPairedShortcode('info', createCalloutInfo);
-	eleventyConfig.addShortcode('giscus', insertGiscusScript);
 	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
 	eleventyConfig.addShortcode('log', (...args) => {
 		console.log(...args);
+		return '';
 	});
 };
