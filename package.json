@@ -6,9 +6,9 @@
 		"clean": "rimraf dist",
 		"spell:run": "cspell src/posts/**/*.md",
 		"spell:update": "node ./utils/update-dicts.js",
-		"spell": "npm run spell:update && npm run spell:run",
+		"spell": "pnpm run spell:update && pnpm run spell:run",
 		"prettier": "prettier --write src/**/*.{njk,js,scss,json}",
-		"restart": "npm run clean && npm run start",
+		"restart": "pnpm run clean && pnpm run start",
 		"start": "NODE_ENV=development eleventy --serve --incremental",
 		"build": "NODE_ENV=production eleventy"
 	},

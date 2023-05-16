@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const { DateTime } = require('luxon');
 
 const logOutput = require('../_11ty/utils/logOutput.js');

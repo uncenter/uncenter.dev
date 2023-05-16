@@ -1,3 +1,3 @@
 [build]
 publish = "dist/"
-command = "npm run spell && npm run build"
+command = "pnpm run spell && pnpm run build"
