@@ -13,7 +13,7 @@
         <script>
             function loadGiscus() {
                 if (!document.querySelector('#comments')) {
-                    console.error('Giscus: #comments element not found.');
+                    console.warn(`Giscus: #comments element not found (ignore if this isn't a blog post).`);
                     return;
                 }
                 let giscusAttributes = {

@@ -1,10 +1,17 @@
+function getSystemTheme() {
+	return window.matchMedia('(prefers-color-scheme: dark)').matches
+		? 'dark'
+		: 'light';
+}
+
 function setTheme(theme) {
+	console.log(
+		`Setting theme to '${
+			theme === 'system' ? getSystemTheme() : theme
+		}', storing '${theme}' in localStorage.`,
+	);
 	localStorage.setItem('theme', theme);
-	if (theme === 'system') {
-		theme = window.matchMedia('(prefers-color-scheme: dark)').matches
-			? 'dark'
-			: 'light';
-	}
+	if (theme === 'system') theme = getSystemTheme();
 	document
 		.querySelector('meta[name="theme-color"]')
 		.setAttribute('content', theme === 'dark' ? '#121212' : '#ffffff');
