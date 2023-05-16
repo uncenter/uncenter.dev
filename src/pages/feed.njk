@@ -24,7 +24,7 @@
         <email>{{ meta.social.email.main }}</email>
     </author>
     {%- for post in collections.posts | reverse %}
-        {%- set absolutePostUrl = post.url | absoluteUrl(metadata.url) %}
+        {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) %}
         <entry>
             <title>{{ post.data.title }}</title>
             <link href="{{ absolutePostUrl }}"/>
@@ -34,7 +34,7 @@
                 {% endif %}
             </updated>
             <id>{{ absolutePostUrl }}</id>
-            <content xml:lang="{{ feed.language }}" type="html">{{ post.content| cleanFeed | escape }}</content>
+            <content xml:lang="{{ feed.language }}" type="html">{{ post.data.title | feedLink(absolutePostUrl, meta.domain) | escape }}</content>
         </entry>
     {%- endfor %}
 </feed>

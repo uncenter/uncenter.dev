@@ -130,13 +130,8 @@ const setAttribute = (content, attribute, value = false) => {
 	return content.replace(/<[^>]*>/, el);
 };
 
-const cleanFeed = (content) => {
-	content = content
-		.replace(/<a class="anchor" href=".*?" aria-hidden="true">#<\/a>/g, '')
-		.replace(/<div class="language-id">.*?<\/div>/g, '')
-		.replace(/<div id="section-tags" [^>]*>.*?<\/div>/g, '')
-		.replace(/<nav id="section-toc" [^>]*>.*?<\/nav>/g, '');
-	return content;
+const feedLink = (title, href, domain) => {
+	return `<p><a href="${href}">Read "${title}" on ${domain}.</a></p>`;
 };
 
 const merge = (a, b) => {
@@ -162,7 +157,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('isRecent', isRecent);
 	eleventyConfig.addFilter('dumpContents', dumpContents);
 	eleventyConfig.addFilter('includes', includes);
-	eleventyConfig.addFilter('cleanFeed', cleanFeed);
 	eleventyConfig.addFilter('setAttr', setAttribute);
 	eleventyConfig.addFilter('merge', merge);
+	eleventyConfig.addFilter('feedLink', feedLink);
 };
