@@ -7,7 +7,7 @@ const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const fs = require('fs');
 const Chalk = require('chalk');
 
-const pluginTOC = require('eleventy-plugin-toc');
+const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
 const pluginRSS = require('@11ty/eleventy-plugin-rss');
 const pluginShikier = require('./utils/plugins/shikier.js');
@@ -23,7 +23,12 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(filters);
 
 	/* Plugins */
-	eleventyConfig.addPlugin(pluginTOC, { ul: true });
+	eleventyConfig.addPlugin(pluginTOC, {
+		ul: true,
+		wrapper: function (toc) {
+			return `<nav class="toc" aria-label="Table of Contents">${toc}</nav>`;
+		},
+	});
 	eleventyConfig.addPlugin(pluginExternalLinks, {
 		url: 'https://uncenter.org',
 		rel: ['noreferrer', 'noopener', 'external'],
