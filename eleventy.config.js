@@ -47,11 +47,8 @@ module.exports = function (eleventyConfig) {
 		},
 		default: 'lucide',
 		icon: {
-			notFound: 'ignore',
-			combineDuplicateAttributes: true,
-		},
-		sprites: {
-			shortcode: 'iconSheet',
+			overwriteExistingAttributes: true,
+			ignoreNotFound: false,
 		},
 	});
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
