@@ -1,3 +1,4 @@
 [build]
 publish = "dist/"
 command = "pnpm run spell && pnpm run build"
+ignore = "git diff --name-only $CACHED_COMMIT_REF $COMMIT_REF | tr -d '\n' | grep -Eq '^(README.md|LICENSE)$'"
