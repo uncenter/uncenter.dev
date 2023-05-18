@@ -1,17 +1,14 @@
 ---json
 {
     "permalink": "feed.xml",
-    "layout": "",
     "eleventyExcludeFromCollections": true,
-    "description": "RSS feed for my blog.",
     "feed": {
         "title": "uncenter's blog",
-        "subtitle": "A blog about web development, design, and other things.",
+        "subtitle": "A few badly-written articles and some half-baked ideas.",
         "language": "en"
     }
 }
 ---
-<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ meta.url }}">
     <title>{{ feed.title }}</title>
     <subtitle>{{ feed.subtitle }}</subtitle>
@@ -28,7 +25,9 @@
         <entry>
             <title>{{ post.data.title }}</title>
             <link href="{{ absolutePostUrl }}"/>
-            <updated>{% if post.data.updated %}{{ post.data.updated | toRFC3339 }}{% else %}{{ post.date | dateToRfc3339 }}{% endif %}</updated>
+            <updated>
+                {{ post.date | dateToRfc3339 }}
+            </updated>
             <id>{{ absolutePostUrl }}</id>
             <content xml:lang="{{ feed.language }}" type="html">{{ post.data.title | feedLink(absolutePostUrl, meta.domain) | escape }}</content>
         </entry>

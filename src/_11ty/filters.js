@@ -11,12 +11,6 @@ const toDateTime = (dateObj) => {
 	return dateObj;
 };
 
-const toRFC3339 = (dateObj) => {
-	let split = dateObj.split('.');
-	split.pop();
-	return split.join('') + 'Z';
-};
-
 const toShortDate = (dateObj) => {
 	// 10/14/1983
 	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('MM/dd/yyyy');
@@ -136,7 +130,6 @@ const merge = (a, b) => {
 
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('toDateTime', toDateTime);
-	eleventyConfig.addFilter('toRFC3339', toRFC3339);
 	eleventyConfig.addFilter('toShortDate', toShortDate);
 	eleventyConfig.addFilter('toMedDate', toMedDate);
 	eleventyConfig.addFilter('toFullDate', toFullDate);
