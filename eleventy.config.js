@@ -41,7 +41,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginIcons, {
 		mode: 'inline',
 		sources: {
-			devicon: './src/_assets/icons/devicon',
 			social: './src/_assets/icons/social',
 			lucide: 'node_modules/lucide-static/icons',
 		},
