@@ -14,18 +14,18 @@
 	}
 	.icon-mastodon-blank,
 	.icon-elementio-blank {
-		& #outer {
+		& .outer {
 			fill: black;
 		}
 
-		& #inner {
+		& .inner {
 			fill: white;
 		}
 	}
 	.icon-rss-blank {
 		fill: white;
 
-		& #outer {
+		& .outer {
 			fill: black;
 		}
 	}
@@ -43,18 +43,18 @@
 	}
 	.icon-mastodon-blank,
 	.icon-elementio-blank {
-		& #outer {
+		& .outer {
 			fill: white;
 		}
 
-		& #inner {
+		& .inner {
 			fill: black;
 		}
 	}
 	.icon-rss-blank {
 		fill: black;
 
-		& #outer {
+		& .outer {
 			fill: white;
 		}
 	}
