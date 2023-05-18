@@ -3,7 +3,6 @@ const fetch = require('node-fetch-commonjs');
 
 const logOutput = require('../_11ty/utils/logOutput.js');
 const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
 const meta = require('../_data/meta.json');
 require('dotenv').config();
 
@@ -53,14 +52,14 @@ module.exports = {
 	eleventyComputed: {
 		eleventyExcludeFromCollections: (data) => {
 			// If the post is a draft and we're in production, or if the post is unlisted, exclude it from collections
-			if ((isProd && data.draft) || data.unlisted) {
+			if ((!isDev && data.draft) || data.unlisted) {
 				return true;
 			}
 			return data.eleventyExcludeFromCollections;
 		},
 		permalink: (data) => {
 			// If the post is a draft and we're in production and it's not unlisted, don't build it
-			if (data.draft && isProd && !data.unlisted) {
+			if (data.draft && !isDev && !data.unlisted) {
 				return false;
 			}
 			return data.permalink;
@@ -69,7 +68,7 @@ module.exports = {
 			if (!data.page.url || data.views === false) {
 				return;
 			}
-			if ((isProd && data.draft) || data.eleventyExcludeFromCollections) {
+			if ((!isDev && data.draft) || data.eleventyExcludeFromCollections) {
 				logOutput({
 					prefix: 'data:views',
 					file: data.page.url,
