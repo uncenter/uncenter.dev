@@ -30,7 +30,7 @@ const getExcerpt = (page, classes = '') => {
 		content = content.substring(0, nextHeadingIndex);
 	}
 
-	turndownRenderer = new turndown();
+	const turndownRenderer = new turndown();
 	text = turndownRenderer.turndown(content);
 
 	// Split plain text into phrases and concatenate until length cutoff

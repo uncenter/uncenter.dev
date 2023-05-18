@@ -1,4 +1,3 @@
-const gitlog = require('gitlog').default;
 const { DateTime } = require('luxon');
 
 const posts = (collectionApi) => {
