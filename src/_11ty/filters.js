@@ -1,4 +1,4 @@
-const fs = require('fs/promises');
+const fs = require('fs');
 
 const { DateTime } = require('luxon');
 const { markdownLibrary } = require('../../utils/plugins/markdown');
@@ -82,7 +82,7 @@ const getCommitMessage = (str) => {
 // Example: {{ '/icons/example.svg' | dumpContents }}
 // Taken from https://bnijenhuis.nl/notes/load-file-contents-in-eleventy/
 const dumpContents = (filePath) => {
-	const fileContents = fs.readFile(filePath, (err, data) => {
+	const fileContents = fs.readFileSync(filePath, (err, data) => {
 		if (err) throw err;
 		return data;
 	});
