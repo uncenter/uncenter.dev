@@ -2,7 +2,6 @@ const turndown = require('turndown');
 
 const Image = require('@11ty/eleventy-img');
 const imageSize = require('image-size');
-const meta = require('../_data/meta.json');
 
 const { escape } = require('lodash');
 const { parseHTML } = require('linkedom');
@@ -66,15 +65,7 @@ const getCollectionReadingTime = (posts) => {
 	}
 	let readingTime = 0;
 	posts.forEach((post) => {
-		readingTime += parseInt(
-			getReadingTime(post.content, {
-				useSeconds: false,
-				format: false,
-				speed: 235,
-				preText: '',
-				postText: '',
-			}),
-		);
+		readingTime += parseInt(getReadingTime(post.content));
 	});
 	return readingTime;
 };
@@ -94,7 +85,7 @@ const getCollectionAverageWordLength = (posts) => {
 	if (!posts) {
 		return 0;
 	}
-	averageWordLengths = [];
+	const averageWordLengths = [];
 	posts.forEach((post) => {
 		const count = wordCount(cleanContent(post.content));
 		const contentLength = cleanContent(post.content).length;
@@ -120,22 +111,6 @@ const createCallout = (content, title, type) => {
     ${titleText ? `<div class="note__title">${titleText}</div>` : ''}
     <div class="note__content">${contentHtml}</div>
     </div>`;
-};
-
-const createCalloutNote = (content, title) => {
-	return createCallout(content, title, 'note');
-};
-
-const createCalloutTip = (content, title) => {
-	return createCallout(content, title, 'tip');
-};
-
-const createCalloutWarning = (content, title) => {
-	return createCallout(content, title, 'warning');
-};
-
-const createCalloutInfo = (content, title) => {
-	return createCallout(content, title, 'info');
 };
 
 const insertImage = async function (src, alt, width, height) {
@@ -190,7 +165,6 @@ const insertImage = async function (src, alt, width, height) {
         <img ${stringifyAttributes({
 					height: largestImages.base.height,
 					width: largestImages.base.width,
-					class: 'container',
 					src: largestImages.base.url,
 					alt: escape(alt),
 					loading: 'lazy',
@@ -217,10 +191,18 @@ module.exports = (eleventyConfig) => {
 		getCollectionAverageWordLength,
 	);
 	eleventyConfig.addPairedShortcode('callout', createCallout);
-	eleventyConfig.addPairedShortcode('note', createCalloutNote);
-	eleventyConfig.addPairedShortcode('tip', createCalloutTip);
-	eleventyConfig.addPairedShortcode('warning', createCalloutWarning);
-	eleventyConfig.addPairedShortcode('info', createCalloutInfo);
+	eleventyConfig.addPairedShortcode('note', (content, title) => {
+		return createCallout(content, title, 'note');
+	});
+	eleventyConfig.addPairedShortcode('tip', (content, title) => {
+		return createCallout(content, title, 'tip');
+	});
+	eleventyConfig.addPairedShortcode('warning', (content, title) => {
+		return createCallout(content, title, 'warning');
+	});
+	eleventyConfig.addPairedShortcode('info', (content, title) => {
+		return createCallout(content, title, 'info');
+	});
 	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
 	eleventyConfig.addShortcode('log', (...args) => {
 		console.log(...args);

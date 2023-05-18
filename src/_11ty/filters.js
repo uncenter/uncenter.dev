@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs/promises');
 
 const { DateTime } = require('luxon');
 const { markdownLibrary } = require('../../utils/plugins/markdown');
@@ -82,7 +82,7 @@ const getCommitMessage = (str) => {
 // Example: {{ '/icons/example.svg' | dumpContents }}
 // Taken from https://bnijenhuis.nl/notes/load-file-contents-in-eleventy/
 const dumpContents = (filePath) => {
-	const fileContents = fs.readFileSync(filePath, (err, data) => {
+	const fileContents = fs.readFile(filePath, (err, data) => {
 		if (err) throw err;
 		return data;
 	});
@@ -99,10 +99,6 @@ const getWordCount = (content, { preText = '', postText = '' } = {}) => {
 	const count = wordCount(cleanContent(htmlContent));
 
 	return combineText(preText, count, postText);
-};
-
-const getIndex = (iterable, index) => {
-	return iterable[index];
 };
 
 const isRecent = (date, days) => {
@@ -153,7 +149,6 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('getCommitMessage', getCommitMessage);
 	eleventyConfig.addFilter('readingTime', require('./utils/readingTime'));
 	eleventyConfig.addFilter('wordCount', getWordCount);
-	eleventyConfig.addFilter('getIndex', getIndex);
 	eleventyConfig.addFilter('isRecent', isRecent);
 	eleventyConfig.addFilter('dumpContents', dumpContents);
 	eleventyConfig.addFilter('includes', includes);
