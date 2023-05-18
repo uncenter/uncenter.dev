@@ -11,12 +11,12 @@ description: All sorts of things that I use.
 
 - [Arc](https://arc.net/) for web browsing
 - [1Password](https://1password.com/) for password management
-- [iina](https://iina.io/) for video
 - [MacDown](https://macdown.uranusjr.com/) for Markdown editing
 - [NetNewsWire](https://ranchero.com/netnewswire/) for RSS feeds
 - [Notion](https://notion.so/) for personal writing and databases
 - [Spotify](https://spotify.com/) for music
 - [Discord](https://discord.com/) for messaging
+- [shottr](https://shottr.cc/) for screenshots!
 
 ### Development
 
@@ -24,9 +24,9 @@ description: All sorts of things that I use.
 - [Fig](https://fig.io/) for CLI autocomplete
 - [Homebrew](https://brew.sh/) for system package management
 - [Hyper](https://hyper.is/) for terminal
-- [oh-my-zsh](https://ohmyz.sh/) for better zsh
 - [PyCharm](https://www.jetbrains.com/pycharm/) for Python
-- [Sublime Text](https://www.sublimetext.com/) for quick text editing
+- [Sublime Text](https://www.sublimetext.com/)
+- [Plain Text Editor](https://sindresorhus.com/plain-text-editor) for **the** simplest text editor
 
 ### Utilities
 
@@ -35,21 +35,19 @@ description: All sorts of things that I use.
 - [Coffee](https://www.raycast.com/mooxl/coffee) to prevent sleep
 - [dat-weather-doe](https://github.com/inderdhir/DatWeatherDoe) for weather
 - [eul](https://github.com/gao-sun/eul) for system monitoring
-- [shottr](https://shottr.cc/) for screenshots
 - [PurePaste](https://sindresorhus.com/pure-paste) for clipboard management
 - [Raycast](https://raycast.com/) to replace the default MacOS spotlight search
 - [Shareful](https://sindresorhus.com/shareful) for copying, sharing, and saving files
 - [Rectangle](https://rectangleapp.com/) for window management
+- [System Color Picker](https://github.com/sindresorhus/System-Color-Picker) for a better color picker
+- [Command X](https://sindresorhus.com/command-x) for cutting and pasting files in Finder
 
 ### Browser Extensions
 
 - [1Password](https://1password.com/downloads/browser-extension/) for password autofill
 - [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
 - [Notion web clipper](https://www.notion.so/web-clipper) for saving web pages to Notion
-- [uBlock Origin](https://github.com/gorhill/uBlock/) for ad and tracker blocking
-
-### Browser Extensions (Development)
-
+- [uBlock Origin](https://github.com/gorhill/uBlock/) for advertisement and tracker blocking
 - [Fontanello](https://fontanello.app/) for finding fonts on websites
 - [Github Repo Size](https://github.com/Shywim/github-repo-size) for seeing repo sizes on GitHub
 - [Refined GitHub](https://github.com/refined-github/refined-github) for better GitHub
@@ -83,4 +81,4 @@ description: All sorts of things that I use.
 
 - [Glorious Model O](https://www.gloriousgaming.com/products/glorious-model-o-black) for mouse
 - Custom-built [Bakeneko 65%](https://cannonkeys.com/products/bakeneko65/) with Akko Pink switches and white/lavender keycaps
-- [DT 770 Pro](https://north-america.beyerdynamic.com/dt-770-pro.html) for headphones (250 ohm)
+- [DT 770 Pro](https://north-america.beyerdynamic.com/dt-770-pro.html) for headphones
