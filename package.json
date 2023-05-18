@@ -4,13 +4,12 @@
 	"description": "Ducks, badly-written articles, some half-baked ideas, and a little bit of everything else.",
 	"scripts": {
 		"clean": "rimraf dist",
-		"spell:run": "cspell src/posts/**/*.md",
-		"spell:update": "node ./utils/update-dicts.js",
-		"spell": "pnpm run spell:update && pnpm run spell:run",
+		"spell": "cspell src/posts/**/*.md && node ./utils/update-dicts.js",
 		"prettier": "prettier --write src/**/*.{njk,js,scss,json}",
 		"restart": "pnpm run clean && pnpm run start",
 		"start": "NODE_ENV=development eleventy --serve --incremental",
-		"build": "NODE_ENV=production eleventy"
+		"build": "NODE_ENV=production eleventy",
+		"debug": "DEBUG=Eleventy* npm run start"
 	},
 	"repository": {
 		"type": "git",
