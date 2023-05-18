@@ -1,8 +1,9 @@
 ---
 tags: ['11ty']
-title: v3.0 - Rebuilding my website from scratch
+title: Rebuilding my website from scratch
 description: A new structure, new icons, and new styling.
 date: 2023-02-21
+unlisted: true
 # cspell:ignore Barabara Devries
 ---
 
