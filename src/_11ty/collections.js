@@ -1,39 +1,23 @@
 const gitlog = require('gitlog').default;
 const { DateTime } = require('luxon');
 
-const getPosts = (collectionApi) => {
+const posts = (collectionApi) => {
 	return collectionApi
 		.getFilteredByGlob('./src/posts/**/*.md')
-		.filter((post) => post.data.archived !== true && post.data.micro !== true);
+		.filter((post) => post.data.archived !== true);
 };
 
-const getArchivedPosts = (collectionApi) => {
+const archivedPosts = (collectionApi) => {
 	return collectionApi
 		.getFilteredByGlob('./src/posts/**/*.md')
-		.filter((post) => post.data.archived === true && post.data.micro !== true);
+		.filter((post) => post.data.archived === true);
 };
 
-const getAllPosts = (collectionApi) => {
+const allPosts = (collectionApi) => {
 	return collectionApi.getFilteredByGlob('./src/posts/**/*.md');
 };
 
-const getCustomCollections = (collectionApi) => {
-	const collections = new Map();
-
-	for (const p of collectionApi.getAll()) {
-		const { collection } = p.data;
-		if (collection === undefined) {
-			continue;
-		}
-		if (!collections.has(collection)) {
-			collections.set(collection, []);
-		}
-		collections.get(collection).push(p);
-	}
-	return Object.fromEntries(collections.entries());
-};
-
-const getAllTags = (collectionApi) => {
+const allTags = (collectionApi) => {
 	function filterTagList(tags) {
 		return (tags || []).filter((tag) => ['all'].indexOf(tag) === -1);
 	}
@@ -45,8 +29,8 @@ const getAllTags = (collectionApi) => {
 	return filterTagList([...tagSet]);
 };
 
-const getRecentChangesByDate = () => {
-	const settings = {
+const gitChangelog = () => {
+	const recentChanges = require('gitlog').default({
 		repo: __dirname,
 		number: 100,
 		fields: [
@@ -58,8 +42,7 @@ const getRecentChangesByDate = () => {
 			'committerDate',
 			'committerDateRel',
 		],
-	};
-	const recentChanges = gitlog(settings);
+	});
 
 	const grouped = new Map();
 
@@ -85,10 +68,9 @@ const getRecentChangesByDate = () => {
 };
 
 module.exports = (eleventyConfig) => {
-	eleventyConfig.addCollection('posts', getPosts);
-	eleventyConfig.addCollection('allPosts', getAllPosts);
-	eleventyConfig.addCollection('archivedPosts', getArchivedPosts);
-	eleventyConfig.addCollection('allTags', getAllTags);
-	eleventyConfig.addCollection('recentChanges', getRecentChangesByDate);
-	eleventyConfig.addCollection('custom', getCustomCollections);
+	eleventyConfig.addCollection('posts', posts);
+	eleventyConfig.addCollection('allPosts', allPosts);
+	eleventyConfig.addCollection('archivedPosts', archivedPosts);
+	eleventyConfig.addCollection('allTags', allTags);
+	eleventyConfig.addCollection('recentChanges', gitChangelog);
 };
