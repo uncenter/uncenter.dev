@@ -22,20 +22,16 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
 - **Syntax highlighting** for posts using [`shiki.js`](https://github.com/shikijs/shiki), configured based on [Raphael Höser's implementation](https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/)
 - **Optimized icons** by selectively loading icons on a per-page basis using my [`eleventy-plugin-icons`](https://github.com/uncenter/eleventy-plugin-icons) plugin
 - **RSS feed** for blog posts using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
-- **Open Graph images** through Vercel's [OG Image API](https://og-image.vercel.app/)
 
 ### To-Do
 
 #### Quick Fixes
 
-- [x] Dark mode and light mode
-- [ ] Toggle dark mode and light mode with a button
 - [ ] Add pre-generated preview images instead of Vercel OG images
 - [ ] Fetch and display GitHub statistics for each project on projects page
 
 #### Long-Term
 
-- [ ] ~~Color themes, i.e. Nord, Catppuccin, etc.~~
 - [ ] Import posts from Notion for improved content management
 - [ ] Enable Webmentions and Mastodon integration for comments and replies
 
