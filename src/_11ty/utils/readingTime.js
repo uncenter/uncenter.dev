@@ -1,3 +1,7 @@
+const cleanContent = require('./cleanContent.js');
+const combineText = require('./combineText.js');
+const wordCount = require('./wordCount.js');
+
 // Adapted from https://github.com/johanbrook/eleventy-plugin-reading-time
 module.exports = (
 	content,
@@ -15,9 +19,7 @@ module.exports = (
 		return combineText(preText, '0', postText);
 	}
 
-	const count = require('./wordCount.js')(
-		require('./cleanContent.js')(htmlContent),
-	);
+	const count = wordCount(cleanContent(htmlContent));
 
 	let est = '';
 
@@ -36,7 +38,7 @@ module.exports = (
 		const min = Math.ceil(count / speed);
 
 		if (format === true) {
-			est = require('./combineText.js')(preText, min, postText);
+			est = combineText(preText, min, postText);
 		} else {
 			est = min;
 		}
