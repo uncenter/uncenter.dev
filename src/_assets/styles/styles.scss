@@ -61,6 +61,9 @@ a:not(.not-fancy) {
 a:hover:not(.not-fancy) {
 	color: var(--accent);
 	border-bottom: 2px solid var(--accent);
+	svg.icon-duck-flying {
+		fill: var(--accent);
+	}
 }
 
 main,
