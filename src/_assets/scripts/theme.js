@@ -20,7 +20,7 @@ function setTheme(theme) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-	theme = localStorage.getItem('theme') || 'system';
+	let theme = localStorage.getItem('theme') || 'system';
 	setTheme(theme);
 	document.getElementById('themeSelector').value = theme;
 	document
