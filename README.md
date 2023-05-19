@@ -25,15 +25,9 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
 
 ### To-Do
 
-#### Quick Fixes
-
-- [ ] Add pre-generated preview images instead of Vercel OG images
-- [ ] Fetch and display GitHub statistics for each project on projects page
-
-#### Long-Term
-
-- [ ] Import posts from Notion for improved content management
-- [ ] Enable Webmentions and Mastodon integration for comments and replies
+- [ ] Generate static preview images
+- [ ] Fetch GitHub statistics for each project
+- [ ] Webmentions and Mastodon integration for comments and replies
 
 ### Structure
 
