@@ -124,8 +124,19 @@ const feedLink = (title, href, domain) => {
 	return `<p><a href="${href}">Read "${title}" on ${domain}.</a></p>`;
 };
 
-const merge = (a, b) => {
-	return Object.assign({}, a, b);
+const ordinal = (number) => {
+	const i = number % 10,
+		j = number % 100;
+	if (i === 1 && j !== 11) {
+		return number + 'st';
+	}
+	if (i === 2 && j !== 12) {
+		return number + 'nd';
+	}
+	if (i === 3 && j !== 13) {
+		return number + 'rd';
+	}
+	return number + 'th';
 };
 
 module.exports = (eleventyConfig) => {
@@ -146,6 +157,15 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('dumpContents', dumpContents);
 	eleventyConfig.addFilter('includes', includes);
 	eleventyConfig.addFilter('setAttr', setAttribute);
-	eleventyConfig.addFilter('merge', merge);
 	eleventyConfig.addFilter('feedLink', feedLink);
+	eleventyConfig.addFilter('isSeries', (posts, title) => {
+		return posts.filter((p) => p.data?.series?.title === title);
+	});
+	eleventyConfig.addFilter('seriesLocate', (collection, series) => {
+		return collection.find(({ title }) => title === series.title) || {};
+	});
+	eleventyConfig.addFilter('seriesGetPart', (seriesPosts, postUrl) => {
+		return seriesPosts.findIndex((url) => url === postUrl) + 1;
+	});
+	eleventyConfig.addFilter('ordinal', ordinal);
 };

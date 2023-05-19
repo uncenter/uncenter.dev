@@ -20,6 +20,14 @@ layout: index.njk
     {% if content !== "" %}
         <article class="wrap-anywhere">
             <h1 class="text-3xl font-bold mb-0" style="view-transition-name: post-{{ title | slugify }}">{{ title }}</h1>
+            {% if series %}
+                {% set seriesData = collections.series | seriesLocate(series) %}
+                {% set seriesPosts = seriesData.posts %}
+                {% if seriesPosts.length > 0 %}
+                    {% set part = seriesPosts | seriesGetPart(page.url) %}
+                    <p>This is the {{ part | ordinal }} entry in the <a href="/series/{{ series.title | slugify }}/">{{ series.title }}</a> series.</p>
+                {% endif %}
+            {% endif %}
             {% if content | toc %}
                 {{ content | toc | safe }}
             {% endif %}
