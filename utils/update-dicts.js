@@ -12,8 +12,6 @@ function getRepos() {
 		const response = await fetch(reposURL);
 		const json = await response.json();
 
-		console.log('Response:', json);
-
 		if (Array.isArray(json)) {
 			const repos = json.map((repo) => repo.name);
 			fs.writeFileSync(reposFile, repos.join('\n'));
