@@ -2,7 +2,7 @@
 layout: index.njk
 ---
 
-{% from "components.njk" import listTags %}
+{% import "components.njk" as components %}
 
 <main class="max-w-[680px] md:mx-auto my-0 lg:max-w-[800px] xl:max-w-[1000px] xl:p-8">
     <div class="[border-bottom:2px_solid_currentColor] pb-2">
@@ -12,20 +12,14 @@ layout: index.njk
                 <span>{{ post.return.text }}</span>
             </a>
             {% if post.tags %}
-                {{ listTags({
-            'date': date,
-            'updated': updated,
-            'tags': tags,
-            'views': views,
-            'content': content
-            }) }}
+                {{ components.tags(date, tags) }}
             {% endif %}
         </div>
     </div>
 
     {% if content !== "" %}
         <article class="wrap-anywhere">
-            <h1 class="text-3xl font-bold mb-0">{{ title }}</h1>
+            <h1 class="text-3xl font-bold mb-0" style="view-transition-name: post-{{ title | slugify }}">{{ title }}</h1>
             {% if content | toc %}
                 {{ content | toc | safe }}
             {% endif %}
