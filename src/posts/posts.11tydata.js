@@ -51,47 +51,24 @@ async function getPageViews(originalUrl, originalDate) {
 module.exports = {
 	eleventyComputed: {
 		eleventyExcludeFromCollections: (data) => {
-			// If the post is a draft and we're in production, or if the post is unlisted, exclude it from collections
-			if ((!isDev && data.draft) || data.unlisted) {
+			if (data.unlisted && !isDev) {
 				return true;
 			}
 			return data.eleventyExcludeFromCollections;
 		},
-		permalink: (data) => {
-			// If the post is a draft and we're in production and it's not unlisted, don't build it
-			if (data.draft && !isDev && !data.unlisted) {
-				return false;
-			}
-			return data.permalink;
-		},
 		views: async (data) => {
-			if (!data.page.url || data.views === false) {
-				return;
-			}
-			if ((!isDev && data.draft) || data.eleventyExcludeFromCollections) {
-				logOutput({
-					prefix: 'data:views',
-					file: data.page.url,
-				});
-				return;
-			}
-			if (isDev) {
-				logOutput({
-					prefix: 'data:views',
-					file: data.page.url,
-				});
-				return Math.floor(Math.random() * 100);
-			}
-			const originalUrl = data.page.url;
-			const originalDate = data.page.date;
-			const res = await getPageViews(originalUrl, originalDate);
+			if (!data.page.url || data.views === false) return;
+			if (isDev) return Math.floor(Math.random() * 100);
+
 			views = 0;
+			const res = await getPageViews(data.page.url, data.page.date);
 			for (let i = 0; i < res.pageviews.length; i++) {
 				views += res.pageviews[i].y;
 			}
 			logOutput({
 				prefix: 'data:views',
 				file: data.page.url,
+				extra: views,
 			});
 			return views;
 		},

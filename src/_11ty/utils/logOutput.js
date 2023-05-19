@@ -27,5 +27,5 @@ module.exports = ({ prefix, file = '', extra = '' }) => {
 		prefix = `[11ty][${categoryColor(category)}:${typeColor(type)}]`;
 	}
 
-	console.log(`${prefix} ${Chalk.bold(file)} ${extra ?? ''}`);
+	console.log(`${prefix} ${Chalk.bold(file)} ${extra ? `(${extra})` : ''}`);
 };
