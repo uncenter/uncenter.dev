@@ -51,10 +51,14 @@ async function getPageViews(originalUrl, originalDate) {
 module.exports = {
 	eleventyComputed: {
 		eleventyExcludeFromCollections: (data) => {
-			if (data.unlisted && !isDev) {
+			if ((data.unlisted && !isDev) || data.hide) {
 				return true;
 			}
 			return data.eleventyExcludeFromCollections;
+		},
+		permalink: (data) => {
+			if (date.hide) return false;
+			return data.permalink;
 		},
 		views: async (data) => {
 			if (!data.page.url || data.views === false) return;

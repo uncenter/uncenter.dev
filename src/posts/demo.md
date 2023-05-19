@@ -4,8 +4,7 @@ tags: ['Demo']
 title: Occaecat deserunt laboris
 description: This is a demo post that is archived.
 date: 2000-01-01
-archived: true
-draft: true
+hide: true
 ---
 
 Velit eiusmod exercitation Lorem nisi. Ullamco duis exercitation aliqua cillum aute consequat laborum esse. Esse Lorem elit voluptate nulla nostrud mollit cillum labore ut tempor labore aliquip amet. Mollit aute anim sit labore nisi dolor dolore duis.
