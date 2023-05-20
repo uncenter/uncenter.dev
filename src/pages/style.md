@@ -40,7 +40,7 @@ Officia consectetur in labore deserunt qui laborum.
 Officia consectetur in labore deserunt qui laborum.
 {% endnote %}
 
-> This is a blockquote
+> Cillum exercitation magna eiusmod laborum mollit excepteur irure officia laboris enim laborum in quis. Et irure elit est veniam occaecat culpa. Do commodo consectetur sit nisi ex laboris aute ex fugiat eiusmod velit labore. Nisi minim non dolore et consectetur id. Do nulla tempor magna qui quis ullamco nostrud duis officia laboris est sunt. Veniam consectetur proident dolor excepteur ullamco qui proident exercitation mollit sit.
 
 ### Lists
 
@@ -48,8 +48,7 @@ Officia consectetur in labore deserunt qui laborum.
 
 - A bulleted list
 
-* Lorem
-
+- Lorem
   - Ipsum
 
 * [ ] An incomplete task
@@ -67,10 +66,16 @@ Officia consectetur in labore deserunt qui laborum.
   p q r s t u v w x y z { | } ~ 
 </pre>
 
+```css
+html {
+	scroll-behavior: smooth;
+}
+```
+
 ```py
 print("Hello World!") # [sh! highlight]
 def sum(a, b):
-  return a + b
+    return a + b
 ```
 
 ```js
