@@ -23,6 +23,7 @@ html {
 	scroll-behavior: smooth;
 	overflow-y: scroll;
 	text-size-adjust: none;
+	--accent: var(--accent-red);
 }
 
 @media (min-width: 1024px) {
@@ -165,7 +166,7 @@ article {
 	}
 
 	&.note--info {
-		--note-color: var(--contrast-blue);
+		--note-color: var(--accent-blue);
 
 		&::after {
 			content: 'Info';
@@ -173,7 +174,7 @@ article {
 	}
 
 	&.note--warning {
-		--note-color: var(--contrast-yellow);
+		--note-color: var(--accent-yellow);
 
 		&::after {
 			content: 'Warning';
@@ -181,7 +182,7 @@ article {
 	}
 
 	&.note--tip {
-		--note-color: var(--contrast-green);
+		--note-color: var(--accent-green);
 
 		&::after {
 			content: 'Tip';

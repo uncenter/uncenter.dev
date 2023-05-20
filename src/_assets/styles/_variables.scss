@@ -3,15 +3,13 @@ $block-border-width: 4px; // border width for blockquotes, notes, etc.
 $border-radius: 6px;
 
 :root {
-	--contrast-blue: #517aa4;
-	--contrast-red: #ae4751;
-	--contrast-green: #74a04c;
-	--contrast-yellow: #e1b151;
-	--contrast-magenta: #93628a;
+	--accent-blue: #5682af;
+	--accent-red: #ae4751;
+	--accent-green: #74a04c;
+	--accent-yellow: #e1b151;
+	--accent-magenta: #93628a;
 	--gray: #3f4750;
 	--light: #ffffff;
 	--dark: #3a343a;
 	--black: #121212;
-
-	--accent: var(--contrast-red);
 }
