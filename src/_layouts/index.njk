@@ -27,10 +27,10 @@
         <link rel="alternate" type="application/rss+xml" href="https://{{ meta.domain }}/feed.xml">
 
         <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
         <style>
             {{inlined.css | safe}}
         </style>
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
         <script>
             {{ inlined.js.before | safe }}
         </script>
