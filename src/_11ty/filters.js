@@ -124,6 +124,10 @@ const feedLink = (title, href, domain) => {
 	return `<p><a href="${href}">Read "${title}" on ${domain}.</a></p>`;
 };
 
+const cleanFeed = (content) => {
+	return content.replace(/<div class="language-id">.*?<\/div>/g, '');
+};
+
 const ordinal = (number) => {
 	const i = number % 10,
 		j = number % 100;
@@ -157,6 +161,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('dumpContents', dumpContents);
 	eleventyConfig.addFilter('includes', includes);
 	eleventyConfig.addFilter('setAttr', setAttribute);
+	eleventyConfig.addFilter('cleanFeed', cleanFeed);
 	eleventyConfig.addFilter('feedLink', feedLink);
 	eleventyConfig.addFilter('isSeries', (posts, title) => {
 		return posts.filter((p) => p.data?.series?.title === title);
