@@ -23,16 +23,26 @@ function setTheme(theme, options = { permanent: true, update: true }) {
 	}
 }
 
-let theme;
-let storedTheme = localStorage.getItem('theme');
-let overrideTheme;
 const queryParams = new URLSearchParams(window.location.search);
-const themeParam = queryParams.get('theme');
-if (themeParam) {
-	overrideTheme = themeParam;
+const validThemes = ['light', 'dark', 'system'];
+const validAccents = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+
+let theme;
+let accent;
+let storedTheme = localStorage.getItem('theme');
+let storedAccent = localStorage.getItem('accent');
+let overrideTheme;
+let overrideAccent;
+
+if (queryParams.has('theme')) {
+	overrideTheme = queryParams.get('theme');
 }
+if (queryParams.has('accent')) {
+	overrideAccent = queryParams.get('accent');
+}
+
 theme = overrideTheme || storedTheme;
-if (!theme || !['light', 'dark', 'system'].includes(theme)) {
+if (!theme || !validThemes.includes(theme)) {
 	console.log(
 		`Invalid theme '${theme}' ${
 			overrideTheme ? 'from query parameter' : 'from localStorage'
@@ -42,9 +52,28 @@ if (!theme || !['light', 'dark', 'system'].includes(theme)) {
 				: 'using system theme.'
 		}`,
 	);
-	theme = storedTheme || 'system';
+	theme = validThemes.includes(storedTheme) ? storedTheme : 'system';
 }
 setTheme(theme, {
 	permanent: theme === overrideTheme ? false : true,
 	update: false,
 });
+
+accent = overrideAccent || storedAccent;
+if (!accent || !validAccents.includes(accent)) {
+	console.log(
+		`Invalid accent '${accent}' ${
+			overrideAccent ? 'from query parameter' : 'from localStorage'
+		}, ${
+			storedAccent
+				? "using stored '" + storedAccent + "' accent instead."
+				: 'using default accent.'
+		}`,
+	);
+	accent = validAccents.includes(storedAccent) ? storedAccent : 'red';
+}
+document.documentElement.style.setProperty(
+	'--accent',
+	`var(--accent-${accent})`,
+);
+localStorage.setItem('accent', accent);
