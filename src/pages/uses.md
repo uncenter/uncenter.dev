@@ -72,10 +72,10 @@ description: All sorts of things that I use.
 
 ### PC
 
-- [Asus Prime B350 Plus](https://www.asus.com/us/Motherboards/PRIME-B350-PLUS/) for motherboard
+- [Asus Prime B350 Plus](https://www.asus.com/us/Motherboards/PRIME-B350-PLUS/) as motherboard
 - Asus GTX 1660 Super
-- [Corsair Vengeance LPX 2x8GB](https://www.corsair.com/us/en/Categories/Products/Memory/VENGEANCE-LPX/p/CMK16GX4M2B3200C16) for RAM
-- [Ryzen 5 3600](https://www.amd.com/en/products/cpu/amd-ryzen-5-3600) for CPU
+- [Corsair Vengeance LPX 2x8GB](https://www.corsair.com/us/en/Categories/Products/Memory/VENGEANCE-LPX/p/CMK16GX4M2B3200C16) as RAM
+- [Ryzen 5 3600](https://www.amd.com/en/product/8456) as CPU
 
 ### Peripherals
 
