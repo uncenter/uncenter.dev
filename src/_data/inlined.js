@@ -13,13 +13,13 @@ module.exports = async () => {
 		to: undefined,
 	});
 
-	const copyJs = await readFile('./src/_assets/scripts/copy.js', 'utf-8');
-	const themeJs = await readFile('./src/_assets/scripts/theme.js', 'utf-8');
+	const afterJs = await readFile('./src/_assets/scripts/after.js', 'utf-8');
+	const beforeJs = await readFile('./src/_assets/scripts/before.js', 'utf-8');
 	return {
 		css,
 		js: {
-			before: UglifyJS.minify(themeJs).code,
-			after: UglifyJS.minify(copyJs).code,
+			before: UglifyJS.minify(beforeJs).code,
+			after: UglifyJS.minify(afterJs).code,
 		},
 	};
 };
