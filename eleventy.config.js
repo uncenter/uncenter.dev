@@ -61,10 +61,7 @@ module.exports = function (eleventyConfig) {
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'src/_assets/images/favicon': '.' });
 	eleventyConfig.addPassthroughCopy({
-		'src/_assets/scripts': '/assets/scripts',
-	});
-	eleventyConfig.addPassthroughCopy({
-		'src/_assets/fonts': '/assets/fonts',
+		'src/_assets/fonts/*.woff2': '/assets/fonts',
 	});
 
 	/* Other Config */
@@ -97,13 +94,9 @@ module.exports = function (eleventyConfig) {
 			if (runMode === 'serve' && process.env.NODE_ENV === 'development') {
 				timesRun++;
 				if (timesRun > 1) {
-					console.log();
-					console.log(Chalk.blue('[11ty] Server at http://localhost:8080/'));
-					// console.log(Chalk.green('[11ty] Opening browser...'));
-					// setTimeout(() => {
-					//     require('openurl').open('http://localhost:8080');
-					// }, 1000);
-					console.log();
+					console.log(
+						Chalk.blue('\n[11ty] Server at http://localhost:8080/\n'),
+					);
 				}
 			}
 		},
