@@ -52,18 +52,18 @@ main {
 :root[theme='light'] {
 	body {
 		--bg: var(--light);
-		--fg: var(--dark);
-		--kbd-bg-color: hsl(210, 5%, 100%);
-		--kbd-border-color: hsl(210, 5%, 70%);
+		--fg: var(--dark-gray);
+		--kbd-bg-color: var(--light);
+		--kbd-border-color: var(--light-gray);
 	}
 }
 
 :root[theme='dark'] {
 	body {
-		--bg: var(--black);
+		--bg: var(--dark);
 		--fg: var(--light);
-		--kbd-bg-color: hsl(210, 5%, 10%);
-		--kbd-border-color: hsl(210, 5%, 30%);
+		--kbd-bg-color: var(--dark);
+		--kbd-border-color: var(--dark-gray);
 	}
 }
 
@@ -71,17 +71,18 @@ a {
 	position: relative;
 	text-decoration: none;
 	color: var(--fg);
-}
 
-a:not(.not-fancy) {
-	border-bottom: 2px dotted var(--fg);
-}
+	&:not(.not-fancy) {
+		border-bottom: 2px dotted var(--fg);
 
-a:hover:not(.not-fancy) {
-	color: var(--accent);
-	border-bottom: 2px solid var(--accent);
-	svg.icon-duck-flying {
-		fill: var(--accent);
+		&:hover {
+			color: var(--accent);
+			border-bottom: 2px solid var(--accent);
+
+			svg.icon-duck-flying {
+				fill: var(--accent);
+			}
+		}
 	}
 }
 
@@ -144,13 +145,11 @@ article {
 	margin: 1.5rem 0;
 	border: $block-border-width solid var(--note-color);
 	border-radius: $border-radius;
-
 	.note__title {
 		padding-top: 1.5rem;
 		font-weight: bold;
 		font-size: 1.4em;
 	}
-
 	&::after {
 		position: absolute;
 		right: 1rem;
@@ -164,33 +163,26 @@ article {
 		color: var(--note-color);
 		background-color: var(--bg);
 	}
-
 	&.note--info {
 		--note-color: var(--accent-blue);
-
 		&::after {
 			content: 'Info';
 		}
 	}
-
 	&.note--warning {
 		--note-color: var(--accent-yellow);
-
 		&::after {
 			content: 'Warning';
 		}
 	}
-
 	&.note--tip {
 		--note-color: var(--accent-green);
-
 		&::after {
 			content: 'Tip';
 		}
 	}
-
 	&.note--note {
-		--note-color: var(--gray);
+		--note-color: var(--dark-gray);
 	}
 }
 

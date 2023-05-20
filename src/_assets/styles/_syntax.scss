@@ -1,4 +1,4 @@
-/* https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/ */
+// Via: https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/
 
 pre.shiki {
 	overflow: auto;
@@ -9,7 +9,7 @@ pre.shiki {
 }
 
 pre.shiki div button {
-	background: var(--gray);
+	background: var(--dark-gray);
 	display: none;
 	vertical-align: middle;
 	cursor: pointer;
@@ -46,35 +46,40 @@ pre.shiki code {
 	filter: blur(0);
 }
 
-.shiki:hover .line {
-	filter: blur(0);
-}
-
 .line {
 	transition: filter 0.3s;
 	display: inline-block;
 	width: 100%;
 	padding-left: 6px;
+
+	&.sh--highlight {
+		background: #ff02;
+		box-shadow: -0.2rem 0 0 #ff0;
+	}
+
+	&.sh--add {
+		background: #487e0265;
+		box-shadow: -0.2rem 0 0 #539202;
+	}
+
+	&.sh--remove {
+		background: rgba(136, 0, 0, 0.536);
+		box-shadow: -0.2rem 0 0 rgb(159, 1, 1);
+	}
+
+	&.sh--updated {
+		background: #00f2;
+		box-shadow: -0.2rem 0 0 #00f8;
+	}
 }
 
-.line.sh--highlight {
-	background: #ff02;
-	box-shadow: -0.2rem 0 0 #ff0;
-}
-
-.line.sh--add {
-	background: #487e0265;
-	box-shadow: -0.2rem 0 0 #539202;
-}
-
-.line.sh--remove {
-	background: rgba(136, 0, 0, 0.536);
-	box-shadow: -0.2rem 0 0 rgb(159, 1, 1);
-}
-
-.line.sh--updated {
-	background: #00f2;
-	box-shadow: -0.2rem 0 0 #00f8;
+:not(pre) > code {
+	font-size: 10pt;
+	border-radius: 0.3em;
+	background-color: var(--dark-gray);
+	color: var(--light);
+	padding: 0.2em 0.4em;
+	white-space: normal;
 }
 
 kbd {
@@ -83,13 +88,4 @@ kbd {
 	border-radius: 2px;
 	padding: 2px 4px;
 	font-size: 80%;
-}
-
-:not(pre) > code {
-	font-size: 10pt;
-	border-radius: 0.3em;
-	background-color: var(--gray);
-	color: var(--light);
-	padding: 0.2em 0.4em;
-	white-space: normal;
 }

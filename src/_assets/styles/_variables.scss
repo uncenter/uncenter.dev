@@ -1,5 +1,5 @@
-$block-indent: 2rem; // indentation for blockquotes, notes, etc.
-$block-border-width: 4px; // border width for blockquotes, notes, etc.
+$block-indent: 2rem;
+$block-border-width: 4px;
 $border-radius: 6px;
 
 :root {
@@ -8,8 +8,8 @@ $border-radius: 6px;
 	--accent-green: #74a04c;
 	--accent-yellow: #e1b151;
 	--accent-magenta: #93628a;
-	--gray: #3f4750;
+	--light-gray: #afb3b6;
+	--dark-gray: #3f4750;
 	--light: #ffffff;
-	--dark: #3a343a;
-	--black: #121212;
+	--dark: #121212;
 }
