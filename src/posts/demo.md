@@ -1,6 +1,6 @@
 ---
 # cSpell:disable
-tags: ['Demo']
+tags: ['elit', 'irure', 'dolore', 'eiusmod']
 title: Occaecat deserunt laboris
 description: This is a demo post that is archived.
 date: 2000-01-01

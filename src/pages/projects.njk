@@ -4,9 +4,9 @@ description: A list of projects I've worked on.
 ---
 
 {% set list = projects.maintained | rejectattr("hidden") %}
-{% include "projects-list.njk" %}
+{% include "projects.njk" %}
 
 <hr class="separator">
 
 {% set list = projects.mini | rejectattr("hidden") %}
-{% include "projects-list.njk" %}
+{% include "projects.njk" %}

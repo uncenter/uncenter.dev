@@ -1,0 +1,17 @@
+<div class="flex flex-col flex-wrap font-semibold self-center">
+    <div class="flex flex-row flex-wrap gap-2 small-text lowercase">
+        {% if tagsDate %}
+            <time datetime="{{ tagsDate }}">{{ tagsDate | toShortDate }}</time>
+        {% endif %}
+        {% if tagsTags %}
+            ·
+                <span class="capitalize">Tagged:</span>
+            <div>
+                {%- for tag in tagsTags -%}
+                    <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+                    {%- if not loop.last -%}, {% endif -%}
+                {%- endfor -%}
+            </div>
+        {% endif %}
+    </div>
+</div>

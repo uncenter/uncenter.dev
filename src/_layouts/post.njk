@@ -2,7 +2,6 @@
 layout: index.njk
 ---
 
-{% import "components.njk" as components %}
 <main class="max-w-[680px] md:mx-auto my-0 lg:max-w-[800px] xl:max-w-[1000px] xl:p-8">
     <div class="[border-bottom:2px_solid_currentColor] pb-2">
         <div class="flex flex-wrap justify-between pb-1 gap-x-8 gap-y-2">
@@ -10,7 +9,10 @@ layout: index.njk
                 {{ "src/_includes/duck-flying.svg" | readFile | setAttr('class', 'icon-duck-flying w-4 h-4 inline-block -scale-x-100') | safe }}
                 <span>{{ post.return.text }}</span>
             </a>
-            {% if post.tags %}{{ components.tags(date, tags) }}
+            {% if post.tags %}
+                {% set tagsDate = date %}
+                {% set tagsTags = tags %}
+                {% include "tags.njk" %}
             {% endif %}
         </div>
     </div>
