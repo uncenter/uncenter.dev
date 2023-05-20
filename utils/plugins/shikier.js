@@ -176,6 +176,7 @@ const getLineOptions = (tokenized) => {
  */
 const highlight = (code, lang, highlighter) => {
 	const [cleanLang] = lang.split('{');
+	code = code.replace(/^( {4}|\t)/gm, '  ');
 	const tokenized = highlighter.codeToThemedTokens(code, cleanLang);
 	const lineOptions = isShikierEnabled(lang) ? getLineOptions(tokenized) : [];
 
