@@ -1,48 +1,39 @@
 /* https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/ */
 
 pre.shiki {
-	border-radius: 5px;
 	overflow: auto;
 	font-size: 0.9rem;
 	line-height: 1.5;
 	position: relative;
-	margin: 10px 0;
+	border-radius: 6px;
 }
 
-pre.shiki .language-id {
-	text-transform: uppercase;
-	color: var(--light);
-	padding: 0.3rem 0.75rem 0.2rem;
-	font-size: 0.8rem;
-	position: sticky;
-	left: 0;
-	align-items: center;
-	justify-content: space-between;
-
-	button {
-		margin: 0;
-		padding: 0;
-		background: none;
-		border: none;
-		cursor: pointer;
-		box-shadow: none;
-		color: var(--light);
-		float: right;
-
-		svg {
-			width: 0.9rem;
-			height: 0.9rem;
-			display: inline;
-			margin-top: 0.1rem;
-		}
+pre.shiki div button {
+	background: #3f4750;
+	display: none;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 6px;
+	appearance: none;
+	padding: 0;
+	box-shadow: none;
+	svg {
+		width: 1rem;
+		height: 1rem;
+		display: inline;
 	}
 }
 
-.shiki code {
+pre.shiki:hover div button {
+	display: inline-block;
+}
+
+pre.shiki code {
 	display: block;
 	width: max-content;
 	min-width: 100%;
-	padding: 0.5rem 0;
+	padding: 16px;
 }
 
 .line.sh--highlight,
@@ -70,23 +61,6 @@ pre.shiki .language-id {
 	transition: filter 0.3s;
 	display: inline-block;
 	width: 100%;
-	// padding: 0 0.5rem;
-}
-
-.shiki {
-	counter-reset: step;
-}
-
-.shiki .line::before {
-	content: counter(step);
-	counter-increment: step;
-	width: 1.8rem;
-	margin-right: 0.5rem;
-	padding-right: 0.5rem;
-	display: inline-block;
-	text-align: right;
-	color: rgba(115, 138, 148, 0.4);
-	border-right: 0.1rem solid #fff1;
 }
 
 .shiki .line.sh--add::before {

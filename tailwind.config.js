@@ -9,14 +9,6 @@ module.exports = {
 				accent: 'var(--accent)',
 			},
 			fontFamily: {
-				sans: [
-					'ui-sans-serif',
-					'system-ui',
-					'Inter',
-					'Roboto',
-					'Helvetica Neue',
-				],
-				serif: ['ui-serif', 'Georgia', 'Cambria'],
 				display: [
 					'"General Sans"',
 					'ui-sans-serif',
@@ -28,6 +20,10 @@ module.exports = {
 			},
 			lineHeight: {
 				none: 'unset',
+			},
+			animation: {
+				'fade-out': 'fade-out 200ms ease-out',
+				'fade-in': 'fade-in 200ms ease-out',
 			},
 		},
 	},
