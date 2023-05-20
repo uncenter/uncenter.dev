@@ -21,9 +21,9 @@ class Page {
 		logOutput({
 			prefix: 'assets:styles',
 			file: 'styles.scss',
-			extra: `${new Blob([fs.readFileSync(source)]).size / 1000} --> ${
+			extra: `${new Blob([fs.readFileSync(source)]).size / 1000}kb -> ${
 				new Blob([content]).size / 1000
-			}`,
+			}kb`,
 		});
 		source = `${__dirname}/styles.css`;
 
@@ -41,9 +41,9 @@ class Page {
 		logOutput({
 			prefix: 'assets:styles',
 			file: 'styles.css',
-			extra: `${new Blob([content]).size / 1000} --> ${
+			extra: `${new Blob([content]).size / 1000}kb -> ${
 				new Blob([css.content]).size / 1000
-			}`,
+			}kb`,
 		});
 
 		return css.content;
