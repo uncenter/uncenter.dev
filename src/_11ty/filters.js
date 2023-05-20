@@ -1,87 +1,6 @@
-const fs = require('fs');
-
-const { DateTime } = require('luxon');
-const { markdownLibrary } = require('../../utils/plugins/markdown');
-
 const wordCount = require('./utils/wordCount.js');
 const cleanContent = require('./utils/cleanContent.js');
 const combineText = require('./utils/combineText.js');
-
-const toDateTime = (dateObj) => {
-	return dateObj;
-};
-
-const toShortDate = (dateObj) => {
-	// 10/14/1983
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('MM/dd/yyyy');
-};
-
-const toMedDate = (dateObj) => {
-	// Oct 14, 1983
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('MMM dd, yyyy');
-};
-
-const toFullDate = (dateObj) => {
-	// October 14, 1983
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('MMMM dd, yyyy');
-};
-
-const toShortDateTime = (dateObj) => {
-	// 10/14/1983, 10:30 PM
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat(
-		'MM/dd/yyyy, hh:mm a',
-	);
-};
-
-const toMedDateTime = (dateObj) => {
-	// Oct 14, 1983, 10:30 PM
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat(
-		'MMM dd, yyyy, hh:mm a',
-	);
-};
-
-const toFullDateTime = (dateObj) => {
-	// October 14, 1983, 10:30 PM
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat(
-		'MMMM dd, yyyy, hh:mm a',
-	);
-};
-
-const toArray = (value) => {
-	if (Array.isArray(value)) {
-		return value;
-	}
-	return [value];
-};
-
-const toHTML = (content) => {
-	return markdownLibrary.render(content);
-};
-
-const getCommitCategory = (str) => {
-	return str.split(':')[0];
-};
-
-const getCommitMessage = (str) => {
-	if (str.split(':').length > 2) {
-		let emoji = '';
-		for (let i = 2; i < str.split(':').length; i++) {
-			emoji += ':' + str.split(':')[i];
-		}
-		return markdownLibrary.renderInline(emoji.trim());
-	}
-	return str.split(':')[1];
-};
-
-// Example: {{ '/icons/example.svg' | dumpContents }}
-// Taken from https://bnijenhuis.nl/notes/load-file-contents-in-eleventy/
-const dumpContents = (filePath) => {
-	const fileContents = fs.readFileSync(filePath, (err, data) => {
-		if (err) throw err;
-		return data;
-	});
-	return fileContents.toString('utf8');
-};
 
 const getWordCount = (content, { preText = '', postText = '' } = {}) => {
 	const htmlContent = typeof content === 'string' ? content : content.content;
@@ -102,75 +21,25 @@ const isRecent = (date, days) => {
 	);
 };
 
-const includes = (check, value) => {
-	if (Array.isArray(value)) {
-		return value.some((v) => check.includes(v));
-	}
-	return check.includes(value);
+const isSeries = (posts, title) => {
+	return posts.filter((p) => p.data?.series?.title === title);
 };
 
-const setAttribute = (content, attribute, value = false) => {
-	const regex = new RegExp(`${attribute}=".*?"`, 'g');
-	let el = content.match(/<[^>]*>/)[0];
-	if (el.match(regex)) {
-		el = el.replace(regex, value ? `${attribute}="${value}"` : '');
-	} else {
-		el = el.replace('>', ` ${attribute}="${value}">`);
-	}
-	return content.replace(/<[^>]*>/, el);
+const seriesLocate = (collection, series) => {
+	return collection.find(({ title }) => title === series.title) || {};
 };
 
-const feedLink = (title, href, domain) => {
-	return `<p><a href="${href}">Read "${title}" on ${domain}.</a></p>`;
-};
-
-const cleanFeed = (content) => {
-	return content.replace(/<div class="language-id">.*?<\/div>/g, '');
-};
-
-const ordinal = (number) => {
-	const i = number % 10,
-		j = number % 100;
-	if (i === 1 && j !== 11) {
-		return number + 'st';
-	}
-	if (i === 2 && j !== 12) {
-		return number + 'nd';
-	}
-	if (i === 3 && j !== 13) {
-		return number + 'rd';
-	}
-	return number + 'th';
+const seriesGetPart = (seriesPosts, postUrl) => {
+	return seriesPosts.findIndex((url) => url === postUrl) + 1;
 };
 
 module.exports = (eleventyConfig) => {
-	eleventyConfig.addFilter('toDateTime', toDateTime);
-	eleventyConfig.addFilter('toShortDate', toShortDate);
-	eleventyConfig.addFilter('toMedDate', toMedDate);
-	eleventyConfig.addFilter('toFullDate', toFullDate);
-	eleventyConfig.addFilter('toShortDateTime', toShortDateTime);
-	eleventyConfig.addFilter('toMedDateTime', toMedDateTime);
-	eleventyConfig.addFilter('toFullDateTime', toFullDateTime);
-	eleventyConfig.addFilter('toArray', toArray);
-	eleventyConfig.addFilter('toHTML', toHTML);
-	eleventyConfig.addFilter('getCommitCategory', getCommitCategory);
-	eleventyConfig.addFilter('getCommitMessage', getCommitMessage);
 	eleventyConfig.addFilter('readingTime', require('./utils/readingTime'));
 	eleventyConfig.addFilter('wordCount', getWordCount);
+
 	eleventyConfig.addFilter('isRecent', isRecent);
-	eleventyConfig.addFilter('dumpContents', dumpContents);
-	eleventyConfig.addFilter('includes', includes);
-	eleventyConfig.addFilter('setAttr', setAttribute);
-	eleventyConfig.addFilter('cleanFeed', cleanFeed);
-	eleventyConfig.addFilter('feedLink', feedLink);
-	eleventyConfig.addFilter('isSeries', (posts, title) => {
-		return posts.filter((p) => p.data?.series?.title === title);
-	});
-	eleventyConfig.addFilter('seriesLocate', (collection, series) => {
-		return collection.find(({ title }) => title === series.title) || {};
-	});
-	eleventyConfig.addFilter('seriesGetPart', (seriesPosts, postUrl) => {
-		return seriesPosts.findIndex((url) => url === postUrl) + 1;
-	});
-	eleventyConfig.addFilter('ordinal', ordinal);
+
+	eleventyConfig.addFilter('isSeries', isSeries);
+	eleventyConfig.addFilter('seriesLocate', seriesLocate);
+	eleventyConfig.addFilter('seriesGetPart', seriesGetPart);
 };

@@ -1,6 +1,7 @@
 const shortcodes = require('./src/_11ty/shortcodes.js');
 const collections = require('./src/_11ty/collections.js');
 const filters = require('./src/_11ty/filters.js');
+const utils = require('./src/_11ty/utils.filters.js');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
@@ -21,6 +22,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(shortcodes);
 	eleventyConfig.addPlugin(collections);
 	eleventyConfig.addPlugin(filters);
+	eleventyConfig.addPlugin(utils);
 
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginTOC, {

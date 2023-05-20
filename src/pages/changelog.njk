@@ -4,15 +4,34 @@ description: A list of recent changes I've made to this site.
 ---
 
 <dl>
-{%- for group in collections.recentChanges -%}
-  <dt class="font-semibold text-center">{{ group[0] }}</dt>
-  <dd>
-    <ul>
-      {%- for commit in group[1] %}
-      <li data-date-rel="{{ commit.committerDateRel }}" data-date="{{ commit.committerDate }}" data-commit="{{ commit.hash }}" data-category="{{ commit.subject | getCommitCategory }}"><span class="inline-card" data-category="{{ commit.subject | getCommitCategory }}">{{ commit.subject | getCommitCategory }}</span>: {% if commit.subject -%}<a aria-label="View commit on Github" href="https://github.com/{{ meta.github.username }}/{{ meta.github.repo }}/commit/{{ commit.hash }}">{{ commit.subject | getCommitMessage }}</a>{%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
-  </dd>
-{%- endfor -%}
-</dl>
+    {%- for group in collections.recentChanges -%}
+        <dt class="font-semibold text-center">{{ group[0] }}</dt>
+        <dd>
+            <ul>
+                {%- for commit in group[1] %}
+                    {% set message %}
+                        {% if commit.subject.split(':').length > 2 %}
+                            {% set emoji = "" %}
+                            {% for i in range(2, commit.subject.split(':').length) %}
+                                {% set emoji = emoji + ':' + commit.subject.split(':')[i] %}
+                            {% endfor %}
+                            {{ emoji.trim() | toHtmlInline | safe }}
+                        {% else %}
+                            {{ commit.subject.split(":") [1] }}
+                        {% endif %}
+                    {% endset %}
+                    {% set category = commit.subject.split(':')[0] %}
+                    <li data-date-rel="{{ commit.committerDateRel }}"
+                        data-date="{{ commit.committerDate }}"
+                        data-commit="{{ commit.hash }}"
+                        data-category="{{ category }}">
+                        <span class="inline-card" data-category="{{ category }}">{{ category }}</span>:
+                        {% if commit.subject -%}
+                            <a aria-label="View commit on Github"
+                               href="https://github.com/{{ meta.github.username }}/{{ meta.github.repo }}/commit/{{ commit.hash }}">{{ message }}</a>{%- endif -%}
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </dd>
+        {%- endfor -%}
+    </dl>

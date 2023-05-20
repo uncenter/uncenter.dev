@@ -3,33 +3,32 @@ layout: index.njk
 ---
 
 {% import "components.njk" as components %}
-
 <main class="max-w-[680px] md:mx-auto my-0 lg:max-w-[800px] xl:max-w-[1000px] xl:p-8">
     <div class="[border-bottom:2px_solid_currentColor] pb-2">
         <div class="flex flex-wrap justify-between pb-1 gap-x-8 gap-y-2">
             <a href="{{ post.return.link }}" class="flex items-center gap-x-2">
-                {{ "src/_includes/duck-flying.svg" | dumpContents | setAttr("class", "icon-duck-flying w-4 h-4 inline-block -scale-x-100") | safe }}
+                {{ "src/_includes/duck-flying.svg" | readFile | setAttr('class', 'icon-duck-flying w-4 h-4 inline-block -scale-x-100') | safe }}
                 <span>{{ post.return.text }}</span>
             </a>
-            {% if post.tags %}
-                {{ components.tags(date, tags) }}
+            {% if post.tags %}{{ components.tags(date, tags) }}
             {% endif %}
         </div>
     </div>
-
     {% if content !== "" %}
         <article class="wrap-anywhere">
-            <h1 class="text-3xl font-bold mb-0" style="view-transition-name: post-{{ title | slugify }}">{{ title }}</h1>
+            <h1 class="text-3xl font-bold mb-0"
+                style="view-transition-name: post-{{ title | slugify }}">{{ title }}</h1>
             {% if series %}
                 {% set seriesData = collections.series | seriesLocate(series) %}
                 {% set seriesPosts = seriesData.posts %}
                 {% if seriesPosts.length > 0 %}
                     {% set part = seriesPosts | seriesGetPart(page.url) %}
-                    <p>This is the {{ part | ordinal }} entry in the <a href="/series/{{ series.title | slugify }}/">{{ series.title }}</a> series.</p>
+                    <p>
+                        This is the {{ part | ordinal }} entry in the <a href="/series/{{ series.title | slugify }}/">{{ series.title }}</a> series.
+                    </p>
                 {% endif %}
             {% endif %}
-            {% if content | toc %}
-                {{ content | toc | safe }}
+            {% if content | toc %}{{ content | toc | safe }}
             {% endif %}
             {{ content | safe }}
         </article>
@@ -41,7 +40,9 @@ layout: index.njk
     {% set next = collections.posts | getNextCollectionItem %}
     <div class="flex flex-row justify-between font-bold mt-8">
         {% if previous %}
-            <a class="text-center" href="{{ previous.url }}" aria-label="Read previous post">
+            <a class="text-center"
+               href="{{ previous.url }}"
+               aria-label="Read previous post">
                 {%- icon 'arrow-left', class="mr-2" -%}
                 <span>{{ previous.data.title }}</span>
             </a>

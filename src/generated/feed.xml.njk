@@ -29,7 +29,7 @@
                 {{ post.date | dateToRfc3339 }}
             </updated>
             <id>{{ absolutePostUrl }}</id>
-            <content xml:lang="{{ feed.language }}" type="html">{{ post.content | cleanFeed | escape }}</content>
+            <content xml:lang="{{ feed.language }}" type="html">{{ post.content | replace('<div class="language-id">.*?<\/div>', '') | escape }}</content>
         </entry>
     {%- endfor %}
 </feed>

@@ -2,7 +2,7 @@
     <div class="flex flex-col flex-wrap font-semibold self-center">
         <div class="flex flex-row flex-wrap gap-2 small-text lowercase">
             {% if date %}
-                <time datetime="{{ date | toDateTime }}">{{ date | toShortDate }}</time>
+                <time datetime="{{ date }}">{{ date | toShortDate }}</time>
             {% endif %}
             {% if tags %}
                 ·
