@@ -26,17 +26,16 @@ function setTheme(theme, options = { permanent: true, update: true }) {
 let theme;
 let storedTheme = localStorage.getItem('theme');
 let overrideTheme;
-if (location.hash.includes('theme=')) {
-	const hashOverrideMatch = location.hash.match(/theme=([a-z\-]+)/);
-	if (hashOverrideMatch) {
-		overrideTheme = hashOverrideMatch[1];
-	}
+const queryParams = new URLSearchParams(window.location.search);
+const themeParam = queryParams.get('theme');
+if (themeParam) {
+	overrideTheme = themeParam;
 }
 theme = overrideTheme || storedTheme;
 if (!theme || !['light', 'dark', 'system'].includes(theme)) {
 	console.log(
 		`Invalid theme '${theme}' ${
-			overrideTheme ? 'from hash' : 'from localStorage'
+			overrideTheme ? 'from query parameter' : 'from localStorage'
 		}, ${
 			storedTheme
 				? "using stored '" + storedTheme + "' theme instead."
