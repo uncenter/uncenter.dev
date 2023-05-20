@@ -4,13 +4,13 @@ function getSystemTheme() {
 		: 'light';
 }
 
-function setTheme(theme) {
+function setTheme(theme, permanent = true) {
 	console.log(
-		`Setting theme to '${
-			theme === 'system' ? getSystemTheme() : theme
-		}', storing '${theme}' in localStorage.`,
+		`Setting theme to '${theme === 'system' ? getSystemTheme() : theme}'${
+			permanent ? ", storing '" + theme + "' in localStorage." : ' (temporary).'
+		}`,
 	);
-	localStorage.setItem('theme', theme);
+	if (permanent) localStorage.setItem('theme', theme);
 	if (theme === 'system') theme = getSystemTheme();
 	document
 		.querySelector('meta[name="theme-color"]')
@@ -20,11 +20,32 @@ function setTheme(theme) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-	let theme = localStorage.getItem('theme') || 'system';
-	setTheme(theme);
-	document.getElementById('themeSelector').value = theme;
+	let theme;
+	let storedTheme = localStorage.getItem('theme');
+	let overrideTheme;
+	if (location.hash.includes('theme=')) {
+		const hashOverrideMatch = location.hash.match(/theme=([a-z\-]+)/);
+		if (hashOverrideMatch) {
+			overrideTheme = hashOverrideMatch[1];
+		}
+	}
+	theme = overrideTheme || storedTheme;
+	if (!theme || !['light', 'dark', 'system'].includes(theme)) {
+		console.log(
+			`Invalid theme '${theme}' ${
+				overrideTheme ? 'from hash' : 'from localStorage'
+			}, ${
+				storedTheme
+					? "using stored '" + storedTheme + "' theme instead."
+					: 'using system theme.'
+			}`,
+		);
+		theme = storedTheme || 'system';
+	}
+	setTheme(theme, theme === overrideTheme ? false : true);
+	document.getElementById('theme-selector').value = theme;
 	document
-		.getElementById('themeSelector')
+		.getElementById('theme-selector')
 		.addEventListener('change', function () {
 			let selectedTheme = this.value.split(' ')[0];
 			setTheme(selectedTheme);
