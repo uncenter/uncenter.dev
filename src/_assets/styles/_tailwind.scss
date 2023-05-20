@@ -22,6 +22,7 @@
 	}
 
 	img {
+		border-radius: $border-radius;
 		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
 		padding: 1rem;
 	}
@@ -40,6 +41,7 @@
 		border-left: $block-border-width solid var(--accent);
 		padding-left: 1rem;
 		margin-left: $block-indent;
+		border-radius: $border-radius;
 	}
 
 	hr {

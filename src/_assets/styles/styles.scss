@@ -139,9 +139,10 @@ article {
 
 .note {
 	padding: 0 1.5rem 0px 1.5rem;
-	margin: 10px 0.25rem;
 	position: relative;
+	margin: 1.5rem 0;
 	border: $block-border-width solid var(--note-color);
+	border-radius: $border-radius;
 
 	.note__title {
 		padding-top: 1.5rem;
@@ -164,7 +165,7 @@ article {
 	}
 
 	&.note--info {
-		--note-color: var(--pastel-blue);
+		--note-color: var(--contrast-blue);
 
 		&::after {
 			content: 'Info';
@@ -172,7 +173,7 @@ article {
 	}
 
 	&.note--warning {
-		--note-color: var(--pastel-yellow);
+		--note-color: var(--contrast-yellow);
 
 		&::after {
 			content: 'Warning';
@@ -180,7 +181,7 @@ article {
 	}
 
 	&.note--tip {
-		--note-color: var(--pastel-green);
+		--note-color: var(--contrast-green);
 
 		&::after {
 			content: 'Tip';
@@ -188,7 +189,7 @@ article {
 	}
 
 	&.note--note {
-		--note-color: var(--accent-secondary);
+		--note-color: var(--gray);
 	}
 }
 

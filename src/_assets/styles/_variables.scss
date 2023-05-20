@@ -1,25 +1,17 @@
 $block-indent: 2rem; // indentation for blockquotes, notes, etc.
 $block-border-width: 4px; // border width for blockquotes, notes, etc.
+$border-radius: 6px;
 
 :root {
-	--pastel-blue: #81a1c1;
-	--pastel-red: #bf616a;
-	--pastel-green: #a3be8c;
-	--pastel-yellow: #ebcb8b;
-	--pastel-magenta: #b48ead;
-
 	--contrast-blue: #517aa4;
 	--contrast-red: #ae4751;
 	--contrast-green: #74a04c;
 	--contrast-yellow: #e1b151;
 	--contrast-magenta: #93628a;
-
-	--gray-dark: #4c566a;
-	--gray-light: #7d89a1;
+	--gray: #3f4750;
 	--light: #ffffff;
 	--dark: #3a343a;
 	--black: #121212;
 
 	--accent: var(--contrast-red);
-	--accent-secondary: var(--gray-dark);
 }
