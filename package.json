@@ -35,6 +35,7 @@
 		"cross-spawn": "^7.0.3",
 		"cssnano": "^5.1.15",
 		"eleventy-plugin-icons": "3.0.0-1",
+		"execa": "^7.1.1",
 		"fs": "0.0.1-security",
 		"gitlog": "^4.0.8",
 		"html-minifier": "^4.0.0",

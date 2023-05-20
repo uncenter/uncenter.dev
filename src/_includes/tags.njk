@@ -4,7 +4,7 @@
             <time datetime="{{ tagsDate }}">{{ tagsDate | toShortDate }}</time>
         {% endif %}
         {% if tagsTags %}
-            ·
+                &middot;
                 <span class="capitalize">Tagged:</span>
             <div>
                 {%- for tag in tagsTags -%}

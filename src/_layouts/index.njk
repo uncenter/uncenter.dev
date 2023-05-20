@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% include "head.njk" %}
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2?v=20230514" crossorigin="anonymous">
-        <link rel="stylesheet" href="/assets/styles.css">
-        {% if styles %}
-            {% for style in (styles | toArray) %}<link rel="stylesheet" href="/assets/css/{{ style }}">{% endfor %}
-        {% endif %}
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="{{ meta.name }}">
+        <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
+        <meta name="generator" content="{{ eleventy.generator }}">
+
+        <title>{{ title }} &middot; {{ meta.name }}</title>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="view-transition" content="same-origin">
+
+        <link href="https://github.com/{{ meta.github.username }}" rel="me">
+        <link href="https://{{ meta.social.mastodon.instance }}/@{{ meta.social.mastodon.username }}" rel="me">
+
+        <link rel="canonical" href="{{ meta.url }}{{ page.url }}">
+        <link rel="alternate" type="application/rss+xml" href="https://{{ meta.domain }}/feed.xml">
+
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
+
+        <script defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
         <style>
             {{inlined.css | safe}}
         </style>
         <script>
-            function loadGiscus() {
-                if (!document.querySelector('#comments')) {
-                    console.warn(`Giscus: #comments element not found (ignore if this isn't a blog post).`);
-                    return;
-                }
-                let giscusAttributes = {
-                    src: 'https://giscus.app/client.js',
-                    'data-repo': '{{ meta.github.username }}/{{ meta.github.repo }}',
-                    'data-repo-id': 'R_kgDOHSjhjQ',
-                    'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
-                    'data-mapping': 'title',
-                    'data-reactions-enabled': '1',
-                    'data-emit-metadata': '0',
-                    'data-input-position': 'top',
-                    'data-theme': document
-                        .documentElement
-                        .getAttribute('theme'),
-                    'data-lang': 'en',
-                    crossorigin: 'anonymous',
-                    async: ''
-                };
-                let giscusScript = document.createElement('script');
-                Object
-                    .entries(giscusAttributes)
-                    .forEach(([key, value]) => giscusScript.setAttribute(key, value),);
-                document
-                    .querySelector('#comments')
-                    .innerHTML = '';
-                document
-                    .querySelector('#comments')
-                    .appendChild(giscusScript);
-            }
             {{ inlined.js.before | safe }}
         </script>
     </head>
@@ -50,12 +41,37 @@
         {{ content | safe }}
     </body>
     <script>
+        function loadGiscus() {
+            if (!document.querySelector('#comments')) 
+                return;
+            let giscusAttributes = {
+                src: 'https://giscus.app/client.js',
+                'data-repo': '{{ meta.github.username }}/{{ meta.github.repo }}',
+                'data-repo-id': 'R_kgDOHSjhjQ',
+                'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
+                'data-mapping': 'title',
+                'data-reactions-enabled': '1',
+                'data-emit-metadata': '0',
+                'data-input-position': 'top',
+                'data-theme': document
+                    .documentElement
+                    .getAttribute('theme'),
+                'data-lang': 'en',
+                crossorigin: 'anonymous',
+                async: ''
+            };
+            let giscusScript = document.createElement('script');
+            Object
+                .entries(giscusAttributes)
+                .forEach(([key, value]) => giscusScript.setAttribute(key, value),);
+            document
+                .querySelector('#comments')
+                .innerHTML = '';
+            document
+                .querySelector('#comments')
+                .appendChild(giscusScript);
+        }
         window.addEventListener('load', loadGiscus);
         {{ inlined.js.after | safe }}
     </script>
-    {% if scripts %}
-        {% for script in (scripts | toArray) %}
-            <script src="/assets/scripts/{{script}}"></script>
-        {% endfor %}
-    {% endif %}
 </html>
