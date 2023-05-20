@@ -16,6 +16,7 @@ function setTheme(theme, permanent = true) {
 		.querySelector('meta[name="theme-color"]')
 		.setAttribute('content', theme === 'dark' ? '#121212' : '#ffffff');
 	document.documentElement.setAttribute('theme', theme);
+	document.documentElement.style.setProperty('color-scheme', theme);
 	loadGiscus();
 }
 
