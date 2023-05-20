@@ -26,16 +26,15 @@
         <link rel="canonical" href="{{ meta.url }}{{ page.url }}">
         <link rel="alternate" type="application/rss+xml" href="https://{{ meta.domain }}/feed.xml">
 
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
-
-        <script defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
         <style>
             {{inlined.css | safe}}
         </style>
         <script>
             {{ inlined.js.before | safe }}
         </script>
+        <script defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
     </head>
     <body class="mx-4 my-12 p-4 bg-bg text-fg font-display">
         {{ content | safe }}
@@ -71,7 +70,7 @@
                 .querySelector('#comments')
                 .appendChild(giscusScript);
         }
-        window.addEventListener('load', loadGiscus);
+        loadGiscus();
         {{ inlined.js.after | safe }}
     </script>
 </html>
