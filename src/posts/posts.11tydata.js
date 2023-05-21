@@ -3,7 +3,7 @@ const fetch = require('node-fetch-commonjs');
 
 const logOutput = require('../_11ty/utils/logOutput.js');
 const isDev = process.env.NODE_ENV === 'development';
-const meta = require('../_data/meta.json');
+const meta = require('../_data/meta.js');
 require('dotenv').config();
 
 async function getUmamiToken() {

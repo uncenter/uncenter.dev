@@ -29,7 +29,7 @@ layout: index.njk
 </header>
 <main class="lg:mx-6">
     {% if header or title %}
-        <h1 id="title" class="text-3xl font-bold break-words m-0 mb-12{% if page.url in navUrls.top %} hidden lg:block{% endif %}">{{ header or title }}</h1>
+        <h1 id="title" class="text-3xl font-bold break-words m-0 mb-12{% if page.url in nav.top.urls %} hidden lg:block{% endif %}">{{ header or title }}</h1>
     {% endif %}
     {% if content %}
         {{ content | safe }}
