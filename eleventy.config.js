@@ -7,6 +7,7 @@ const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const fs = require('fs');
 const Chalk = require('chalk');
+const { parseHTML } = require('linkedom');
 
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
@@ -72,7 +73,11 @@ module.exports = function (eleventyConfig) {
 				removeComments: true,
 				collapseWhitespace: true,
 			});
-			return minified;
+			const { document } = parseHTML(minified);
+			document.querySelectorAll('pre.shiki').forEach((block) => {
+				block.outerHTML = `<div class="relative">${block.outerHTML}</div>`;
+			});
+			return document.documentElement.outerHTML;
 		}
 		return content;
 	});

@@ -8,7 +8,7 @@ pre.shiki {
 	border-radius: $border-radius;
 }
 
-pre.shiki div button {
+div:has(pre.shiki) div button {
 	background: var(--dark-gray);
 	display: none;
 	vertical-align: middle;
@@ -26,7 +26,7 @@ pre.shiki div button {
 	}
 }
 
-pre.shiki:hover div button {
+div:has(pre.shiki):hover div button {
 	display: inline-block;
 }
 

@@ -185,8 +185,8 @@ const highlight = (code, lang, highlighter) => {
 	const outputHtml = renderToHtml(tokenized, {
 		bg: theme.bg,
 		fg: theme.fg,
-		langId: cleanLang,
 		lineOptions,
+		lang: cleanLang,
 	}).replace(
 		/<span class="line"><span style="color: #\w*"><\/span><\/span><\/code><\/pre>|<span class="line"><\/span><\/code><\/pre>$/u,
 		'</code></pre>',

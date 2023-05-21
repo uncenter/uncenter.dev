@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{11ty.js,js,md,njk,html}', './utils/**/*.js'],
+	content: [
+		'./src/**/*.{11ty.js,js,md,njk,html}',
+		'./utils/**/*.js',
+		'./eleventy.config.js',
+	],
 	theme: {
 		extend: {
 			colors: {
