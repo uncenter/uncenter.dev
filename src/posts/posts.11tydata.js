@@ -57,7 +57,7 @@ module.exports = {
 			return data.eleventyExcludeFromCollections;
 		},
 		permalink: (data) => {
-			if (data.hide) return false;
+			if (data.hide && !isDev) return false;
 			return data.permalink;
 		},
 		views: async (data) => {
