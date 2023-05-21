@@ -25,7 +25,7 @@ module.exports = {
 
 		// Misc
 		'dotfiles',
-		'callout',
+		'janky',
 	],
 	flagWords: [],
 	dictionaries: ['repos'],

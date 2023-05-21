@@ -134,7 +134,7 @@ Finally, the config file allows you to define patterns to ignore. I added a few 
     ], {% endraw %}
 ```
 
-I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common JavaScript libraries and methods being flagged as typos. Additionally, I use a custom shortcode, `callout`, that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.
+I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common JavaScript libraries and methods being flagged as typos. Additionally, I use a few custom shortcodes that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.
 
 ## Dictionaries
 
