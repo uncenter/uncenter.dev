@@ -66,6 +66,10 @@ Officia consectetur in labore deserunt qui laborum.
   p q r s t u v w x y z { | } ~ 
 </pre>
 
+```install
+npm install prettier -D
+```
+
 ```css
 html {
 	scroll-behavior: smooth;
