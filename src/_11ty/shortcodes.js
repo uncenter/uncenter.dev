@@ -107,9 +107,9 @@ const createCallout = (content, title, type) => {
 	if (['info', 'warning', 'tip', 'note'].includes(type) === false) {
 		type = 'note';
 	}
-	return `<div class="note note--${type}">
-    ${titleText ? `<div class="note__title">${titleText}</div>` : ''}
-    <div class="note__content">${contentHtml}</div>
+	return `<div class="note note-${type}">
+    ${titleText ? `<div class="note-title">${titleText}</div>` : ''}
+    <div>${contentHtml}</div>
     </div>`;
 };
 
@@ -190,7 +190,6 @@ module.exports = (eleventyConfig) => {
 		'wordLengthAverage',
 		getCollectionAverageWordLength,
 	);
-	eleventyConfig.addPairedShortcode('callout', createCallout);
 	eleventyConfig.addPairedShortcode('note', (content, title) => {
 		return createCallout(content, title, 'note');
 	});

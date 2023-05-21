@@ -1,5 +1,3 @@
-// Via: https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/
-
 div.shiki-wrapper {
 	position: relative;
 
@@ -8,7 +6,7 @@ div.shiki-wrapper {
 		font-size: 0.9rem;
 		line-height: 1.5;
 		position: relative;
-		border-radius: $border-radius;
+		border-radius: 6px;
 
 		code {
 			display: block;
@@ -23,7 +21,7 @@ div.shiki-wrapper {
 		vertical-align: middle;
 		cursor: pointer;
 		user-select: none;
-		border-radius: $border-radius;
+		border-radius: 6px;
 		appearance: none;
 		padding: 0;
 		box-shadow: none;
@@ -88,12 +86,4 @@ pre.shiki.lang-install .line::before {
 	color: var(--light);
 	padding: 0.2em 0.4em;
 	white-space: normal;
-}
-
-kbd {
-	background: var(--kbd-bg-color);
-	border: 1px solid var(--kbd-border-color);
-	border-radius: 2px;
-	padding: 2px 4px;
-	font-size: 80%;
 }
