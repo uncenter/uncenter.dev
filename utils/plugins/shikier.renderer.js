@@ -74,7 +74,7 @@ function renderToHtml(lines, options = {}) {
 	return h(
 		'pre',
 		{
-			className: 'shiki ' + (options.lang || ''),
+			className: 'shiki ' + (`lang-${options.lang}` || ''),
 			style: `background-color: ${bg}`,
 		},
 		[

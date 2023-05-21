@@ -36,6 +36,11 @@ pre.shiki code {
 	padding: 16px 16px 16px 10px;
 }
 
+pre.shiki.lang-sh .line::before {
+	content: '$ ';
+	color: #b392f0;
+}
+
 .sh--focus ~ .line:not(.sh--focus),
 .line:not(.sh--focus):has(~ .sh--focus) {
 	filter: blur(1.5px);
