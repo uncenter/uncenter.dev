@@ -176,9 +176,15 @@ const getLineOptions = (tokenized) => {
  * @returns {string} Highlighted code
  */
 const highlight = (code, lang, highlighter) => {
-	const [cleanLang] = lang.split('{');
-	code = code.replace(/^( {4}|\t)/gm, '  ');
-	const tokenized = highlighter.codeToThemedTokens(code, cleanLang);
+	[lang] = lang.split('{');
+	let actualLang = lang;
+	if (lang === 'sh-prefix') {
+		lang = 'sh';
+	}
+	const tokenized = highlighter.codeToThemedTokens(
+		code.replace(/^( {4}|\t)/gm, '  '),
+		lang,
+	);
 	const lineOptions = isShikierEnabled(lang) ? getLineOptions(tokenized) : [];
 
 	const theme = highlighter.getTheme();
@@ -186,7 +192,7 @@ const highlight = (code, lang, highlighter) => {
 		bg: theme.bg,
 		fg: theme.fg,
 		lineOptions,
-		lang: cleanLang,
+		lang: actualLang,
 	}).replace(
 		/<span class="line"><span style="color: #\w*"><\/span><\/span><\/code><\/pre>|<span class="line"><\/span><\/code><\/pre>$/u,
 		'</code></pre>',

@@ -36,7 +36,7 @@ pre.shiki code {
 	padding: 16px 16px 16px 10px;
 }
 
-pre.shiki.lang-sh .line::before {
+pre.shiki.lang-sh-prefix .line::before {
 	content: '$ ';
 	color: #b392f0;
 }

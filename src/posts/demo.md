@@ -14,3 +14,7 @@ Minim commodo sit culpa ipsum consectetur anim minim excepteur nulla minim Lorem
 ```sh
 echo "Hello, world!"
 ```
+
+```sh-prefix
+echo "Hello, world!"
+```

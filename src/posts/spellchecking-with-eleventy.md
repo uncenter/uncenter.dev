@@ -8,9 +8,15 @@ edited: 2023-05-21
 
 After I realized more than one other person was reading my blog, I panicked and quickly looked through all of my posts. Turns out that I rely on autocorrect a little too much and I have way too many typos without it! I came across [an article by TJ Addison](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) that explained how to do this with a tool called `cSpell` (the backbone of the somewhat popular [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). That article was super helpful and works perfectly, but I wanted to add a few things to it to improve the experience.
 
-## Add a script to your package.json
+## Set up cSpell
 
-Pretty simple, just add a script to your `package.json` to run the cSpell command:
+First, install `cSpell` as a dev dependency:
+
+```sh-prefix
+npm install cspell --save-dev
+```
+
+And add it as a script to your `package.json`:
 
 ```json
 {
