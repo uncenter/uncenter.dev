@@ -1,6 +1,7 @@
 /* https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/ */
 
 const shiki = require('shiki');
+const renderToHtml = require('./shikier.renderer.js');
 
 const isShikierEnabled = (lang) => !lang.toLowerCase().includes('{!sh!}');
 
@@ -181,18 +182,15 @@ const highlight = (code, lang, highlighter) => {
 	const lineOptions = isShikierEnabled(lang) ? getLineOptions(tokenized) : [];
 
 	const theme = highlighter.getTheme();
-	const outputHtml = shiki
-		.renderToHtml(tokenized, {
-			bg: theme.bg,
-			fg: theme.fg,
-			langId: cleanLang,
-			lineOptions,
-		})
-		.replace(
-			/<span class="line"><span style="color: #\w*"><\/span><\/span><\/code><\/pre>|<span class="line"><\/span><\/code><\/pre>$/u,
-			'</code></pre>',
-		)
-		.replace(/<div class="language-id">(.*)<\/div>/u, '');
+	const outputHtml = renderToHtml(tokenized, {
+		bg: theme.bg,
+		fg: theme.fg,
+		langId: cleanLang,
+		lineOptions,
+	}).replace(
+		/<span class="line"><span style="color: #\w*"><\/span><\/span><\/code><\/pre>|<span class="line"><\/span><\/code><\/pre>$/u,
+		'</code></pre>',
+	);
 	return outputHtml;
 };
 
