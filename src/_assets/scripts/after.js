@@ -33,7 +33,7 @@ const ICON_CHECK = `<svg aria-hidden="true" viewBox="0 0 16 16" class="fill-gree
 
 document.querySelectorAll('pre.shiki').forEach((block) => {
 	const buttonWrapper = document.createElement('div');
-	buttonWrapper.classList.add('absolute', 'right-0', 'top-0', 'fade-out');
+	buttonWrapper.classList.add('absolute', 'right-0', 'top-0');
 	const button = document.createElement('button');
 	button.classList.add('m-2', 'border', 'border-solid', 'border-transparent');
 	button.innerHTML = ICON_COPY;

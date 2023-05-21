@@ -25,10 +25,6 @@ module.exports = {
 			lineHeight: {
 				none: 'unset',
 			},
-			animation: {
-				'fade-out': 'fade-out 200ms ease-out',
-				'fade-in': 'fade-in 200ms ease-out',
-			},
 		},
 	},
 	corePlugins: {
