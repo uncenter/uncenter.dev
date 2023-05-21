@@ -3,7 +3,7 @@
         <a href="/" class="not-fancy" {% if page.url === "/" %}aria-current="page" aria-label="Home"{% endif %}>
             {{ "src/_includes/duck.svg" | readFile | setAttr('class', 'w-12 h-12 m-auto') | safe }}
             <span class="tracking-tight text-2xl">uncenter</span></a>
-        <div class="max-w-[40ch] text-center mt-1">Ducks, <span class="underline decoration-accent decoration-wavy underline-offset-2">badly-written</span> articles, some half-baked ideas, and a little bit of everything else.</div>
+        <div class="max-w-[40ch] text-center mt-1">Ducks, <span class="underline decoration-accent decoration-wavy decoration-no-skip underline-offset-2">badly-written</span> articles, some half-baked ideas, and a little bit of everything else.</div>
         <ul class="list-none px-2 py-4 flex lg:block lg:space-y-1.5">
             {% for item in nav.top %}
                 {% set classes = "not-fancy font-semibold lg:py-0 p-2" %}
