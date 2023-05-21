@@ -23,6 +23,23 @@ function setTheme(theme, options = { permanent: true, update: true }) {
 	}
 }
 
+function setAccent(accent, options = { permanent: true }) {
+	const { permanent } = options;
+	console.log(
+		`Setting accent to '${accent}'${
+			permanent
+				? ", storing '" + accent + "' in localStorage."
+				: ' (temporary).'
+		}`,
+	);
+	if (permanent) localStorage.setItem('accent', accent);
+	document.documentElement.setAttribute('accent', accent);
+	document.documentElement.style.setProperty(
+		'--accent',
+		`var(--accent-${accent})`,
+	);
+}
+
 const queryParams = new URLSearchParams(window.location.search);
 const validThemes = ['light', 'dark', 'system'];
 const validAccents = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
@@ -72,8 +89,6 @@ if (!accent || !validAccents.includes(accent)) {
 	);
 	accent = validAccents.includes(storedAccent) ? storedAccent : 'red';
 }
-document.documentElement.style.setProperty(
-	'--accent',
-	`var(--accent-${accent})`,
-);
-localStorage.setItem('accent', accent);
+setAccent(accent, {
+	permanent: accent === overrideAccent ? false : true,
+});

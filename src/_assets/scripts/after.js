@@ -1,11 +1,19 @@
 window.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('theme-selector').value =
 		document.documentElement.getAttribute('theme');
+	document.getElementById('accent-selector').value =
+		document.documentElement.getAttribute('accent');
 	document
 		.getElementById('theme-selector')
 		.addEventListener('change', function () {
 			let selectedTheme = this.value;
 			setTheme(selectedTheme);
+		});
+	document
+		.getElementById('accent-selector')
+		.addEventListener('change', function () {
+			let selectedAccent = this.value;
+			setAccent(selectedAccent);
 		});
 	window
 		.matchMedia('(prefers-color-scheme: dark)')
