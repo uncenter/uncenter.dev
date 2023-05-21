@@ -45,6 +45,12 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
   - `src/_11ty/`: 11ty filters, shortcodes, collections (imported as plugins in `eleventy.config.js`)
     - `src/_11ty/utils/`: utility functions for JavaScript data files and the other functions in `src/_11ty/`
 
+### Environment Variables
+
+- `UMAMI_TOKEN`: the token for the Umami analytics instance
+- `UMAMI_TRACKER_SCRIPT`: the name of the script to load for the Umami analytics instance (e.g. `script` for `https://<your-umami>.com/script.js`)
+- ~~`PAGESPEED_API_KEY`: the API key for the Google PageSpeed Insights API~~ (formerly used to fetch Lighthouse scores for the website)
+
 ## Credits
 
 Many thanks to the 11ty community for their contributions to the community, without which this website would not be possible.
