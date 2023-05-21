@@ -13,11 +13,11 @@ I have been working on version 3.0 for a while now, and I am finally ready to re
 
 ### New design
 
-For now, I am using [Tailwind's "Preflight" CSS reset](https://tailwindcss.com/docs/preflight) along with their [Typography plugin](https://tailwindcss.com/docs/typography-plugin). It looks quite nice without any work, though it is a little annoying to disable some of the styling. I haven't implemented dark/light mode or any color scheme yet, but thats on the menu for later.
+For now, I am using [Tailwind's "Preflight" CSS reset](https://tailwindcss.com/docs/preflight) along with their [Typography plugin](https://tailwindcss.com/docs/typography-plugin). It looks quite nice without any work, although it is a little annoying to disable some of the styling. I haven't implemented dark/light mode or any color scheme yet, but thats on the menu for later.
 
 ### New icons
 
-After months of constantly changing and tweaking the icons, I have finally settled on a set of icons that I am happy with. I am using [Lucide](https://lucide.dev), [Devicons](https://devicon.dev), and [SVG Logos by Gil Barabara](https://github.com/gilbarbara/logos). I initially used Feather Icons, but it turns out Lucide is more complete and has a better icon set. I am using the Devicons set for programming languages and the SVG Logos set for social media icons, and overall I am very happy with the results.
+After months of constantly changing and tweaking the icons, I have finally settled on a set of icons that I am happy with. I am using [Lucide](https://lucide.dev), [Devicons](https://devicon.dev), and [SVG Logos by Gil Barabara](https://github.com/gilbarbara/logos). I initially used Feather Icons, but it turns out Lucide is more complete and better maintained. I am using the Devicons set for programming languages and the SVG Logos set for social media icons, and overall I am very happy with the results.
 
 ### Updated shortcodes and filters
 
@@ -81,14 +81,13 @@ module.exports = (content) => {
 			{ selector: 'a.anchor', format: 'skip' },
 			{ selector: 'picture', format: 'skip' },
 			{ selector: 'a', options: { ignoreHref: true } },
-			{ selector: 'section.footnotes', format: 'skip' },
 		],
 		wordwrap: false,
 	});
 };
 ```
 
-The library has a lot of options, so I'm still playing around with it to see what I can do. I'm mostly using selectors so that I can skip over certain elements, like code blocks (`pre.shiki`) and footnotes (`section.footnotes`). I also have to skip over the anchor links (`a.anchor`) because by default, the `href` is put after the text content of the link (e.g. `"This is a link [https://example.com]"`).
+The library has a lot of options, so I'm still playing around with it to see what I can do. I'm mostly using selectors so that I can skip over certain elements, like code blocks (`pre.shiki`) and images (`picture`). I also have to skip over the anchor links (`a.anchor`) because by default, the `href` is put after the text content of the link (e.g. `"This is a link [https://example.com]"`).
 
 {% endinfo %}
 

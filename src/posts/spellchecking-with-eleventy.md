@@ -5,11 +5,11 @@ description: A little magic to help catch typos in your blog posts.
 date: 2023-03-23
 ---
 
-After I realized more than one other person was reading my blog, I panicked and proofread/edited all my posts. Turns out that I rely on autocorrect a little too much and I have way too many typos without it! I came across [an article](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) by TJ Addison that explained how to do this with a tool called `cSpell` - the backbone of the [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker). That article was super helpful and works perfectly, but I wanted to add a few things to it to improve the experience.
+After I realized more than one other person was reading my blog, I panicked and quickly looked through all of my posts. Turns out that I rely on autocorrect a little too much and I have way too many typos without it! I came across [an article by TJ Addison](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) that explained how to do this with a tool called `cSpell` (the backbone of the somewhat popular [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). That article was super helpful and works perfectly, but I wanted to add a few things to it to improve the experience.
 
 ## Add a script to your package.json
 
-Self explanatory. I added a script to my `package.json` file to run the cSpell command:
+Pretty simple, just add a script to your `package.json` to run the cSpell command:
 
 ```json
 {
@@ -23,7 +23,7 @@ Self explanatory. I added a script to my `package.json` file to run the cSpell c
 
 ## Add a config file
 
-The tool allows multiple filenames for its configuration but I went with `cspell.config.js` for consistency with my other config files.
+`cSpell` [allows multiple filenames](http://cspell.org/configuration/#configuration) for its configuration but I went with `cspell.config.js` for consistency with my other config files (like `eleventy.config.js` and `tailwind.config.js`).
 
 The config file starts with the `version` and `language` properties. Set the config version to `0.2` (currently always 0.2) and the language to either `en` or `en-GB` (default is `en`):
 
@@ -34,7 +34,7 @@ module.exports = {
 };
 ```
 
-Next, you can define specific words to exclude or flag. I excluded some 11ty specific terminology and a few brand names that I have written about in my posts.
+Next, you can define specific words to exclude or flag. I told `cSpell` to ignore some 11ty-specific terminology and a few brand names that I have written about in my posts.
 
 ```js
 	words: [
@@ -56,35 +56,53 @@ Next, you can define specific words to exclude or flag. I excluded some 11ty spe
 	flagWords: [],
 ```
 
-In addition to the `words` property, you can also define dictionaries. I also added a dictionary for my GitHub repos (I have a lot of repos and I don't want to add them all manually to the `words` property) so I can write about them without getting flagged for typos.
+In addition to the `words` property, you can also define dictionaries, or just longer lists of words. I added a dictionary for my GitHub repositories to prevent those from being spell-checked if I ever write about them (who wants to manually add them all to the `words` property?!).
 
 ```js
     dictionaries: ["repos"],
     dictionaryDefinitions: [
-        { "name": "repos", "path": "./utils/plugins/cspell/dicts/repos.txt" },
+        { "name": "repos", "path": "./utils/dicts/repos.txt" },
     ],
 ```
 
 For the `repos` dictionary itself, I wrote a script to scan my GitHub repos and add them to a file.
 
 ```js
-const fetch = require('node-fetch');
+#!/usr/bin/env node
+
+const fetch = require('node-fetch-commonjs');
 const fs = require('fs');
 const path = require('path');
 
 function getRepos() {
-	const reposFile = path.join(__dirname, '<PATH_TO_DICT_FILE>');
+	const reposFile = path.join(__dirname, './dicts/repos.txt');
 	const reposURL = 'https://api.github.com/users/<USERNAME>/repos';
 
 	(async () => {
-		const repos = await fetch(reposURL)
-			.then((res) => res.json())
-			.then((json) => json.map((repo) => repo.name));
+		const response = await fetch(reposURL);
+		const json = await response.json();
 
-		fs.writeFileSync(reposFile, repos.join('\n'));
+		if (Array.isArray(json)) {
+			const repos = json.map((repo) => repo.name);
+			fs.writeFileSync(reposFile, repos.join('\n'));
+		} else {
+			console.log('Invalid response format:', json);
+		}
 	})();
 }
+
+getRepos();
 ```
+
+{% tip "Running the script on Netlify" %}
+If you're using Netlify, you can run this script and the spell-check script during the build process by adding it to the `build` command in your `netlify.toml` file (or the GUI on Netlify's website):
+
+```toml
+[build]
+command = "node ./utils/get-repos.js && npm run spell && npm run build"
+```
+
+{% endtip %}
 
 Finally, the config file allows you to define patterns to ignore. I added a few patterns to ignore code blocks and Nunjucks expressions.
 
@@ -184,7 +202,7 @@ urlize
 wordcount
 ```
 
-I'm pretty happy with how everything turned out! The neat thing about cSpell is you can also define words to ignore per file, so if you only use a word once, you can just ignore it in that file. For example, you could ignore the word `supercalifragilisticexpialidocious` in a file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
+I'm pretty happy with how everything turned out! The neat thing about cSpell is you can also define words to ignore per file, so if you only use a word once, you can just ignore it in that file. For example, you could ignore the word `supercalifragilisticexpialidocious` in just one file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
 
 ```md
 ---
