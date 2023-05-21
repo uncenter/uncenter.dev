@@ -1,7 +1,32 @@
 ---
 layout: index.njk
 ---
-{% include "header.njk" %}
+
+<header class="min-w-[30%]">
+    <div class="flex items-center flex-col leading-6">
+        <a href="/" class="not-fancy"{% if page.url === "/" %} aria-current="page" aria-label="Home"{% endif %}>
+            {{ "src/_includes/duck.svg" | readFile | setAttr('class', 'w-12 h-12 m-auto') | safe }}
+            <span class="tracking-tight text-2xl">uncenter</span></a>
+        <div class="max-w-[40ch] text-center mt-1">Ducks, <span class="underline decoration-accent decoration-wavy decoration-no-skip underline-offset-2">badly-written</span> articles, some half-baked ideas, and a little bit of everything else.</div>
+        <ul class="list-none px-2 py-4 flex lg:block lg:space-y-1.5">
+            {% for item in nav.top %}
+                {% set classes = "not-fancy font-semibold lg:py-0 p-2" %}
+                {% if page.url | includes(item.urls)and item.urls[0] != "/" %}
+                    {% set classes = classes + " lg:[border-left:2px_solid_currentColor] [border-bottom:2px_solid_currentColor] [border-left:2px_solid_transparent] lg:[border-bottom:2px_solid_transparent]" %}
+                {% elif item.urls[0] == "/" and page.url == "/" %}
+                    {% set classes = classes + " lg:[border-left:2px_solid_currentColor] [border-bottom:2px_solid_currentColor] [border-left:2px_solid_transparent] lg:[border-bottom:2px_solid_transparent]" %}
+                {% else %}
+                    {% set classes = classes + " [border-left:2px_solid_transparent] lg:[border-left:2px_solid_transparent]" %}
+                {% endif %}
+                <li>
+                    <a href="{{ item.urls[0] }}" class="{{ classes }}"
+                        {% for link in item.urls -%} {% if page.url === link %}aria-current="page" aria-label="Go to {{ item.title }}"{% endif %}
+                        {%- endfor -%}>{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</header>
 <main class="lg:mx-6">
     {% if header or title %}
         <h1 id="title" class="text-3xl font-bold break-words m-0 mb-12{% if page.url in navUrls.top %} hidden lg:block{% endif %}">{{ header or title }}</h1>
@@ -10,4 +35,37 @@ layout: index.njk
         {{ content | safe }}
     {% endif %}
 </main>
-{% include "footer.njk" %}
+<footer>
+    <div class="flex flex-col items-center self-center w-full gap-4 mt-12 lg:mt-0">
+        <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
+            {% for item in nav.bottom %}
+                <li title="{{ item.title }}" class="mx-2">
+                    <a class="not-fancy" aria-label="{{ item.title }}" href="{{ item.url }}">{% icon item.icon + "-blank" %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="text-xs text-center max-w-[30ch]">
+            <div class="mt-2">
+                <a href="https://xn--sr8hvo.ws/previous" class="not-fancy">←</a>
+                    an <a href="https://xn--sr8hvo.ws" class="not-fancy">IndieWeb webring</a> 🕸💍
+                    <a href="https://xn--sr8hvo.ws/next" class="not-fancy">→</a>
+            </div>
+        </div>
+        <div class="flex flex-row lg:flex-col items-center gap-2">
+            <select id="theme-selector" class="max-w-[30ch] text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="system">System</option>
+            </select>
+            <select id="accent-selector" class="max-w-[30ch] text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none">
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="purple">Purple</option>
+            </select>
+        </div>
+    </div>
+</footer>

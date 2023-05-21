@@ -2,7 +2,7 @@
 layout: index.njk
 ---
 
-<main class="max-w-[680px] md:mx-auto lg:max-w-[800px] xl:max-w-[1000px]">
+<main class="mx-auto">
     <div class="[border-bottom:2px_solid_currentColor] pb-2">
         <div class="flex flex-wrap justify-between pb-1 gap-x-8 gap-y-2">
             <a href="{{ post.return.link }}" class="flex items-center gap-x-2">
@@ -17,7 +17,7 @@ layout: index.njk
         </div>
     </div>
     {% if content !== "" %}
-        <article class="wrap-anywhere">
+        <article class="wrap-anywhere max-w-[90ch] px-2">
             <h1 class="text-3xl font-bold mb-0"
                 style="view-transition-name: post-{{ title | slugify }}">{{ title }}</h1>
             {% if series %}
