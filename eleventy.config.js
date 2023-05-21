@@ -75,7 +75,7 @@ module.exports = function (eleventyConfig) {
 			});
 			const { document } = parseHTML(minified);
 			document.querySelectorAll('pre.shiki').forEach((block) => {
-				block.outerHTML = `<div class="relative">${block.outerHTML}</div>`;
+				block.outerHTML = `<div class="shiki-wrapper">${block.outerHTML}</div>`;
 			});
 			return document.documentElement.outerHTML;
 		}

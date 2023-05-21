@@ -1,42 +1,45 @@
 // Via: https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/
 
-pre.shiki {
-	overflow: auto;
-	font-size: 0.9rem;
-	line-height: 1.5;
+div.shiki-wrapper {
 	position: relative;
-	border-radius: $border-radius;
-}
 
-div:has(pre.shiki) div button {
-	background: var(--dark-gray);
-	display: none;
-	vertical-align: middle;
-	cursor: pointer;
-	user-select: none;
-	border-radius: $border-radius;
-	appearance: none;
-	padding: 0;
-	box-shadow: none;
+	pre.shiki {
+		overflow: auto;
+		font-size: 0.9rem;
+		line-height: 1.5;
+		position: relative;
+		border-radius: $border-radius;
 
-	svg {
-		width: 1rem;
-		height: 1rem;
-		display: inline;
+		code {
+			display: block;
+			width: max-content;
+			padding: 16px 16px 16px 10px;
+		}
+	}
+
+	div button {
+		background: var(--dark-gray);
+		display: none;
+		vertical-align: middle;
+		cursor: pointer;
+		user-select: none;
+		border-radius: $border-radius;
+		appearance: none;
+		padding: 0;
+		box-shadow: none;
+
+		svg {
+			width: 1rem;
+			height: 1rem;
+			display: inline;
+		}
+	}
+	&:hover div button {
+		display: inline-block;
 	}
 }
 
-div:has(pre.shiki):hover div button {
-	display: inline-block;
-}
-
-pre.shiki code {
-	display: block;
-	width: max-content;
-	padding: 16px 16px 16px 10px;
-}
-
-pre.shiki.lang-sh-prefix .line::before {
+pre.shiki.lang-install .line::before {
 	content: '$ ';
 	color: #b392f0;
 }

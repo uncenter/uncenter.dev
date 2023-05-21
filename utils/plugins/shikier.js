@@ -178,7 +178,7 @@ const getLineOptions = (tokenized) => {
 const highlight = (code, lang, highlighter) => {
 	[lang] = lang.split('{');
 	let actualLang = lang;
-	if (lang === 'sh-prefix') {
+	if (lang === 'install') {
 		lang = 'sh';
 	}
 	const tokenized = highlighter.codeToThemedTokens(

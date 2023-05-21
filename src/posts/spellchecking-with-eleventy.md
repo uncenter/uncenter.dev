@@ -12,7 +12,7 @@ After I realized more than one other person was reading my blog, I panicked and 
 
 First, install `cSpell` as a dev dependency:
 
-```sh-prefix
+```install
 npm install cspell --save-dev
 ```
 
