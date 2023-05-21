@@ -25,6 +25,11 @@ html {
 	text-size-adjust: none;
 }
 
+::selection {
+	background-color: var(--accent);
+	color: var(--light);
+}
+
 @media (min-width: 1024px) {
 	body {
 		display: grid;
