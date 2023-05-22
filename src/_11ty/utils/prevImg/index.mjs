@@ -3,7 +3,7 @@
 
 import satori from 'satori';
 
-import { fileURLToPath } from 'node:url';
+import url from 'node:url';
 import { join } from 'node:path';
 import { mkdir, readFile, rm } from 'node:fs/promises';
 
@@ -12,9 +12,11 @@ import kleur from 'kleur';
 import pLimit from 'p-limit';
 import sharp from 'sharp';
 
-const startTime = performance.now();
+const FONTS_DIR = join(
+	url.fileURLToPath(new URL('.', import.meta.url)),
+	'fonts',
+);
 
-const FONTS_DIR = join(fileURLToPath(new URL('.', import.meta.url)), 'fonts');
 const FONTS = [
 	{
 		name: 'Inter',
@@ -107,49 +109,82 @@ const makeImage = async (data) => {
 						{
 							type: 'div',
 							props: {
-								style: { display: 'flex', flexDirection: 'column' },
+								style: {
+									display: 'flex',
+									flexDirection: 'row',
+									justifyContent: 'space-between',
+									alignItems: 'flex-end',
+									width: '100%',
+								},
 								children: [
 									{
-										type: 'p',
+										type: 'div',
 										props: {
-											children: [
-												{
-													type: 'span',
-													props: {
-														children: 'uncenter',
-														style: { fontWeight: 700, marginRight: '0.625rem' },
-													},
-												},
-												{
-													type: 'span',
-													props: { children: '· uncenter.org' },
-												},
-											],
 											style: {
-												fontFamily: 'Inter',
-												fontWeight: 500,
-												fontSize: '30px',
 												display: 'flex',
-												alignItems: 'baseline',
+												flexDirection: 'column',
 											},
-										},
-									},
-									...(data.date
-										? [
+											children: [
 												{
 													type: 'p',
 													props: {
-														children: format(new Date(data.date), 'yyyy/MM/dd'),
+														children: [
+															{
+																type: 'span',
+																props: {
+																	children: 'uncenter',
+																	style: {
+																		fontWeight: 700,
+																		marginRight: '0.625rem',
+																	},
+																},
+															},
+															{
+																type: 'span',
+																props: { children: '· uncenter.org' },
+															},
+														],
 														style: {
 															fontFamily: 'Inter',
-															fontWeight: 400,
-															color: '#a3a3a3',
+															fontWeight: 500,
 															fontSize: '30px',
+															display: 'flex',
+															alignItems: 'baseline',
 														},
 													},
 												},
-										  ]
-										: []),
+												...(data.date
+													? [
+															{
+																type: 'p',
+																props: {
+																	children: format(
+																		new Date(data.date),
+																		'yyyy/MM/dd',
+																	),
+																	style: {
+																		fontFamily: 'Inter',
+																		fontWeight: 400,
+																		color: '#a3a3a3',
+																		fontSize: '30px',
+																	},
+																},
+															},
+													  ]
+													: []),
+											],
+										},
+									},
+									{
+										type: 'img',
+										props: {
+											src: 'https://uncenter.org/trim-duck.png',
+											style: {
+												width: '144px',
+												height: '135px',
+											},
+										},
+									},
 								],
 							},
 						},
@@ -185,13 +220,13 @@ const makeImage = async (data) => {
 	}
 };
 
-const pagesData = await readFile('./pages.json').then(JSON.parse);
-const lim = pLimit(10);
-
 await rm('dist/previews', { force: true, recursive: true });
 await mkdir('dist/previews', { recursive: true });
 
-await Promise.all(pagesData.map((data) => lim(() => makeImage(data))));
+const startTime = performance.now();
+
+const pagesData = await readFile('./pages.json').then(JSON.parse);
+await Promise.all(pagesData.map((data) => pLimit(10)(() => makeImage(data))));
 
 console.log(
 	kleur.green(
