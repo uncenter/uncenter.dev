@@ -81,12 +81,6 @@ const FONTS = [
 ];
 
 const makeImage = async (data) => {
-	console.log(
-		`[11ty][${kleur.magenta('previews')}] ${kleur.bold('dist/previews/')}${kleur
-			.cyan()
-			.bold(data.slug)}${kleur.bold('.png')}`,
-	);
-
 	try {
 		const result = await satori(
 			{
@@ -215,6 +209,11 @@ const makeImage = async (data) => {
 		await sharp(Buffer.from(result))
 			.png()
 			.toFile(`dist/previews/${data.slug}.png`);
+		console.log(
+			`[11ty][${kleur.magenta('previews')}] ${kleur.bold(
+				'dist/previews/',
+			)}${kleur.cyan().bold(data.slug)}${kleur.bold('.png')}`,
+		);
 	} catch (err) {
 		console.error(
 			kleur.red(`[11ty][previews] Error generating preview for ${data.slug}`),
