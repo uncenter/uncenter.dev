@@ -7,13 +7,10 @@
 :root[theme='light'] {
 	.icon-github {
 		fill: #161614;
-	}
-	.icon-github-blank {
-		fill: black;
 		stroke: white;
 	}
-	.icon-mastodon-blank,
-	.icon-elementio-blank {
+	.icon-mastodon,
+	.icon-elementio {
 		& .outer {
 			fill: black;
 		}
@@ -22,7 +19,7 @@
 			fill: white;
 		}
 	}
-	.icon-rss-blank {
+	.icon-rss {
 		fill: white;
 
 		& .outer {
@@ -36,13 +33,10 @@
 :root[theme='dark'] {
 	.icon-github {
 		fill: #f0f0f0;
-	}
-	.icon-github-blank {
-		fill: white;
 		stroke: black;
 	}
-	.icon-mastodon-blank,
-	.icon-elementio-blank {
+	.icon-mastodon,
+	.icon-elementio {
 		& .outer {
 			fill: white;
 		}
@@ -51,7 +45,7 @@
 			fill: black;
 		}
 	}
-	.icon-rss-blank {
+	.icon-rss {
 		fill: black;
 
 		& .outer {

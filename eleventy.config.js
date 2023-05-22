@@ -5,9 +5,10 @@ const utils = require('./src/_11ty/utils.filters.js');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
+
+const { parseHTML } = require('linkedom');
 const fs = require('fs');
 const Chalk = require('chalk');
-const { parseHTML } = require('linkedom');
 
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
@@ -44,7 +45,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginIcons, {
 		mode: 'inline',
 		sources: {
-			social: './src/_assets/icons/social',
+			custom: './src/_assets/icons/custom',
 			lucide: 'node_modules/lucide-static/icons',
 		},
 		default: 'lucide',
@@ -60,13 +61,13 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addLayoutAlias('post', 'post.njk');
 
 	/* Passthrough Copy */
-	eleventyConfig.addPassthroughCopy({ 'src/_assets/images/favicon': '.' });
+	eleventyConfig.addPassthroughCopy({ 'src/_assets/favicon': '.' });
 	eleventyConfig.addPassthroughCopy({
 		'src/_assets/fonts/*.woff2': '/assets/fonts',
 	});
 
 	/* Other Config */
-	eleventyConfig.addTransform('minify', function (content) {
+	eleventyConfig.addTransform('minify-and-wrap-shiki', function (content) {
 		if (this.page.outputPath && this.page.outputPath.endsWith('.html')) {
 			let minified = require('html-minifier').minify(content, {
 				useShortDoctype: true,

@@ -21,22 +21,22 @@ const data = {
 		{
 			title: 'Visit my GitHub profile!',
 			url: 'https://github.com/uncenter/',
-			icon: 'social:github',
+			icon: 'custom:github',
 		},
 		{
 			title: 'Follow me on Mastodon!',
 			url: 'https://fosstodon.org/@uncenter',
-			icon: 'social:mastodon',
+			icon: 'custom:mastodon',
 		},
 		{
 			title: 'Subscribe to my RSS feed!',
 			url: '/feed.xml',
-			icon: 'social:rss',
+			icon: 'custom:rss',
 		},
 		{
 			title: 'Contact me via Element/Matrix!',
 			url: 'https://matrix.to/%23/#uncenter:matrix.org',
-			icon: 'social:elementio',
+			icon: 'custom:elementio',
 		},
 	],
 };
