@@ -13,7 +13,7 @@ After I realized more than one other person was reading my blog, I panicked and 
 First, install `cSpell` as a dev dependency:
 
 ```install
-npm install cspell --save-dev
+pnpm install cspell --save-dev
 ```
 
 And add it as a script to your `package.json`:
