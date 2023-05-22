@@ -180,8 +180,9 @@ const makeImage = async (data) => {
 										props: {
 											src: 'https://uncenter.org/trim-duck.png',
 											style: {
-												width: '144px',
-												height: '135px',
+												width: '89px',
+												height: '75px',
+												alignSelf: 'center',
 											},
 										},
 									},
