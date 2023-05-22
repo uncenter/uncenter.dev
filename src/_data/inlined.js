@@ -2,6 +2,7 @@ const postcss = require('postcss');
 const { readFile } = require('fs/promises');
 const UglifyJS = require('uglify-js');
 const logOutput = require('../_11ty/utils/logOutput.js');
+const Blob = require('buffer').Blob;
 
 module.exports = async () => {
 	const fonts = await readFile('./src/_assets/fonts/fonts.css', 'utf-8');
