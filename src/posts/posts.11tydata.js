@@ -70,7 +70,7 @@ module.exports = {
 				views += res.pageviews[i].y;
 			}
 			logOutput({
-				prefix: 'data:views',
+				type: 'views',
 				file: data.page.url,
 				extra: views,
 			});

@@ -4,14 +4,10 @@ const combineText = require('./utils/combineText.js');
 
 const getWordCount = (content, { preText = '', postText = '' } = {}) => {
 	const htmlContent = typeof content === 'string' ? content : content.content;
-
 	if (!htmlContent) {
 		return combineText(preText, '0', postText);
 	}
-
-	const count = wordCount(cleanContent(htmlContent));
-
-	return combineText(preText, count, postText);
+	return combineText(preText, wordCount(cleanContent(htmlContent)), postText);
 };
 
 const isRecent = (date, days) => {
@@ -36,7 +32,6 @@ const seriesGetPart = (seriesPosts, postUrl) => {
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('readingTime', require('./utils/readingTime'));
 	eleventyConfig.addFilter('wordCount', getWordCount);
-
 	eleventyConfig.addFilter('isRecent', isRecent);
 
 	eleventyConfig.addFilter('isSeries', isSeries);

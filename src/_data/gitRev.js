@@ -2,7 +2,13 @@
 // License: MIT
 module.exports = async () => {
 	const { execa } = await import('execa');
-	return await execa('git', ['rev-parse', '--short', 'HEAD']).then(
+	const rev = await execa('git', ['rev-parse', '--short', 'HEAD']).then(
 		(a) => a.stdout,
 	);
+	require('../_11ty/utils/logOutput.js')({
+		type: 'gitRev',
+		file: 'gitRev.js',
+		extra: rev,
+	});
+	return rev;
 };

@@ -34,7 +34,7 @@ const getExcerpt = (page, classes = '') => {
 	text = turndownRenderer.turndown(content);
 
 	// Split plain text into phrases and concatenate until length cutoff
-	// Adapted https://github.com/mpcsh/eleventy-plugin-description]
+	// Via (adapted): https://github.com/mpcsh/eleventy-plugin-description
 
 	const phrases = text.split(/(\p{Terminal_Punctuation}\p{White_Space})/gu);
 	let excerpt = '';
@@ -131,7 +131,7 @@ const insertImage = async function (src, alt, width, height) {
 	});
 
 	logOutput({
-		prefix: 'assets:images',
+		type: 'images',
 		file: src,
 	});
 

@@ -5,7 +5,7 @@ const sass = require('sass');
 
 const logOutput = require('../../_11ty/utils/logOutput.js');
 
-class Page {
+module.exports = class {
 	data() {
 		return {
 			permalink: '/assets/styles.css',
@@ -19,7 +19,7 @@ class Page {
 		let result = sass.compile(source);
 		let content = result.css.toString();
 		logOutput({
-			prefix: 'assets:styles',
+			type: 'styles',
 			file: 'styles.scss',
 			extra: `${new Blob([fs.readFileSync(source)]).size / 1000}kb -> ${
 				new Blob([content]).size / 1000
@@ -39,7 +39,7 @@ class Page {
 			to: source,
 		});
 		logOutput({
-			prefix: 'assets:styles',
+			type: 'styles',
 			file: 'styles.css',
 			extra: `${new Blob([content]).size / 1000}kb -> ${
 				new Blob([css.content]).size / 1000
@@ -48,6 +48,4 @@ class Page {
 
 		return css.content;
 	}
-}
-
-module.exports = Page;
+};
