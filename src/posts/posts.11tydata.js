@@ -2,7 +2,7 @@ const { DateTime } = require('luxon');
 const fetch = require('node-fetch-commonjs');
 
 const logOutput = require('../_11ty/utils/logOutput.js');
-const isDev = process.env.NODE_ENV === 'development';
+const isProd = process.env.NODE_ENV === 'production';
 const meta = require('../_data/meta.js');
 require('dotenv').config();
 
@@ -51,18 +51,18 @@ async function getPageViews(originalUrl, originalDate) {
 module.exports = {
 	eleventyComputed: {
 		eleventyExcludeFromCollections: (data) => {
-			if ((data.unlisted && !isDev) || data.hide) {
+			if ((data.unlisted && isProd) || data.hide) {
 				return true;
 			}
 			return data.eleventyExcludeFromCollections;
 		},
 		permalink: (data) => {
-			if (data.hide && !isDev) return false;
+			if (data.hide && isProd) return false;
 			return data.permalink;
 		},
 		views: async (data) => {
 			if (!data.page.url || data.views === false) return;
-			if (isDev) return Math.floor(Math.random() * 100);
+			if (!isProd) return Math.floor(Math.random() * 100);
 
 			views = 0;
 			const res = await getPageViews(data.page.url, data.page.date);
