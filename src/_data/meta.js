@@ -3,7 +3,10 @@ module.exports = {
 	name: 'uncenter',
 	lang: 'en',
 	domain: 'uncenter.org',
-	url: 'https://uncenter.org',
+	url:
+		process.env.NODE_ENV === 'production'
+			? 'https://uncenter.org'
+			: 'http://localhost:8080',
 	analytics: {
 		domain: 'stats.uncenter.org',
 		url: 'https://stats.uncenter.org',
