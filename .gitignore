@@ -5,3 +5,5 @@ dist
 .cache
 .env
 .env.local
+
+pages.json
