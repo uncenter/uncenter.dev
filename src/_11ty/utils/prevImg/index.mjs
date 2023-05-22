@@ -183,6 +183,8 @@ const makeImage = async (data) => {
 												width: '89px',
 												height: '75px',
 												alignSelf: 'center',
+												marginTop: '1em',
+												marginBottom: '1em',
 											},
 										},
 									},
