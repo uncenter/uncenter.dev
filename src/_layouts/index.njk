@@ -32,13 +32,13 @@ eleventyComputed:
         <link rel="alternate" type="application/rss+xml" href="{{ meta.url }}/feed.xml">
 
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="{{ title }}"/>
+        <meta property="og:title" content="{{ title }} &middot; {{ meta.name }}"/>
         <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}"/>
         <meta property="og:image" content="{{ ogPreviewImage }}"/>
 
         <meta name="twitter:card" content="summary_large_image"/>
         {# <meta name="twitter:creator" content="@uncenter"/> #}
-        <meta name="twitter:title" content="{{ title }}"/>
+        <meta name="twitter:title" content="{{ title }} &middot; {{ meta.name }}"/>
         <meta name="twitter:image" content="{{ ogPreviewImage }}"/>
 
         <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
