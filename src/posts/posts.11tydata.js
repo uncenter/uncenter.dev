@@ -1,5 +1,4 @@
 const { DateTime } = require('luxon');
-const fetch = require('node-fetch-commonjs');
 
 const logOutput = require('../_11ty/utils/logOutput.js');
 const isProd = process.env.NODE_ENV === 'production';

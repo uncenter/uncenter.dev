@@ -56,7 +56,6 @@
 		"markdown-it-sup": "^1.0.0",
 		"markdown-it-task-checkbox": "^1.0.6",
 		"md5": "^2.3.0",
-		"node-fetch-commonjs": "^3.2.4",
 		"p-limit": "^4.0.0",
 		"postcss": "^8.4.23",
 		"rimraf": "^5.0.1",
