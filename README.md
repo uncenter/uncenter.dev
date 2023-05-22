@@ -19,15 +19,17 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
 
 ### Features
 
+- **OG preview images** for posts and pages using [Satori](https://github.com/vercel/satori) and [Sharp](https://sharp.pixelplumbing.com/)
 - **Syntax highlighting** for posts using [`shiki.js`](https://github.com/shikijs/shiki), configured based on [Raphael Höser's implementation](https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/)
 - **Optimized icons** by selectively loading icons on a per-page basis using my [`eleventy-plugin-icons`](https://github.com/uncenter/eleventy-plugin-icons) plugin
+- **Optimized images** with [`eleventy-img](https://github.com/11ty/eleventy-img)
 - **RSS feed** for blog posts using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
 
 ### To-Do
 
-- [ ] Generate static preview images
 - [ ] Fetch GitHub statistics for each project
 - [ ] Webmentions and Mastodon integration for comments and replies
+- [ ] Move `dist/previews` and `dist/images` to `dist/assets` or `dist/static`
 
 ### Structure
 
@@ -36,7 +38,7 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
   - `utils/plugins/`: plugins for 11ty, imported in various places - currently holds `shikier.js` for syntax highlighting and `markdown.js` as the Markdown library
 - `images/`: images for posts and pages, optimized during build
 - `src/`: the source files for 11ty
-  - `src/_data/`: data files - `inlined.js` holds minified CSS and JS files for inlining in templates, `lighthouse.js` fetches Lighthouse scores, `now.js` fetches the current date and time, and the other three JSON files hold metadata for projects and in general
+  - `src/_data/`: data files - `inlined.js` holds minified CSS and JS files for inlining in templates, `now.js` fetches the current date and time, and the other three JSON & JS files hold metadata for projects and in general
   - `src/_assets/`: static assets such as images, fonts, and icons, as well as the CSS and JS files
   - `src/posts/*.md`: blog posts, written in Markdown
   - `src/pages/`: root pages
