@@ -7,9 +7,8 @@ const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
 
 const { parseHTML } = require('linkedom');
+const { blue } = require('kleur/colors');
 const fs = require('fs');
-const Chalk = require('chalk');
-
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
 const pluginRSS = require('@11ty/eleventy-plugin-rss');
@@ -100,9 +99,7 @@ module.exports = function (eleventyConfig) {
 			if (runMode === 'serve' && process.env.NODE_ENV === 'development') {
 				timesRun++;
 				if (timesRun > 1) {
-					console.log(
-						Chalk.blue('\n[11ty] Server at http://localhost:8080/\n'),
-					);
+					console.log(blue('\n[11ty] Server at http://localhost:8080/\n'));
 				}
 			}
 		},
