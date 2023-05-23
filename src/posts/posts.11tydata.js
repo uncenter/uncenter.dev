@@ -1,4 +1,5 @@
 const { DateTime } = require('luxon');
+const EleventyFetch = require('@11ty/eleventy-fetch');
 
 const logOutput = require('../_11ty/utils/logOutput.js');
 const isProd = process.env.NODE_ENV === 'production';
@@ -35,16 +36,15 @@ async function getPageViews(originalUrl, originalDate) {
 		originalDate,
 	)}&end_at=${Date.now()}&unit=day&tz=America/New_York`;
 
-	const options = {
-		method: 'GET',
-		headers: {
-			Authorization: `Bearer ${process.env.UMAMI_TOKEN}`,
+	return await EleventyFetch(url, {
+		duration: '12h',
+		type: 'json',
+		fetchOptions: {
+			headers: {
+				Authorization: `Bearer ${process.env.UMAMI_TOKEN}`,
+			},
 		},
-	};
-
-	const res = await fetch(url, options);
-	const json = await res.json();
-	return json;
+	});
 }
 
 module.exports = {
