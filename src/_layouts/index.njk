@@ -15,9 +15,6 @@ eleventyComputed:
             {{inlined.css | safe}}
         </style>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
-        <script>
-            {{ inlined.js.before | safe }}
-        </script>
         <script defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
 
         <meta name="author" content="{{ meta.name }}">
@@ -49,6 +46,10 @@ eleventyComputed:
         {# <meta name="twitter:creator" content="@uncenter"/> #}
         <meta name="twitter:title" content="{{ title }} &middot; {{ meta.name }}"/>
         <meta name="twitter:image" content="{{ ogPreviewImage }}"/>
+
+        <script>
+            {{ inlined.js.before | safe }}
+        </script>
     </head>
     <body class="bg-bg text-fg font-display max-w-[130ch] mx-auto px-6 pt-16 pb-8">
         {{ content | safe }}
