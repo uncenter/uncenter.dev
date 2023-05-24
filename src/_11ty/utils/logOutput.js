@@ -12,8 +12,8 @@ const {
 const types = {
 	styles: blue,
 	scripts: yellow,
-	images: red,
-	gitRev: green,
+	images: green,
+	gitRev: red,
 	views: cyan,
 };
 
