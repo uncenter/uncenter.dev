@@ -1,19 +1,25 @@
 ---
-tags: ['11ty']
+tags: ['11ty', 'spell-checking', 'cspell', 'markdown', 'netlify']
 title: Spell-checking Markdown with cSpell
 description: A little magic to help catch typos in your blog posts.
 date: 2023-03-23
 edited: 2023-05-21
 ---
 
-After I realized more than one other person was reading my blog, I panicked and quickly looked through all of my posts. Turns out that I rely on autocorrect a little too much and I have way too many typos without it! I came across [an article by TJ Addison](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) that explained how to do this with a tool called `cSpell` (the backbone of the somewhat popular [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). That article was super helpful and works perfectly, but I wanted to add a few things to it to improve the experience.
+Though I haven't written much on this blog, the quality of my writing is important to me. I love reading other people's blogs but I can't stand it when there are typos or grammatical errors. I'm not perfect and I'm sure I'll still have a few typos here and there, but I want to do my best to make sure my posts are as readable as possible. With that in mind, I wanted to add a few things to my website to make spell-checking easier. I looked up "spell-checking markdown" and found [an article by TJ Addison](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) that explained how to do this with a tool called `cSpell` (the backbone of the somewhat popular [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). That article was super helpful and works perfectly, but I wanted to add a few things to it to make it even better.
 
-## Set up cSpell
+## Using cSpell
 
-First, install `cSpell` as a dev dependency:
+You can use `cSpell` without installing it as a dependency by running it with `npx`:
+
+```sh
+npx cspell src/posts/**/*.md
+```
+
+But I wanted to add it as a script to my `package.json` so I could run it with `npm run spell`. To do that, install `cSpell` as a dev dependency:
 
 ```install
-pnpm install cspell --save-dev
+npm install cspell --save-dev
 ```
 
 And add it as a script to your `package.json`:
@@ -32,7 +38,7 @@ And add it as a script to your `package.json`:
 
 `cSpell` [allows multiple filenames](http://cspell.org/configuration/#configuration) for its configuration but I went with `cspell.config.js` for consistency with my other config files (like `eleventy.config.js` and `tailwind.config.js`).
 
-The config file starts with the `version` and `language` properties. Set the config version to `0.2` (currently always 0.2) and the language to either `en` or `en-GB` (default is `en`):
+To start, set the version to `0.2` (currently always 0.2) and the language to either `en` or `en-GB` (both are included by default).
 
 ```js
 module.exports = {
@@ -41,29 +47,26 @@ module.exports = {
 };
 ```
 
-Next, you can define specific words to exclude or flag. I told `cSpell` to ignore some 11ty-specific terminology and a few brand names that I have written about in my posts.
+There are over 26 [other language dictionaries](https://github.com/streetsidesoftware/cspell-dicts) available, but I'm only writing in English so I didn't need to add any others.
+
+Next, you can define specific words to exclude or flag. I told `cSpell` to ignore some 11ty-specific terminology and a few common developer brands and buzzwords.
 
 ```js
 	words: [
-		// Eleventy
 		'11ty',
 		'eleventy',
+        'netlify',
 		'jamstack',
 		'shortcode',
 		'shortcodes',
 		'pagination',
 		'frontmatter',
 		'webc',
-
-		// Brands
-		'Eleventy',
-		'Netlify',
-		'11ty',
 	],
 	flagWords: [],
 ```
 
-In addition to the `words` property, you can also define dictionaries, or just longer lists of words. I added a dictionary for my GitHub repositories to prevent those from being spell-checked if I ever write about them (who wants to manually add them all to the `words` property?!).
+In addition to the `words` property, you can also define dictionaries - just longer lists of words. I added a dictionary for my GitHub repositories to prevent those from being spell-checked if I ever write about them (who wants to manually add them all to the `words` list?!).
 
 ```js
     dictionaries: ["repos"],
@@ -77,7 +80,6 @@ For the `repos` dictionary itself, I wrote a script to scan my GitHub repos and 
 ```js
 #!/usr/bin/env node
 
-const fetch = require('node-fetch-commonjs');
 const fs = require('fs');
 const path = require('path');
 
@@ -110,7 +112,6 @@ command = "node ./utils/get-repos.js && npm run spell && npm run build"
 ```
 
 {% image "images/spellchecking-with-eleventy/netlify-build-command.png", "Netlify build command" %}
-
 {% endtip %}
 
 Finally, the config file allows you to define patterns to ignore. I added a few patterns to ignore code blocks and Nunjucks expressions.
@@ -134,84 +135,11 @@ Finally, the config file allows you to define patterns to ignore. I added a few 
     ], {% endraw %}
 ```
 
-I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common JavaScript libraries and methods being flagged as typos. Additionally, I use a few custom shortcodes that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.
+I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common JavaScript libraries and methods being flagged as typos. Additionally, I use a few [custom shortcodes](https://www.11ty.dev/docs/shortcodes/) that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.
 
-## Dictionaries
+## Ignore words in frontmatter
 
-Each of the dictionary files, like my repos dictionary, is a simple text file with one word per line (and comments can be added with `#`). Before I added the `nunjucksExpression` pattern, I had made a dictionary file for Nunjucks expressions (I used the [Nunjucks docs](https://mozilla.github.io/nunjucks/templating.html) to get a list of all the expressions).
-
-If anyone is interested, here is the list of Nunjucks expressions I added to the dictionary file:
-
-```txt
-if
-endif
-for
-endfor
-asyncEach
-endeach
-asyncAll
-endall
-macro
-endmacro
-set
-endset
-extends
-block
-endblock
-include
-import
-raw
-endraw
-verbatim
-endverbatim
-filter
-endfilter
-call
-endcall
-abs
-batch
-capitalize
-center
-default
-dictsort
-dump
-escape
-first
-float
-forceescape
-groupby
-indent
-int
-join
-last
-length
-list
-lower
-nl2br
-random
-reject
-rejectattr
-replace
-reverse
-round
-safe
-select
-selectattr
-slice
-sort
-string
-striptags
-sum
-title
-trim
-truncate
-upper
-urlencode
-urlize
-wordcount
-```
-
-I'm pretty happy with how everything turned out! The neat thing about cSpell is you can also define words to ignore per file, so if you only use a word once, you can just ignore it in that file. For example, you could ignore the word `supercalifragilisticexpialidocious` in just one file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
+The neat thing about cSpell is you can also define words to ignore per file, so if you only use a word once, you can just ignore it in that file. For example, you could ignore the word `supercalifragilisticexpialidocious` in just one file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
 
 ```md
 ---

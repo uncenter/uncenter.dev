@@ -5,6 +5,7 @@ module.exports = {
 		// Eleventy
 		'11ty',
 		'eleventy',
+		'netlify',
 		'jamstack',
 		'shortcode',
 		'shortcodes',
@@ -18,8 +19,6 @@ module.exports = {
 		'Giscus',
 		'Pagefind',
 		'Lucide',
-		'Eleventy',
-		'Netlify',
 		'11ty',
 		'Devicons',
 

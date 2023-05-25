@@ -5,6 +5,7 @@ chemic
 commoner
 create-eleventy-app
 eleventy-code-clipboard
+eleventy-includes-async-shortcodes-demo
 eleventy-plugin-icons
 eleventy-plugin-toc
 funcenter
