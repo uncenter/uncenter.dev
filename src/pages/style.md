@@ -10,9 +10,7 @@ post:
   comments: false
 ---
 
-This is my style guide! You can also read my [colophon page](/colophon) if you want to read how I _created_ this website. This document showcases the styles that I use on this website, and is meant to be a reference for myself and others.
-
-{% info "Credit where credit is due" %}
+{% info "Inspiration" %}
 This page is inspired and based of off [Binyamin's style guide](https://binyam.in/style/), which took inspiration from [Brian Devries's style guide](https://brianjdevries.com/style-guide/).
 {% endinfo %}
 
@@ -20,7 +18,7 @@ This page is inspired and based of off [Binyamin's style guide](https://binyam.i
 
 ### Paragraphs
 
-Cillum laboris ex proident et in exercitation eu aliqua cillum magna non. Veniam incididunt id tempor qui cillum laborum reprehenderit esse nisi excepteur velit. Mollit proident consectetur ea adipisicing fugiat cillum nostrud officia ullamco officia amet fugiat. Fugiat excepteur ullamco nulla reprehenderit ipsum do sit laboris. Mollit exercitation aute cillum magna et sit irure aliquip nostrud quis. Proident nisi voluptate sunt eiusmod in duis laboris mollit amet excepteur ut magna id. Eu minim aliquip duis ad cillum enim amet esse cillum eiusmod dolore excepteur nulla.
+Cillum laboris ex proident et in exercitation eu aliqua cillum magna non. Veniam incididunt id tempor qui cillum laborum reprehenderit esse nisi excepteur velit. Mollit proident consectetur ea adipisicing fugiat cillum nostrud officia ullamco officia amet fugiat. Fugiat excepteur ullamco nulla reprehenderit ipsum do sit laboris.
 
 ### Blockquotes/Notes
 
