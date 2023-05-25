@@ -91,7 +91,7 @@
 	}
 
 	kbd {
-		@apply border border-[color:var(--kbd-border-color)] bg-[var(--kbd-bg-color)] text-[80%] px-1 py-0.5 rounded-sm border-solid;
+		@apply border border-[color:var(--kbd-border-color)] bg-transparent text-[80%] px-1 py-0.5 rounded-sm border-solid;
 	}
 
 	pre.shiki code {
