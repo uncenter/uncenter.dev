@@ -10,13 +10,6 @@ eleventyComputed:
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title }} &middot; {{ meta.name }}</title>
 
-        <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
-        <style>
-            {{inlined.css | safe}}
-        </style>
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
-        <script defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
-
         <meta name="author" content="{{ meta.name }}">
         <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
         <meta name="generator" content="{{ eleventy.generator }}">
@@ -47,9 +40,15 @@ eleventyComputed:
         <meta name="twitter:title" content="{{ title }} &middot; {{ meta.name }}"/>
         <meta name="twitter:image" content="{{ ogPreviewImage }}"/>
 
+        <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
+        <style>
+            {{inlined.css | safe}}
+        </style>
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
         <script>
             {{ inlined.js.before | safe }}
         </script>
+        <script defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
     </head>
     <body class="bg-bg text-fg font-display max-w-[130ch] mx-auto px-6 pt-8 sm:pt-16 pb-8">
         {{ content | safe }}
