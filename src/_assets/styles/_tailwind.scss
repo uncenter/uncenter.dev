@@ -17,9 +17,22 @@
 
 	img {
 		@apply rounded-md p-4;
-		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+		box-shadow: var(--shadow);
 		margin-block-end: 1rem;
 		margin-block-start: 1rem;
+	}
+
+	:root[theme='light'] {
+		img {
+			--shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	:root[theme='dark'] {
+		img {
+			--shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
+				0 1px 3px rgba(255, 255, 255, 0.1);
+		}
 	}
 
 	blockquote {
