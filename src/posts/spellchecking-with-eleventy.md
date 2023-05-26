@@ -18,7 +18,7 @@ npx cspell src/posts/**/*.md
 
 But I wanted to add it as a script to my `package.json` so I could run it with `npm run spell`. To do that, install `cSpell` as a dev dependency:
 
-```install
+```sh
 npm install cspell --save-dev
 ```
 

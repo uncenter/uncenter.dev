@@ -177,10 +177,6 @@ const getLineOptions = (tokenized) => {
  */
 const highlight = (code, lang, highlighter) => {
 	[lang] = lang.split('{');
-	let actualLang = lang;
-	if (lang === 'install') {
-		lang = 'sh';
-	}
 	const tokenized = highlighter.codeToThemedTokens(
 		code.replace(/^( {4}|\t)/gm, '  '),
 		lang,
@@ -192,7 +188,7 @@ const highlight = (code, lang, highlighter) => {
 		bg: theme.bg,
 		fg: theme.fg,
 		lineOptions,
-		lang: actualLang,
+		lang,
 	}).replace(
 		/<span class="line"><span style="color: #\w*"><\/span><\/span><\/code><\/pre>|<span class="line"><\/span><\/code><\/pre>$/u,
 		'</code></pre>',
