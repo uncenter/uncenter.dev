@@ -37,9 +37,9 @@ div.shiki-wrapper {
 	}
 }
 
-pre.shiki.lang-install .line::before {
-	content: '$ ';
+pre.shiki.lang-sh .line:only-child::before {
 	color: #b392f0;
+	content: '$ ';
 }
 
 .sh--focus ~ .line:not(.sh--focus),
