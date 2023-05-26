@@ -1,5 +1,5 @@
 ---
-tags: ['11ty', 'review', 'reflection']
+tags: ['11ty', 'thoughts']
 title: On Eleventy
 description: Some thoughts on the Eleventy website and community.
 date: 2023-03-16

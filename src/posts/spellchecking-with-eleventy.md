@@ -1,5 +1,5 @@
 ---
-tags: ['11ty', 'spell-checking', 'cspell', 'markdown', 'netlify']
+tags: ['11ty', 'cspell', 'markdown', 'blog']
 title: Spell-checking Markdown with cSpell
 description: A little magic to help catch typos in your blog posts.
 date: 2023-03-23
