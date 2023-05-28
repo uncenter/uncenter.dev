@@ -20,14 +20,11 @@
         <name>{{ meta.name }}</name>
         <email>{{ meta.social.email.main }}</email>
     </author>
-    {%- for post in collections.posts | reverse %}
-        {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) %}
+    {%- for post in collections.posts | reverse %}{%- set absolutePostUrl = post.url | absoluteUrl(meta.url) %}
         <entry>
             <title>{{ post.data.title }}</title>
             <link href="{{ absolutePostUrl }}"/>
-            <updated>
-                {{ post.date | dateToRfc3339 }}
-            </updated>
+            <updated>{{ post.date | dateToRfc3339 }}</updated>
             <id>{{ absolutePostUrl }}</id>
             <content xml:lang="{{ feed.language }}" type="html">{{ post.content | replace('<div class="language-id">.*?<\/div>', '') | escape }}</content>
         </entry>
