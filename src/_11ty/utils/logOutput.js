@@ -1,13 +1,4 @@
-const {
-	red,
-	yellow,
-	green,
-	blue,
-	cyan,
-	magenta,
-	gray,
-	bold,
-} = require('kleur/colors');
+const { red, yellow, green, blue, cyan, bold } = require('kleur/colors');
 
 const types = {
 	styles: blue,
@@ -18,8 +9,8 @@ const types = {
 };
 
 module.exports = ({ type, file = '', extra = '' }) => {
-	const coloredType = types[type] ? types[type](type) : type;
+	const colorfulType = types[type] ? types[type](type) : type;
 	console.log(
-		`${`[11ty][${coloredType}]`} ${bold(file)} ${extra ? `(${extra})` : ''}`,
+		`${`[11ty][${colorfulType}]`} ${bold(file)} ${extra ? `(${extra})` : ''}`,
 	);
 };
