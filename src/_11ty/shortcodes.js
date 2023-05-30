@@ -14,16 +14,21 @@ const stringifyAttributes = require('./utils/stringifyAttributes.js');
 const logOutput = require('./utils/logOutput.js');
 
 const getExcerpt = (page, classes = '') => {
-	if (!page.hasOwnProperty('content')) {
-		return null;
+	function addClassToFirstParagraph(html, classes) {
+		const { document } = parseHTML(html);
+		document.firstChild.classList.add(classes);
+		return document.documentElement.outerHTML;
 	}
-	if (page.hasOwnProperty('excerpt')) {
-		return page.excerpt;
-	}
+	if (!page.content) return null;
+	if (page.excerpt)
+		return addClassToFirstParagraph(
+			markdownLibrary.render(page.excerpt),
+			classes,
+		);
 
-	let content = page.content.trim();
-
-	content = content.replace(/^(\s*\n*)?<h\d[^>]*>.*?<\/h\d>(\s*\n*)?/i, '');
+	let content = page.content
+		.trim()
+		.replace(/^(\s*\n*)?<h\d[^>]*>.*?<\/h\d>(\s*\n*)?/i, '');
 
 	const nextHeadingIndex = content.search(/<h\d[^>]*>/i);
 	if (nextHeadingIndex !== -1) {
@@ -31,27 +36,25 @@ const getExcerpt = (page, classes = '') => {
 	}
 
 	const turndownRenderer = new turndown();
-	text = turndownRenderer.turndown(content);
+	plainText = turndownRenderer.turndown(content);
 
-	// Split plain text into phrases and concatenate until length cutoff
-	// Via (adapted): https://github.com/mpcsh/eleventy-plugin-description
-
-	const phrases = text.split(/(\p{Terminal_Punctuation}\p{White_Space})/gu);
+	// Via: https://github.com/mpcsh/eleventy-plugin-description
+	// Split on terminal punctuation followed by whitespace (phrases).
+	const phrases = plainText.split(
+		/(\p{Terminal_Punctuation}\p{White_Space})/gu,
+	);
+	// Concatenate phrases until character limit (190) is reached.
 	let excerpt = '';
-	while (phrases.length > 0 && excerpt.length < 200) {
+	while (phrases.length > 0 && excerpt.length < 190) {
 		excerpt += phrases.shift();
 	}
 
 	excerpt += '...';
-	const { document } = parseHTML(markdownLibrary.render(excerpt));
-	document.firstChild.classList.add(classes);
-	return document.documentElement.outerHTML;
+	return addClassToFirstParagraph(markdownLibrary.render(excerpt), classes);
 };
 
 const getCollectionWordCount = (posts) => {
-	if (!posts) {
-		return 0;
-	}
+	if (!posts) return 0;
 	let words = 0;
 	posts.forEach((post) => {
 		words += parseInt(wordCount(cleanContent(post.content)));
@@ -60,9 +63,7 @@ const getCollectionWordCount = (posts) => {
 };
 
 const getCollectionReadingTime = (posts) => {
-	if (!posts) {
-		return 0;
-	}
+	if (!posts) return 0;
 	let readingTime = 0;
 	posts.forEach((post) => {
 		readingTime += parseInt(getReadingTime(post.content));
@@ -71,9 +72,7 @@ const getCollectionReadingTime = (posts) => {
 };
 
 const getCollectionWordCountAverage = (posts) => {
-	if (!posts) {
-		return 0;
-	}
+	if (!posts) return 0;
 	let words = 0;
 	posts.forEach((post) => {
 		words += wordCount(cleanContent(post.content));
@@ -82,9 +81,8 @@ const getCollectionWordCountAverage = (posts) => {
 };
 
 const getCollectionAverageWordLength = (posts) => {
-	if (!posts) {
-		return 0;
-	}
+	if (!posts) return 0;
+
 	const averageWordLengths = [];
 	posts.forEach((post) => {
 		const count = wordCount(cleanContent(post.content));
