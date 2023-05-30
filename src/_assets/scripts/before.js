@@ -42,7 +42,15 @@ function setAccent(accent, options = { permanent: true }) {
 
 const queryParams = new URLSearchParams(window.location.search);
 const validThemes = ['light', 'dark', 'system'];
-const validAccents = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+const validAccents = [
+	'red',
+	'orange',
+	'yellow',
+	'green',
+	'blue',
+	'purple',
+	'pink',
+];
 
 let theme;
 let accent;
