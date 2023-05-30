@@ -16,7 +16,7 @@ You can use `cSpell` without installing it as a dependency by running it with `n
 npx cspell src/posts/**/*.md
 ```
 
-But I opted for installing it permanantly as a dev dependency and using an npm script to run it:
+But I opted for installing it permanently as a dev dependency and using an npm script to run it:
 
 ```sh
 npm install cspell --save-dev
