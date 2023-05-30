@@ -16,7 +16,7 @@ module.exports = {
 		trackerScript: process.env.UMAMI_TRACKER_SCRIPT,
 	},
 	description:
-		'Ducks, badly-written articles, some half-baked ideas, and a little bit of everything else.',
+		'Software developer and rookie linguist. I write about programming, linguistics, and other topics in web development.',
 	github: {
 		username: 'uncenter',
 		repo: 'uncenter.org',
