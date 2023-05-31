@@ -57,7 +57,7 @@
 		@apply relative no-underline text-fg;
 
 		&:not(.not-fancy) {
-			@apply border-b-fg border-b-2 border-dotted hover:text-accent hover:border-b-accent hover:border-b-2 hover:border-solid border-r-0 border-l-0 border-t-0;
+			@apply border-b-fg border-b-[1.5px] border-dotted hover:text-accent hover:border-b-accent hover:border-solid border-r-0 border-l-0 border-t-0;
 
 			&:hover svg {
 				fill: var(--accent) !important;
