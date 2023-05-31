@@ -15,8 +15,7 @@ module.exports = {
 		websiteId: 'dea82084-7eb8-4337-b02c-23f6ace1afc1',
 		trackerScript: process.env.UMAMI_TRACKER_SCRIPT,
 	},
-	description:
-		'Software developer and rookie linguist. I write about programming, linguistics, and other topics in web development.',
+	description: 'Software developer and rookie linguist.',
 	github: {
 		username: 'uncenter',
 		repo: 'uncenter.org',
