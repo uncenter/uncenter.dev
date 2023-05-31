@@ -8,7 +8,7 @@ module.exports = (content, { preText = '', postText = '' } = {}) => {
 		return combineText(preText, '0', postText);
 	}
 
-	const count = wordCount(cleanContent(htmlContent));
+	const count = wordCount(cleanContent(content));
 
 	return combineText(preText, Math.ceil(count / 235), postText);
 };
