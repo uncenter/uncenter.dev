@@ -4,14 +4,15 @@
             <time datetime="{{ tagsDate }}">{{ tagsDate | toShortDate }}</time>
         {% endif %}
         {% if tagsTags %}
-                &middot;
-                <span class="capitalize">Tagged:</span>
+            &middot;
+            [
             <div>
                 {%- for tag in tagsTags -%}
                     <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
                     {%- if not loop.last -%}, {% endif -%}
                 {%- endfor -%}
             </div>
+            ]
         {% endif %}
     </div>
 </div>
