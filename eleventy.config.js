@@ -92,15 +92,15 @@ module.exports = function (eleventyConfig) {
 		eleventyConfig.addWatchTarget(`./src/_assets/styles/${style}`);
 	});
 
-	let timesRun = 0;
+	let notFirstRun = false;
 	eleventyConfig.on(
 		'eleventy.after',
 		async ({ dir, results, runMode, outputMode }) => {
 			if (runMode === 'serve' && process.env.NODE_ENV === 'development') {
-				timesRun++;
-				if (timesRun > 1) {
+				if (notFirstRun)
 					console.log(blue('\n[11ty] Server at http://localhost:8080/\n'));
-				}
+
+				notFirstRun = true;
 			}
 		},
 	);
