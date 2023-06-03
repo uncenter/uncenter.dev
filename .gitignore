@@ -1,9 +1,5 @@
 node_modules
 dist
-
-.DS_Store
+pages.json
 .cache
 .env
-.env.local
-
-pages.json
