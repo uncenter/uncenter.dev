@@ -76,5 +76,5 @@
 		"prettier-plugin-tailwindcss": "^0.3.0",
 		"rimraf": "^5.0.1"
 	},
-	"packageManager": "pnpm@8.5.1"
+	"packageManager": "pnpm@8.6.0"
 }
