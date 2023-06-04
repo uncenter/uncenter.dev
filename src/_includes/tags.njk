@@ -4,15 +4,15 @@
             <time datetime="{{ tagsDate }}">{{ tagsDate | toShortDate }}</time>
         {% endif %}
         {% if tagsTags %}
-            &middot;
-            [
-            <div>
+            <span>&middot;</span>
+            <div class="flex flex-row flex-wrap gap-1">
+                <span>[</span>
                 {%- for tag in tagsTags -%}
                     <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
                     {%- if not loop.last -%}, {% endif -%}
                 {%- endfor -%}
+                <span>]</span>
             </div>
-            ]
         {% endif %}
     </div>
 </div>
