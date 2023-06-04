@@ -6,7 +6,7 @@
 
 :root[theme='light'] {
 	.icon-github {
-		fill: #161614;
+		fill: black;
 		stroke: white;
 	}
 	.icon-mastodon,
@@ -32,7 +32,7 @@
 }
 :root[theme='dark'] {
 	.icon-github {
-		fill: #f0f0f0;
+		fill: white;
 		stroke: black;
 	}
 	.icon-mastodon,
