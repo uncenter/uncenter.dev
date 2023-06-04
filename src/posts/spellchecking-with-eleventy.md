@@ -110,7 +110,7 @@ If you're using Netlify, you can run this script and the spell-check script duri
 command = "node ./utils/get-repos.js && npm run spell && npm run build"
 ```
 
-{% image "images/spellchecking-with-eleventy/netlify-build-command.png", "Netlify build command" %}
+{% image "images/spellchecking-with-eleventy/netlify-build-command.png", "Screenshot of our new build command in the Netlify GUI" %}
 {% endtip %}
 
 Finally, the config file allows you to define regular expression patterns to ignore. I added a few to ignore Markdown code fences and Nunjucks expressions.

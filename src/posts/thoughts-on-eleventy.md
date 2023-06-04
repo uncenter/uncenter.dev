@@ -18,7 +18,7 @@ One of the few frustrating experiences I have had with Eleventy is the website. 
 
 My first observation about the homepage lies in the very first section you see after opening [11ty.dev](https://11ty.dev).
 
-{% image "images/thoughts-on-eleventy/first-homepage-section.png", "The first section on the Eleventy homepage, with links to Docs, Search, Blog, and social medias." %}
+{% image "images/thoughts-on-eleventy/first-homepage-section.png", "The first section on the Eleventy homepage, with links to the documentation, search, blog, and social medias." %}
 
 I love having everything all in one place, but this is crammed and unorganized. On first glance, you might not even notice the link to the documentation or to the blog, both of which are presumably mainly what you are visiting the website for. The best solution would probably be to have a navigation bar at the top of the page, with links to the documentation, blog, and search. The social media links could be moved to the footer, or even removed entirely. The big logo/11ty wordmark that takes up the top 3/4 of the page looks cool, but just makes it more difficult to find what you are looking for.
 
@@ -28,11 +28,12 @@ I did't realize until after writing this post that the large logo/wordmark is ac
 
 Another noticeable problem with the homepage is the Quick Start section, as seen below. It's not particularly bad but I've come to realize, after [witnessing](https://hachyderm.io/@KatherineInCode/109866326892317408) and interacting with people new to Eleventy, that many, many people are unfamiliar with the command line. While it is super important at some point to learn and understand how to use it, there ought to be a better way to explain how to make a new `index.md` file than using the `echo` command. The section also doesn't explain how to set up a folder structure, a configuration, or anything you actually need to do for a proper site. I know that Eleventy tries to remain as un-opinionated as possible, but this is hindering more than helping. Instead of going around the issue, why don't we address it by providing multiple simple methods of organizing a project.
 
-{% image "images/thoughts-on-eleventy/quick-start-section.png", "The quick start section on the homepage with instructions on how to get started." %}
+{% image "images/thoughts-on-eleventy/quick-start-section.png", "The quick start section on the homepage, contains instructions on how to get started." %}
 
 On a better note though, here is a part I actually like about the homepage.
 
-{% image "images/thoughts-on-eleventy/faster-websites-animation.png", "The speed race visual/animation showcasing 11ty's prowess over competing web frameworks." %}
+{% image "images/thoughts-on-eleventy/faster-websites-animation.png", "An animation
+showcasing 11ty's prowess over competing static site generators in a race-like fashion." %}
 
 I love this animation and it's a convincing visual. Makes me glad I chose Eleventy!
 
@@ -61,7 +62,7 @@ I love this way of approaching it. And actually, Eleventy does have most of thes
 
 Neither of the first two results are recent- the videos in Bryan Robinson's tutorial series were produced between May and September of 2019, almost three years ago. And the 11ty Rocks! video was published over two years ago as of last month. And the often-recommended [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/) tutorial is sadly plastered with warnings of outdated content.
 
-{% image "images/thoughts-on-eleventy/eleventy-from-scratch-warning.png", "The mentioned outdated content warning is the first thing seen on the Learn Eleventy from Scratch website." %}
+{% image "images/thoughts-on-eleventy/eleventy-from-scratch-warning.png", "The mentioned outdated content warning is the first thing seen on the Learn Eleventy from Scratch website, a scary red banner discouraging new users from using the tutorial." %}
 
 Furthermore, none of those are official Eleventy resources. My conclusion from all this is this:
 
