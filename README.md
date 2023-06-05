@@ -15,6 +15,10 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
 
 </div>
 
+## Contributing
+
+If you see any issues or have any suggestions for the website, please open an issue or pull request. If you have any questions, feel free to reach out to me on via the [contact methods listed on my website](https://uncenter.org/contact/).
+
 ## About
 
 ### Features
@@ -44,14 +48,11 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
 
 ### Environment Variables
 
-- `UMAMI_TOKEN`: the token for the Umami analytics instance
-- `UMAMI_TRACKER_SCRIPT`: the name of the script to load for the Umami analytics instance (e.g. `script` for `https://<your-umami>.com/script.js`)
-- ~~`PAGESPEED_API_KEY`: the API key for the Google PageSpeed Insights API~~ (formerly used to fetch Lighthouse scores for the website)
+- `UMAMI_TOKEN`: the API token for the Umami analytics instance
 
 ## Credits
 
-Many thanks to the 11ty community for their contributions to the community, without which this website would not be possible.
-Many thanks to [Raphael Höser](https://www.hoeser.dev/), Stephanie Eckles for [11ty.rocks](https://11ty.rocks/), [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/), [11ty.recipes](https://11ty.recipes/) by Mike Aparicio, [Bernard Nijenhuis' notes](https://bnijenhuis.nl/), and more.
+Many thanks to the 11ty community for their contributions to the community, without which this website would not be possible- thanks to [Raphael Höser](https://www.hoeser.dev/), Stephanie Eckles for [11ty.rocks](https://11ty.rocks/), [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/), [11ty.recipes](https://11ty.recipes/) by Mike Aparicio, [Bernard Nijenhuis' notes](https://bnijenhuis.nl/), and more.
 
 Generic icons sourced from [Lucide](https://lucide.dev/), technology and development icons from [Devicons](https://devicon.dev/), and brand icons from [SVG Logos by Gil Barbara](https://github.com/gilbarbara/logos).
 
