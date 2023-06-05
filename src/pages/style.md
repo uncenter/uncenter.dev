@@ -127,7 +127,7 @@ function sum(a, b) {
 <!-- prettier-ignore -->
 *[CSS]: Cascading Style Sheets
 
-- Keyboard Input: [[icon:cmd]] + [[shift]] + [[p]]
+- Keyboard Input: [[icon:cmd]] + [[icon:shift]] + [[p]]
 - Inline code - `Inline Code`
 - [This is an internal text link](#).
 - [This is an external text link](https://github.com)
