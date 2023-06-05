@@ -5,6 +5,7 @@ module.exports = {
 		'./utils/**/*.js',
 		'./eleventy.config.js',
 	],
+	darkMode: ['class', '[theme="dark"]'],
 	theme: {
 		extend: {
 			colors: {
