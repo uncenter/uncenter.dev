@@ -120,7 +120,7 @@ function sum(a, b) {
 
 ### Images
 
-{% image "images/placeholder.jpeg", "Placeholder/example image" %}
+{% image "images/home.png", "Placeholder/example image" %}
 
 ## Inline elements
 

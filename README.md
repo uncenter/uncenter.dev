@@ -11,6 +11,8 @@
 
 This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and [Tailwind CSS](https://tailwindcss.com/).
 
+![Screenshot of uncenter.org](/images/home.png)
+
 </div>
 
 ## About
