@@ -1,37 +1,37 @@
-require('dotenv').config();
+const analytics = {
+	url: 'https://stats.uncenter.org',
+	shareId: 'LRerfjMi',
+	websiteId: 'dea82084-7eb8-4337-b02c-23f6ace1afc1',
+	websiteName: 'uncenter',
+	trackerScript: 'beepboop',
+};
+analytics.shareLink = `${analytics.url}/share/${analytics.shareId}/${analytics.websiteName}`;
+
 module.exports = {
-	name: 'uncenter',
 	lang: 'en',
 	domain: 'uncenter.org',
 	url:
 		process.env.NODE_ENV === 'production'
 			? 'https://uncenter.org'
 			: 'http://localhost:8080',
-	analytics: {
-		domain: 'stats.uncenter.org',
-		url: 'https://stats.uncenter.org',
-		shareLink: 'https://stats.uncenter.org/share/LRerfjMi/uncenter',
-		shareId: 'LRerfjMi',
-		websiteId: 'dea82084-7eb8-4337-b02c-23f6ace1afc1',
-		trackerScript: process.env.UMAMI_TRACKER_SCRIPT,
-	},
+	repo: 'uncenter.org',
 	description: 'Software developer and rookie linguist.',
-	github: {
-		username: 'uncenter',
-		repo: 'uncenter.org',
-	},
-	social: {
+	author: {
+		name: 'uncenter',
 		email: {
-			main: 'contact@uncenter.org',
+			plain: 'contact@uncenter.org',
 			obfuscated: 'contact[at]uncenter[dot]org',
+		},
+		github: {
+			username: 'uncenter',
 		},
 		mastodon: {
 			username: 'uncenter',
 			instance: 'fosstodon.org',
 		},
 		discord: {
-			username: 'uncenter',
-			tag: '1078',
+			username: 'uncenter#1078',
 		},
 	},
+	analytics,
 };

@@ -3,8 +3,6 @@ title: Contact
 description: Need to get in touch with me?
 ---
 
-:::card
-**mastodon**: [@{{ meta.social.mastodon.username }}@{{ meta.social.mastodon.instance }}](https://{{ meta.social.mastodon.instance }}/@{{ meta.social.mastodon.username }})
-**email**: {{ meta.social.email.main }}
-**discord**: {{ meta.social.discord.username }}#{{ meta.social.discord.tag }}
-:::
+**mastodon**: [@{{ meta.author.mastodon.username }}@{{ meta.author.mastodon.instance }}](https://{{ meta.author.mastodon.instance }}/@{{ meta.author.mastodon.username }})
+**email**: {{ meta.author.email.plain }}
+**discord**: {{ meta.author.discord.username }}

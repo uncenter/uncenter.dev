@@ -17,8 +17,8 @@
     <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
     <id>{{ meta.url }}</id>
     <author>
-        <name>{{ meta.name }}</name>
-        <email>{{ meta.social.email.main }}</email>
+        <name>{{ meta.author.name }}</name>
+        <email>{{ meta.author.email.plain }}</email>
     </author>
     {%- for post in collections.posts | reverse %}{%- set absolutePostUrl = post.url | absoluteUrl(meta.url) %}
         <entry>

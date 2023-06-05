@@ -1,3 +1,4 @@
+const meta = require('./meta');
 const data = {
 	top: [
 		{
@@ -20,12 +21,12 @@ const data = {
 	bottom: [
 		{
 			title: 'Visit my GitHub profile!',
-			url: 'https://github.com/uncenter/',
+			url: `https://github.com/${meta.author.github.username}`,
 			icon: 'custom:github',
 		},
 		{
 			title: 'Follow me on Mastodon!',
-			url: 'https://fosstodon.org/@uncenter',
+			url: `https://${meta.author.mastodon.instance}/@${meta.author.mastodon.username}`,
 			icon: 'custom:mastodon',
 		},
 		{

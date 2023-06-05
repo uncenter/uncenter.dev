@@ -4,13 +4,13 @@ eleventyComputed:
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ meta.lang }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title }} &middot; {{ meta.name }}</title>
+        <title>{{ title }} &middot; {{ meta.author.name }}</title>
 
-        <meta name="author" content="{{ meta.name }}">
+        <meta name="author" content="{{ meta.author.name }}">
         <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
         <meta name="generator" content="{{ eleventy.generator }}">
 
@@ -24,19 +24,19 @@ eleventyComputed:
         <meta name="theme-color" content="#ffffff">
         <meta name="view-transition" content="same-origin">
 
-        <link href="https://github.com/{{ meta.github.username }}" rel="me">
-        <link href="https://{{ meta.social.mastodon.instance }}/@{{ meta.social.mastodon.username }}" rel="me">
+        <link href="https://github.com/{{ meta.author.github.username }}" rel="me">
+        <link href="https://{{ meta.author.mastodon.instance }}/@{{ meta.author.mastodon.username }}" rel="me">
 
         <link rel="canonical" href="{{ meta.url }}{{ page.url }}">
         <link rel="alternate" type="application/rss+xml" href="{{ meta.url }}/feed.xml">
 
         <meta property="og:type" content="website">
-        <meta property="og:title" content="{{ title }} &middot; {{ meta.name }}">
+        <meta property="og:title" content="{{ title }} &middot; {{ meta.author.name }}">
         <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
         <meta property="og:image" content="{{ ogPreviewImage }}">
 
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ title }} &middot; {{ meta.name }}">
+        <meta name="twitter:title" content="{{ title }} &middot; {{ meta.author.name }}">
         <meta name="twitter:image" content="{{ ogPreviewImage }}">
 
         <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
@@ -58,7 +58,7 @@ eleventyComputed:
                 return;
             let giscusAttributes = {
                 src: 'https://giscus.app/client.js',
-                'data-repo': '{{ meta.github.username }}/{{ meta.github.repo }}',
+                'data-repo': '{{ meta.author.github.username }}/{{ meta.repo }}',
                 'data-repo-id': 'R_kgDOHSjhjQ',
                 'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
                 'data-mapping': 'title',
