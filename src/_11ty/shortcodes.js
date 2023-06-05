@@ -1,4 +1,5 @@
 const turndown = require('turndown');
+const fs = require('fs/promises');
 
 const Image = require('@11ty/eleventy-img');
 const imageSize = require('image-size');
@@ -12,6 +13,7 @@ const cleanContent = require('./utils/cleanContent.js');
 const wordCount = require('./utils/wordCount.js');
 const stringifyAttributes = require('./utils/stringifyAttributes.js');
 const logOutput = require('./utils/logOutput.js');
+const kleur = require('kleur');
 
 const getExcerpt = (page, classes = '') => {
 	function addClassToFirstParagraph(html, classes) {
@@ -112,6 +114,12 @@ const createCallout = (content, title, type) => {
 };
 
 const insertImage = async function (src, alt, width, height) {
+	try {
+		await fs.access(src);
+	} catch (error) {
+		console.log(kleur.red(`[11ty][images] File not found: ${src}`));
+		return;
+	}
 	if (!width || !height) {
 		const originalDimensions = imageSize.imageSize(src);
 
