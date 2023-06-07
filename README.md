@@ -2,7 +2,7 @@
     <h1>uncenter.org</h1>
 
 ![Website Status](https://img.shields.io/website?down_color=red&down_message=down&up_color=a&up_message=online&url=https%3A%2F%2Funcenter.org&style=for-the-badge)
-![Netlify](https://img.shields.io/netlify/0be102c8-f30f-48ad-a0f0-7fb84eea2740?style=for-the-badge&color=9cf)
+![Netlify](https://img.shields.io/netlify/0be102c8-f30f-48ad-a0f0-7fb84eea2740?style=for-the-badge)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Funcenter.org&style=for-the-badge)
 
 ![Wakatime](https://wakatime.com/badge/user/44269a44-02c2-486c-a2ea-494b7071737e/project/37a0a8c7-515a-4f8e-90bc-cfab440d9035.svg?style=for-the-badge)
