@@ -1,4 +1,4 @@
-/* https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/ */
+// Via: https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/
 
 const shiki = require('shiki');
 const renderToHtml = require('./shikier.renderer.js');
