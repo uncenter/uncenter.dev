@@ -6,7 +6,6 @@
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Funcenter.org&style=for-the-badge)
 
 ![Wakatime](https://wakatime.com/badge/user/44269a44-02c2-486c-a2ea-494b7071737e/project/37a0a8c7-515a-4f8e-90bc-cfab440d9035.svg?style=for-the-badge)
-![Spaghetti Code](https://img.shields.io/badge/SPAGHETTI%20CODE-yes-important?style=for-the-badge)
 
 This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and [Tailwind CSS](https://tailwindcss.com/).
 
