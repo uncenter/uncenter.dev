@@ -16,29 +16,25 @@ description: All sorts of things that I use.
 - [Notion](https://notion.so/) for personal writing and databases
 - [Spotify](https://spotify.com/) for music
 - [Discord](https://discord.com/) for messaging
-- [shottr](https://shottr.cc/) for screenshots!
+- [shottr](https://shottr.cc/) for screenshots
 
 ### Development
 
-- [VS Code](https://code.visualstudio.com/) for all programming
-- [Fig](https://fig.io/) for CLI autocomplete
+- [VS Code](https://code.visualstudio.com/) for programming
 - [Homebrew](https://brew.sh/) for system package management
-- [Hyper](https://hyper.is/) for terminal
-- [PyCharm](https://www.jetbrains.com/pycharm/) for Python
-- [Sublime Text](https://www.sublimetext.com/)
-- [Plain Text Editor](https://sindresorhus.com/plain-text-editor) for **the** simplest text editor
+- [iTerm2](https://iterm2.com/) for a better terminal
+- [PyCharm](https://www.jetbrains.com/pycharm/) for Python development
 
 ### Utilities
 
-- [AltTab](https://alt-tab-macos.netlify.app/) for quick window switching
+- [AltTab](https://alt-tab-macos.netlify.app/) for better (Windows-like) window switching
 - [BatteryBuddy](https://batterybuddy.app/) for a cute battery indicator
-- [Coffee](https://www.raycast.com/mooxl/coffee) to prevent sleep
-- [dat-weather-doe](https://github.com/inderdhir/DatWeatherDoe) for weather
-- [eul](https://github.com/gao-sun/eul) for system monitoring
-- [PurePaste](https://sindresorhus.com/pure-paste) for clipboard management
+- [dat-weather-doe](https://github.com/inderdhir/DatWeatherDoe) for weather in the menu bar
+- [stats](https://github.com/exelban/stats) for system monitoring in the menu bar
+- [PurePaste](https://sindresorhus.com/pure-paste) for pasting without formatting
 - [Raycast](https://raycast.com/) to replace the default MacOS spotlight search
-- [Shareful](https://sindresorhus.com/shareful) for copying, sharing, and saving files
-- [Rectangle](https://rectangleapp.com/) for window management
+  - [Coffee](https://www.raycast.com/mooxl/coffee) to prevent sleep
+- [Rectangle](https://rectangleapp.com/) for window snapping
 - [System Color Picker](https://github.com/sindresorhus/System-Color-Picker) for a better color picker
 - [Command X](https://sindresorhus.com/command-x) for cutting and pasting files in Finder
 
@@ -51,7 +47,6 @@ description: All sorts of things that I use.
 - [Fontanello](https://fontanello.app/) for finding fonts on websites
 - [Github Repo Size](https://github.com/Shywim/github-repo-size) for seeing repo sizes on GitHub
 - [Refined GitHub](https://github.com/refined-github/refined-github) for better GitHub
-- [SVG Gobbler](https://www.svggobbler.com/) for grabbing SVGs from websites
 - [Visbug](https://github.com/GoogleChromeLabs/ProjectVisBug) for taking a look at styling on websites
 - [Web Developer](https://chrispederick.com/work/web-developer/) for basic web development tools
 
@@ -62,7 +57,7 @@ description: All sorts of things that I use.
 - [Netlify](https://www.netlify.com/) for some static site hosting
 - [Railway](https://railway.app/) for hosting and managing databases
 - [Umami](https://umami.is/) for the best simple, easy, privacy-respecting analytics
-- [Vercel](https://vercel.com/) for some web app hosting
+- [Vercel](https://vercel.com/) for hosting
 
 ## Hardware
 
