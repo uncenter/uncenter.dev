@@ -1,22 +1,5 @@
 @import 'tailwind';
 
-:root {
-	--accent-red: #e1515d;
-	--accent-orange: #ff9b71;
-	--accent-yellow: #ffbc42;
-	--accent-green: #74a04c;
-	--accent-blue: #82a3c4;
-	--accent-purple: #9b8ae5;
-	--accent-pink: #d37392;
-	--light-gray: #afb3b6;
-	--dark-gray: #3f4750;
-	--light: #ffffff;
-	--dark: #1d1f21;
-
-	--block-indent: 2rem;
-	--block-border-width: 4px;
-}
-
 html {
 	scroll-behavior: smooth;
 	overflow-y: scroll;
@@ -46,14 +29,97 @@ main {
 	grid-column: 2 / 2;
 }
 
+:root {
+	--block-indent: 2rem;
+	--block-border-width: 4px;
+}
+
 :root[theme='light'] {
+	$rosewater: #dc8a78;
+	$flamingo: #dd7878;
+	$pink: #ea76cb;
+	$mauve: #8839ef;
+	$red: #d20f39;
+	$maroon: #e64553;
+	$peach: #fe640b;
+	$yellow: #df8e1d;
+	$green: #40a02b;
+	$teal: #179299;
+	$sky: #04a5e5;
+	$sapphire: #209fb5;
+	$blue: #1e66f5;
+	$lavender: #7287fd;
+	$text: #4c4f69;
+	$subtext1: #5c5f77;
+	$subtext0: #6c6f85;
+	$overlay2: #7c7f93;
+	$overlay1: #8c8fa1;
+	$overlay0: #9ca0b0;
+	$surface2: #acb0be;
+	$surface1: #bcc0cc;
+	$surface0: #ccd0da;
+	$crust: #dce0e8;
+	$mantle: #e6e9ef;
+	$base: #eff1f5;
+
+	--accent-red: #{$red};
+	--accent-orange: #{$peach};
+	--accent-yellow: #{$yellow};
+	--accent-green: #{$green};
+	--accent-blue: #{$blue};
+	--accent-purple: #{$mauve};
+	--accent-pink: #{$pink};
+	--light-gray: #{$surface1};
+	--dark-gray: #{$overlay1};
+	--light: #{$base};
+	--dark: #{$text};
+
 	body {
 		--bg: var(--light);
-		--fg: var(--dark-gray);
+		--fg: var(--dark);
 	}
 }
 
 :root[theme='dark'] {
+	$rosewater: #f2d5cf;
+	$flamingo: #eebebe;
+	$pink: #f4b8e4;
+	$mauve: #ca9ee6;
+	$red: #e78284;
+	$maroon: #ea999c;
+	$peach: #ef9f76;
+	$yellow: #e5c890;
+	$green: #a6d189;
+	$teal: #81c8be;
+	$sky: #99d1db;
+	$sapphire: #85c1dc;
+	$blue: #8caaee;
+	$lavender: #babbf1;
+	$text: #c6d0f5;
+	$subtext1: #b5bfe2;
+	$subtext0: #a5adce;
+	$overlay2: #949cbb;
+	$overlay1: #838ba7;
+	$overlay0: #737994;
+	$surface2: #626880;
+	$surface1: #51576d;
+	$surface0: #414559;
+	$base: #303446;
+	$mantle: #292c3c;
+	$crust: #232634;
+
+	--accent-red: #{$red};
+	--accent-orange: #{$peach};
+	--accent-yellow: #{$yellow};
+	--accent-green: #{$green};
+	--accent-blue: #{$blue};
+	--accent-purple: #{$mauve};
+	--accent-pink: #{$pink};
+	--light-gray: #{$subtext0};
+	--dark-gray: #{$crust};
+	--light: #{$text};
+	--dark: #{$base};
+
 	body {
 		--bg: var(--dark);
 		--fg: var(--light);
@@ -62,7 +128,7 @@ main {
 
 ::selection {
 	background-color: var(--accent);
-	color: var(--light);
+	color: var(--bg);
 }
 
 @import 'syntax';
