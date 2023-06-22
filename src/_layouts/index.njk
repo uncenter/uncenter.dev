@@ -1,7 +1,7 @@
----
-eleventyComputed:
-  ogPreviewImage: "{{ meta.url }}/previews/{{ title | slugify }}.png"
----
+{% set openGraphImage = [
+    meta.url, '/previews/', title | slugify,
+    '.png'
+] | join %}
 
 <!DOCTYPE html>
 <html lang="{{ meta.lang }}">
@@ -9,6 +9,18 @@ eleventyComputed:
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title }} &middot; {{ meta.author.name }}</title>
+
+        <script>
+            {{ inlined.js.before | safe }}
+        </script>
+
+        <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
+        <style>
+            {{inlined.css | safe}}
+        </style>
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
+
+        <script defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
 
         <meta name="author" content="{{ meta.author.name }}">
         <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
@@ -33,21 +45,11 @@ eleventyComputed:
         <meta property="og:type" content="website">
         <meta property="og:title" content="{{ title }} &middot; {{ meta.author.name }}">
         <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
-        <meta property="og:image" content="{{ ogPreviewImage }}">
+        <meta property="og:image" content="{{ openGraphImage }}">
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ title }} &middot; {{ meta.author.name }}">
-        <meta name="twitter:image" content="{{ ogPreviewImage }}">
-
-        <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
-        <style>
-            {{inlined.css | safe}}
-        </style>
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
-        <script>
-            {{ inlined.js.before | safe }}
-        </script>
-        <script defer data-website-id="{{ meta.analytics.websiteId }}" data-domains="{{ meta.domain }}" src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}.js"></script>
+        <meta name="twitter:image" content="{{ openGraphImage }}">
     </head>
     <body class="bg-bg text-fg font-display max-w-[130ch] mx-auto px-6 pt-8 sm:pt-16 pb-10">
         {{ content | safe }}
