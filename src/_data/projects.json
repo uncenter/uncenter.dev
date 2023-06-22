@@ -13,14 +13,14 @@
 			"featured": true
 		},
 		{
+			"name": "npm-on-github",
+			"description": "A Chrome extension to view NPM package downloads right on Github.",
+			"link": "https://github.com/uncenter/npm-on-github"
+		},
+		{
 			"name": "create-eleventy-app",
 			"description": "An easy-to-use CLI tool to quickly create a fresh Eleventy project.",
 			"link": "https://github.com/uncenter/create-eleventy-app"
-		},
-		{
-			"name": "npm-on-github",
-			"description": "A Chrome extension that displays downloads on GitHub for npm packages.",
-			"link": "https://github.com/uncenter/npm-on-github"
 		}
 	],
 	"mini": [
