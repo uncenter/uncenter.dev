@@ -73,7 +73,7 @@
 			mask-position: center;
 			mask-repeat: no-repeat;
 			mask-size: contain;
-			@apply bg-fg content-[''] inline-block h-[11px] w-[11px] ml-1 mr-0.5;
+			@apply bg-fg hover:bg-accent content-[''] inline-block h-[11px] w-[11px] ml-1 mr-0.5;
 		}
 
 		h2,
