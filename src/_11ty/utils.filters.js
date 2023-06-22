@@ -99,6 +99,10 @@ const ordinal = (number) => {
 	return number + 'th';
 };
 
+const capitalize = (str) => {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('toShortDate', toShortDate);
 	eleventyConfig.addFilter('toMedDate', toMedDate);
@@ -115,4 +119,5 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('replace', replace);
 	eleventyConfig.addFilter('readFile', readFile);
 	eleventyConfig.addFilter('ordinal', ordinal);
+	eleventyConfig.addFilter('capitalize', capitalize);
 };

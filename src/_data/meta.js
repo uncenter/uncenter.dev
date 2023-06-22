@@ -16,6 +16,13 @@ module.exports = {
 			: 'http://localhost:8080',
 	repo: 'uncenter.org',
 	description: 'Software developer and rookie linguist.',
+	keywords: [
+		'Software',
+		'Developer',
+		'Programming',
+		'Technology',
+		'JavaScript',
+	],
 	author: {
 		name: 'uncenter',
 		email: {

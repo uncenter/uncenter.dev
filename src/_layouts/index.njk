@@ -25,14 +25,14 @@
         <meta name="author" content="{{ meta.author.name }}">
         <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
         <meta name="generator" content="{{ eleventy.generator }}">
+        <meta name="keywords" content="{{ meta.keywords | join(', ') }}">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20230522">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20230522">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20230522">
         <link rel="manifest" href="/site.webmanifest?v=20230522">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg?v=20230522" color="#5bbad5">
         <link rel="shortcut icon" href="/favicon.ico?v=20230522">
-        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="theme-color" content="#ffffff">
         <meta name="view-transition" content="same-origin">
 
@@ -42,10 +42,21 @@
         <link rel="canonical" href="{{ meta.url }}{{ page.url }}">
         <link rel="alternate" type="application/rss+xml" href="{{ meta.url }}/feed.xml">
 
-        <meta property="og:type" content="website">
+        {% if layout != 'post' %}
+            <meta property="og:type" content="website">
+        {% else %}
+            <meta property="og:type" content="article">
+            <meta property="og:article:published_time" content="{{ date }}">
+            <meta property="og:article:section" content="Technology">
+            {% for keyword in tags %}
+                <meta property="og:article:tag" content="{{ keyword | capitalize }}">
+            {% endfor %}
+        {% endif %}
         <meta property="og:title" content="{{ title }} &middot; {{ meta.author.name }}">
         <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
         <meta property="og:image" content="{{ openGraphImage }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ title }} &middot; {{ meta.author.name }}">

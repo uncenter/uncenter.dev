@@ -22,5 +22,5 @@
 	"theme_color": "#ffffff",
 	"background_color": "#ffffff",
 	"display": "standalone",
-	"start_url": "https://uncenter.org"
+	"start_url": "/"
 }
