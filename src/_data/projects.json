@@ -8,13 +8,13 @@
 		},
 		{
 			"name": "octotree",
-			"description": "Turn Github repositories into ASCII trees.",
+			"description": "Turn GitHub repositories into ASCII trees.",
 			"link": "https://tree.uncenter.org/",
 			"featured": true
 		},
 		{
 			"name": "npm-on-github",
-			"description": "A Chrome extension to view NPM package downloads right on Github.",
+			"description": "A Chrome extension to view NPM package downloads right on GitHub.",
 			"link": "https://github.com/uncenter/npm-on-github"
 		},
 		{

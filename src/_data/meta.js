@@ -15,7 +15,7 @@ module.exports = {
 			? 'https://uncenter.org'
 			: 'http://localhost:8080',
 	repo: 'uncenter.org',
-	description: 'Software developer and rookie linguist.',
+	description: 'Software developer, rookie linguist, and student.',
 	keywords: [
 		'Software',
 		'Developer',
@@ -37,7 +37,7 @@ module.exports = {
 			instance: 'fosstodon.org',
 		},
 		discord: {
-			username: 'uncenter#1078',
+			username: 'uncenter',
 		},
 	},
 	analytics,

@@ -27,8 +27,7 @@ description: A list of recent changes I've made to this site.
                         data-category="{{ category }}">
                         <span class="inline-card" data-category="{{ category }}">{{ category }}</span>:
                         {% if commit.subject -%}
-                            <a aria-label="View commit on Github"
-                               href="https://github.com/{{ meta.author.github.username }}/{{ meta.repo }}/commit/{{ commit.hash }}">{{ message }}</a>{%- endif -%}
+                            <a aria-label="View commit on GitHub" href="https://github.com/{{ meta.author.github.username }}/{{ meta.repo }}/commit/{{ commit.hash }}">{{ message }}</a>{%- endif -%}
                         </li>
                     {%- endfor -%}
                 </ul>
