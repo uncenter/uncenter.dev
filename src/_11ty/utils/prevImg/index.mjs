@@ -194,7 +194,7 @@ const makeImage = async (data) => {
 						flexDirection: 'column',
 						justifyContent: 'space-between',
 						alignItems: 'flex-start',
-						backgroundColor: '#171717',
+						backgroundColor: '#232634',
 						color: '#ffffff',
 					},
 				},
