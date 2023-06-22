@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
+	setMetaThemeColor(localStorage.getItem('theme'));
 	if (document.getElementById('theme-selector')) {
 		document.getElementById('theme-selector').value =
 			document.documentElement.getAttribute('theme');

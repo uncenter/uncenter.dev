@@ -4,6 +4,19 @@ function getSystemTheme() {
 		: 'light';
 }
 
+function setMetaThemeColor(theme) {
+	if (theme === 'system') theme = getSystemTheme();
+	const metaThemeColor = document.querySelector("meta[name='theme-color']");
+	if (metaThemeColor) {
+		metaThemeColor.setAttribute(
+			'content',
+			theme === 'dark' ? '#303446' : '#EFF1F5',
+		);
+		return true;
+	}
+	return false;
+}
+
 function setTheme(theme, options = { permanent: true, update: true }) {
 	const { permanent, update } = options;
 	console.log(
@@ -15,12 +28,8 @@ function setTheme(theme, options = { permanent: true, update: true }) {
 	if (theme === 'system') theme = getSystemTheme();
 	document.documentElement.setAttribute('theme', theme);
 	document.documentElement.style.setProperty('color-scheme', theme);
-	document
-		.querySelector('meta[name="theme-color"]')
-		.setAttribute('content', theme === 'dark' ? '#1d1f21' : '#ffffff');
-	if (update) {
-		loadGiscus();
-	}
+	setMetaThemeColor(theme);
+	if (update) loadGiscus();
 }
 
 function setAccent(accent, options = { permanent: true }) {
