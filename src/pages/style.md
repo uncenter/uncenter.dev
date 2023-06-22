@@ -1,13 +1,6 @@
 ---
 title: Style
 description: Just a style guide.
-layout: post
-post:
-  tags: false
-  return:
-    link: '/colophon/'
-    text: Back to colophon
-  comments: false
 ---
 
 {% info "Inspiration" %}
