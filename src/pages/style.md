@@ -113,7 +113,7 @@ function sum(a, b) {
 
 ### Images
 
-{% image "images/home.png", "Placeholder/example image" %}
+{% image "images/home-dark.png", "Placeholder/example image" %}
 
 ## Inline elements
 
