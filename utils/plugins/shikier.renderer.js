@@ -1,10 +1,3 @@
-const htmlEscapes = {
-	'&': '&amp;',
-	'<': '&lt;',
-	'>': '&gt;',
-	'"': '&quot;',
-	"'": '&#39;',
-};
 var FontStyle = /* @__PURE__ */ ((FontStyle2) => {
 	FontStyle2[(FontStyle2['NotSet'] = -1)] = 'NotSet';
 	FontStyle2[(FontStyle2['None'] = 0)] = 'None';
@@ -13,6 +6,7 @@ var FontStyle = /* @__PURE__ */ ((FontStyle2) => {
 	FontStyle2[(FontStyle2['Underline'] = 4)] = 'Underline';
 	return FontStyle2;
 })(FontStyle || {});
+
 const defaultElements = {
 	pre({ className, style, children }) {
 		return `<pre class="${className}" style="${style}" tabindex="0">${children}</pre>`;
@@ -27,9 +21,21 @@ const defaultElements = {
 		return `<span style="${style}">${children}</span>`;
 	},
 };
+
 function escapeHtml(html) {
-	return html.replace(/[&<>"']/g, (chr) => htmlEscapes[chr]);
+	return html.replace(
+		/[&<>"']/g,
+		(chr) =>
+			({
+				'&': '&amp;',
+				'<': '&lt;',
+				'>': '&gt;',
+				'"': '&quot;',
+				"'": '&#39;',
+			}[chr]),
+	);
 }
+
 function getLineClasses(lineOptions) {
 	const lineClasses = /* @__PURE__ */ new Set(['line']);
 	for (const lineOption of lineOptions) {
@@ -39,6 +45,7 @@ function getLineClasses(lineOptions) {
 	}
 	return Array.from(lineClasses);
 }
+
 function groupBy(elements, keyGetter) {
 	const map = /* @__PURE__ */ new Map();
 	for (const element of elements) {
@@ -53,7 +60,7 @@ function groupBy(elements, keyGetter) {
 	return map;
 }
 
-function renderToHtml(lines, options = {}) {
+module.exports = function renderToHtml(lines, options = {}) {
 	const bg = options.bg || '#fff';
 	const optionsByLineNumber = groupBy(
 		options.lineOptions ?? [],
@@ -70,11 +77,8 @@ function renderToHtml(lines, options = {}) {
 				);
 				children[0] = parts
 					.map((part, index) => {
-						if (index % 2 === 0) {
-							return escapeHtml(part);
-						} else {
-							return `<a href="${part}">${part}</a>`;
-						}
+						if (index % 2 === 0) return escapeHtml(part);
+						return `<a href="${part}">${part}</a>`;
 					})
 					.join('');
 			}
@@ -134,6 +138,4 @@ function renderToHtml(lines, options = {}) {
 			),
 		],
 	);
-}
-
-module.exports = renderToHtml;
+};
