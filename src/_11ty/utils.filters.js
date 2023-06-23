@@ -62,13 +62,6 @@ const readFile = (filePath) => {
 	return fileContents.toString('utf8');
 };
 
-const includes = (check, value) => {
-	if (Array.isArray(value)) {
-		return value.some((v) => check.includes(v));
-	}
-	return check.includes(value);
-};
-
 const setAttr = (content, attribute, value = false) => {
 	const regex = new RegExp(`${attribute}=".*?"`, 'g');
 	let el = content.match(/<[^>]*>/)[0];
@@ -114,7 +107,6 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('toHtml', toHtml);
 	eleventyConfig.addFilter('toHtmlInline', toHtmlInline);
 	eleventyConfig.addFilter('readingTime', require('./utils/readingTime'));
-	eleventyConfig.addFilter('includes', includes);
 	eleventyConfig.addFilter('setAttr', setAttr);
 	eleventyConfig.addFilter('replace', replace);
 	eleventyConfig.addFilter('readFile', readFile);
