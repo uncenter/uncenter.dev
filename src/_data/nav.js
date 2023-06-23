@@ -3,19 +3,19 @@ const data = {
 	top: [
 		{
 			title: 'Articles',
-			urls: ['/'],
+			url: '/',
 		},
 		{
 			title: 'Projects',
-			urls: ['/projects/'],
+			url: '/projects/',
 		},
 		{
 			title: 'Uses',
-			urls: ['/uses/'],
+			url: '/uses/',
 		},
 		{
 			title: 'Colophon',
-			urls: ['/colophon/'],
+			url: '/colophon/',
 		},
 	],
 	bottom: [
@@ -43,15 +43,11 @@ const data = {
 };
 
 module.exports = () => {
-	data.top.urls = [];
-	data.top.forEach((item) => {
-		item.urls.forEach((url) => {
-			data.top.urls.push(url);
+	['top', 'bottom'].forEach((key) => {
+		data[key].urls = [];
+		data[key].forEach((item) => {
+			data[key].urls.push(item.url);
 		});
-	});
-	data.bottom.urls = [];
-	data.bottom.forEach((item) => {
-		data.bottom.urls.push(item.url);
 	});
 	return data;
 };
