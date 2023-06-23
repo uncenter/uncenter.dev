@@ -39,7 +39,7 @@
 		"image-size": "^1.0.2",
 		"linkedom": "^0.14.26",
 		"lodash": "^4.17.21",
-		"lucide-static": "^0.241.0",
+		"lucide-static": "^0.252.0",
 		"luxon": "^3.3.0",
 		"markdown-it": "^13.0.1",
 		"markdown-it-abbr": "^1.0.4",
@@ -48,7 +48,7 @@
 		"markdown-it-container": "^3.0.0",
 		"markdown-it-emoji": "^2.0.2",
 		"markdown-it-footnote": "^3.0.3",
-		"markdown-it-kbd-better": "^1.2.0",
+		"markdown-it-kbd-better": "^1.2.1",
 		"markdown-it-link-attributes": "^4.0.1",
 		"markdown-it-mark": "^3.0.1",
 		"markdown-it-sub": "^1.0.0",
@@ -58,7 +58,7 @@
 		"netlify-plugin-11ty": "^1.3.0",
 		"p-limit": "^4.0.0",
 		"postcss": "^8.4.24",
-		"sass": "^1.63.3",
+		"sass": "^1.63.6",
 		"satori": "^0.10.1",
 		"sharp": "^0.32.1",
 		"shiki": "^0.14.2",
@@ -69,12 +69,12 @@
 	},
 	"devDependencies": {
 		"cspell": "^6.31.1",
-		"dotenv": "^16.1.4",
-		"eslint": "^8.42.0",
+		"dotenv": "^16.3.1",
+		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
 		"kleur": "^4.1.5",
 		"prettier-plugin-tailwindcss": "^0.3.0",
 		"rimraf": "^5.0.1"
 	},
-	"packageManager": "pnpm@8.6.0"
+	"packageManager": "pnpm@8.6.2"
 }
