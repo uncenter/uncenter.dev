@@ -9,7 +9,8 @@
 
 This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and [Tailwind CSS](https://tailwindcss.com/).
 
-![Screenshot of uncenter.org](/images/home.png)
+![Screenshot of my website's homepage, in dark mode](/images/home-dark.png)
+![Screenshot of my website's homepage, in light mode](/images/home-light.png)
 
 </div>
 
@@ -46,7 +47,7 @@ If you see any issues or have any suggestions for the website, please open an is
 
 ### Environment Variables
 
-- `UMAMI_TOKEN`: the API token for the Umami analytics instance
+- `UMAMI_TOKEN`: the API token for fetching analytics data from [Umami](https://umami.is/)
 
 ## Credits
 
