@@ -208,10 +208,10 @@ const makeImage = async (data) => {
 
 		await sharp(Buffer.from(result))
 			.png()
-			.toFile(`dist/previews/${data.slug}.png`);
+			.toFile(`dist/assets/previews/${data.slug}.png`);
 		console.log(
 			`[11ty][${kleur.magenta('previews')}] ${kleur.bold(
-				'dist/previews/',
+				'dist/assets/previews/',
 			)}${kleur.cyan().bold(data.slug)}${kleur.bold('.png')}`,
 		);
 	} catch (err) {
@@ -222,8 +222,8 @@ const makeImage = async (data) => {
 	}
 };
 
-await rm('dist/previews', { force: true, recursive: true });
-await mkdir('dist/previews', { recursive: true });
+await rm('dist/assets/previews', { force: true, recursive: true });
+await mkdir('dist/assets/previews', { recursive: true });
 
 const startTime = performance.now();
 

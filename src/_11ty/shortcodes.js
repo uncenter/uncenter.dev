@@ -132,8 +132,8 @@ const insertImage = async function (src, alt, width, height) {
 			.filter((a) => a <= width)
 			.sort((a, b) => a - b),
 		formats: ['avif', 'webp', 'png'],
-		outputDir: 'dist/images',
-		urlPath: '/images/',
+		outputDir: 'dist/assets/images/',
+		urlPath: '/assets/images/',
 	});
 
 	logOutput({
