@@ -14,8 +14,7 @@
 	},
 	"scripts": {
 		"dev": "eleventy --serve",
-		"clean": "rimraf dist/ pages.json",
-		"deep-clean": "rimraf dist/ pages.json node_modules/ .cache/ && pnpm i",
+		"clean": "rimraf dist/ pages.json .cache",
 		"spell": "node ./utils/update-dicts.js && cspell src/posts/**/*.md",
 		"format": "prettier --write .",
 		"build": "NODE_ENV=production eleventy && node ./src/_11ty/utils/prevImg/index.mjs",
