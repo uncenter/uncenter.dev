@@ -83,7 +83,7 @@ const path = require('path');
 
 function getRepos() {
 const reposFile = path.join(\_\_dirname, './dicts/repos.txt');
-const reposURL = 'https://api.github.com/users/<USERNAME>/repos';
+const reposURL = 'https://api.github.com/users/uncenter/repos';
 
     (async () => {
     	const response = await fetch(reposURL);
