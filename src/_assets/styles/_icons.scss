@@ -4,13 +4,11 @@
 	height: 1em;
 }
 
-:root[theme='light'] {
-	.icon {
-		fill: black;
-	}
+.icon:not(.icon-lucide) {
+	fill: currentColor;
 }
-:root[theme='dark'] {
-	.icon {
-		fill: white;
-	}
+
+.icon-lucide {
+	fill: none;
+	stroke: currentColor;
 }

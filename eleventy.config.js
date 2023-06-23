@@ -52,6 +52,9 @@ module.exports = function (eleventyConfig) {
 		icon: {
 			overwriteExistingAttributes: true,
 			ignoreNotFound: false,
+			class: function (name, source) {
+				return `icon icon-${name} icon-${source}`;
+			},
 		},
 	});
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
