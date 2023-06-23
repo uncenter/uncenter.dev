@@ -64,6 +64,20 @@ function renderToHtml(lines, options = {}) {
 		const element = userElements[type] || defaultElements[type];
 		if (element) {
 			children = children.filter(Boolean);
+			if (type === 'token') {
+				const parts = children[0].split(
+					/(https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))/,
+				);
+				children[0] = parts
+					.map((part, index) => {
+						if (index % 2 === 0) {
+							return escapeHtml(part);
+						} else {
+							return `<a href="${part}">${part}</a>`;
+						}
+					})
+					.join('');
+			}
 			return element({
 				...props,
 				children: type === 'code' ? children.join('\n') : children.join(''),
@@ -112,7 +126,7 @@ function renderToHtml(lines, options = {}) {
 									token,
 									index: index2,
 								},
-								[escapeHtml(token.content)],
+								[token.content],
 							);
 						}),
 					);
