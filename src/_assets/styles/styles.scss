@@ -131,8 +131,22 @@ main {
 	color: var(--bg);
 }
 
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+}
+
+.icon:not(.icon-lucide) {
+	fill: currentColor;
+}
+
+.icon-lucide {
+	fill: none;
+	stroke: currentColor;
+}
+
 @import 'syntax';
-@import 'icons';
 
 .note {
 	padding: 0 1.5rem 0px 1.5rem;
