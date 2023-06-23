@@ -44,10 +44,11 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginIcons, {
 		mode: 'inline',
 		sources: {
-			custom: './src/_assets/icons/custom',
+			si: 'node_modules/simple-icons/icons',
 			lucide: 'node_modules/lucide-static/icons',
+			custom: 'src/_assets/icons',
 		},
-		default: 'lucide',
+		default: 'custom',
 		icon: {
 			overwriteExistingAttributes: true,
 			ignoreNotFound: false,

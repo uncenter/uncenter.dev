@@ -22,22 +22,22 @@ const data = {
 		{
 			title: 'Visit my GitHub profile!',
 			url: `https://github.com/${meta.author.github.username}`,
-			icon: 'custom:github',
+			icon: 'si:github',
 		},
 		{
 			title: 'Follow me on Mastodon!',
 			url: `https://${meta.author.mastodon.instance}/@${meta.author.mastodon.username}`,
-			icon: 'custom:mastodon',
+			icon: 'si:mastodon',
 		},
 		{
 			title: 'Subscribe to my RSS feed!',
 			url: '/feed.xml',
-			icon: 'custom:rss',
+			icon: 'si:rss',
 		},
 		{
 			title: 'Contact me via Element/Matrix!',
 			url: 'https://matrix.to/%23/#uncenter:matrix.org',
-			icon: 'custom:elementio',
+			icon: 'si:element',
 		},
 	],
 };

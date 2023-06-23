@@ -125,6 +125,9 @@ dependencies:
   shiki:
     specifier: ^0.14.2
     version: 0.14.2
+  simple-icons:
+    specifier: ^9.2.0
+    version: 9.2.0
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.2
@@ -4227,6 +4230,11 @@ packages:
       decompress-response: 6.0.0
       once: 1.4.0
       simple-concat: 1.0.1
+    dev: false
+
+  /simple-icons@9.2.0:
+    resolution: {integrity: sha512-BwLa76uMHBZKN1+L7Qmboj47mcFADiA/dfAePOd3arSPv6JMRNptJ2FNDBLuqkKliWG2W9XuBKhunuv+GzPpLA==}
+    engines: {node: '>=0.12.18'}
     dev: false
 
   /simple-swizzle@0.2.2:

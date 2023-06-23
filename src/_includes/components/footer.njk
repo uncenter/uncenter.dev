@@ -2,8 +2,7 @@
     <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
         {% for item in nav.bottom %}
             <li title="{{ item.title }}" class="mx-1">
-                <a class="not-fancy" aria-label="{{ item.title }}" href="{{ item.url }}">{% icon item.icon %}
-                </a>
+                <a class="not-fancy" aria-label="{{ item.title }}" href="{{ item.url }}">{% icon item.icon %}</a>
             </li>
         {% endfor %}
     </ul>

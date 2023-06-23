@@ -3,10 +3,10 @@
         {% if project
             .link
             .startsWith("https://github.com") %}
-            {% set projectIcon = 'custom:github' %}
+            {% set projectIcon = 'si:github' %}
             {% set projectLabel = 'Open ' + project.name + ' on GitHub' %}
         {% else %}
-            {% set projectIcon = 'external-link' %}
+            {% set projectIcon = 'lucide:external-link' %}
             {% set projectLabel = 'Open ' + project.name %}
         {% endif %}
 

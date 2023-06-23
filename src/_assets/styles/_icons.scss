@@ -5,54 +5,12 @@
 }
 
 :root[theme='light'] {
-	.icon-github {
-		fill: black;
-		stroke: white;
-	}
-	.icon-mastodon,
-	.icon-elementio {
-		& .outer {
-			fill: black;
-		}
-
-		& .inner {
-			fill: white;
-		}
-	}
-	.icon-rss {
-		fill: white;
-
-		& .outer {
-			fill: black;
-		}
-	}
-	.icon-duck-flying {
+	.icon {
 		fill: black;
 	}
 }
 :root[theme='dark'] {
-	.icon-github {
-		fill: white;
-		stroke: black;
-	}
-	.icon-mastodon,
-	.icon-elementio {
-		& .outer {
-			fill: white;
-		}
-
-		& .inner {
-			fill: black;
-		}
-	}
-	.icon-rss {
-		fill: black;
-
-		& .outer {
-			fill: white;
-		}
-	}
-	.icon-duck-flying {
+	.icon {
 		fill: white;
 	}
 }
