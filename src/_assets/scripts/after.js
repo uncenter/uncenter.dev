@@ -33,8 +33,8 @@ const ICON_COPY = `<svg aria-hidden="true" viewBox="0 0 16 16" class="fill-slate
 const ICON_CHECK = `<svg aria-hidden="true" viewBox="0 0 16 16" class="fill-green-400 m-2"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>`;
 const ICON_LINK = `<svg aria-hidden="true" viewBox="0 0 16 16" class="fill-slate-300 m-2"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg>`;
 document.querySelectorAll('pre.shiki').forEach((block) => {
-	const buttonWrapper = document.createElement('div');
-	buttonWrapper.classList.add('absolute', 'right-0', 'top-0', 'flex', 'gap-1');
+	const codeToolbar = document.createElement('div');
+	codeToolbar.classList.add('absolute', 'right-0', 'top-0', 'flex', 'gap-1');
 
 	// Copy button:
 	const copyButton = document.createElement('button');
@@ -45,6 +45,7 @@ document.querySelectorAll('pre.shiki').forEach((block) => {
 		'border-solid',
 		'border-transparent',
 	);
+	copyButton.setAttribute('aria-label', 'Copy code to clipboard');
 	copyButton.innerHTML = ICON_COPY;
 
 	copyButton.addEventListener('click', () => {
@@ -68,10 +69,15 @@ document.querySelectorAll('pre.shiki').forEach((block) => {
 		'border-solid',
 		'border-transparent',
 	);
+	linkButton.setAttribute('aria-label', 'Go to code block');
 	linkButton.innerHTML = ICON_LINK;
 	linkButton.addEventListener('click', () => {
-		const codeId = block.parentNode.getAttribute('id');
-		window.location.href = window.location.href.split('#')[0] + '#' + codeId;
+		const codeUrl =
+			window.location.href.split('#')[0] +
+			'#' +
+			block.parentNode.getAttribute('id');
+		window.location.href = codeUrl;
+		navigator.clipboard.writeText(codeUrl);
 		linkButton.innerHTML = ICON_CHECK;
 		linkButton.classList.remove('border-transparent');
 		linkButton.classList.add('border-green-400');
@@ -82,8 +88,8 @@ document.querySelectorAll('pre.shiki').forEach((block) => {
 		}, 1500);
 	});
 
-	// Add buttons to wrapper:
-	buttonWrapper.appendChild(linkButton);
-	buttonWrapper.appendChild(copyButton);
-	block.parentNode.insertBefore(buttonWrapper, block.nextSibling);
+	// Add buttons to toolbar:
+	codeToolbar.appendChild(linkButton);
+	codeToolbar.appendChild(copyButton);
+	block.parentNode.insertBefore(codeToolbar, block.nextSibling);
 });
