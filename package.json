@@ -18,7 +18,7 @@
 		"spell": "node ./utils/update-dicts.js && cspell src/posts/**/*.md",
 		"format": "prettier --write .",
 		"build": "eleventy && node ./utils/plugins/prevImg/index.mjs",
-		"prod": "NODE_ENV=production npm run spell && npm run build",
+		"prod": "npm run spell && NODE_ENV=production npm run build",
 		"debug": "DEBUG=Eleventy* npm run start"
 	},
 	"dependencies": {
