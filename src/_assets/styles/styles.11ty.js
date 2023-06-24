@@ -3,7 +3,7 @@ const fs = require('fs');
 const Blob = require('buffer').Blob;
 const sass = require('sass');
 
-const logOutput = require('../../_11ty/utils/logOutput.js');
+const log = require('../../_11ty/utils/log.js');
 
 module.exports = class {
 	data() {
@@ -18,8 +18,8 @@ module.exports = class {
 		let source = `${__dirname}/styles.scss`;
 		let result = sass.compile(source);
 		let content = result.css.toString();
-		logOutput({
-			type: 'styles',
+		log.output({
+			category: 'styles',
 			file: 'styles.scss',
 			extra: `${new Blob([fs.readFileSync(source)]).size / 1000}kb -> ${
 				new Blob([content]).size / 1000
@@ -38,8 +38,8 @@ module.exports = class {
 			from: source,
 			to: source,
 		});
-		logOutput({
-			type: 'styles',
+		log.output({
+			category: 'styles',
 			file: 'styles.css',
 			extra: `${new Blob([content]).size / 1000}kb -> ${
 				new Blob([css.content]).size / 1000

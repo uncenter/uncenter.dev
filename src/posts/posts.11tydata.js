@@ -1,7 +1,7 @@
 const { DateTime } = require('luxon');
 const EleventyFetch = require('@11ty/eleventy-fetch');
 
-const logOutput = require('../_11ty/utils/logOutput.js');
+const log = require('../_11ty/utils/log.js');
 const isProd = process.env.NODE_ENV === 'production';
 const meta = require('../_data/meta.js');
 require('dotenv').config();
@@ -68,8 +68,8 @@ module.exports = {
 			for (let i = 0; i < res.pageviews.length; i++) {
 				views += res.pageviews[i].y;
 			}
-			logOutput({
-				type: 'views',
+			log.output({
+				category: 'views',
 				file: data.page.url,
 				extra: views,
 			});

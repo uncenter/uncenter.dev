@@ -12,7 +12,7 @@ const getReadingTime = require('./utils/readingTime.js');
 const cleanContent = require('./utils/cleanContent.js');
 const wordCount = require('./utils/wordCount.js');
 const stringifyAttributes = require('./utils/stringifyAttributes.js');
-const logOutput = require('./utils/logOutput.js');
+const log = require('./utils/log.js');
 const kleur = require('kleur');
 
 const getExcerpt = (page, classes = '') => {
@@ -136,10 +136,7 @@ const insertImage = async function (src, alt, width, height) {
 		urlPath: '/assets/images/',
 	});
 
-	logOutput({
-		type: 'images',
-		file: src,
-	});
+	log.output({ category: 'images', file: src });
 
 	const getLargestImage = (format) => {
 		const images = data[format];
