@@ -2,6 +2,7 @@ const shortcodes = require('./src/_11ty/shortcodes.js');
 const collections = require('./src/_11ty/collections.js');
 const filters = require('./src/_11ty/filters.js');
 const utils = require('./src/_11ty/utils.filters.js');
+const transforms = require('./src/_11ty/transforms.js');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
@@ -70,18 +71,11 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Other Config */
-	eleventyConfig.addTransform('minify-and-wrap-shiki', function (content) {
+	eleventyConfig.addTransform('html', function (content) {
 		if (this.page.outputPath && this.page.outputPath.endsWith('.html')) {
-			let minified = require('html-minifier').minify(content, {
-				useShortDoctype: true,
-				removeComments: true,
-				collapseWhitespace: true,
-			});
-			const { document } = parseHTML(minified);
-			document.querySelectorAll('pre.shiki').forEach((block) => {
-				block.outerHTML = `<div class="shiki-wrapper">${block.outerHTML}</div>`;
-			});
-			return document.documentElement.outerHTML;
+			content = transforms.minifyHtml(content);
+			content = transforms.wrapShiki(content);
+			return content;
 		}
 		return content;
 	});
