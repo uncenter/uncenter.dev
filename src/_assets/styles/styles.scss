@@ -1,5 +1,9 @@
 @import 'tailwind';
 
+* {
+	scroll-margin-top: 1rem;
+}
+
 html {
 	scroll-behavior: smooth;
 	overflow-y: scroll;
