@@ -28,44 +28,6 @@ const allTags = (collectionApi) => {
 	return filterTagList([...tagSet]);
 };
 
-const gitChangelog = () => {
-	const recentChanges = require('gitlog').default({
-		repo: __dirname,
-		number: 100,
-		fields: [
-			'hash',
-			'abbrevHash',
-			'subject',
-			'authorName',
-			'authorDate',
-			'committerDate',
-			'committerDateRel',
-		],
-	});
-
-	const grouped = new Map();
-
-	for (const change of recentChanges) {
-		let { subject, authorDate } = change;
-		if (
-			/^(fix|feat|docs|style|refactor|perf|test|chore|content)\b/i.test(subject)
-		) {
-			subject = subject.replace(/[<>]/g, '');
-			authorDate = DateTime.fromISO(
-				new Date(authorDate).toISOString(),
-			).toFormat('LLL dd yyyy');
-			if (!grouped.has(authorDate)) {
-				grouped.set(authorDate, []);
-			}
-			const forThisDate = grouped.get(authorDate);
-			if (!forThisDate.some(({ subject: subj }) => subj === subject)) {
-				forThisDate.push({ ...change, subject });
-			}
-		}
-	}
-	return Array.from(grouped.entries());
-};
-
 const series = (collectionApi) => {
 	const posts = collectionApi.getFilteredByGlob('./src/posts/**/*.md');
 
@@ -104,6 +66,5 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addCollection('allPosts', allPosts);
 	eleventyConfig.addCollection('archivedPosts', archivedPosts);
 	eleventyConfig.addCollection('allTags', allTags);
-	eleventyConfig.addCollection('recentChanges', gitChangelog);
 	eleventyConfig.addCollection('series', series);
 };
