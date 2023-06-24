@@ -1,6 +1,12 @@
 @import 'tailwind';
 
-* {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div {
 	scroll-margin-top: 1rem;
 }
 
@@ -74,7 +80,8 @@ main {
 	--accent-purple: #{$mauve};
 	--accent-pink: #{$pink};
 	--light-gray: #{$overlay0};
-	--dark-gray: #{$subtext1};
+	--dark-gray: #{$subtext0};
+	--neutral-gray: #{$overlay1};
 	--light: #{$base};
 	--dark: #{$text};
 
@@ -119,8 +126,9 @@ main {
 	--accent-blue: #{$blue};
 	--accent-purple: #{$mauve};
 	--accent-pink: #{$pink};
-	--light-gray: #{$overlay1};
+	--light-gray: #{$overlay2};
 	--dark-gray: #{$surface1};
+	--neutral-gray: #{$overlay0};
 	--light: #{$text};
 	--dark: #18181b;
 
@@ -131,7 +139,7 @@ main {
 }
 
 ::selection {
-	background-color: var(--accent);
+	background-color: var(--neutral-gray);
 	color: var(--bg);
 }
 
@@ -195,6 +203,6 @@ main {
 		}
 	}
 	&.note-note {
-		--note-color: var(--dark-gray);
+		--note-color: var(--neutral-gray);
 	}
 }

@@ -10,16 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
 				setTheme(selectedTheme);
 			});
 	}
-	if (document.getElementById('accent-selector')) {
-		document.getElementById('accent-selector').value =
-			document.documentElement.getAttribute('accent');
-		document
-			.getElementById('accent-selector')
-			.addEventListener('change', function () {
-				let selectedAccent = this.value;
-				setAccent(selectedAccent);
-			});
-	}
 	window
 		.matchMedia('(prefers-color-scheme: dark)')
 		.addEventListener('change', (e) => {

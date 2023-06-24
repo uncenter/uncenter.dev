@@ -36,9 +36,9 @@
 	}
 
 	blockquote {
-		border-left: var(--block-border-width) solid var(--accent);
+		border-left: var(--block-border-width) solid var(--neutral-gray);
 		margin-left: var(--block-indent);
-		@apply pl-4 border-l-4 border-accent border-solid border-r-0 border-t-0 border-b-0;
+		@apply pl-4 border-r-0 border-t-0 border-b-0;
 	}
 
 	hr {
