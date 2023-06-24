@@ -107,5 +107,5 @@ if (!accent || !validAccents.includes(accent)) {
 	accent = validAccents.includes(storedAccent) ? storedAccent : 'red';
 }
 setAccent(accent, {
-	permanent: accent === overrideAccent ? false : true,
+	permanent: true,
 });
