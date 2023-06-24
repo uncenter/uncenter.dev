@@ -4,23 +4,12 @@ module.exports = {
 	words: [
 		// Eleventy
 		'11ty',
-		'eleventy',
-		'netlify',
 		'jamstack',
 		'shortcode',
 		'shortcodes',
 		'pagination',
 		'frontmatter',
 		'webc',
-
-		// Brands
-		'Webmentions',
-		'Webmention',
-		'Giscus',
-		'Pagefind',
-		'Lucide',
-		'11ty',
-		'Devicons',
 
 		// Misc
 		'dotfiles',
@@ -33,6 +22,7 @@ module.exports = {
 		'nunjucksExpression',
 		'markdownCodeBlock',
 		'markdownInlineCode',
+		'properNouns',
 	],
 	patterns: [
 		{
@@ -46,6 +36,10 @@ module.exports = {
 		{
 			name: 'markdownInlineCode',
 			pattern: /`[^`]*`/gi,
+		},
+		{
+			name: 'properNouns',
+			pattern: /(?<=\s|^|[^\w\s])[A-Z][a-z]+(?=\s|$|[^\w\s])/g,
 		},
 	],
 };
