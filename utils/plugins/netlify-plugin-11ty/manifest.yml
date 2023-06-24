@@ -1,0 +1,17 @@
+name: 'netlify-plugin-11ty'
+inputs:
+  - name: cache_img
+    description: 'Output directory for @11ty/eleventy-image'
+    default: './img'
+
+  - name: cache_img_httpHeader
+    description: 'Add immutable cache http headers'
+    default: false
+
+  - name: cache_assets
+    description: 'Cache directory for @11ty/eleventy-fetch'
+    default: '../.cache'
+
+  - name: cache_other
+    description: 'Other directories to cache'
+    default: []
