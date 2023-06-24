@@ -78,7 +78,7 @@ module.exports = function renderToHtml(lines, options = {}) {
 				children[0] = parts
 					.map((part, index) => {
 						if (index % 2 === 0) return escapeHtml(part);
-						return `<a href="${part}">${part}</a>`;
+						return `<a href="${part}" style="${props.style}">${part}</a>`;
 					})
 					.join('');
 			}

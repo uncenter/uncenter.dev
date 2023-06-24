@@ -38,13 +38,6 @@ document.querySelectorAll('pre.shiki').forEach((block) => {
 
 	// Copy button:
 	const copyButton = document.createElement('button');
-	copyButton.classList.add(
-		'm-2',
-		'ml-0',
-		'border',
-		'border-solid',
-		'border-transparent',
-	);
 	copyButton.setAttribute('aria-label', 'Copy code to clipboard');
 	copyButton.innerHTML = ICON_COPY;
 
@@ -62,13 +55,6 @@ document.querySelectorAll('pre.shiki').forEach((block) => {
 
 	// Link button:
 	const linkButton = document.createElement('button');
-	linkButton.classList.add(
-		'm-2',
-		'mr-0',
-		'border',
-		'border-solid',
-		'border-transparent',
-	);
 	linkButton.setAttribute('aria-label', 'Go to code block');
 	linkButton.innerHTML = ICON_LINK;
 	linkButton.addEventListener('click', () => {

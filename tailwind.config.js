@@ -12,6 +12,8 @@ module.exports = {
 				bg: 'var(--bg)',
 				fg: 'var(--fg)',
 				accent: 'var(--accent)',
+				lightGray: 'var(--light-gray)',
+				darkGray: 'var(--dark-gray)',
 			},
 			fontFamily: {
 				display: [

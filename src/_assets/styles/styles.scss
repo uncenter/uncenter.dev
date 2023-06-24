@@ -69,8 +69,8 @@ main {
 	--accent-blue: #{$sky};
 	--accent-purple: #{$mauve};
 	--accent-pink: #{$pink};
-	--light-gray: #{$surface1};
-	--dark-gray: #{$overlay1};
+	--light-gray: #{$overlay0};
+	--dark-gray: #{$subtext1};
 	--light: #{$base};
 	--dark: #{$text};
 
@@ -115,8 +115,8 @@ main {
 	--accent-blue: #{$blue};
 	--accent-purple: #{$mauve};
 	--accent-pink: #{$pink};
-	--light-gray: #{$subtext0};
-	--dark-gray: #{$crust};
+	--light-gray: #{$overlay1};
+	--dark-gray: #{$surface1};
 	--light: #{$text};
 	--dark: #18181b;
 
