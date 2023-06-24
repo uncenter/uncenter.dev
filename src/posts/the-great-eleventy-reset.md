@@ -5,7 +5,6 @@ description: A new structure, new icons, and new styling.
 date: 2023-02-21
 edited: 2023-05-21
 unlisted: true
-# cspell:ignore Barabara Devries
 ---
 
 I have been working on version 3.0 for a while now, and I am finally ready to release it! I have completely rebuilt my website from scratch, and I am very happy with the results. I was finding it increasingly more difficult to manage my janky setup, so I decided to start over and do it right this time. I have learned a lot about Eleventy and web development in general over the past few months, and I am excited to put that knowledge to use.
