@@ -3,8 +3,6 @@ title: Colophon
 description: This site and how it's made.
 ---
 
-{% renderTemplate "njk,md", { meta: meta } %}
-
 What is a colophon? According to [Wikipedia](<https://en.wikipedia.org/wiki/Colophon_(publishing)>):
 
 > [A colophon] is a brief statement containing information about the publication of a book such as an "imprint" (the place of publication, the publisher, and the date of publication).
@@ -34,47 +32,3 @@ After the website is built, it's just a folder on my desktop or in a GitHub repo
 ## Visitor analytics
 
 Usage statistics are tracked using [umami](https://umami.is/), an open-source alternative to Google Analytics. Although it was a bit challenging to set up, the data presentation and graphs look great once it's up and running. The PostgreSQL database and app are hosted on [Railway](https://railway.app/), a convenient and (mostly) free platform for hosting projects like this. View the [analytics!]({{ meta.analytics.shareLink }}).
-
-## Writing statistics
-
-{% endrenderTemplate %}
-
-{% macro insertTable(collection, label) %}
-    <div class="flex flex-col justify-center">
-    <h3 class="text-center">{{ label }}</h3>
-    <table class="text-center">
-        <tbody>
-            <tr>
-                <th>Posts</th>
-                <td>{{ collections[ collection ].length }}</td>
-            </tr>
-            <tr>
-                <th>Words</th>
-                <td>{% totalWordCount collections[collection] %}</td>
-            </tr>
-            <tr>
-                <th>Reading time</th>
-                <td>{% totalReadingTime collections[collection] %} min</td>
-            </tr>
-            <tr>
-                <th>Average word length</th>
-                <td>{% wordLengthAverage collections[collection] %} characters</td>
-            </tr>
-            <tr>
-                <th>Average words per post</th>
-                <td>{% wordCountAverage collections[collection] %} words</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-{% endmacro %}
-
-<div class="flex flex-col md:flex-row items-center justify-center">
-    <div id="left-panel" class="mr-4">
-    {{ insertTable("posts", "Published posts") }}
-    {{ insertTable("archivedPosts", "Archived posts") }}
-    </div>
-    <div id="right-panel">
-    {{ insertTable("allPosts", "Total") }}
-    </div>
-</div>
