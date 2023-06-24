@@ -177,10 +177,12 @@ const getLineOptions = (tokenized) => {
  */
 const highlight = (code, lang, highlighter) => {
 	[lang] = lang.split('{');
-	const tokenized = highlighter.codeToThemedTokens(
-		code.replace(/^( {4}|\t)/gm, '  '),
-		lang,
-	);
+    code = code.replace(/^(?: {4})+/gm, (match) => '  '.repeat(match.length / 4));
+    code = code.replace(/^(?:\t)+/gm, (match) => '  '.repeat(match.length));
+    code = code.replace(/^(?: {2})+/gm, (match) => '\t'.repeat(match.length / 2));
+
+	const tokenized = highlighter.codeToThemedTokens(code, lang);
+
 	const lineOptions = isShikierEnabled(lang) ? getLineOptions(tokenized) : [];
 
 	const theme = highlighter.getTheme();
@@ -198,7 +200,7 @@ const highlight = (code, lang, highlighter) => {
 
 module.exports = (eleventyConfig, { theme }) => {
 	if (!theme) {
-		throw new Error('Theme is required');
+		throw new Error('Theme is required!');
 	}
 	eleventyConfig.amendLibrary('md', () => {});
 
