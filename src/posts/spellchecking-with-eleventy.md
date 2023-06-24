@@ -47,21 +47,24 @@ module.exports = {
 
 There are over 26 [other language dictionaries](https://github.com/streetsidesoftware/cspell-dicts) available, but I'm only writing in English so I didn't need to add any others.
 
-An important step is to define specific words to exclude or flag. I told `cSpell` to ignore some 11ty-specific terminology and a few common developer brands and buzzwords.
+An important step is to define specific words to exclude or flag. I told `cSpell` to ignore some 11ty-specific terminology and a few other words I use occasionally.
 
 ```js
 	words: [
+		// Eleventy
 		'11ty',
-		'eleventy',
-        'netlify',
 		'jamstack',
 		'shortcode',
 		'shortcodes',
 		'pagination',
 		'frontmatter',
 		'webc',
+
+		// Misc
+		'dotfiles',
+		'janky',
 	],
-	flagWords: [],
+    flagWords: [],
 ```
 
 In addition to the `words` property, you can also define dictionaries - just longer lists of words. I added a dictionary for my GitHub repositories to prevent those from being spell-checked if I ever write about them.
@@ -112,25 +115,34 @@ command = "node ./utils/get-repos.js && npm run spell && npm run build"
 {% image "images/spellchecking-with-eleventy/netlify-build-command.png", "Screenshot of our new build command in the Netlify GUI" %}
 {% endtip %}
 
-Finally, the config file allows you to define regular expression patterns to ignore. I added a few to ignore Markdown code fences and Nunjucks expressions.
+Finally, the config file allows you to define regular expression patterns to ignore. I added patterns to ignore words in Nunjucks expressions, Markdown code blocks and inline code, and proper nouns (words that start with a capital letter).
 
 ```js
     {% raw %}// ...
-    ignoreRegExpList: ["nunjucksExpression", "markdownCodeBlock", "markdownInlineCode"],
-    patterns: [
-        {
-            name: "nunjucksExpression",
-            pattern: /{%.*?%}/gis
-        },
-        {
-            name: "markdownCodeBlock",
-            pattern: /`{3}[\s\S]*?`{3}(?=\n|$)/gi
-        },
-        {
-            name: "markdownInlineCode",
-            pattern: /`[^`]*`/gi
-        }
-    ], {% endraw %}
+	ignoreRegExpList: [
+		'nunjucksExpression',
+		'markdownCodeBlock',
+		'markdownInlineCode',
+		'properNouns',
+	],
+	patterns: [
+		{
+			name: 'nunjucksExpression',
+			pattern: /{%.*?%}/gis,
+		},
+		{
+			name: 'markdownCodeBlock',
+			pattern: /`{3}[\s\S]*?`{3}(?=\n|$)/gi,
+		},
+		{
+			name: 'markdownInlineCode',
+			pattern: /`[^`]*`/gi,
+		},
+		{
+			name: 'properNouns',
+			pattern: /(?<=\s|^|[^\w\s])[A-Z][a-z]+(?=\s|$|[^\w\s])/g,
+		},
+	],{% endraw %}
 ```
 
 I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common JavaScript libraries and methods being flagged as typos. Additionally, I use a few [custom shortcodes](https://www.11ty.dev/docs/shortcodes/) that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.
