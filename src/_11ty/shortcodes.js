@@ -59,6 +59,8 @@ const insertImage = async function (src, alt, width, height) {
 		optimized: getLargestImage('webp'),
 	};
 
+	const sizes = '(min-width: 80ch) 80ch, 100vw';
+
 	const sources = Object.values(data)
 		.map((formatEntries) => {
 			const { sourceType } = formatEntries[0];
@@ -67,7 +69,7 @@ const insertImage = async function (src, alt, width, height) {
 			return `<source ${stringifyAttributes({
 				type: sourceType,
 				srcset,
-				sizes: `(min-width: 70ch) 70ch, 100vw`,
+				sizes,
 			})}>`;
 		})
 		.join('\n');
@@ -83,7 +85,7 @@ const insertImage = async function (src, alt, width, height) {
 					alt: escape(alt),
 					loading: 'lazy',
 					decoding: 'async',
-					sizes: `(min-width: 70ch) 70ch, 100vw`,
+					sizes,
 				})}>
     </picture>
 </a>
