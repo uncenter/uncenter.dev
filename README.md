@@ -9,10 +9,11 @@
 
 This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and [Tailwind CSS](https://tailwindcss.com/).
 
-![Screenshot of my website's homepage, in dark mode](/images/home-dark.png)
-![Screenshot of my website's homepage, in light mode](/images/home-light.png)
-
-</div>
+<picture>
+    <source srcset="/images/home-dark.png" media="(prefers-color-scheme: dark)">
+    <source srcset="/images/home-light.png" media="(prefers-color-scheme: light)">
+    <img src="/images/home-dark.png" alt="Screenshot of my website's homepage">
+</picture>
 
 ## Contributing
 
@@ -33,7 +34,7 @@ If you see any issues or have any suggestions for the website, please open an is
 
 - `utils/`: scripts, utilities, & plugins:
   - `utils/dicts/`: dictionary text files for spell-checking (cSpell)
-  - `utils/plugins/`: plugins for 11ty, imported in various places - currently holds `shikier.js` for syntax highlighting and `markdown.js` as the Markdown library
+  - `utils/plugins/`: plugins for 11ty, imported in various places - currently holds `shikier.js` for syntax highlighting, `markdown.js` as the Markdown library, and `prevImg/` for generating preview images
 - `images/`: images for posts and pages, optimized during build
 - `src/`: the source files for 11ty
   - `src/_data/`: data files - `inlined.js` holds minified CSS and JS files for inlining in templates, `now.js` fetches the current date and time, and the other three JSON & JS files hold metadata for projects and in general
@@ -43,7 +44,7 @@ If you see any issues or have any suggestions for the website, please open an is
   - `src/_includes/`: components and sections
   - `src/_layouts/`: layouts - `index.njk` is the main layout with all metadata and required fields, `post.njk` is the layout for blog posts, and `page.njk` is the layout for root pages
   - `src/_11ty/`: 11ty filters, shortcodes, collections (imported as plugins in `eleventy.config.js`)
-    - `src/_11ty/utils/`: utility functions for JavaScript data files and the other functions in `src/_11ty/`
+    - `src/_11ty/utils/`: utility functions used throughout the site
 
 ### Environment Variables
 
@@ -53,7 +54,7 @@ If you see any issues or have any suggestions for the website, please open an is
 
 Many thanks to the 11ty community for their contributions to the community, without which this website would not be possible- thanks to [Raphael Höser](https://www.hoeser.dev/), Stephanie Eckles for [11ty.rocks](https://11ty.rocks/), [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/), [11ty.recipes](https://11ty.recipes/) by Mike Aparicio, [Bernard Nijenhuis' notes](https://bnijenhuis.nl/), and more.
 
-Generic icons sourced from [Lucide](https://lucide.dev/), technology and development icons from [Devicons](https://devicon.dev/), and brand icons from [SVG Logos by Gil Barbara](https://github.com/gilbarbara/logos).
+Generic icons sourced from [Lucide](https://lucide.dev/) and technology and development icons from [Simple Icons](https://simpleicons.org/).
 
 ## License
 
