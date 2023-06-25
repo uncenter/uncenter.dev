@@ -30,7 +30,7 @@ body {
 		display: grid;
 		grid-template-columns: auto 1fr;
 		grid-template-rows: auto auto;
-		grid-gap: 4rem;
+		gap: 0 4rem;
 		max-width: 1024px;
 	}
 }
