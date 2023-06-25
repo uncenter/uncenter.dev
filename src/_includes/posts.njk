@@ -4,9 +4,24 @@
             style="view-transition-name: post-{{ post.data.title | slugify }}">
             <a href="{{ post.url }}">{{ post.data.title }}</a>
         </h2>
-        {% set tagsDate = post.data.date %}
-        {% set tagsTags = post.data.tags %}
-        {% include "tags.njk" %}
+        <div class="flex flex-col flex-wrap font-semibold self-center">
+            <div class="flex flex-row flex-wrap gap-2 lowercase text-sm">
+                {% if post.data.date %}
+                    <time datetime="{{ post.data.date }}">{{ post.data.date | toShortDate }}</time>
+                {% endif %}
+                {% if post.data.tags %}
+                    <span>&middot;</span>
+                    <div class="flex flex-row flex-wrap gap-1">
+                        <span>[</span>
+                        {%- for tag in post.data.tags -%}
+                            <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+                            {%- if not loop.last -%}, {% endif -%}
+                        {%- endfor -%}
+                        <span>]</span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
         <p class="mb-0 mt-1">{{ post.data.description }}</p>
     </div>
 {%- endfor -%}
