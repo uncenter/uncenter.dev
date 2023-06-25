@@ -7,11 +7,7 @@
         {% set tagsDate = post.data.date %}
         {% set tagsTags = post.data.tags %}
         {% include "tags.njk" %}
-        {% if post.data.excerpt %}
-            <p class="mb-0 mt-1">{{ post.data.excerpt }}</p>
-        {% else %}
-            {%- excerpt post, "mb-0 mt-1" -%}
-        {% endif %}
+        <p class="mb-0 mt-1">{{ post.data.description }}</p>
         <div class="flex justify-center mt-4">
             <a href="{{ post.url }}" class="text-sm font-semibold" aria-label="Read {{ post.data.title }}">
                 <span class="mr-1">Read more...</span>{% icon "duck-arrow" %}
