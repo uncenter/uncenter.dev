@@ -58,45 +58,18 @@ main {
 }
 
 :root[theme='light'] {
-	$rosewater: #dc8a78;
-	$flamingo: #dd7878;
-	$pink: #ea76cb;
-	$mauve: #8839ef;
-	$red: #d20f39;
-	$maroon: #e64553;
-	$peach: #fe640b;
-	$yellow: #df8e1d;
-	$green: #40a02b;
-	$teal: #179299;
-	$sky: #04a5e5;
-	$sapphire: #209fb5;
-	$blue: #1e66f5;
-	$lavender: #7287fd;
-	$text: #4c4f69;
-	$subtext1: #5c5f77;
-	$subtext0: #6c6f85;
-	$overlay2: #7c7f93;
-	$overlay1: #8c8fa1;
-	$overlay0: #9ca0b0;
-	$surface2: #acb0be;
-	$surface1: #bcc0cc;
-	$surface0: #ccd0da;
-	$crust: #dce0e8;
-	$mantle: #e6e9ef;
-	$base: #eff1f5;
-
-	--accent-red: #{$maroon};
-	--accent-orange: #{$peach};
-	--accent-yellow: #{$yellow};
-	--accent-green: #{$teal};
-	--accent-blue: #{$sky};
-	--accent-purple: #{$mauve};
-	--accent-pink: #{$pink};
-	--light-gray: #{$overlay0};
-	--dark-gray: #{$subtext0};
-	--neutral-gray: #{$overlay1};
-	--light: #{$base};
-	--dark: #{$text};
+	--accent-red: #e64553;
+	--accent-orange: #fe640b;
+	--accent-yellow: #df8e1d;
+	--accent-green: #40a02b; // #179299;
+	--accent-blue: #04a5e5;
+	--accent-purple: #8839ef;
+	--accent-pink: #ea76cb;
+	--light-gray: #9ca0b0;
+	--dark-gray: #6c6f85;
+	--neutral-gray: #8c8fa1;
+	--light: #eff1f5;
+	--dark: #4c4f69;
 
 	body {
 		--bg: var(--light);
@@ -105,44 +78,17 @@ main {
 }
 
 :root[theme='dark'] {
-	$rosewater: #f4dbd6;
-	$flamingo: #f0c6c6;
-	$pink: #f5bde6;
-	$mauve: #c6a0f6;
-	$red: #ed8796;
-	$maroon: #ee99a0;
-	$peach: #f5a97f;
-	$yellow: #eed49f;
-	$green: #a6da95;
-	$teal: #8bd5ca;
-	$sky: #91d7e3;
-	$sapphire: #7dc4e4;
-	$blue: #8aadf4;
-	$lavender: #b7bdf8;
-	$text: #cad3f5;
-	$subtext1: #b8c0e0;
-	$subtext0: #a5adcb;
-	$overlay2: #939ab7;
-	$overlay1: #8087a2;
-	$overlay0: #6e738d;
-	$surface2: #5b6078;
-	$surface1: #494d64;
-	$surface0: #363a4f;
-	$base: #24273a;
-	$mantle: #1e2030;
-	$crust: #181926;
-
-	--accent-red: #{$red};
-	--accent-orange: #{$peach};
-	--accent-yellow: #{$yellow};
-	--accent-green: #{$green};
-	--accent-blue: #{$blue};
-	--accent-purple: #{$mauve};
-	--accent-pink: #{$pink};
-	--light-gray: #{$overlay2};
-	--dark-gray: #{$surface1};
-	--neutral-gray: #{$overlay0};
-	--light: #{$text};
+	--accent-red: #ed8796;
+	--accent-orange: #f5a97f;
+	--accent-yellow: #eed49f;
+	--accent-green: #a6da95;
+	--accent-blue: #8aadf4;
+	--accent-purple: #c6a0f6;
+	--accent-pink: #f5bde6;
+	--light-gray: #939ab7;
+	--dark-gray: #494d64;
+	--neutral-gray: #6e738d;
+	--light: #eff1f5;
 	--dark: #18181b;
 
 	body {
