@@ -4,20 +4,18 @@ const filters = require('./src/_11ty/filters.js');
 const utils = require('./src/_11ty/utils.filters.js');
 const transforms = require('./src/_11ty/transforms.js');
 
-const { markdownLibrary } = require('./utils/plugins/markdown.js');
-const { EleventyRenderPlugin } = require('@11ty/eleventy');
-
-const { parseHTML } = require('linkedom');
-const { blue } = require('kleur/colors');
-const fs = require('fs');
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
 const pluginRSS = require('@11ty/eleventy-plugin-rss');
 const pluginShikier = require('./utils/plugins/shikier.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
+const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const inProduction = process.env.NODE_ENV === 'production';
+const fs = require('fs');
 require('dotenv').config();
+
+const { blue } = require('kleur/colors');
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -58,11 +56,6 @@ module.exports = function (eleventyConfig) {
 			},
 		},
 	});
-	eleventyConfig.addPlugin(EleventyRenderPlugin);
-
-	/* Layouts */
-	eleventyConfig.addLayoutAlias('page', 'page.njk');
-	eleventyConfig.addLayoutAlias('post', 'post.njk');
 
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'src/_assets/favicon': '.' });
