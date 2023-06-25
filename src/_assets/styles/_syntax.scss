@@ -15,8 +15,10 @@ div.shiki-wrapper {
 			padding: 16px 16px 16px 10px;
 		}
 	}
+
 	div {
 		margin: 0.5rem;
+
 		button {
 			background: #21262d;
 			display: none;
@@ -45,6 +47,7 @@ div.shiki-wrapper {
 			}
 		}
 	}
+
 	&:hover div button {
 		display: inline-block;
 	}

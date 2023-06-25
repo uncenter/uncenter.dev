@@ -160,15 +160,15 @@ main {
 	display: inline-block;
 	width: 1em;
 	height: 1em;
-}
 
-.icon:not(.icon-lucide) {
-	fill: currentColor;
-}
+	&:not(.icon-lucide) {
+		fill: currentColor;
+	}
 
-.icon-lucide {
-	fill: none;
-	stroke: currentColor;
+	.icon-lucide {
+		fill: none;
+		stroke: currentColor;
+	}
 }
 
 @import 'syntax';
