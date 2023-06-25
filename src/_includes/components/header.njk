@@ -2,14 +2,12 @@
     <a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url === "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
         {{ "src/_includes/duck.svg" | readFile | setAttr('class', 'w-12 h-12') | safe }}
         <span class="tracking-tight text-2xl">{{ meta.author.name }}</span></a>
-    <ul class="list-none py-2 px-0 flex lg:block lg:space-y-1.5">
+    <ul class="list-none pt-2 px-0 flex lg:block lg:space-y-1.5">
         {% for item in nav.top %}
-            {% set classes = "not-fancy font-semibold lg:py-0 p-2" %}
+            {% set classes = "not-fancy font-semibold lg:py-0 p-2 [border:2px_solid_transparent] lg:[border:2px_solid_transparent]" %}
             {% if (page.url.includes(item.url)and item.url != "/") 
                 or(item.url == "/" and page.url == "/") %}
-                {% set classes = classes + " lg:[border-left:2px_solid_currentColor] [border-bottom:2px_solid_currentColor] [border-left:2px_solid_transparent] lg:[border-bottom:2px_solid_transparent]" %}
-            {% else %}
-                {% set classes = classes + " [border-left:2px_solid_transparent] lg:[border-left:2px_solid_transparent]" %}
+                {% set classes = classes + " lg:[border-left:2px_solid_currentColor_!important] lg:[border-bottom:2px_solid_transparent_!important] [border-bottom:2px_solid_currentColor_!important] " %}
             {% endif %}
             <li>
                 <a href="{{ item.url }}" class="{{ classes }}" {% if page.url === item.url %}aria-current="page"{% else %}aria-label="Go to {{ item.title }}"{% endif %}>{{ item.title }}</a>

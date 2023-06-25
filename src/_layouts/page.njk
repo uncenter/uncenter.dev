@@ -2,17 +2,6 @@
 layout: index.njk
 ---
 
-<header class="max-w-[30ch] mx-auto">
-    {% include "components/header.njk" %}
-</header>
-<main class="max-w-[80ch] w-full">
-    {% if header or title %}
-        <h1 id="title" class="text-4xl font-bold break-words m-0 mb-12">{{ header or title }}</h1>
-    {% endif %}
-    {% if content %}
-        {{ content | safe }}
-    {% endif %}
-</main>
-<footer class="max-w-[30ch] mx-auto">
-    {% include "components/footer.njk" %}
-</footer>
+<article>
+    {{ content | safe }}
+</article>

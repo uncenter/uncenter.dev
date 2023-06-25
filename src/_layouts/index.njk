@@ -63,7 +63,18 @@
         <meta name="twitter:image" content="{{ openGraphImage }}">
     </head>
     <body class="bg-bg text-fg font-display">
-        {{ content | safe }}
+        <header class="max-w-[30ch] mx-auto">
+            {% include "components/header.njk" %}
+        </header>
+        <main class="max-w-[80ch] w-full">
+            {% if header or title %}
+                <h1 class="text-4xl font-bold break-words m-0 mb-12"{% if headingViewTransition %} style="view-transition-name: {{ headingViewTransition }}"{% endif %}>{{ header or title }}</h1>
+            {% endif %}
+            {{ content | safe }}
+        </main>
+        <footer class="max-w-[30ch] mx-auto">
+            {% include "components/footer.njk" %}
+        </footer>
     </body>
     <script>
         function loadGiscus() {

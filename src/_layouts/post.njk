@@ -2,59 +2,42 @@
 layout: index.njk
 ---
 
-<main class="mx-auto px-2">
-    <div class="[border-bottom:2px_solid_currentColor] pb-2">
-        <div class="flex flex-wrap justify-between pb-1 gap-x-8 gap-y-2">
-            <a href="{{ post.return.link }}" class="flex items-center gap-x-2">
-                {% icon "duck-arrow", class="-scale-x-100" %}
-                <span>{{ post.return.text }}</span>
-            </a>
-            {% if post.tags %}
-                {% set tagsDate = date %}
-                {% set tagsTags = tags %}
-                {% include "tags.njk" %}
-            {% endif %}
-        </div>
-    </div>
-    {% if content !== "" %}
-        <article class="wrap-anywhere max-w-[90ch]">
-            <h1 class="text-3xl font-bold mb-0"
-                style="view-transition-name: post-{{ title | slugify }}">{{ title }}</h1>
-            {% if series %}
-                {% set seriesData = collections.series | seriesLocate(series) %}
-                {% set seriesPosts = seriesData.posts %}
-                {% if seriesPosts.length > 0 %}
-                    {% set part = seriesPosts | seriesGetPart(page.url) %}
-                    <p>
-                        This is the {{ part | ordinal }} entry in the <a href="/series/{{ series.title | slugify }}/">{{ series.title }}</a> series.
-                    </p>
-                {% endif %}
-            {% endif %}
-            {% if content | toc %}{{ content | toc | safe }}
-            {% endif %}
-            {{ content | safe }}
-        </article>
+<article>
+    {% set headingViewTransition = 'post-' + (title | slugify) %}
+    {% if series %}
+        {% set seriesData = collections.series | seriesLocate(series) %}
+        {% set seriesPosts = seriesData.posts %}
+        {% if seriesPosts.length > 0 %}
+            {% set part = seriesPosts | seriesGetPart(page.url) %}
+            <p>This is the {{ part | ordinal }} entry in the <a href="/series/{{ series.title | slugify }}/">{{ series.title }}</a> series.</p>
+        {% endif %}
     {% endif %}
-    {% if post.comments %}
-        <div id="comments" class="mt-16"></div>
+    {% if content | toc %}
+        <nav class="toc mb-10" aria-label="Table of contents">
+            {{ content | toc | safe }}
+        </nav>
     {% endif %}
-    {% set previous = collections.posts | getPreviousCollectionItem %}
-    {% set next = collections.posts | getNextCollectionItem %}
-    <div class="flex flex-row justify-between font-bold mt-8">
-        {% if previous %}
-            <a class="text-center" href="{{ previous.url }}" aria-label="Read previous post">
-                {%- icon 'lucide:arrow-left', class="mr-2" -%}
-                <span>{{ previous.data.title }}</span>
-            </a>
-        {% endif %}
-        {% if not previous and next %}
-            <div></div>
-        {% endif %}
-        {% if next %}
-            <a class="text-center" href="{{ next.url }}" aria-label="Read next post">
-                <span>{{ next.data.title }}</span>
-                {%- icon 'lucide:arrow-right', class="ml-2" -%}
-            </a>
-        {% endif %}
-    </div>
-</main>
+    {{ content | safe }}
+</article>
+{% if post.comments %}
+    <div id="comments" class="mt-16"></div>
+{% endif %}
+{% set previous = collections.posts | getPreviousCollectionItem %}
+{% set next = collections.posts | getNextCollectionItem %}
+<div class="flex flex-row justify-between font-bold mt-8">
+    {% if previous %}
+        <a class="text-center" href="{{ previous.url }}" aria-label="Read previous post">
+            {%- icon 'lucide:arrow-left', class="mr-2" -%}
+            <span>{{ previous.data.title }}</span>
+        </a>
+    {% endif %}
+    {% if not previous and next %}
+        <div></div>
+    {% endif %}
+    {% if next %}
+        <a class="text-center" href="{{ next.url }}" aria-label="Read next post">
+            <span>{{ next.data.title }}</span>
+            {%- icon 'lucide:arrow-right', class="ml-2" -%}
+        </a>
+    {% endif %}
+</div>

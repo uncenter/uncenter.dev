@@ -28,7 +28,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginTOC, {
 		ul: true,
 		wrapper: function (toc) {
-			return `<nav class="toc" aria-label="table of contents">${toc}</nav>`;
+			return toc;
 		},
 	});
 	eleventyConfig.addPlugin(pluginExternalLinks, {

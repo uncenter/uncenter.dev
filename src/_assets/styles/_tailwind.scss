@@ -110,17 +110,4 @@
 	.checklist-item label {
 		@apply ml-1;
 	}
-
-	.toc {
-		@apply px-0 py-2;
-		+ p {
-			@apply mt-0;
-		}
-	}
-}
-
-@layer utilities {
-	.wrap-anywhere {
-		overflow-wrap: anywhere;
-	}
 }
