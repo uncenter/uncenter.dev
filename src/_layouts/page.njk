@@ -2,17 +2,17 @@
 layout: index.njk
 ---
 
-<header class="min-w-[30%]">
+<header class="max-w-[30ch] mx-auto">
     {% include "components/header.njk" %}
 </header>
-<main class="lg:ml-20 mx-2">
+<main class="max-w-[80ch]">
     {% if header or title %}
-        <h1 id="title" class="text-3xl font-bold break-words m-0 mb-12{% if page.url in nav.top.urls %} hidden lg:block{% endif %}">{{ header or title }}</h1>
+        <h1 id="title" class="text-3xl font-bold break-words m-0 mb-12">{{ header or title }}</h1>
     {% endif %}
     {% if content %}
         {{ content | safe }}
     {% endif %}
 </main>
-<footer>
+<footer class="max-w-[30ch] mx-auto">
     {% include "components/footer.njk" %}
 </footer>

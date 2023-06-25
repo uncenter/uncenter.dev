@@ -1,9 +1,8 @@
-<div class="flex items-center flex-col leading-6">
-    <a href="/" class="not-fancy" {% if page.url === "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
-        {{ "src/_includes/duck.svg" | readFile | setAttr('class', 'w-12 h-12 m-auto') | safe }}
+<div class="flex flex-col items-center leading-6">
+    <a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url === "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
+        {{ "src/_includes/duck.svg" | readFile | setAttr('class', 'w-12 h-12') | safe }}
         <span class="tracking-tight text-2xl">{{ meta.author.name }}</span></a>
-    <div class="max-w-[40ch] text-center mt-1">{{ meta.description }}</div>
-    <ul class="list-none px-2 py-4 flex lg:block lg:space-y-1.5">
+    <ul class="list-none py-2 px-0 flex lg:block lg:space-y-1.5">
         {% for item in nav.top %}
             {% set classes = "not-fancy font-semibold lg:py-0 p-2" %}
             {% if (page.url.includes(item.url)and item.url != "/") 

@@ -117,16 +117,6 @@
 			@apply mt-0;
 		}
 	}
-
-	h1.hidden#title + p {
-		@apply mt-0;
-	}
-
-	@media (min-width: 1024px) {
-		h1.hidden#title + p {
-			@apply mt-[unset];
-		}
-	}
 }
 
 @layer utilities {
