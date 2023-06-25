@@ -45,9 +45,8 @@ module.exports = function (eleventyConfig) {
 		sources: {
 			si: 'node_modules/simple-icons/icons',
 			lucide: 'node_modules/lucide-static/icons',
-			custom: 'src/_assets/icons',
 		},
-		default: 'custom',
+		default: false,
 		icon: {
 			overwriteExistingAttributes: true,
 			ignoreNotFound: false,
