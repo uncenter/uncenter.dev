@@ -4,22 +4,17 @@ blahaj
 chemic
 commoner
 create-eleventy-app
-eleventy-code-clipboard
 eleventy-includes-async-shortcodes-demo
 eleventy-plugin-icons
 eleventy-plugin-toc
-funcenter
 Inquirer.js
-learn
 learn-eleventy
 markdown-it-kbd-better
 novel
 npm-on-github
 octotree
-olek
 phonetic-alphabet
 pomofocus
-shields
 speedlify
 static
 templates
@@ -27,4 +22,3 @@ uncenter
 uncenter.org
 unvarify
 wifi-password
-words
