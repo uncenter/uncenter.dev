@@ -2,7 +2,7 @@
 # cSpell:disable
 tags: ['elit', 'irure', 'dolore', 'eiusmod']
 title: Occaecat deserunt laboris
-description: This is a demo post that is archived.
+description: This is a demo post.
 date: 2000-01-01
 hide: true
 ---

@@ -1,18 +1,6 @@
 const { DateTime } = require('luxon');
 
 const posts = (collectionApi) => {
-	return collectionApi
-		.getFilteredByGlob('./src/posts/**/*.md')
-		.filter((post) => post.data.archived !== true);
-};
-
-const archivedPosts = (collectionApi) => {
-	return collectionApi
-		.getFilteredByGlob('./src/posts/**/*.md')
-		.filter((post) => post.data.archived === true);
-};
-
-const allPosts = (collectionApi) => {
 	return collectionApi.getFilteredByGlob('./src/posts/**/*.md');
 };
 
@@ -63,8 +51,6 @@ const series = (collectionApi) => {
 
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addCollection('posts', posts);
-	eleventyConfig.addCollection('allPosts', allPosts);
-	eleventyConfig.addCollection('archivedPosts', archivedPosts);
 	eleventyConfig.addCollection('allTags', allTags);
 	eleventyConfig.addCollection('series', series);
 };

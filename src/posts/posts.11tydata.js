@@ -84,17 +84,5 @@ module.exports = {
 		date: (data) => {
 			return DateTime.fromJSDate(new Date(data.date)).setZone('utc').toISO();
 		},
-		post: (data) => {
-			if (!data.post) {
-				return;
-			}
-			if (data.archived) {
-				return {
-					tags: data.post.tags,
-					return: { link: '/archive/', text: 'Back to archive' },
-				};
-			}
-			return data.post;
-		},
 	},
 };
