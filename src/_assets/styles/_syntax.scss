@@ -11,7 +11,6 @@ div.shiki-wrapper {
 
 		code {
 			display: block;
-			width: max-content;
 			padding: 16px 16px 16px 10px;
 		}
 	}
@@ -76,22 +75,22 @@ pre.shiki.language-sh .line:only-child::before {
 
 	&.sh--highlight {
 		background: #ff02;
-		box-shadow: -0.2rem 0 0 #ff0;
+		box-shadow: -0.15rem 0 0 #ffe100;
 	}
 
 	&.sh--add {
 		background: #487e0265;
-		box-shadow: -0.2rem 0 0 #539202;
+		box-shadow: -0.15rem 0 0 #539202;
 	}
 
 	&.sh--remove {
 		background: rgba(136, 0, 0, 0.536);
-		box-shadow: -0.2rem 0 0 rgb(159, 1, 1);
+		box-shadow: -0.15rem 0 0 #9f0101;
 	}
 
 	&.sh--updated {
 		background: #00f2;
-		box-shadow: -0.2rem 0 0 #00f8;
+		box-shadow: -0.15rem 0 0 #00f8;
 	}
 }
 
