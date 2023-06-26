@@ -53,7 +53,6 @@ An important step is to define specific words to exclude or flag. I told `cSpell
 	words: [
 		// Eleventy
 		'11ty',
-		'jamstack',
 		'shortcode',
 		'shortcodes',
 		'pagination',

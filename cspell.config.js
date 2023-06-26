@@ -4,7 +4,6 @@ module.exports = {
 	words: [
 		// Eleventy
 		'11ty',
-		'jamstack',
 		'shortcode',
 		'shortcodes',
 		'pagination',
