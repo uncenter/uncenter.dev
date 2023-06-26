@@ -39,29 +39,6 @@ const toFullDateTime = (dateObj) => {
 	);
 };
 
-const toArray = (value) => {
-	if (Array.isArray(value)) {
-		return value;
-	}
-	return [value];
-};
-
-const toHtml = (content) => {
-	return markdownLibrary.render(content);
-};
-
-const toHtmlInline = (content) => {
-	return markdownLibrary.renderInline(content);
-};
-
-const readFile = (filePath) => {
-	const fileContents = fs.readFileSync(filePath, (err, data) => {
-		if (err) throw err;
-		return data;
-	});
-	return fileContents.toString('utf8');
-};
-
 const setAttr = (content, attribute, value = false) => {
 	const regex = new RegExp(`${attribute}=".*?"`, 'g');
 	let el = content.match(/<[^>]*>/)[0];
@@ -73,29 +50,6 @@ const setAttr = (content, attribute, value = false) => {
 	return content.replace(/<[^>]*>/, el);
 };
 
-const replace = (content, regex, value) => {
-	return content.replace(new RegExp(regex, 'g'), value);
-};
-
-const ordinal = (number) => {
-	const i = number % 10,
-		j = number % 100;
-	if (i === 1 && j !== 11) {
-		return number + 'st';
-	}
-	if (i === 2 && j !== 12) {
-		return number + 'nd';
-	}
-	if (i === 3 && j !== 13) {
-		return number + 'rd';
-	}
-	return number + 'th';
-};
-
-const capitalize = (str) => {
-	return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('toShortDate', toShortDate);
 	eleventyConfig.addFilter('toMedDate', toMedDate);
@@ -103,13 +57,42 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('toShortDateTime', toShortDateTime);
 	eleventyConfig.addFilter('toMedDateTime', toMedDateTime);
 	eleventyConfig.addFilter('toFullDateTime', toFullDateTime);
-	eleventyConfig.addFilter('toArray', toArray);
-	eleventyConfig.addFilter('toHtml', toHtml);
-	eleventyConfig.addFilter('toHtmlInline', toHtmlInline);
-	eleventyConfig.addFilter('readingTime', require('./utils/readingTime'));
+	eleventyConfig.addFilter('toArray', (value) => {
+		if (Array.isArray(value)) return value;
+		return [value];
+	});
+	eleventyConfig.addFilter('toHtml', (content) => {
+		return markdownLibrary.render(content);
+	});
+	eleventyConfig.addFilter('toHtmlInline', (content) => {
+		return markdownLibrary.renderInline(content);
+	});
 	eleventyConfig.addFilter('setAttr', setAttr);
-	eleventyConfig.addFilter('replace', replace);
-	eleventyConfig.addFilter('readFile', readFile);
-	eleventyConfig.addFilter('ordinal', ordinal);
-	eleventyConfig.addFilter('capitalize', capitalize);
+	eleventyConfig.addFilter('replace', (content, regex, value) => {
+		return content.replace(new RegExp(regex, 'g'), value);
+	});
+	eleventyConfig.addFilter('readFile', (filePath) => {
+		const fileContents = fs.readFileSync(filePath, (err, data) => {
+			if (err) throw err;
+			return data;
+		});
+		return fileContents.toString('utf8');
+	});
+	eleventyConfig.addFilter('ordinal', (number) => {
+		const i = number % 10,
+			j = number % 100;
+		if (i === 1 && j !== 11) {
+			return number + 'st';
+		}
+		if (i === 2 && j !== 12) {
+			return number + 'nd';
+		}
+		if (i === 3 && j !== 13) {
+			return number + 'rd';
+		}
+		return number + 'th';
+	});
+	eleventyConfig.addFilter('capitalize', (str) => {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	});
 };
