@@ -14,6 +14,7 @@ This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and
     <source srcset="/images/home-light.png" media="(prefers-color-scheme: light)">
     <img src="/images/home-dark.png" alt="Screenshot of my website's homepage">
 </picture>
+</div>
 
 ## Contributing
 
