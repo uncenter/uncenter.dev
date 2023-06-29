@@ -3,15 +3,11 @@ title: Colophon
 description: This site and how it's made.
 ---
 
-What is a colophon? According to [Wikipedia](<https://en.wikipedia.org/wiki/Colophon_(publishing)>):
+According to [Wikipedia](<https://en.wikipedia.org/wiki/Colophon_(publishing)>), a colophon is:
 
-> [A colophon] is a brief statement containing information about the publication of a book such as an "imprint" (the place of publication, the publisher, and the date of publication).
+> ...a brief statement containing information about the publication of a book such as an "imprint" (the place of publication, the publisher, and the date of publication).
 
-Basically, an about page for a book- but in recent years, it's been used to describe the publication of a website as well. This page is a colophon for my website, which is a publication of sorts. It contains information about the site, how it's made, and how it's hosted. I've put a lot of time and effort into this website, and I'm proud of it. I hope you enjoy it!
-
-{% info "Style guide" %}
-I've written a [style guide](/style/) for this website, which contains information about the design, colors, and typography. It helps me keep the site consistent and maybe you'll find it useful too.
-{% endinfo %}
+This page is my colophon, where I'll explain how this website is made and hosted. I've put a lot of time and effort into this website, and I'm proud of it. I hope you enjoy it!
 
 ## Site structure
 
@@ -27,7 +23,7 @@ You can find the source code for this website on [GitHub](https://www.github.com
 
 ## Site hosting
 
-After the website is built, it's just a folder on my desktop or in a GitHub repository. The magic happens with [Netlify](https://www.netlify.com/), a free hosting service, which auto-deploys the website every time I push to my GitHub repository. Since Netlify is free, I don't have to worry about paying for hosting or managing a server. The domain is provided by [Cloudflare](https://www.cloudflare.com/).
+After the website is built, it's just a folder on my desktop or in a GitHub repository. The magic happens with [Netlify](https://www.netlify.com/), a free hosting service, auto-deploys this website every time I push to my repository. The domain is provided by [Cloudflare](https://www.cloudflare.com/).
 
 ## Visitor analytics
 
