@@ -12,6 +12,22 @@ layout: index.njk
             <p>This is the {{ part | ordinal }} entry in the <a href="/series/{{ series.title | slugify }}/">{{ series.title }}</a> series.</p>
         {% endif %}
     {% endif %}
+    <div class="flex flex-row flex-wrap gap-2 lowercase -mt-10 mb-10">
+        {% if date %}
+            <time datetime="{{ date }}">{{ date | toShortDate }}</time>
+        {% endif %}
+        {% if tags %}
+            <span>&middot;</span>
+            <div class="flex flex-row flex-wrap gap-1">
+                <span></span>
+                {%- for tag in tags -%}
+                    <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+                    {%- if not loop.last -%}, {% endif -%}
+                {%- endfor -%}
+                <span></span>
+            </div>
+        {% endif %}
+    </div>
     {% if content | toc %}
         <nav class="toc mb-10" aria-label="Table of contents">
             {{ content | toc | safe }}
