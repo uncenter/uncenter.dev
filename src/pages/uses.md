@@ -5,75 +5,81 @@ description: All sorts of things that I use.
 
 <p class="mb-12">All sorts of things that I use; on my computer, on my phone, services, etc. Partly for my own reference, partly for anyone who's curious. To see other /uses pages, check out <a href="https://uses.tech/">uses.tech</a>.</p>
 
-## Software
+## Apps
 
 ### General
 
-- [Arc](https://arc.net/) for web browsing
 - [1Password](https://1password.com/) for password management
-- [MacDown](https://macdown.uranusjr.com/) for Markdown editing
-- [NetNewsWire](https://ranchero.com/netnewswire/) for RSS feeds
-- [Notion](https://notion.so/) for personal writing and databases
-- [Spotify](https://spotify.com/) for music
+- [Arc](https://arc.net/) for browsing the web
 - [Discord](https://discord.com/) for messaging
-- [shottr](https://shottr.cc/) for screenshots
+- [Notion](https://notion.so/) for personal documents and databases
+- [shottr](https://shottr.cc/) for screenshotting
+- [Spotify](https://spotify.com/) for music
+- [Zettlr](https://github.com/Zettlr/Zettlr) for Markdown editing
 
 ### Development
 
-- [VS Code](https://code.visualstudio.com/) for programming
-- [Homebrew](https://brew.sh/) for system package management
 - [iTerm2](https://iterm2.com/) for a better terminal
 - [PyCharm](https://www.jetbrains.com/pycharm/) for Python development
+- [VS Code](https://code.visualstudio.com/) for programming
 
 ### Utilities
 
 - [AltTab](https://alt-tab-macos.netlify.app/) for better (Windows-like) window switching
-- [BatteryBuddy](https://batterybuddy.app/) for a cute battery indicator
-- [dat-weather-doe](https://github.com/inderdhir/DatWeatherDoe) for weather in the menu bar
-- [stats](https://github.com/exelban/stats) for system monitoring in the menu bar
-- [PurePaste](https://sindresorhus.com/pure-paste) for pasting without formatting
-- [Raycast](https://raycast.com/) to replace the default MacOS spotlight search
-  - [Coffee](https://www.raycast.com/mooxl/coffee) to prevent sleep
-- [Rectangle](https://rectangleapp.com/) for window snapping
-- [System Color Picker](https://github.com/sindresorhus/System-Color-Picker) for a better color picker
-- [Command X](https://sindresorhus.com/command-x) for cutting and pasting files in Finder
+- [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704) for keeping my laptop awake
+- [BatteryBuddy](https://batterybuddy.app/) for a cute battery indicator •ᴗ•
+- [IINA](https://iina.io/) for media playback
+- [KnockKnock](https://objective-see.org/products/knockknock.html) for system scanning
+- [Oversight](https://objective-see.org/products/oversight.html) for camera and microphone monitoring
+- [PurePaste](https://sindresorhus.com/pure-paste) for clipboard sanitization
+- [Raycast](https://raycast.com/) for a powerful Spotlight alternative
+- [Rectangle](https://rectangleapp.com/x) for window snapping
+- [System Color Picker](https://sindresorhus.com/system-color-picker) for a supercharged color picker
 
 ### Browser Extensions
 
-- [1Password](https://1password.com/downloads/browser-extension/) for password autofill
+- [1Password](https://1password.com/downloads/browser-extension/)
 - [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
-- [Notion web clipper](https://www.notion.so/web-clipper) for saving web pages to Notion
+- [Refined GitHub](https://github.com/refined-github/refined-github) for better GitHub UX
+- [Stylus](https://github.com/openstyles/stylus) for custom CSS & themes
 - [uBlock Origin](https://github.com/gorhill/uBlock/) for advertisement and tracker blocking
-- [Fontanello](https://fontanello.app/) for finding fonts on websites
-- [Github Repo Size](https://github.com/Shywim/github-repo-size) for seeing repo sizes on GitHub
-- [Refined GitHub](https://github.com/refined-github/refined-github) for better GitHub
-- [Visbug](https://github.com/GoogleChromeLabs/ProjectVisBug) for taking a look at styling on websites
-- [Web Developer](https://chrispederick.com/work/web-developer/) for basic web development tools
 
-## Developer services
+## Developer tools
+
+### Package management
+
+- [fnm](https://github.com/Schniz/fnm) and [corepack](https://github.com/nodejs/corepack) for Node.js version management
+- [Homebrew](https://brew.sh/) for macOS package management
+
+### Shell
+
+- [antidote](https://github.com/mattmc3/antidote) for managing Zsh plugins
+- [atuin](https://atuin.sh/) for magical shell history
+- [bat](https://github.com/sharkdp/bat) for a `cat` replacement
+- [bottom](https://github.com/ClementTsang/bottom) as a system monitor - replacement for `top`
+- [dust](https://github.com/bootandy/dust) as a disk usage analyzer - replacement for `du`
+- [exa](https://the.exa.website/) for an `ls` replacement
+- [fd](https://github.com/sharkdp/fd) for a `find` replacement
+- [fzf](https://github.com/junegunn/fzf) for fuzzy finding
+- [Helix](https://helix-editor.com/) for a fast, modern text editor (instead of Neovim)
+- [hyperfine](https://github.com/sharkdp/hyperfine) for benchmarking
+- [jless](https://jless.io/) for JSON viewing (replacement for `jq`)
+- [newsboat](https://github.com/newsboat/newsboat) as a feed reader
+- [Starship](https://starship.rs/) for a customizable prompt
+- [tealdeer](https://github.com/dbrgn/tealdeer) for better `man` pages
+
+## Services
 
 - [Cloudflare](https://cloudflare.com/) for DNS
 - [GitHub](https://github.com/) for project source code hosting
-- [Netlify](https://www.netlify.com/) for some static site hosting
-- [Railway](https://railway.app/) for hosting and managing databases
-- [Umami](https://umami.is/) for the best simple, easy, privacy-respecting analytics
-- [Vercel](https://vercel.com/) for hosting
+- [Netlify](https://www.netlify.com/) for static site hosting
+- [Railway](https://railway.app/) for various hosting
+- [Umami](https://umami.is/) for simple, privacy-respecting analytics
+- [Vercel](https://vercel.com/) for web-app hosting
 
 ## Hardware
 
-### Day-to-day
-
-- [MacBook Pro 13" (2020 M1)](https://www.apple.com/macbook-pro-13/) for general use
-
-### PC
-
-- [Asus Prime B350 Plus](https://www.asus.com/us/Motherboards/PRIME-B350-PLUS/) as motherboard
-- Asus GTX 1660 Super
-- [Corsair Vengeance LPX 2x8GB](https://www.corsair.com/us/en/Categories/Products/Memory/VENGEANCE-LPX/p/CMK16GX4M2B3200C16) as RAM
-- [Ryzen 5 3600](https://www.amd.com/en/product/8456) as CPU
-
-### Peripherals
-
-- [Glorious Model O](https://www.gloriousgaming.com/products/glorious-model-o-black) for mouse
+- [MacBook Pro 13" (2020 M1)](https://www.apple.com/macbook-pro-13/)
+- [Glorious Model O](https://www.gloriousgaming.com/products/glorious-model-o-black)
 - Custom-built [Bakeneko 65%](https://cannonkeys.com/products/bakeneko65/) with Akko Pink switches and white/lavender keycaps
-- [DT 770 Pro](https://north-america.beyerdynamic.com/dt-770-pro.html) for headphones
+- [DT 770 Pro](https://north-america.beyerdynamic.com/dt-770-pro.html)
