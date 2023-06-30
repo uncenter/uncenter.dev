@@ -20,24 +20,31 @@ const data = {
 	],
 	bottom: [
 		{
-			title: 'Visit my GitHub profile!',
-			url: `https://github.com/${meta.author.github.username}`,
-			icon: 'si:github',
-		},
-		{
-			title: 'Follow me on Mastodon!',
+			relme: true,
 			url: `https://${meta.author.mastodon.instance}/@${meta.author.mastodon.username}`,
 			icon: 'si:mastodon',
+			color: '#6364FF',
 		},
 		{
-			title: 'Subscribe to my RSS feed!',
-			url: '/feed.xml',
-			icon: 'si:rss',
+			relme: true,
+			url: `https://github.com/${meta.author.github.username}`,
+			icon: 'si:github',
+			color: '#181717',
 		},
 		{
-			title: 'Contact me via Element/Matrix!',
 			url: 'https://matrix.to/%23/#uncenter:matrix.org',
 			icon: 'si:element',
+			color: '#0DBD8B',
+		},
+		{
+			url: `https://ko-fi.com/${meta.author.kofi.username}`,
+			icon: 'si:kofi',
+			color: '#FF5E5B',
+		},
+		{
+			url: '/feed.xml',
+			icon: 'si:rss',
+			color: '#FFA500',
 		},
 	],
 };

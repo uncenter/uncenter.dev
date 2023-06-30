@@ -39,6 +39,9 @@ module.exports = {
 		discord: {
 			username: 'uncenter',
 		},
+		kofi: {
+			username: 'uncenter',
+		},
 	},
 	analytics,
 };

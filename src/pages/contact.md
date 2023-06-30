@@ -5,4 +5,4 @@ description: Need to get in touch with me?
 
 **mastodon**: [@{{ meta.author.mastodon.username }}@{{ meta.author.mastodon.instance }}](https://{{ meta.author.mastodon.instance }}/@{{ meta.author.mastodon.username }})
 **email**: {{ meta.author.email.plain }}
-**discord**: {{ meta.author.discord.username }}
+**discord**: `{{ meta.author.discord.username }}`

@@ -1,5 +1,3 @@
-@import 'tailwind';
-
 html {
 	scroll-behavior: smooth;
 	overflow-y: scroll;
@@ -117,6 +115,7 @@ main {
 	}
 }
 
+@import 'tailwind';
 @import 'syntax';
 
 .note {
