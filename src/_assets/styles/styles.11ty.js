@@ -5,12 +5,11 @@ const sass = require('sass');
 
 const log = require('../../_11ty/utils/log.js');
 
-module.exports = class {
+class Page {
 	data() {
 		return {
 			permalink: '/assets/styles.css',
 			eleventyExcludeFromCollections: true,
-			layout: '',
 		};
 	}
 
@@ -48,4 +47,6 @@ module.exports = class {
 
 		return css.content;
 	}
-};
+}
+
+module.exports = Page;

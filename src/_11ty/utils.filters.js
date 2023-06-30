@@ -68,9 +68,6 @@ module.exports = (eleventyConfig) => {
 		return markdownLibrary.renderInline(content);
 	});
 	eleventyConfig.addFilter('setAttr', setAttr);
-	eleventyConfig.addFilter('replace', (content, regex, value) => {
-		return content.replace(new RegExp(regex, 'g'), value);
-	});
 	eleventyConfig.addFilter('readFile', (filePath) => {
 		const fileContents = fs.readFileSync(filePath, (err, data) => {
 			if (err) throw err;
