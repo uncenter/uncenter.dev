@@ -3,30 +3,30 @@
     "permalink": "feed.xml",
     "eleventyExcludeFromCollections": true,
     "feed": {
-        "title": "uncenter",
-        "subtitle": "Articles about programming, linguistics, and other things.",
-        "language": "en"
+        "title": "uncenter.org",
+        "subtitle": "Articles about programming, linguistics, and other things."
     }
 }
 ---
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ meta.url }}">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ meta.url }}/">
     <title>{{ feed.title }}</title>
     <subtitle>{{ feed.subtitle }}</subtitle>
     <link href="{{ permalink | absoluteUrl(meta.url) }}" rel="self"/>
-    <link href="{{ meta.url }}"/>
+    <link href="{{ meta.url }}/"/>
     <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-    <id>{{ meta.url }}</id>
+    <id>{{ meta.url }}/</id>
     <author>
         <name>{{ meta.author.name }}</name>
         <email>{{ meta.author.email.plain }}</email>
     </author>
-    {%- for post in collections.posts | reverse %}{%- set absolutePostUrl = post.url | absoluteUrl(meta.url) %}
-        <entry>
-            <title>{{ post.data.title }}</title>
-            <link href="{{ absolutePostUrl }}"/>
-            <updated>{{ post.date | dateToRfc3339 }}</updated>
-            <id>{{ absolutePostUrl }}</id>
-            <content xml:lang="{{ feed.language }}" type="html">{{ post.content | replace('<div class="language-id">.*?<\/div>', '') | escape }}</content>
-        </entry>
+    {%- for post in collections.posts | reverse %}
+    {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) %}
+    <entry>
+        <title>{{ post.data.title }}</title>
+        <link href="{{ absolutePostUrl }}"/>
+        <updated>{{ post.date | dateToRfc3339 }}</updated>
+        <id>{{ absolutePostUrl }}</id>
+        <content xml:lang="{{ meta.lang }}" type="html">{{ post.content | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    </entry>
     {%- endfor %}
 </feed>
