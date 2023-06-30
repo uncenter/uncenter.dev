@@ -3,10 +3,9 @@
         {{ "src/_includes/duck.svg" | readFile | setAttr('class', 'w-12 h-12') | safe }}
         <span class="tracking-tight text-2xl">{{ meta.author.name }}</span></a>
     <ul class="list-none pt-2 px-0 flex lg:block lg:space-y-1.5">
-        {% for item in nav.top %}
+        {% for item in navLinks %}
             {% set classes = "not-fancy font-semibold lg:py-0 p-2 [border:2px_solid_transparent] lg:[border:2px_solid_transparent]" %}
-            {% if (page.url.includes(item.url)and item.url != "/") 
-                or(item.url == "/" and page.url == "/") %}
+            {% if (page.url.includes(item.url) and item.url != "/") or (item.url == "/" and page.url == "/") %}
                 {% set classes = classes + " lg:[border-left:2px_solid_currentColor_!important] lg:[border-bottom:2px_solid_transparent_!important] [border-bottom:2px_solid_currentColor_!important] " %}
             {% endif %}
             <li>
