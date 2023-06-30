@@ -32,7 +32,7 @@ const data = {
 			color: '#181717',
 		},
 		{
-			url: 'https://matrix.to/%23/#uncenter:matrix.org',
+			url: 'https://matrix.to/#/@uncenter:matrix.org',
 			icon: 'si:element',
 			color: '#0DBD8B',
 		},
