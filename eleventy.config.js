@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
 	});
 	eleventyConfig.addPlugin(pluginExternalLinks, {
 		url: 'https://uncenter.org',
-		rel: ['noreferrer', 'noopener', 'external'],
+		rel: ['noreferrer'],
 		overwrite: false,
 	});
 	eleventyConfig.addPlugin(pluginShikier, {
