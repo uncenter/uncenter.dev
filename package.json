@@ -17,9 +17,7 @@
 		"clean": "rimraf dist/ pages.json .cache",
 		"spell": "node ./utils/update-dicts.js && cspell src/posts/**/*.md",
 		"format": "prettier --write .",
-		"build": "eleventy && node ./utils/plugins/prevImg/index.mjs",
-		"prod": "npm run spell && NODE_ENV=production npm run build",
-		"debug": "DEBUG=Eleventy* npm run start"
+		"build": "eleventy && node ./utils/plugins/prevImg/index.mjs"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^2.0.1",

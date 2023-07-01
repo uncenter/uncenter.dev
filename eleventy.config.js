@@ -86,7 +86,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.on(
 		'eleventy.after',
 		async ({ dir, results, runMode, outputMode }) => {
-			if (runMode === 'serve' && process.env.NODE_ENV === 'development') {
+			if (runMode === 'serve') {
 				if (notFirstRun)
 					console.log(blue('\n[11ty] Server at http://localhost:8080/\n'));
 
