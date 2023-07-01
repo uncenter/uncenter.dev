@@ -89,9 +89,6 @@ dependencies:
   markdown-it-kbd-better:
     specifier: ^1.2.1
     version: 1.2.1
-  markdown-it-link-attributes:
-    specifier: ^4.0.1
-    version: 4.0.1
   markdown-it-mark:
     specifier: ^3.0.1
     version: 3.0.1
@@ -101,9 +98,6 @@ dependencies:
   markdown-it-sup:
     specifier: ^1.0.0
     version: 1.0.0
-  markdown-it-task-checkbox:
-    specifier: ^1.0.6
-    version: 1.0.6
   md5:
     specifier: ^2.3.0
     version: 2.3.0
@@ -2882,10 +2876,6 @@ packages:
       markdown-it: 13.0.1
     dev: false
 
-  /markdown-it-link-attributes@4.0.1:
-    resolution: {integrity: sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==}
-    dev: false
-
   /markdown-it-mark@3.0.1:
     resolution: {integrity: sha512-HyxjAu6BRsdt6Xcv6TKVQnkz/E70TdGXEFHRYBGLncRE9lBFwDNLVtFojKxjJWgJ+5XxUwLaHXy+2sGBbDn+4A==}
     dev: false
@@ -2896,10 +2886,6 @@ packages:
 
   /markdown-it-sup@1.0.0:
     resolution: {integrity: sha512-E32m0nV9iyhRR7CrhnzL5msqic7rL1juWre6TQNxsnApg7Uf+F97JOKxUijg5YwXz86lZ0mqfOnutoryyNdntQ==}
-    dev: false
-
-  /markdown-it-task-checkbox@1.0.6:
-    resolution: {integrity: sha512-7pxkHuvqTOu3iwVGmDPeYjQg+AIS9VQxzyLP9JCg9lBjgPAJXGEkChK6A2iFuj3tS0GV3HG2u5AMNhcQqwxpJw==}
     dev: false
 
   /markdown-it@13.0.1:

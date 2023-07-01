@@ -1,8 +1,6 @@
 const markdownIt = require('markdown-it');
-const markdownItChecklist = require('markdown-it-task-checkbox');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItAttrs = require('markdown-it-attrs');
-const markdownItLinkAttributes = require('markdown-it-link-attributes');
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItMark = require('markdown-it-mark');
 const markdownItAbbr = require('markdown-it-abbr');
@@ -17,30 +15,12 @@ const markdownLibrary = markdownIt({
 	breaks: true,
 	linkify: true,
 })
-	.use(markdownItChecklist, {
-		disabled: true,
-		divWrap: false,
-		idPrefix: '',
-		ulClass: 'checklist',
-		liClass: 'checklist-item',
-	})
 	.use(markdownItAnchor, {
 		permalink: markdownItAnchor.permalink.headerLink({
 			class: 'anchor',
 			safariReaderFix: true,
 		}),
 	})
-	.use(markdownItLinkAttributes, [
-		{
-			matcher(href) {
-				return href.match(/^https?:\/\//);
-			},
-			attrs: {
-				target: '_blank',
-				rel: 'noopener noreferrer',
-			},
-		},
-	])
 	.use(markdownItAttrs)
 	.use(markdownItFootnote)
 	.use(markdownItMark)
