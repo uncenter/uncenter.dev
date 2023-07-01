@@ -73,6 +73,11 @@ main {
 		--bg: var(--light);
 		--fg: var(--dark);
 	}
+
+	::selection {
+		background-color: #2463eb;
+		color: var(--bg);
+	}
 }
 
 :root[theme='dark'] {
@@ -93,11 +98,11 @@ main {
 		--bg: var(--dark);
 		--fg: var(--light);
 	}
-}
 
-::selection {
-	background-color: var(--neutral-gray);
-	color: var(--bg);
+	::selection {
+		background-color: #60a5fa;
+		color: var(--bg);
+	}
 }
 
 .icon {
