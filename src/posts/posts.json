@@ -1,11 +1,4 @@
 {
 	"layout": "post.njk",
-	"post": {
-		"tags": true,
-		"return": {
-			"link": "/",
-			"text": "Back to articles"
-		},
-		"comments": true
-	}
+	"comments": true
 }

@@ -16,7 +16,7 @@
 
         <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
         <style>
-            {{inlined.css | safe}}
+            {{ inlined.css | safe }}
         </style>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 
@@ -67,7 +67,7 @@
             {% include "components/header.njk" %}
         </header>
         <main class="max-w-[80ch] w-full">
-            {% if header or title %}
+            {% if (header or title) and header != false %}
                 <h1 class="text-4xl font-bold break-words m-0 mb-12"{% if headingViewTransition %} style="view-transition-name: {{ headingViewTransition }}"{% endif %}>{{ header or title }}</h1>
             {% endif %}
             {{ content | safe }}

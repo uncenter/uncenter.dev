@@ -12,16 +12,9 @@ permalink: /tags/{{ tag | slugify }}/
 description: Posts tagged “{{ tag }}”
 ---
 
-<p class="mb-12">
-    {% if collections[tag].length %}
-        See <a href="/tags/">all tags</a>.
-    {% else %}
-        No posts tagged “{{ tag }}”.
-    {% endif %}
+{% set postslist = collections[tag] | reverse %}
+{% include "postslist.njk" %}
+
+<p>
+    <a href="/posts">{%- icon 'lucide:arrow-left', class="mr-2" -%}All posts</a>
 </p>
-
-{% set posts = collections[tag] | reverse %}
-
-{% if posts.length %}
-    {% include "posts.njk" %}
-{% endif %}

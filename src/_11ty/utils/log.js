@@ -1,7 +1,16 @@
-const { red, yellow, green, blue, cyan, bold } = require('kleur/colors');
+const {
+	red,
+	yellow,
+	green,
+	blue,
+	cyan,
+	magenta,
+	bold,
+} = require('kleur/colors');
 
 function assemble(parts) {
-	return `[11ty][${parts.category}] ${parts.content}`;
+	parts.category = parts.category ? `[${[parts.category]}]` : '';
+	return `[11ty]${parts.category} ${parts.content}`;
 }
 
 module.exports = {
@@ -10,7 +19,7 @@ module.exports = {
 			styles: blue,
 			scripts: yellow,
 			images: green,
-			gitRev: red,
+			gitRev: magenta,
 			views: cyan,
 		};
 		category = categories[category] ? categories[category](category) : category;

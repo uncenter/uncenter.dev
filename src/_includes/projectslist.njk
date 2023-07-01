@@ -1,14 +1,14 @@
 <div class="flex flex-col gap-4">
-    {% for project in list %}
-        {% if project
+    {%- for project in projectslist -%}
+        {%- if project
             .link
-            .startsWith("https://github.com") %}
-            {% set projectIcon = 'si:github' %}
-            {% set projectLabel = 'Open ' + project.name + ' on GitHub' %}
-        {% else %}
-            {% set projectIcon = 'lucide:external-link' %}
-            {% set projectLabel = 'Open ' + project.name %}
-        {% endif %}
+            .startsWith("https://github.com") -%}
+            {%- set projectIcon = 'si:github' -%}
+            {%- set projectLabel = 'Open ' + project.name + ' on GitHub' -%}
+        {%- else -%}
+            {%- set projectIcon = 'lucide:external-link' -%}
+            {%- set projectLabel = 'Open ' + project.name -%}
+        {%- endif -%}
 
         <div class="flex flex-col">
             <div class="flex flex-row items-center">
@@ -18,7 +18,7 @@
                 </h2>
                 <span class="ml-auto my-0">
                     <a class="no-external-link not-fancy" href="{{ project.link }}" aria-label="{{ projectLabel }}">
-                        {% icon projectIcon, class='block w-4 h-4 text-fg align-baseline' %}
+                        {%- icon projectIcon, class='block w-4 h-4 text-fg align-baseline' -%}
                     </a>
                 </span>
             </div>

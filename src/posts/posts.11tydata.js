@@ -76,10 +76,11 @@ module.exports = {
 			return views;
 		},
 		description: (data) => {
-			if (data.description) {
-				return data.description;
-			}
-			return 'A post about a thing.';
+			if (data.description) return data.description;
+			log.error({
+				category: '',
+				message: `No description found for ${data.page.url || '/'}!`,
+			});
 		},
 		date: (data) => {
 			return DateTime.fromJSDate(new Date(data.date)).setZone('utc').toISO();

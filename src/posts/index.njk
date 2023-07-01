@@ -1,0 +1,12 @@
+---
+title: Articles
+layout: index.njk
+description: Articles about programming, linguistics, and other things.
+---
+
+{% set postslist = collections.posts | reverse %}
+{% if postslist.length %}
+    {% include "postslist.njk" %}
+{% else %}
+    <p>No posts to found.</p>
+{% endif %}

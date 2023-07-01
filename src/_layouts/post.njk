@@ -35,7 +35,7 @@ layout: index.njk
     {% endif %}
     {{ content | safe }}
 </article>
-{% if post.comments %}
+{% if comments %}
     <div id="comments" class="mt-16"></div>
 {% endif %}
 {% set previous = collections.posts | getPreviousCollectionItem %}

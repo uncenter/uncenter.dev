@@ -1,7 +1,7 @@
 module.exports = [
 	{
 		title: 'Articles',
-		url: '/',
+		url: '/posts/',
 	},
 	{
 		title: 'Projects',

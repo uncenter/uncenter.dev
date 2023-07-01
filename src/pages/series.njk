@@ -1,8 +1,8 @@
 ---
 pagination:
-  data: collections.series
-  size: 1
-  alias: series
+    data: collections.series
+    size: 1
+    alias: series
 permalink: /series/{{ series.title | slugify }}/
 dynamicPermalink: true
 eleventyComputed:
@@ -13,8 +13,7 @@ description: {{ series.description }}
 <p class="mb-12">
     {{ series.description }}
 </p>
-{% set posts = collections.posts | reverse | isSeries(series.title) %}
 
-{% if posts.length %}
-    {% include "posts.njk" %}
-{% endif %}
+{% set postslist = collections.posts | reverse | isSeries(series.title) %}
+
+{% include "postslist.njk" %}

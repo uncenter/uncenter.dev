@@ -92,4 +92,10 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('capitalize', (str) => {
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	});
+	eleventyConfig.addFilter('head', (iter, x = 1) => {
+		return iter.slice(0, x);
+	});
+	eleventyConfig.addFilter('tail', (iter, x = 1) => {
+		return iter.slice(x);
+	});
 };
