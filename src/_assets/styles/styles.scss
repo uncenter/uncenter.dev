@@ -4,16 +4,6 @@ html {
 	text-size-adjust: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div {
-	scroll-margin-top: 0.8rem;
-}
-
 body {
 	margin-left: auto;
 	margin-right: auto;
@@ -50,9 +40,23 @@ main {
 	margin-right: auto;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div {
+	scroll-margin-top: 0.8rem;
+}
+
 :root {
 	--block-indent: 2rem;
 	--block-border-width: 4px;
+
+	::selection {
+		color: var(--bg);
+	}
 }
 
 :root[theme='light'] {
@@ -76,7 +80,6 @@ main {
 
 	::selection {
 		background-color: #2463eb;
-		color: var(--bg);
 	}
 }
 
@@ -101,7 +104,6 @@ main {
 
 	::selection {
 		background-color: #60a5fa;
-		color: var(--bg);
 	}
 }
 
@@ -113,14 +115,114 @@ main {
 	&:not(.icon-lucide) {
 		fill: currentColor;
 	}
+}
 
-	.icon-lucide {
-		fill: none;
-		stroke: currentColor;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	img,
+	svg,
+	video,
+	canvas,
+	audio,
+	iframe,
+	embed,
+	object {
+		@apply box-border bg-cover bg-none block align-middle h-auto max-w-full;
+		content-visibility: auto;
+	}
+
+	:root[theme='light'] {
+		img {
+			--shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	:root[theme='dark'] {
+		img {
+			--shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
+				0 1px 3px rgba(255, 255, 255, 0.1);
+		}
+	}
+
+	img {
+		@apply rounded-md p-4;
+		box-shadow: var(--shadow);
+		margin-block-end: 1rem;
+		margin-block-start: 1rem;
+	}
+
+	blockquote {
+		border-left: var(--block-border-width) solid var(--neutral-gray);
+		margin-left: var(--block-indent);
+		@apply pl-4 border-r-0 border-t-0 border-b-0;
+	}
+
+	hr {
+		margin: 3rem var(--block-indent);
+	}
+
+	p {
+		@apply text-lg leading-7;
+	}
+
+	li {
+		@apply mt-1;
+	}
+
+	a {
+		@apply relative no-underline text-current;
+
+		&:not(.not-fancy) {
+			@apply underline underline-offset-4 transition-colors decoration-lightGray dark:decoration-darkGray hover:decoration-darkGray hover:dark:decoration-lightGray;
+		}
+	}
+
+	main,
+	article {
+		a[rel*='noreferrer']:not([href*='https://uncenter.org'], .no-external-link)::after
+		{
+			mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='external-link-icon' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+			mask-position: center;
+			mask-repeat: no-repeat;
+			mask-size: contain;
+			@apply bg-current content-[''] inline-block h-[11px] w-[11px] ml-1 mr-0.5;
+		}
+
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			@apply leading-[1.4];
+		}
+
+		h2 {
+			@apply font-semibold pb-[3px];
+		}
+
+		h3 {
+			@apply italic pb-px;
+		}
+
+		h2 a.anchor::before,
+		h3 a.anchor::before {
+			@apply absolute w-12 content-['§'] transition-opacity duration-[0.2s] ease-[ease] text-center opacity-0 -left-10 text-darkGray dark:text-lightGray;
+		}
+
+		h2 a.anchor:hover::before,
+		h3 a.anchor:hover::before {
+			@apply opacity-100;
+		}
+	}
+
+	kbd {
+		@apply border border-[color:var(--light-gray)] dark:border-[color:var(--dark-gray)] bg-transparent px-1 py-0.5 rounded-sm border-solid;
 	}
 }
 
-@import 'tailwind';
 @import 'syntax';
 
 .note {
