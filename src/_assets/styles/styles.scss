@@ -191,6 +191,10 @@ div {
 			@apply bg-current content-[''] inline-block h-[11px] w-[11px] ml-1 mr-0.5;
 		}
 
+		h1 {
+			@apply text-4xl font-bold break-words m-0 mb-12;
+		}
+
 		h2,
 		h3,
 		h4,

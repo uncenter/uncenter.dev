@@ -3,7 +3,7 @@ layout: index.njk
 ---
 
 <article>
-    {% set headingViewTransition = 'post-' + (title | slugify) %}
+    <h1 style="view-transition-name: post-{{ title | slugify }};">{{ title }}</h1>
     {% if series %}
         {% set seriesData = collections.series | seriesLocate(series) %}
         {% set seriesPosts = seriesData.posts %}
