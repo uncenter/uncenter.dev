@@ -27,12 +27,12 @@ description: All sorts of things that I use.
 
 - [AltTab](https://alt-tab-macos.netlify.app/) for better (Windows-like) window switching
 - [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704) for keeping my laptop awake
-- [BatteryBuddy](https://batterybuddy.app/) for a •ᴗ• battery indicator
+- [BatteryBuddy](https://batterybuddy.app/) for a battery indicator
 - [IINA](https://iina.io/) for media playback
 - [KnockKnock](https://objective-see.org/products/knockknock.html) for system scanning
 - [Oversight](https://objective-see.org/products/oversight.html) for camera and microphone monitoring
 - [PurePaste](https://sindresorhus.com/pure-paste) for automatic clipboard cleaning
-- [Raycast](https://raycast.com/) for a powerful Spotlight alternative
+- [Raycast](https://raycast.com/) for an improved Spotlight
 - [Rectangle](https://rectangleapp.com/x) for window snapping
 - [System Color Picker](https://sindresorhus.com/system-color-picker) for a supercharged color picker
 
@@ -48,7 +48,7 @@ description: All sorts of things that I use.
 
 ### Package management
 
-- [fnm](https://github.com/Schniz/fnm) and [corepack](https://github.com/nodejs/corepack) for Node.js version and package management
+- [fnm](https://github.com/Schniz/fnm) or Node.js version management
 - [Homebrew](https://brew.sh/) for macOS package management
 
 ### Shell
