@@ -22,11 +22,25 @@ async function getUmamiToken() {
 		body: JSON.stringify(data),
 	};
 
-	fetch(url, options)
-		.then((res) => res.json())
-		.then((json) => {
-			return json.token;
-		});
+	const res = await fetch(url, options);
+	const json = await res.json();
+	return json.token;
+}
+
+async function validateUmamiToken() {
+	const url = `${meta.analytics.url}/api/auth/verify`;
+
+	const options = {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${process.env.UMAMI_TOKEN}`,
+		},
+	};
+
+	const res = await fetch(url, options);
+	const json = await res.json();
+	return json;
 }
 
 async function getPageViews(originalUrl, originalDate) {
