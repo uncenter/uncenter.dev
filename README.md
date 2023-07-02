@@ -6,11 +6,15 @@
 
 ![Wakatime](https://wakatime.com/badge/user/44269a44-02c2-486c-a2ea-494b7071737e/project/37a0a8c7-515a-4f8e-90bc-cfab440d9035.svg?style=for-the-badge)
 
-This is my personal website, made with [11ty](https://www.11ty.dev/), Shiki, and [Tailwind CSS](https://tailwindcss.com/).
+This is my personal website, made with [11ty](https://www.11ty.dev/) and [Tailwind CSS](https://tailwindcss.com/).
 
 <picture>
     <source srcset="/images/home-dark.png" media="(prefers-color-scheme: dark)">
-    <img src="/images/home-light.png" alt="Screenshot of my website's homepage">
+    <img src="/images/home-light.png" alt="Screenshot of my website's homepage, tablet/mobile view">
+</picture>
+<picture>
+    <source srcset="/images/home-full-dark.png" media="(prefers-color-scheme: dark)">
+    <img src="/images/home-full-light.png" alt="Screenshot of my website's homepage, desktop view">
 </picture>
 </div>
 
@@ -22,38 +26,24 @@ If you see any issues or have any suggestions for the website, please open an is
 
 ### Features
 
-- **OG preview images** for posts and pages using [Satori](https://github.com/vercel/satori) and [Sharp](https://sharp.pixelplumbing.com/)
+- **OG preview images** for posts and pages using [Satori](https://github.com/vercel/satori) and [`sharp`](https://sharp.pixelplumbing.com/)
 - **Syntax highlighting** for posts using [`shiki`](https://github.com/shikijs/shiki), configured based on [Raphael Höser's implementation](https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/)
 - **Optimized images** with [`eleventy-img`](https://github.com/11ty/eleventy-img)
-- **RSS feed** for blog posts using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
-- **Spell-checking** for posts using [`cspell`](http://cspell.org/)
+- **RSS feed** using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
+- **Spell-checking** for posts through [`cspell`](http://cspell.org/)
 - **Optimized CSS, JS, and HTML** using [`postcss`](https://postcss.org/), [`UglifyJS`](https://github.com/mishoo/UglifyJS), and [`html-minifier`](https://github.com/kangax/html-minifier)
-
-### Structure
-
-- `utils/`: scripts, utilities, & plugins:
-  - `utils/dicts/`: dictionary text files for spell-checking (cSpell)
-  - `utils/plugins/`: plugins for 11ty, imported in various places - currently holds `shikier.js` for syntax highlighting, `markdown.js` as the Markdown library, and `prevImg/` for generating preview images
-- `images/`: images for posts and pages, optimized during build
-- `src/`: the source files for 11ty
-  - `src/_data/`: data files - `inlined.js` holds minified CSS and JS files for inlining in templates, `now.js` fetches the current date and time, and the other three JSON & JS files hold metadata for projects and in general
-  - `src/_assets/`: static assets such as images, fonts, and icons, as well as the CSS and JS files
-  - `src/posts/*.md`: blog posts, written in Markdown
-  - `src/pages/`: root pages
-  - `src/_includes/`: components and sections
-  - `src/_layouts/`: layouts - `index.njk` is the main layout with all metadata and required fields, `post.njk` is the layout for blog posts, and `page.njk` is the layout for root pages
-  - `src/_11ty/`: 11ty filters, shortcodes, collections (imported as plugins in `eleventy.config.js`)
-    - `src/_11ty/utils/`: utility functions used throughout the site
 
 ### Environment Variables
 
 - `UMAMI_TOKEN`: the API token for fetching analytics data from [Umami](https://umami.is/)
+- `UMAMI_USERNAME`
+- `UMAMI_PASSWORD`
 
 ## Credits
 
 Many thanks to the 11ty community for their contributions to the community, without which this website would not be possible- thanks to [Raphael Höser](https://www.hoeser.dev/), Stephanie Eckles for [11ty.rocks](https://11ty.rocks/), [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/), [11ty.recipes](https://11ty.recipes/) by Mike Aparicio, [Bernard Nijenhuis' notes](https://bnijenhuis.nl/), and more.
 
-Generic icons sourced from [Lucide](https://lucide.dev/) and technology and development icons from [Simple Icons](https://simpleicons.org/).
+Generic icons sourced from [Lucide](https://lucide.dev/) and brand icons from [Simple Icons](https://simpleicons.org/).
 
 ## License
 
