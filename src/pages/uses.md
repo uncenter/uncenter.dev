@@ -27,12 +27,12 @@ description: All sorts of things that I use.
 
 - [AltTab](https://alt-tab-macos.netlify.app/) for better (Windows-like) window switching
 - [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704) for keeping my laptop awake
-- [BatteryBuddy](https://batterybuddy.app/) for a battery indicator
+- [BatteryBuddy](https://batterybuddy.app/) for a cute battery indicator
 - [IINA](https://iina.io/) for media playback
 - [KnockKnock](https://objective-see.org/products/knockknock.html) for system scanning
 - [Oversight](https://objective-see.org/products/oversight.html) for camera and microphone monitoring
 - [PurePaste](https://sindresorhus.com/pure-paste) for automatic clipboard cleaning
-- [Raycast](https://raycast.com/) for an improved Spotlight
+- [Raycast](https://raycast.com/) for an improved Spotlight search
 - [Rectangle](https://rectangleapp.com/x) for window snapping
 - [System Color Picker](https://sindresorhus.com/system-color-picker) for a supercharged color picker
 
@@ -40,7 +40,7 @@ description: All sorts of things that I use.
 
 - [1Password](https://1password.com/downloads/browser-extension/)
 - [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
-- [Refined GitHub](https://github.com/refined-github/refined-github) for a better GitHub experience
+- [Refined GitHub](https://github.com/refined-github/refined-github) for GitHub enhancements
 - [Stylus](https://github.com/openstyles/stylus) for Catppuccin userstyles
 - [uBlock Origin](https://github.com/gorhill/uBlock/) for advertisement and tracker blocking
 
@@ -48,7 +48,7 @@ description: All sorts of things that I use.
 
 ### Package management
 
-- [fnm](https://github.com/Schniz/fnm) or Node.js version management
+- [fnm](https://github.com/Schniz/fnm) for Node.js version management
 - [Homebrew](https://brew.sh/) for macOS package management
 
 ### Shell
@@ -56,14 +56,14 @@ description: All sorts of things that I use.
 - [antidote](https://github.com/mattmc3/antidote) for managing Zsh plugins
 - [atuin](https://atuin.sh/) for magical shell history
 - [bat](https://github.com/sharkdp/bat) for a `cat` replacement
-- [bottom](https://github.com/ClementTsang/bottom) as a system monitor - replacement for `top`
-- [dust](https://github.com/bootandy/dust) as a disk usage analyzer - replacement for `du`
+- [bottom](https://github.com/ClementTsang/bottom) as a system monitor / replacement for `top`
+- [dust](https://github.com/bootandy/dust) as a disk usage analyzer / replacement for `du`
 - [exa](https://the.exa.website/) for an `ls` replacement
 - [fd](https://github.com/sharkdp/fd) for a `find` replacement
 - [fzf](https://github.com/junegunn/fzf) for fuzzy finding
-- [Helix](https://helix-editor.com/) for a fast, modern text editor (instead of Neovim)
+- [Helix](https://helix-editor.com/) for a fast, modern text editor
 - [hyperfine](https://github.com/sharkdp/hyperfine) for benchmarking
-- [jless](https://jless.io/) for JSON viewing (replacement for `jq`)
+- [jless](https://jless.io/) for JSON viewing / replacement for `jq`
 - [newsboat](https://github.com/newsboat/newsboat) as a feed reader
 - [Starship](https://starship.rs/) for a customizable prompt
 - [tealdeer](https://github.com/dbrgn/tealdeer) for better `man` pages
