@@ -46,9 +46,9 @@ async function validateUmamiToken() {
 async function getPageViews(originalUrl, originalDate) {
 	const url = `${meta.analytics.url}/api/websites/${
 		meta.analytics.websiteId
-	}/pageviews?url=${originalUrl}&start_at=${Date.parse(
+	}/pageviews?url=${originalUrl}&startAt=${Date.parse(
 		originalDate,
-	)}&end_at=${Date.now()}&unit=day&tz=America/New_York`;
+	)}&endAt=${Date.now()}&unit=day&timezone=America/New_York`;
 
 	return await EleventyFetch(url, {
 		duration: '12h',
