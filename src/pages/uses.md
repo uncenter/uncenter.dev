@@ -12,7 +12,7 @@ description: All sorts of things that I use.
 - [1Password](https://1password.com/) for password management
 - [Arc](https://arc.net/) for browsing the web
 - [Discord](https://discord.com/) for messaging
-- [Notion](https://notion.so/) for personal documents and databases
+- [Notion](https://notion.so/) for documents and databases
 - [shottr](https://shottr.cc/) for screenshotting
 - [Spotify](https://spotify.com/) for music
 - [Zettlr](https://github.com/Zettlr/Zettlr) for Markdown editing
@@ -27,11 +27,11 @@ description: All sorts of things that I use.
 
 - [AltTab](https://alt-tab-macos.netlify.app/) for better (Windows-like) window switching
 - [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704) for keeping my laptop awake
-- [BatteryBuddy](https://batterybuddy.app/) for a cute battery indicator •ᴗ•
+- [BatteryBuddy](https://batterybuddy.app/) for a •ᴗ• battery indicator
 - [IINA](https://iina.io/) for media playback
 - [KnockKnock](https://objective-see.org/products/knockknock.html) for system scanning
 - [Oversight](https://objective-see.org/products/oversight.html) for camera and microphone monitoring
-- [PurePaste](https://sindresorhus.com/pure-paste) for clipboard sanitization
+- [PurePaste](https://sindresorhus.com/pure-paste) for automatic clipboard cleaning
 - [Raycast](https://raycast.com/) for a powerful Spotlight alternative
 - [Rectangle](https://rectangleapp.com/x) for window snapping
 - [System Color Picker](https://sindresorhus.com/system-color-picker) for a supercharged color picker
@@ -40,15 +40,15 @@ description: All sorts of things that I use.
 
 - [1Password](https://1password.com/downloads/browser-extension/)
 - [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywalls on articles
-- [Refined GitHub](https://github.com/refined-github/refined-github) for better GitHub UX
-- [Stylus](https://github.com/openstyles/stylus) for custom CSS & themes
+- [Refined GitHub](https://github.com/refined-github/refined-github) for a better GitHub experience
+- [Stylus](https://github.com/openstyles/stylus) for Catppuccin userstyles
 - [uBlock Origin](https://github.com/gorhill/uBlock/) for advertisement and tracker blocking
 
 ## Developer tools
 
 ### Package management
 
-- [fnm](https://github.com/Schniz/fnm) and [corepack](https://github.com/nodejs/corepack) for Node.js version management
+- [fnm](https://github.com/Schniz/fnm) and [corepack](https://github.com/nodejs/corepack) for Node.js version and package management
 - [Homebrew](https://brew.sh/) for macOS package management
 
 ### Shell
