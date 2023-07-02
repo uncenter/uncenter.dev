@@ -3,8 +3,9 @@ const analytics = {
 	shareId: 'LRerfjMi',
 	websiteId: 'dea82084-7eb8-4337-b02c-23f6ace1afc1',
 	websiteName: 'uncenter',
-	trackerScript: 'beepboop',
+	trackerScript: 'script.js',
 };
+
 analytics.shareLink = `${analytics.url}/share/${analytics.shareId}/${analytics.websiteName}`;
 
 module.exports = {
