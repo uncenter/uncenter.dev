@@ -3,10 +3,10 @@ title: Projects
 description: A list of projects I've worked on.
 ---
 
-{% set projectslist = projects.maintained | rejectattr("hidden") %}
+{% set projectslist = projects.projects | rejectattr("hidden") %}
 {% include "projectslist.njk" %}
 
-<hr class="separator">
+<hr>
 
-{% set projectslist = projects.mini | rejectattr("hidden") %}
+{% set projectslist = projects.archived | rejectattr("hidden") %}
 {% include "projectslist.njk" %}
