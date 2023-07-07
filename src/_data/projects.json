@@ -54,7 +54,7 @@
 		},
 		{
 			"name": "wifi-password",
-			"description": "People ask you for the Wi-Fi password. Answer quickly. Get the password of the current or specified WiFi network on macOS.",
+			"description": "People ask you for the Wi-Fi password. Answer quickly.",
 			"link": "https://github.com/uncenter/wifi-password"
 		}
 	],
@@ -66,7 +66,7 @@
 		},
 		{
 			"name": "phonetic-alphabet",
-			"description": "Practice your knowledge of the phonetic alphabet with over 10,000 words and a built-in cheat sheet for when you get stuck (inspired by https://abg.ninja/alphabet).",
+			"description": "A simple web app to practice your knowledge of the phonetic alphabet.",
 			"link": "https://alphabet.uncenter.org"
 		},
 		{
