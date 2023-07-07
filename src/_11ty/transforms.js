@@ -15,13 +15,18 @@ module.exports = {
 	wrapShiki: (content) => {
 		const { document } = parseHTML(content);
 		document.querySelectorAll('pre.shiki').forEach((block, index) => {
-			if (document.querySelector(`#code-${index}`)) {
-				log.error({
-					category: 'transform:wrapShiki',
-					message: `Duplicate code block ID found: #code-${index}`,
-				});
+			const code = block.querySelector('code').innerHTML;
+			const genUniqueId = (content) => {
+				return require('crypto')
+					.createHash('md5')
+					.update(content)
+					.digest('hex');
+			};
+			let uniqueId = genUniqueId(code).slice(0, 6);
+			while (document.getElementById(uniqueId)) {
+				uniqueId = genUniqueId(uniqueId).slice(0, 6);
 			}
-			block.outerHTML = `<div class="shiki-wrapper" id="code-${index}">${block.outerHTML}</div>`;
+			block.outerHTML = `<div class="shiki-wrapper" id="${uniqueId}">${block.outerHTML}</div>`;
 		});
 		return document.documentElement.outerHTML;
 	},
