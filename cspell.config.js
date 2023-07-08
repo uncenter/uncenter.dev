@@ -7,7 +7,6 @@ module.exports = {
 		'shortcode',
 		'shortcodes',
 		'pagination',
-		'frontmatter',
 		'webc',
 
 		// Misc

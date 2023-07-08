@@ -4,25 +4,10 @@ const Image = require('@11ty/eleventy-img');
 const imageSize = require('image-size');
 
 const { escape } = require('lodash');
-const { markdownLibrary } = require('../../utils/plugins/markdown');
 
 const stringifyAttributes = require('./utils/stringifyAttributes.js');
 const log = require('./utils/log.js');
 const kleur = require('kleur');
-
-const createCallout = (content, title, type) => {
-	const titleText =
-		title === undefined ? false : markdownLibrary.renderInline(`${title}`);
-	const contentHtml = markdownLibrary.render(content);
-
-	if (['info', 'warning', 'tip', 'note'].includes(type) === false) {
-		type = 'note';
-	}
-	return `<div class="note note-${type}">
-    ${titleText ? `<div class="note-title">${titleText}</div>` : ''}
-    <div>${contentHtml}</div>
-    </div>`;
-};
 
 const insertImage = async function (src, alt, width, height) {
 	try {
@@ -95,18 +80,6 @@ const insertImage = async function (src, alt, width, height) {
 };
 
 module.exports = (eleventyConfig) => {
-	eleventyConfig.addPairedShortcode('note', (content, title) => {
-		return createCallout(content, title, 'note');
-	});
-	eleventyConfig.addPairedShortcode('tip', (content, title) => {
-		return createCallout(content, title, 'tip');
-	});
-	eleventyConfig.addPairedShortcode('warning', (content, title) => {
-		return createCallout(content, title, 'warning');
-	});
-	eleventyConfig.addPairedShortcode('info', (content, title) => {
-		return createCallout(content, title, 'info');
-	});
 	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
 	eleventyConfig.addShortcode('log', (...args) => {
 		console.log(...args);

@@ -57,6 +57,8 @@ div {
 	--dark: #161616;
 	--dark-gray: #343434;
 	--light-gray: #c7c7c7;
+	--dark-blue: #2463eb;
+	--light-blue: #60a5fa;
 
 	::selection {
 		color: var(--bg);
@@ -64,40 +66,24 @@ div {
 }
 
 :root[theme='light'] {
-	--accent-red: #e64553;
-	--accent-orange: #fe640b;
-	--accent-yellow: #df8e1d;
-	--accent-green: #40a02b;
-	--accent-blue: #04a5e5;
-	--accent-purple: #8839ef;
-	--accent-pink: #ea76cb;
-
 	body {
 		--bg: var(--light);
 		--fg: var(--dark);
 	}
 
 	::selection {
-		background-color: #2463eb;
+		background-color: var(--dark-blue);
 	}
 }
 
 :root[theme='dark'] {
-	--accent-red: #ed8796;
-	--accent-orange: #f5a97f;
-	--accent-yellow: #eed49f;
-	--accent-green: #a6da95;
-	--accent-blue: #8aadf4;
-	--accent-purple: #c6a0f6;
-	--accent-pink: #f5bde6;
-
 	body {
 		--bg: var(--dark);
 		--fg: var(--light);
 	}
 
 	::selection {
-		background-color: #60a5fa;
+		background-color: var(--light-blue);
 	}
 }
 
@@ -227,50 +213,3 @@ div {
 }
 
 @import 'syntax';
-
-.note {
-	padding: 0 1.5rem 0px 1.5rem;
-	position: relative;
-	margin: 1.5rem 0;
-	border: var(--block-border-width) solid var(--note-color);
-	border-radius: 6px;
-	.note-title {
-		padding-top: 1.5rem;
-		font-weight: bold;
-		font-size: 1.4em;
-	}
-	&::after {
-		position: absolute;
-		right: 1rem;
-		top: -0.5rem;
-		font-weight: 600;
-		font-size: 0.9rem;
-		padding: 0 0.25rem;
-		text-transform: uppercase;
-		line-height: 1;
-		background: #fff;
-		color: var(--note-color);
-		background-color: var(--bg);
-	}
-	&.note-info {
-		--note-color: var(--accent-blue);
-		&::after {
-			content: 'Info';
-		}
-	}
-	&.note-warning {
-		--note-color: var(--accent-yellow);
-		&::after {
-			content: 'Warning';
-		}
-	}
-	&.note-tip {
-		--note-color: var(--accent-green);
-		&::after {
-			content: 'Tip';
-		}
-	}
-	&.note-note {
-		--note-color: var(--light-gray);
-	}
-}
