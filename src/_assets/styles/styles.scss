@@ -53,6 +53,10 @@ div {
 :root {
 	--block-indent: 2rem;
 	--block-border-width: 4px;
+	--light: #eff1f5;
+	--dark: #161616;
+	--dark-gray: #343434;
+	--light-gray: #c7c7c7;
 
 	::selection {
 		color: var(--bg);
@@ -63,15 +67,10 @@ div {
 	--accent-red: #e64553;
 	--accent-orange: #fe640b;
 	--accent-yellow: #df8e1d;
-	--accent-green: #40a02b; // #179299;
+	--accent-green: #40a02b;
 	--accent-blue: #04a5e5;
 	--accent-purple: #8839ef;
 	--accent-pink: #ea76cb;
-	--light-gray: #9ca0b0;
-	--dark-gray: #6c6f85;
-	--neutral-gray: #8c8fa1;
-	--light: #eff1f5;
-	--dark: #4c4f69;
 
 	body {
 		--bg: var(--light);
@@ -91,11 +90,6 @@ div {
 	--accent-blue: #8aadf4;
 	--accent-purple: #c6a0f6;
 	--accent-pink: #f5bde6;
-	--light-gray: #939ab7;
-	--dark-gray: #494d64;
-	--neutral-gray: #6e738d;
-	--light: #eff1f5;
-	--dark: #18181b;
 
 	body {
 		--bg: var(--dark);
@@ -155,7 +149,7 @@ div {
 	}
 
 	blockquote {
-		border-left: var(--block-border-width) solid var(--neutral-gray);
+		border-left: var(--block-border-width) solid var(--light-gray);
 		margin-left: var(--block-indent);
 		@apply pl-4 border-r-0 border-t-0 border-b-0;
 	}
@@ -277,6 +271,6 @@ div {
 		}
 	}
 	&.note-note {
-		--note-color: var(--neutral-gray);
+		--note-color: var(--light-gray);
 	}
 }
