@@ -79,11 +79,3 @@ Furthermore, none of those are official Eleventy resources. My conclusion from a
 I have actually tried to solve a few of this issues by making a CLI tool that scaffolds your project for you. [Try it out](https://github.com/uncenter/create-eleventy-app) and let me know what you think!
 
 I think there is a lot that needs to be done. And I'm not writing about this as a criticism, but rather I wish the best for Eleventy and it is important to me to have it succeed! I hope this post was interesting and I'm looking forward to seeing what the future holds for Eleventy (including some updates to the website?!).
-
-{% info %}
-Unfortunately, Zach Leatherman recently [announced](https://www.zachleat.com/web/eleventy-side-project/) that Eleventy will no longer be a full time project.
-
-> As Eleventy continues forward on its mission to help super-fans of HTML quickly and easily build things for the web, as a responsible steward of the project I must disclose that we are no longer doing so with full time sponsorship. As such, Eleventy will be returning to its roots as a side-project and transitioning away from full time development.
-
-My thoughts on this are that it is a shame, but I'm glad that Eleventy will continue to be developed, even if it is at a slower pace. I'm _still_ looking forward to seeing what the future holds for Eleventy!
-{% endinfo %}

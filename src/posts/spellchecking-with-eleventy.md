@@ -8,7 +8,7 @@ edited: 2023-05-21
 
 Though I haven't written much on this blog, I wanted to add some basic spell-checking to my posts. I looked up "spell-checking markdown" and found [an article by TJ Addison](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) that explained how to do this with a tool called `cSpell` (the backbone of the somewhat popular [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). Definitely check out TJ's article for a more in-depth explanation of `cSpell` and how to use it, but here I'll explain how I set it up for my Eleventy blog.
 
-## Using cSpell
+## Installing cSpell
 
 You can use `cSpell` without installing it as a dependency by running it with `npx`:
 
@@ -32,7 +32,7 @@ npm install cspell --save-dev
 }
 ```
 
-## Add a config file
+## Configuration
 
 `cSpell` [allows multiple filenames](http://cspell.org/configuration/#configuration) for its configuration but I went with `cspell.config.js` for consistency with my other config files (like `eleventy.config.js` and `tailwind.config.js`).
 
@@ -56,7 +56,6 @@ An important step is to define specific words to exclude or flag. I told `cSpell
 		'shortcode',
 		'shortcodes',
 		'pagination',
-		'frontmatter',
 		'webc',
 
 		// Misc
@@ -65,6 +64,8 @@ An important step is to define specific words to exclude or flag. I told `cSpell
 	],
     flagWords: [],
 ```
+
+### Dictionaries
 
 In addition to the `words` property, you can also define dictionaries - just longer lists of words. I added a dictionary for my GitHub repositories to prevent those from being spell-checked if I ever write about them.
 
@@ -103,7 +104,6 @@ function getRepos() {
 getRepos();
 ```
 
-{% tip "Running the script on Netlify" %}
 If you're using Netlify, you can run this script and the spell-check script during the build process by adding it to the `build` command in your `netlify.toml` file (or the GUI on Netlify's website):
 
 ```toml
@@ -112,7 +112,8 @@ command = "node ./utils/get-repos.js && npm run spell && npm run build"
 ```
 
 {% image "images/spellchecking-with-eleventy/netlify-build-command.png", "Screenshot of our new build command in the Netlify GUI" %}
-{% endtip %}
+
+### Ignore patterns
 
 Finally, the config file allows you to define regular expression patterns to ignore. I added patterns to ignore words in Nunjucks expressions, Markdown code blocks and inline code, and proper nouns (words that start with a capital letter).
 
@@ -146,9 +147,9 @@ Finally, the config file allows you to define regular expression patterns to ign
 
 I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common JavaScript libraries and methods being flagged as typos. Additionally, I use a few [custom shortcodes](https://www.11ty.dev/docs/shortcodes/) that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.
 
-## Ignore words in frontmatter
+### Ignore words in front matter
 
-The neat thing about cSpell is you can also define words to ignore per file, so if you only use a word once, you can just ignore it in that file. For example, you could ignore the word `supercalifragilisticexpialidocious` in just one file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
+One other neat thing about cSpell is that you can define words to ignore per file. For example, you could ignore the word `supercalifragilisticexpialidocious` in just one file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
 
 ```md
 ---
@@ -160,6 +161,6 @@ date: 2000-01-01
 ---
 ```
 
-You don't have to put it in the frontmatter, but I like to keep my posts as clean & organized as possible and it looks nice there.
+You don't have to put it in the front matter, but I like to keep my posts as clean & organized as possible and it looks nice there.
 
 Let me know if you have any questions or suggestions!
