@@ -1,4 +1,5 @@
 const fs = require('fs/promises');
+const path = require('path');
 
 const Image = require('@11ty/eleventy-img');
 const imageSize = require('image-size');
@@ -7,21 +8,19 @@ const { escape } = require('lodash');
 
 const stringifyAttributes = require('./utils/stringifyAttributes.js');
 const log = require('./utils/log.js');
-const kleur = require('kleur');
+const { red } = require('kleur/colors');
 
-const insertImage = async function (src, alt, width, height) {
+const insertImage = async function (src, alt, classes) {
+	src = path.join('images', src);
 	try {
 		await fs.access(src);
 	} catch (error) {
-		console.log(kleur.red(`[11ty][images] File not found: ${src}`));
+		console.log(red(`[11ty][images] File not found: ${src}`));
 		return;
 	}
-	if (!width || !height) {
-		const originalDimensions = imageSize.imageSize(src);
-
-		width = originalDimensions.width;
-		height = originalDimensions.height;
-	}
+	const originalDimensions = imageSize.imageSize(src);
+	width = originalDimensions.width;
+	height = originalDimensions.height;
 
 	const data = await Image(src, {
 		widths: [640, 750, 828, 1080, 1200, 1920, 2048, 3840, width]
@@ -59,7 +58,7 @@ const insertImage = async function (src, alt, width, height) {
 		})
 		.join('\n');
 
-	const picture = `
+	return `
 <a class="no-underline" href="${largestImages.optimized.url}">
     <picture>
         ${sources}
@@ -67,6 +66,7 @@ const insertImage = async function (src, alt, width, height) {
 					height: largestImages.base.height,
 					width: largestImages.base.width,
 					src: largestImages.base.url,
+					class: classes,
 					alt: escape(alt),
 					loading: 'lazy',
 					decoding: 'async',
@@ -75,8 +75,6 @@ const insertImage = async function (src, alt, width, height) {
     </picture>
 </a>
 `;
-
-	return picture;
 };
 
 module.exports = (eleventyConfig) => {
