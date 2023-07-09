@@ -57,7 +57,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Passthrough Copy */
-	eleventyConfig.addPassthroughCopy({ 'src/_assets/favicon': '.' });
+	eleventyConfig.addPassthroughCopy({ 'src/_assets/root': '.' });
 	eleventyConfig.addPassthroughCopy({
 		'src/_assets/fonts/*.woff2': '/assets/fonts',
 	});
