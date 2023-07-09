@@ -177,33 +177,32 @@ const getLineOptions = (tokenized) => {
  */
 const highlight = (code, lang, highlighter) => {
 	[lang] = lang.split('{');
-    code = code.replace(/^(?: {4})+/gm, (match) => '  '.repeat(match.length / 4));
-    code = code.replace(/^(?:\t)+/gm, (match) => '  '.repeat(match.length));
-    code = code.replace(/^(?: {2})+/gm, (match) => '\t'.repeat(match.length / 2));
+	// Reset indentation
+	code = code.replace(/^(?: {4})+/gm, (match) => '  '.repeat(match.length / 4));
+	code = code.replace(/^(?:\t)+/gm, (match) => '  '.repeat(match.length));
+	code = code.replace(/^(?: {2})+/gm, (match) => '\t'.repeat(match.length / 2));
 
 	const tokenized = highlighter.codeToThemedTokens(code, lang);
-
 	const lineOptions = isShikierEnabled(lang) ? getLineOptions(tokenized) : [];
-
 	const theme = highlighter.getTheme();
-	const outputHtml = renderToHtml(tokenized, {
-		bg: theme.bg,
-		fg: theme.fg,
-		lineOptions,
-		lang,
-	}).replace(
-		/<span class="line"><span style="color: #\w*"><\/span><\/span><\/code><\/pre>|<span class="line"><\/span><\/code><\/pre>$/u,
-		'</code></pre>',
+	return (
+		renderToHtml(tokenized, {
+			bg: theme.bg,
+			fg: theme.fg,
+			lineOptions,
+			lang,
+		})
+			// Remove empty last line from block
+			.replace(
+				/<span class="line"><span style="color: #\w*"><\/span><\/span><\/code><\/pre>|<span class="line"><\/span><\/code><\/pre>$/u,
+				'</code></pre>',
+			)
 	);
-	return outputHtml;
 };
 
 module.exports = (eleventyConfig, { theme }) => {
-	if (!theme) {
-		throw new Error('Theme is required!');
-	}
+	if (!theme) throw new Error('Theme is required!');
 	eleventyConfig.amendLibrary('md', () => {});
-
 	eleventyConfig.on('eleventy.before', async () => {
 		const highlighter = await shiki.getHighlighter({ theme });
 		eleventyConfig.amendLibrary('md', (mdLib) =>
