@@ -32,7 +32,7 @@ function escapeHtml(html) {
 				'>': '&gt;',
 				'"': '&quot;',
 				"'": '&#39;',
-			}[chr]),
+			})[chr],
 	);
 }
 

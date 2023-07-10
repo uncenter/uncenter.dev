@@ -16,7 +16,7 @@ const resolveCommandShortcuts = (command) =>
 		'++': 'add',
 		'--': 'remove',
 		'~~': 'highlight',
-	}[command] || command);
+	})[command] || command;
 
 const extractLineShikierCommands = (line) => {
 	const shikierCommandsExtractor = /\[sh!(?<commands>[^\]]*)\]/gu;
