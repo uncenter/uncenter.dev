@@ -3,12 +3,12 @@
 This is my personal website, made with [11ty](https://www.11ty.dev/) and [Tailwind CSS](https://tailwindcss.com/).
 
 <picture>
-    <source srcset="/images/home-dark.png" media="(prefers-color-scheme: dark)">
-    <img src="/images/home-light.png" alt="Screenshot of my website's homepage, tablet/mobile view">
+    <source srcset="/images/dark.png" media="(prefers-color-scheme: dark)">
+    <img src="/images/light.png" alt="the uncenter.org homepage, tablet/mobile view">
 </picture>
 <picture>
-    <source srcset="/images/home-full-dark.png" media="(prefers-color-scheme: dark)">
-    <img src="/images/home-full-light.png" alt="Screenshot of my website's homepage, desktop view">
+    <source srcset="/images/dark-wide.png" media="(prefers-color-scheme: dark)">
+    <img src="/images/light-wide.png" alt="the uncenter.org homepage, desktop view">
 </picture>
 </div>
 
