@@ -1,5 +1,3 @@
-const { DateTime } = require('luxon');
-
 const posts = (collectionApi) => {
 	return collectionApi.getFilteredByGlob('./src/posts/**/*.md');
 };
