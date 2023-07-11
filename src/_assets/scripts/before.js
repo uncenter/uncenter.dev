@@ -7,14 +7,11 @@ function getSystemTheme() {
 function setMetaThemeColor(theme) {
 	if (theme === 'system') theme = getSystemTheme();
 	const metaThemeColor = document.querySelector("meta[name='theme-color']");
-	if (metaThemeColor) {
-		metaThemeColor.setAttribute(
-			'content',
-			theme === 'dark' ? '#303446' : '#EFF1F5',
-		);
-		return true;
-	}
-	return false;
+	if (!metaThemeColor) return;
+	metaThemeColor.setAttribute(
+		'content',
+		getComputedStyle(document.documentElement).getPropertyValue(`--${theme}`),
+	);
 }
 
 function setTheme(theme, options = { permanent: true, update: true }) {

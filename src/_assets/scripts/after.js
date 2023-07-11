@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	setMetaThemeColor(localStorage.getItem('theme'));
 	if (document.getElementById('theme-selector')) {
 		document.getElementById('theme-selector').value =
-			document.documentElement.getAttribute('theme');
+			localStorage.getItem('theme');
 		document
 			.getElementById('theme-selector')
 			.addEventListener('change', function () {
@@ -13,8 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	window
 		.matchMedia('(prefers-color-scheme: dark)')
 		.addEventListener('change', (e) => {
-			if (localStorage.getItem('theme') !== 'system') return;
-			setTheme('system');
+			if (localStorage.getItem('theme') === 'system') setTheme('system');
 		});
 	loadGiscus();
 });
