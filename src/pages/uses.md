@@ -27,7 +27,6 @@ description: All sorts of things that I use.
 
 - [AltTab](https://alt-tab-macos.netlify.app/) for better (Windows-like) window switching
 - [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704) for keeping my laptop awake
-- [BatteryBuddy](https://batterybuddy.app/) for a cute battery indicator
 - [IINA](https://iina.io/) for media playback
 - [KnockKnock](https://objective-see.org/products/knockknock.html) for system scanning
 - [Oversight](https://objective-see.org/products/oversight.html) for camera and microphone monitoring
@@ -35,6 +34,8 @@ description: All sorts of things that I use.
 - [Raycast](https://raycast.com/) for an improved Spotlight search
 - [Rectangle](https://rectangleapp.com/x) for window snapping
 - [System Color Picker](https://sindresorhus.com/system-color-picker) for a supercharged color picker
+- [Day Progress](https://sindresorhus.com/day-progress) for a simple day progress bar
+- [Speediness](https://sindresorhus.com/speediness) for network speed testing at a glance
 
 ### Browser Extensions
 
