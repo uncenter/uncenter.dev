@@ -2,7 +2,10 @@
     meta.url, '/assets/previews/', title | slugify,
     '.png'
 ] | join %}
-{% set metaTitle = title + " &middot; " + meta.domain %}
+{% set metaTitle = meta.domain %}
+{%- if title != false -%}
+{% set metaTitle = title + " &middot; " + metaTitle %}
+{%- endif -%}
 
 <!DOCTYPE html>
 <html lang="{{ meta.lang }}">
