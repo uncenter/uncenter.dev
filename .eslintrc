@@ -1,9 +1,5 @@
 {
 	"extends": ["prettier"],
-	"plugins": ["prettier"],
-	"rules": {
-		"prettier/prettier": ["error", { "singleQuote": true }]
-	},
 	"parserOptions": {
 		"ecmaVersion": "latest",
 		"sourceType": "module",
