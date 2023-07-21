@@ -43,6 +43,9 @@ module.exports = {
 		kofi: {
 			username: 'uncenter',
 		},
+		liberapay: {
+			username: 'uncenter',
+		},
 	},
 	analytics,
 };
