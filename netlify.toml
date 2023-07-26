@@ -1,6 +1,6 @@
 [build]
 publish = "dist/"
-command = "pnpm run spell && NODE_ENV=production pnpm run build"
+command = "NODE_ENV=production pnpm run build"
 ignore = "git diff --name-only $CACHED_COMMIT_REF $COMMIT_REF | tr -d '\n' | grep -Eq '^(README.md|LICENSE)$'"
 
 [[plugins]]
