@@ -215,10 +215,7 @@ const makeImage = async (data) => {
 			)}${kleur.cyan().bold(data.slug)}${kleur.bold('.png')}`,
 		);
 	} catch (err) {
-		console.error(
-			kleur.red(`[11ty][previews] Error generating preview for ${data.slug}`),
-		);
-		throw err;
+		throw new Error(`[previews] Error generating preview for ${data.slug}`);
 	}
 };
 

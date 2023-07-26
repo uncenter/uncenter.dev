@@ -11,7 +11,7 @@ const pluginShikier = require('./utils/plugins/shikier.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
-const inProduction = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production';
 const fs = require('fs');
 require('dotenv').config();
 
@@ -73,7 +73,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.setLibrary('md', markdownLibrary);
-	eleventyConfig.setQuietMode(!inProduction);
+	eleventyConfig.setQuietMode(!isProd);
 	eleventyConfig.setServerOptions({
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,

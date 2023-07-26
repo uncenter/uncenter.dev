@@ -15,8 +15,7 @@ const insertImage = async function (src, alt, classes) {
 	try {
 		await fs.access(src);
 	} catch (error) {
-		console.log(red(`[11ty][images] File not found: ${src}`));
-		return;
+		throw new Error(`[images] File not found: ${src}`);
 	}
 	const originalDimensions = imageSize.imageSize(src);
 	width = originalDimensions.width;

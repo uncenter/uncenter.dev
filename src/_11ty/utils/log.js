@@ -30,15 +30,4 @@ module.exports = {
 			}),
 		);
 	},
-	error: ({ category, message = '', extra = '' }) => {
-		console.log(
-			red(
-				assemble({
-					category,
-					content: `${bold(message)} ${extra ? `(${extra})` : ''}`,
-				}),
-			),
-		);
-		process.exit(1);
-	},
 };

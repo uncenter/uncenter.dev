@@ -6,12 +6,12 @@ const isProd = process.env.NODE_ENV === 'production';
 const meta = require('../_data/meta.js');
 require('dotenv').config();
 
-async function getUmamiToken() {
+async function getUmamiToken(username, password) {
 	const url = `${meta.analytics.url}/api/auth/login`;
 
 	const data = {
-		username: process.env.UMAMI_USERNAME,
-		password: process.env.UMAMI_PASSWORD,
+		username,
+		password,
 	};
 
 	const options = {
@@ -27,23 +27,24 @@ async function getUmamiToken() {
 	return json.token;
 }
 
-async function validateUmamiToken() {
+async function validateUmamiToken(token) {
 	const url = `${meta.analytics.url}/api/auth/verify`;
 
 	const options = {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${process.env.UMAMI_TOKEN}`,
+			Authorization: `Bearer ${token}`,
 		},
 	};
 
 	const res = await fetch(url, options);
-	const json = await res.json();
-	return json;
+	if (res.status === 401) return false;
+	if (res.status === 200) return true;
+	throw new Error(`Received unexpected response: ${res}`);
 }
 
-async function getPageViews(originalUrl, originalDate) {
+async function getPageViews(originalUrl, originalDate, token) {
 	const url = `${meta.analytics.url}/api/websites/${
 		meta.analytics.websiteId
 	}/pageviews?url=${originalUrl}&startAt=${Date.parse(
@@ -55,7 +56,7 @@ async function getPageViews(originalUrl, originalDate) {
 		type: 'json',
 		fetchOptions: {
 			headers: {
-				Authorization: `Bearer ${process.env.UMAMI_TOKEN}`,
+				Authorization: `Bearer ${token}`,
 			},
 		},
 	});
@@ -63,22 +64,23 @@ async function getPageViews(originalUrl, originalDate) {
 
 module.exports = {
 	eleventyComputed: {
-		eleventyExcludeFromCollections: (data) => {
-			if ((data.unlisted && isProd) || data.hide) {
-				return true;
-			}
-			return data.eleventyExcludeFromCollections;
-		},
-		permalink: (data) => {
-			if (data.hide && isProd) return false;
-			return data.permalink;
-		},
 		views: async (data) => {
 			if (!data.page.url || data.views === false) return;
-			if (!isProd) return Math.floor(Math.random() * 100);
+			if (!isProd || process.env.UMAMI_SKIP)
+				return Math.floor(Math.random() * 100);
 
+			authToken = process.env.UMAMI_TOKEN;
+			if (!authToken || !(await validateUmamiToken(authToken))) {
+				username = process.env.UMAMI_USERNAME;
+				password = process.env.UMAMI_PASSWORD;
+				if (username && password)
+					authToken = await getUmamiToken(username, password);
+				if (!authToken || !(await validateUmamiToken(authToken))) {
+					throw new Error('[views] No auth token for Umami!');
+				}
+			}
 			views = 0;
-			const res = await getPageViews(data.page.url, data.page.date);
+			const res = await getPageViews(data.page.url, data.page.date, authToken);
 			for (let i = 0; i < res.pageviews.length; i++) {
 				views += res.pageviews[i].y;
 			}
@@ -91,10 +93,9 @@ module.exports = {
 		},
 		description: (data) => {
 			if (data.description) return data.description;
-			log.error({
-				category: '',
-				message: `No description found for ${data.page.url || '/'}!`,
-			});
+			throw new Error(
+				`[posts] No description found for ${data.page.url || '/'}`,
+			);
 		},
 		date: (data) => {
 			return DateTime.fromJSDate(new Date(data.date)).setZone('utc').toISO();
