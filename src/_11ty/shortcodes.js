@@ -8,7 +8,6 @@ const { escape } = require('lodash');
 
 const stringifyAttributes = require('./utils/stringifyAttributes.js');
 const log = require('./utils/log.js');
-const { red } = require('kleur/colors');
 
 const insertImage = async function (src, alt, classes) {
 	src = path.join('images', src);

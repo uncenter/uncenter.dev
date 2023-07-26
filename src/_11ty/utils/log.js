@@ -1,12 +1,4 @@
-const {
-	red,
-	yellow,
-	green,
-	blue,
-	cyan,
-	magenta,
-	bold,
-} = require('kleur/colors');
+const { yellow, green, blue, cyan, magenta, bold } = require('kleur/colors');
 
 function assemble(parts) {
 	parts.category = parts.category ? `[${[parts.category]}]` : '';
