@@ -1,6 +1,5 @@
 const htmlmin = require('html-minifier');
 const { parseHTML } = require('linkedom');
-const log = require('./utils/log.js');
 
 module.exports = {
 	// Minify HTML.
@@ -14,20 +13,20 @@ module.exports = {
 	// Wrap Shiki code blocks in a div and apply counter IDs to provide anchor links.
 	wrapShiki: (content) => {
 		const { document } = parseHTML(content);
-		document.querySelectorAll('pre.shiki').forEach((block, index) => {
+		for (const block of document.querySelectorAll('pre.shiki')) {
 			const code = block.querySelector('code').innerHTML;
 			const genUniqueId = (content) => {
-				return require('crypto')
+				return require('node:crypto')
 					.createHash('md5')
 					.update(content)
 					.digest('hex');
 			};
 			let uniqueId = genUniqueId(code).slice(0, 6);
-			while (document.getElementById(uniqueId)) {
+			while (document.querySelector(`#${uniqueId}`)) {
 				uniqueId = genUniqueId(uniqueId).slice(0, 6);
 			}
 			block.outerHTML = `<div class="shiki-wrapper" id="${uniqueId}">${block.outerHTML}</div>`;
-		});
+		}
 		return `<!DOCTYPE html>\n${document.documentElement.outerHTML}`;
 	},
 };

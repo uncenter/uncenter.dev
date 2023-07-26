@@ -29,7 +29,7 @@ module.exports = {
 		},
 		{
 			name: 'markdownCodeBlock',
-			pattern: /`{3}[\s\S]*?`{3}(?=\n|$)/gi,
+			pattern: /`{3}[\S\s]*?`{3}(?=\n|$)/gi,
 		},
 		{
 			name: 'markdownInlineCode',
@@ -37,7 +37,7 @@ module.exports = {
 		},
 		{
 			name: 'properNouns',
-			pattern: /(?<=\s|^|[^\w\s])[A-Z][a-z]+(?=\s|$|[^\w\s])/g,
+			pattern: /(?<=\s|^|[^\s\w])[A-Z][a-z]+(?=\s|$|[^\s\w])/g,
 		},
 	],
 };

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const fs = require('fs/promises');
-const { join } = require('path');
+const fs = require('node:fs/promises');
+const { join } = require('node:path');
 
 async function getRepos() {
 	try {
@@ -13,7 +13,7 @@ async function getRepos() {
 				json.map((repo) => repo.name).join('\n'),
 			);
 		} else {
-			throw new Error();
+			throw new TypeError('Invalid response content.');
 		}
 	} catch {
 		console.log('[cspell:update] Something went wrong.');

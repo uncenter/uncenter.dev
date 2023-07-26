@@ -42,7 +42,7 @@ If you see any issues or have any suggestions for the website, please open an is
 
 ### Environment variables
 
-- `UMAMI_TOKEN` (*optional*, created with `UMAMI_USERNAME` and `UMAMI_PASSWORD` if missing)
+- `UMAMI_TOKEN` (_optional_, created with `UMAMI_USERNAME` and `UMAMI_PASSWORD` if missing)
 - `UMAMI_USERNAME`
 - `UMAMI_PASSWORD`
 

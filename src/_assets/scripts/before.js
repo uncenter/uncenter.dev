@@ -29,19 +29,19 @@ function setTheme(theme, options = { permanent: true, update: true }) {
 	if (update) loadGiscus();
 }
 
-const queryParams = new URLSearchParams(window.location.search);
-const validThemes = ['light', 'dark', 'system'];
+const queryParameters = new URLSearchParams(window.location.search);
+const validThemes = new Set(['light', 'dark', 'system']);
 
 let theme;
 let storedTheme = localStorage.getItem('theme');
 let overrideTheme;
 
-if (queryParams.has('theme')) {
-	overrideTheme = queryParams.get('theme');
+if (queryParameters.has('theme')) {
+	overrideTheme = queryParameters.get('theme');
 }
 
 theme = overrideTheme || storedTheme;
-if (!theme || !validThemes.includes(theme)) {
+if (!theme || !validThemes.has(theme)) {
 	console.log(
 		`Invalid theme '${theme}' ${
 			overrideTheme ? 'from query parameter' : 'from localStorage'
@@ -51,7 +51,7 @@ if (!theme || !validThemes.includes(theme)) {
 				: 'using system theme.'
 		}`,
 	);
-	theme = validThemes.includes(storedTheme) ? storedTheme : 'system';
+	theme = validThemes.has(storedTheme) ? storedTheme : 'system';
 }
 setTheme(theme, {
 	permanent: theme === overrideTheme ? false : true,

@@ -11,8 +11,9 @@ const pluginShikier = require('./utils/plugins/shikier.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
-const isProd = process.env.NODE_ENV === 'production';
-const fs = require('fs');
+const isProduction = process.env.NODE_ENV === 'production';
+
+const fs = require('node:fs');
 require('dotenv').config();
 
 const { blue } = require('kleur/colors');
@@ -73,27 +74,24 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.setLibrary('md', markdownLibrary);
-	eleventyConfig.setQuietMode(!isProd);
+	eleventyConfig.setQuietMode(!isProduction);
 	eleventyConfig.setServerOptions({
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,
 	});
-	(fs.readdirSync('./src/_assets/styles') || []).forEach((style) => {
+	for (const style of fs.readdirSync('./src/_assets/styles') || []) {
 		eleventyConfig.addWatchTarget(`./src/_assets/styles/${style}`);
-	});
+	}
 
 	let notFirstRun = false;
-	eleventyConfig.on(
-		'eleventy.after',
-		async ({ dir, results, runMode, outputMode }) => {
-			if (runMode === 'serve') {
-				if (notFirstRun)
-					console.log(blue('\n[11ty] Server at http://localhost:8080/\n'));
+	eleventyConfig.on('eleventy.after', async ({ runMode }) => {
+		if (runMode === 'serve') {
+			if (notFirstRun)
+				console.log(blue('\n[11ty] Server at http://localhost:8080/\n'));
 
-				notFirstRun = true;
-			}
-		},
-	);
+			notFirstRun = true;
+		}
+	});
 
 	return {
 		dir: {
