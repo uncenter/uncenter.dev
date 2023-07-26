@@ -1,22 +1,23 @@
 #!/usr/bin/env node
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs/promises');
+const { join } = require('path');
 
-function getRepos() {
-	const reposFile = path.join(__dirname, './dicts/repos.txt');
-	const reposURL = 'https://api.github.com/users/uncenter/repos';
-
-	(async () => {
-		const response = await fetch(reposURL);
+async function getRepos() {
+	try {
+		const response = await fetch('https://api.github.com/users/uncenter/repos');
 		const json = await response.json();
 
 		if (Array.isArray(json)) {
-			const repos = json.map((repo) => repo.name);
-			fs.writeFileSync(reposFile, repos.join('\n'));
+			fs.writeFile(
+				join(__dirname, './dicts/repos.txt'),
+				json.map((repo) => repo.name).join('\n'),
+			);
 		} else {
-			console.log('Invalid response format:', json);
+			throw new Error();
 		}
-	})();
+	} catch {
+		console.log('[cspell:update] Something went wrong.');
+	}
 }
 
 getRepos();
