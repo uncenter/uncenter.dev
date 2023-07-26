@@ -63,17 +63,16 @@ description: All sorts of things that I use.
 - [fd](https://github.com/sharkdp/fd) for a `find` replacement
 - [fzf](https://github.com/junegunn/fzf) for fuzzy finding
 - [Helix](https://helix-editor.com/) for a fast, modern text editor
-- [hyperfine](https://github.com/sharkdp/hyperfine) for benchmarking
-- [jless](https://jless.io/) for JSON viewing / replacement for `jq`
-- [newsboat](https://github.com/newsboat/newsboat) as a feed reader
+- [Newsboat](https://github.com/newsboat/newsboat) as a feed reader
 - [Starship](https://starship.rs/) for a customizable prompt
 - [tealdeer](https://github.com/dbrgn/tealdeer) for better `man` pages
 
 ## Services
 
 - [Cloudflare](https://cloudflare.com/) for DNS
+- [Cloudflare Pages](https://pages.cloudflare.com/) for hosting recent static sites
 - [GitHub](https://github.com/) for project source code hosting
-- [Netlify](https://www.netlify.com/) for static site hosting
+- [Netlify](https://www.netlify.com/) for some older static site hosting
 - [Railway](https://railway.app/) for various hosting
 - [Umami](https://umami.is/) for simple, privacy-respecting analytics
 - [Vercel](https://vercel.com/) for web-app hosting
@@ -81,6 +80,6 @@ description: All sorts of things that I use.
 ## Hardware
 
 - [MacBook Pro 13" (2020 M1)](https://www.apple.com/macbook-pro-13/)
-- [Glorious Model O](https://www.gloriousgaming.com/products/glorious-model-o-black)
+- [Glorious Model O (white)](https://www.gloriousgaming.com/products/glorious-model-o-white)
 - Custom-built [Bakeneko 65%](https://cannonkeys.com/products/bakeneko65/) with Akko Pink switches and white/lavender keycaps
 - [DT 770 Pro](https://north-america.beyerdynamic.com/dt-770-pro.html)
