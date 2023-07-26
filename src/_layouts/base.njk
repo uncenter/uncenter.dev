@@ -1,10 +1,22 @@
+---
+navLinks:
+  - title: Articles
+    url: /posts/
+  - title: Projects
+    url: /projects/
+  - title: Uses
+    url: /uses/
+  - title: Colophon
+    url: /colophon/
+---
+
 {% set openGraphImage = [
     meta.url, '/assets/previews/', title | slugify,
     '.png'
 ] | join %}
 {% set metaTitle = meta.domain %}
 {%- if title != false -%}
-{% set metaTitle = title + " &middot; " + metaTitle %}
+    {% set metaTitle = title + " &middot; " + metaTitle %}
 {%- endif -%}
 
 <!DOCTYPE html>
@@ -20,7 +32,7 @@
 
         <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
         <style>
-            {{ inlined.css | safe }}
+            {{inlined.css | safe}}
         </style>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 
@@ -67,13 +79,64 @@
     </head>
     <body class="bg-bg text-fg font-display">
         <header class="max-w-[30ch] mx-auto">
-            {% include "header.njk" %}
+            <div class="flex flex-col items-center leading-6">
+                <a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
+                    <img
+                        src="/icon-square.webp"
+                        class="rounded-full"
+                        width="32" height="32"
+                        alt="My profile picture, an random AI generated image that appears to be looking up through the ceiling of a colosseum-like structure"
+                    />
+                    <span class="tracking-tight text-2xl">{{ meta.author.name }}</span>
+                </a>
+                <ul class="list-none pt-2 px-0 flex lg:block lg:space-y-1.5">
+                    {% for item in navLinks %}
+                        {% set classes = "not-fancy font-semibold lg:py-0 p-2 [border:2px_solid_transparent] lg:[border:2px_solid_transparent]" %}
+                        {% if (page.url.includes(item.url) and item.url != "/")  or(item.url == "/" and page.url == "/") %}
+                            {% set classes = classes + " lg:[border-left:2px_solid_currentColor_!important] lg:[border-bottom:2px_solid_transparent_!important] [border-bottom:2px_solid_currentColor_!important] " %}
+                        {% endif %}
+                        <li>
+                            <a href="{{ item.url }}" class="{{ classes }}" {% if page.url == item.url %}aria-current="page"{% else %}aria-label="Go to {{ item.title }}"{% endif %}>{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </header>
         <main class="max-w-[80ch] w-full">
             {{ content | safe }}
         </main>
         <footer class="max-w-[30ch] mx-auto mt-12 lg:mt-4">
-            {% include "footer.njk" %}
+            <div class="flex flex-col items-center self-center w-full gap-6">
+                <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
+                    <li>
+                        <a rel="me noreferrer" href="https://github.com/{{ meta.author.github.username }}" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                    </li>
+                    <li>
+                        <a rel="me noreferrer" href="https://{{ meta.author.mastodon.instance }}/@{{ meta.author.mastodon.username }}" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" href="https://matrix.to/#/@uncenter:matrix.org" class="not-fancy text-[#0DBD8B]">{% icon 'si:element', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" href="https://ko-fi.com/{{ meta.author.kofi.username }}" class="not-fancy text-[#FF5E5B]">{% icon 'si:kofi', class="w-[1.625rem] h-[1.625rem] block" %}</a>
+                    </li>
+                    <li>
+                        <a rel="noreferrer" href="https://liberapay.com/{{ meta.author.liberapay.username }}" class="not-fancy text-[#F6C915]">{% icon 'si:liberapay', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                    <li>
+                        <a rel="noreferrer" href="/feed.xml" class="not-fancy text-[#FFA500]">{% icon 'si:rss', class="w-[1.125rem] h-[1.125rem] block" %}</a>
+                    </li>
+                </ul>
+                <div class="flex flex-row text-center gap-x-2 text-xs">
+                    <a href="https://xn--sr8hvo.ws/previous" class="not-fancy">←</a>
+                    <a href="https://xn--sr8hvo.ws" class="not-fancy">IndieWeb Webring 🕸💍</a>
+                    <a href="https://xn--sr8hvo.ws/next" class="not-fancy">→</a>
+                </div>
+                <select id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="system">System</option>
+                </select>
+            </div>
         </footer>
     </body>
     <script>
