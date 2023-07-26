@@ -34,7 +34,6 @@ If you see any issues or have any suggestions for the website, please open an is
 
 ### Features
 
-- **OG preview images** for posts and pages using [Satori](https://github.com/vercel/satori) and [`sharp`](https://sharp.pixelplumbing.com/)
 - **Syntax highlighting** for posts using [`shiki`](https://github.com/shikijs/shiki), configured based on [Raphael Höser's implementation](https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/)
 - **Optimized images** with [`eleventy-img`](https://github.com/11ty/eleventy-img)
 - **RSS feed** using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
@@ -43,7 +42,7 @@ If you see any issues or have any suggestions for the website, please open an is
 
 ### Environment variables
 
-- `UMAMI_TOKEN`: the API token for fetching analytics data from [Umami](https://umami.is/)
+- `UMAMI_TOKEN` (*optional*, created with `UMAMI_USERNAME` and `UMAMI_PASSWORD` if missing)
 - `UMAMI_USERNAME`
 - `UMAMI_PASSWORD`
 
