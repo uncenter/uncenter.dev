@@ -79,7 +79,7 @@ navLinks:
                         src="/square.webp"
                         class="rounded-full"
                         width="32" height="32"
-                        alt="My profile picture, an random AI generated image that appears to be looking up through the ceiling of a colosseum-like structure"
+                        alt="My profile picture, an random AI generated image. A circular building with white walls and magnificent skylight, through which a bright blue sky with fluffy clouds scattered throughout is visible."
                     />
                     <span class="tracking-tight text-2xl">{{ meta.author.name }}</span>
                 </a>
@@ -120,12 +120,12 @@ navLinks:
                         <a rel="noreferrer" href="/feed.xml" class="not-fancy text-[#FFA500]">{% icon 'si:rss', class="w-[1.125rem] h-[1.125rem] block" %}</a>
                     </li>
                 </ul>
-                <div class="flex flex-row text-center gap-x-2 text-xs">
+                <div class="flex flex-row text-center gap-x-3 text-xs">
                     <a href="https://xn--sr8hvo.ws/previous" class="not-fancy">←</a>
-                    <a href="https://xn--sr8hvo.ws" class="not-fancy">IndieWeb Webring 🕸💍</a>
+                    <a href="https://xn--sr8hvo.ws" class="not-fancy">IndieWeb Webring</a>
                     <a href="https://xn--sr8hvo.ws/next" class="not-fancy">→</a>
                 </div>
-                <select id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none">
+                <select aria-label="Theme selector" id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none">
                     <option value="light">Light</option>
                     <option value="dark">Dark</option>
                     <option value="system">System</option>
