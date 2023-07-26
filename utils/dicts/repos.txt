@@ -1,5 +1,6 @@
 .github
 adventofcode
+blahaj
 chemic
 commoner
 create-eleventy-app
@@ -7,8 +8,8 @@ dotfiles
 eleventy-includes-async-shortcodes-demo
 eleventy-plugin-icons
 eleventy-plugin-toc
-feed-newsboat
-github-stats
+fn
+gh-stats
 learn-eleventy
 markdown-it-kbd-better
 npm-on-github
@@ -21,4 +22,5 @@ umami
 uncenter
 uncenter.org
 unvarify
+vscode-vhs
 wifi-password
