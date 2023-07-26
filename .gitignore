@@ -1,6 +1,5 @@
 node_modules
 dist
-pages.json
 
 .cache
 .env
