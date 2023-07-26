@@ -28,6 +28,6 @@ module.exports = {
 			}
 			block.outerHTML = `<div class="shiki-wrapper" id="${uniqueId}">${block.outerHTML}</div>`;
 		});
-		return document.documentElement.outerHTML;
+		return `<!DOCTYPE html>\n${document.documentElement.outerHTML}`;
 	},
 };
