@@ -10,11 +10,6 @@ analytics.shareLink = `${analytics.url}/share/${analytics.shareId}/${analytics.w
 
 module.exports = {
 	lang: 'en',
-	domain: 'uncenter.org',
-	url:
-		process.env.NODE_ENV === 'production'
-			? 'https://uncenter.org'
-			: 'http://localhost:8080',
 	repo: 'uncenter.org',
 	description: 'Software developer, rookie linguist, and student.',
 	keywords: [

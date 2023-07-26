@@ -10,11 +10,7 @@ navLinks:
     url: /colophon/
 ---
 
-{% set openGraphImage = [
-    meta.url, '/assets/previews/', title | slugify,
-    '.png'
-] | join %}
-{% set metaTitle = meta.domain %}
+{% set metaTitle = domain.name %}
 {%- if title != false -%}
     {% set metaTitle = title + " &middot; " + metaTitle %}
 {%- endif -%}
@@ -36,7 +32,7 @@ navLinks:
         </style>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 
-        <script async src="{{ meta.analytics.url }}/{{ meta.analytics.trackerScript }}" data-website-id="{{ meta.analytics.websiteId }}"></script>
+        <script async src="{{ meta.analytics.trackerScript | url(meta.analytics.url) }}" data-website-id="{{ meta.analytics.websiteId }}"></script>
         <meta name="author" content="{{ meta.author.name }}">
         <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
         <meta name="generator" content="{{ eleventy.generator }}">
@@ -54,8 +50,8 @@ navLinks:
         <link href="https://github.com/{{ meta.author.github.username }}" rel="me">
         <link href="https://{{ meta.author.mastodon.instance }}/@{{ meta.author.mastodon.username }}" rel="me">
 
-        <link rel="canonical" href="{{ meta.url }}{{ page.url }}">
-        <link rel="alternate" type="application/rss+xml" href="{{ meta.url }}/feed.xml">
+        <link rel="canonical" href="{{ page.url | url }}">
+        <link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' | url }}">
 
         {% if layout != 'post.njk' %}
             <meta property="og:type" content="website">
@@ -69,20 +65,18 @@ navLinks:
         {% endif %}
         <meta property="og:title" content="{{ metaTitle }}">
         <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
-        <meta property="og:image" content="{{ openGraphImage }}">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
+        <meta property="og:image" content="{{ '/1024w.png' | url }}">
 
-        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="{{ metaTitle }}">
-        <meta name="twitter:image" content="{{ openGraphImage }}">
+        <meta name="twitter:image" content="{{ '/1024w.png' | url }}">
     </head>
     <body class="bg-bg text-fg font-display">
         <header class="max-w-[30ch] mx-auto">
             <div class="flex flex-col items-center leading-6">
                 <a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
                     <img
-                        src="/icon-square.webp"
+                        src="/square.webp"
                         class="rounded-full"
                         width="32" height="32"
                         alt="My profile picture, an random AI generated image that appears to be looking up through the ceiling of a colosseum-like structure"

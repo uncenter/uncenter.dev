@@ -14,7 +14,7 @@ class Page {
 			.map((page) =>
 				`
     <url>
-        <loc>${data.meta.url}${page.url}</loc>
+        <loc>${new URL(page.url, data.domain.url).href}</loc>
         <lastmod>${page.date.toISOString()}</lastmod>
     </url>`.replace(/^\n/g, ''),
 			)

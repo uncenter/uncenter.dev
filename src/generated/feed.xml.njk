@@ -8,19 +8,19 @@
     }
 }
 ---
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ meta.url }}/">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ '/' | url }}">
     <title>{{ feed.title }}</title>
     <subtitle>{{ feed.subtitle }}</subtitle>
-    <link href="{{ permalink | absoluteUrl(meta.url) }}" rel="self"/>
-    <link href="{{ meta.url }}/"/>
+    <link href="{{ permalink | absoluteUrl(domain.url) }}" rel="self"/>
+    <link href="{{ '/' | url }}"/>
     <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-    <id>{{ meta.url }}/</id>
+    <id>{{ '/' | url }}</id>
     <author>
         <name>{{ meta.author.name }}</name>
         <email>{{ meta.author.email.plain }}</email>
     </author>
     {%- for post in collections.posts | reverse %}
-    {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) %}
+    {%- set absolutePostUrl = post.url | absoluteUrl(domain.url) %}
     <entry>
         <title>{{ post.data.title }}</title>
         <link href="{{ absolutePostUrl }}"/>

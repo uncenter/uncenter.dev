@@ -71,4 +71,10 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('capitalize', (str) => {
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	});
+	eleventyConfig.addFilter(
+		'url',
+		(path, base = require('../_data/domain').url) => {
+			return new URL(path, base).href;
+		},
+	);
 };
