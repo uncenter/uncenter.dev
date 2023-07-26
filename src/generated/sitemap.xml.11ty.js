@@ -16,7 +16,7 @@ class Page {
     <url>
         <loc>${new URL(page.url, data.domain.url).href}</loc>
         <lastmod>${page.date.toISOString()}</lastmod>
-    </url>`.replace(/^\n/g, ''),
+    </url>`.replaceAll(/^\n/g, ''),
 			)
 			.join('\n')}
 </urlset>

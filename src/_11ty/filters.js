@@ -1,6 +1,6 @@
 const isRecent = (date, days) => {
 	return (
-		Math.ceil(Math.abs(new Date() - new Date(date)) / (1000 * 60 * 60 * 24)) <=
+		Math.ceil(Math.abs(Date.now() - new Date(date)) / (1000 * 60 * 60 * 24)) <=
 		days
 	);
 };
@@ -14,7 +14,7 @@ const seriesLocate = (collection, series) => {
 };
 
 const seriesGetPart = (seriesPosts, postUrl) => {
-	return seriesPosts.findIndex((url) => url === postUrl) + 1;
+	return [seriesPosts].indexOf(postUrl) + 1;
 };
 
 module.exports = (eleventyConfig) => {

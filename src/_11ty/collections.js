@@ -3,15 +3,12 @@ const posts = (collectionApi) => {
 };
 
 const allTags = (collectionApi) => {
-	function filterTagList(tags) {
-		return (tags || []).filter((tag) => ['all'].indexOf(tag) === -1);
-	}
 	let tagSet = new Set();
-	collectionApi.getAll().forEach((item) => {
-		(item.data.tags || []).forEach((tag) => tagSet.add(tag));
-	});
+	for (const item of collectionApi.getAll()) {
+		for (const tag of item.data.tags || []) tagSet.add(tag);
+	}
 
-	return filterTagList([...tagSet]);
+	return ([...tagSet] || []).filter((tag) => !['all'].includes(tag));
 };
 
 const series = (collectionApi) => {

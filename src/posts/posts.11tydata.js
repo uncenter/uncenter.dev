@@ -2,7 +2,7 @@ const { DateTime } = require('luxon');
 const EleventyFetch = require('@11ty/eleventy-fetch');
 
 const log = require('../_11ty/utils/log.js');
-const isProd = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 const meta = require('../_data/meta.js');
 require('dotenv').config();
 
@@ -66,23 +66,27 @@ module.exports = {
 	eleventyComputed: {
 		views: async (data) => {
 			if (!data.page.url || data.views === false) return;
-			if (!isProd || process.env.UMAMI_SKIP)
+			if (!isProduction || process.env.UMAMI_SKIP)
 				return Math.floor(Math.random() * 100);
 
-			authToken = process.env.UMAMI_TOKEN;
+			let authToken = process.env.UMAMI_TOKEN;
 			if (!authToken || !(await validateUmamiToken(authToken))) {
-				username = process.env.UMAMI_USERNAME;
-				password = process.env.UMAMI_PASSWORD;
+				const username = process.env.UMAMI_USERNAME;
+				const password = process.env.UMAMI_PASSWORD;
 				if (username && password)
 					authToken = await getUmamiToken(username, password);
 				if (!authToken || !(await validateUmamiToken(authToken))) {
 					throw new Error('[views] No auth token for Umami!');
 				}
 			}
-			views = 0;
-			const res = await getPageViews(data.page.url, data.page.date, authToken);
-			for (let i = 0; i < res.pageviews.length; i++) {
-				views += res.pageviews[i].y;
+			let views = 0;
+			const response = await getPageViews(
+				data.page.url,
+				data.page.date,
+				authToken,
+			);
+			for (let index = 0; index < response.pageviews.length; index++) {
+				views += response.pageviews[index].y;
 			}
 			log.output({
 				category: 'views',

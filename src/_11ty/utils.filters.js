@@ -1,38 +1,40 @@
 const { DateTime } = require('luxon');
 const { markdownLibrary } = require('../../utils/plugins/markdown');
 
-const toShortDate = (dateObj) => {
+const toShortDate = (dateObject) => {
 	// 10/14/1983
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('MM/dd/yyyy');
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat('MM/dd/yyyy');
 };
 
-const toMedDate = (dateObj) => {
+const toMedDate = (dateObject) => {
 	// Oct 14, 1983
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('MMM dd, yyyy');
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat('MMM dd, yyyy');
 };
 
-const toFullDate = (dateObj) => {
+const toFullDate = (dateObject) => {
 	// October 14, 1983
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('MMMM dd, yyyy');
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat(
+		'MMMM dd, yyyy',
+	);
 };
 
-const toShortDateTime = (dateObj) => {
+const toShortDateTime = (dateObject) => {
 	// 10/14/1983, 10:30 PM
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat(
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat(
 		'MM/dd/yyyy, hh:mm a',
 	);
 };
 
-const toMedDateTime = (dateObj) => {
+const toMedDateTime = (dateObject) => {
 	// Oct 14, 1983, 10:30 PM
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat(
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat(
 		'MMM dd, yyyy, hh:mm a',
 	);
 };
 
-const toFullDateTime = (dateObj) => {
+const toFullDateTime = (dateObject) => {
 	// October 14, 1983, 10:30 PM
-	return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat(
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat(
 		'MMMM dd, yyyy, hh:mm a',
 	);
 };
@@ -68,8 +70,8 @@ module.exports = (eleventyConfig) => {
 		}
 		return number + 'th';
 	});
-	eleventyConfig.addFilter('capitalize', (str) => {
-		return str.charAt(0).toUpperCase() + str.slice(1);
+	eleventyConfig.addFilter('capitalize', (string) => {
+		return string.charAt(0).toUpperCase() + string.slice(1);
 	});
 	eleventyConfig.addFilter(
 		'url',
