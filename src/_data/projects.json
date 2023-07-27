@@ -23,14 +23,14 @@
 			"link": "https://github.com/uncenter/create-eleventy-app"
 		},
 		{
-			"name": "feed-newsboat",
+			"name": "fn",
 			"description": "Newsboat's missing CLI - launch, configure, and manage your feeds.",
-			"link": "https://github.com/uncenter/feed-newsboat"
+			"link": "https://github.com/uncenter/fn"
 		},
 		{
-			"name": "github-stats",
+			"name": "gh-stats",
 			"description": "Generate aesthetic and customizable images based on your GitHub activity.",
-			"link": "https://github.com/uncenter/github-stats"
+			"link": "https://github.com/uncenter/gh-stats"
 		},
 		{
 			"name": "dotfiles",
