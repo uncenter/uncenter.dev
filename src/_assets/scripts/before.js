@@ -16,11 +16,6 @@ function setMetaThemeColor(theme) {
 
 function setTheme(theme, options = { permanent: true, update: true }) {
 	const { permanent, update } = options;
-	console.log(
-		`Setting theme to '${theme === 'system' ? getSystemTheme() : theme}'${
-			permanent ? ", storing '" + theme + "' in localStorage." : ' (temporary).'
-		}`,
-	);
 	if (permanent) localStorage.setItem('theme', theme);
 	if (theme === 'system') theme = getSystemTheme();
 	document.documentElement.setAttribute('theme', theme);
@@ -42,15 +37,6 @@ if (queryParameters.has('theme')) {
 
 theme = overrideTheme || storedTheme;
 if (!theme || !validThemes.has(theme)) {
-	console.log(
-		`Invalid theme '${theme}' ${
-			overrideTheme ? 'from query parameter' : 'from localStorage'
-		}, ${
-			storedTheme
-				? "using stored '" + storedTheme + "' theme instead."
-				: 'using system theme.'
-		}`,
-	);
 	theme = validThemes.has(storedTheme) ? storedTheme : 'system';
 }
 setTheme(theme, {
