@@ -1,9 +1,9 @@
 const { DateTime } = require('luxon');
 const EleventyFetch = require('@11ty/eleventy-fetch');
+const analytics = require('../_data/analytics.js');
 
 const log = require('../_11ty/utils/log.js');
 const isProduction = process.env.NODE_ENV === 'production';
-const meta = require('../_data/meta.js');
 require('dotenv').config();
 
 async function getUmamiToken(username, password) {
