@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
 		},
 	});
 	eleventyConfig.addPlugin(pluginExternalLinks, {
-		url: 'https://uncenter.org',
+		url: require('./package.json').author.url,
 		rel: ['noreferrer'],
 		overwrite: false,
 	});

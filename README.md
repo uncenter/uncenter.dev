@@ -1,4 +1,4 @@
-<h1>uncenter.org</h1>
+<h1>uncenter.dev</h1>
 
 [![Eleventy](https://img.shields.io/badge/Eleventy-2.0.1-333333.svg?style=flat-square)](https://11ty.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
@@ -28,7 +28,7 @@ $ pnpm spell    # run spell-checking
 
 ## Contributing
 
-If you see any issues or have any suggestions for the website, please open an issue or pull request. If you have any questions, feel free to reach out to me on via the [contact methods listed on my website](https://uncenter.org/contact/).
+If you see any issues or have any suggestions for the website, please open an issue or pull request. If you have any questions, feel free to reach out to me on via the [contact methods listed on my website](https://uncenter.dev/contact/).
 
 ## About
 

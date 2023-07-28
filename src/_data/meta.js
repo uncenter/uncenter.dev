@@ -10,7 +10,7 @@ analytics.shareLink = `${analytics.url}/share/${analytics.shareId}/${analytics.w
 
 module.exports = {
 	lang: 'en',
-	repo: 'uncenter.org',
+	repo: require('../../package.json').name,
 	description: 'Software developer, rookie linguist, and student.',
 	keywords: [
 		'Software',
@@ -21,10 +21,6 @@ module.exports = {
 	],
 	author: {
 		name: 'uncenter',
-		email: {
-			plain: 'contact@uncenter.org',
-			obfuscated: 'contact[at]uncenter[dot]org',
-		},
 		github: {
 			username: 'uncenter',
 		},

@@ -3,13 +3,12 @@
     "permalink": "feed.xml",
     "eleventyExcludeFromCollections": true,
     "feed": {
-        "title": "uncenter.org",
         "subtitle": "Articles about programming, linguistics, and other things."
     }
 }
 ---
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ '/' | url }}">
-    <title>{{ feed.title }}</title>
+    <title>{{ meta.repo }}</title>
     <subtitle>{{ feed.subtitle }}</subtitle>
     <link href="{{ permalink | absoluteUrl(domain.url) }}" rel="self"/>
     <link href="{{ '/' | url }}"/>
@@ -17,7 +16,6 @@
     <id>{{ '/' | url }}</id>
     <author>
         <name>{{ meta.author.name }}</name>
-        <email>{{ meta.author.email.plain }}</email>
     </author>
     {%- for post in collections.posts | reverse %}
     {%- set absolutePostUrl = post.url | absoluteUrl(domain.url) %}

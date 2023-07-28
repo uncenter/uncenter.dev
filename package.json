@@ -1,16 +1,15 @@
 {
-	"name": "uncenter.org",
+	"name": "uncenter.dev",
 	"version": "0.0.1",
 	"private": true,
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/uncenter/uncenter.org.git"
+		"url": "https://github.com/uncenter/uncenter.dev.git"
 	},
 	"author": {
 		"name": "uncenter",
-		"email": "contact@uncenter.org",
-		"url": "https://uncenter.org/"
+		"url": "https://uncenter.dev/"
 	},
 	"scripts": {
 		"dev": "eleventy --serve",

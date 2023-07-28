@@ -1,7 +1,7 @@
 module.exports = {
-	name: 'uncenter.org',
+	name: require('../../package.json').name,
 	url:
 		process.env.NODE_ENV === 'production'
-			? 'https://uncenter.org/'
+			? require('../../package.json').author.url
 			: 'http://localhost:8080/',
 };

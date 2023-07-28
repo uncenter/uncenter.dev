@@ -8,7 +8,7 @@ date: 2023-03-16
 
 ## Foreword
 
-This website is built with the Eleventy static site generator; a simple, fast, and powerful static site generator. I've been using Eleventy for almost a year now, since [May 2022](https://github.com/uncenter/uncenter.org/commit/11b536cd596463e42e2175a312dbf0439ca77103), and I've actually learned more than just how to make a website! I've learned how to write blog posts, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS or JavaScript, etc. I've learned a lot, and I've had a lot of fun doing it! On that note, I'd like to share some of my thoughts on Eleventy.
+This website is built with the Eleventy static site generator; a simple, fast, and powerful static site generator. I've been using Eleventy for almost a year now, since [May 2022](https://www.github.com/{{ meta.author.github.username }}/{{ meta.repo }}/commit/11b536cd596463e42e2175a312dbf0439ca77103), and I've actually learned more than just how to make a website! I've learned how to write blog posts, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS or JavaScript, etc. I've learned a lot, and I've had a lot of fun doing it! On that note, I'd like to share some of my thoughts on Eleventy.
 
 ## The good
 
