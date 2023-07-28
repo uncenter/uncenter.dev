@@ -1,8 +1,10 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
+
 const Image = require('@11ty/eleventy-img');
 const imageSize = require('image-size');
 const { escape } = require('lodash');
+
 const log = require('./utils/log.js');
 
 const insertImage = async function (source, alt, classes) {

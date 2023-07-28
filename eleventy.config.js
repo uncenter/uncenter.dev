@@ -13,7 +13,6 @@ const pluginIcons = require('eleventy-plugin-icons');
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const isProduction = process.env.NODE_ENV === 'production';
 
-const fs = require('node:fs');
 require('dotenv').config();
 
 const { blue } = require('kleur/colors');
@@ -98,7 +97,7 @@ module.exports = function (eleventyConfig) {
 			layouts: '_layouts',
 			data: '_data',
 		},
-		templateFormats: ['md', 'njk', 'html', 'css', '11ty.js'],
+		templateFormats: ['md', 'njk', 'css', '11ty.js'],
 		markdownTemplateEngine: 'njk',
 	};
 };

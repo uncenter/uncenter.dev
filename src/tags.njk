@@ -1,11 +1,10 @@
 ---
+layout: page
 eleventyExcludeFromCollections: true
 pagination:
     data: collections
     size: 1
     alias: tag
-    filter:
-        - recentChanges
 eleventyComputed:
     title: Tagged “{{ tag }}”
 permalink: /tags/{{ tag | slugify }}/

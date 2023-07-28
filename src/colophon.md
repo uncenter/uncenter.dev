@@ -1,4 +1,5 @@
 ---
+layout: page
 title: Colophon
 description: This site and how it's made.
 ---

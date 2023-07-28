@@ -56,20 +56,6 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('toHtmlInline', (content) => {
 		return markdownLibrary.renderInline(content);
 	});
-	eleventyConfig.addFilter('ordinal', (number) => {
-		const i = number % 10,
-			j = number % 100;
-		if (i === 1 && j !== 11) {
-			return number + 'st';
-		}
-		if (i === 2 && j !== 12) {
-			return number + 'nd';
-		}
-		if (i === 3 && j !== 13) {
-			return number + 'rd';
-		}
-		return number + 'th';
-	});
 	eleventyConfig.addFilter('capitalize', (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	});
