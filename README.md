@@ -54,4 +54,4 @@ Generic icons sourced from [Lucide](https://lucide.dev/) and brand icons from [S
 
 ## License
 
-[MIT](LICENSE.md)
+Source code is under [MIT](LICENSE), blog posts (and other written content) are under [CC BY-SA 4.0](LICENSE-content).
