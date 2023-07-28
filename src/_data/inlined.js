@@ -1,11 +1,13 @@
 const postcss = require('postcss');
-const { readFile } = require('node:fs/promises');
 const UglifyJS = require('uglify-js');
+
 const log = require('../_11ty/utils/log.js');
+
 const Blob = require('node:buffer').Blob;
+const { readFile } = require('node:fs/promises');
 
 module.exports = async () => {
-	const fonts = await readFile('./src/_assets/fonts/fonts.css', 'utf-8');
+	const fonts = await readFile('./src/assets/fonts/fonts.css', 'utf-8');
 
 	const { content: css } = await postcss([
 		require('autoprefixer'),
@@ -22,8 +24,8 @@ module.exports = async () => {
 		}kb`,
 	});
 
-	const afterJs = await readFile('./src/_assets/scripts/after.js', 'utf-8');
-	const beforeJs = await readFile('./src/_assets/scripts/before.js', 'utf-8');
+	const afterJs = await readFile('./src/assets/scripts/after.js', 'utf-8');
+	const beforeJs = await readFile('./src/assets/scripts/before.js', 'utf-8');
 
 	const uglified = {
 		before: UglifyJS.minify(beforeJs).code,

@@ -7,12 +7,12 @@ My personal website!
 
 ## Structure
 
+- `src/_11ty/`: collections, shortcodes, filters, and transforms for 11ty
 - `src/_layouts/`, `src/_includes/`: nunjucks templates for layouts and components
 - `src/_data/`: global data
-- `src/_11ty/`: collections, shortcodes, filters, and transforms for 11ty
-- `src/_assets/`: static assets, including CSS, JS, and SEO files
-- `src/utils/`: node scripts & plugins related to the build process
-- `src/posts/*.md`: the blog posts, written in Markdown
+- `src/assets/`: static assets (CSS, JS, and icons)
+- `src/posts/*.md`: blog posts
+- `utils/`: scripts & plugins
 - `images/`: images for the blog posts
 
 ## Development

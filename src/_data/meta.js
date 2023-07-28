@@ -1,16 +1,26 @@
-const analytics = {
-	url: 'https://stats.uncenter.org',
-	shareId: 'LRerfjMi',
-	websiteId: 'dea82084-7eb8-4337-b02c-23f6ace1afc1',
-	websiteName: 'uncenter',
-	trackerScript: 'script.js',
+const author = {
+	name: 'uncenter',
+	github: {
+		username: 'uncenter',
+	},
+	mastodon: {
+		url: 'https://fosstodon.org/@uncenter',
+	},
+	discord: {
+		username: 'uncenter',
+	},
+	kofi: {
+		username: 'uncenter',
+	},
+	liberapay: {
+		username: 'uncenter',
+	},
 };
-
-analytics.shareLink = `${analytics.url}/share/${analytics.shareId}/${analytics.websiteName}`;
 
 module.exports = {
 	lang: 'en',
-	repo: require('../../package.json').name,
+	name: require('../../package.json').name,
+	repository: `${author.github.username}/${require('../../package.json').name}`,
 	description: 'Software developer, rookie linguist, and student.',
 	keywords: [
 		'Software',
@@ -19,24 +29,5 @@ module.exports = {
 		'Technology',
 		'JavaScript',
 	],
-	author: {
-		name: 'uncenter',
-		github: {
-			username: 'uncenter',
-		},
-		mastodon: {
-			username: 'uncenter',
-			instance: 'fosstodon.org',
-		},
-		discord: {
-			username: 'uncenter',
-		},
-		kofi: {
-			username: 'uncenter',
-		},
-		liberapay: {
-			username: 'uncenter',
-		},
-	},
-	analytics,
+	author,
 };

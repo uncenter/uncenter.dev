@@ -58,9 +58,9 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Passthrough Copy */
-	eleventyConfig.addPassthroughCopy({ 'src/_assets/root': '.' });
+	eleventyConfig.addPassthroughCopy({ 'src/assets/root': '.' });
 	eleventyConfig.addPassthroughCopy({
-		'src/_assets/fonts/*.woff2': '/assets/fonts',
+		'src/assets/fonts/*.woff2': '/assets/fonts',
 	});
 
 	/* Other Config */
@@ -79,16 +79,13 @@ module.exports = function (eleventyConfig) {
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,
 	});
-	for (const style of fs.readdirSync('./src/_assets/styles') || []) {
-		eleventyConfig.addWatchTarget(`./src/_assets/styles/${style}`);
-	}
+	eleventyConfig.addWatchTarget('./src/assets/styles/');
 
 	let notFirstRun = false;
 	eleventyConfig.on('eleventy.after', async ({ runMode }) => {
 		if (runMode === 'serve') {
 			if (notFirstRun)
 				console.log(blue('\n[11ty] Server at http://localhost:8080/\n'));
-
 			notFirstRun = true;
 		}
 	});

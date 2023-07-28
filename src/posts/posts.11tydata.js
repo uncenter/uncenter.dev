@@ -7,7 +7,7 @@ const meta = require('../_data/meta.js');
 require('dotenv').config();
 
 async function getUmamiToken(username, password) {
-	const url = `${meta.analytics.url}/api/auth/login`;
+	const url = `${analytics.url}/api/auth/login`;
 
 	const data = {
 		username,
@@ -28,7 +28,7 @@ async function getUmamiToken(username, password) {
 }
 
 async function validateUmamiToken(token) {
-	const url = `${meta.analytics.url}/api/auth/verify`;
+	const url = `${analytics.url}/api/auth/verify`;
 
 	const options = {
 		method: 'POST',
@@ -45,8 +45,8 @@ async function validateUmamiToken(token) {
 }
 
 async function getPageViews(originalUrl, originalDate, token) {
-	const url = `${meta.analytics.url}/api/websites/${
-		meta.analytics.websiteId
+	const url = `${analytics.url}/api/websites/${
+		analytics.websiteId
 	}/pageviews?url=${originalUrl}&startAt=${Date.parse(
 		originalDate,
 	)}&endAt=${Date.now()}&unit=day&timezone=America/New_York`;

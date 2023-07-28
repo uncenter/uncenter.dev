@@ -32,7 +32,7 @@ navLinks:
         </style>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 
-        <script async src="{{ meta.analytics.trackerScript | url(meta.analytics.url) }}" data-website-id="{{ meta.analytics.websiteId }}"></script>
+        <script async src="{{ analytics.script }}" data-website-id="{{ analytics.websiteId }}"></script>
         <meta name="author" content="{{ meta.author.name }}">
         <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
         <meta name="generator" content="{{ eleventy.generator }}">
@@ -48,7 +48,7 @@ navLinks:
         <meta name="view-transition" content="same-origin">
 
         <link href="https://github.com/{{ meta.author.github.username }}" rel="me">
-        <link href="https://{{ meta.author.mastodon.instance }}/@{{ meta.author.mastodon.username }}" rel="me">
+        <link href="{{ meta.author.mastodon.url }}" rel="me">
 
         <link rel="canonical" href="{{ page.url | url }}">
         <link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' | url }}">
@@ -103,19 +103,19 @@ navLinks:
             <div class="flex flex-col items-center self-center w-full gap-6">
                 <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
                     <li>
-                        <a rel="me noreferrer" href="https://github.com/{{ meta.author.github.username }}" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="me noreferrer" href="{{ meta.author.github.username | url('https://github.com/') }}" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="me noreferrer" href="https://{{ meta.author.mastodon.instance }}/@{{ meta.author.mastodon.username }}" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="me noreferrer" href="{{ meta.author.mastodon.url }}" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
                         <a rel="noreferrer" href="https://matrix.to/#/@uncenter:matrix.org" class="not-fancy text-[#0DBD8B]">{% icon 'si:element', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="noreferrer" href="https://ko-fi.com/{{ meta.author.kofi.username }}" class="not-fancy text-[#FF5E5B]">{% icon 'si:kofi', class="w-[1.625rem] h-[1.625rem] block" %}</a>
+                        <a rel="noreferrer" href="{{ meta.author.kofi.username | url('https://ko-fi.com/') }}" class="not-fancy text-[#FF5E5B]">{% icon 'si:kofi', class="w-[1.625rem] h-[1.625rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="noreferrer" href="https://liberapay.com/{{ meta.author.liberapay.username }}" class="not-fancy text-[#F6C915]">{% icon 'si:liberapay', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="noreferrer" href="{{ meta.author.liberapay.username | url('https://liberapay.com/')}}" class="not-fancy text-[#F6C915]">{% icon 'si:liberapay', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     <li>
                         <a rel="noreferrer" href="/feed.xml" class="not-fancy text-[#FFA500]">{% icon 'si:rss', class="w-[1.125rem] h-[1.125rem] block" %}</a>
                     </li>
@@ -139,7 +139,7 @@ navLinks:
                 return;
             let giscusAttributes = {
                 src: 'https://giscus.app/client.js',
-                'data-repo': '{{ meta.author.github.username }}/{{ meta.repo }}',
+                'data-repo': '{{ meta.author.github.username }}/{{ meta.name }}',
                 'data-repo-id': 'R_kgDOHSjhjQ',
                 'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
                 'data-mapping': 'title',
