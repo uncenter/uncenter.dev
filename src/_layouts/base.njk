@@ -47,7 +47,7 @@ navLinks:
         <meta name="theme-color" content="#ffffff">
         <meta name="view-transition" content="same-origin">
 
-        <link href="https://github.com/{{ meta.author.github.username }}" rel="me">
+        <link href="{{ meta.author.github.url }}" rel="me">
         <link href="{{ meta.author.mastodon.url }}" rel="me">
 
         <link rel="canonical" href="{{ page.url | url }}">
@@ -103,7 +103,7 @@ navLinks:
             <div class="flex flex-col items-center self-center w-full gap-6">
                 <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
                     <li>
-                        <a rel="me noreferrer" href="{{ meta.author.github.username | url('https://github.com/') }}" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="me noreferrer" href="{{ meta.author.github.url }}" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
                         <a rel="me noreferrer" href="{{ meta.author.mastodon.url }}" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
@@ -139,7 +139,7 @@ navLinks:
                 return;
             let giscusAttributes = {
                 src: 'https://giscus.app/client.js',
-                'data-repo': '{{ meta.author.github.username }}/{{ meta.name }}',
+                'data-repo': '{{ meta.repository }}',
                 'data-repo-id': 'R_kgDOHSjhjQ',
                 'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
                 'data-mapping': 'title',

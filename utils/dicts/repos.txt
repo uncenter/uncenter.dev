@@ -1,6 +1,5 @@
 .github
 adventofcode
-blahaj
 chemic
 commoner
 create-eleventy-app
@@ -16,11 +15,10 @@ npm-on-github
 octotree
 phonetic-alphabet
 pomofocus
-speedlify
 templates
 umami
 uncenter
-uncenter.org
+uncenter.dev
 unvarify
 vscode-vhs
 wifi-password

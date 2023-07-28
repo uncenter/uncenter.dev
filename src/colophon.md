@@ -20,7 +20,7 @@ According to 11ty's website:
 - It quickly builds fast websites.
 - It's a popular modern web site generator.
 
-You can find the source code for this website on [GitHub](https://www.github.com/{{ meta.author.github.username }}/{{ meta.repo }}).
+You can find the source code for this website on [GitHub]({{ meta.author.github.url }}/{{ meta.repo }}).
 
 ## Site hosting
 

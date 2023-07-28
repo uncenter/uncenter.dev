@@ -1,5 +1,7 @@
+const packageJson = require('../../package.json');
+
 const author = {
-	name: 'uncenter',
+	name: packageJson.author.name,
 	github: {
 		username: 'uncenter',
 	},
@@ -17,10 +19,12 @@ const author = {
 	},
 };
 
+author.github.url = new URL(author.github.username, 'https://www.github.com');
+
 module.exports = {
 	lang: 'en',
-	name: require('../../package.json').name,
-	repository: `${author.github.username}/${require('../../package.json').name}`,
+	name: packageJson.name,
+	repository: `${author.github.username}/${packageJson.name}`,
 	description: 'Software developer, rookie linguist, and student.',
 	keywords: [
 		'Software',
