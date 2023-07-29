@@ -129,7 +129,5 @@ module.exports = async function () {
 			project.color = languagesWithColors[project.language];
 		}
 	}
-
-	console.log(projects);
 	return projects;
 };
