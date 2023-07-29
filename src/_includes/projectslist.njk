@@ -1,6 +1,6 @@
 <div class="grid grid-cols-2 gap-[1rem_4rem] m-0 p-0">
     {%- for project in projectslist -%}
-        <div class="flex flex-col">
+        <div class="flex flex-col p-4 rounded-md bg-currentGray">
             <div class="flex flex-row items-center">
                 <h2 class="font-bold text-xl m-0 my-2">
                     <a class="no-external-link" href="{{ project.link }}"
@@ -27,6 +27,10 @@
             <p class="m-0">
                 {{ project.description }}
             </p>
+            <div class="flex flex-row gap-2 mt-2">
+                <svg xmlns="http://www.w3.org/2000/svg" style="fill:{{ project.color }}" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="9" r="5"/></svg>
+                {{ project.language }}
+            </div>
         </div>
     {% endfor %}
 </div>

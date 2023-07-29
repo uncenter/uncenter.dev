@@ -56,7 +56,7 @@ div {
 	--light: #eff1f5;
 	--dark: #161616;
 	--dark-gray: #343434;
-	--light-gray: #c7c7c7;
+	--light-gray: #d6d6d6;
 	--dark-blue: #2463eb;
 	--light-blue: #60a5fa;
 
@@ -66,10 +66,10 @@ div {
 }
 
 :root[theme='light'] {
-	body {
-		--bg: var(--light);
-		--fg: var(--dark);
-	}
+	--bg: var(--light);
+	--fg: var(--dark);
+	--current-gray: var(--light-gray);
+	--gray-opposite: var(--dark-gray);
 
 	::selection {
 		background-color: var(--dark-blue);
@@ -77,10 +77,9 @@ div {
 }
 
 :root[theme='dark'] {
-	body {
-		--bg: var(--dark);
-		--fg: var(--light);
-	}
+	--bg: var(--dark);
+	--fg: var(--light);
+	--current-gray: var(--dark-gray);
 
 	::selection {
 		background-color: var(--light-blue);
@@ -128,7 +127,7 @@ div {
 	}
 
 	blockquote {
-		border-left: var(--block-border-width) solid var(--light-gray);
+		border-left: var(--block-border-width) solid var(--current-gray);
 		margin-left: var(--block-indent);
 		@apply pl-4 border-r-0 border-t-0 border-b-0;
 	}
@@ -154,7 +153,7 @@ div {
 		@apply relative no-underline text-current;
 
 		&:not(.not-fancy) {
-			@apply underline underline-offset-4 transition-colors decoration-lightGray dark:decoration-darkGray hover:decoration-darkGray hover:dark:decoration-lightGray;
+			@apply underline underline-offset-4 transition-colors decoration-currentGray hover:decoration-fg;
 		}
 	}
 
@@ -198,7 +197,7 @@ div {
 
 		h2 a.anchor::before,
 		h3 a.anchor::before {
-			@apply absolute w-12 content-['§'] transition-opacity duration-[0.2s] ease-[ease] text-center opacity-0 -left-10 text-darkGray dark:text-lightGray;
+			@apply absolute w-12 content-['§'] transition-opacity duration-[0.2s] ease-[ease] text-center opacity-0 -left-10 text-oppositeGray;
 		}
 
 		h2 a.anchor:hover::before,
@@ -208,7 +207,7 @@ div {
 	}
 
 	kbd {
-		@apply border border-[color:var(--light-gray)] dark:border-[color:var(--dark-gray)] bg-transparent px-1 py-0.5 rounded-sm border-solid;
+		@apply border border-currentGray bg-transparent px-1 py-0.5 rounded-sm border-solid;
 	}
 }
 

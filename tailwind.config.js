@@ -13,6 +13,8 @@ module.exports = {
 				fg: 'var(--fg)',
 				lightGray: 'var(--light-gray)',
 				darkGray: 'var(--dark-gray)',
+				currentGray: 'var(--current-gray)',
+				oppositeGray: 'var(--gray-opposite)',
 			},
 			fontFamily: {
 				display: [
