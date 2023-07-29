@@ -103,27 +103,27 @@ navLinks:
             <div class="flex flex-col items-center self-center w-full gap-6">
                 <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
                     <li>
-                        <a rel="me noreferrer" href="{{ meta.author.github.url }}" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="me noreferrer" href="{{ meta.author.github.url }}" data-umami-event="author-github" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="me noreferrer" href="{{ meta.author.mastodon.url }}" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="me noreferrer" href="{{ meta.author.mastodon.url }}" data-umami-event="author-mastodon" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="noreferrer" href="https://matrix.to/#/@uncenter:matrix.org" class="not-fancy text-[#0DBD8B]">{% icon 'si:element', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="noreferrer" href="https://matrix.to/#/@uncenter:matrix.org" data-umami-event="author-matrix" class="not-fancy text-[#0DBD8B]">{% icon 'si:element', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="noreferrer" href="{{ meta.author.kofi.username | url('https://ko-fi.com/') }}" class="not-fancy text-[#FF5E5B]">{% icon 'si:kofi', class="w-[1.625rem] h-[1.625rem] block" %}</a>
+                        <a rel="noreferrer" href="{{ meta.author.kofi.url }}" data-umami-event="author-kofi" class="not-fancy text-[#FF5E5B]">{% icon 'si:kofi', class="w-[1.625rem] h-[1.625rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="noreferrer" href="{{ meta.author.liberapay.username | url('https://liberapay.com/')}}" class="not-fancy text-[#F6C915]">{% icon 'si:liberapay', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="noreferrer" href="{{ meta.author.liberapay.url }}" data-umami-event="author-liberapay" class="not-fancy text-[#F6C915]">{% icon 'si:liberapay', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     <li>
-                        <a rel="noreferrer" href="/feed.xml" class="not-fancy text-[#FFA500]">{% icon 'si:rss', class="w-[1.125rem] h-[1.125rem] block" %}</a>
+                        <a rel="noreferrer" href="/feed.xml" data-umami-event="feed.xml" class="not-fancy text-[#FFA500]">{% icon 'si:rss', class="w-[1.125rem] h-[1.125rem] block" %}</a>
                     </li>
                 </ul>
                 <div class="flex flex-row text-center gap-x-3 text-xs">
-                    <a href="https://xn--sr8hvo.ws/previous" class="not-fancy">←</a>
-                    <a href="https://xn--sr8hvo.ws" class="not-fancy">IndieWeb Webring</a>
-                    <a href="https://xn--sr8hvo.ws/next" class="not-fancy">→</a>
+                    <a href="https://🕸💍.ws/previous" class="not-fancy" data-umami-event="indie-webring-previous">←</a>
+                    <a href="https://🕸💍.ws" class="not-fancy" data-umami-event="indie-webring-home">IndieWeb Webring</a>
+                    <a href="https://🕸💍.ws/next" class="not-fancy" data-umami-event="indie-webring-next">→</a>
                 </div>
                 <select aria-label="Theme selector" id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none">
                     <option value="light">Light</option>

@@ -6,7 +6,8 @@ const author = {
 		username: 'uncenter',
 	},
 	mastodon: {
-		url: 'https://fosstodon.org/@uncenter',
+		username: '@uncenter',
+		instance: 'https://fosstodon.org/',
 	},
 	discord: {
 		username: 'uncenter',
@@ -20,6 +21,15 @@ const author = {
 };
 
 author.github.url = new URL(author.github.username, 'https://www.github.com');
+author.mastodon.url = new URL(
+	author.mastodon.username,
+	author.mastodon.instance,
+);
+author.kofi.url = new URL(author.kofi.username, 'https://ko-fi.com');
+author.liberapay.url = new URL(
+	author.liberapay.username,
+	'https://liberapay.com',
+);
 
 module.exports = {
 	lang: 'en',
