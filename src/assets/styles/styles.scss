@@ -53,10 +53,10 @@ div {
 :root {
 	--block-indent: 2rem;
 	--block-border-width: 4px;
-	--light: #eff1f5;
+	--light: #f1f4f8;
 	--dark: #161616;
 	--dark-gray: #343434;
-	--light-gray: #d6d6d6;
+	--light-gray: #e4e9f1;
 	--dark-blue: #2463eb;
 	--light-blue: #60a5fa;
 
@@ -80,6 +80,7 @@ div {
 	--bg: var(--dark);
 	--fg: var(--light);
 	--current-gray: var(--dark-gray);
+	--gray-opposite: var(--light-gray);
 
 	::selection {
 		background-color: var(--light-blue);
@@ -153,7 +154,7 @@ div {
 		@apply relative no-underline text-current;
 
 		&:not(.not-fancy) {
-			@apply underline underline-offset-4 transition-colors decoration-currentGray hover:decoration-fg;
+			@apply underline underline-offset-[5px] decoration-2 transition-colors decoration-currentGray hover:decoration-oppositeGray;
 		}
 	}
 

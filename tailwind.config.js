@@ -15,6 +15,8 @@ module.exports = {
 				darkGray: 'var(--dark-gray)',
 				currentGray: 'var(--current-gray)',
 				oppositeGray: 'var(--gray-opposite)',
+				lightBlue: 'var(--light-blue)',
+				darkBlue: 'var(--dark-blue)',
 			},
 			fontFamily: {
 				display: [
