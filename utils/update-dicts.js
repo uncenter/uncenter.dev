@@ -16,7 +16,7 @@ async function getRepos() {
 			throw new TypeError('Invalid response content.');
 		}
 	} catch {
-		console.log('[cspell:update] Something went wrong.');
+		console.error('[cspell:update] Something went wrong.');
 	}
 }
 

@@ -18,7 +18,6 @@ const whoami = {
     location: "United States",
     languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Python"],
     frameworks: ["SolidJS", "Eleventy", "TailwindCSS"],
-    projects: [{% for name in projectNames %}"{{ name }}"{% if not loop.last %}, {% endif %}{% endfor %}],
     interests: ["Web Development", "Software Development", "Open Source", "Linguistics"],
     learning: ["Rust", "Svelte", "React"],
 };
