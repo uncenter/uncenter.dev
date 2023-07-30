@@ -67,12 +67,6 @@ const projects = {
 			link: 'https://github.com/uncenter/chemic',
 		},
 	],
-	contributions: [
-		{
-			name: 'Blåhaj',
-			link: 'https://github.com/ryanccn/blahaj',
-		},
-	],
 };
 
 async function getRepoData(username, repository) {
@@ -116,7 +110,7 @@ module.exports = async function () {
 			let [username, repository] = new URL(project.link).pathname
 				.slice(1)
 				.split('/');
-			data = await getRepoData(username, repository);
+			const data = await getRepoData(username, repository);
 			project.description = project.description || data.description;
 			project.language = data.language;
 			languages.add(data.language);
