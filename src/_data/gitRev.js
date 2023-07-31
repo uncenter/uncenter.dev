@@ -10,7 +10,7 @@ module.exports = async () => {
 	);
 	log.output({
 		category: 'gitRev',
-		file: 'gitRev.js',
+		message: 'gitRev.js',
 		extra: rev,
 	});
 	return rev;

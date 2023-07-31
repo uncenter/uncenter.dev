@@ -18,7 +18,7 @@ module.exports = async () => {
 	});
 	log.output({
 		category: 'styles',
-		file: 'fonts.css',
+		message: 'fonts.css',
 		extra: `${new Blob([fonts]).size / 1000}kb -> ${
 			new Blob([css]).size / 1000
 		}kb`,
@@ -33,14 +33,14 @@ module.exports = async () => {
 	};
 	log.output({
 		category: 'scripts',
-		file: 'before.js',
+		message: 'before.js',
 		extra: `${new Blob([beforeJs]).size / 1000}kb -> ${
 			new Blob([uglified.before]).size / 1000
 		}kb`,
 	});
 	log.output({
 		category: 'scripts',
-		file: 'after.js',
+		message: 'after.js',
 		extra: `${new Blob([afterJs]).size / 1000}kb -> ${
 			new Blob([uglified.after]).size / 1000
 		}kb`,

@@ -35,7 +35,7 @@ const insertImage = async function (source, alt, classes) {
 		urlPath: '/assets/images/',
 	});
 
-	log.output({ category: 'images', file: source });
+	log.output({ category: 'images', message: source });
 
 	const getLargestImage = (format) => {
 		const images = data[format];

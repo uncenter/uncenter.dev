@@ -1,6 +1,8 @@
 const yaml = require('js-yaml');
 const EleventyFetch = require('@11ty/eleventy-fetch');
 
+const log = require('../_11ty/utils/log');
+
 const projects = {
 	maintained: [
 		{
@@ -69,17 +71,17 @@ const projects = {
 	],
 };
 
-async function getRepoData(username, repository) {
+async function getRepoData(username, repository, fetchOptions) {
+	log.output({
+		category: 'projects',
+		message: `https://github.com/${username}/${repository}`,
+	});
 	const response = await EleventyFetch(
 		`https://api.github.com/repos/${username}/${repository}`,
 		{
 			duration: '12h',
 			type: 'json',
-			fetchOptions: {
-				headers: {
-					Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-				},
-			},
+			fetchOptions,
 		},
 	);
 	return {
@@ -104,13 +106,21 @@ async function getLanguageColors(languages) {
 }
 
 module.exports = async function () {
+	const fetchOptions = {
+		headers: {},
+	};
+	if (process.env.GITHUB_TOKEN) {
+		fetchOptions.headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+	} else {
+		log.output({ category: 'env', message: 'no GITHUB_TOKEN found' });
+	}
 	const languages = new Set();
 	for (const category in projects) {
 		for (const project of projects[category]) {
 			let [username, repository] = new URL(project.link).pathname
 				.slice(1)
 				.split('/');
-			const data = await getRepoData(username, repository);
+			const data = await getRepoData(username, repository, fetchOptions);
 			project.description = project.description || data.description;
 			project.language = data.language;
 			languages.add(data.language);

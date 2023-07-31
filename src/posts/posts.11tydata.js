@@ -90,7 +90,7 @@ module.exports = {
 			}
 			log.output({
 				category: 'views',
-				file: data.page.url,
+				message: data.page.url,
 				extra: views,
 			});
 			return views;

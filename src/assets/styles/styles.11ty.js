@@ -19,7 +19,7 @@ class Page {
 		let content = result.css.toString();
 		log.output({
 			category: 'styles',
-			file: 'styles.scss',
+			message: 'styles.scss',
 			extra: `${new Blob([fs.readFileSync(source)]).size / 1000}kb -> ${
 				new Blob([content]).size / 1000
 			}kb`,
@@ -39,7 +39,7 @@ class Page {
 		});
 		log.output({
 			category: 'styles',
-			file: 'styles.css',
+			message: 'styles.css',
 			extra: `${new Blob([content]).size / 1000}kb -> ${
 				new Blob([css.content]).size / 1000
 			}kb`,
