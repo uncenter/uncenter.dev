@@ -108,8 +108,8 @@ dependencies:
     specifier: ^0.14.3
     version: 0.14.3
   simple-icons:
-    specifier: ^9.8.0
-    version: 9.8.0
+    specifier: ^9.9.0
+    version: 9.9.0
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
@@ -3876,8 +3876,8 @@ packages:
       simple-concat: 1.0.1
     dev: false
 
-  /simple-icons@9.8.0:
-    resolution: {integrity: sha512-xVHfr+souquvsKoqYzfgEoQeZSt1i8ka9botwc81wGZ9VNOc2xr96GPz1ziycpX+vHLuZFlgibYcqCzJZeCPfg==}
+  /simple-icons@9.9.0:
+    resolution: {integrity: sha512-1Pe4iLuEdUfFP60pgdBl9CzDiKK7gYlIMmnEPr8G9+pYXR4lZRkGta4UapbXcN1g3oGy1FM3HdRT+0tXaDhzIw==}
     engines: {node: '>=0.12.18'}
     dev: false
 
