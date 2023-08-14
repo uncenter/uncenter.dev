@@ -5,31 +5,27 @@ on:
     branches: [main]
 
 jobs:
-  check:
-    outputs:
-      status: ${{ steps.check.conclusion }}
-    runs-on: ubuntu-latest
-    steps:
-      - id: check
-        name: Check
-        run: |
-          if git log --format='%an' ${{ github.event.before }}..${{ github.sha }} | grep -vq "dependabot\[bot\]"; then
-            echo "Non-Dependabot commits found. Workflow can continue."
-            exit 0
-          fi
-          echo "Only Dependabot commits found."
-          exit 1
   analyze:
     runs-on: ubuntu-latest
     permissions:
       security-events: write
-      actions: read
+      actions: write
       contents: read
-    needs: check
-    if: needs.check.outputs.status == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Check for non-Dependabot commits
+        run: |
+          if git log --format='%an' ${{ github.event.before }}..${{ github.sha }} | grep "dependabot\[bot\]" &> /dev/null; then
+            echo "Non-Dependabot commits found. Workflow can continue."
+            exit 0
+          fi
+          echo "Only Dependabot commits found."
+          gh run cancel ${{ github.run_id }}
+          gh run watch ${{ github.run_id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
