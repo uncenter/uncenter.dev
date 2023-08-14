@@ -14,7 +14,7 @@
 	"scripts": {
 		"dev": "eleventy --serve",
 		"clean": "rimraf dist/ .cache",
-		"spell": "node ./utils/update-dicts.js && cspell src/posts/**/*.md",
+		"spell": "cspell src/posts/**/*.md",
 		"format": "prettier --write .",
 		"build": "eleventy"
 	},

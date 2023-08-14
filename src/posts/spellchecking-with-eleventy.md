@@ -51,16 +51,10 @@ An important step is to define specific words to exclude or flag. I told `cSpell
 
 ```js
 	words: [
-		// Eleventy
+        'eleventy',
 		'11ty',
-		'shortcode',
 		'shortcodes',
-		'pagination',
 		'webc',
-
-		// Misc
-		'dotfiles',
-		'janky',
 	],
     flagWords: [],
 ```
@@ -81,27 +75,26 @@ Instead of manually updating my `repos.txt` dict, I wrote a script to fetch my r
 ```js
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs/promises');
+const { join } = require('node:path');
 
-function getRepos() {
-	const reposFile = path.join(__dirname, './dicts/repos.txt');
-	const reposURL = 'https://api.github.com/users/uncenter/repos';
-
-	(async () => {
-		const response = await fetch(reposURL);
+async function getRepos() {
+	try {
+		const response = await fetch('https://api.github.com/users/uncenter/repos');
 		const json = await response.json();
 
 		if (Array.isArray(json)) {
-			const repos = json.map((repo) => repo.name);
-			fs.writeFileSync(reposFile, repos.join('\n'));
+			fs.writeFile(
+				join(__dirname, './dicts/repos.txt'),
+				json.map((repo) => repo.name).join('\n'),
+			);
 		} else {
-			console.log('Invalid response format:', json);
+			throw new TypeError('Invalid response content.');
 		}
-	})();
+	} catch {
+		console.error('[cspell:update] Something went wrong.');
+	}
 }
-
-getRepos();
 ```
 
 If you're using Netlify, you can run this script and the spell-check script during the build process by adding it to the `build` command in your `netlify.toml` file (or the GUI on Netlify's website):
