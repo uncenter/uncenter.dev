@@ -15,6 +15,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Exit if only Dependabot
+        run: |
+          if git log --format='%an' ${{ github.event.before }}..${{ github.sha }} | grep -vq "dependabot\[bot\]"; then
+            echo "Non-Dependabot commits found. Workflow can continue."
+            exit 0
+          else
+            echo "Only Dependabot commits found. Exiting with an error."
+            exit 1
+          fi
+
       - name: Initialize
         uses: github/codeql-action/init@v2
 
