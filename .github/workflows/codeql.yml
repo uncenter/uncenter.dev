@@ -17,6 +17,7 @@ jobs:
 
       - name: Check for non-Dependabot commits
         run: |
+          git fetch origin "${{ github.event.before }}..${{ github.sha }}"
           if git log --format='%an' ${{ github.event.before }}..${{ github.sha }} | grep "dependabot\[bot\]" &> /dev/null; then
             echo "Non-Dependabot commits found. Workflow can continue."
             exit 0
