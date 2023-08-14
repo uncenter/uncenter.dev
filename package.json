@@ -61,7 +61,7 @@
 	"devDependencies": {
 		"cspell": "^6.31.2",
 		"eslint": "^8.47.0",
-		"eslint-config-prettier": "^8.9.0",
+		"eslint-config-prettier": "^9.0.0",
 		"prettier-plugin-tailwindcss": "^0.4.1",
 		"rimraf": "^5.0.1"
 	},
