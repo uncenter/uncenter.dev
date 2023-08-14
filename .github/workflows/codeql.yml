@@ -11,26 +11,10 @@ jobs:
       security-events: write
       actions: write
       contents: read
+    if: ${{ github.triggering_actor != 'dependabot[bot]' }}
     steps:
-      - run: |
-          echo "PUSH_FETCH_DEPTH=$(( $(git rev-list --count ${{ github.event.before }}..${{ github.sha }}) + 1 ))" >> "${GITHUB_ENV}"
-
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: ${{ env.PUSH_FETCH_DEPTH }}
-
-      - name: Check for non-Dependabot commits
-        run: |
-          if git log --format='%an' ${{ github.event.before }}..${{ github.sha }} | grep "dependabot\[bot\]" &> /dev/null; then
-            echo "Non-Dependabot commits found. Workflow can continue."
-            exit 0
-          fi
-          echo "Only Dependabot commits found."
-          gh run cancel ${{ github.run_id }}
-          gh run watch ${{ github.run_id }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
