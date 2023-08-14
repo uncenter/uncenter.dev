@@ -12,12 +12,16 @@ jobs:
       actions: write
       contents: read
     steps:
+      - run: |
+          echo "PUSH_FETCH_DEPTH=$(( $(git rev-list --count ${{ github.event.before }}..${{ github.sha }}) + 1 ))" >> "${GITHUB_ENV}"
+
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ env.PUSH_FETCH_DEPTH }}
 
       - name: Check for non-Dependabot commits
         run: |
-          git fetch origin "${{ github.event.before }}..${{ github.sha }}"
           if git log --format='%an' ${{ github.event.before }}..${{ github.sha }} | grep "dependabot\[bot\]" &> /dev/null; then
             echo "Non-Dependabot commits found. Workflow can continue."
             exit 0
