@@ -58,9 +58,7 @@ module.exports = function (eleventyConfig) {
 
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'src/assets/root': '.' });
-	eleventyConfig.addPassthroughCopy({
-		'src/assets/fonts/*.woff2': '/assets/fonts',
-	});
+	eleventyConfig.addPassthroughCopy('src/assets/fonts/*.woff2');
 
 	/* Other Config */
 	eleventyConfig.addTransform('html', function (content) {

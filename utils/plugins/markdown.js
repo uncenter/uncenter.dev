@@ -6,7 +6,6 @@ const markdownItMark = require('markdown-it-mark');
 const markdownItAbbr = require('markdown-it-abbr');
 const markdownItSup = require('markdown-it-sup');
 const markdownItSub = require('markdown-it-sub');
-const markdownItContainer = require('markdown-it-container');
 const markdownItKbd = require('markdown-it-kbd-better');
 const markdownItEmoji = require('markdown-it-emoji');
 
@@ -27,7 +26,6 @@ const markdownLibrary = markdownIt({
 	.use(markdownItAbbr)
 	.use(markdownItSup)
 	.use(markdownItSub)
-	.use(markdownItContainer, 'card')
 	.use(markdownItKbd, {
 		presets: [{ name: 'icons', prefix: 'icon:' }],
 		transform: (content) => {

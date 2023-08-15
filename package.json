@@ -7,14 +7,11 @@
 		"type": "git",
 		"url": "https://github.com/uncenter/uncenter.dev.git"
 	},
-	"author": {
-		"name": "uncenter",
-		"url": "https://uncenter.dev/"
-	},
+	"author": "uncenter (https://uncenter.dev)",
 	"scripts": {
 		"dev": "eleventy --serve",
 		"clean": "rimraf dist/ .cache",
-		"spell": "cspell src/posts/**/*.md",
+		"spell": "cspell **/*.md",
 		"format": "prettier --write .",
 		"build": "eleventy"
 	},
@@ -42,7 +39,6 @@
 		"markdown-it-abbr": "^1.0.4",
 		"markdown-it-anchor": "^8.6.7",
 		"markdown-it-attrs": "^4.1.6",
-		"markdown-it-container": "^3.0.0",
 		"markdown-it-emoji": "^2.0.2",
 		"markdown-it-footnote": "^3.0.3",
 		"markdown-it-kbd-better": "^1.2.1",
@@ -66,5 +62,5 @@
 		"prettier-plugin-tailwindcss": "^0.5.2",
 		"rimraf": "^5.0.1"
 	},
-	"packageManager": "pnpm@8.6.10"
+	"packageManager": "pnpm@8.6.12"
 }
