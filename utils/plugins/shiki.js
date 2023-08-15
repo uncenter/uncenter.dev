@@ -1,15 +1,23 @@
-const shiki = require('shiki');
-
-module.exports = (eleventyConfig, { theme }) => {
-	if (!theme) throw new Error('Theme is required!');
+module.exports = (eleventyConfig, { themes }) => {
 	eleventyConfig.amendLibrary('md', () => {});
 
 	eleventyConfig.on('eleventy.before', async () => {
-		const highlighter = await shiki.getHighlighter({ theme });
+		const { getHighlighter, bundledLanguages } = await import('shikiji');
+
+		const shiki = await getHighlighter({
+			themes: Object.values(themes),
+			langs: Object.keys(bundledLanguages),
+		});
 
 		eleventyConfig.amendLibrary('md', (mdLib) => {
 			return mdLib.set({
-				highlight: (code, lang) => highlighter.codeToHtml(code, { lang }),
+				highlight: (code, lang) => {
+					return shiki.codeToHtmlThemes(code, {
+						lang,
+						themes,
+						defaultColor: false,
+					});
+				},
 			});
 		});
 	});

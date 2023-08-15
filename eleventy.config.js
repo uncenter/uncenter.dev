@@ -37,7 +37,7 @@ module.exports = function (eleventyConfig) {
 		overwrite: false,
 	});
 	eleventyConfig.addPlugin(pluginShiki, {
-		theme: 'github-dark',
+		themes: { light: 'github-light', dark: 'github-dark' },
 	});
 	eleventyConfig.addPlugin(pluginRSS);
 	eleventyConfig.addPlugin(pluginIcons, {
