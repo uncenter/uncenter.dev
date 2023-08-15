@@ -53,10 +53,10 @@ div {
 :root {
 	--block-indent: 2rem;
 	--block-border-width: 4px;
-	--light: #f1f4f8;
-	--dark: #161616;
-	--dark-gray: #343434;
-	--light-gray: #e4e9f1;
+	--light: #ffffff;
+	--dark: #1f2328;
+	--dark-gray: #30363d;
+	--light-gray: #d0d7de;
 	--dark-blue: #2463eb;
 	--light-blue: #60a5fa;
 
@@ -71,6 +71,11 @@ div {
 	--current-gray: var(--light-gray);
 	--gray-opposite: var(--dark-gray);
 
+	.shiki,
+	.shiki span {
+		color: var(--shiki-light);
+	}
+
 	::selection {
 		background-color: var(--dark-blue);
 	}
@@ -81,6 +86,11 @@ div {
 	--fg: var(--light);
 	--current-gray: var(--dark-gray);
 	--gray-opposite: var(--light-gray);
+
+	.shiki,
+	.shiki span {
+		color: var(--shiki-dark);
+	}
 
 	::selection {
 		background-color: var(--light-blue);
@@ -110,27 +120,17 @@ div {
 	iframe,
 	embed,
 	object {
-		@apply box-border bg-cover bg-none block align-middle h-auto max-w-full;
-		content-visibility: auto;
+		@apply box-border bg-cover bg-none block align-middle h-auto max-w-full [content-visibility:auto];
 	}
 
-	:root[theme='light'] {
-		img {
-			--shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
-		}
-	}
-
-	:root[theme='dark'] {
-		img {
-			--shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
-				0 1px 3px rgba(255, 255, 255, 0.1);
-		}
+	img,
+	pre {
+		border-radius: 6px;
+		border: 1px solid var(--current-gray);
 	}
 
 	blockquote {
-		border-left: var(--block-border-width) solid var(--current-gray);
-		margin-left: var(--block-indent);
-		@apply pl-4 border-r-0 border-t-0 border-b-0;
+		@apply pl-4 border-r-0 border-t-0 border-b-0 [margin-left:var(--block-indent)] [border-left:var(--block-border-width)_solid_var(--current-gray)];
 	}
 
 	hr {
@@ -150,11 +150,18 @@ div {
 		@apply mt-1;
 	}
 
+	ul:first-child > li:first-child {
+		@apply mt-0;
+	}
+
 	a {
-		@apply relative no-underline text-current;
+		@apply relative no-underline text-fg;
 
 		&:not(.not-fancy) {
-			@apply underline underline-offset-[5px] decoration-2 transition-colors decoration-currentGray hover:decoration-oppositeGray;
+			&:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+				@apply text-[#0969da];
+			}
+			@apply hover:underline decoration-current;
 		}
 	}
 
@@ -162,7 +169,6 @@ div {
 	article {
 		img {
 			@apply rounded-md p-4;
-			box-shadow: var(--shadow);
 			margin-block-end: 1rem;
 			margin-block-start: 1rem;
 		}
@@ -176,16 +182,17 @@ div {
 			@apply bg-current content-[''] inline-block h-[11px] w-[11px] ml-1 mr-0.5;
 		}
 
-		h1 {
-			@apply text-4xl font-bold break-words m-0 mb-12;
-		}
-
+		h1,
 		h2,
 		h3,
 		h4,
 		h5,
 		h6 {
 			@apply leading-[1.4];
+		}
+
+		h1 {
+			@apply text-4xl font-bold break-words m-0 mb-12;
 		}
 
 		h2 {

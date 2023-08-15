@@ -6,9 +6,6 @@ div.shiki-wrapper {
 		font-size: 0.9rem;
 		line-height: 1.5;
 		position: relative;
-		border-radius: 6px;
-		tab-size: 4;
-		border: 1px solid var(--current-gray);
 
 		code {
 			display: block;
@@ -26,48 +23,51 @@ div.shiki-wrapper {
 		}
 	}
 
-	div {
+	.toolbar {
 		margin: 0.5rem;
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: flex;
+		gap: 0.25rem;
 
 		button {
-			background: #21262d;
-			display: none;
-			vertical-align: middle;
+			background: transparent;
+			vertical-align: text-bottom;
 			cursor: pointer;
-			user-select: none;
 			border-radius: 6px;
-			appearance: none;
 			padding: 0;
 			box-shadow: none;
-			border: 0.5px solid #363b42;
 			transition-property: color, background-color, border-color,
 				text-decoration-color, fill, stroke;
 			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 			transition-duration: 150ms;
 
+			fill: #656d76;
+			border-width: 1px;
+			border-style: solid;
+			border-color: #1f232826;
+
+			&.active {
+				fill: #1a7f37;
+				border-color: #1f883d;
+			}
+
 			svg {
 				width: 1rem;
 				height: 1rem;
 				display: inline;
-			}
-
-			&:hover {
-				background: #30363d;
-				border-color: #8b949e;
+				margin: 0.5rem;
+				overflow: visible;
 			}
 		}
-	}
-
-	&:hover div button {
-		display: inline-block;
 	}
 }
 
 :not(pre) > code {
 	font-size: 10pt;
-	border-radius: 0.3em;
-	background-color: #24292e;
-	color: var(--light);
+	border-radius: 6px;
+	background-color: #afb8c133;
 	padding: 0.2em 0.4em;
 	white-space: normal;
 }
