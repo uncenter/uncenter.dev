@@ -113,7 +113,7 @@ Finally, the config file allows you to define regular expression patterns to ign
 ```js
     {% raw %}// ...
 	ignoreRegExpList: [
-		'nunjucksExpression',
+        'nunjucksExpression',
 		'markdownCodeBlock',
 		'markdownInlineCode',
 		'properNouns',

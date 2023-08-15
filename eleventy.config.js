@@ -7,7 +7,7 @@ const transforms = require('./src/_11ty/transforms.js');
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
 const pluginRSS = require('@11ty/eleventy-plugin-rss');
-const pluginShikier = require('./utils/plugins/shikier.js');
+const pluginShiki = require('./utils/plugins/shiki.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
@@ -36,7 +36,7 @@ module.exports = function (eleventyConfig) {
 		rel: ['noreferrer'],
 		overwrite: false,
 	});
-	eleventyConfig.addPlugin(pluginShikier, {
+	eleventyConfig.addPlugin(pluginShiki, {
 		theme: 'github-dark',
 	});
 	eleventyConfig.addPlugin(pluginRSS);
