@@ -1,16 +1,9 @@
 html {
-	scroll-behavior: smooth;
-	overflow-y: scroll;
-	text-size-adjust: none;
+	@apply scroll-smooth overflow-y-scroll [text-size-adjust:none];
 }
 
 body {
-	margin-left: auto;
-	margin-right: auto;
-	padding: 6rem 2rem;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
+	@apply flex flex-col gap-8 mx-auto px-8 py-24 text-base/7;
 }
 
 @media (min-width: 1024px) {
@@ -47,12 +40,11 @@ h4,
 h5,
 h6,
 div {
-	scroll-margin-top: 0.8rem;
+	@apply scroll-mt-[0.8rem];
 }
 
 :root {
 	--block-indent: 2rem;
-	--block-border-width: 4px;
 	--light: #ffffff;
 	--dark: #1f2328;
 	--dark-gray: #30363d;
@@ -98,13 +90,10 @@ div {
 }
 
 .icon {
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-
-	&:not(.icon-lucide) {
-		fill: currentColor;
-	}
+	@apply inline-block w-[1em] h-[1em];
+}
+.icon:not(.icon-lucide) {
+	@apply fill-current;
 }
 
 @tailwind base;
@@ -125,25 +114,15 @@ div {
 
 	img,
 	pre {
-		border-radius: 6px;
-		border: 1px solid var(--current-gray);
+		@apply border border-currentGray rounded-md border-solid;
 	}
 
 	blockquote {
-		@apply pl-4 border-r-0 border-t-0 border-b-0 [margin-left:var(--block-indent)] [border-left:var(--block-border-width)_solid_var(--current-gray)];
+		@apply pl-4 border-r-0 border-t-0 border-b-0 [margin-left:var(--block-indent)] [border-left:4px_solid_var(--current-gray)];
 	}
 
 	hr {
-		margin: 3rem var(--block-indent);
-	}
-
-	p,
-	ul,
-	ol,
-	dl,
-	blockquote,
-	table {
-		@apply text-lg leading-7;
+		@apply mx-[var(--block-indent)] my-12;
 	}
 
 	li {
@@ -188,11 +167,11 @@ div {
 		h4,
 		h5,
 		h6 {
-			@apply leading-[1.4];
+			@apply leading-6;
 		}
 
 		h1 {
-			@apply text-4xl font-bold break-words m-0 mb-12;
+			@apply text-3xl font-bold break-words m-0 mb-12;
 		}
 
 		h2 {

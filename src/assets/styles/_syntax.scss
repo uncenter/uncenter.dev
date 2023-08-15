@@ -1,73 +1,33 @@
 div.shiki-wrapper {
-	position: relative;
+	@apply relative;
 
 	pre.shiki {
-		overflow: auto;
-		font-size: 0.9rem;
-		line-height: 1.5;
-		position: relative;
+		@apply overflow-auto text-xs leading-6 relative;
 
 		code {
-			display: block;
-			padding: 16px;
-			tab-size: 2;
-			font-family:
-				ui-monospace,
-				SFMono-Regular,
-				Menlo,
-				Monaco,
-				Consolas,
-				Liberation Mono,
-				Courier New,
-				monospace;
+			@apply block p-4 [tab-size:2] font-mono;
 		}
 	}
 
 	.toolbar {
-		margin: 0.5rem;
-		position: absolute;
-		right: 0;
-		top: 0;
-		display: flex;
-		gap: 0.25rem;
+		@apply absolute flex gap-1 m-2 right-0 top-0;
 
 		button {
-			background: transparent;
-			vertical-align: text-bottom;
-			cursor: pointer;
-			border-radius: 6px;
-			padding: 0;
-			box-shadow: none;
-			transition-property: color, background-color, border-color,
-				text-decoration-color, fill, stroke;
-			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-			transition-duration: 150ms;
-
-			fill: #656d76;
-			border-width: 1px;
-			border-style: solid;
-			border-color: #1f232826;
+			@apply align-text-bottom cursor-pointer shadow-none transition-colors ease-in-out p-0 rounded-md bg-transparent;
+			@apply border border-solid border-[#1f232826] dark:border-[#F0F6FC1A] fill-[#656d76] dark:fill-[#7D8590FF];
 
 			&.active {
-				fill: #1a7f37;
-				border-color: #1f883d;
+				@apply fill-[#1a7f37] border-[#1f883d];
 			}
 
 			svg {
-				width: 1rem;
-				height: 1rem;
-				display: inline;
-				margin: 0.5rem;
-				overflow: visible;
+				@apply w-4 h-4 inline overflow-visible m-2;
 			}
 		}
 	}
 }
 
 :not(pre) > code {
-	font-size: 10pt;
-	border-radius: 6px;
-	background-color: #afb8c133;
-	padding: 0.2em 0.4em;
-	white-space: normal;
+	@apply text-[10pt] whitespace-normal px-[0.4em] py-[0.2em] rounded-md;
+	@apply bg-[#afb8c133] dark:bg-[#6E768166];
 }
