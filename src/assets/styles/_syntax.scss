@@ -13,7 +13,7 @@ div.shiki-wrapper {
 		@apply absolute flex gap-1 m-2 right-0 top-0;
 
 		button {
-			@apply align-text-bottom cursor-pointer shadow-none transition-colors ease-in-out p-0 rounded-md bg-transparent;
+			@apply align-text-bottom cursor-pointer shadow-none transition-colors ease-in-out p-0 rounded-md bg-bg;
 			@apply border border-solid border-[#1f232826] dark:border-[#F0F6FC1A] fill-[#656d76] dark:fill-[#7D8590FF];
 
 			&.active {
@@ -28,6 +28,6 @@ div.shiki-wrapper {
 }
 
 :not(pre) > code {
-	@apply text-[10pt] whitespace-normal px-[0.4em] py-[0.2em] rounded-md;
+	@apply text-xs whitespace-normal px-[0.4em] py-[0.2em] rounded-md;
 	@apply bg-[#afb8c133] dark:bg-[#6E768166];
 }
