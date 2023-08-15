@@ -24,8 +24,8 @@ You can find the source code for this website on [GitHub]({{ meta.repository | u
 
 ## Site hosting
 
-After the website is built, it's just a folder on my desktop or in a GitHub repository. The magic happens with [Netlify](https://www.netlify.com/), a free hosting service, auto-deploys this website every time I push to my repository. The domain is provided by [Cloudflare](https://www.cloudflare.com/).
+After I push any changes to my repository, [Cloudflare Pages](https://pages.cloudflare.com/) builds and deploys it across the globe.
 
 ## Visitor analytics
 
-Usage statistics are tracked using [umami](https://umami.is/), an open-source alternative to Google Analytics. Although it was a bit challenging to set up, the data presentation and graphs look great once it's up and running. The PostgreSQL database and app are hosted on [Railway](https://railway.app/), a convenient and (mostly) free platform for hosting projects like this. View the [analytics!]({{ analytics.share }}).
+Usage statistics are tracked using [Umami](https://umami.is/), an open-source alternative to Google Analytics. Although it was a bit challenging to set up, the data presentation and graphs look great and it's still receiving regular updates. The PostgreSQL database and app are hosted on [Railway](https://railway.app/), a convenient and free platform for hosting projects like this. [View the analytics]({{ analytics.share }})!
