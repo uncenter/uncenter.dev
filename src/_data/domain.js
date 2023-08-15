@@ -1,7 +1,11 @@
+const { getPackageJson } = require('../_11ty/utils/pkgJson');
+
+const packageJson = getPackageJson();
+
 module.exports = {
-	name: require('../../package.json').name,
+	name: packageJson.name,
 	url:
 		process.env.NODE_ENV === 'production'
-			? require('../../package.json').url
+			? packageJson.author.url
 			: 'http://localhost:8080/',
 };

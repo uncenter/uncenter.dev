@@ -1,4 +1,6 @@
-const packageJson = require('../../package.json');
+const { getPackageJson } = require('../_11ty/utils/pkgJson');
+
+const packageJson = getPackageJson();
 
 const author = {
 	name: packageJson.author.name,

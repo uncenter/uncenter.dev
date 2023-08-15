@@ -5,8 +5,8 @@ const log = require('../_11ty/utils/log.js');
 
 module.exports = async () => {
 	const { execa } = await import('execa');
-	const rev = execa('git', ['rev-parse', '--short', 'HEAD']).then(
-		(a) => a.stdout,
+	const rev = await execa('git', ['rev-parse', '--short', 'HEAD']).then(
+		(x) => x.stdout,
 	);
 	log.output({
 		category: 'gitRev',
