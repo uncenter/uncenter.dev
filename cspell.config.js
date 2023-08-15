@@ -1,21 +1,10 @@
 module.exports = {
 	version: '0.2',
 	language: 'en',
-	words: [
-		// Eleventy
-		'11ty',
-		'shortcode',
-		'shortcodes',
-		'pagination',
-		'webc',
-
-		// Misc
-		'dotfiles',
-		'janky',
-	],
+	words: ['uncenter', 'eleventy', '11ty', 'umami', 'shortcodes', 'keycaps'],
 	flagWords: [],
-	dictionaries: ['repos'],
-	dictionaryDefinitions: [{ name: 'repos', path: './utils/dicts/repos.txt' }],
+	dictionaries: [],
+	dictionaryDefinitions: [],
 	ignoreRegExpList: [
 		'nunjucksExpression',
 		'markdownCodeBlock',
@@ -37,7 +26,7 @@ module.exports = {
 		},
 		{
 			name: 'properNouns',
-			pattern: /(?<=\s|^|[^\s\w])[A-Z][a-z]+(?=\s|$|[^\s\w])/g,
+			pattern: /(?<=\s|^|[^\s\w])[A-Z][A-zÀ-ú]+(?=\s|$|[^\s\w])/g,
 		},
 	],
 };
