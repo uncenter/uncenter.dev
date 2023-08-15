@@ -1,10 +1,10 @@
-const htmlmin = require('html-minifier');
+const { minify } = require('html-minifier');
 const { parseHTML } = require('linkedom');
 
 module.exports = {
 	// Minify HTML.
 	minifyHtml: (content) => {
-		return htmlmin.minify(content, {
+		return minify(content, {
 			useShortDoctype: true,
 			removeComments: true,
 			collapseWhitespace: true,

@@ -3,7 +3,7 @@ const UglifyJS = require('uglify-js');
 
 const log = require('../_11ty/utils/log.js');
 
-const Blob = require('node:buffer').Blob;
+const { Blob } = require('node:buffer');
 const { readFile } = require('node:fs/promises');
 
 module.exports = async () => {
