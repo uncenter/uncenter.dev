@@ -28,7 +28,7 @@ $ pnpm spell    # run spell-checking
 
 ## Contributing
 
-If you see any issues or have any suggestions for the website, please open an issue or pull request. If you have any questions, feel free to reach out to me on via the [contact methods listed on my website](https://uncenter.dev/contact/).
+If you see any issues or have any suggestions for the website, please open an issue or pull request. If you have any questions, feel free to reach out via the contact methods listed on my website or on my GitHub profile.
 
 ## About
 
