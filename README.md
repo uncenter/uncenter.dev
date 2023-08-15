@@ -34,7 +34,7 @@ If you see any issues or have any suggestions for the website, please open an is
 
 ### Features
 
-- **Syntax highlighting** for posts using [`shiki`](https://github.com/shikijs/shiki), configured based on [Raphael Höser's implementation](https://www.hoeser.dev/blog/2023-02-01-syntax-highlight/)
+- **Syntax highlighting** for posts using [`shikiji`](https://github.com/antfu/shikiji) (a fork of [`shiki`](https://github.com/shikijs/shiki))
 - **Optimized images** with [`eleventy-img`](https://github.com/11ty/eleventy-img)
 - **RSS feed** using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
 - **Spell-checking** for posts through [`cspell`](http://cspell.org/)
@@ -48,7 +48,7 @@ If you see any issues or have any suggestions for the website, please open an is
 
 ## Credits
 
-Many thanks to the 11ty community for their contributions to the community, without which this website would not be possible- thanks to [Raphael Höser](https://www.hoeser.dev/), Stephanie Eckles for [11ty.rocks](https://11ty.rocks/), [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/), [11ty.recipes](https://11ty.recipes/) by Mike Aparicio, [Bernard Nijenhuis' notes](https://bnijenhuis.nl/), and more.
+Many thanks to the 11ty community for their contributions to the community, without which this website would not be possible- thanks to Stephanie Eckles for [11ty.rocks](https://11ty.rocks/), [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/), [11ty.recipes](https://11ty.recipes/) by Mike Aparicio, [Bernard Nijenhuis' notes](https://bnijenhuis.nl/), and more.
 
 Generic icons sourced from [Lucide](https://lucide.dev/) and brand icons from [Simple Icons](https://simpleicons.org/).
 
