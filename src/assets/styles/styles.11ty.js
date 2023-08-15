@@ -1,7 +1,7 @@
+const fs = require('node:fs/promises');
 const postcss = require('postcss');
-const fs = require('node:fs');
-const Blob = require('node:buffer').Blob;
 const sass = require('sass');
+const { Blob } = require('node:buffer');
 
 const log = require('../../_11ty/utils/log.js');
 
@@ -20,7 +20,7 @@ class Page {
 		log.output({
 			category: 'styles',
 			message: 'styles.scss',
-			extra: `${new Blob([fs.readFileSync(source)]).size / 1000}kb -> ${
+			extra: `${new Blob([fs.readFile(source)]).size / 1000}kb -> ${
 				new Blob([content]).size / 1000
 			}kb`,
 		});
