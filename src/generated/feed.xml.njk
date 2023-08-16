@@ -10,7 +10,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ '/' | url }}">
     <title>{{ meta.name }}</title>
     <subtitle>{{ feed.subtitle }}</subtitle>
-    <link href="{{ permalink | absoluteUrl(domain.url) }}" rel="self"/>
+    <link href="{{ permalink | url }}" rel="self"/>
     <link href="{{ '/' | url }}"/>
     <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
     <id>{{ '/' | url }}</id>
@@ -18,7 +18,7 @@
         <name>{{ meta.author.name }}</name>
     </author>
     {%- for post in collections.posts | reverse %}
-    {%- set absolutePostUrl = post.url | absoluteUrl(domain.url) %}
+    {%- set absolutePostUrl = post.url | url %}
     <entry>
         <title>{{ post.data.title }}</title>
         <link href="{{ absolutePostUrl }}"/>

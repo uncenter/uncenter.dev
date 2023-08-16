@@ -6,7 +6,7 @@ const transforms = require('./src/_11ty/transforms.js');
 
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
-const pluginRSS = require('@11ty/eleventy-plugin-rss');
+const pluginRSS = require('@ryanccn/eleventy-plugin-rss');
 const pluginShiki = require('./utils/plugins/shiki.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
