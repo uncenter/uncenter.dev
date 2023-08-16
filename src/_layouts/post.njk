@@ -32,10 +32,10 @@ layout: base.njk
 {% endif %}
 {% set previous = collections.posts | getPreviousCollectionItem %}
 {% set next = collections.posts | getNextCollectionItem %}
-<div class="flex flex-row justify-between font-bold mt-8">
+<div class="flex flex-row justify-between mt-8">
     {% if previous %}
-        <a class="text-center" href="{{ previous.url }}" aria-label="Read previous post">
-            {%- icon 'lucide:arrow-left', class="mr-2" -%}
+        <a class="text-center space-x-2" href="{{ previous.url }}" aria-label="Read previous post">
+            {%- icon 'lucide:arrow-left' -%}
             <span>{{ previous.data.title }}</span>
         </a>
     {% endif %}
@@ -43,9 +43,9 @@ layout: base.njk
         <div></div>
     {% endif %}
     {% if next %}
-        <a class="text-center" href="{{ next.url }}" aria-label="Read next post">
+        <a class="text-center space-x-2" href="{{ next.url }}" aria-label="Read next post">
             <span>{{ next.data.title }}</span>
-            {%- icon 'lucide:arrow-right', class="ml-2" -%}
+            {%- icon 'lucide:arrow-right' -%}
         </a>
     {% endif %}
 </div>
