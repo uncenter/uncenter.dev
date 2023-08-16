@@ -41,6 +41,5 @@ const packageJson = require('../../../package.json');
 for (const [field, fn] of Object.entries(modifications)) {
 	packageJson[field] = fn(packageJson);
 }
-console.log(packageJson);
 
 module.exports = packageJson;
