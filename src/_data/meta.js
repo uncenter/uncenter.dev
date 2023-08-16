@@ -1,5 +1,4 @@
-const { getPackageJson } = require('../_11ty/utils/pkgJson');
-const packageJson = getPackageJson();
+const packageJson = require('../_11ty/utils/pkgJson');
 const urlize = require('../_11ty/utils/urlize');
 
 const author = {

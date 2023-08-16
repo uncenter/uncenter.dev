@@ -32,12 +32,15 @@ function personToObject(person) {
 	return obj;
 }
 
-module.exports = {
-	getPackageJson: function () {
-		const packageJson = require('../../../package.json');
-
-		packageJson.author = personToObject(packageJson.author);
-
-		return packageJson;
-	},
+const modifications = {
+	author: ($) => personToObject($.author),
 };
+
+const packageJson = require('../../../package.json');
+
+for (const [field, fn] of Object.entries(modifications)) {
+	packageJson[field] = fn(packageJson);
+}
+console.log(packageJson);
+
+module.exports = packageJson;

@@ -1,5 +1,4 @@
-const { getPackageJson } = require('./pkgJson');
-const packageJson = getPackageJson();
+const packageJson = require('./pkgJson');
 
 const baseUrl = new URL(
 	process.env.NODE_ENV === 'production'
