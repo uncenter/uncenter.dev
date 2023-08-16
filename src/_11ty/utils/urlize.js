@@ -6,6 +6,6 @@ const baseUrl = new URL(
 		? packageJson.author.url
 		: 'http://localhost:8080/',
 );
-module.exports = (path, base = baseUrl) => {
+module.exports = (path = '', base = baseUrl) => {
 	return new URL(path, base);
 };
