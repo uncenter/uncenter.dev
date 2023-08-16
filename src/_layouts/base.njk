@@ -10,7 +10,7 @@ navLinks:
     url: /colophon/
 ---
 
-{% set metaTitle = domain.name %}
+{% set metaTitle = meta.site.domain %}
 {%- if title != false -%}
     {% set metaTitle = title + " &middot; " + metaTitle %}
 {%- endif -%}
