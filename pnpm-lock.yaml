@@ -33,8 +33,8 @@ dependencies:
     specifier: ^16.3.1
     version: 16.3.1
   eleventy-plugin-icons:
-    specifier: 3.0.1
-    version: 3.0.1
+    specifier: 4.0.0
+    version: 4.0.0
   execa:
     specifier: ^7.2.0
     version: 7.2.0
@@ -1681,14 +1681,13 @@ packages:
     resolution: {integrity: sha512-ZzPqGKghdVzlQJ+qpfE+r6EB321zed7e5JsvHIlMM4zPFF8okXUkF5Of7h7F3l3cltPL0rG7YVmlp5Qro7RQLA==}
     dev: false
 
-  /eleventy-plugin-icons@3.0.1:
-    resolution: {integrity: sha512-LXq8B0SNk706/wOrPl3EBYtH9cBErahma+vgXAxuzjHF6xUQj0xECs6X5PPWihmGn/OSOyyzQ+b22KMc9kq6wg==}
+  /eleventy-plugin-icons@4.0.0:
+    resolution: {integrity: sha512-lqp6J6DFP5nrLSG2wAHyeu3/8Gd/Z78f800SHXRxh2rmVgFbq34rGsRHbcYvhl9GZKNs1l4IEsxCfCQ/cAYIWg==}
     engines: {node: '>=16.0.0'}
     dependencies:
       just-memoize: 2.2.0
       kleur: 4.1.5
-      linkedom: 0.14.26
-      svgo: 3.0.2
+      linkedom: 0.15.1
     dev: false
 
   /emoji-regex@8.0.0:
@@ -2502,16 +2501,6 @@ packages:
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
-
-  /linkedom@0.14.26:
-    resolution: {integrity: sha512-mK6TrydfFA7phrnp+1j57ycBwFI5bGSW6YXlw9acHoqF+mP/y+FooEYYyniOt5Ot57FSKB3iwmnuQ1UUyNLm5A==}
-    dependencies:
-      css-select: 5.1.0
-      cssom: 0.5.0
-      html-escaper: 3.0.3
-      htmlparser2: 8.0.2
-      uhyphen: 0.2.0
-    dev: false
 
   /linkedom@0.15.1:
     resolution: {integrity: sha512-8U+wi0VI0JW7ehxX+N/rmZyLWV9bypiCOUeklGBWslpiTpxHnVfY+yHmf6sg06q2kXYdpIJWC6LMpepgOq+JXg==}

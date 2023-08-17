@@ -42,14 +42,12 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginRSS);
 	eleventyConfig.addPlugin(pluginIcons, {
 		mode: 'inline',
-		sources: {
-			si: 'node_modules/simple-icons/icons',
-			lucide: 'node_modules/lucide-static/icons',
-		},
-		default: false,
+		sources: [
+			{ name: 'si', path: 'node_modules/simple-icons/icons' },
+			{ name: 'lucide', path: 'node_modules/lucide-static/icons' },
+		],
 		icon: {
-			overwriteExistingAttributes: true,
-			ignoreNotFound: false,
+			errorNotFound: false,
 			class: function (name, source) {
 				return `icon icon-${name} icon-${source}`;
 			},
