@@ -55,10 +55,10 @@
 		"uglify-js": "^3.17.4"
 	},
 	"devDependencies": {
-		"cspell": "^7.0.0",
+		"cspell": "^7.0.1",
 		"eslint": "^8.47.0",
 		"eslint-config-prettier": "^9.0.0",
-		"prettier": "^3.0.1",
+		"prettier": "^3.0.2",
 		"rimraf": "^5.0.1"
 	},
 	"packageManager": "pnpm@8.6.12"
