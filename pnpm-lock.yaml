@@ -81,8 +81,8 @@ dependencies:
     specifier: ^3.0.3
     version: 3.0.3
   markdown-it-kbd-better:
-    specifier: ^1.2.1
-    version: 1.2.1
+    specifier: ^1.2.5
+    version: 1.2.5
   markdown-it-mark:
     specifier: ^3.0.1
     version: 3.0.1
@@ -2638,8 +2638,8 @@ packages:
     resolution: {integrity: sha512-YZMSuCGVZAjzKMn+xqIco9d1cLGxbELHZ9do/TSYVzraooV8ypsppKNmUJ0fVH5ljkCInQAtFpm8Rb3eXSrt5w==}
     dev: false
 
-  /markdown-it-kbd-better@1.2.1:
-    resolution: {integrity: sha512-B0lHAVRxR5uD56xKVFyCdlTHLVW/LbB87VQmoYQtv/pdAXytlblwwkjaldnaOnDiYt5m48CxkDgMiUv9Vq31iQ==}
+  /markdown-it-kbd-better@1.2.5:
+    resolution: {integrity: sha512-2L2ilVYinjUAxUwuB2mRlgoqm9iqqt/RAa6XWvto1UNy7CdACINzB0SHMU7IZnweWSOLC8bBj6VARSZIL4GxEw==}
     engines: {node: '>=16.0.0'}
     dependencies:
       markdown-it: 13.0.1
