@@ -17,13 +17,13 @@ My personal website!
 
 ## Development
 
-```console
-$ pnpm install  # install dependencies
-$ pnpm dev      # start development server
-$ pnpm build    # run production build
-$ pnpm clean    # clean up build artifacts
-$ pnpm format   # format project files
-$ pnpm spell    # run spell-checking
+```sh
+pnpm install  # install dependencies
+pnpm dev      # start development server
+pnpm build    # run production build
+pnpm clean    # clean up build artifacts
+pnpm format   # format project files
+pnpm spell    # run spell-checking
 ```
 
 ## Contributing
@@ -35,8 +35,8 @@ If you see any issues or have any suggestions for the website, please open an is
 ### Features
 
 - **Syntax highlighting** for posts using [`shikiji`](https://github.com/antfu/shikiji) (a fork of [`shiki`](https://github.com/shikijs/shiki))
-- **Optimized images** with [`eleventy-img`](https://github.com/11ty/eleventy-img)
-- **RSS feed** using [`eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss)
+- **Optimized images** with [`@11ty/eleventy-img`](https://github.com/11ty/eleventy-img)
+- **RSS feed** using [`@ryanccn/eleventy-plugin-rss`](https://github.com/ryanccn/eleventy-plugin-rss)
 - **Spell-checking** for posts through [`cspell`](http://cspell.org/)
 - **Optimized CSS, JS, and HTML** using [`postcss`](https://postcss.org/), [`UglifyJS`](https://github.com/mishoo/UglifyJS), and [`html-minifier`](https://github.com/kangax/html-minifier)
 
