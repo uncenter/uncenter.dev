@@ -12,7 +12,7 @@ module.exports = (eleventyConfig, { themes }) => {
 		eleventyConfig.amendLibrary('md', (mdLib) => {
 			return mdLib.set({
 				highlight: (code, lang) => {
-					return shiki.codeToHtmlThemes(code, {
+					return shiki.codeToHtml(code, {
 						lang,
 						themes,
 						defaultColor: false,
