@@ -21,14 +21,14 @@ class Page {
 				authors: [
 					{
 						name: data.meta.author.name,
-						icon: urlize('1024w.png'),
+						avatar: urlize('1024w.png'),
 					},
 				],
 				home_page_url: data.meta.site.url,
 				feed_url: urlize('feed.json'),
 				items: await Promise.all(
 					[...data.collections.posts].reverse().map(async (post) => ({
-						id: post.data.slug,
+						id: post.filePathStem,
 						url: urlize(post.url),
 						title: post.data.title,
 						content_html: await this.htmlToAbsoluteUrls(
