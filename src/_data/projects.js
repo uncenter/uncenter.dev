@@ -1,7 +1,7 @@
 const yaml = require('js-yaml');
 const EleventyFetch = require('@11ty/eleventy-fetch');
 
-const log = require('../_11ty/utils/log');
+const log = require('../../utils/log');
 
 const projects = {
 	maintained: [
@@ -72,7 +72,7 @@ const projects = {
 };
 
 async function getRepoData(username, repository, fetchOptions) {
-	log.output({
+	log({
 		category: 'projects',
 		message: `https://github.com/${username}/${repository}`,
 	});
@@ -112,7 +112,7 @@ module.exports = async function () {
 	if (process.env.GITHUB_TOKEN) {
 		fetchOptions.headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 	} else {
-		log.output({ category: 'env', message: 'no GITHUB_TOKEN found' });
+		log({ category: 'env', message: 'no GITHUB_TOKEN found' });
 	}
 	const languages = new Set();
 	for (const category in projects) {

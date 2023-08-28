@@ -1,7 +1,7 @@
-const shortcodes = require('./src/_11ty/shortcodes.js');
-const collections = require('./src/_11ty/collections.js');
-const filters = require('./src/_11ty/filters.js');
-const transforms = require('./src/_11ty/transforms.js');
+const shortcodes = require('./utils/11ty/shortcodes.js');
+const collections = require('./utils/11ty/collections.js');
+const filters = require('./utils/11ty/filters.js');
+const transforms = require('./utils/11ty/transforms.js');
 
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
@@ -11,7 +11,7 @@ const pluginIcons = require('eleventy-plugin-icons');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const isProduction = process.env.NODE_ENV === 'production';
-const packageJson = require('./src/_11ty/utils/pkgJson');
+const packageJson = require('./utils/pkgJson.js');
 
 require('dotenv').config();
 

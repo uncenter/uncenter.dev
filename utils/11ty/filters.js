@@ -1,5 +1,5 @@
 const { DateTime } = require('luxon');
-const { markdownLibrary } = require('../../utils/plugins/markdown');
+const { markdownLibrary } = require('../plugins/markdown');
 
 const toShortDate = (dateObject) => {
 	// 10/14/1983
@@ -59,5 +59,5 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('capitalize', (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	});
-	eleventyConfig.addFilter('url', require('./utils/urlize'));
+	eleventyConfig.addFilter('url', require('../urlize'));
 };

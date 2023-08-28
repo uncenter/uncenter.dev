@@ -5,7 +5,7 @@ const EleventyImage = require('@11ty/eleventy-img');
 const { imageSize } = require('image-size');
 const { escape } = require('lodash');
 
-const log = require('./utils/log.js');
+const log = require('../log.js');
 
 const IMAGE_OPTIMIZATION =
 	process.env.IMAGE_OPTIMIZATION === '0' ||
@@ -42,7 +42,7 @@ const insertImage = async function (source, alt, classes) {
 		urlPath: '/assets/images/',
 	});
 
-	log.output({ category: 'images', message: source });
+	log({ category: 'images', message: source });
 
 	const getLargestImage = (format) => {
 		if (!(format in data)) return false;

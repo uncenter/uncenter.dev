@@ -3,7 +3,7 @@ const postcss = require('postcss');
 const sass = require('sass');
 const { Blob } = require('node:buffer');
 
-const log = require('../../_11ty/utils/log.js');
+const log = require('../../../utils/log');
 
 class Page {
 	data() {
@@ -17,7 +17,7 @@ class Page {
 		let source = `${__dirname}/styles.scss`;
 		let result = sass.compile(source);
 		let content = result.css.toString();
-		log.output({
+		log({
 			category: 'styles',
 			message: 'styles.scss',
 			extra: `${new Blob([fs.readFile(source)]).size / 1000}kb -> ${
@@ -37,7 +37,7 @@ class Page {
 			from: source,
 			to: source,
 		});
-		log.output({
+		log({
 			category: 'styles',
 			message: 'styles.css',
 			extra: `${new Blob([content]).size / 1000}kb -> ${

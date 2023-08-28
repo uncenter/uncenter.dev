@@ -1,10 +1,10 @@
+const { Blob } = require('node:buffer');
+const { readFile } = require('node:fs/promises');
+
 const postcss = require('postcss');
 const UglifyJS = require('uglify-js');
 
-const log = require('../_11ty/utils/log.js');
-
-const { Blob } = require('node:buffer');
-const { readFile } = require('node:fs/promises');
+const log = require('../../utils/log');
 
 module.exports = async () => {
 	const fonts = await readFile('./src/assets/fonts/fonts.css', 'utf-8');
@@ -16,7 +16,7 @@ module.exports = async () => {
 		from: undefined,
 		to: undefined,
 	});
-	log.output({
+	log({
 		category: 'styles',
 		message: 'fonts.css',
 		extra: `${new Blob([fonts]).size / 1000}kb -> ${
@@ -31,14 +31,14 @@ module.exports = async () => {
 		before: UglifyJS.minify(beforeJs).code,
 		after: UglifyJS.minify(afterJs).code,
 	};
-	log.output({
+	log({
 		category: 'scripts',
 		message: 'before.js',
 		extra: `${new Blob([beforeJs]).size / 1000}kb -> ${
 			new Blob([uglified.before]).size / 1000
 		}kb`,
 	});
-	log.output({
+	log({
 		category: 'scripts',
 		message: 'after.js',
 		extra: `${new Blob([afterJs]).size / 1000}kb -> ${
