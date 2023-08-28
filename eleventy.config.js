@@ -1,7 +1,6 @@
 const shortcodes = require('./src/_11ty/shortcodes.js');
 const collections = require('./src/_11ty/collections.js');
 const filters = require('./src/_11ty/filters.js');
-const utils = require('./src/_11ty/utils.filters.js');
 const transforms = require('./src/_11ty/transforms.js');
 
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
@@ -12,6 +11,7 @@ const pluginIcons = require('eleventy-plugin-icons');
 
 const { markdownLibrary } = require('./utils/plugins/markdown.js');
 const isProduction = process.env.NODE_ENV === 'production';
+const packageJson = require('./src/_11ty/utils/pkgJson');
 
 require('dotenv').config();
 
@@ -22,7 +22,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(shortcodes);
 	eleventyConfig.addPlugin(collections);
 	eleventyConfig.addPlugin(filters);
-	eleventyConfig.addPlugin(utils);
 
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginTOC, {
@@ -32,7 +31,7 @@ module.exports = function (eleventyConfig) {
 		},
 	});
 	eleventyConfig.addPlugin(pluginExternalLinks, {
-		url: require('./package.json').author.url,
+		url: packageJson.author.url,
 		rel: ['noreferrer'],
 		overwrite: false,
 	});
