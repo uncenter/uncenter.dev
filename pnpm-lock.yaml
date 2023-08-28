@@ -33,8 +33,8 @@ dependencies:
     specifier: ^16.3.1
     version: 16.3.1
   eleventy-plugin-icons:
-    specifier: 4.0.1
-    version: 4.0.1
+    specifier: 4.1.1
+    version: 4.1.1
   execa:
     specifier: ^8.0.1
     version: 8.0.1
@@ -51,17 +51,17 @@ dependencies:
     specifier: ^4.1.5
     version: 4.1.5
   linkedom:
-    specifier: ^0.15.1
-    version: 0.15.1
+    specifier: ^0.15.2
+    version: 0.15.2
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
   lucide-static:
-    specifier: ^0.268.0
-    version: 0.268.0
+    specifier: ^0.269.0
+    version: 0.269.0
   luxon:
-    specifier: ^3.4.0
-    version: 3.4.0
+    specifier: ^3.4.2
+    version: 3.4.2
   markdown-it:
     specifier: ^13.0.1
     version: 13.0.1
@@ -70,7 +70,7 @@ dependencies:
     version: 1.0.4
   markdown-it-anchor:
     specifier: ^8.6.7
-    version: 8.6.7(@types/markdown-it@13.0.0)(markdown-it@13.0.1)
+    version: 8.6.7(@types/markdown-it@13.0.1)(markdown-it@13.0.1)
   markdown-it-attrs:
     specifier: ^4.1.6
     version: 4.1.6(markdown-it@13.0.1)
@@ -102,11 +102,11 @@ dependencies:
     specifier: ^1.66.1
     version: 1.66.1
   shikiji:
-    specifier: ^0.6.1
-    version: 0.6.1
+    specifier: ^0.6.3
+    version: 0.6.3
   simple-icons:
-    specifier: ^9.11.0
-    version: 9.11.0
+    specifier: ^9.12.0
+    version: 9.12.0
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
@@ -236,7 +236,7 @@ packages:
       iso-639-1: 2.1.15
       kleur: 4.1.5
       liquidjs: 10.8.4
-      luxon: 3.4.0
+      luxon: 3.4.2
       markdown-it: 13.0.1
       micromatch: 4.0.5
       minimist: 1.2.8
@@ -780,8 +780,8 @@ packages:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
     dev: false
 
-  /@types/markdown-it@13.0.0:
-    resolution: {integrity: sha512-mPTaUl5glYfzdJFeCsvhXQwZKdyszNAZcMm5ZTP5SfpTu+vIbog7J3z8Fa4x/Fzv5TB4R6OA/pHBYIYmkYOWGQ==}
+  /@types/markdown-it@13.0.1:
+    resolution: {integrity: sha512-SUEb8Frsxs3D5Gg9xek6i6EG6XQ5s+O+ZdQzIPESZVZw3Pv3CPQfjCJBI+RgqZd1IBeu18S0Rn600qpPnEK37w==}
     dependencies:
       '@types/linkify-it': 3.0.2
       '@types/mdurl': 1.0.2
@@ -799,10 +799,6 @@ packages:
 
   /@types/minimatch@3.0.5:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
-    dev: false
-
-  /@types/unist@2.0.7:
-    resolution: {integrity: sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==}
     dev: false
 
   /@types/unist@3.0.0:
@@ -1745,13 +1741,14 @@ packages:
     resolution: {integrity: sha512-ZzPqGKghdVzlQJ+qpfE+r6EB321zed7e5JsvHIlMM4zPFF8okXUkF5Of7h7F3l3cltPL0rG7YVmlp5Qro7RQLA==}
     dev: false
 
-  /eleventy-plugin-icons@4.0.1:
-    resolution: {integrity: sha512-CXbKhymPqJzrgkAq3yi2bgjVMcr79Fb69PpxwiyHAhTyYveZEVxpETjVfx9MJot31ezpYJqX3vZrfvJqOkzUVg==}
+  /eleventy-plugin-icons@4.1.1:
+    resolution: {integrity: sha512-VkBdtbpdGyGf6bFR2pJ64t186d08biqF8oAKw966XhHQXe4X5Bme6f8uo/YZEXbqdNufbCoo7CJyhZGra2DhgA==}
     engines: {node: '>=16.0.0'}
     dependencies:
+      fast-xml-parser: 4.2.7
+      just-extend: 6.2.0
       just-memoize: 2.2.0
       kleur: 4.1.5
-      linkedom: 0.15.1
     dev: false
 
   /emoji-regex@8.0.0:
@@ -1994,6 +1991,13 @@ packages:
   /fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
     dev: true
+
+  /fast-xml-parser@4.2.7:
+    resolution: {integrity: sha512-J8r6BriSLO1uj2miOk1NW0YVm8AGOOu3Si2HQp/cSmo6EA4m3fcwu2WKjJ4RK9wMLBtg69y1kS8baDiQBR41Ig==}
+    hasBin: true
+    dependencies:
+      strnum: 1.0.5
+    dev: false
 
   /fastq@1.15.0:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
@@ -2259,7 +2263,7 @@ packages:
       hastscript: 8.0.0
       property-information: 6.2.0
       vfile: 6.0.1
-      vfile-location: 5.0.1
+      vfile-location: 5.0.2
       web-namespaces: 2.0.1
     dev: false
 
@@ -2627,6 +2631,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /just-extend@6.2.0:
+    resolution: {integrity: sha512-cYofQu2Xpom82S6qD778jBDpwvvy39s1l/hrYij2u9AMdQcGRpaBu6kY4mVhuno5kJVi1DAz4aiphA2WI1/OAw==}
+    dev: false
+
   /just-memoize@2.2.0:
     resolution: {integrity: sha512-zriv+MY+61RXT0QsrO1ZJtL5umouqqSWmCGBkp2wJm35kniunBAA4qhUKx8Lvg/QcwrF9xuw9E6PkevKFf4boQ==}
     dev: false
@@ -2657,8 +2665,8 @@ packages:
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /linkedom@0.15.1:
-    resolution: {integrity: sha512-8U+wi0VI0JW7ehxX+N/rmZyLWV9bypiCOUeklGBWslpiTpxHnVfY+yHmf6sg06q2kXYdpIJWC6LMpepgOq+JXg==}
+  /linkedom@0.15.2:
+    resolution: {integrity: sha512-zM+FZUVEEYMZzw6EUJSCUfC9DrVL5BPLL9CNQIGSJq7F42l4E+ka4grxRYeObWoNxfTf/XyAidBX+of3+yMUUg==}
     dependencies:
       css-select: 5.1.0
       cssom: 0.5.0
@@ -2734,12 +2742,12 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-static@0.268.0:
-    resolution: {integrity: sha512-GQLOD6OeuHCh0tV5g06TkPmpoqI+fsDSgBQPzygjleyMCTH61yImI8u+gnf8ogk1CP2KD69RoEQZOQhCj79+JA==}
+  /lucide-static@0.269.0:
+    resolution: {integrity: sha512-n4lfssgeKbe9dHe9k3GSekN4onrbaY3KIBljIo5pnylxvMTP+qkBJYtBYJLAPSNc4+FORKzk03Ixg84Dg2ZHMw==}
     dev: false
 
-  /luxon@3.4.0:
-    resolution: {integrity: sha512-7eDo4Pt7aGhoCheGFIuq4Xa2fJm4ZpmldpGhjTYBNUYNCN6TIEP6v7chwwwt3KRp7YR+rghbfvjyo3V5y9hgBw==}
+  /luxon@3.4.2:
+    resolution: {integrity: sha512-uBoAVCVcajsrqy3pv7eo5jEUz1oeLmCcnMv8n4AJpT5hbpN9lUssAXibNElpbLce3Mhm9dyBzwYLs9zctM/0tA==}
     engines: {node: '>=12'}
     dev: false
 
@@ -2747,13 +2755,13 @@ packages:
     resolution: {integrity: sha512-ZeA4Z4SaBbYysZap5iZcxKmlPL6bYA8grqhzJIHB1ikn7njnzaP8uwbtuXc4YXD5LicI4/2Xmc0VwmSiFV04gg==}
     dev: false
 
-  /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.0)(markdown-it@13.0.1):
+  /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.1)(markdown-it@13.0.1):
     resolution: {integrity: sha512-FlCHFwNnutLgVTflOYHPW2pPcl2AACqVzExlkGQNsi4CJgqOHN7YTgDd4LuhgN1BFO3TS0vLAruV1Td6dwWPJA==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: '*'
     dependencies:
-      '@types/markdown-it': 13.0.0
+      '@types/markdown-it': 13.0.1
       markdown-it: 13.0.1
     dev: false
 
@@ -4021,8 +4029,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  /shikiji@0.6.1:
-    resolution: {integrity: sha512-qMj62xjCYbtJQJ6HfruZRCWC1CLH05Bwi9s6/xmeEnfCKOb6F9nz7fGeERldH2uq3G5mOKI21hBeI3y5hIOI2Q==}
+  /shikiji@0.6.3:
+    resolution: {integrity: sha512-hl1g1pbrv/ABdrj1TiirEtcX4ko98ieyjrzPSGQQFX0ZP+QTKmCq5OHQL7iPSpp6koILJejS8z1qqZiKKx65ug==}
     dependencies:
       hast-util-to-html: 9.0.0
     dev: false
@@ -4047,8 +4055,8 @@ packages:
       simple-concat: 1.0.1
     dev: false
 
-  /simple-icons@9.11.0:
-    resolution: {integrity: sha512-jI1Cv7MUZsGxiNt0AO4Xf5TWtpnDYQP55RILAsvP3Nd6YXlJRNj8SVT6mI099GLAmRuEu3LGkiT6FwsNaDjNzA==}
+  /simple-icons@9.12.0:
+    resolution: {integrity: sha512-ATl97JnoUvjNRlQzqJAtMaH0P5aCf1fAF5vQddpWG/dxisrSwyIInQ88pdEL0a5m8llEJnDU5xo4TEj9fyx2fA==}
     engines: {node: '>=0.12.18'}
     dev: false
 
@@ -4169,6 +4177,10 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
     dev: true
+
+  /strnum@1.0.5:
+    resolution: {integrity: sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==}
+    dev: false
 
   /stylehacks@6.0.0(postcss@8.4.28):
     resolution: {integrity: sha512-+UT589qhHPwz6mTlCLSt/vMNTJx8dopeJlZAlBMJPWA3ORqu6wmQY7FBXf+qD+FsqoBJODyqNxOUP3jdntFRdw==}
@@ -4455,10 +4467,10 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: false
 
-  /vfile-location@5.0.1:
-    resolution: {integrity: sha512-tyc/iDsjoW+UB42/+JavfeXU/ThfN6WTFkRy/XNfGgdOiVw9qGJjZYG/H7dHUGMdc5Y6iwkPA/iUMe629h6nHQ==}
+  /vfile-location@5.0.2:
+    resolution: {integrity: sha512-NXPYyxyBSH7zB5U6+3uDdd6Nybz6o6/od9rk8bp9H8GR3L+cm/fC0uUTbqBmUTnMCUDslAGBOIKNfvvb+gGlDg==}
     dependencies:
-      '@types/unist': 2.0.7
+      '@types/unist': 3.0.0
       vfile: 6.0.1
     dev: false
 
