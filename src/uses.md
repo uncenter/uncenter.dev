@@ -12,7 +12,7 @@ description: All sorts of things that I use.
 
 - [1Password](https://1password.com/) for password management
 - [Discord](https://discord.com/) for messaging
-- [Firefox](https://www.mozilla.org/en-US/firefox/new/) for browsing the web
+- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) for browsing the web
 - [Notion](https://notion.so/) for documents and databases
 - [Shottr.cc](https://shottr.cc/) for screenshots
 - [Spotify](https://spotify.com/) for music
@@ -20,12 +20,10 @@ description: All sorts of things that I use.
 ### Development
 
 - [iTerm2](https://iterm2.com/) for a better terminal
-- [PyCharm CE](https://www.jetbrains.com/pycharm/) for Python
-- [Visual Studio Code](https://code.visualstudio.com/) for all other programming
+- [Visual Studio Code](https://code.visualstudio.com/) for programming
 
 ### Utilities
 
-- [AltTab](https://alt-tab-macos.netlify.app/) for better (Windows-like) window switching
 - [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704) for keeping my laptop awake
 - [IINA](https://iina.io/) for media playback
 - [KnockKnock](https://objective-see.org/products/knockknock.html) for system scanning
@@ -40,7 +38,6 @@ description: All sorts of things that I use.
 - [1Password](https://1password.com/downloads/browser-extension/)
 - [Bypass Paywalls Clean](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean) for bypassing paywall
 - [Refined GitHub](https://github.com/refined-github/refined-github) for GitHub enhancements
-- [Stylus](https://github.com/openstyles/stylus)
 - [uBlock Origin](https://github.com/gorhill/uBlock/) for advertisement and tracker blocking
 
 ## Developer tools
@@ -52,8 +49,8 @@ description: All sorts of things that I use.
 
 ### Shell
 
-- [antidote](https://github.com/mattmc3/antidote) for managing Zsh plugins
-- [`atuin`](https://atuin.sh/) for magical shell history
+- [Antidote](https://github.com/mattmc3/antidote) for managing Zsh plugins
+- [Atuin](https://atuin.sh/) for magical shell history
 - [`bat`](https://github.com/sharkdp/bat) for a `cat` replacement
 - [`bottom`](https://github.com/ClementTsang/bottom) as a system monitor / replacement for `top`
 - [`dust`](https://github.com/bootandy/dust) as a disk usage analyzer / replacement for `du`
@@ -61,9 +58,9 @@ description: All sorts of things that I use.
 - [`fd`](https://github.com/sharkdp/fd) for a `find` replacement
 - [`fzf`](https://github.com/junegunn/fzf) for fuzzy finding
 - [Helix](https://helix-editor.com/) for a fast, modern text editor
+- [Himalaya](https://github.com/soywod/himalaya) to manage emails
 - [Newsboat](https://github.com/newsboat/newsboat) as a feed reader
 - [Starship](https://starship.rs/) for a customizable prompt
-- [`tealdeer`](https://github.com/dbrgn/tealdeer) for better `man` pages
 
 ## Services
 
