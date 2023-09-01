@@ -7,12 +7,13 @@ My personal website!
 
 ## Structure
 
-- `src/_11ty/`: collections, shortcodes, filters, and transforms for 11ty
+- `utils/11ty/`: collections, shortcodes, filters, and transforms for 11ty
+- `utils/plugins`: markdown + syntax highlighting plugins
 - `src/_layouts/`, `src/_includes/`: nunjucks templates for layouts and components
 - `src/_data/`: global data
-- `src/assets/`: static assets (CSS, JS, and icons)
-- `src/posts/*.md`: blog posts
-- `utils/`: scripts & plugins
+- `src/generated`: templates for root files (feeds, sitemap, robots.txt) 
+- `src/assets/`: static assets (styling, scripts, fonts)
+- `src/posts/`: blog posts
 - `images/`: images for the blog posts
 
 ## Development
@@ -23,7 +24,6 @@ pnpm dev      # start development server
 pnpm build    # run production build
 pnpm clean    # clean up build artifacts
 pnpm format   # format project files
-pnpm spell    # run spell-checking
 ```
 
 ## Contributing
@@ -50,7 +50,7 @@ If you see any issues or have any suggestions for the website, please open an is
 
 Many thanks to the 11ty community for their contributions to the community, without which this website would not be possible- thanks to Stephanie Eckles for [11ty.rocks](https://11ty.rocks/), [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/), [11ty.recipes](https://11ty.recipes/) by Mike Aparicio, [Bernard Nijenhuis' notes](https://bnijenhuis.nl/), and more.
 
-Generic icons sourced from [Lucide](https://lucide.dev/) and brand icons from [Simple Icons](https://simpleicons.org/).
+Generic icons are from [Lucide](https://lucide.dev/) and brand icons from [Simple Icons](https://simpleicons.org/).
 
 ## License
 
