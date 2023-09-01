@@ -11,7 +11,7 @@ My personal website!
 - `utils/plugins`: markdown + syntax highlighting plugins
 - `src/_layouts/`, `src/_includes/`: nunjucks templates for layouts and components
 - `src/_data/`: global data
-- `src/generated`: templates for root files (feeds, sitemap, robots.txt) 
+- `src/generated`: templates for root files (feeds, sitemap, robots.txt)
 - `src/assets/`: static assets (styling, scripts, fonts)
 - `src/posts/`: blog posts
 - `images/`: images for the blog posts
