@@ -9,7 +9,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"format": "prettier --write ."
+		"format": "prettier --plugin prettier-plugin-astro --write ."
 	},
 	"license": "MIT",
 	"type": "module",

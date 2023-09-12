@@ -1,5 +1,4 @@
 {
-	"plugins": ["prettier-plugin-astro"],
 	"useTabs": true,
 	"printWidth": 80,
 	"trailingComma": "all",
@@ -11,6 +10,12 @@
 			"options": {
 				"singleQuote": false,
 				"tabWidth": 2
+			}
+		},
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
 			}
 		}
 	]
