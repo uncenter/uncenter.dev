@@ -2,12 +2,6 @@
 	"extends": ["eslint:recommended", "prettier"],
 	"parserOptions": {
 		"ecmaVersion": "latest",
-		"sourceType": "script"
-	},
-	"env": {
-		"browser": true,
-		"commonjs": true,
-		"es2021": true,
-		"node": true
+		"sourceType": "module"
 	}
 }
