@@ -54,7 +54,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Passthrough Copy */
-	eleventyConfig.addPassthroughCopy({ 'src/assets/root': '.' });
+	eleventyConfig.addPassthroughCopy({ 'public/': '.' });
 	eleventyConfig.addPassthroughCopy('src/assets/fonts/*.woff2');
 
 	/* Other Config */
