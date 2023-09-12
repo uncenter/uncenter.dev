@@ -1,7 +1,7 @@
 {
 	"name": "uncenter.dev",
 	"private": true,
-	"author": "uncenter <hi@uncenter.dev>",
+	"author": "uncenter <hi@uncenter.dev> (https://uncenter.dev)",
 	"license": "MIT",
 	"scripts": {
 		"dev": "eleventy --serve",
