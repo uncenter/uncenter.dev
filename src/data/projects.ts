@@ -3,12 +3,25 @@ import { fetchBuilder, FileSystemCache } from 'node-fetch-cache';
 
 const fetch = fetchBuilder.withCache(
 	new FileSystemCache({
-		cacheDirectory: '.cache/', // Specify where to keep the cache. If undefined, '.cache' is used by default. If this directory does not exist, it will be created.
-		ttl: 43200000, // Time to live. How long (in ms) responses remain cached before being automatically ejected. If undefined, responses are never automatically ejected from the cache.
+		cacheDirectory: '.cache/',
+		ttl: 43200000,
 	}),
 );
 
-const projects = {
+type BareProject = {
+	name: string;
+	link: string;
+	description?: string;
+	featured?: boolean;
+};
+
+type Project = BareProject & {
+	language: string;
+	color: string;
+	live?: string;
+};
+
+const bareProjects: Record<string, BareProject[]> = {
 	maintained: [
 		{
 			name: 'uncenter.dev',
@@ -76,20 +89,24 @@ const projects = {
 	],
 };
 
-async function getRepoData(
+async function getRepositoryData(
 	username: string,
 	repository: string,
 	fetchOptions: any,
-) {
+): Promise<{
+	description: string;
+	homepage: string | undefined;
+	language: string;
+}> {
 	const res = await fetch(
 		`https://api.github.com/repos/${username}/${repository}`,
 		fetchOptions,
 	);
 	const data = await res.json();
 	return {
-		description: data?.description || '',
-		homepage: data?.homepage || false,
-		language: data.language,
+		description: (data?.description as string) || '',
+		homepage: (data?.homepage as string) || undefined,
+		language: data.language as string,
 	};
 }
 
@@ -108,24 +125,35 @@ export default async function () {
 	if (import.meta.env.GITHUB_TOKEN) {
 		headers['Authorization'] = `Bearer ${import.meta.env.GITHUB_TOKEN}`;
 	}
-	const languages = new Set();
-	for (const category in projects) {
-		for (const project of projects[category]) {
-			let [username, repository] = new URL(project.link).pathname
-				.slice(1)
-				.split('/');
-			const data = await getRepoData(username, repository, { headers });
-			project.description = project.description || data.description;
-			project.language = data.language;
-			languages.add(data.language);
-			if (data.homepage) project.live = data.homepage;
-		}
+	const languages: Set<string> = new Set();
+
+	const projects: Record<string, Project[]> = {};
+	for (const category in bareProjects) {
+		projects[category] = await Promise.all(
+			bareProjects[category].map(async (project: BareProject) => {
+				let [username, repository] = new URL(project.link).pathname
+					.slice(1)
+					.split('/');
+				const data = await getRepositoryData(username, repository, { headers });
+
+				languages.add(data.language);
+				return {
+					name: project.name,
+					link: project.link,
+					description: project.description || data.description,
+					language: data.language,
+					featured: project.featured,
+					live: data.homepage,
+				} as Project;
+			}),
+		);
 	}
+
 	const languagesWithColors = await getLanguageColors(languages);
 	for (const category in projects) {
-		for (const project of projects[category]) {
-			project.color = languagesWithColors[project.language];
-		}
+		projects[category] = projects[category].map(
+			(project) => (project.color = languagesWithColors[project.language]),
+		);
 	}
 	return projects;
 }
