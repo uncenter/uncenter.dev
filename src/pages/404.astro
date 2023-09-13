@@ -1,0 +1,11 @@
+---
+import Page from '@/layouts/Page.astro';
+
+const title = 'Page Not Found';
+const description = "Uh oh.. Couldn't find that page.";
+---
+
+<Page title={title} description={description}>
+	<p>{description}.</p>
+	<a href="/">Return to home?</a>
+</Page>

@@ -1,9 +1,10 @@
 ---
 import { formatISO } from 'date-fns';
-import { slugify } from '@/utils';
 function toISO(date: string) {
   return formatISO(new Date(date), { representation: 'complete' });
 }
+
+import { slugify } from '@/utils';
 
 interface Props {
     posts: any[],
@@ -12,9 +13,9 @@ interface Props {
 const { posts } = Astro.props;
 ---
 {posts.map((post, index) => (
-    <div class={(index === 0 ? 'mt-0' : 'mx-0 my-8') + ' no-underline'}>
+    <div class={`${(index === 0 ? 'mt-0' : 'mx-0 my-8')} no-underline`}>
         <h2 class="font-semibold mx-0 my-0 text-xl leading-8"
-            style="view-transition-name: post-{post.data.title}">
+            style={`view-transition-name: post-${post.data.title}`}>
             <a href={post.url}>{post.title}</a>
         </h2>
         <div class="flex flex-row flex-wrap gap-2 lowercase my-2">

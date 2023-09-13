@@ -1,0 +1,69 @@
+---
+import Page from '@/layouts/Page.astro';
+
+import { slugify } from '@/utils';
+
+import ArrowLeft from '~icons/lucide/arrow-left';
+import ArrowRight from '~icons/lucide/arrow-right';
+
+function shortDate(date: string) {}
+const previous: any = null;
+const next: any = null;
+
+const props = Astro.props;
+---
+
+<Page>
+	<article>
+		<h1 style={`view-transition-name: post-${slugify(props.title)}`}>
+			{props.title}
+		</h1>
+		<div class="flex flex-row flex-wrap gap-2 lowercase -mt-10 mb-10">
+			{props.date && <time datetime={props.date}>{shortDate(props.date)}</time>}
+			{
+				props.tags && (
+					<>
+						<span>&middot;</span>
+						<div class="flex flex-row flex-wrap space-x-1">
+							{props.tags.map((tag: any, index: number) => (
+								<span>
+									<a href={`/tags/${slugify(tag)}`}>{tag}</a>
+									{index !== props.tags.length - 1 && ','}
+								</span>
+							))}
+						</div>
+					</>
+				)
+			}
+		</div>
+		<slot />
+	</article>
+	{props.comments && <div id="comments" class="mt-16" />}
+	{
+		(
+			<div class="flex flex-row justify-between mt-8">
+				{previous && (
+					<a
+						class="text-center space-x-2"
+						href={previous.url}
+						aria-label="Read previous post"
+					>
+						<ArrowLeft />
+						<span>{previous.data.title}</span>
+					</a>
+				)}
+				{!previous && next && <div />}
+				{next && (
+					<a
+						class="text-center space-x-2"
+						href={next.url}
+						aria-label="Read next post"
+					>
+						<span>{next.data.title}</span>
+						<ArrowRight />
+					</a>
+				)}
+			</div>
+		)
+	}
+</Page>

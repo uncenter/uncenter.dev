@@ -15,7 +15,7 @@ const { projects } = Astro.props;
     {projects.map((project) => (
         <div class="flex flex-col p-6 rounded-md bg-[#F7F8FA] dark:bg-[#01040A]">
             <h2 class="font-bold text-lg m-0">
-                <a class="no-external-link" href={project.link} data-umami-event={'project-link-' + slugify(project.name)}>
+                <a class="no-external-link" href={project.link} data-umami-event={`project-link-${slugify(project.name)}`}>
                     {project.name}
                 </a>
             </h2>
@@ -28,7 +28,7 @@ const { projects } = Astro.props;
                     {project.language}
                 </div>
                 <div class="flex flex-row gap-4">
-                    <a class="no-external-link not-fancy" href="{{ project.link }}" data-umami-event={'project-link-' + slugify(project.name )}>
+                    <a class="no-external-link not-fancy" href={project.link} data-umami-event={`project-link-${slugify(project.name)}`}>
                         <GitHub class="block w-5 h-5 text-fg align-baseline"/>
                     </a>
                     {project.live && (

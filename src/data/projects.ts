@@ -120,7 +120,9 @@ async function getLanguageColors(languages: Set<string>) {
 	);
 }
 
-export default async function () {
+export default async function (): Promise<
+	Record<'maintained' | 'archived', Project[]>
+> {
 	const headers: Record<string, string> = {};
 	if (import.meta.env.GITHUB_TOKEN) {
 		headers['Authorization'] = `Bearer ${import.meta.env.GITHUB_TOKEN}`;

@@ -30,14 +30,11 @@ import { getCollection } from 'astro:content';
 			home_page_url: url,
 			feed_url: urlize('feed.json'),
 			items: await Promise.all(
-				[...await getCollection('posts')].reverse().map(async (post) => ({
+				[...(await getCollection('posts'))].reverse().map(async (post) => ({
 					id: post.slug,
 					url: urlize(post.slug),
 					title: post.data.title,
-					content_html: await htmlToAbsoluteUrls(
-						post.body,
-						urlize(post.slug),
-					),
+					content_html: await htmlToAbsoluteUrls(post.body, urlize(post.slug)),
 					summary: post.data.description,
 					date_published: post.data.date,
 					tags: post.data.tags,

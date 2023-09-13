@@ -1,0 +1,15 @@
+---
+import Page from '@/layouts/Page.astro';
+import ProjectsList from '@/components/ProjectsList.astro';
+import projects from '@/data/projects';
+
+const title = 'Projects';
+const description = "A list of projects I've worked on.";
+---
+
+<Page>
+	<ProjectsList projects={(await projects()).maintained}>
+		<hr />
+		<ProjectsList projects={(await projects()).archived} />
+	</ProjectsList>
+</Page>

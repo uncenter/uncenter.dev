@@ -1,0 +1,12 @@
+---
+import Page from '@/layouts/Page.astro';
+import PostsList from '@/components/PostsList.astro';
+
+const title = 'Articles';
+const description =
+	'Articles about programming, linguistics, and other things.';
+---
+
+<Page title={title} description={description}>
+	<PostsList posts={[]} />
+</Page>
