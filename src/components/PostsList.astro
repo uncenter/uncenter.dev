@@ -1,39 +1,44 @@
 ---
 import { formatISO } from 'date-fns';
 function toISO(date: string) {
-  return formatISO(new Date(date), { representation: 'complete' });
+	return formatISO(new Date(date), { representation: 'complete' });
 }
 
 import { slugify } from '@/utils';
 
 interface Props {
-    posts: any[],
+	posts: any[];
 }
 
 const { posts } = Astro.props;
 ---
-{posts.map((post, index) => (
-    <div class={`${(index === 0 ? 'mt-0' : 'mx-0 my-8')} no-underline`}>
-        <h2 class="font-semibold mx-0 my-0 text-xl leading-8"
-            style={`view-transition-name: post-${post.data.title}`}>
-            <a href={post.url}>{post.title}</a>
-        </h2>
-        <div class="flex flex-row flex-wrap gap-2 lowercase my-2">
-            {post.date && (
-                <time datetime={toISO(post.date)}>{post.date}</time>)
-            }
-            {post.tags && (
-                <span>&middot;</span>
-                <div class="flex flex-row flex-wrap space-x-1"> 
-                    {post.tags.map((tag: any, index: number) => (
-                        <span>
-                            <a href={`/tags/${slugify(tag)}`}>{tag}</a>
-                            {index !== post.tags.length - 1 && ","}
-                        </span>
-                    ))}
-                </div>
-            )}
-        </div>
-        <p class="mb-0 mt-1">{post.description}</p>
-    </div>
-))}
+
+{
+	posts.map((post, index) => (
+		<div class={`${index === 0 ? 'mt-0' : 'mx-0 my-8'} no-underline`}>
+			<h2
+				class="font-semibold mx-0 my-0 text-xl leading-8"
+				style={`view-transition-name: post-${post.data.title}`}
+			>
+				<a href={post.url}>{post.title}</a>
+			</h2>
+			<div class="flex flex-row flex-wrap gap-2 lowercase my-2">
+				{post.date && <time datetime={toISO(post.date)}>{post.date}</time>}
+				{post.tags && (
+					<>
+						<span>&middot;</span>
+						<div class="flex flex-row flex-wrap space-x-1">
+							{post.tags.map((tag: any, index: number) => (
+								<span>
+									<a href={`/tags/${slugify(tag)}`}>{tag}</a>
+									{index !== post.tags.length - 1 && ','}
+								</span>
+							))}
+						</div>
+					</>
+				)}
+			</div>
+			<p class="mb-0 mt-1">{post.description}</p>
+		</div>
+	))
+}

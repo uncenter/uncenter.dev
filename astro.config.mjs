@@ -9,7 +9,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeToc from 'rehype-toc';
 import unpluginIcons from 'unplugin-icons/vite';
 
-import * as site from '@/data/site';
+import { url } from './src/data/site';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,30 +17,18 @@ export default defineConfig({
 		tailwind(),
 		sitemap(),
 		mdx({
-			rehypePlugins: [
-				rehypeSlug(),
-				rehypeAutolinkHeadings({ behavior: 'prepend' }),
-				rehypeToc({ headings: ['h2', 'h3', 'h4'] }),
-				rehypeShikiji({
-					themes: { light: 'github-light', dark: 'github-dark' },
-				}),
-			],
-			remarkPlugins: [],
 			gfm: true,
 		}),
 	],
 	markdown: {
-		remarkPlugins: ['remark-code-titles'],
+		remarkPlugins: [],
 		rehypePlugins: [
-			'rehype-slug',
-			['rehype-autolink-headings', { behavior: 'prepend' }],
-			['rehype-toc', { headings: ['h2', 'h3', 'h3', 'h4'] }],
-			[
-				'rehype-shikiji',
-				{
-					themes: { light: 'github-light', dark: 'github-dark' },
-				},
-			],
+			rehypeSlug(),
+			rehypeAutolinkHeadings({ behavior: 'prepend' }),
+			rehypeToc({ headings: ['h2', 'h3', 'h4'] }),
+			rehypeShikiji({
+				themes: { light: 'github-light', dark: 'github-dark' },
+			}),
 		],
 	},
 	vite: {
@@ -50,6 +38,6 @@ export default defineConfig({
 			}),
 		],
 	},
-	site: site.url,
+	site: url,
 	compressHTML: true,
 });

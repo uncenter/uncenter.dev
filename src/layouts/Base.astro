@@ -137,7 +137,7 @@ props.title = props.title !== false ? props.title + " &middot; " + domain : doma
         ) : (
             <meta property="og:type" content="website" />
         )}
-        
+
         <meta property="og:title" content={props.title}>
         <meta property="og:description" content={props.description ? props.description : description}>
         <meta property="og:image" content={urlize('/1024w.png')}>
@@ -149,7 +149,7 @@ props.title = props.title !== false ? props.title + " &middot; " + domain : doma
     <body class="bg-bg text-fg font-display">
         <header class="max-w-[30ch] mx-auto">
             <div class="flex flex-col items-center leading-6">
-                <a href="/" class="not-fancy flex flex-row items-center gap-3" aria-current={props.url === "/" ? 'page'} aria-label={props.url !== "/" ? "Go to home page"}>
+                <a href="/" class="not-fancy flex flex-row items-center gap-3" aria-current={props.url === "/" ? 'page' : false} aria-label={props.url !== "/" ? "Go to home page": ''}>
                     <img
                         src="/square.webp"
                         class="rounded-full"
@@ -166,7 +166,7 @@ props.title = props.title !== false ? props.title + " &middot; " + domain : doma
                         }
                         return (
                             <li>
-                            <a href={item.url} class={classes} aria-current={props.url === item.url ? 'page'} aria-label={props.url !== item.url ? `Go to ${item.title}`}>
+                            <a href={item.url} class={classes} aria-current={props.url === item.url ? 'page' : false} aria-label={props.url !== item.url ? `Go to ${item.title}` : ''}>
                                 {item.title}
                             </a>
                             </li>
