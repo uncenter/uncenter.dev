@@ -1,5 +1,12 @@
-import yaml from 'js-yaml';
-import EleventyFetch from '@11ty/eleventy-fetch';
+import yaml from 'yaml';
+import { fetchBuilder, FileSystemCache } from 'node-fetch-cache';
+
+const fetch = fetchBuilder.withCache(
+	new FileSystemCache({
+		cacheDirectory: '.cache/', // Specify where to keep the cache. If undefined, '.cache' is used by default. If this directory does not exist, it will be created.
+		ttl: 43200000, // Time to live. How long (in ms) responses remain cached before being automatically ejected. If undefined, responses are never automatically ejected from the cache.
+	}),
+);
 
 const projects = {
 	maintained: [
@@ -69,44 +76,37 @@ const projects = {
 	],
 };
 
-async function getRepoData(username, repository, fetchOptions) {
-	const response = await EleventyFetch(
+async function getRepoData(
+	username: string,
+	repository: string,
+	fetchOptions: any,
+) {
+	const res = await fetch(
 		`https://api.github.com/repos/${username}/${repository}`,
-		{
-			duration: '12h',
-			type: 'json',
-			fetchOptions,
-		},
+		fetchOptions,
 	);
+	const data = await res.json();
 	return {
-		description: response?.description || '',
-		homepage: response?.homepage || false,
-		language: response.language,
+		description: data?.description || '',
+		homepage: data?.homepage || false,
+		language: data.language,
 	};
 }
 
-async function getLanguageColors(languages) {
-	const response = await EleventyFetch(
+async function getLanguageColors(languages: Set<string>) {
+	const res = await fetch(
 		'https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml',
-		{
-			duration: '2w',
-			type: 'text',
-		},
 	);
-	const spec = yaml.load(response);
+	const data = yaml.parse(await res.text());
 	return Object.fromEntries(
-		Array.from(languages).map((language) => [language, spec[language]?.color]),
+		Array.from(languages).map((language) => [language, data[language]?.color]),
 	);
 }
 
 export default async function () {
-	const fetchOptions = {
-		headers: {},
-	};
+	const headers: Record<string, string> = {};
 	if (import.meta.env.GITHUB_TOKEN) {
-		fetchOptions.headers.Authorization = `Bearer ${
-			import.meta.env.GITHUB_TOKEN
-		}`;
+		headers['Authorization'] = `Bearer ${import.meta.env.GITHUB_TOKEN}`;
 	}
 	const languages = new Set();
 	for (const category in projects) {
@@ -114,7 +114,7 @@ export default async function () {
 			let [username, repository] = new URL(project.link).pathname
 				.slice(1)
 				.split('/');
-			const data = await getRepoData(username, repository, fetchOptions);
+			const data = await getRepoData(username, repository, { headers });
 			project.description = project.description || data.description;
 			project.language = data.language;
 			languages.add(data.language);

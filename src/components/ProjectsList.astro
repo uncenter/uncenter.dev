@@ -1,0 +1,67 @@
+---
+import Globe from "~icons/lucide/globe";
+import GitHub from "~icons/simpleicons/github";
+import Discord from "~icons/simpleicons/discord";
+import Npm from "~icons/simpleicons/npm";
+
+import { slugify } from '@/utils';
+interface Props {
+    projects: any[],
+}
+
+const { projects } = Astro.props;
+---
+<div class="grid grid-cols-1 md:grid-cols-2 gap-[1rem_1rem] m-0 p-0">
+    {projects.map((project) => (
+        <div class="flex flex-col p-6 rounded-md bg-[#F7F8FA] dark:bg-[#01040A]">
+            <h2 class="font-bold text-lg m-0">
+                <a class="no-external-link" href={project.link} data-umami-event={'project-link-' + slugify(project.name)}>
+                    {project.name}
+                </a>
+            </h2>
+            <p class="mt-2 mb-6">
+                {project.description}
+            </p>
+            <div class="flex flex-row justify-between mt-auto items-center">
+                <div class="flex flex-row gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" style={{ fill: project.color }} viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="9" r="5"/></svg>
+                    {project.language}
+                </div>
+                <div class="flex flex-row gap-4">
+                    <a class="no-external-link not-fancy" href="{{ project.link }}" data-umami-event={'project-link-' + slugify(project.name )}>
+                        <GitHub class="block w-5 h-5 text-fg align-baseline"/>
+                    </a>
+                    {project.live && (
+                        <>
+                            {project.live.startsWith("https://discord.gg") ? (
+                            <a
+                                class="no-external-link not-fancy"
+                                href={project.live}
+                                data-umami-event={`project-live-${project.name}`}
+                            >
+                                <Discord  class="block w-5 h-5 text-fg align-baseline" />
+                            </a>
+                            ) : project.live.startsWith("https://npmjs.com") || project.live.startsWith("https://www.npmjs.com") ? (
+                            <a
+                                class="no-external-link not-fancy"
+                                href={project.live}
+                                data-umami-event={`project-live-${project.name}`}
+                            >
+                                <Npm class="block w-5 h-5 text-fg align-baseline" />
+                            </a>
+                            ) : (
+                            <a
+                                class="no-external-link not-fancy"
+                                href={project.live}
+                                data-umami-event={`project-live-${project.name}`}
+                            >
+                                <Globe class="block w-5 h-5 text-fg align-baseline" />
+                            </a>
+                            )}
+                        </>
+                    )}
+                </div>
+            </div>
+        </div>
+    )}}
+</div>

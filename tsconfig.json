@@ -6,11 +6,10 @@
 				"name": "@astrojs/ts-plugin"
 			}
 		],
+		"types": ["unplugin-icons/types/astro"],
 		"baseUrl": ".",
 		"paths": {
-			"@components/*": ["src/components/*"],
-			"@layouts/*": ["src/layouts/*"],
-			"~/*": ["src/*"]
+			"@/*": ["src/*"]
 		}
 	}
 }

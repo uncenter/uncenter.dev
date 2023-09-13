@@ -4,6 +4,9 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
 import rehypeShikiji from 'rehype-shikiji';
+import unpluginIcons from 'unplugin-icons/vite';
+
+import * as site from '@/data/site';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,6 +23,13 @@ export default defineConfig({
 			gfm: true,
 		}),
 	],
-	site: 'https://uncenter.dev',
+	vite: {
+		plugins: [
+			unpluginIcons({
+				compiler: 'astro',
+			}),
+		],
+	},
+	site: site.url,
 	compressHTML: true,
 });

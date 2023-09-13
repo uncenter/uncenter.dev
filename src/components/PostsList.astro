@@ -1,11 +1,15 @@
 ---
 import { formatISO } from 'date-fns';
-
+import { slugify } from '@/utils';
 function toISO(date: string) {
   return formatISO(new Date(date), { representation: 'complete' });
 }
 
-const posts: any[] = [];
+interface Props {
+    posts: any[],
+}
+
+const { posts } = Astro.props;
 ---
 {posts.map((post, index) => (
     <div class={(index === 0 ? 'mt-0' : 'mx-0 my-8') + ' no-underline'}>
@@ -15,15 +19,15 @@ const posts: any[] = [];
         </h2>
         <div class="flex flex-row flex-wrap gap-2 lowercase my-2">
             {post.date && (
-                <time datetime={post.date}>{toISO(post.date)}</time>)
+                <time datetime={toISO(post.date)}>{post.date}</time>)
             }
             {post.tags && (
                 <span>&middot;</span>
                 <div class="flex flex-row flex-wrap space-x-1"> 
                     {post.tags.map((tag: any, index: number) => (
                         <span>
-                            <a href={`/tags/${tag}`}>{{ tag }}</a>
-                            {index !== post.data.tags.length - 1 && ","}
+                            <a href={`/tags/${slugify(tag)}`}>{tag}</a>
+                            {index !== post.tags.length - 1 && ","}
                         </span>
                     ))}
                 </div>

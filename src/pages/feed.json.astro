@@ -1,0 +1,51 @@
+---
+import { author, domain, lang, url } from '@/data/site';
+import { urlize } from '@/data/url';
+
+import { parseHTML } from 'linkedom';
+async function htmlToAbsoluteUrls(html: string, base: URL | string) {
+	const { document } = parseHTML(html);
+	document.querySelectorAll('a').forEach((a) => {
+		a.href = urlize(a.href.trim(), base).href;
+	});
+	return document.documentElement.outerHTML;
+}
+
+import { getCollection } from 'astro:content';
+---
+
+{
+	JSON.stringify(
+		{
+			version: 'https://jsonfeed.org/version/1.1',
+			title: domain,
+			description: '',
+			language: lang,
+			authors: [
+				{
+					name: author.name,
+					avatar: urlize('1024w.png'),
+				},
+			],
+			home_page_url: url,
+			feed_url: urlize('feed.json'),
+			items: await Promise.all(
+				[...await getCollection('posts')].reverse().map(async (post) => ({
+					id: post.slug,
+					url: urlize(post.slug),
+					title: post.data.title,
+					content_html: await htmlToAbsoluteUrls(
+						post.body,
+						urlize(post.slug),
+					),
+					summary: post.data.description,
+					date_published: post.data.date,
+					tags: post.data.tags,
+				})),
+			),
+		},
+		undefined,
+		2,
+	)
+}
+ }
