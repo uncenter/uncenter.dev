@@ -1,7 +1,5 @@
-const yaml = require('js-yaml');
-const EleventyFetch = require('@11ty/eleventy-fetch');
-
-const log = require('../../utils/log');
+import yaml from 'js-yaml';
+import EleventyFetch from '@11ty/eleventy-fetch';
 
 const projects = {
 	maintained: [
@@ -72,10 +70,6 @@ const projects = {
 };
 
 async function getRepoData(username, repository, fetchOptions) {
-	log({
-		category: 'projects',
-		message: `https://github.com/${username}/${repository}`,
-	});
 	const response = await EleventyFetch(
 		`https://api.github.com/repos/${username}/${repository}`,
 		{
@@ -105,14 +99,14 @@ async function getLanguageColors(languages) {
 	);
 }
 
-module.exports = async function () {
+export default async function () {
 	const fetchOptions = {
 		headers: {},
 	};
-	if (process.env.GITHUB_TOKEN) {
-		fetchOptions.headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-	} else {
-		log({ category: 'env', message: 'no GITHUB_TOKEN found' });
+	if (import.meta.env.GITHUB_TOKEN) {
+		fetchOptions.headers.Authorization = `Bearer ${
+			import.meta.env.GITHUB_TOKEN
+		}`;
 	}
 	const languages = new Set();
 	for (const category in projects) {
@@ -134,4 +128,4 @@ module.exports = async function () {
 		}
 	}
 	return projects;
-};
+}

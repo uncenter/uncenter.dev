@@ -3,7 +3,7 @@ tags: ['markdown', 'spellcheck']
 title: Spell-checking Markdown with cSpell
 description: A little magic to help catch typos in your blog posts.
 date: 2023-03-23
-edited: 2023-05-21
+edited: 2023-08-14
 ---
 
 Though I haven't written much on this blog, I wanted to add some basic spell-checking to my posts. I looked up "spell-checking markdown" and found [an article by TJ Addison](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) that explained how to do this with a tool called `cSpell` (the backbone of the somewhat popular [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). Definitely check out TJ's article for a more in-depth explanation of `cSpell` and how to use it, but here I'll explain how I set it up for my Eleventy blog.
@@ -49,14 +49,13 @@ There are over 26 [other language dictionaries](https://github.com/streetsidesof
 
 An important step is to define specific words to exclude or flag. I told `cSpell` to ignore some 11ty-specific terminology and a few other words I use occasionally.
 
-```js
-	words: [
-        'eleventy',
-		'11ty',
-		'shortcodes',
-		'webc',
-	],
-    flagWords: [],
+```js {4-5}
+module.exports = {
+	version: '0.2',
+	language: 'en',
+	words: ['eleventy', '11ty', 'shortcodes', 'webc'],
+	flagWords: [],
+};
 ```
 
 ### Dictionaries
@@ -64,10 +63,11 @@ An important step is to define specific words to exclude or flag. I told `cSpell
 In addition to the `words` property, you can also define dictionaries - just longer lists of words. I added a dictionary for my GitHub repositories to prevent those from being spell-checked if I ever write about them.
 
 ```js
-    dictionaries: ["repos"],
-    dictionaryDefinitions: [
-        { "name": "repos", "path": "./utils/dicts/repos.txt" },
-    ],
+module.exports = {
+	// ...
+	dictionaries: ['repos'],
+	dictionaryDefinitions: [{ name: 'repos', path: './utils/dicts/repos.txt' }],
+};
 ```
 
 Instead of manually updating my `repos.txt` dict, I wrote a script to fetch my repositories from the GitHub API and write them to the file.
@@ -111,9 +111,10 @@ command = "node ./utils/get-repos.js && npm run spell && npm run build"
 Finally, the config file allows you to define regular expression patterns to ignore. I added patterns to ignore words in Nunjucks expressions, Markdown code blocks and inline code, and proper nouns (words that start with a capital letter).
 
 ```js
-    {% raw %}// ...
+module.exports = {
+	// ...
 	ignoreRegExpList: [
-        'nunjucksExpression',
+		'nunjucksExpression',
 		'markdownCodeBlock',
 		'markdownInlineCode',
 		'properNouns',
@@ -135,7 +136,8 @@ Finally, the config file allows you to define regular expression patterns to ign
 			name: 'properNouns',
 			pattern: /(?<=\s|^|[^\w\s])[A-Z][a-z]+(?=\s|$|[^\w\s])/g,
 		},
-	],{% endraw %}
+	],
+};
 ```
 
 I'm surprised that there isn't a pattern for Markdown code blocks by default; I was having issues with common JavaScript libraries and methods being flagged as typos. Additionally, I use a few [custom shortcodes](https://www.11ty.dev/docs/shortcodes/) that kept getting flagged as a typo, so the `nunjucksExpression` pattern was a must.

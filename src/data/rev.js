@@ -20,18 +20,10 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+import { execa } from 'execa';
 
-const log = require('../../utils/log.js');
-
-module.exports = async () => {
-	const { execa } = await import('execa');
-	const rev = await execa('git', ['rev-parse', '--short', 'HEAD']).then(
+export default async () => {
+	return await execa('git', ['rev-parse', '--short', 'HEAD']).then(
 		(x) => x.stdout,
 	);
-	log({
-		category: 'gitRev',
-		message: 'gitRev.js',
-		extra: rev,
-	});
-	return rev;
 };

@@ -3,7 +3,7 @@ tags: ['11ty', 'thoughts']
 title: An honest review of Eleventy
 description: My thoughts on Eleventy after using it for almost a year.
 date: 2023-03-16
-# cspell:ignore darthmall
+edited: 2023-07-08
 ---
 
 ## Foreword
