@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Privacy & Licensing
 description: Information about data collection and licensing.
 ---

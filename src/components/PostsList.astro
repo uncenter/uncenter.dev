@@ -1,14 +1,10 @@
 ---
-import { formatISO } from 'date-fns';
-function toISO(date: string) {
-	return formatISO(new Date(date), { representation: 'complete' });
-}
-
 import { slugify } from '@/utils';
+import type { CollectionEntry } from 'astro:content';
 
-interface Props {
-	posts: any[];
-}
+type Props = {
+	posts: CollectionEntry<'posts'>[];
+};
 
 const { posts } = Astro.props;
 ---
@@ -20,25 +16,27 @@ const { posts } = Astro.props;
 				class="font-semibold mx-0 my-0 text-xl leading-8"
 				style={`view-transition-name: post-${post.data.title}`}
 			>
-				<a href={post.url}>{post.title}</a>
+				<a href={`/posts/${post.slug}`}>{post.data.title}</a>
 			</h2>
 			<div class="flex flex-row flex-wrap gap-2 lowercase my-2">
-				{post.date && <time datetime={toISO(post.date)}>{post.date}</time>}
-				{post.tags && (
+				{post.data.date && (
+					<time datetime={post.data.date.toISOString()}>{post.data.date}</time>
+				)}
+				{post.data.tags && (
 					<>
 						<span>&middot;</span>
 						<div class="flex flex-row flex-wrap space-x-1">
-							{post.tags.map((tag: any, index: number) => (
+							{post.data.tags.map((tag: any, index: number) => (
 								<span>
 									<a href={`/tags/${slugify(tag)}`}>{tag}</a>
-									{index !== post.tags.length - 1 && ','}
+									{index !== post.data.tags.length - 1 && ','}
 								</span>
 							))}
 						</div>
 					</>
 				)}
 			</div>
-			<p class="mb-0 mt-1">{post.description}</p>
+			<p class="mb-0 mt-1">{post.data.description}</p>
 		</div>
 	))
 }

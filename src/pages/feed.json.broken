@@ -1,15 +1,7 @@
 ---
 import { author, domain, lang, url } from '@/data/site';
 import { urlize } from '@/data/url';
-
-import { parseHTML } from 'linkedom';
-async function htmlToAbsoluteUrls(html: string, base: URL | string) {
-	const { document } = parseHTML(html);
-	document.querySelectorAll('a').forEach((a) => {
-		a.href = urlize(a.href.trim(), base).href;
-	});
-	return document.documentElement.outerHTML;
-}
+import { htmlToAbsoluteUrls } from '@/utils';
 
 import { getCollection } from 'astro:content';
 ---
@@ -34,7 +26,10 @@ import { getCollection } from 'astro:content';
 					id: post.slug,
 					url: urlize(post.slug),
 					title: post.data.title,
-					content_html: await htmlToAbsoluteUrls(post.body, urlize(post.slug)),
+					content_html: await htmlToAbsoluteUrls(
+						(await post.render()).Content.toString(),
+						urlize(post.slug),
+					),
 					summary: post.data.description,
 					date_published: post.data.date,
 					tags: post.data.tags,

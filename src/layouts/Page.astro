@@ -4,7 +4,7 @@ import Base from '@/layouts/Base.astro';
 const props = Astro.props;
 ---
 
-<Base>
+<Base {...props}>
 	<h1>{props.header || props.title}</h1>
 	<slot />
 </Base>

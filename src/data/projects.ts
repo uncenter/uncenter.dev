@@ -92,7 +92,7 @@ const bareProjects: Record<string, BareProject[]> = {
 async function getRepositoryData(
 	username: string,
 	repository: string,
-	fetchOptions: any,
+	headers: { [key: string]: string },
 ): Promise<{
 	description: string;
 	homepage: string | undefined;
@@ -100,7 +100,7 @@ async function getRepositoryData(
 }> {
 	const res = await fetch(
 		`https://api.github.com/repos/${username}/${repository}`,
-		fetchOptions,
+		{ headers },
 	);
 	const data = await res.json();
 	return {
@@ -133,10 +133,10 @@ export default async function (): Promise<
 	for (const category in bareProjects) {
 		projects[category] = await Promise.all(
 			bareProjects[category].map(async (project: BareProject) => {
-				let [username, repository] = new URL(project.link).pathname
+				const [username, repository] = new URL(project.link).pathname
 					.slice(1)
 					.split('/');
-				const data = await getRepositoryData(username, repository, { headers });
+				const data = await getRepositoryData(username, repository, headers);
 
 				languages.add(data.language);
 				return {

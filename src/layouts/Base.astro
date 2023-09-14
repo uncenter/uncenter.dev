@@ -1,309 +1,407 @@
 ---
-import { domain, lang, rev, analytics, description, keywords, author } from "@/data/site"
-import { urlize } from "@/data/url";
-import { capitalize } from "@/utils";
+import {
+	domain,
+	lang,
+	rev,
+	analytics,
+	description,
+	keywords,
+	author,
+} from '@/data/site';
+import { urlize } from '@/data/url';
+import { capitalize } from '@/utils';
 
 const navLinks = [
-    {
-    title: "Articles",
-    url:"/posts/"
-},
-  {title: "Projects",
-    url: "/projects/"
-},
-  {title: "Uses",
-    url: "/uses/",
-},{
-  title: "Privacy",
-    url:"/privacy/"
-}]
+	{
+		title: 'Articles',
+		url: '/posts/',
+	},
+	{ title: 'Projects', url: '/projects/' },
+	{ title: 'Uses', url: '/uses/' },
+	{
+		title: 'Privacy',
+		url: '/privacy/',
+	},
+];
 
-import GitHub from "~icons/simpleicons/github"
-import Mastodon from "~icons/simpleicons/mastodon"
-import Element from "~icons/simpleicons/element"
-import Kofi from "~icons/simpleicons/kofi"
-import Liberapay from "~icons/simpleicons/liberapay"
-import Rss from "~icons/simpleicons/rss"
+import GitHub from '~icons/simple-icons/github';
+import Mastodon from '~icons/simple-icons/mastodon';
+import Element from '~icons/simple-icons/element';
+import Kofi from '~icons/simple-icons/kofi';
+import Liberapay from '~icons/simple-icons/liberapay';
+import Rss from '~icons/simple-icons/rss';
 
+import Styles from '@/components/Styles.astro';
 
 let props = Astro.props;
-props.title = props.title !== false ? props.title + " &middot; " + domain : domain;
+const title =
+	props.title !== false ? props.title + ' &middot; ' + domain : domain;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang}>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{props.title}</title>
-        <script>
-            function getSystemTheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches
-                    ? 'dark'
-                    : 'light';
-            }
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<script>
+			function getSystemTheme() {
+				return window.matchMedia('(prefers-color-scheme: dark)').matches
+					? 'dark'
+					: 'light';
+			}
 
-            function setMetaThemeColor(theme) {
-                if (theme === 'system') theme = getSystemTheme();
-                const metaThemeColor = document.querySelector("meta[name='theme-color']");
-                if (!metaThemeColor) return;
-                metaThemeColor.setAttribute(
-                    'content',
-                    getComputedStyle(document.documentElement).getPropertyValue(`--${theme}`),
-                );
-            }
+			function setMetaThemeColor(theme) {
+				if (theme === 'system') theme = getSystemTheme();
+				const metaThemeColor = document.querySelector(
+					"meta[name='theme-color']",
+				);
+				if (!metaThemeColor) return;
+				metaThemeColor.setAttribute(
+					'content',
+					getComputedStyle(document.documentElement).getPropertyValue(
+						`--${theme}`,
+					),
+				);
+			}
 
-            function setTheme(theme, options = { permanent: true, update: true }) {
-                const { permanent, update } = options;
-                if (permanent) localStorage.setItem('theme', theme);
-                if (theme === 'system') theme = getSystemTheme();
-                document.documentElement.setAttribute('theme', theme);
-                document.documentElement.style.setProperty('color-scheme', theme);
-                setMetaThemeColor(theme);
-                if (update) loadGiscus();
-            }
+			function setTheme(theme, options = { permanent: true, update: true }) {
+				const { permanent, update } = options;
+				if (permanent) localStorage.setItem('theme', theme);
+				if (theme === 'system') theme = getSystemTheme();
+				document.documentElement.setAttribute('theme', theme);
+				document.documentElement.style.setProperty('color-scheme', theme);
+				setMetaThemeColor(theme);
+				if (update) loadGiscus();
+			}
 
-            const queryParameters = new URLSearchParams(window.location.search);
-            const validThemes = new Set(['light', 'dark', 'system']);
+			const queryParameters = new URLSearchParams(window.location.search);
+			const validThemes = new Set(['light', 'dark', 'system']);
 
-            let theme;
-            let storedTheme = localStorage.getItem('theme');
-            let overrideTheme;
+			let theme;
+			let storedTheme = localStorage.getItem('theme');
+			let overrideTheme;
 
-            if (queryParameters.has('theme')) {
-                overrideTheme = queryParameters.get('theme');
-            }
+			if (queryParameters.has('theme')) {
+				overrideTheme = queryParameters.get('theme');
+			}
 
-            theme = overrideTheme || storedTheme;
-            if (!theme || !validThemes.has(theme)) {
-                theme = validThemes.has(storedTheme) ? storedTheme : 'system';
-            }
-            setTheme(theme, {
-                permanent: theme === overrideTheme ? false : true,
-                update: false,
-            });
-        </script>
-        <link rel="stylesheet" href={`/assets/styles.css?v=${await rev()}`}>
-        <style>
-            @font-face {
-                font-family: 'General Sans';
-                font-style: normal;
-                font-weight: 200 700;
-                font-display: swap;
-                src: url('/assets/fonts/GeneralSans-Variable.woff2') format('woff2');
-            }
+			theme = overrideTheme || storedTheme;
+			if (!theme || !validThemes.has(theme)) {
+				theme = validThemes.has(storedTheme) ? storedTheme : 'system';
+			}
+			setTheme(theme, {
+				permanent: theme === overrideTheme ? false : true,
+				update: false,
+			});
+		</script>
+		<style>
+			@font-face {
+				font-family: 'General Sans';
+				font-style: normal;
+				font-weight: 200 700;
+				font-display: swap;
+				src: url('/fonts/GeneralSans-Variable.woff2') format('woff2');
+			}
 
-            @font-face {
-                font-family: 'General Sans';
-                font-style: italic;
-                font-weight: 200 700;
-                font-display: swap;
-                src: url('/assets/fonts/GeneralSans-VariableItalic.woff2') format('woff2');
-            }
-        </style>
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
+			@font-face {
+				font-family: 'General Sans';
+				font-style: italic;
+				font-weight: 200 700;
+				font-display: swap;
+				src: url('/fonts/GeneralSans-VariableItalic.woff2') format('woff2');
+			}
+		</style>
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href="/fonts/GeneralSans-Variable.woff2"
+			crossorigin="anonymous"
+		/>
 
-        <script async src={analytics.script} data-website-id={analytics.websiteId}></script>
-        <meta name="author" content={author.name}>
-        <meta name="description" content={props.description ? props.description : description }>
-        <meta name="generator" content={Astro.generator}>
-        <meta name="keywords" content={keywords.join(', ')}>
+		<script async src={analytics.script} data-website-id={analytics.websiteId}
+		></script>
+		<meta name="author" content={author.name} />
+		<meta
+			name="description"
+			content={props.description ? props.description : description}
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<meta name="keywords" content={keywords.join(', ')} />
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20230717">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20230717">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20230717">
-        <link rel="manifest" href="/site.webmanifest?v=20230717">
-        <link rel="shortcut icon" href="/favicon.ico?v=20230717">
-        <meta name="msapplication-TileColor" content="#2d89ef">
-        <meta name="theme-color" content="#ffffff">
-        <meta name="view-transition" content="same-origin">
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png?v=20230717"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png?v=20230717"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png?v=20230717"
+		/>
+		<link rel="manifest" href="/site.webmanifest?v=20230717" />
+		<link rel="shortcut icon" href="/favicon.ico?v=20230717" />
+		<meta name="msapplication-TileColor" content="#2d89ef" />
+		<meta name="theme-color" content="#ffffff" />
+		<meta name="view-transition" content="same-origin" />
 
-        <link href={author.github.url} rel="me">
-        <link href={author.mastodon.url} rel="me">
+		<link href={author.github.url} rel="me" />
+		<link href={author.mastodon.url} rel="me" />
 
-        <link rel="canonical" href={urlize(props.url)}>
-        <link rel="alternate" type="application/rss+xml" href={urlize('feed.xml')}>
-        <link rel="alternate" type="application/json" href={urlize('feed.json')}>
+		<link rel="canonical" href={urlize(props.url)} />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			href={urlize('feed.xml')}
+		/>
+		<link rel="alternate" type="application/json" href={urlize('feed.json')} />
 
-        {props.post === true ? (
-            <>
-              <meta property="og:type" content="article" />
-              <meta property="og:article:published_time" content={props.date} />
-              <meta property="og:article:section" content="Technology" />
-              {props.tags.map((tag: any) => (
-                <meta property="og:article:tag" content={capitalize(tag)} />
-              ))}
-            </>
-        ) : (
-            <meta property="og:type" content="website" />
-        )}
+		{
+			props.post && (
+				<>
+					<meta property="og:type" content="article" />
+					<meta property="og:article:published_time" content={props.date} />
+					<meta property="og:article:section" content="Technology" />
+					{props.tags.map((tag: any) => (
+						<meta property="og:article:tag" content={capitalize(tag)} />
+					))}
+				</>
+			)
+		}
+		{!props.post && <meta property="og:type" content="website" />}
 
-        <meta property="og:title" content={props.title}>
-        <meta property="og:description" content={props.description ? props.description : description}>
-        <meta property="og:image" content={urlize('/1024w.png')}>
+		<meta property="og:title" content={title} />
+		<meta
+			property="og:description"
+			content={props.description ? props.description : description}
+		/>
+		<meta property="og:image" content={urlize('/1024w.png')} />
 
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content={props.title}>
-        <meta name="twitter:image" content={urlize('/1024w.png')}>
-    </head>
-    <body class="bg-bg text-fg font-display">
-        <header class="max-w-[30ch] mx-auto">
-            <div class="flex flex-col items-center leading-6">
-                <a href="/" class="not-fancy flex flex-row items-center gap-3" aria-current={props.url === "/" ? 'page' : false} aria-label={props.url !== "/" ? "Go to home page": ''}>
-                    <img
-                        src="/square.webp"
-                        class="rounded-full"
-                        width="32" height="32"
-                        alt="My profile picture, an random AI generated image. A circular building with white walls and magnificent skylight, through which a bright blue sky with fluffy clouds scattered throughout is visible."
-                    />
-                    <span class="tracking-tight text-xl">{author.name}</span>
-                </a>
-                <ul class="font-semibold leading-8 list-none pt-2 px-0 flex lg:block lg:space-y-1.5">
-                    {navLinks.map(item => {
-                        let classes = "not-fancy lg:py-0 p-2 border-2 border-transparent lg:border-transparent";
-                        if ((props.url.includes(item.url) && item.url !== "/") || (item.url === "/" && props.url === "/")) {
-                            classes += " lg:border-left-2 lg:border-currentColor lg:border-b lg:border-transparent border-b-2 border-currentColor";
-                        }
-                        return (
-                            <li>
-                            <a href={item.url} class={classes} aria-current={props.url === item.url ? 'page' : false} aria-label={props.url !== item.url ? `Go to ${item.title}` : ''}>
-                                {item.title}
-                            </a>
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
-        </header>
-        <main class="max-w-[70ch] w-full">
-            <slot />
-        </main>
-        <footer class="max-w-[30ch] mx-auto mt-12 lg:mt-4">
-            <div class="flex flex-col items-center self-center w-full gap-6">
-                <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
-                    <li>
-                        <a rel="me noreferrer" href={author.github.url} data-umami-event="author-github" class="not-fancy text-[#181717] dark:text-white"><GitHub class="w-[1.375rem] h-[1.375rem] block"/></a>
-                    </li>
-                    <li>
-                        <a rel="me noreferrer" href={author.mastodon.url} data-umami-event="author-mastodon" class="not-fancy text-[#6364FF]"><Mastodon class="w-[1.375rem] h-[1.375rem] block"/></a>
-                    </li>
-                    <li>
-                        <a rel="noreferrer" href="https://matrix.to/#/@uncenter:matrix.org" data-umami-event="author-matrix" class="not-fancy text-[#0DBD8B]"><Element class="w-[1.375rem] h-[1.375rem] block" /></a>
-                    </li>
-                    <li>
-                        <a rel="noreferrer" href={author.kofi.url} data-umami-event="author-kofi" class="not-fancy text-[#FF5E5B]"><Kofi class="w-[1.625rem] h-[1.625rem] block"/></a>
-                    </li>
-                    <li>
-                        <a rel="noreferrer" href={author.liberapay.url} data-umami-event="author-liberapay" class="not-fancy text-[#F6C915]"><Liberapay class="w-[1.375rem] h-[1.375rem] block"/></a>
-                    <li>
-                        <a rel="noreferrer" href="/feed.xml" data-umami-event="feed.xml" class="not-fancy text-[#FFA500]"><Rss class="w-[1.125rem] h-[1.125rem] block"/></a>
-                    </li>
-                </ul>
-                <div class="flex flex-row text-center gap-x-3 text-xs">
-                    <a href="https://🕸💍.ws/previous" class="not-fancy" data-umami-event="indie-webring-previous">←</a>
-                    <a href="https://🕸💍.ws" class="not-fancy" data-umami-event="indie-webring-home">IndieWeb Webring</a>
-                    <a href="https://🕸💍.ws/next" class="not-fancy" data-umami-event="indie-webring-next">→</a>
-                </div>
-                <select aria-label="Theme selector" id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                    <option value="system">System</option>
-                </select>
-            </div>
-        </footer>
-    </body>
-    <script>
-        function loadGiscus() {
-            if (!document.querySelector('#comments')) 
-                return;
-            let giscusAttributes = {
-                src: 'https://giscus.app/client.js',
-                'data-repo': '{{ meta.repository }}',
-                'data-repo-id': 'R_kgDOHSjhjQ',
-                'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
-                'data-mapping': 'title',
-                'data-reactions-enabled': '1',
-                'data-emit-metadata': '0',
-                'data-input-position': 'top',
-                'data-theme': document
-                    .documentElement
-                    .getAttribute('theme'),
-                'data-lang': 'en',
-                crossorigin: 'anonymous',
-                async: ''
-            };
-            let giscusScript = document.createElement('script');
-            Object
-                .entries(giscusAttributes)
-                .forEach(([key, value]) => giscusScript.setAttribute(key, value),);
-            document
-                .querySelector('#comments')
-                .innerHTML = '';
-            document
-                .querySelector('#comments')
-                .appendChild(giscusScript);
-        }
-        window.addEventListener('DOMContentLoaded', () => {
-            setMetaThemeColor(localStorage.getItem('theme'));
-            if (document.querySelector('#theme-selector')) {
-                document.querySelector('#theme-selector').value =
-                    localStorage.getItem('theme');
-                document
-                    .querySelector('#theme-selector')
-                    .addEventListener('change', function () {
-                        let selectedTheme = this.value;
-                        setTheme(selectedTheme);
-                    });
-            }
-            window
-                .matchMedia('(prefers-color-scheme: dark)')
-                .addEventListener('change', (e) => {
-                    if (localStorage.getItem('theme') === 'system') setTheme('system');
-                });
-            loadGiscus();
-        });
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:image" content={urlize('/1024w.png')} />
+	</head>
+	<body class="bg-bg text-fg font-display">
+		<header class="max-w-[30ch] mx-auto">
+			<div class="flex flex-col items-center leading-6">
+				<a
+					href="/"
+					class="not-fancy flex flex-row items-center gap-3"
+					aria-current={props.url === '/' ? 'page' : false}
+					aria-label={props.url !== '/' ? 'Go to home page' : ''}
+				>
+					<img
+						src={urlize('/square.webp').href}
+						class="rounded-full"
+						width="32"
+						height="32"
+						alt="My profile picture, an AI generated image of a circular building with white walls, skylight, blue sky, and fluffy clouds."
+					/>
+					<span class="tracking-tight text-xl">{author.name}</span>
+				</a>
+				<ul
+					class="font-semibold leading-8 list-none pt-2 px-0 flex lg:block lg:space-y-1.5"
+				>
+					{
+						navLinks.map((item) => {
+							return (
+								<li>
+									<a href={item.url} class={'not-fancy'}>
+										{item.title}
+									</a>
+								</li>
+							);
+						})
+					}
+				</ul>
+			</div>
+		</header>
+		<main class="max-w-[70ch] w-full">
+			<slot />
+		</main>
+		<footer class="max-w-[30ch] mx-auto mt-12 lg:mt-4">
+			<div class="flex flex-col items-center self-center w-full gap-6">
+				<ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
+					<li>
+						<a
+							rel="me noreferrer"
+							href={author.github.url}
+							data-umami-event="author-github"
+							class="not-fancy text-[#181717] dark:text-white"
+							><GitHub class="w-[1.375rem] h-[1.375rem] block" /></a
+						>
+					</li>
+					<li>
+						<a
+							rel="me noreferrer"
+							href={author.mastodon.url}
+							data-umami-event="author-mastodon"
+							class="not-fancy text-[#6364FF]"
+							><Mastodon class="w-[1.375rem] h-[1.375rem] block" /></a
+						>
+					</li>
+					<li>
+						<a
+							rel="noreferrer"
+							href="https://matrix.to/#/@uncenter:matrix.org"
+							data-umami-event="author-matrix"
+							class="not-fancy text-[#0DBD8B]"
+							><Element class="w-[1.375rem] h-[1.375rem] block" /></a
+						>
+					</li>
+					<li>
+						<a
+							rel="noreferrer"
+							href={author.kofi.url}
+							data-umami-event="author-kofi"
+							class="not-fancy text-[#FF5E5B]"
+							><Kofi class="w-[1.625rem] h-[1.625rem] block" /></a
+						>
+					</li>
+					<li>
+						<a
+							rel="noreferrer"
+							href={author.liberapay.url}
+							data-umami-event="author-liberapay"
+							class="not-fancy text-[#F6C915]"
+							><Liberapay class="w-[1.375rem] h-[1.375rem] block" /></a
+						>
+						<li>
+							<a
+								rel="noreferrer"
+								href="/feed.xml"
+								data-umami-event="feed.xml"
+								class="not-fancy text-[#FFA500]"
+								><Rss class="w-[1.125rem] h-[1.125rem] block" /></a
+							>
+						</li>
+					</li>
+					<div class="flex flex-row text-center gap-x-3 text-xs">
+						<a
+							href="https://🕸💍.ws/previous"
+							class="not-fancy"
+							data-umami-event="indie-webring-previous">←</a
+						>
+						<a
+							href="https://🕸💍.ws"
+							class="not-fancy"
+							data-umami-event="indie-webring-home">IndieWeb Webring</a
+						>
+						<a
+							href="https://🕸💍.ws/next"
+							class="not-fancy"
+							data-umami-event="indie-webring-next">→</a
+						>
+					</div>
+					<select
+						aria-label="Theme selector"
+						id="theme-selector"
+						class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none"
+					>
+						<option value="light">Light</option>
+						<option value="dark">Dark</option>
+						<option value="system">System</option>
+					</select>
+				</ul>
+			</div>
+		</footer>
+		<script>
+			function loadGiscus() {
+				if (!document.querySelector('#comments')) return;
+				let giscusAttributes = {
+					src: 'https://giscus.app/client.js',
+					'data-repo': '{{ meta.repository }}',
+					'data-repo-id': 'R_kgDOHSjhjQ',
+					'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
+					'data-mapping': 'title',
+					'data-reactions-enabled': '1',
+					'data-emit-metadata': '0',
+					'data-input-position': 'top',
+					'data-theme': document.documentElement.getAttribute('theme'),
+					'data-lang': 'en',
+					crossorigin: 'anonymous',
+					async: '',
+				};
+				let giscusScript = document.createElement('script');
+				Object.entries(giscusAttributes).forEach(([key, value]) =>
+					giscusScript.setAttribute(key, value),
+				);
+				document.querySelector('#comments').innerHTML = '';
+				document.querySelector('#comments').appendChild(giscusScript);
+			}
+			window.addEventListener('DOMContentLoaded', () => {
+				setMetaThemeColor(localStorage.getItem('theme'));
+				if (document.querySelector('#theme-selector')) {
+					document.querySelector('#theme-selector').value =
+						localStorage.getItem('theme');
+					document
+						.querySelector('#theme-selector')
+						.addEventListener('change', function () {
+							let selectedTheme = this.value;
+							setTheme(selectedTheme);
+						});
+				}
+				window
+					.matchMedia('(prefers-color-scheme: dark)')
+					.addEventListener('change', (e) => {
+						if (localStorage.getItem('theme') === 'system') setTheme('system');
+					});
+				loadGiscus();
+			});
 
-        const ICON_COPY = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>`;
-        const ICON_LINK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>`;
-        const ICON_CHECK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>`;
-        for (const block of document.querySelectorAll('pre.shiki')) {
-            const codeToolbar = document.createElement('div');
-            codeToolbar.classList.add('toolbar');
+			const ICON_COPY = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>`;
+			const ICON_LINK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>`;
+			const ICON_CHECK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>`;
+			for (const block of document.querySelectorAll('pre.shiki')) {
+				const codeToolbar = document.createElement('div');
+				codeToolbar.classList.add('toolbar');
 
-            const copyButton = document.createElement('button');
-            copyButton.setAttribute('aria-label', 'Copy code to clipboard');
-            copyButton.innerHTML = ICON_COPY;
-            copyButton.addEventListener('click', () => {
-                navigator.clipboard.writeText(block.querySelector('code').textContent);
-                copyButton.innerHTML = ICON_CHECK;
-                copyButton.classList.add('active');
-                setTimeout(() => {
-                    copyButton.innerHTML = ICON_COPY;
-                    copyButton.classList.remove('active');
-                }, 1500);
-            });
+				const copyButton = document.createElement('button');
+				copyButton.setAttribute('aria-label', 'Copy code to clipboard');
+				copyButton.innerHTML = ICON_COPY;
+				copyButton.addEventListener('click', () => {
+					navigator.clipboard.writeText(
+						block.querySelector('code').textContent,
+					);
+					copyButton.innerHTML = ICON_CHECK;
+					copyButton.classList.add('active');
+					setTimeout(() => {
+						copyButton.innerHTML = ICON_COPY;
+						copyButton.classList.remove('active');
+					}, 1500);
+				});
 
-            const linkButton = document.createElement('button');
-            linkButton.setAttribute('aria-label', 'Go to code block');
-            linkButton.innerHTML = ICON_LINK;
-            linkButton.addEventListener('click', () => {
-                const codeUrl =
-                    window.location.href.split('#')[0] +
-                    '#' +
-                    block.parentNode.getAttribute('id');
-                window.location.href = codeUrl;
-                navigator.clipboard.writeText(codeUrl);
-                linkButton.innerHTML = ICON_CHECK;
-                linkButton.classList.add('active');
-                setTimeout(() => {
-                    linkButton.innerHTML = ICON_LINK;
-                    linkButton.classList.remove('active');
-                }, 1500);
-            });
+				const linkButton = document.createElement('button');
+				linkButton.setAttribute('aria-label', 'Go to code block');
+				linkButton.innerHTML = ICON_LINK;
+				linkButton.addEventListener('click', () => {
+					const codeUrl =
+						window.location.href.split('#')[0] +
+						'#' +
+						block.parentNode.getAttribute('id');
+					window.location.href = codeUrl;
+					navigator.clipboard.writeText(codeUrl);
+					linkButton.innerHTML = ICON_CHECK;
+					linkButton.classList.add('active');
+					setTimeout(() => {
+						linkButton.innerHTML = ICON_LINK;
+						linkButton.classList.remove('active');
+					}, 1500);
+				});
 
-            codeToolbar.append(linkButton);
-            codeToolbar.append(copyButton);
-            block.parentNode.insertBefore(codeToolbar, block.nextSibling);
-        }
-    </script>
+				codeToolbar.append(linkButton);
+				codeToolbar.append(copyButton);
+				block.parentNode.insertBefore(codeToolbar, block.nextSibling);
+			}
+		</script>
+	</body>
+	<Styles />
 </html>

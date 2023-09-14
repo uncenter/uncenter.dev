@@ -2,11 +2,16 @@
 import Page from '@/layouts/Page.astro';
 import PostsList from '@/components/PostsList.astro';
 
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 const title = 'Articles';
 const description =
 	'Articles about programming, linguistics, and other things.';
 ---
 
 <Page title={title} description={description}>
-	<PostsList posts={[]} />
+	<PostsList posts={posts} />
 </Page>

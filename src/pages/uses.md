@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Uses
 description: All sorts of things that I use.
 ---

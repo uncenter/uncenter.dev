@@ -1,4 +1,4 @@
-const { url } = require('@data/site');
+import { url } from '@/data/site';
 
 export function urlize(
 	path: string = '',

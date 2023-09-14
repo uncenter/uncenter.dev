@@ -1,34 +1,51 @@
 ---
+import { type CollectionEntry, getCollection } from 'astro:content';
 import Page from '@/layouts/Page.astro';
+
+type Props = CollectionEntry<'posts'>;
 
 import { slugify } from '@/utils';
 
 import ArrowLeft from '~icons/lucide/arrow-left';
 import ArrowRight from '~icons/lucide/arrow-right';
 
-function shortDate(date: string) {}
 const previous: any = null;
 const next: any = null;
 
-const props = Astro.props;
+export async function getStaticPaths() {
+	const posts = await getCollection('posts');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
 ---
 
-<Page>
+<Page post={true}>
 	<article>
-		<h1 style={`view-transition-name: post-${slugify(props.title)}`}>
-			{props.title}
+		<h1 style={`view-transition-name: post-${slugify(post.data.title)}`}>
+			{post.data.title}
 		</h1>
 		<div class="flex flex-row flex-wrap gap-2 lowercase -mt-10 mb-10">
-			{props.date && <time datetime={props.date}>{shortDate(props.date)}</time>}
 			{
-				props.tags && (
+				post.data.date && (
+					<time datetime={post.data.date.toISOString()}>
+						{post.data.date.toDateString()}
+					</time>
+				)
+			}
+			{
+				post.data.tags && (
 					<>
 						<span>&middot;</span>
 						<div class="flex flex-row flex-wrap space-x-1">
-							{props.tags.map((tag: any, index: number) => (
+							{post.data.tags.map((tag: any, index: number) => (
 								<span>
 									<a href={`/tags/${slugify(tag)}`}>{tag}</a>
-									{index !== props.tags.length - 1 && ','}
+									{index !== post.data.tags.length - 1 && ','}
 								</span>
 							))}
 						</div>
@@ -36,9 +53,9 @@ const props = Astro.props;
 				)
 			}
 		</div>
-		<slot />
+		<Content />
 	</article>
-	{props.comments && <div id="comments" class="mt-16" />}
+	{post.data.comments && <div id="comments" class="mt-16" />}
 	{
 		(
 			<div class="flex flex-row justify-between mt-8">
