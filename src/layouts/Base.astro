@@ -2,7 +2,6 @@
 import {
 	domain,
 	lang,
-	rev,
 	analytics,
 	description,
 	keywords,
@@ -32,10 +31,15 @@ import Liberapay from '~icons/simple-icons/liberapay';
 import Rss from '~icons/simple-icons/rss';
 
 import Styles from '@/components/Styles.astro';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = CollectionEntry<'posts'>['data'] & {
+	header?: string;
+	title?: string | false;
+};
 
 let props = Astro.props;
-const title =
-	props.title !== false ? props.title + ' &middot; ' + domain : domain;
+const title = props.title ? props.title + ' &middot; ' + domain : domain;
 ---
 
 <!doctype html>

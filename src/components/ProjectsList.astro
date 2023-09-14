@@ -5,9 +5,10 @@ import Discord from '~icons/simple-icons/discord';
 import Npm from '~icons/simple-icons/npm';
 
 import { slugify } from '@/utils';
+import { type Project } from '@/data/projects';
 
 type Props = {
-	projects: any[];
+	projects: Project[];
 };
 
 const { projects } = Astro.props;

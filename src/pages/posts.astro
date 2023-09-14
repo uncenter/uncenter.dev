@@ -5,7 +5,7 @@ import PostsList from '@/components/PostsList.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+	(a, b) => b.data.createdAt.valueOf() - a.data.createdAt.valueOf(),
 );
 const title = 'Articles';
 const description =

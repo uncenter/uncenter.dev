@@ -31,9 +31,9 @@ const { Content } = await post.render();
 		</h1>
 		<div class="flex flex-row flex-wrap gap-2 lowercase -mt-10 mb-10">
 			{
-				post.data.date && (
-					<time datetime={post.data.date.toISOString()}>
-						{post.data.date.toDateString()}
+				post.data.createdAt && (
+					<time datetime={post.data.createdAt.toISOString()}>
+						{post.data.createdAt.toDateString()}
 					</time>
 				)
 			}

@@ -8,14 +8,14 @@ const fetch = fetchBuilder.withCache(
 	}),
 );
 
-type BareProject = {
+export type BareProject = {
 	name: string;
 	link: string;
 	description?: string;
 	featured?: boolean;
 };
 
-type Project = BareProject & {
+export type Project = BareProject & {
 	language: string;
 	color: string;
 	live?: string;

@@ -42,11 +42,11 @@ async function validateUmamiToken(token: string) {
 	return false;
 }
 
-async function getPageViews(page: string, date: Date, token: string) {
+async function getPageViews(page: string, createdAt: Date, token: string) {
 	const res = await fetch(
 		`${analytics.url}/api/websites/${
 			analytics.websiteId
-		}/pageviews?url=${page}&startAt=${date}&endAt=${Date.now()}&unit=day&timezone=America/New_York`,
+		}/pageviews?url=${page}&startAt=${createdAt}&endAt=${Date.now()}&unit=day&timezone=America/New_York`,
 		{
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ async function getPageViews(page: string, date: Date, token: string) {
 	return await res.json();
 }
 
-export async function getViewsForPath(path: string, date: Date) {
+export async function getViewsForPath(path: string, createdAt: Date) {
 	if (!import.meta.env.PROD || import.meta.env.UMAMI_SKIP)
 		return Math.floor(Math.random() * 100);
 
@@ -69,7 +69,7 @@ export async function getViewsForPath(path: string, date: Date) {
 			throw new Error('No authorization token set for Umami');
 		}
 	}
-	return (await getPageViews(path, date, token))['pageviews'].reduce(
+	return (await getPageViews(path, createdAt, token))['pageviews'].reduce(
 		(total: number, pv: Record<string, number>) => total + pv.y,
 		0,
 	);

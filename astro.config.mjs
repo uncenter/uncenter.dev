@@ -39,5 +39,6 @@ export default defineConfig({
 		],
 	},
 	site: url,
+	output: 'static',
 	compressHTML: true,
 });

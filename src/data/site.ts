@@ -38,10 +38,3 @@ export const analytics = {
 	script: 'https://analytik.uncenter.dev/script.js',
 	share: 'https://analytik.uncenter.dev/share/Atf7LPtQCPGa0643/uncenter',
 };
-
-import { execa } from 'execa';
-export const rev = async () => {
-	return await execa('git', ['rev-parse', '--short', 'HEAD']).then(
-		(x) => x.stdout,
-	);
-};

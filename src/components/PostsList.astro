@@ -1,6 +1,6 @@
 ---
 import { slugify } from '@/utils';
-import type { CollectionEntry } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
 
 type Props = {
 	posts: CollectionEntry<'posts'>[];
@@ -19,8 +19,10 @@ const { posts } = Astro.props;
 				<a href={`/posts/${post.slug}`}>{post.data.title}</a>
 			</h2>
 			<div class="flex flex-row flex-wrap gap-2 lowercase my-2">
-				{post.data.date && (
-					<time datetime={post.data.date.toISOString()}>{post.data.date}</time>
+				{post.data.createdAt && (
+					<time datetime={post.data.createdAt.toISOString()}>
+						{post.data.createdAt.toDateString()}
+					</time>
 				)}
 				{post.data.tags && (
 					<>
