@@ -3,7 +3,6 @@ class Page {
 	data() {
 		return {
 			permalink: '/sitemap.xml',
-			eleventyExcludeFromCollections: true,
 		};
 	}
 

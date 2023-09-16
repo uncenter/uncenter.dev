@@ -27,7 +27,6 @@ class Page {
 	data() {
 		return {
 			permalink: '/feed.json',
-			eleventyExcludeFromCollections: true,
 		};
 	}
 
