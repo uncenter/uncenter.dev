@@ -18,7 +18,7 @@ const getViewsForPage = require('../../utils/umami');
 module.exports = {
 	eleventyComputed: {
 		views: async (data) => {
-			if (isDev && !process.env.UMAMI_SKIP)
+			if (isDev || process.env.UMAMI_SKIP)
 				return Math.floor(Math.random() * 100);
 
 			return getViewsForPage(data.page.url, data.page.date);
