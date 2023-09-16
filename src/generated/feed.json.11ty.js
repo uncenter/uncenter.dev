@@ -35,16 +35,16 @@ class Page {
 		return JSON.stringify(
 			{
 				version: 'https://jsonfeed.org/version/1.1',
-				title: data.meta.site.domain,
-				description: data.meta.feed.description,
-				language: data.meta.lang,
+				title: data.site.domain,
+				description: data.site.feed.description,
+				language: data.site.lang,
 				authors: [
 					{
-						name: data.meta.author.name,
+						name: data.site.author.name,
 						avatar: urlize('1024w.png'),
 					},
 				],
-				home_page_url: data.meta.site.url,
+				home_page_url: data.site.url,
 				feed_url: urlize('feed.json'),
 				items: await Promise.all(
 					[...data.collections.posts].reverse().map(async (post) => ({

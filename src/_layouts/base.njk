@@ -10,13 +10,13 @@ navLinks:
     url: /privacy/
 ---
 
-{% set metaTitle = meta.site.domain %}
+{% set metaTitle = site.domain %}
 {%- if title != false -%}
     {% set metaTitle = title + " &middot; " + metaTitle %}
 {%- endif -%}
 
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}">
+<html lang="{{ site.lang }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,17 +26,17 @@ navLinks:
             {{ inlined.js.before | safe }}
         </script>
 
-        <link rel="stylesheet" href="/assets/styles.css?v={{ gitRev }}">
+        <link rel="stylesheet" href="/assets/styles.css?v={{ rev }}">
         <style>
             {{ inlined.css | safe }}
         </style>
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 
         <script async src="{{ analytics.script }}" data-website-id="{{ analytics.websiteId }}"></script>
-        <meta name="author" content="{{ meta.author.name }}">
-        <meta name="description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
+        <meta name="author" content="{{ site.author.name }}">
+        <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
         <meta name="generator" content="{{ eleventy.generator }}">
-        <meta name="keywords" content="{{ meta.keywords | join(', ') }}">
+        <meta name="keywords" content="{{ site.keywords | join(', ') }}">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20230717">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20230717">
@@ -47,8 +47,8 @@ navLinks:
         <meta name="theme-color" content="#ffffff">
         <meta name="view-transition" content="same-origin">
 
-        <link href="{{ meta.author.github.url }}" rel="me">
-        <link href="{{ meta.author.mastodon.url }}" rel="me">
+        <link href="{{ site.author.github.url }}" rel="me">
+        <link href="{{ site.author.mastodon.url }}" rel="me">
 
         <link rel="canonical" href="{{ page.url | url }}">
         <link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' | url }}">
@@ -65,7 +65,7 @@ navLinks:
             {% endfor %}
         {% endif %}
         <meta property="og:title" content="{{ metaTitle }}">
-        <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ meta.description }}{% endif %}">
+        <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
         <meta property="og:image" content="{{ '/1024w.png' | url }}">
 
         <meta name="twitter:card" content="summary">
@@ -82,7 +82,7 @@ navLinks:
                         width="32" height="32"
                         alt="My profile picture, an random AI generated image. A circular building with white walls and magnificent skylight, through which a bright blue sky with fluffy clouds scattered throughout is visible."
                     />
-                    <span class="tracking-tight text-xl">{{ meta.author.name }}</span>
+                    <span class="tracking-tight text-xl">{{ site.author.name }}</span>
                 </a>
                 <ul class="font-semibold leading-8 list-none pt-2 px-0 flex lg:block lg:space-y-1.5">
                     {% for item in navLinks %}
@@ -104,19 +104,19 @@ navLinks:
             <div class="flex flex-col items-center self-center w-full gap-6">
                 <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
                     <li>
-                        <a rel="me noreferrer" href="{{ meta.author.github.url }}" data-umami-event="author-github" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="me noreferrer" href="{{ meta.author.mastodon.url }}" data-umami-event="author-mastodon" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
                         <a rel="noreferrer" href="https://matrix.to/#/@uncenter:matrix.org" data-umami-event="author-matrix" class="not-fancy text-[#0DBD8B]">{% icon 'si:element', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="noreferrer" href="{{ meta.author.kofi.url }}" data-umami-event="author-kofi" class="not-fancy text-[#FF5E5B]">{% icon 'si:kofi', class="w-[1.625rem] h-[1.625rem] block" %}</a>
+                        <a rel="noreferrer" href="{{ site.author.kofi.url }}" data-umami-event="author-kofi" class="not-fancy text-[#FF5E5B]">{% icon 'si:kofi', class="w-[1.625rem] h-[1.625rem] block" %}</a>
                     </li>
                     <li>
-                        <a rel="noreferrer" href="{{ meta.author.liberapay.url }}" data-umami-event="author-liberapay" class="not-fancy text-[#F6C915]">{% icon 'si:liberapay', class="w-[1.375rem] h-[1.375rem] block" %}</a>
+                        <a rel="noreferrer" href="{{ site.author.liberapay.url }}" data-umami-event="author-liberapay" class="not-fancy text-[#F6C915]">{% icon 'si:liberapay', class="w-[1.375rem] h-[1.375rem] block" %}</a>
                     <li>
                         <a rel="noreferrer" href="/feed.xml" data-umami-event="feed.xml" class="not-fancy text-[#FFA500]">{% icon 'si:rss', class="w-[1.125rem] h-[1.125rem] block" %}</a>
                     </li>
@@ -140,7 +140,7 @@ navLinks:
                 return;
             let giscusAttributes = {
                 src: 'https://giscus.app/client.js',
-                'data-repo': '{{ meta.repository }}',
+                'data-repo': '{{ site.repository }}',
                 'data-repo-id': 'R_kgDOHSjhjQ',
                 'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
                 'data-mapping': 'title',

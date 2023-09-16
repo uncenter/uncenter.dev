@@ -1,11 +1,8 @@
-const fs = require('node:fs/promises');
-const path = require('node:path');
-
-const EleventyImage = require('@11ty/eleventy-img');
+const { join } = require('node:path');
 const { imageSize } = require('image-size');
 const { escape } = require('lodash');
 
-const log = require('../log.js');
+const EleventyImage = require('@11ty/eleventy-img');
 
 const IMAGE_OPTIMIZATION =
 	process.env.IMAGE_OPTIMIZATION === '0' ||
@@ -23,12 +20,8 @@ function stringifyAttributes(attributeMap) {
 }
 
 const insertImage = async function (source, alt, classes) {
-	source = path.join('images', source);
-	try {
-		await fs.access(source);
-	} catch {
-		throw new Error(`[images] File not found: ${source}`);
-	}
+	source = join('images', source);
+
 	const { width } = imageSize(source);
 
 	const data = await EleventyImage(source, {
@@ -42,8 +35,6 @@ const insertImage = async function (source, alt, classes) {
 		urlPath: '/assets/images/',
 	});
 
-	log({ category: 'images', message: source });
-
 	const getLargestImage = (format) => {
 		if (!(format in data)) return false;
 		const images = data[format];
@@ -51,7 +42,6 @@ const insertImage = async function (source, alt, classes) {
 	};
 
 	const base = getLargestImage('png');
-
 	const sizes = '(min-width: 80ch) 80ch, 100vw';
 
 	const sources = Object.values(data)

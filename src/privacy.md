@@ -14,7 +14,7 @@ The analytics data [is publicly available]({{ analytics.share }}).
 
 ### Source code
 
-The website's [source code]({{ meta.repository | url('https://github.com/')}}) is available under the MIT License.
+The website's [source code]({{ site.repository | url('https://github.com/')}}) is available under the MIT License.
 
 ### Content
 

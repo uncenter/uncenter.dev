@@ -4,6 +4,7 @@ title: Spell-checking Markdown with cSpell
 description: A little magic to help catch typos in your blog posts.
 date: 2023-03-23
 edited: 2023-05-21
+comments: true
 ---
 
 Though I haven't written much on this blog, I wanted to add some basic spell-checking to my posts. I looked up "spell-checking markdown" and found [an article by TJ Addison](https://tjaddison.com/blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/) that explained how to do this with a tool called `cSpell` (the backbone of the somewhat popular [Code Spell Checker VSCode extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)). Definitely check out TJ's article for a more in-depth explanation of `cSpell` and how to use it, but here I'll explain how I set it up for my Eleventy blog.

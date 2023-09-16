@@ -1,7 +1,5 @@
-const yaml = require('js-yaml');
+const YAML = require('yaml');
 const EleventyFetch = require('@11ty/eleventy-fetch');
-
-const log = require('../../utils/log');
 
 const projects = {
 	maintained: [
@@ -71,11 +69,7 @@ const projects = {
 	],
 };
 
-async function getRepoData(username, repository, fetchOptions) {
-	log({
-		category: 'projects',
-		message: `https://github.com/${username}/${repository}`,
-	});
+async function fetchRepository(username, repository, fetchOptions) {
 	const response = await EleventyFetch(
 		`https://api.github.com/repos/${username}/${repository}`,
 		{
@@ -92,35 +86,35 @@ async function getRepoData(username, repository, fetchOptions) {
 }
 
 async function getLanguageColors(languages) {
-	const response = await EleventyFetch(
+	const res = await EleventyFetch(
 		'https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml',
 		{
 			duration: '2w',
 			type: 'text',
 		},
 	);
-	const spec = yaml.load(response);
+	const data = YAML.parse(res);
 	return Object.fromEntries(
-		Array.from(languages).map((language) => [language, spec[language]?.color]),
+		Array.from(languages).map((language) => [language, data[language]?.color]),
 	);
 }
 
 module.exports = async function () {
-	const fetchOptions = {
-		headers: {},
-	};
+	const headers = {};
 	if (process.env.GITHUB_TOKEN) {
-		fetchOptions.headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+		headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 	} else {
-		log({ category: 'env', message: 'no GITHUB_TOKEN found' });
+		throw new Error('GITHUB_TOKEN environment variable is not set');
 	}
+
 	const languages = new Set();
 	for (const category in projects) {
 		for (const project of projects[category]) {
 			let [username, repository] = new URL(project.link).pathname
 				.slice(1)
 				.split('/');
-			const data = await getRepoData(username, repository, fetchOptions);
+
+			const data = await fetchRepository(username, repository, { headers });
 			project.description = project.description || data.description;
 			project.language = data.language;
 			languages.add(data.language);

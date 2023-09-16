@@ -3,16 +3,17 @@ tags: ['11ty', 'thoughts']
 title: An honest review of Eleventy
 description: My thoughts on Eleventy after using it for almost a year.
 date: 2023-03-16
+comments: true
 # cspell:ignore darthmall
 ---
 
 ## Foreword
 
-This website is built with the Eleventy static site generator; a simple, fast, and powerful static site generator. I've been using Eleventy for almost a year now, since [May 2022]({{ meta.repository | url('https://github.com/')}}/commit/11b536cd596463e42e2175a312dbf0439ca77103), and I've actually learned more than just how to make a website! I've learned how to write blog posts, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS or JavaScript, etc. I've learned a lot, and I've had a lot of fun doing it! On that note, I'd like to share some of my thoughts on Eleventy.
+This website is built with the Eleventy static site generator; a simple, fast, and powerful static site generator. I've been using Eleventy for almost a year now, since [May 2022]({{ site.repository | url('https://github.com/')}}/commit/11b536cd596463e42e2175a312dbf0439ca77103), and I've actually learned more than just how to make a website! I've learned how to write blog posts, how to make a pull request, how to open an issue, how to help others, how to contribute to open-source projects, how to write CSS or JavaScript, etc. I've learned a lot, and I've had a lot of fun doing it! On that note, I'd like to share some of my thoughts on Eleventy.
 
 ## The good
 
-11ty is really good at what it does! It transforms my files quickly and has a great community who are always more than willing to help. It's lack of opinionated defaults is mostly a blessing, though it makes it a little more difficult to get started. Eleventy also has a simple and easy-to-use API, which makes it easy to add custom functionality and create plugins. I use two of my own plugins, [`@uncenter/eleventy-plugin-toc`]({{ meta.author.github.url }}/eleventy-plugin-toc) and [`eleventy-plugin-icons`]({{ meta.author.github.url }}/eleventy-plugin-icons), and a few others from the community. Eleventy also maintains a few official plugins, ones for syntax highlighting, pagination, image optimization, fetching remote data, and more.
+11ty is really good at what it does! It transforms my files quickly and has a great community who are always more than willing to help. It's lack of opinionated defaults is mostly a blessing, though it makes it a little more difficult to get started. Eleventy also has a simple and easy-to-use API, which makes it easy to add custom functionality and create plugins. I use two of my own plugins, [`@uncenter/eleventy-plugin-toc`]({{ site.author.github.url }}/eleventy-plugin-toc) and [`eleventy-plugin-icons`]({{ site.author.github.url }}/eleventy-plugin-icons), and a few others from the community. Eleventy also maintains a few official plugins, ones for syntax highlighting, pagination, image optimization, fetching remote data, and more.
 
 ### The community
 
@@ -76,6 +77,6 @@ Furthermore, none of those are official Eleventy resources. My conclusion from a
 2. It needs to be on the Eleventy website, and not just a link to a different website.
 3. It needs to be the first thing you see on website, not tucked away in a sidebar.
 
-I have actually tried to solve a few of this issues by making a CLI tool that scaffolds your project for you. [Try it out]({{ meta.author.github.url }}/create-eleventy-app) and let me know what you think!
+I have actually tried to solve a few of this issues by making a CLI tool that scaffolds your project for you. [Try it out]({{ site.author.github.url }}/create-eleventy-app) and let me know what you think!
 
 I think there is a lot that needs to be done. And I'm not writing about this as a criticism, but rather I wish the best for Eleventy and it is important to me to have it succeed! I hope this post was interesting and I'm looking forward to seeing what the future holds for Eleventy (including some updates to the website?!).

@@ -1,4 +1,3 @@
 {
-	"layout": "post.njk",
-	"comments": true
+	"layout": "post.njk"
 }

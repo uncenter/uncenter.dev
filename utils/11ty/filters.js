@@ -1,5 +1,4 @@
 const { DateTime } = require('luxon');
-const { markdownLibrary } = require('../plugins/markdown');
 
 const toShortDate = (dateObject) => {
 	// 10/14/1983
@@ -46,16 +45,6 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('toShortDateTime', toShortDateTime);
 	eleventyConfig.addFilter('toMedDateTime', toMedDateTime);
 	eleventyConfig.addFilter('toFullDateTime', toFullDateTime);
-	eleventyConfig.addFilter('toArray', (value) => {
-		if (Array.isArray(value)) return value;
-		return [value];
-	});
-	eleventyConfig.addFilter('toHtml', (content) => {
-		return markdownLibrary.render(content);
-	});
-	eleventyConfig.addFilter('toHtmlInline', (content) => {
-		return markdownLibrary.renderInline(content);
-	});
 	eleventyConfig.addFilter('capitalize', (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	});

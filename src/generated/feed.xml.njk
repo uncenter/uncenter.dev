@@ -4,15 +4,15 @@
     "eleventyExcludeFromCollections": true
 }
 ---
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ meta.site.url }}">
-    <title>{{ meta.site.domain }}</title>
-    <subtitle>{{ meta.feed.description }}</subtitle>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ site.url }}">
+    <title>{{ site.domain }}</title>
+    <subtitle>{{ site.feed.description }}</subtitle>
     <link href="{{ permalink | url }}" rel="self"/>
-    <link href="{{ meta.site.url }}"/>
+    <link href="{{ site.url }}"/>
     <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-    <id>{{ meta.site.url }}</id>
+    <id>{{ site.url }}</id>
     <author>
-        <name>{{ meta.author.name }}</name>
+        <name>{{ site.author.name }}</name>
     </author>
     {%- for post in collections.posts | reverse %}
     <entry>
@@ -20,7 +20,7 @@
         <link href="{{ post.url | url }}"/>
         <updated>{{ post.date | dateToRfc3339 }}</updated>
         <id>{{ post.url | url }}</id>
-        <content xml:lang="{{ meta.lang }}" type="html">{{ post.content | htmlToAbsoluteUrls(post.url | url) }}</content>
+        <content xml:lang="{{ site.lang }}" type="html">{{ post.content | htmlToAbsoluteUrls(post.url | url) }}</content>
     </entry>
     {%- endfor %}
 </feed>

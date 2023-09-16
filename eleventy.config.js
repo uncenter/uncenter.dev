@@ -9,16 +9,20 @@ const pluginRSS = require('@ryanccn/eleventy-plugin-rss');
 const pluginShiki = require('./utils/plugins/shiki.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
-const { markdownLibrary } = require('./utils/plugins/markdown.js');
-const isProduction = process.env.NODE_ENV === 'production';
-const packageJson = require('./utils/pkgJson.js');
+const path = require('path');
+const sass = require('sass');
 
+const markdownLibrary = require('./utils/plugins/markdown.js');
+const isProduction = process.env.NODE_ENV === 'production';
+const site = require('./site.config.js');
 require('dotenv').config();
 
 const { blue } = require('kleur/colors');
+const postcss = require('postcss');
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
+	eleventyConfig.addGlobalData('site', site);
 	eleventyConfig.addPlugin(shortcodes);
 	eleventyConfig.addPlugin(collections);
 	eleventyConfig.addPlugin(filters);
@@ -31,7 +35,7 @@ module.exports = function (eleventyConfig) {
 		},
 	});
 	eleventyConfig.addPlugin(pluginExternalLinks, {
-		url: packageJson.author.url,
+		url: site.author.url,
 		rel: ['noreferrer'],
 		overwrite: false,
 	});
@@ -55,7 +59,6 @@ module.exports = function (eleventyConfig) {
 
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'public/': '.' });
-	eleventyConfig.addPassthroughCopy('src/assets/fonts/*.woff2');
 
 	/* Other Config */
 	eleventyConfig.addTransform('html', function (content) {
@@ -73,7 +76,31 @@ module.exports = function (eleventyConfig) {
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,
 	});
-	eleventyConfig.addWatchTarget('./src/assets/styles/');
+
+	eleventyConfig.addTemplateFormats('scss');
+	eleventyConfig.addExtension('scss', {
+		outputFileExtension: 'css',
+		compile: async function (inputContent, inputPath) {
+			let { css, loadedUrls } = sass.compileString(inputContent, {
+				loadPaths: [path.parse(inputPath).dir || '.'],
+				sourceMap: false,
+			});
+
+			this.addDependencies(inputPath, loadedUrls);
+
+			return async () => {
+				let plugins = [
+					require('tailwindcss/nesting'),
+					require('tailwindcss'),
+					require('autoprefixer'),
+					require('cssnano'),
+				];
+
+				return (await postcss(plugins).process(css, { from: undefined }))
+					.content;
+			};
+		},
+	});
 
 	let notFirstRun = false;
 	eleventyConfig.on('eleventy.after', async ({ runMode }) => {
@@ -92,7 +119,7 @@ module.exports = function (eleventyConfig) {
 			layouts: '_layouts',
 			data: '_data',
 		},
-		templateFormats: ['md', 'njk', 'css', '11ty.js'],
+		templateFormats: ['md', 'njk', '11ty.js'],
 		markdownTemplateEngine: 'njk',
 	};
 };

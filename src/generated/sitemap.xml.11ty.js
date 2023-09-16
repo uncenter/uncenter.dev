@@ -1,3 +1,4 @@
+const urlize = require('../../utils/urlize');
 class Page {
 	data() {
 		return {
@@ -14,7 +15,7 @@ class Page {
 			.map((page) =>
 				`
     <url>
-        <loc>${new URL(page.url, data.meta.site.url).href}</loc>
+        <loc>${urlize(page.url)}</loc>
         <lastmod>${page.date.toISOString()}</lastmod>
     </url>`.replaceAll(/^\n/g, ''),
 			)
