@@ -11,14 +11,14 @@ const pluginIcons = require('eleventy-plugin-icons');
 
 const path = require('path');
 const sass = require('sass');
+const postcss = require('postcss');
 
 const markdownLibrary = require('./utils/plugins/markdown.js');
-const isProduction = process.env.NODE_ENV === 'production';
+const isDev = process.env.NODE_ENV !== 'production';
 const site = require('./site.config.js');
 require('dotenv').config();
 
 const { blue } = require('kleur/colors');
-const postcss = require('postcss');
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -71,7 +71,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.setLibrary('md', markdownLibrary);
-	eleventyConfig.setQuietMode(!isProduction);
+	eleventyConfig.setQuietMode(isDev);
 	eleventyConfig.setServerOptions({
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,
