@@ -26,4 +26,6 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          UMAMI_SKIP: 1
           IMAGE_OPTIMIZATION: 0
