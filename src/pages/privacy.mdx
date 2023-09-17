@@ -1,19 +1,22 @@
 ---
+layout: '../layouts/Page.astro'
 title: Privacy & Licensing
 description: Information about data collection and licensing.
 ---
+
+import { analytics, repository } from '@/data/site';
 
 ## Analytics
 
 This site Umami Analytics - an open-source alternative to Google Analytics - which is GDPR compliant. Umami does not collect any personally identifiable information and anonymizes all data collected. Users cannot be identified and are never tracked across websites. Umami also does not use any cookies.
 
-The analytics data [is publicly available]({{ analytics.share }}).
+The analytics data <a href={analytics.share}>is publicly available</a>.
 
 ## Licensing
 
 ### Source code
 
-The website's [source code]({{ meta.repository | url('https://github.com/')}}) is available under the MIT License.
+The website's <a href={repository}>source code</a> is available under the MIT License.
 
 ### Content
 
