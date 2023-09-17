@@ -24,7 +24,7 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Page post={true}>
+<Page post={true} {...post.data}>
 	<article>
 		<h1 style={`view-transition-name: post-${slugify(post.data.title)}`}>
 			{post.data.title}
