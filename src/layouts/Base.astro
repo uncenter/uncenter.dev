@@ -9,19 +9,7 @@ import {
 } from '@/data/site';
 import { urlize } from '@/data/url';
 import { capitalize } from '@/utils';
-
-const navLinks = [
-	{
-		title: 'Articles',
-		url: '/posts/',
-	},
-	{ title: 'Projects', url: '/projects/' },
-	{ title: 'Uses', url: '/uses/' },
-	{
-		title: 'Privacy',
-		url: '/privacy/',
-	},
-];
+import nav from '@/data/nav';
 
 import GitHub from '~icons/simple-icons/github';
 import Mastodon from '~icons/simple-icons/mastodon';
@@ -29,7 +17,6 @@ import Element from '~icons/simple-icons/element';
 import Kofi from '~icons/simple-icons/kofi';
 import Liberapay from '~icons/simple-icons/liberapay';
 import Rss from '~icons/simple-icons/rss';
-
 import Styles from '@/components/Styles.astro';
 
 let props = Astro.props;
@@ -209,15 +196,16 @@ const title = props.title ? props.title + ' &middot; ' + domain : domain;
 					class="font-semibold leading-8 list-none pt-2 px-0 flex lg:block lg:space-y-1.5"
 				>
 					{
-						navLinks.map((item) => {
-							return (
-								<li>
-									<a href={item.url} class={'not-fancy p-2'}>
-										{item.title}
-									</a>
-								</li>
-							);
-						})
+						Object.keys(nav).map((title) => (
+							<li>
+								<a
+									href={nav[title as keyof typeof nav]}
+									class={'not-fancy p-2'}
+								>
+									{title}
+								</a>
+							</li>
+						))
 					}
 				</ul>
 			</div>
