@@ -23,15 +23,15 @@ export default defineConfig({
 		}),
 	],
 	markdown: {
-		remarkPlugins: [],
-		rehypePlugins: [
-			rehypeSlug(),
-			rehypeAutolinkHeadings({ behavior: 'prepend' }),
-			rehypeToc({ headings: ['h2', 'h3', 'h4'] }),
-			rehypeShikiji({
-				themes: { light: 'github-light', dark: 'github-dark' },
-			}),
+		remarkPlugins: [
+			// rehypeSlug(),
+			// rehypeAutolinkHeadings({ behavior: 'prepend' }),
+			// rehypeToc({ headings: ['h2', 'h3', 'h4'] }),
+			// rehypeShikiji({
+			// 	themes: { light: 'github-light', dark: 'github-dark' },
+			// }),
 		],
+		rehypePlugins: [],
 	},
 	vite: {
 		plugins: [
