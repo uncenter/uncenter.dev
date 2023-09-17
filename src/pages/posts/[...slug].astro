@@ -1,10 +1,11 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import Page from '@/layouts/Page.astro';
+import Base from '@/layouts/Base.astro';
 
 type Props = CollectionEntry<'posts'>;
 
 import { slugify } from '@/utils';
+import { format } from 'date-fns';
 
 import ArrowLeft from '~icons/lucide/arrow-left';
 import ArrowRight from '~icons/lucide/arrow-right';
@@ -24,7 +25,7 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Page post={true} {...post.data}>
+<Base post={true} {...post.data}>
 	<article>
 		<h1 style={`view-transition-name: post-${slugify(post.data.title)}`}>
 			{post.data.title}
@@ -33,7 +34,7 @@ const { Content } = await post.render();
 			{
 				post.data.createdAt && (
 					<time datetime={post.data.createdAt.toISOString()}>
-						{post.data.createdAt.toDateString()}
+						{format(post.data.createdAt, 'yyyy-MM-dd')}
 					</time>
 				)
 			}
@@ -83,4 +84,4 @@ const { Content } = await post.render();
 			</div>
 		)
 	}
-</Page>
+</Base>

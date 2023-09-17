@@ -1,5 +1,7 @@
 ---
 import { slugify } from '@/utils';
+import { format } from 'date-fns';
+
 import { type CollectionEntry } from 'astro:content';
 
 type Props = {
@@ -21,7 +23,7 @@ const { posts } = Astro.props;
 			<div class="flex flex-row flex-wrap gap-2 lowercase my-2">
 				{post.data.createdAt && (
 					<time datetime={post.data.createdAt.toISOString()}>
-						{post.data.createdAt.toDateString()}
+						{format(post.data.createdAt, 'yyyy-MM-dd')}
 					</time>
 				)}
 				{post.data.tags && (
