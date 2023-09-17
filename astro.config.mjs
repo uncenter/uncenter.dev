@@ -3,10 +3,10 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
-import rehypeShikiji from 'rehype-shikiji';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeToc from 'rehype-toc';
+// import rehypeShikiji from 'rehype-shikiji';
+// import rehypeSlug from 'rehype-slug';
+// import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+// import rehypeToc from 'rehype-toc';
 import unpluginIcons from 'unplugin-icons/vite';
 
 import { url } from './src/data/site';
@@ -23,7 +23,8 @@ export default defineConfig({
 		}),
 	],
 	markdown: {
-		remarkPlugins: [
+		remarkPlugins: [],
+		rehypePlugins: [
 			// rehypeSlug(),
 			// rehypeAutolinkHeadings({ behavior: 'prepend' }),
 			// rehypeToc({ headings: ['h2', 'h3', 'h4'] }),
@@ -31,7 +32,6 @@ export default defineConfig({
 			// 	themes: { light: 'github-light', dark: 'github-dark' },
 			// }),
 		],
-		rehypePlugins: [],
 	},
 	vite: {
 		plugins: [
