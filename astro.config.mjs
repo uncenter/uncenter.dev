@@ -14,7 +14,9 @@ import { url } from './src/data/site';
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
-		tailwind(),
+		tailwind({
+			configFile: './tailwind.config.ts',
+		}),
 		sitemap(),
 		mdx({
 			gfm: true,

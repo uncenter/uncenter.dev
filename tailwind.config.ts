@@ -1,8 +1,8 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-	content: ['./src/**/*.{11ty.js,js,md,njk}'],
+export default {
+	content: ['./src/**/*.{astro,ts,md}'],
 	darkMode: ['class', '[theme="dark"]'],
 	theme: {
 		fontSize: {
@@ -40,4 +40,4 @@ module.exports = {
 		container: false,
 	},
 	plugins: [],
-};
+} satisfies Config;
