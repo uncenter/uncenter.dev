@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
 // import rehypeShikiji from 'rehype-shikiji';
@@ -17,7 +16,6 @@ export default defineConfig({
 		tailwind({
 			configFile: './tailwind.config.ts',
 		}),
-		sitemap(),
 		mdx({
 			gfm: true,
 		}),
@@ -42,5 +40,4 @@ export default defineConfig({
 	},
 	site: url,
 	output: 'static',
-	compressHTML: true,
 });
