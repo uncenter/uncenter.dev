@@ -30,7 +30,7 @@ const { Content } = await post.render();
 		<h1 style={`view-transition-name: post-${slugify(post.data.title)}`}>
 			{post.data.title}
 		</h1>
-		<div class="flex flex-row flex-wrap gap-2 lowercase -mt-10 mb-10">
+		<div class="flex flex-row flex-wrap gap-2 lowercase mt-4">
 			{
 				post.data.createdAt && (
 					<time datetime={post.data.createdAt.toISOString()}>
@@ -54,7 +54,7 @@ const { Content } = await post.render();
 				)
 			}
 		</div>
-		<Content />
+		<div class="mt-10"><Content /></div>
 	</article>
 	{post.data.comments && <div id="comments" class="mt-16" />}
 	{
