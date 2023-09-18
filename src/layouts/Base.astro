@@ -29,7 +29,7 @@ const title = props.title ? props.title + ' &middot; ' + domain : domain;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
-		<script>
+		<script is:inline>
 			function getSystemTheme() {
 				return window.matchMedia('(prefers-color-scheme: dark)').matches
 					? 'dark'
@@ -300,7 +300,7 @@ const title = props.title ? props.title + ' &middot; ' + domain : domain;
 			</div>
 		</footer>
 	</body>
-	<script>
+	<script is:inline>
 		function loadGiscus() {
 			if (!document.querySelector('#comments')) return;
 			let giscusAttributes = {
