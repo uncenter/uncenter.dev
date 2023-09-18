@@ -1,19 +1,9 @@
 import slug from '@sindresorhus/slugify';
-import { parseHTML } from 'linkedom';
-import { urlize } from '@/data/url';
 import { analytics } from '@/data/site';
 
 export const slugify = (string: string) => slug(string);
 export const capitalize = (string: string) =>
 	string.charAt(0).toUpperCase() + string.slice(1);
-
-export async function htmlToAbsoluteUrls(html: string, base: URL | string) {
-	const { document } = parseHTML(html);
-	document.querySelectorAll('a').forEach((a) => {
-		a.href = urlize(a.href.trim(), base).href;
-	});
-	return document.documentElement.outerHTML;
-}
 
 async function getUmamiToken(username: string, password: string) {
 	const res = await fetch(`${analytics.url}/api/auth/login`, {

@@ -22,18 +22,21 @@ import { getCollection } from 'astro:content';
 			home_page_url: url,
 			feed_url: urlize('feed.json'),
 			items: await Promise.all(
-				[...(await getCollection('posts'))].reverse().map(async (post) => ({
-					id: post.slug,
-					url: urlize(post.slug),
-					title: post.data.title,
-					content_html: await htmlToAbsoluteUrls(
-						(await post.render()).Content.toString(),
-						urlize(post.slug),
-					),
-					summary: post.data.description,
-					date_published: post.data.createdAt,
-					tags: post.data.tags,
-				})),
+				[...(await getCollection('posts'))].reverse().map(async (post) => {
+					const { Content } = await post.render();
+					return {
+						id: post.slug,
+						url: urlize(post.slug),
+						title: post.data.title,
+						content_html: await htmlToAbsoluteUrls(
+							(await post.render()).Content.toString(),
+							urlize(post.slug),
+						),
+						summary: post.data.description,
+						date_published: post.data.createdAt,
+						tags: post.data.tags,
+					};
+				}),
 			),
 		},
 		undefined,
