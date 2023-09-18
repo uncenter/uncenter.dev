@@ -1,8 +1,7 @@
 {
 	"name": "uncenter.dev",
+	"author": "uncenter <hi@uncenter.dev>",
 	"private": true,
-	"author": "uncenter <hi@uncenter.dev> (https://uncenter.dev)",
-	"version": "0.0.1",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",

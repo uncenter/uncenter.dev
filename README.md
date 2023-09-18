@@ -1,4 +1,4 @@
-<h1>uncenter.dev</h1>
+# uncenter.dev
 
 [![Eleventy](https://img.shields.io/badge/Astro-BC52EE.svg?style=flat-square&logo=astro&logoColor=white)](https://11ty.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
