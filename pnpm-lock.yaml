@@ -54,8 +54,8 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   lucide-static:
-    specifier: ^0.276.0
-    version: 0.276.0
+    specifier: ^0.279.0
+    version: 0.279.0
   luxon:
     specifier: ^3.4.2
     version: 3.4.3
@@ -84,14 +84,14 @@ dependencies:
     specifier: ^8.4.29
     version: 8.4.29
   sass:
-    specifier: ^1.66.1
-    version: 1.66.1
+    specifier: ^1.67.0
+    version: 1.67.0
   shikiji:
     specifier: ^0.6.3
     version: 0.6.8
   simple-icons:
-    specifier: ^9.14.0
-    version: 9.14.0
+    specifier: ^9.15.0
+    version: 9.15.0
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
@@ -2154,8 +2154,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucide-static@0.276.0:
-    resolution: {integrity: sha512-cXhZXTGZQa01iDufqieKmzTco5oKpwRpuZ5FSfeGssEqqLY7Pe8GsmjJZnBk8VoFV5iWwJ2Q8rwDkqbOQSTIEg==}
+  /lucide-static@0.279.0:
+    resolution: {integrity: sha512-VQ/cR0TFYIfU3+Jsr8HNo2wFqpE7EkusgBYL7z/+TVCOBVbn9IDKhFE61/6yYiMwtc3MYeIBtj6pb6i2xcKb5Q==}
     dev: false
 
   /luxon@3.4.3:
@@ -3311,8 +3311,8 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
-  /sass@1.66.1:
-    resolution: {integrity: sha512-50c+zTsZOJVgFfTgwwEzkjA3/QACgdNsKueWPyAR0mRINIvLAStVQBbPg14iuqEQ74NPDbXzJARJ/O4SI1zftA==}
+  /sass@1.67.0:
+    resolution: {integrity: sha512-SVrO9ZeX/QQyEGtuZYCVxoeAL5vGlYjJ9p4i4HFuekWl8y/LtJ7tJc10Z+ck1c8xOuoBm2MYzcLfTAffD0pl/A==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -3388,8 +3388,8 @@ packages:
       simple-concat: 1.0.1
     dev: false
 
-  /simple-icons@9.14.0:
-    resolution: {integrity: sha512-8nBO/v1y2p4uQX0lpqrBqBAhbx0GlLVYUb904vrsLxLylYkFQMrlPjTYSFI7d9TaY5kUpoDlqC+/9ojyKDZI9g==}
+  /simple-icons@9.15.0:
+    resolution: {integrity: sha512-76lKUjLHV5xQmNd5uglZitthQjY+Y15e+sKsryEk4Xo9OXmC1E1trBNC5Q4R2FHkHu8lAUhW7Up0mCcG6e0Nqg==}
     engines: {node: '>=0.12.18'}
     dev: false
 
