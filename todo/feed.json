@@ -1,7 +1,6 @@
 ---
 import { author, domain, lang, url } from '@/data/site';
 import { urlize } from '@/data/url';
-import { htmlToAbsoluteUrls } from '@/utils';
 
 import { getCollection } from 'astro:content';
 ---
