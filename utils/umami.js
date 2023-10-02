@@ -59,14 +59,16 @@ async function getValidToken() {
 
 	if (username && password) {
 		token = await getToken(username, password);
-		if (token && (await validateToken(token)) {
+		if (token && (await validateToken(token))) {
 			return token;
 		} else {
 			throw new Error('UMAMI_TOKEN is not set or is invalid');
 		}
 	}
 
-	throw new Error('no UMAMI_TOKEN and UMAMI_USERNAME or UMAMI_PASSWORD not set');
+	throw new Error(
+		'no UMAMI_TOKEN and UMAMI_USERNAME or UMAMI_PASSWORD not set',
+	);
 }
 
 module.exports = async function (path, date) {
