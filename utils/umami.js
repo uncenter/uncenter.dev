@@ -48,7 +48,7 @@ async function getPageViews(originalUrl, originalDate, token) {
 }
 
 async function getValidToken() {
-	const token = process.env.UMAMI_TOKEN;
+	let token = process.env.UMAMI_TOKEN;
 
 	if (token && (await validateToken(token))) {
 		return token;
@@ -58,14 +58,17 @@ async function getValidToken() {
 	const password = process.env.UMAMI_PASSWORD;
 
 	if (username && password) {
-		return getToken(username, password);
+		token = await getToken(username, password);
+		if (!(token && (await validateToken(token))) {
+			throw new Error('UMAMI_TOKEN is not set or is invalid');
+		}
 	}
 
-	throw new Error('UMAMI_TOKEN is not set or is invalid');
+	throw new Error('no UMAMI_TOKEN and UMAMI_USERNAME or UMAMI_PASSWORD not set');
 }
 
 module.exports = async function (path, date) {
-	const token = getValidToken();
+	const token = await getValidToken();
 	const pageviews = await getPageViews(path, date, token);
 	return pageviews['pageviews'].reduce((total, pv) => total + pv.y, 0);
 };
