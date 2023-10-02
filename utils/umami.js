@@ -59,7 +59,9 @@ async function getValidToken() {
 
 	if (username && password) {
 		token = await getToken(username, password);
-		if (!(token && (await validateToken(token))) {
+		if (token && (await validateToken(token)) {
+			return token;
+		} else {
 			throw new Error('UMAMI_TOKEN is not set or is invalid');
 		}
 	}
