@@ -26,7 +26,7 @@ async function validateToken(token) {
 			Authorization: `Bearer ${token}`,
 		},
 	});
-	return (res.status === 200);
+	return res.status === 200;
 }
 
 async function getPageViews(originalUrl, originalDate, token) {
@@ -48,27 +48,24 @@ async function getPageViews(originalUrl, originalDate, token) {
 }
 
 async function getValidToken() {
-  const token = process.env.UMAMI_TOKEN;
+	const token = process.env.UMAMI_TOKEN;
 
-  if (token && (await validateToken(token))) {
-    return token;
-  }
+	if (token && (await validateToken(token))) {
+		return token;
+	}
 
-  const username = process.env.UMAMI_USERNAME;
-  const password = process.env.UMAMI_PASSWORD;
+	const username = process.env.UMAMI_USERNAME;
+	const password = process.env.UMAMI_PASSWORD;
 
-  if (username && password) {
-    return getToken(username, password);
-  }
+	if (username && password) {
+		return getToken(username, password);
+	}
 
-  throw new Error('UMAMI_TOKEN is not set or is invalid');
+	throw new Error('UMAMI_TOKEN is not set or is invalid');
 }
 
 module.exports = async function (path, date) {
 	const token = getValidToken();
 	const pageviews = await getPageViews(path, date, token);
-	return pageviews['pageviews'].reduce(
-		(total, pv) => total + pv.y,
-		0,
-	);
+	return pageviews['pageviews'].reduce((total, pv) => total + pv.y, 0);
 };
