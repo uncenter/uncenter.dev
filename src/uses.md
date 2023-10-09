@@ -19,7 +19,7 @@ description: All sorts of things that I use.
 
 ### Development
 
-- [kitty](https://sw.kovidgoyal.net/kitty/) for a snappy, configureable, and feature-rich terminal
+- [kitty](https://sw.kovidgoyal.net/kitty/) for a snappy, configurable, and feature-rich terminal
 - [Neovim](https://neovim.io/) for an extensible terminal-based text editor
   - [Nvchad](https://nvchad.com/) as a sane default config with a pretty UI
 
