@@ -48,14 +48,14 @@ dependencies:
     specifier: ^4.1.5
     version: 4.1.5
   linkedom:
-    specifier: ^0.15.2
-    version: 0.15.3
+    specifier: ^0.15.4
+    version: 0.15.4
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
   lucide-static:
-    specifier: ^0.279.0
-    version: 0.279.0
+    specifier: ^0.284.0
+    version: 0.284.0
   luxon:
     specifier: ^3.4.2
     version: 3.4.3
@@ -84,20 +84,20 @@ dependencies:
     specifier: ^8.4.31
     version: 8.4.31
   sass:
-    specifier: ^1.68.0
-    version: 1.68.0
+    specifier: ^1.69.0
+    version: 1.69.0
   shikiji:
-    specifier: ^0.6.3
-    version: 0.6.8
+    specifier: ^0.6.9
+    version: 0.6.9
   simple-icons:
-    specifier: ^9.16.1
-    version: 9.16.1
+    specifier: ^9.17.0
+    version: 9.17.0
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
   terser:
-    specifier: ^5.20.0
-    version: 5.20.0
+    specifier: ^5.21.0
+    version: 5.21.0
   turndown:
     specifier: ^7.1.2
     version: 7.1.2
@@ -462,8 +462,8 @@ packages:
       '@types/mdurl': 1.0.3
     dev: false
 
-  /@types/mdast@4.0.0:
-    resolution: {integrity: sha512-YLeG8CujC9adtj/kuDzq1N4tCDYKoZ5l/bnjq8d74+t/3q/tHquJOJKUQXJrLCflOHpKjXgcI/a929gpmLOEng==}
+  /@types/mdast@4.0.1:
+    resolution: {integrity: sha512-IlKct1rUTJ1T81d8OHzyop15kGv9A/ff7Gz7IJgrk6jDb4Udw77pCJ+vq8oxZf4Ghpm+616+i1s/LNg/Vh7d+g==}
     dependencies:
       '@types/unist': 3.0.0
     dev: false
@@ -2066,8 +2066,8 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: false
 
-  /linkedom@0.15.3:
-    resolution: {integrity: sha512-p+lBSEWzawF3Gy7+nw+5+u+iDthsfZZVd9lwiO96Ihj7Zd8he5BD1Wzdc9Z4GqtU6lKvxhye4W4Zr20uOAGe4A==}
+  /linkedom@0.15.4:
+    resolution: {integrity: sha512-hXMJnSGRG1wMM2qknxiBPetE5WjzvuDPS24/KMhwrL2OaJZK4s6u1yEwZjSrILEcUiJPKXF1NM4vempEdbJ5kQ==}
     dependencies:
       css-select: 5.1.0
       cssom: 0.5.0
@@ -2137,8 +2137,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucide-static@0.279.0:
-    resolution: {integrity: sha512-VQ/cR0TFYIfU3+Jsr8HNo2wFqpE7EkusgBYL7z/+TVCOBVbn9IDKhFE61/6yYiMwtc3MYeIBtj6pb6i2xcKb5Q==}
+  /lucide-static@0.284.0:
+    resolution: {integrity: sha512-mYUVKYegeom0ApCYoAOfWiT6TPAOVSZTgw6K+GKmOuh9CPELua8PwjUNeVmfwQIhY+/WjaUujFB9YmvJwlyjMQ==}
     dev: false
 
   /luxon@3.4.3:
@@ -2213,7 +2213,7 @@ packages:
     resolution: {integrity: sha512-U5I+500EOOw9e3ZrclN3Is3fRpw8c19SMyNZlZ2IS+7vLsNzb2Om11VpIVOR+/0137GhZsFEF6YiKD5+0Hr2Og==}
     dependencies:
       '@types/hast': 3.0.1
-      '@types/mdast': 4.0.0
+      '@types/mdast': 4.0.1
       '@ungap/structured-clone': 1.2.0
       devlop: 1.1.0
       micromark-util-sanitize-uri: 2.0.0
@@ -3294,8 +3294,8 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
-  /sass@1.68.0:
-    resolution: {integrity: sha512-Lmj9lM/fef0nQswm1J2HJcEsBUba4wgNx2fea6yJHODREoMFnwRpZydBnX/RjyXw2REIwdkbqE4hrTo4qfDBUA==}
+  /sass@1.69.0:
+    resolution: {integrity: sha512-l3bbFpfTOGgQZCLU/gvm1lbsQ5mC/WnLz3djL2v4WCJBDrWm58PO+jgngcGRNnKUh6wSsdm50YaovTqskZ0xDQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -3349,8 +3349,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  /shikiji@0.6.8:
-    resolution: {integrity: sha512-K0axxNAdB9KvLUflU7QoLC7p6i2p1R2MFG0eP+iclbjtuEZqng99jHcg3VJL0GWRO67yozTICnykjo1HjOzdkg==}
+  /shikiji@0.6.9:
+    resolution: {integrity: sha512-GiqOwPZ27/CFiBjssmsIFhvT1IAs2UP9fuWIWYCV9b09AoFcgrxd6hOALRRNmYehbvTdaycGw+jIiOL4T5mI+A==}
     dependencies:
       hast-util-to-html: 9.0.0
     dev: false
@@ -3371,8 +3371,8 @@ packages:
       simple-concat: 1.0.1
     dev: false
 
-  /simple-icons@9.16.1:
-    resolution: {integrity: sha512-iWSWO+kPrVDojgJGn9CI8yAdIcuUqIsJeosdV3ejaYA7sw4+F4rAHB1E5I+33Z3jq6jcP5qR8dGm2EqH89Dttw==}
+  /simple-icons@9.17.0:
+    resolution: {integrity: sha512-/jBnXMjyj5VAwSmg+V7ecXTvpe5xQ9KxcEiVAoM4XiDeTGP4cULfgQGM3060KJP0RGmNUdekpb39QaInFsVnQQ==}
     engines: {node: '>=0.12.18'}
     dev: false
 
@@ -3621,8 +3621,8 @@ packages:
       streamx: 2.15.1
     dev: false
 
-  /terser@5.20.0:
-    resolution: {integrity: sha512-e56ETryaQDyebBwJIWYB2TT6f2EZ0fL0sW/JRXNMN26zZdKi2u/E/5my5lG6jNxym6qsrVXfFRmOdV42zlAgLQ==}
+  /terser@5.21.0:
+    resolution: {integrity: sha512-WtnFKrxu9kaoXuiZFSGrcAvvBqAdmKx0SFNmVNYdJamMu9yyN3I/QF0FbH4QcqJQ+y1CJnzxGIKH0cSj+FGYRw==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
