@@ -6,14 +6,14 @@ const transforms = require('./utils/11ty/transforms.js');
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
 const pluginRSS = require('@ryanccn/eleventy-plugin-rss');
-const pluginShiki = require('./utils/plugins/shiki.js');
+const pluginShiki = require('./utils/plugins/shiki.plugin.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
 const path = require('path');
 const sass = require('sass');
 const postcss = require('postcss');
 
-const markdownLibrary = require('./utils/plugins/markdown.js');
+const markdownLibrary = require('./utils/plugins/md.library.js');
 const isDev = process.env.NODE_ENV !== 'production';
 const site = require('./site.config.js');
 require('dotenv').config();
@@ -64,7 +64,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addTransform('html', function (content) {
 		if (this.page.outputPath && this.page.outputPath.endsWith('.html')) {
 			content = transforms.minifyHtml(content);
-			content = transforms.wrapShiki(content);
 			return content;
 		}
 		return content;

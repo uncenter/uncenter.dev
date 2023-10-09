@@ -1,6 +1,6 @@
 const { join } = require('node:path');
 const { imageSize } = require('image-size');
-const { escape } = require('lodash');
+const escape = require('lodash.escape');
 
 const EleventyImage = require('@11ty/eleventy-img');
 

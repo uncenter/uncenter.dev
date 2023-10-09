@@ -24,7 +24,7 @@
 		"image-size": "^1.0.2",
 		"kleur": "^4.1.5",
 		"linkedom": "^0.15.4",
-		"lodash": "^4.17.21",
+		"lodash.escape": "^4.0.1",
 		"lucide-static": "^0.284.0",
 		"luxon": "^3.4.2",
 		"markdown-it": "^13.0.2",
@@ -33,7 +33,7 @@
 		"markdown-it-emoji": "^2.0.2",
 		"markdown-it-footnote": "^3.0.3",
 		"markdown-it-kbd-better": "^1.2.5",
-		"md5": "^2.3.0",
+		"nanohtml": "^1.10.0",
 		"postcss": "^8.4.31",
 		"sass": "^1.69.0",
 		"shikiji": "^0.6.9",
@@ -49,5 +49,5 @@
 		"prettier": "^3.0.2",
 		"rimraf": "^5.0.5"
 	},
-	"packageManager": "pnpm@8.7.6"
+	"packageManager": "pnpm@8.9.0"
 }
