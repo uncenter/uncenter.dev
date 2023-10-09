@@ -23,7 +23,7 @@ navLinks:
         <title>{{ metaTitle }}</title>
 
         <script>
-            {{ inlined.js.before | safe }}
+            {{ inlined.js['theme-init'] | safe }}
         </script>
 
         <link rel="stylesheet" href="/assets/styles.css?v={{ rev }}">
@@ -162,6 +162,7 @@ navLinks:
                 .querySelector('#comments')
                 .appendChild(giscusScript);
         }
-        {{ inlined.js.after | safe }}
+        {{ inlined.js['theme-update'] | safe }}
+        {{ inlined.js['code-toolbar'] | safe }}
     </script>
 </html>

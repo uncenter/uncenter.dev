@@ -1,13 +1,19 @@
-const { readFile } = require('node:fs/promises');
+const { readFile, readdir } = require('node:fs/promises');
+const path = require('node:path');
 const postcss = require('postcss');
 const terser = require('terser');
 
 module.exports = async () => {
 	const fonts = await readFile('./src/assets/fonts.css', 'utf-8');
-	const js = {
-		before: await readFile('./src/assets/scripts/before.js', 'utf-8'),
-		after: await readFile('./src/assets/scripts/after.js', 'utf-8'),
-	};
+	const scripts = await readdir('./src/assets/scripts/');
+
+	const js = {};
+	scripts.forEach(async (script) => {
+		const file = await readFile(`./src/assets/scripts/${script}`, 'utf-8');
+		const { code } = await terser.minify(file);
+		const { name } = path.parse(script);
+		js[name] = code;
+	});
 
 	const { content: css } = await postcss([
 		require('autoprefixer'),
@@ -16,9 +22,6 @@ module.exports = async () => {
 
 	return {
 		css,
-		js: {
-			before: (await terser.minify(js.before)).code,
-			after: (await terser.minify(js.after)).code,
-		},
+		js,
 	};
 };
