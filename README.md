@@ -5,11 +5,11 @@
 
 ## Features
 
-- **Syntax highlighting** for posts using [`shikiji`](https://github.com/antfu/shikiji)
-- **Optimized images** with [`@11ty/eleventy-img`](https://github.com/11ty/eleventy-img)
-- **RSS feed** using [`@ryanccn/eleventy-plugin-rss`](https://github.com/ryanccn/eleventy-plugin-rss)
-- **Spell-checking** for posts through [`cspell`](http://cspell.org/)
-- **Optimized CSS, JS, and HTML** using [`postcss`](https://postcss.org/), [`terser`](https://github.com/terser/terser), and [`html-minifier`](https://github.com/kangax/html-minifier)
+- **Syntax highlighting** with [`shikiji`](https://github.com/antfu/shikiji).
+- **Optimized images** with [`@11ty/eleventy-img`](https://github.com/11ty/eleventy-img).
+- **RSS feed** using [`@ryanccn/eleventy-plugin-rss`](https://github.com/ryanccn/eleventy-plugin-rss).
+- **Spell-checking** through [`cspell`](http://cspell.org/).
+- **Optimized CSS, JS, and HTML** using [`postcss`](https://postcss.org/), [`terser`](https://github.com/terser/terser), and [`html-minifier`](https://github.com/kangax/html-minifier).
 
 ## Development
 
@@ -31,7 +31,7 @@ pnpm format   # format files
 - `images/`: images for blog posts
 - `public/`: favicons and fonts
 - `utils/11ty/`: collections, shortcodes, filters, and transforms for 11ty
-- `utils/plugins`: markdown + syntax highlighting plugins
+- `utils/plugins`: markdown + eleventy plugins
 
 ## License
 
