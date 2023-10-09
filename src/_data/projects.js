@@ -104,7 +104,7 @@ module.exports = async function () {
 	if (process.env.GITHUB_TOKEN) {
 		headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 	} else {
-		throw new Error('GITHUB_TOKEN environment variable is not set');
+		console.warn('GITHUB_TOKEN environment variable is not set');
 	}
 
 	const languages = new Set();
