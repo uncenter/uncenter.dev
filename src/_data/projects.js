@@ -86,16 +86,16 @@ async function fetchRepository(username, repository, fetchOptions) {
 }
 
 async function getLanguageColors(languages) {
-	const res = await EleventyFetch(
+	const response = await EleventyFetch(
 		'https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml',
 		{
 			duration: '2w',
 			type: 'text',
 		},
 	);
-	const data = YAML.parse(res);
+	const data = YAML.parse(response);
 	return Object.fromEntries(
-		Array.from(languages).map((language) => [language, data[language]?.color]),
+		[...languages].map((language) => [language, data[language]?.color]),
 	);
 }
 
@@ -114,7 +114,9 @@ module.exports = async function () {
 				.slice(1)
 				.split('/');
 
-			const data = await fetchRepository(username, repository, { headers });
+			const data = await fetchRepository(username, repository, {
+				headers,
+			});
 			project.description = project.description || data.description;
 			project.language = data.language;
 			languages.add(data.language);

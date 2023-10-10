@@ -8,12 +8,12 @@ module.exports = async () => {
 	const scripts = await readdir('./src/assets/scripts/');
 
 	const js = {};
-	scripts.forEach(async (script) => {
+	for (const script of scripts) {
 		const file = await readFile(`./src/assets/scripts/${script}`, 'utf-8');
 		const { code } = await terser.minify(file);
 		const { name } = path.parse(script);
 		js[name] = code;
-	});
+	}
 
 	const { content: css } = await postcss([
 		require('autoprefixer'),

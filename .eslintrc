@@ -9,6 +9,10 @@
 	"rules": {
 		"unicorn/no-useless-undefined": ["error", { "checkArguments": false }],
 		"unicorn/text-encoding-identifier-case": 0,
-		"unicorn/prefer-module": 0
+		"unicorn/prefer-module": 0,
+		"unicorn/prevent-abbreviations": [
+			"error",
+			{ "replacements": { "args": false } }
+		]
 	}
 }

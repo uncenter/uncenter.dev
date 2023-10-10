@@ -47,7 +47,9 @@ const insertImage = async function (source, alt, classes) {
 	const sources = Object.values(data)
 		.map((formatEntries) => {
 			const { sourceType } = formatEntries[0];
-			const srcset = formatEntries.map((image) => image.srcset).join(', ');
+			const srcset = formatEntries
+				.map((image) => image.srcset)
+				.join(', ');
 
 			return `<source ${stringifyAttributes({
 				type: sourceType,
@@ -62,15 +64,15 @@ const insertImage = async function (source, alt, classes) {
     <picture>
         ${sources}
         <img ${stringifyAttributes({
-					height: base.height,
-					width: base.width,
-					src: base.url,
-					class: classes,
-					alt: escape(alt),
-					loading: 'lazy',
-					decoding: 'async',
-					sizes,
-				})}>
+			height: base.height,
+			width: base.width,
+			src: base.url,
+			class: classes,
+			alt: escape(alt),
+			loading: 'lazy',
+			decoding: 'async',
+			sizes,
+		})}>
     </picture>
 </a>
 `;

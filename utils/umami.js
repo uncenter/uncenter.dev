@@ -3,7 +3,7 @@ const EleventyFetch = require('@11ty/eleventy-fetch');
 const analytics = require('../src/_data/analytics');
 
 async function getToken(username, password) {
-	const res = await fetch(`${analytics.url}/api/auth/login`, {
+	const response = await fetch(`${analytics.url}/api/auth/login`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -14,19 +14,19 @@ async function getToken(username, password) {
 		}),
 	});
 
-	const { token } = await res.json();
+	const { token } = await response.json();
 	return token;
 }
 
 async function validateToken(token) {
-	const res = await fetch(`${analytics.url}/api/auth/verify`, {
+	const response = await fetch(`${analytics.url}/api/auth/verify`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 			Authorization: `Bearer ${token}`,
 		},
 	});
-	return res.status === 200;
+	return response.status === 200;
 }
 
 async function getPageViews(originalUrl, originalDate, token) {

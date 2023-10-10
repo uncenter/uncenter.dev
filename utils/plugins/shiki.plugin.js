@@ -9,8 +9,8 @@ module.exports = (eleventyConfig, { themes }) => {
 			langs: Object.keys(bundledLanguages),
 		});
 
-		eleventyConfig.amendLibrary('md', (mdLib) => {
-			return mdLib.set({
+		eleventyConfig.amendLibrary('md', (mdLibrary) => {
+			return mdLibrary.set({
 				highlight: (code, lang) => {
 					return shiki.codeToHtml(code, {
 						lang,

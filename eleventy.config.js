@@ -9,12 +9,12 @@ const pluginRSS = require('@ryanccn/eleventy-plugin-rss');
 const pluginShiki = require('./utils/plugins/shiki.plugin.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
-const path = require('path');
+const path = require('node:path');
 const sass = require('sass');
 const postcss = require('postcss');
 
 const markdownLibrary = require('./utils/plugins/md.library.js');
-const isDev = process.env.NODE_ENV !== 'production';
+const isDevelopment = process.env.NODE_ENV !== 'production';
 const site = require('./site.config.js');
 require('dotenv').config();
 
@@ -70,7 +70,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.setLibrary('md', markdownLibrary);
-	eleventyConfig.setQuietMode(isDev);
+	eleventyConfig.setQuietMode(isDevelopment);
 	eleventyConfig.setServerOptions({
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,
@@ -95,8 +95,11 @@ module.exports = function (eleventyConfig) {
 					require('cssnano'),
 				];
 
-				return (await postcss(plugins).process(css, { from: undefined }))
-					.content;
+				const { content } = await postcss(plugins).process(css, {
+					from: undefined,
+				});
+
+				return content;
 			};
 		},
 	});
@@ -105,7 +108,9 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.on('eleventy.after', async ({ runMode }) => {
 		if (runMode === 'serve') {
 			if (notFirstRun)
-				console.log(blue('\n[11ty] Server at http://localhost:8080/\n'));
+				console.log(
+					blue('\n[11ty] Server at http://localhost:8080/\n'),
+				);
 			notFirstRun = true;
 		}
 	});
