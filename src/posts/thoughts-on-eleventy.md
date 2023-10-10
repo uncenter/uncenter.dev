@@ -54,14 +54,14 @@ There are two things I'd like to mention here. First, the "trusted by" section. 
 
 I also want to reference [the GitHub issue](https://github.com/11ty/eleventy/issues/2855) on that led to writing this post. I was really interested in [@darthmall's comment](https://github.com/11ty/eleventy/issues/2855#issuecomment-1463988371) about the four types of documentation (copied from the issue, edited with my own words):
 
-- Tutorials
-  - A **complete** lesson that walks you through accomplishing a real, applicable task.
-- How-tos
-  - Short recipes or "tips" for accomplishing very specific things, the likes of [11ty.recipes](https://11ty.recipes/) and [11ty.rocks](https://11ty.rocks/)
-- Reference
-  - The actual specification/dictionary of everything there is to know (what most people consider documentation, like all the `eleventyConfig` options).
-- Key topics
-  - Higher level concepts that probably aren't useful to new users but are important to explain, like the data cascade or `eleventy.before`/`eleventy.after`.
+-   Tutorials
+    -   A **complete** lesson that walks you through accomplishing a real, applicable task.
+-   How-tos
+    -   Short recipes or "tips" for accomplishing very specific things, the likes of [11ty.recipes](https://11ty.recipes/) and [11ty.rocks](https://11ty.rocks/)
+-   Reference
+    -   The actual specification/dictionary of everything there is to know (what most people consider documentation, like all the `eleventyConfig` options).
+-   Key topics
+    -   Higher level concepts that probably aren't useful to new users but are important to explain, like the data cascade or `eleventy.before`/`eleventy.after`.
 
 I love this way of approaching it. And actually, Eleventy does have most of these, but unfortunately they aren't presented in the best way. The Getting Started section is fine, but it isn't a real tutorial as defined above. Again, I put myself in a new user's shoes while thinking about this and I want to point out that there don't seem to be any other good options either! To test this theory, I opened an new incognito tab to see what appears when I search from "make an eleventy website" on Youtube.
 

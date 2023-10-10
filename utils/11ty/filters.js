@@ -7,7 +7,9 @@ const toShortDate = (dateObject) => {
 
 const toMedDate = (dateObject) => {
 	// Oct 14, 1983
-	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat('MMM dd, yyyy');
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat(
+		'MMM dd, yyyy',
+	);
 };
 
 const toFullDate = (dateObject) => {

@@ -81,7 +81,9 @@ const { join } = require('node:path');
 
 async function getRepos() {
 	try {
-		const response = await fetch('https://api.github.com/users/uncenter/repos');
+		const response = await fetch(
+			'https://api.github.com/users/uncenter/repos',
+		);
 		const json = await response.json();
 
 		if (Array.isArray(json)) {

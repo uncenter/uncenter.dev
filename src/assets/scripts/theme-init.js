@@ -10,7 +10,9 @@ function setMetaThemeColor(theme) {
 	if (!metaThemeColor) return;
 	metaThemeColor.setAttribute(
 		'content',
-		getComputedStyle(document.documentElement).getPropertyValue(`--${theme}`),
+		getComputedStyle(document.documentElement).getPropertyValue(
+			`--${theme}`,
+		),
 	);
 }
 

@@ -11,14 +11,14 @@ class Page {
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${data.collections.all
-			.map((page) =>
-				`
+		.map((page) =>
+			`
     <url>
         <loc>${urlize(page.url)}</loc>
         <lastmod>${page.date.toISOString()}</lastmod>
     </url>`.replaceAll(/^\n/g, ''),
-			)
-			.join('\n')}
+		)
+		.join('\n')}
 </urlset>
 `.trimStart();
 	}

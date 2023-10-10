@@ -35,6 +35,7 @@ module.exports = {
 		},
 	},
 	feed: {
-		description: 'Articles about programming, linguistics, and other things.',
+		description:
+			'Articles about programming, linguistics, and other things.',
 	},
 };
