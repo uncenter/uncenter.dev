@@ -1,13 +1,14 @@
 {
-	"extends": ["eslint:recommended", "prettier"],
-	"parserOptions": {
-		"ecmaVersion": "latest",
-		"sourceType": "script"
-	},
+	"root": true,
+	"plugins": ["unicorn"],
+	"extends": ["eslint:recommended", "plugin:unicorn/recommended", "prettier"],
 	"env": {
 		"browser": true,
-		"commonjs": true,
-		"es2021": true,
 		"node": true
+	},
+	"rules": {
+		"unicorn/no-useless-undefined": ["error", { "checkArguments": false }],
+		"unicorn/text-encoding-identifier-case": 0,
+		"unicorn/prefer-module": 0
 	}
 }
