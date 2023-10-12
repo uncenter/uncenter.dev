@@ -10,9 +10,10 @@ navLinks:
     url: /privacy/
 ---
 
-{% set metaTitle = site.domain %}
-{%- if title != false -%}
-    {% set metaTitle = title + " &middot; " + metaTitle %}
+{% if title %}
+	{% set title = title + " - " + site.domain %}
+{% else %}
+    {% set title = site.domain %}
 {%- endif -%}
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ navLinks:
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ metaTitle }}</title>
+        <title>{{ title }}</title>
 
         <script>
             {{ inlined.js['theme-init'] | safe }}
@@ -64,12 +65,12 @@ navLinks:
                 <meta property="og:article:tag" content="{{ keyword | capitalize }}">
             {% endfor %}
         {% endif %}
-        <meta property="og:title" content="{{ metaTitle }}">
+        <meta property="og:title" content="{{ title }}">
         <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
         <meta property="og:image" content="{{ '/1024w.png' | url }}">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="{{ metaTitle }}">
+        <meta name="twitter:title" content="{{ title }}">
         <meta name="twitter:image" content="{{ '/1024w.png' | url }}">
     </head>
     <body class="bg-bg text-fg font-display">
@@ -133,7 +134,7 @@ navLinks:
     </body>
     <script>
         function loadGiscus() {
-            if (!document.querySelector('#comments')) 
+            if (!document.querySelector('#comments'))
                 return;
             let giscusAttributes = {
                 src: 'https://giscus.app/client.js',

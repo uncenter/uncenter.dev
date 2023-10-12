@@ -3,7 +3,8 @@ module.exports = {
 	domain: 'uncenter.dev',
 	url: 'https://uncenter.dev',
 	repository: `uncenter/uncenter.dev`,
-	description: 'Software developer, rookie linguist, and student.',
+	description:
+		'Open source software developer, geography nerd, and high school student.',
 	keywords: [
 		'Software',
 		'Developer',
@@ -36,6 +37,6 @@ module.exports = {
 	},
 	feed: {
 		description:
-			'Articles about programming, linguistics, and other things.',
+			'Articles about programming, geography, and other interests of mine.',
 	},
 };
