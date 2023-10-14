@@ -4,7 +4,7 @@ title: Uses
 description: All sorts of things that I use.
 ---
 
-<p class="mb-12">All sorts of things that I use; on my computer, on my phone, services, etc. Partly for my own reference, partly for anyone who's curious. To see other /uses pages, check out <a href="https://uses.tech/">uses.tech</a>.</p>
+<p class="mb-12">All the things I use! To see other /uses pages, check out <a href="https://uses.tech/">uses.tech</a>.</p>
 
 ## Apps
 
@@ -19,9 +19,8 @@ description: All sorts of things that I use.
 
 ### Development
 
--   [kitty](https://sw.kovidgoyal.net/kitty/) for a snappy, configurable, and feature-rich terminal
--   [Neovim](https://neovim.io/) for an extensible terminal-based text editor
-    -   [Nvchad](https://nvchad.com/) as a sane default config with a pretty UI
+-   [Visual Studio Code](https://code.visualstudio.com/) ~~since I can't figure out how to configure Neovim~~ for a feature-rich and extendable editor
+-   [kitty](https://sw.kovidgoyal.net/kitty/) for a snappy and configurable terminal
 
 ### Utilities
 
