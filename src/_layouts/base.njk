@@ -1,169 +1,174 @@
 ---
-navLinks:
-  - title: Articles
-    url: /posts/
-  - title: Projects
-    url: /projects/
-  - title: Uses
-    url: /uses/
-  - title: Privacy
-    url: /privacy/
+headerLinks:
+ - title: Articles
+   url: /posts/
+ - title: Projects
+   url: /projects/
+ - title: Uses
+   url: /uses/
+footerLinks:
+ - title: RSS
+   url: /feed.xml
+ - title: JSON
+   url: /feed.json
+ - title: Privacy & Licensing
+   url: /privacy/
+ - title: Sitemap
+   url: /sitemap.xml
 ---
 
 {% if title %}
 	{% set title = title + " - " + site.domain %}
 {% else %}
-    {% set title = site.domain %}
+	{% set title = site.domain %}
 {%- endif -%}
 
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title }}</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{ title }}</title>
 
-        <script>
-            {{ inlined.js['theme-init'] | safe }}
-        </script>
+		<script>
+			{{ inlined.js['theme-init'] | safe }}
+		</script>
 
-        <link rel="stylesheet" href="/assets/styles.css?v={{ rev }}">
-        <style>
-            {{ inlined.css | safe }}
-        </style>
-        <link rel="preload" as="font" type="font/woff2" href="/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/styles.css?v={{ rev }}">
+		<style>
+			{{ inlined.css | safe }}
+		</style>
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 
-        <script async src="{{ analytics.script }}" data-website-id="{{ analytics.websiteId }}"></script>
-        <meta name="author" content="{{ site.author.name }}">
-        <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-        <meta name="generator" content="{{ eleventy.generator }}">
-        <meta name="keywords" content="{{ site.keywords | join(', ') }}">
+		<script async src="{{ analytics.script }}" data-website-id="{{ analytics.websiteId }}"></script>
+		<meta name="author" content="{{ site.author.name }}">
+		<meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+		<meta name="generator" content="{{ eleventy.generator }}">
+		<meta name="keywords" content="{{ site.keywords | join(', ') }}">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20230717">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20230717">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20230717">
-        <link rel="manifest" href="/site.webmanifest?v=20230717">
-        <link rel="shortcut icon" href="/favicon.ico?v=20230717">
-        <meta name="msapplication-TileColor" content="#2d89ef">
-        <meta name="theme-color" content="#ffffff">
-        <meta name="view-transition" content="same-origin">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20230717">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20230717">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20230717">
+		<link rel="manifest" href="/site.webmanifest?v=20230717">
+		<link rel="shortcut icon" href="/favicon.ico?v=20230717">
+		<meta name="msapplication-TileColor" content="#2d89ef">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="view-transition" content="same-origin">
 
-        <link href="{{ site.author.github.url }}" rel="me">
-        <link href="{{ site.author.mastodon.url }}" rel="me">
+		<link href="{{ site.author.github.url }}" rel="me">
+		<link href="{{ site.author.mastodon.url }}" rel="me">
 
-        <link rel="canonical" href="{{ page.url | url }}">
-        <link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' | url }}">
-        <link rel="alternate" type="application/json" href="{{ 'feed.json' | url }}">
+		<link rel="canonical" href="{{ page.url | url }}">
+		<link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' | url }}">
+		<link rel="alternate" type="application/json" href="{{ 'feed.json' | url }}">
 
-        {% if layout != 'post.njk' %}
-            <meta property="og:type" content="website">
-        {% else %}
-            <meta property="og:type" content="article">
-            <meta property="og:article:published_time" content="{{ date }}">
-            <meta property="og:article:section" content="Technology">
-            {% for keyword in tags %}
-                <meta property="og:article:tag" content="{{ keyword | capitalize }}">
-            {% endfor %}
-        {% endif %}
-        <meta property="og:title" content="{{ title }}">
-        <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-        <meta property="og:image" content="{{ '/1024w.png' | url }}">
+		{% if layout != 'post.njk' %}
+			<meta property="og:type" content="website">
+		{% else %}
+			<meta property="og:type" content="article">
+			<meta property="og:article:published_time" content="{{ date }}">
+			<meta property="og:article:section" content="Technology">
+			{% for keyword in tags %}
+				<meta property="og:article:tag" content="{{ keyword | capitalize }}">
+			{% endfor %}
+		{% endif %}
+		<meta property="og:title" content="{{ title }}">
+		<meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+		<meta property="og:image" content="{{ '/1024w.png' | url }}">
 
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="{{ title }}">
-        <meta name="twitter:image" content="{{ '/1024w.png' | url }}">
-    </head>
-    <body class="bg-bg text-fg font-display">
-        <header class="max-w-[30ch] mx-auto">
-            <div class="flex flex-col items-center leading-6">
-                <a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
-                    <img
-                        src="/square.webp"
-                        class="rounded-full"
-                        width="32" height="32"
-                        alt="My profile picture, an random AI generated image. A circular building with white walls and magnificent skylight, through which a bright blue sky with fluffy clouds scattered throughout is visible."
-                    />
-                    <span class="tracking-tight text-xl">{{ site.author.name }}</span>
-                </a>
-                <ul class="font-semibold leading-8 list-none pt-2 px-0 flex lg:block lg:space-y-1.5">
-                    {% for item in navLinks %}
-                        {% set classes = "not-fancy lg:py-0 p-2 [border:2px_solid_transparent] lg:[border:2px_solid_transparent]" %}
-                        {% if (page.url.includes(item.url) and item.url != "/") or (item.url == "/" and page.url == "/") %}
-                            {% set classes = classes + " lg:[border-left:2px_solid_currentColor_!important] lg:[border-bottom:2px_solid_transparent_!important] [border-bottom:2px_solid_currentColor_!important] " %}
-                        {% endif %}
-                        <li>
-                            <a href="{{ item.url }}" class="{{ classes }}" {% if page.url == item.url %}aria-current="page"{% else %}aria-label="Go to {{ item.title }}"{% endif %}>{{ item.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </header>
-        <main class="max-w-[70ch] w-full">
-            {{ content | safe }}
-        </main>
-        <footer class="max-w-[30ch] mx-auto mt-12 lg:mt-4">
-            <div class="flex flex-col items-center self-center w-full gap-6">
-                <ul class="flex items-center gap-3 justify-center m-0 p-0 list-none">
-                    <li>
-                        <a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" class="not-fancy text-[#181717] dark:text-white">{% icon 'si:github', class="w-[1.375rem] h-[1.375rem] block" %}</a>
-                    </li>
-                    <li>
-                        <a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" class="not-fancy text-[#6364FF]">{% icon 'si:mastodon', class="w-[1.375rem] h-[1.375rem] block" %}</a>
-                    </li>
-                    <li>
-                        <a rel="noreferrer" href="{{ site.author.kofi.url }}" data-umami-event="author-kofi" class="not-fancy text-[#FF5E5B]">{% icon 'si:kofi', class="w-[1.625rem] h-[1.625rem] block" %}</a>
-                    </li>
-                    <li>
-                        <a rel="noreferrer" href="{{ site.author.liberapay.url }}" data-umami-event="author-liberapay" class="not-fancy text-[#F6C915]">{% icon 'si:liberapay', class="w-[1.375rem] h-[1.375rem] block" %}</a>
-                    <li>
-                        <a rel="noreferrer" href="/feed.xml" data-umami-event="feed.xml" class="not-fancy text-[#FFA500]">{% icon 'si:rss', class="w-[1.125rem] h-[1.125rem] block" %}</a>
-                    </li>
-                </ul>
-                <div class="flex flex-row text-center gap-x-3 text-xs">
-                    <a href="https://🕸💍.ws/previous" class="not-fancy" data-umami-event="indie-webring-previous">←</a>
-                    <a href="https://🕸💍.ws" class="not-fancy" data-umami-event="indie-webring-home">IndieWeb Webring</a>
-                    <a href="https://🕸💍.ws/next" class="not-fancy" data-umami-event="indie-webring-next">→</a>
-                </div>
-                <select aria-label="Theme selector" id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                    <option value="system">System</option>
-                </select>
-            </div>
-        </footer>
-    </body>
-    <script>
-        function loadGiscus() {
-            if (!document.querySelector('#comments'))
-                return;
-            let giscusAttributes = {
-                src: 'https://giscus.app/client.js',
-                'data-repo': '{{ site.repository }}',
-                'data-repo-id': 'R_kgDOHSjhjQ',
-                'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
-                'data-mapping': 'title',
-                'data-reactions-enabled': '1',
-                'data-emit-metadata': '0',
-                'data-input-position': 'top',
-                'data-theme': document
-                    .documentElement
-                    .getAttribute('theme'),
-                'data-lang': 'en',
-                crossorigin: 'anonymous',
-                async: ''
-            };
-            let giscusScript = document.createElement('script');
-            Object
-                .entries(giscusAttributes)
-                .forEach(([key, value]) => giscusScript.setAttribute(key, value),);
-            document
-                .querySelector('#comments')
-                .innerHTML = '';
-            document
-                .querySelector('#comments')
-                .appendChild(giscusScript);
-        }
-        {{ inlined.js['theme-update'] | safe }}
-        {{ inlined.js['code-toolbar'] | safe }}
-    </script>
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="{{ title }}">
+		<meta name="twitter:image" content="{{ '/1024w.png' | url }}">
+	</head>
+	<body class="bg-bg text-fg font-display mx-auto max-w-[120ch]">
+		<header class="flex flex-row justify-between leading-6 py-8">
+			<a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
+				<img
+					src="/square.webp"
+					class="rounded-full"
+					width="32" height="32"
+					alt="My profile picture, an random AI generated image. A circular building with white walls and magnificent skylight, through which a bright blue sky with fluffy clouds scattered throughout is visible."
+				/>
+				<span class="tracking-tight text-xl">{{ site.author.name }}</span>
+			</a>
+			<div class="flex flex-row gap-8 items-center">
+				<ul class="m-0 p-0 flex gap-4 list-none items-end">
+					{% for item in headerLinks %}
+						{% set classes = "not-fancy" %}
+						{% if (page.url.includes(item.url) and item.url != "/") or (item.url == "/" and page.url == "/") %}
+							{% set classes = classes + " underline underline-offset-4 decoration-1" %}
+						{% endif %}
+						<li>
+							<a href="{{ item.url }}" class="{{ classes }}" {% if page.url == item.url %}aria-current="page"{% else %}aria-label="Go to {{ item.title }}"{% endif %}>{{ item.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+				<ul class="m-0 p-0 flex gap-4 justify-center list-none items-baseline">
+					<li>
+						<a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" title="GitHub" class="not-fancy dark:text-white">{% icon 'si:github' %}</a>
+					</li>
+					<li>
+						<a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" title="Mastodon" class="not-fancy">{% icon 'si:mastodon' %}</a>
+					</li>
+					<li>
+						<a rel="me noreferrer" href="/feed.xml" data-umami-event="feed.xml" title="RSS Feed" class="not-fancy">{% icon 'si:rss' %}</a>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<main class="px-2 md:px-6 lg:px-10 mx-auto w-[90%] max-w-[80ch]">
+			{{ content | safe }}
+		</main>
+		<footer class="flex flex-col items-center self-center w-full gap-2 leading-normal">
+			<div class="flex flex-row text-center gap-x-3 text-xs">
+				<a href="https://🕸💍.ws/previous" class="not-fancy" data-umami-event="indie-webring-previous">←</a>
+				<a href="https://🕸💍.ws" class="not-fancy" data-umami-event="indie-webring-home">IndieWeb Webring</a>
+				<a href="https://🕸💍.ws/next" class="not-fancy" data-umami-event="indie-webring-next">→</a>
+			</div>
+			<div class="flex flex-row text-center gap-x-2 text-xs">
+				{% for item in footerLinks %}
+					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}">{{ item.title }}</a>{% if not loop.last %} &middot; {% endif %}
+				{% endfor %}
+			</div>
+			<select aria-label="Theme selector" id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none mt-1">
+				<option value="light">Light</option>
+				<option value="dark">Dark</option>
+				<option value="system">System</option>
+			</select>
+		</footer>
+	</body>
+	<script>
+		function loadGiscus() {
+			if (!document.querySelector('#comments'))
+				return;
+			let giscusAttributes = {
+				src: 'https://giscus.app/client.js',
+				'data-repo': '{{ site.repository }}',
+				'data-repo-id': 'R_kgDOHSjhjQ',
+				'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
+				'data-mapping': 'title',
+				'data-reactions-enabled': '1',
+				'data-emit-metadata': '0',
+				'data-input-position': 'top',
+				'data-theme': document
+					.documentElement
+					.getAttribute('theme'),
+				'data-lang': 'en',
+				crossorigin: 'anonymous',
+				async: ''
+			};
+			let giscusScript = document.createElement('script');
+			Object
+				.entries(giscusAttributes)
+				.forEach(([key, value]) => giscusScript.setAttribute(key, value),);
+			document
+				.querySelector('#comments')
+				.innerHTML = '';
+			document
+				.querySelector('#comments')
+				.appendChild(giscusScript);
+		}
+		{{ inlined.js['theme-update'] | safe }}
+		{{ inlined.js['code-toolbar'] | safe }}
+	</script>
 </html>

@@ -26,6 +26,7 @@ module.exports = {
 				oppositeGray: 'var(--gray-opposite)',
 				lightBlue: 'var(--light-blue)',
 				darkBlue: 'var(--dark-blue)',
+				link: 'var(--link)',
 			},
 			fontFamily: {
 				display: ['"General Sans"', ...defaultTheme.fontFamily.sans],
