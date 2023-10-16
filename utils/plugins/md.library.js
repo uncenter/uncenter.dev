@@ -13,7 +13,6 @@ const markdownLibrary = markdownIt({
 })
 	.use(markdownItAnchor, {
 		permalink: markdownItAnchor.permalink.headerLink({
-			class: 'anchor',
 			safariReaderFix: true,
 		}),
 	})

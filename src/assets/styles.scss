@@ -22,13 +22,8 @@ div {
 	--dark: #17181b;
 	--dark-gray: #30363d;
 	--light-gray: #d0d7de;
-	--dark-blue: #2463eb;
-	--light-blue: #60a5fa;
-	--link: #0969da;
-
-	::selection {
-		color: var(--bg);
-	}
+	--blue: #2d82b7;
+	--red: #e56b6f;
 }
 
 :root[theme='light'] {
@@ -36,14 +31,11 @@ div {
 	--fg: var(--dark);
 	--current-gray: var(--light-gray);
 	--gray-opposite: var(--dark-gray);
+	--link: var(--blue);
 
 	.shiki,
 	.shiki span {
 		color: var(--shiki-light);
-	}
-
-	::selection {
-		background-color: var(--dark-blue);
 	}
 }
 
@@ -52,14 +44,11 @@ div {
 	--fg: var(--light);
 	--current-gray: var(--dark-gray);
 	--gray-opposite: var(--light-gray);
+	--link: var(--red);
 
 	.shiki,
 	.shiki span {
 		color: var(--shiki-dark);
-	}
-
-	::selection {
-		background-color: var(--light-blue);
 	}
 }
 
@@ -110,29 +99,22 @@ div {
 	a {
 		@apply relative no-underline text-fg;
 
-		&:not(.not-fancy):not(:has(picture)) {
+		&:not(.not-fancy) {
 			&:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
 				@apply text-link;
 			}
 
-			&::before {
-				content: '';
-				position: absolute;
-				width: 100%;
-				height: 2px;
-				border-radius: 2px;
-				background-color: currentColor;
-				bottom: 0;
-				left: 0;
-				transform-origin: right;
-				transform: scaleX(0);
-				transition: transform 0.3s ease-in-out;
+			text-decoration-line: underline;
+			text-decoration-color: transparent;
+			text-underline-offset: 2px;
+
+			&:hover {
+				text-decoration-color: currentColor;
 			}
 
-			&:hover::before {
-				transform-origin: left;
-				transform: scaleX(1);
-			}
+			transition-property: color, text-decoration-color;
+			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+			transition-duration: 150ms;
 		}
 	}
 
@@ -174,13 +156,13 @@ div {
 			@apply italic pb-px;
 		}
 
-		h2 a.anchor::before,
-		h3 a.anchor::before {
+		h2 a::before,
+		h3 a::before {
 			@apply absolute w-12 content-['§'] transition-opacity duration-[0.2s] ease-[ease] text-center opacity-0 -left-10 text-oppositeGray;
 		}
 
-		h2 a.anchor:hover::before,
-		h3 a.anchor:hover::before {
+		h2 a:hover::before,
+		h3 a:hover::before {
 			@apply opacity-100;
 		}
 	}
