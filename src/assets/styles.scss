@@ -187,15 +187,19 @@ div.code-block {
 		@apply absolute flex gap-1 m-2 right-0 top-0;
 
 		button {
-			@apply align-text-bottom cursor-pointer shadow-none transition-colors ease-in-out p-0 rounded-md bg-bg;
+			@apply align-text-bottom cursor-pointer shadow-none transition-colors ease-in-out p-2 rounded-md bg-bg;
 			@apply border border-solid border-[#1f232826] dark:border-[#F0F6FC1A] fill-[#656d76] dark:fill-[#7D8590FF];
+
+			&:hover {
+				@apply border-[#1F232866] dark:border-[#F0F6FC4D];
+			}
 
 			&.active {
 				@apply fill-[#1a7f37] border-[#1f883d];
 			}
 
 			svg {
-				@apply w-4 h-4 inline overflow-visible m-2;
+				@apply w-4 h-4 inline overflow-visible;
 			}
 		}
 	}
