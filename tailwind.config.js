@@ -20,13 +20,6 @@ module.exports = {
 			colors: {
 				bg: 'var(--bg)',
 				fg: 'var(--fg)',
-				lightGray: 'var(--light-gray)',
-				darkGray: 'var(--dark-gray)',
-				currentGray: 'var(--current-gray)',
-				oppositeGray: 'var(--gray-opposite)',
-				lightBlue: 'var(--light-blue)',
-				darkBlue: 'var(--dark-blue)',
-				link: 'var(--link)',
 			},
 			fontFamily: {
 				display: ['"General Sans"', ...defaultTheme.fontFamily.sans],
