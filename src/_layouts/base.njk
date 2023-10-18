@@ -7,9 +7,9 @@ headerLinks:
  - title: Uses
    url: /uses/
 footerLinks:
- - title: RSS
+ - title: RSS Feed
    url: /feed.xml
- - title: JSON
+ - title: JSON Feed
    url: /feed.json
  - title: Privacy & Licensing
    url: /privacy/
@@ -81,7 +81,7 @@ footerLinks:
 		<meta name="twitter:image" content="{{ '/1024w.png' | url }}">
 	</head>
 	<body class="bg-bg text-fg font-display mx-auto max-w-[120ch]">
-		<header class="flex flex-row justify-between leading-6 py-8">
+		<header class="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:space-y-0 justify-between leading-6 py-8">
 			<a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
 				<img
 					src="/square.webp"
@@ -91,8 +91,8 @@ footerLinks:
 				/>
 				<span class="tracking-tight text-xl">{{ site.author.name }}</span>
 			</a>
-			<div class="flex flex-row gap-8 items-center">
-				<ul class="m-0 p-0 flex gap-4 list-none items-end">
+			<nav>
+				<ul class="m-0 p-0 flex flex-col sm:flex-row gap-4 list-none items-baseline">
 					{% for item in headerLinks %}
 						{% set classes = "not-fancy" %}
 						{% if (page.url.includes(item.url) and item.url != "/") or (item.url == "/" and page.url == "/") %}
@@ -103,23 +103,20 @@ footerLinks:
 						</li>
 					{% endfor %}
 				</ul>
-				<ul class="m-0 p-0 flex gap-4 justify-center list-none items-baseline">
-					<li>
-						<a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" title="GitHub" class="not-fancy dark:text-white">{% icon 'si:github' %}</a>
-					</li>
-					<li>
-						<a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" title="Mastodon" class="not-fancy">{% icon 'si:mastodon' %}</a>
-					</li>
-					<li>
-						<a rel="me noreferrer" href="/feed.xml" data-umami-event="feed.xml" title="RSS Feed" class="not-fancy">{% icon 'si:rss' %}</a>
-					</li>
-				</ul>
-			</div>
+			</nav>
 		</header>
-		<main class="px-2 md:px-6 lg:px-10 mx-auto w-[90%] max-w-[80ch]">
+		<main class="mx-auto w-[95%] md:w-[90%] max-w-[80ch]">
 			{{ content | safe }}
 		</main>
 		<footer class="flex flex-col py-8 items-center self-center w-full gap-2 leading-normal">
+			<ul id="social-icons" class="m-0 p-0 flex gap-4 justify-center list-none items-baseline">
+				<li>
+					<a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" title="GitHub" class="not-fancy dark:text-white">{% icon 'si:github' %}</a>
+				</li>
+				<li>
+					<a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" title="Mastodon" class="not-fancy">{% icon 'si:mastodon' %}</a>
+				</li>
+			</ul>
 			<div class="flex flex-row text-center gap-x-3 text-xs">
 				<a href="https://🕸💍.ws/previous" class="not-fancy" data-umami-event="indie-webring-previous">←</a>
 				<a href="https://🕸💍.ws" class="not-fancy" data-umami-event="indie-webring-home">IndieWeb Webring</a>
