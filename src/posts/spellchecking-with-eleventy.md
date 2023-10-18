@@ -52,12 +52,12 @@ An important step is to define specific words to exclude or flag. I told `cSpell
 
 ```js
 	words: [
-        'eleventy',
+		'eleventy',
 		'11ty',
 		'shortcodes',
 		'webc',
 	],
-    flagWords: [],
+	flagWords: [],
 ```
 
 ### Dictionaries
@@ -65,10 +65,10 @@ An important step is to define specific words to exclude or flag. I told `cSpell
 In addition to the `words` property, you can also define dictionaries - just longer lists of words. I added a dictionary for my GitHub repositories to prevent those from being spell-checked if I ever write about them.
 
 ```js
-    dictionaries: ["repos"],
-    dictionaryDefinitions: [
-        { "name": "repos", "path": "./utils/dicts/repos.txt" },
-    ],
+	dictionaries: ["repos"],
+	dictionaryDefinitions: [
+		{ "name": "repos", "path": "./utils/dicts/repos.txt" },
+	],
 ```
 
 Instead of manually updating my `repos.txt` dict, I wrote a script to fetch my repositories from the GitHub API and write them to the file.
@@ -114,9 +114,9 @@ command = "node ./utils/get-repos.js && npm run spell && npm run build"
 Finally, the config file allows you to define regular expression patterns to ignore. I added patterns to ignore words in Nunjucks expressions, Markdown code blocks and inline code, and proper nouns (words that start with a capital letter).
 
 ```js
-    {% raw %}// ...
+	{% raw %}// ...
 	ignoreRegExpList: [
-        'nunjucksExpression',
+		'nunjucksExpression',
 		'markdownCodeBlock',
 		'markdownInlineCode',
 		'properNouns',

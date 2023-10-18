@@ -16,8 +16,8 @@ function setMetaThemeColor(theme) {
 	);
 }
 
-function setTheme(theme, options = { permanent: true, update: true }) {
-	const { permanent, update } = options;
+function setTheme(theme, options) {
+	const { permanent, update } = { permanent: true, update: true, ...options };
 	if (permanent) localStorage.setItem('theme', theme);
 	if (theme === 'system') theme = getSystemTheme();
 	document.documentElement.setAttribute('theme', theme);
