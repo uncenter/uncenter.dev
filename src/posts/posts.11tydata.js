@@ -28,5 +28,8 @@ module.exports = {
 				.setZone('utc')
 				.toISO();
 		},
+		eleventyExcludeFromCollections: (data) => {
+			return !!data.archived;
+		},
 	},
 };
