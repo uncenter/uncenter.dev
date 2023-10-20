@@ -25,7 +25,7 @@ export const lang = 'en';
 export const domain = 'uncenter.dev';
 export const url = 'https://uncenter.dev';
 export const repository = 'https://github.com/uncenter/uncenter.dev';
-export const description = 'Software developer, rookie linguist, and student.';
+export const description = 'Open source software developer, geography nerd, and high school student';
 export const keywords = [
 	'Software',
 	'Developer',
