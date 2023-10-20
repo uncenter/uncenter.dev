@@ -17,18 +17,12 @@ const { projects } = Astro.props;
 <div class="grid grid-cols-1 md:grid-cols-2 gap-[1rem_1rem] m-0 p-0">
 	{
 		projects.map((project) => (
-			<div class="flex flex-col p-6 rounded-md bg-[#F7F8FA] dark:bg-[#01040A]">
-				<h2 class="font-bold text-lg m-0">
-					<a
-						class="no-external-link"
-						href={project.link}
-						data-umami-event={`project-link-${slugify(project.name)}`}
-					>
-						{project.name}
-					</a>
-				</h2>
-				<p class="mt-2 mb-6">{project.description}</p>
-				<div class="flex flex-row justify-between mt-auto items-center">
+			<a class="flex flex-col p-6 gap-2 rounded-md hover:bg-[#F7F8FA] dark:hover:bg-[#01040A] transition-colors not-fancy no-external-link" href="{{ project.link }}" data-umami-event="project-link-{{ project.name | slugify }}">
+				<div>
+					<h2 class="font-bold text-lg m-0">{project.name}</h2>
+					<p class="mx-0 my-1">{project.description}</p>
+				</div>
+				<div class="flex flex-row justify-between items-center">
 					<div class="flex flex-row gap-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -42,46 +36,24 @@ const { projects } = Astro.props;
 						{project.language}
 					</div>
 					<div class="flex flex-row gap-4">
-						<a
-							class="no-external-link not-fancy"
-							href={project.link}
-							data-umami-event={`project-link-${slugify(project.name)}`}
-						>
+						<div>
 							<GitHub class="block w-5 h-5 text-fg align-baseline" />
-						</a>
+						</div>
 						{project.live && (
-							<>
+							<div>
 								{project.live.startsWith('https://discord.gg') ? (
-									<a
-										class="no-external-link not-fancy"
-										href={project.live}
-										data-umami-event={`project-live-${project.name}`}
-									>
-										<Discord class="block w-5 h-5 text-fg align-baseline" />
-									</a>
+									<Discord class="block w-5 h-5 text-fg align-baseline" />
 								) : project.live.startsWith('https://npmjs.com') ||
 								  project.live.startsWith('https://www.npmjs.com') ? (
-									<a
-										class="no-external-link not-fancy"
-										href={project.live}
-										data-umami-event={`project-live-${project.name}`}
-									>
-										<Npm class="block w-5 h-5 text-fg align-baseline" />
-									</a>
+									<Npm class="block w-5 h-5 text-fg align-baseline" />
 								) : (
-									<a
-										class="no-external-link not-fancy"
-										href={project.live}
-										data-umami-event={`project-live-${project.name}`}
-									>
-										<Globe class="block w-5 h-5 text-fg align-baseline" />
-									</a>
+									<Globe class="block w-5 h-5 text-fg align-baseline" />
 								)}
-							</>
+							</div>
 						)}
 					</div>
 				</div>
-			</div>
+			</a>
 		))
 	}
 </div>
