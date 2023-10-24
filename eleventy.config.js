@@ -38,6 +38,7 @@ module.exports = function (eleventyConfig) {
 		url: site.author.url,
 		rel: ['noreferrer'],
 		overwrite: false,
+		enableTarget: false,
 	});
 	eleventyConfig.addPlugin(pluginShiki, {
 		themes: { light: 'github-light', dark: 'github-dark' },

@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.1.1
     version: 3.1.1
   '@aloskutov/eleventy-plugin-external-links':
-    specifier: ^2.0.1
-    version: 2.0.1
+    specifier: ^2.1.0
+    version: 2.1.0
   '@ryanccn/eleventy-plugin-rss':
     specifier: ^1.2.2
     version: 1.2.2
@@ -48,8 +48,8 @@ dependencies:
     specifier: ^4.1.5
     version: 4.1.5
   linkedom:
-    specifier: ^0.16.0
-    version: 0.16.0
+    specifier: ^0.16.1
+    version: 0.16.1
   lodash.escape:
     specifier: ^4.0.1
     version: 4.0.1
@@ -64,7 +64,7 @@ dependencies:
     version: 13.0.2
   markdown-it-anchor:
     specifier: ^8.6.7
-    version: 8.6.7(@types/markdown-it@13.0.4)(markdown-it@13.0.2)
+    version: 8.6.7(@types/markdown-it@13.0.5)(markdown-it@13.0.2)
   markdown-it-attrs:
     specifier: ^4.1.6
     version: 4.1.6(markdown-it@13.0.2)
@@ -249,8 +249,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /@aloskutov/eleventy-plugin-external-links@2.0.1:
-    resolution: {integrity: sha512-Qmq1VJ75Cuoyghksuur/MnMCkovr9wTSM9+gGc/Lf9KkxjeZAFsdUUhYA7j94wZqET6lHB1GQoZ3XsaEeDrseQ==}
+  /@aloskutov/eleventy-plugin-external-links@2.1.0:
+    resolution: {integrity: sha512-ZRUy0BoH4BragpSmKT8SdLY1X3p9b1GKn404BUBwas0oU+gySgPPbhHmnv2Ft7jcC0i4UPrpHfKcsV4G2rB7Wg==}
     dependencies:
       node-html-parser: 6.1.10
     dev: false
@@ -474,8 +474,8 @@ packages:
     resolution: {integrity: sha512-hPpIeeHb/2UuCw06kSNAOVWgehBLXEo0/fUs0mw3W2qhqX89PI2yvok83MnuctYGCPrabGIoi0fFso4DQ+sNUQ==}
     dev: false
 
-  /@types/markdown-it@13.0.4:
-    resolution: {integrity: sha512-FAIUdEXrCDnQmAAmJC+UeW/3p0eCI4QZ/+W0lX/h83VD3v78IgTFYftjnAeXS8H0g4PFQCgipc51cQDA8tjgLw==}
+  /@types/markdown-it@13.0.5:
+    resolution: {integrity: sha512-QhJP7hkq3FCrFNx0szMNCT/79CXfcEgUIA3jc5GBfeXqoKsk3R8JZm2wRXJ2DiyjbPE4VMFOSDemLFcUTZmHEQ==}
     dependencies:
       '@types/linkify-it': 3.0.4
       '@types/mdurl': 1.0.4
@@ -1974,6 +1974,15 @@ packages:
       entities: 4.5.0
     dev: false
 
+  /htmlparser2@9.0.0:
+    resolution: {integrity: sha512-uxbSI98wmFT/G4P2zXx4OVx04qWUmyFPrD2/CNepa2Zo3GPNaCaaxElDgwUrwYWkK1nr9fft0Ya8dws8coDLLQ==}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.1.0
+      entities: 4.5.0
+    dev: false
+
   /http-equiv-refresh@1.0.0:
     resolution: {integrity: sha512-TScO04soylRN9i/QdOdgZyhydXg9z6XdaGzEyOgDKycePeDeTT4KvigjBcI+tgfTlieLWauGORMq5F1eIDa+1w==}
     engines: {node: '>= 0.10'}
@@ -2303,13 +2312,13 @@ packages:
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /linkedom@0.16.0:
-    resolution: {integrity: sha512-QF59bXQWo1yeO8aTF4emth6xnMpWR7r5xTpiNY7+8ND24ps/KkwDkHEhEXDAPLTJc88u34QHuyMwyIUHUm1mbg==}
+  /linkedom@0.16.1:
+    resolution: {integrity: sha512-kbK4txFSjGstS8aHkYo3sRSD7viQbE1TAlYRqiqU13oihzzQFp23D1OwW3VdAQJuzqzBB+1qo9Qvp0xOeoVKig==}
     dependencies:
       css-select: 5.1.0
       cssom: 0.5.0
       html-escaper: 3.0.3
-      htmlparser2: 8.0.2
+      htmlparser2: 9.0.0
       uhyphen: 0.2.0
     dev: false
 
@@ -2399,13 +2408,13 @@ packages:
       sourcemap-codec: 1.4.8
     dev: false
 
-  /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.4)(markdown-it@13.0.2):
+  /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.5)(markdown-it@13.0.2):
     resolution: {integrity: sha512-FlCHFwNnutLgVTflOYHPW2pPcl2AACqVzExlkGQNsi4CJgqOHN7YTgDd4LuhgN1BFO3TS0vLAruV1Td6dwWPJA==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: '*'
     dependencies:
-      '@types/markdown-it': 13.0.4
+      '@types/markdown-it': 13.0.5
       markdown-it: 13.0.2
     dev: false
 
