@@ -24,8 +24,10 @@ description: All sorts of things that I use.
 
 ### Utilities
 
+-   [Hyperduck](https://sindresorhus.com/hyperduck) for sending URLs from my phone to computer
 -   [IINA](https://iina.io/) for media playback
 -   [KnockKnock](https://objective-see.org/products/knockknock.html) for system scanning
+-   [Maccy](https://maccy.app/) for quick clipboard history access
 -   [Oversight](https://objective-see.org/products/oversight.html) for camera and microphone monitoring
 -   [PurePaste](https://sindresorhus.com/pure-paste) for automatic clipboard cleaning
 -   [Raycast](https://raycast.com/) for an improved Spotlight search
