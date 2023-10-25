@@ -11,7 +11,7 @@ jobs:
       security-events: write
       actions: write
       contents: read
-    if: ${{ github.triggering_actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
