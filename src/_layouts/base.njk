@@ -40,7 +40,7 @@ footerLinks:
 		</style>
 		<link rel="preload" as="font" type="font/woff2" href="/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 
-		<script async src="{{ analytics.script }}" data-website-id="{{ analytics.websiteId }}"></script>
+		<script async src="{{ analytics.script }}" data-website-id="{{ analytics.websiteId }}" data-do-not-track="true" data-domains="{{ site.domain }}"></script>
 		<meta name="author" content="{{ site.author.name }}">
 		<meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
 		<meta name="generator" content="{{ eleventy.generator }}">
