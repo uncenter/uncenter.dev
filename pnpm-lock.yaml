@@ -54,8 +54,8 @@ dependencies:
     specifier: ^4.0.1
     version: 4.0.1
   lucide-static:
-    specifier: ^0.292.0
-    version: 0.292.0
+    specifier: ^0.293.0
+    version: 0.293.0
   luxon:
     specifier: ^3.4.4
     version: 3.4.4
@@ -64,7 +64,7 @@ dependencies:
     version: 13.0.2
   markdown-it-anchor:
     specifier: ^8.6.7
-    version: 8.6.7(@types/markdown-it@13.0.6)(markdown-it@13.0.2)
+    version: 8.6.7(@types/markdown-it@13.0.7)(markdown-it@13.0.2)
   markdown-it-attrs:
     specifier: ^4.1.6
     version: 4.1.6(markdown-it@13.0.2)
@@ -87,11 +87,11 @@ dependencies:
     specifier: ^1.69.5
     version: 1.69.5
   shikiji:
-    specifier: ^0.6.13
-    version: 0.6.13
+    specifier: ^0.7.4
+    version: 0.7.4
   simple-icons:
-    specifier: ^9.21.0
-    version: 9.21.0
+    specifier: ^10.0.0
+    version: 10.0.0
   tailwindcss:
     specifier: ^3.3.5
     version: 3.3.5
@@ -475,8 +475,8 @@ packages:
     resolution: {integrity: sha512-yg6E+u0/+Zjva+buc3EIb+29XEg4wltq7cSmd4Uc2EE/1nUVmxyzpX6gUXD0V8jIrG0r7YeOGVIbYRkxeooCtw==}
     dev: false
 
-  /@types/markdown-it@13.0.6:
-    resolution: {integrity: sha512-0VqpvusJn1/lwRegCxcHVdmLfF+wIsprsKMC9xW8UPcTxhFcQtoN/fBU1zMe8pH7D/RuueMh2CaBaNv+GrLqTw==}
+  /@types/markdown-it@13.0.7:
+    resolution: {integrity: sha512-U/CBi2YUUcTHBt5tjO2r5QV/x0Po6nsYwQU4Y04fBS6vfoImaiZ6f8bi3CjTCxBPQSO1LMyUqkByzi8AidyxfA==}
     dependencies:
       '@types/linkify-it': 3.0.5
       '@types/mdurl': 1.0.5
@@ -2407,8 +2407,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-static@0.292.0:
-    resolution: {integrity: sha512-s1MRjUKsltTQ7W8e1Fd6Dnhcq5FTW0shhT6Yj3QGyrGilqFRs8VWD8BgegsgLBurrbTwfAQAmAOY2bbbS+gGMw==}
+  /lucide-static@0.293.0:
+    resolution: {integrity: sha512-/7AlGr61i2SyyOIKumtxmSgXRF/ec1EUdKbyqc5EP+t1njJkWNZXXXtREuqu1SD/DM9Q3zu49CLDSe79C61cVg==}
     dev: false
 
   /luxon@3.4.4:
@@ -2422,13 +2422,13 @@ packages:
       sourcemap-codec: 1.4.8
     dev: false
 
-  /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.6)(markdown-it@13.0.2):
+  /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.7)(markdown-it@13.0.2):
     resolution: {integrity: sha512-FlCHFwNnutLgVTflOYHPW2pPcl2AACqVzExlkGQNsi4CJgqOHN7YTgDd4LuhgN1BFO3TS0vLAruV1Td6dwWPJA==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: '*'
     dependencies:
-      '@types/markdown-it': 13.0.6
+      '@types/markdown-it': 13.0.7
       markdown-it: 13.0.2
     dev: false
 
@@ -3770,8 +3770,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  /shikiji@0.6.13:
-    resolution: {integrity: sha512-4T7X39csvhT0p7GDnq9vysWddf2b6BeioiN3Ymhnt3xcy9tXmDcnsEFVxX18Z4YcQgEE/w48dLJ4pPPUcG9KkA==}
+  /shikiji@0.7.4:
+    resolution: {integrity: sha512-N5dmPvyhH/zfcsuWysUEAMwRJDMz26LUns2VEUs5y4Ozbf5jkAODU0Yswjcf/tZAwpFnk5x3y34dupFMnF2+NA==}
     dependencies:
       hast-util-to-html: 9.0.0
     dev: false
@@ -3792,8 +3792,8 @@ packages:
       simple-concat: 1.0.1
     dev: false
 
-  /simple-icons@9.21.0:
-    resolution: {integrity: sha512-yxjs49nKwff5ozRwPCBVcGG4Ehlg5YiR1g4EJ83zmqc0hYhYb6UQJqiy2WOga2OJ1/qVHaej7q762hYZX/mavA==}
+  /simple-icons@10.0.0:
+    resolution: {integrity: sha512-oDCgnJ2n3+Ae9Q5hNIuzq0dKwGkmW7h3Jq+HZpd0e3jAQRW/Kp5lnMauakbcUjW/XjXz+v7uJz1ecDRVoQL/HA==}
     engines: {node: '>=0.12.18'}
     dev: false
 
