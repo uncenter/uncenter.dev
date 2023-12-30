@@ -1,8 +1,7 @@
-const { join } = require('node:path');
-const { imageSize } = require('image-size');
+const path = require('node:path');
 const escape = require('lodash.escape');
-
-const EleventyImage = require('@11ty/eleventy-img');
+const sizeOf = require('image-size');
+const processImage = require('@11ty/eleventy-img');
 
 const IMAGE_OPTIMIZATION =
 	process.env.IMAGE_OPTIMIZATION === '0' ||
@@ -10,29 +9,30 @@ const IMAGE_OPTIMIZATION =
 		? false
 		: true;
 
-function stringifyAttributes(attributeMap) {
+const stringifyAttributes = (attributeMap) => {
 	return Object.entries(attributeMap)
 		.map(([attribute, value]) => {
 			if (value === undefined || value === '') return '';
 			return `${attribute}="${value}"`;
 		})
 		.join(' ');
-}
+};
 
 const insertImage = async function (source, alt, options) {
 	const classes = options?.classes || '';
 	const dark = options?.dark || false;
 
-	if (!dark) source = join('images', `${this.page.fileSlug}/${source}`);
-	else if (dark !== -1)
+	if (!dark) {
+		source = path.join('images', `${this.page.fileSlug}/${source}`);
+	} else if (dark !== -1) {
 		return (
 			(await insertImage(
-				join('images', `${this.page.fileSlug}/${source}`),
+				path.join('images', `${this.page.fileSlug}/${source}`),
 				alt,
 				{ classes: classes + ' light', dark: -1 },
 			)) +
 			(await insertImage(
-				join('images', `${this.page.fileSlug}/${dark}`),
+				path.join('images', `${this.page.fileSlug}/${dark}`),
 				alt,
 				{
 					classes: classes + ' dark',
@@ -40,15 +40,16 @@ const insertImage = async function (source, alt, options) {
 				},
 			))
 		);
+	}
 
-	const { width } = imageSize(source);
+	const dimensions = sizeOf(source);
 
-	const data = await EleventyImage(source, {
+	const data = await processImage(source, {
 		widths: IMAGE_OPTIMIZATION
-			? [640, 750, 828, 1080, 1200, 1920, 2048, 3840, width]
-					.filter((a) => a <= width)
+			? [640, 750, 828, 1080, 1200, 1920, 2048, 3840, dimensions.width]
+					.filter((a) => a <= dimensions.width)
 					.sort((a, b) => a - b)
-			: [width],
+			: [dimensions.width],
 		formats: IMAGE_OPTIMIZATION ? ['avif', 'webp', 'png'] : ['png'],
 		outputDir: 'dist/assets/images/',
 		urlPath: '/assets/images/',
