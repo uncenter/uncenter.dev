@@ -6,14 +6,14 @@ const transforms = require('./utils/11ty/transforms.js');
 const pluginTOC = require('@uncenter/eleventy-plugin-toc');
 const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
 const pluginRSS = require('@ryanccn/eleventy-plugin-rss');
-const pluginShiki = require('./utils/plugins/shiki.plugin.js');
+const pluginShiki = require('./utils/plugins/shikiji.js');
 const pluginIcons = require('eleventy-plugin-icons');
 
 const path = require('node:path');
 const sass = require('sass');
 const postcss = require('postcss');
 
-const markdownLibrary = require('./utils/plugins/md.library.js');
+const markdownLibrary = require('./utils/plugins/md-library.js');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const site = require('./site.config.js');
 require('dotenv').config();

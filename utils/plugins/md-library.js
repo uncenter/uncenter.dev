@@ -3,8 +3,8 @@ const markdownItAnchor = require('markdown-it-anchor');
 const markdownItAttrs = require('markdown-it-attrs');
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItKbd = require('markdown-it-kbd-better');
-const { full: markdownItEmoji } = require('markdown-it-emoji');
-const codeToolbarPlugin = require('./code-toolbar.plugin');
+const markdownItEmoji = require('markdown-it-emoji').full;
+const codeToolbarPlugin = require('./code-toolbar.js');
 
 const markdownLibrary = markdownIt({
 	html: true,
