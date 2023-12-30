@@ -4,12 +4,12 @@ const postcss = require('postcss');
 const terser = require('terser');
 
 module.exports = async () => {
-	const fonts = await readFile('./src/assets/fonts.css', 'utf-8');
-	const scripts = await readdir('./src/assets/scripts/');
+	const fonts = await readFile('./src/_assets/fonts.css', 'utf-8');
+	const scripts = await readdir('./src/_assets/scripts/');
 
 	const js = {};
 	for (const script of scripts) {
-		const file = await readFile(`./src/assets/scripts/${script}`, 'utf-8');
+		const file = await readFile(`./src/_assets/scripts/${script}`, 'utf-8');
 		const { code } = await terser.minify(file);
 		const { name } = path.parse(script);
 		js[name] = code;
