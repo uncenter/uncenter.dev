@@ -51,6 +51,10 @@ div {
 	.shiki span {
 		color: var(--shiki-light);
 	}
+
+	a.dark:has(picture) {
+		display: none;
+	}
 }
 
 @mixin dark-theme-styles() {
@@ -68,6 +72,10 @@ div {
 	.shiki,
 	.shiki span {
 		color: var(--shiki-dark);
+	}
+
+	a.light:has(picture) {
+		display: none;
 	}
 }
 

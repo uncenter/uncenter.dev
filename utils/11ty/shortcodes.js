@@ -19,8 +19,27 @@ function stringifyAttributes(attributeMap) {
 		.join(' ');
 }
 
-const insertImage = async function (source, alt, classes) {
-	source = join('images', source);
+const insertImage = async function (source, alt, options) {
+	const classes = options?.classes || '';
+	const dark = options?.dark || false;
+
+	if (!dark) source = join('images', `${this.page.fileSlug}/${source}`);
+	else if (dark !== -1)
+		return (
+			(await insertImage(
+				join('images', `${this.page.fileSlug}/${source}`),
+				alt,
+				{ classes: classes + ' light', dark: -1 },
+			)) +
+			(await insertImage(
+				join('images', `${this.page.fileSlug}/${dark}`),
+				alt,
+				{
+					classes: classes + ' dark',
+					dark: -1,
+				},
+			))
+		);
 
 	const { width } = imageSize(source);
 
@@ -60,14 +79,15 @@ const insertImage = async function (source, alt, classes) {
 		.join('\n');
 
 	return `
-<a class="no-underline" href="${(getLargestImage('webp') || base).url}">
+<a class="no-underline ${classes}" href="${
+		(getLargestImage('webp') || base).url
+	}">
     <picture>
         ${sources}
         <img ${stringifyAttributes({
 			height: base.height,
 			width: base.width,
 			src: base.url,
-			class: classes,
 			alt: escape(alt),
 			loading: 'lazy',
 			decoding: 'async',

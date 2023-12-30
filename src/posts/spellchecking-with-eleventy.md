@@ -107,7 +107,7 @@ If you're using Netlify, you can run this script and the spell-check script duri
 command = "node ./utils/get-repos.js && npm run spell && npm run build"
 ```
 
-{% image "/spellchecking-with-eleventy/netlify-build-command.png", "Screenshot of our new build command in the Netlify GUI" %}
+{% image "netlify-build-command.png", "Screenshot of our new build command in the Netlify GUI" %}
 
 ### Ignore patterns
 
