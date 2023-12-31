@@ -1,7 +1,7 @@
 ---
 tags: ['npm']
 title: npm install everything
-description: How we made a package that dependends on every single NPM package.
+description: How we made a package that depends on every single NPM package.
 date: 2023-12-30
 edited: 2023-12-30
 comments: true
@@ -11,7 +11,7 @@ Nine years ago, [@PatrickJS](https://github.com/PatrickJS) created the `everythi
 
 {% image "the-tweet.png", "the perfect repo doesn’t exi… (a link to Patrick's node-everything repository)",  { dark: "the-tweet-dark.png" } %}
 
-I saw the tweet on my timeline and [made a quick PR](https://github.com/everything-registry/everything/pull/6) to clean up a few things and help bring the repository up to speed. At the same time, Patrick had started an attempt to publish a `2.0.0` version of the package, but he discoveered that there was now a `10` megabyte limit for the uncompressed size of a package. I [made a comment](https://github.com/everything-registry/everything/pull/6#issuecomment-1872278630) about the issue and we quickly [began brainstorming](https://github.com/everything-registry/everything/pull/6#issuecomment-1872294994) a solution.
+I saw the tweet on my timeline and [made a quick PR](https://github.com/everything-registry/everything/pull/6) to clean up a few things and help bring the repository up to speed. At the same time, Patrick had started an attempt to publish a `2.0.0` version of the package, but he discovered that there was now a `10` megabyte limit for the uncompressed size of a package. I [made a comment](https://github.com/everything-registry/everything/pull/6#issuecomment-1872278630) about the issue and we quickly [began brainstorming](https://github.com/everything-registry/everything/pull/6#issuecomment-1872294994) a solution.
 
 ## Phase 1: Brainstorming
 
@@ -21,7 +21,7 @@ We moved to Twitter DMs, and by this time others who saw Trash's tweet wanted to
 
 ## Phase 2: Execution
 
-[I began implementing some code](https://github.com/everything-registry/everything/pull/7) to generate the required packages, and a few hours later we were ready to go- except we forget one thing. Or, rather, NPM didn't tell us one thing. It turns out that NPM has a limit for how many dependencies a package can have. And we were apparently _wayy_ over it. NPM has no apparent documentation on this and the limit wasn't visible in any public source code (the registry is private), so Hacksore [did some testing](https://github.com/Hacksore/max-npm-package-deps) and discovered the limit to be 800 dependencies. At the current range of 90k to 300k dependencies per scoped package... we needed a new plan.
+[I began implementing some code](https://github.com/everything-registry/everything/pull/7) to generate the required packages, and a few hours later we were ready to go- except we forget one thing. Or, rather, NPM didn't tell us one thing. It turns out that NPM has a limit for how many dependencies a package can have. And we were apparently _way_ over it. NPM has no apparent documentation on this and the limit wasn't visible in any public source code (the registry is private), so Hacksore [did some testing](https://github.com/Hacksore/max-npm-package-deps) and discovered the limit to be 800 dependencies. At the current range of 90k to 300k dependencies per scoped package... we needed a new plan.
 
 ## Phase 3: Back to the drawing board.
 
@@ -43,11 +43,11 @@ We all went back to doing other things, and I checked the logs occasionally. Hal
 
 ## 11:33 PM, EST
 
-We had found the limits of NPM's API, and had been ratelimited. In 32 minutes, we had published 454 packages: the main `everything` package, all five "chunks", but only 448 "sub-chunks". It was only a fraction (roughly 14%) of everything (hah, pun intended) we needed to publish.
+We had found the limits of NPM's API, and had been rate limited. In 32 minutes, we had published 454 packages: the main `everything` package, all five "chunks", but only 448 "sub-chunks". It was only a fraction (roughly 14%) of everything (hah, pun intended) we needed to publish.
 
 ## Phase 5: ???
 
-I [made a quick fix](https://github.com/everything-registry/everything/commit/1aef5aa3aa5e3d0e2107063cad6ce63f9cba9b0b) before heading to bed to skip the packages we had already published, but we still didn't have any sort of plan to deal with ratelimiting. Overnight between the 29th and the 30th, we settled on a new plan. We would periodically run a workflow that publishes as many packages as it can, and then the workflow saves the work it did to the repository so the next run can pick up where the last one left off. I replaced the sketchy manual intervention from the night before with a proper `published.json` file to keep track of the published packages, and [initialized it](https://github.com/everything-registry/everything/commit/fafc0ccf92b74eb994136c49b3ae87a7016d6e77). I [wrote a release script](https://github.com/everything-registry/everything/commit/3bd649ab3bd74a6d7933b8e4ad5116b9b987889d) that wrote back to `published.json` after publishing each package (I know, I know, this could be better) and [added a step to the workflow](https://github.com/everything-registry/everything/commit/85c8bed75a15e81c66a750e3ea36a4f3bb166fcc) to commit the changes after each run. After a few hiccups[^1], it finally worked!
+I [made a quick fix](https://github.com/everything-registry/everything/commit/1aef5aa3aa5e3d0e2107063cad6ce63f9cba9b0b) before heading to bed to skip the packages we had already published, but we still didn't have any sort of plan to deal with rate limiting. Overnight between the 29th and the 30th, we settled on a new plan. We would periodically run a workflow that publishes as many packages as it can, and then the workflow saves the work it did to the repository so the next run can pick up where the last one left off. I replaced the sketchy manual intervention from the night before with a proper `published.json` file to keep track of the published packages, and [initialized it](https://github.com/everything-registry/everything/commit/fafc0ccf92b74eb994136c49b3ae87a7016d6e77). I [wrote a release script](https://github.com/everything-registry/everything/commit/3bd649ab3bd74a6d7933b8e4ad5116b9b987889d) that wrote back to `published.json` after publishing each package (I know, I know, this could be better) and [added a step to the workflow](https://github.com/everything-registry/everything/commit/85c8bed75a15e81c66a750e3ea36a4f3bb166fcc) to commit the changes after each run. After a few hiccups[^1], it finally worked!
 
 And so it began. Throughout the day I, very irregularly, manually dispatched the workflow. For a while, we sat and waited. We even began an effort to actually run `npm install everything` (well, `yarn add everything`) and put up a Twitch stream.
 
