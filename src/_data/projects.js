@@ -19,12 +19,21 @@ const projects = {
 			featured: true,
 		},
 		{
+			name: 'eleventy-plugin-icons',
+			link: 'https://github.com/uncenter/eleventy-plugin-icons',
+			featured: true,
+		},
+		{
 			name: 'create-eleventy-app',
 			link: 'https://github.com/uncenter/create-eleventy-app',
 		},
 		{
 			name: 'fn',
 			link: 'https://github.com/uncenter/fn',
+		},
+		{
+			name: 'tnl',
+			link: 'https://github.com/uncenter/tnl',
 		},
 		{
 			name: 'gh-stats',
@@ -34,9 +43,10 @@ const projects = {
 			name: 'dotfiles',
 			link: 'https://github.com/uncenter/dotfiles',
 		},
+		{ name: 'xdirs', link: 'https://github.com/uncenter/xdirs' },
 		{
-			name: 'eleventy-plugin-icons',
-			link: 'https://github.com/uncenter/eleventy-plugin-icons',
+			name: 'detect-formatting',
+			link: 'https://github.com/uncenter/detect-formatting',
 		},
 		{
 			name: 'markdown-it-kbd-better',
@@ -45,6 +55,14 @@ const projects = {
 		{
 			name: '@uncenter/eleventy-plugin-toc',
 			link: 'https://github.com/uncenter/eleventy-plugin-toc',
+		},
+		{
+			name: '@uncenter/quickbench',
+			link: 'https://github.com/uncenter/quickbench',
+		},
+		{
+			name: 'canvas-grade-calculator',
+			link: 'https://github.com/uncenter/canvas-grade-calculator',
 		},
 		{
 			name: 'wifi-password',
