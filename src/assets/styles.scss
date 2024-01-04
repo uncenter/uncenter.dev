@@ -258,3 +258,9 @@ div.code-block {
 	@apply text-xs whitespace-normal px-[0.4em] py-[0.2em] rounded-md;
 	@apply bg-[var(--inline-code-bg)];
 }
+
+div.container.note {
+	padding: 1rem 2rem;
+	border-radius: 0.5rem;
+	border: 1px dashed var(--current-gray);
+}

@@ -3,10 +3,34 @@ tags: ['npm']
 title: The package that broke NPM (accidentally)
 description: How we made a package that depends on every single NPM package... and broke NPM in the process.
 date: 2024-01-03
-edited: 2024-01-03
+edited: 2024-01-04
 comments: true
 # cSpell:ignore unpublish, unpublishing
 ---
+
+:::note
+
+## An update!
+
+GitHub has now, a day after writing this, fully "disabled" (whatever that means) our `everything-registry` organization on NPM and GitHub; you can see the email they sent to me below. While I may not agree entirely with the reasoning they provided, I am very thankful that our personal accounts are still intact!
+
+{% image "github-trust-and-safety-email.png" %}
+
+All of [our scoped packages](https://www.npmjs.com/org/everything-registry) have been deleted, so unpublishing packages should no longer be an issue.
+
+Another note; this story was picked up by some media outlets in the cybersecurity world! [SC Media](https://www.scmagazine.com/news/npm-registry-prank-leaves-developers-unable-to-unpublish-packages), [Checkmarx](https://checkmarx.com/blog/when-everything-goes-wrong-npm-dependency-hell-campaign-2024-edition/), and [BleepingComputer](https://www.bleepingcomputer.com/news/security/everything-blocks-devs-from-removing-their-own-npm-packages/).
+
+<details>
+	<summary>The aforementioned articles</summary>
+
+{% image "sc-media-article.png" %}
+
+{% image "checkmarx-article.png" %}
+
+{% image "bleepingcomputer-article.png" %}
+
+</details>
+:::
 
 Ten years ago, [@PatrickJS](https://github.com/PatrickJS) created the `everything` package on NPM, containing every package on the NPM registry in the first 5 years of the registry's existence. The package remained unchanged for years, but just a few days ago [a tweet](https://twitter.com/trashh_dev/status/1740756965905875311) from [@Trash](https://twitter.com/trashh_dev/) sparked renewed interest in the project!
 
@@ -65,12 +89,6 @@ Finally, at 11:27PM, [the final workflow run](https://github.com/everything-regi
 ## Response
 
 The initial response to our endeavour was... not positive. People began coming to the repository, complaining about not being able to unpublish. We looked into it, and it turns out that the issue is our usage of "star" versions; that is, specifying the version not as a typical semantic version in the format of `vX.Y.Z`, but as `*`. The star means "any and all" versions of a package - here is where the issue lies. NPM blocks package authors from unpublishing packages if another package depends on that version of the package. But since the star is _all_ versions, all versions of a package cannot be unpublished. This is usually harmless, but unintentionally us doing this on a large scale prevented _anyone_ from unpublishing. We immediately reached out to GitHub; Patrick used his network and contacts to speak to people at GitHub, and we sent multiple emails to the support and security team on NPM. Unfortunately, these events transpired over the holidays and the NPM/GitHub teams were out of the office. We continued to get harsh and rude comments from random people with a little too much time on their hands - one person even [wrote a 1400 word rant](https://github.com/everything-registry/everything/issues/21).
-
-Our story also got picked up by [SC Media](https://www.scmagazine.com/news/npm-registry-prank-leaves-developers-unable-to-unpublish-packages) and [Checkmarx](https://checkmarx.com/blog/when-everything-goes-wrong-npm-dependency-hell-campaign-2024-edition/), two cybersecurity publications.
-
-{% image "sc-media-article.png" %}
-
-{% image "checkmarx-article.png" %}
 
 Thankfully on the night of Tuesday, Janurary 2^nd^, GitHub reached out and let us know they were aware of the problem. On the 3^rd^ of January, we received a notice that our GitHub organization had been "flagged" and our organization and repositories were hidden. Not what we wanted to see, but progress nonetheless.
 

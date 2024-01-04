@@ -16,6 +16,22 @@ module.exports = {
 				.setZone('utc')
 				.toISO();
 		},
+		edited: (data) => {
+			return data.edited
+				? DateTime.fromJSDate(
+						new Date(
+							DateTime.fromISO(
+								new Date(data.edited).toISOString(),
+								{
+									zone: 'utc',
+								},
+							),
+						),
+					)
+						.setZone('utc')
+						.toISO()
+				: undefined;
+		},
 		eleventyExcludeFromCollections: (data) => {
 			return !!data.archived;
 		},

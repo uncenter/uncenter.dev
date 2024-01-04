@@ -6,7 +6,12 @@
         </h2>
         <div class="flex flex-row flex-wrap gap-2 lowercase my-2">
             {%- if post.data.date -%}
-                <time datetime="{{ post.data.date }}">{{ post.data.date | toShortDate }}</time>
+                <span>
+				<time datetime="{{ post.data.date }}">{{ post.data.date | toShortDate }}</time>
+				{%- if post.data.edited and ((post.data.edited | toShortDate) != (post.data.date | toShortDate)) -%}
+					&nbsp;(last edited <time datetime="{{ post.data.edited }}">{{ post.data.edited | toShortDate }}</time>)
+				{%- endif -%}
+				</span>
             {%- endif -%}
             {%- if post.data.tags -%}
                 <span>&middot;</span>

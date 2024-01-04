@@ -6,6 +6,7 @@ const markdownItKbd = require('markdown-it-kbd-better');
 const markdownItEmoji = require('markdown-it-emoji').full;
 const markdownItSub = require('markdown-it-sub');
 const markdownItSup = require('markdown-it-sup');
+const markdownItContainer = require('markdown-it-container');
 const codeToolbarPlugin = require('./code-toolbar.js');
 
 const markdownLibrary = markdownIt({
@@ -29,6 +30,17 @@ const markdownLibrary = markdownIt({
 	.use(markdownItEmoji)
 	.use(markdownItSub)
 	.use(markdownItSup)
+	.use(markdownItContainer, 'dynamic', {
+		validate: function () {
+			return true;
+		},
+		render: function (tokens, index) {
+			const token = tokens[index];
+			return token.nesting === 1
+				? '<div class="container ' + token.info.trim() + '">'
+				: '</div>';
+		},
+	})
 	.use(codeToolbarPlugin);
 
 module.exports = markdownLibrary;

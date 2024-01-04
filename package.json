@@ -32,6 +32,7 @@
 		"markdown-it": "^14.0.0",
 		"markdown-it-anchor": "^8.6.7",
 		"markdown-it-attrs": "^4.1.6",
+		"markdown-it-container": "^4.0.0",
 		"markdown-it-emoji": "^3.0.0",
 		"markdown-it-footnote": "^4.0.0",
 		"markdown-it-kbd-better": "^1.2.5",
