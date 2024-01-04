@@ -1,7 +1,7 @@
 ---
 tags: ['npm']
 title: The package that broke NPM (accidentally)
-description: How we made a package that depends on every single NPM package... and how we broke NPM in the process.
+description: How we made a package that depends on every single NPM package... and broke NPM in the process.
 date: 2024-01-03
 edited: 2024-01-03
 comments: true
