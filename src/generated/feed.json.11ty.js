@@ -21,7 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-const urlize = require('../../utils/urlize');
+import { default as urlize } from '../../utils/urlize.js';
 
 class Page {
 	data() {
@@ -66,4 +66,4 @@ class Page {
 	}
 }
 
-module.exports = Page;
+export default Page;

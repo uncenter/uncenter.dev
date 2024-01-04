@@ -1,27 +1,33 @@
-const shortcodes = require('./utils/11ty/shortcodes.js');
-const collections = require('./utils/11ty/collections.js');
-const filters = require('./utils/11ty/filters.js');
-const transforms = require('./utils/11ty/transforms.js');
+import {
+	collections,
+	filters,
+	shortcodes,
+	transforms,
+} from './utils/11ty/index.js';
 
-const pluginTOC = require('@uncenter/eleventy-plugin-toc');
-const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links');
-const pluginRSS = require('@ryanccn/eleventy-plugin-rss');
-const pluginShiki = require('./utils/plugins/shikiji.js');
-const pluginIcons = require('eleventy-plugin-icons');
+import pluginTOC from '@uncenter/eleventy-plugin-toc';
+import pluginExternalLinks from '@aloskutov/eleventy-plugin-external-links';
+import pluginRSS from '@ryanccn/eleventy-plugin-rss';
+import pluginShiki from './utils/plugins/shikiji.js';
+import pluginIcons from 'eleventy-plugin-icons';
 
-const path = require('node:path');
-const sass = require('sass');
-const postcss = require('postcss');
+import path from 'node:path';
+import * as sass from 'sass';
+import postcss from 'postcss';
 
-const markdownLibrary = require('./utils/plugins/md-library.js');
+import markdownLibrary from './utils/plugins/md-library.js';
+
+import site from './site.config.js';
 const isDevelopment = process.env.NODE_ENV !== 'production';
-const site = require('./site.config.js');
-require('dotenv').config();
+import 'dotenv/config';
 
-const { blue } = require('kleur/colors');
+import { blue } from 'kleur/colors';
+
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
 	eleventyConfig.addGlobalData('site', site);
 	eleventyConfig.addPlugin(shortcodes);
 	eleventyConfig.addPlugin(collections);
@@ -127,4 +133,4 @@ module.exports = function (eleventyConfig) {
 		templateFormats: ['md', 'njk', '11ty.js'],
 		markdownTemplateEngine: 'njk',
 	};
-};
+}

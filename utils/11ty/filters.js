@@ -1,4 +1,5 @@
-const { DateTime } = require('luxon');
+import { DateTime } from 'luxon';
+import { default as urlize } from '../urlize.js';
 
 const toShortDate = (dateObject) => {
 	// 10/14/1983
@@ -40,7 +41,7 @@ const toFullDateTime = (dateObject) => {
 	);
 };
 
-module.exports = (eleventyConfig) => {
+export const filters = (eleventyConfig) => {
 	eleventyConfig.addFilter('toShortDate', toShortDate);
 	eleventyConfig.addFilter('toMedDate', toMedDate);
 	eleventyConfig.addFilter('toFullDate', toFullDate);
@@ -50,5 +51,5 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('capitalize', (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	});
-	eleventyConfig.addFilter('url', require('../urlize'));
+	eleventyConfig.addFilter('url', urlize);
 };

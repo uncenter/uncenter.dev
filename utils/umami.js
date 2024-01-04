@@ -1,6 +1,6 @@
-const EleventyFetch = require('@11ty/eleventy-fetch');
+import EleventyFetch from '@11ty/eleventy-fetch';
 
-const analytics = require('../src/_data/analytics');
+import analytics from '../src/_data/analytics.js';
 
 async function getToken(username, password) {
 	const response = await fetch(`${analytics.url}/api/auth/login`, {
@@ -71,8 +71,8 @@ async function getValidToken() {
 	);
 }
 
-module.exports = async function (path, date) {
+export default async function (path, date) {
 	const token = await getValidToken();
 	const pageviews = await getPageViews(path, date, token);
 	return pageviews['pageviews'].reduce((total, pv) => total + pv.y, 0);
-};
+}

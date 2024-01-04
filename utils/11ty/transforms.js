@@ -1,6 +1,6 @@
-const { minify } = require('html-minifier');
+import { minify } from 'html-minifier';
 
-module.exports = {
+export const transforms = {
 	minifyHtml: (content) => {
 		return minify(content, {
 			useShortDoctype: true,

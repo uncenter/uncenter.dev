@@ -1,5 +1,5 @@
-const YAML = require('yaml');
-const EleventyFetch = require('@11ty/eleventy-fetch');
+import YAML from 'yaml';
+import EleventyFetch from '@11ty/eleventy-fetch';
 
 const projects = {
 	maintained: [
@@ -117,7 +117,7 @@ async function getLanguageColors(languages) {
 	);
 }
 
-module.exports = async function () {
+export default async function () {
 	const headers = {};
 	if (process.env.GITHUB_TOKEN) {
 		headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
@@ -148,4 +148,4 @@ module.exports = async function () {
 		}
 	}
 	return projects;
-};
+}

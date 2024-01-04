@@ -1,4 +1,4 @@
-module.exports = (eleventyConfig, { themes }) => {
+export default (eleventyConfig, { themes }) => {
 	eleventyConfig.amendLibrary('md', () => {});
 
 	eleventyConfig.on('eleventy.before', async () => {
