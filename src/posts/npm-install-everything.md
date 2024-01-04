@@ -12,9 +12,15 @@ comments: true
 
 ## An update!
 
+<details>
+	<summary>You might want to read the rest of the article first...</summary>
+
 GitHub has now, a day after writing this, fully "disabled" (whatever that means) our `everything-registry` organization on NPM and GitHub; you can see the email they sent to me below. While I may not agree entirely with the reasoning they provided, I am very thankful that our personal accounts are still intact!
 
-{% image "github-trust-and-safety-email.png" %}
+<details>
+	<summary>Email from GitHub Trust & Safety</summary>
+	{% image "github-trust-and-safety-email.png" %}
+</details>
 
 All of [our scoped packages](https://www.npmjs.com/org/everything-registry) have been deleted, so unpublishing packages should no longer be an issue.
 
@@ -22,16 +28,14 @@ Another note; this story was picked up by some media outlets in the cybersecurit
 
 <details>
 	<summary>The aforementioned articles</summary>
-
-{% image "sc-media-article.png" %}
-
-{% image "checkmarx-article.png" %}
-
-{% image "bleepingcomputer-article.png" %}
-
+	{% image "sc-media-article.png" %}
+	{% image "checkmarx-article.png" %}
+	{% image "bleepingcomputer-article.png" %}
 </details>
 
 {% image "tech-twitter-knows.png" %}
+
+</details>
 :::
 
 Ten years ago, [@PatrickJS](https://github.com/PatrickJS) created the `everything` package on NPM, containing every package on the NPM registry in the first 5 years of the registry's existence. The package remained unchanged for years, but just a few days ago [a tweet](https://twitter.com/trashh_dev/status/1740756965905875311) from [@Trash](https://twitter.com/trashh_dev/) sparked renewed interest in the project!
@@ -103,3 +107,5 @@ And lastly, I want to apologize for anyone frustrated, annoyed, or just angry at
 {% image "fuck-around-find-out.jpg" %}
 
 Thanks for reading this, and have a lovely day!
+
+_Now_ you can [read the update](http://localhost:8080/posts/npm-install-everything/#an-update!) if you haven't already!
