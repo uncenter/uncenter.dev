@@ -5,9 +5,14 @@ layout: base.njk
 <article>
     <h1 style="view-transition-name: post-{{ title | slugify }};">{{ title }}</h1>
     <div class="flex flex-row flex-wrap gap-2 lowercase -mt-10 mb-10">
-        {% if date %}
-            <time datetime="{{ date }}">{{ date | toShortDate }}</time>
-        {% endif %}
+		{% if date %}
+			<span>
+			<time datetime="{{ date }}">{{ date | toShortDate }}</time>
+			{% if edited and ((edited | toShortDate) != (date | toShortDate)) %}
+				&nbsp;(last edited <time datetime="{{ edited }}">{{ edited | toShortDate }}</time>)
+			{% endif %}
+			</span>
+		{% endif %}
         {% if tags %}
             <span>&middot;</span>
             <div class="flex flex-row flex-wrap space-x-1">
