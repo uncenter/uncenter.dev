@@ -30,6 +30,8 @@ Another note; this story was picked up by some media outlets in the cybersecurit
 {% image "bleepingcomputer-article.png" %}
 
 </details>
+
+{% image "tech-twitter-knows.png" %}
 :::
 
 Ten years ago, [@PatrickJS](https://github.com/PatrickJS) created the `everything` package on NPM, containing every package on the NPM registry in the first 5 years of the registry's existence. The package remained unchanged for years, but just a few days ago [a tweet](https://twitter.com/trashh_dev/status/1740756965905875311) from [@Trash](https://twitter.com/trashh_dev/) sparked renewed interest in the project!
