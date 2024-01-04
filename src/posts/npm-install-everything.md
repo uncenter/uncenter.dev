@@ -72,7 +72,7 @@ Our story also got picked up by [SC Media](https://www.scmagazine.com/news/npm-r
 
 {% image "checkmarx-article.png" %}
 
-Thankfully on the night of Tuesday, Janurary 2^nd^, GitHub reached out and let us know they were aware of the problem. On the 3^rd^ of January, we received a notice that our GitHub organization had been "flagged" and our organziation and repositories were hidden. Not what we wanted to see, but progress nonetheless.
+Thankfully on the night of Tuesday, Janurary 2^nd^, GitHub reached out and let us know they were aware of the problem. On the 3^rd^ of January, we received a notice that our GitHub organization had been "flagged" and our organization and repositories were hidden. Not what we wanted to see, but progress nonetheless.
 
 {% image "org-flagged.png" %}
 
