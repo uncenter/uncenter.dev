@@ -10,7 +10,7 @@
             {%- endif -%}
             {%- if post.data.tags -%}
                 <span>&middot;</span>
-                <div class="flex flex-row flex-wrap space-x-1"> 
+                <div class="flex flex-row flex-wrap space-x-1">
                     {%- for tag in post.data.tags -%}
                     <span>
                         <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
@@ -19,6 +19,10 @@
                     {%- endfor -%}
                 </div>
             {%- endif -%}
+			{%- if post.data.views -%}
+                <span>&middot;</span>
+				<span>{{ views }} views</span>
+			{%- endif -%}
         </div>
         <p class="mb-0 mt-1">{{ post.data.description }}</p>
     </div>
