@@ -54,7 +54,7 @@ And so it began. Throughout the day I, very irregularly, manually dispatched the
 
 {% image "twitch-stream.png", { dark: "twitch-stream-dark.png" } %}
 
-We also [made a dotfiles repository](https://github.com/everything-registry/dotfiles), for some reason... I think it might have broken the record for the most configuration files in a single repository? We are 100% open to PRs so feel free to add more! We also [made a website](ttps://everything-registry.github.io/)! Many thanks to the rest of the contributors I have mentioned so far, but notably [Evan Boehs](https://boehs.org/) for leading the charge and [PickleNik](https://github.com/PickleNik) made it look nice. Please check it out!
+We also [made a website](ttps://everything-registry.github.io/)! Many thanks to the rest of the contributors I have mentioned so far, but notably [Evan Boehs](https://boehs.org/) for leading the charge and [PickleNik](https://github.com/PickleNik) made it look nice.
 
 ## Finale
 
@@ -68,7 +68,7 @@ The initial response to our endeavour was... not positive. People began coming t
 
 {% image "org-flagged.png" %}
 
-Unfortunately, that also meant that our website was knocked offline (this has since been fixed though, thanks Cloudflare Pages!). Not only did they flag our organization, they began removing our packages on NPM (as we had suggested, I must add). I think it's safe to say the initial problem has been solved, but we are still waiting to see how NPM prevents this issue in the future. My two cents are: a) prevent folks from publishing packages with star versions in the package.json entirely, or b) don't consider a dependent of a package if it uses a star version when tallying how many packages depend on a package for unpublishing.
+Not only did they flag our organization, they began removing our packages on NPM (as we had suggested, I must add). I think it's safe to say the initial problem has been solved, but we are still waiting to see how NPM prevents this issue in the future. My two cents are: a) prevent folks from publishing packages with star versions in the package.json entirely, or b) don't consider a dependent of a package if it uses a star version when tallying how many packages depend on a package for unpublishing.
 
 And lastly, I want to apologize for anyone frustrated, annoyed, or just angry at us. We made a mistake, and we've owned up to it. This all started as a harmless joke and we had no intentions of breaking, abusing, or doing any sort of damage to the registry. In short we, uhh... fucked around and found out.
 
