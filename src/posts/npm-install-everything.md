@@ -56,17 +56,21 @@ We moved to Twitter DMs, and by this time others who saw Trash's tweet wanted to
 
 ## Phase 3: Back to the drawing board.
 
-I suggested a new, very basic plan: just split them into "chunks" (groups) of 800 dependencies. This leaves 3246 groups of 800 each, but 3246 is still too many for our main `everything` package to hold; so we simply "chunk" the groups of 800 into groups of 800 again.
+I suggested a new, very basic plan: just split them into "chunks" (groups) of 800 dependencies.
 
-{% image "plan-b.png", "A diagram of the core 'everything' package depending on many 'chunked' packages, each of which in turn depends on more 'sub-chunked' packages", { dark: "plan-b-dark.png" } %}
+{% image "plan-b-initial.png", "A diagram of the core 'everything' package with arrows toward many 'chunked' packages", { dark: "plan-b-initial-dark.png" } %}
+
+This leaves 3246 groups though, and 3246 is still too many for our main `everything` package to hold. So we simply "chunk" the 3246 groups of 800 into groups of 800 again.
+
+{% image "plan-b.png", "A diagram of the core 'everything' package with arrows toward many 'chunked' packages, each of which in turn has arrows toward more 'sub-chunked' packages", { dark: "plan-b-dark.png" } %}
 
 ## Phase 4: Execution (again)
 
-We triggered [our GitHub Actions workflow](https://github.com/everything-registry/everything/blob/1aef5aa3aa5e3d0e2107063cad6ce63f9cba9b0b/.github/workflows/release.yml) and watched in anticipation...
+Set on our new plan, we updated the code and triggered [our GitHub Actions workflow](https://github.com/everything-registry/everything/blob/1aef5aa3aa5e3d0e2107063cad6ce63f9cba9b0b/.github/workflows/release.yml)...
 
 {% image "plan-b-countdown.png" %}
 
-And it worked! The [GitHub Action logs rolled in](https://github.com/everything-registry/everything/actions/runs/7361935655/job/20039814620), one after another, as the packages slowly got published. We had a brief scare after realizing that [GitHub Actions jobs and workflows have a maximum time](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration) that we might reach, but some quick calculations revealed that we had no cause for worry. Workflow jobs time out after 6 hours, and at the current rate of one package published every ~4.5 seconds, we could comfortably publish 4,800+ packages in that time.
+It worked! The [GitHub Action logs](https://github.com/everything-registry/everything/actions/runs/7361935655/job/20039814620) rolled in, one after another, as the packages slowly got published. We had a brief scare after realizing that [GitHub Actions jobs and workflows have a maximum time](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration) that we might reach, but some quick calculations revealed that we had no cause for worry. Workflow jobs time out after 6 hours, and at the current rate of one package published every ~4.5 seconds, we could comfortably publish 4,800+ packages in that time.
 
 {% image "plan-b-success.png" %}
 
