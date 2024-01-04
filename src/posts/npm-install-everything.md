@@ -68,7 +68,7 @@ The initial response to our endeavour was... not positive. People began coming t
 
 {% image "org-flagged.png" %}
 
-Not only did they flag our organization, they began removing our packages on NPM (as we had suggested, I must add). I think it's safe to say the initial problem has been solved, but we are still waiting to see how NPM prevents this issue in the future. My two cents are: a) prevent folks from publishing packages with star versions in the package.json entirely, or b) don't consider a dependent of a package if it uses a star version when tallying how many packages depend on a package for unpublishing.
+They also began removing our organization's scoped packages on NPM, as we had suggested. I think it's safe to say the initial problem has been solved, but we are still waiting to see how NPM prevents this issue in the future. My two cents are: a) prevent folks from publishing packages with star versions in the package.json entirely, or b) don't consider a dependent of a package if it uses a star version when tallying how many packages depend on a package for unpublishing.
 
 And lastly, I want to apologize for anyone frustrated, annoyed, or just angry at us. We made a mistake, and we've owned up to it. This all started as a harmless joke and we had no intentions of breaking, abusing, or doing any sort of damage to the registry. In short we, uhh... fucked around and found out.
 
