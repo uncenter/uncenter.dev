@@ -1,10 +1,11 @@
 ---
 tags: ['npm']
-title: npm install everything
-description: How we made a package that depends on every single NPM package.
-date: 2023-12-30
-edited: 2023-12-30
+title: The package that broke NPM (accidentally)
+description: How we made a package that depends on every single NPM package... and how we broke NPM in the process.
+date: 2024-01-03
+edited: 2024-01-03
 comments: true
+# cSpell:ignore unpublish, unpublishing
 ---
 
 Nine years ago, [@PatrickJS](https://github.com/PatrickJS) created the `everything` package on NPM, containing every package on the NPM registry in the first 5 years of the registry's existence. The package remained unchanged for years, but just a few days ago [a tweet](https://twitter.com/trashh_dev/status/1740756965905875311) from [@Trash](https://twitter.com/trashh_dev/) sparked renewed interest in the project!
@@ -63,7 +64,7 @@ Finally, at 11:27PM, [the final workflow run](https://github.com/everything-regi
 
 ## Response
 
-The initial response to our endeavour was... not positive. People began coming to the repository, complaining about not being able to unpublish. We looked into it, and it turns out that the issue is our usage of "star" versions; that is, specifying the version not as a typical semantic version in the format of `vX.Y.Z`, but as `*`. The star means "any and all" versions of a package - here is where the issue lies. NPM blocks package authors from unpublishing packages if another package depends on that version of the package. But since the star is _all_ versions, all versions of a package cannot be unpublished. This is usually harmless, but unintentionally us doing this on a large scale prevented _anyone_ from unpublishing. We immediately reached out to GitHub; Patrick used his network and contacts to speak to people at GitHub, and we sent multiple emails to the support and security team on NPM. Unfortunately, these events transpired over the holidays and the NPM/GitHub teams were out of the office. We continued to get harsh and rude comments from random people with a little too much time on their hands! Thankfully on the night of Tuesday, Jan 2nd, GitHub reached out and let us know they were aware of the problem. On the 3rd of January, we recieved a notice that our GitHub organization had been "flagged" and our repositories were hidden.
+The initial response to our endeavour was... not positive. People began coming to the repository, complaining about not being able to unpublish. We looked into it, and it turns out that the issue is our usage of "star" versions; that is, specifying the version not as a typical semantic version in the format of `vX.Y.Z`, but as `*`. The star means "any and all" versions of a package - here is where the issue lies. NPM blocks package authors from unpublishing packages if another package depends on that version of the package. But since the star is _all_ versions, all versions of a package cannot be unpublished. This is usually harmless, but unintentionally us doing this on a large scale prevented _anyone_ from unpublishing. We immediately reached out to GitHub; Patrick used his network and contacts to speak to people at GitHub, and we sent multiple emails to the support and security team on NPM. Unfortunately, these events transpired over the holidays and the NPM/GitHub teams were out of the office. We continued to get harsh and rude comments from random people with a little too much time on their hands! Thankfully on the night of Tuesday, Jan 2nd, GitHub reached out and let us know they were aware of the problem. On the 3rd of January, we received a notice that our GitHub organization had been "flagged" and our repositories were hidden.
 
 {% image "org-flagged.png" %}
 
