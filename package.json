@@ -35,6 +35,8 @@
 		"markdown-it-emoji": "^3.0.0",
 		"markdown-it-footnote": "^4.0.0",
 		"markdown-it-kbd-better": "^1.2.5",
+		"markdown-it-sub": "^2.0.0",
+		"markdown-it-sup": "^2.0.0",
 		"nanohtml": "^1.10.0",
 		"postcss": "^8.4.32",
 		"sass": "^1.69.6",

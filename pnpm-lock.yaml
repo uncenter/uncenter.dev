@@ -77,6 +77,12 @@ dependencies:
   markdown-it-kbd-better:
     specifier: ^1.2.5
     version: 1.2.5
+  markdown-it-sub:
+    specifier: ^2.0.0
+    version: 2.0.0
+  markdown-it-sup:
+    specifier: ^2.0.0
+    version: 2.0.0
   nanohtml:
     specifier: ^1.10.0
     version: 1.10.0
@@ -2349,6 +2355,14 @@ packages:
     engines: {node: '>=16.0.0'}
     dependencies:
       markdown-it: 13.0.2
+    dev: false
+
+  /markdown-it-sub@2.0.0:
+    resolution: {integrity: sha512-iCBKgwCkfQBRg2vApy9vx1C1Tu6D8XYo8NvevI3OlwzBRmiMtsJ2sXupBgEA7PPxiDwNni3qIUkhZ6j5wofDUA==}
+    dev: false
+
+  /markdown-it-sup@2.0.0:
+    resolution: {integrity: sha512-5VgmdKlkBd8sgXuoDoxMpiU+BiEt3I49GItBzzw7Mxq9CxvnhE/k09HFli09zgfFDRixDQDfDxi0mgBCXtaTvA==}
     dev: false
 
   /markdown-it@13.0.2:

@@ -4,6 +4,8 @@ const markdownItAttrs = require('markdown-it-attrs');
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItKbd = require('markdown-it-kbd-better');
 const markdownItEmoji = require('markdown-it-emoji').full;
+const markdownItSub = require('markdown-it-sub');
+const markdownItSup = require('markdown-it-sup');
 const codeToolbarPlugin = require('./code-toolbar.js');
 
 const markdownLibrary = markdownIt({
@@ -25,6 +27,8 @@ const markdownLibrary = markdownIt({
 		},
 	})
 	.use(markdownItEmoji)
+	.use(markdownItSub)
+	.use(markdownItSup)
 	.use(codeToolbarPlugin);
 
 module.exports = markdownLibrary;
