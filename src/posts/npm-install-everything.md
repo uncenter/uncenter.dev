@@ -60,3 +60,17 @@ We also [made a dotfiles repository](https://github.com/everything-registry/dotf
 Finally, at 11:27PM, [the final workflow run](https://github.com/everything-registry/everything/actions/runs/7368358420) completed publishing the last 20 sub-chunks. All 5 chunks, 3246 sub-chunks, and the main `everything` package. In total, depending on over 2.5 million NPM packages!
 
 [^1]: Namely https://github.com/everything-registry/everything/commit/9edd208769da652db2c2eb06196dad4ceb2b452d, https://github.com/everything-registry/everything/commit/f963df11963a80f50ba06107101fcabab7cb5825, and https://github.com/everything-registry/everything/commit/5c50a13ad6de8229f262ff98e798301cee6fc119.
+
+## Response
+
+The initial response to our endeavour was... not positive. People began coming to the repository, complaining about not being able to unpublish. We looked into it, and it turns out that the issue is our usage of "star" versions; that is, specifying the version not as a typical semantic version in the format of `vX.Y.Z`, but as `*`. The star means "any and all" versions of a package - here is where the issue lies. NPM blocks package authors from unpublishing packages if another package depends on that version of the package. But since the star is _all_ versions, all versions of a package cannot be unpublished. This is usually harmless, but unintentionally us doing this on a large scale prevented _anyone_ from unpublishing. We immediately reached out to GitHub; Patrick used his network and contacts to speak to people at GitHub, and we sent multiple emails to the support and security team on NPM. Unfortunately, these events transpired over the holidays and the NPM/GitHub teams were out of the office. We continued to get harsh and rude comments from random people with a little too much time on their hands! Thankfully on the night of Tuesday, Jan 2nd, GitHub reached out and let us know they were aware of the problem. On the 3rd of January, we recieved a notice that our GitHub organization had been "flagged" and our repositories were hidden.
+
+{% image "org-flagged.png" %}
+
+Unfortunately, that also meant that our website was knocked offline (this has since been fixed though, thanks Cloudflare Pages!). Not only did they flag our organization, they began removing our packages on NPM (as we had suggested, I must add). I think it's safe to say the initial problem has been solved, but we are still waiting to see how NPM prevents this issue in the future. My two cents are: a) prevent folks from publishing packages with star versions in the package.json entirely, or b) don't consider a dependent of a package if it uses a star version when tallying how many packages depend on a package for unpublishing.
+
+And lastly, I want to apologize for anyone frustrated, annoyed, or just angry at us. We made a mistake, and we've owned up to it. This all started as a harmless joke and we had no intentions of breaking, abusing, or doing any sort of damage to the registry. In short we, uhh... fucked around and found out.
+
+{% image "fuck-around-find-out.jpg" %}
+
+Thanks for reading this, and have a lovely day!
