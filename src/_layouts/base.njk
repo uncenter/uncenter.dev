@@ -124,7 +124,7 @@ footerLinks:
 			</div>
 			<div class="flex flex-row text-center gap-x-2 text-xs">
 				{% for item in footerLinks %}
-					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}">{{ item.title }}</a>{% if not loop.last %} &middot; {% endif %}
+					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}" data-umami-event="footer-{{ item.title | slugify }}">{{ item.title }}</a>{% if not loop.last %} &middot; {% endif %}
 				{% endfor %}
 			</div>
 			<select aria-label="Theme selector" id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none mt-1">
