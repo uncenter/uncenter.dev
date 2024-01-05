@@ -8,6 +8,7 @@ const pluginExternalLinks = require('@aloskutov/eleventy-plugin-external-links')
 const pluginRSS = require('@ryanccn/eleventy-plugin-rss');
 const pluginShiki = require('./utils/plugins/shikiji.js');
 const pluginIcons = require('eleventy-plugin-icons');
+const { plugin: pluginValidate, zod } = require('eleventy-plugin-validate');
 
 const path = require('node:path');
 const sass = require('sass');
@@ -56,6 +57,23 @@ module.exports = function (eleventyConfig) {
 				return `icon icon-${name} icon-${source}`;
 			},
 		},
+	});
+	eleventyConfig.addPlugin(pluginValidate, {
+		schemas: [
+			{
+				collections: ['posts'],
+				schema: zod
+					.object({
+						tags: zod.array(zod.string()),
+						title: zod.string(),
+						description: zod.string(),
+						date: zod.date(),
+						edited: zod.date(),
+						comments: zod.boolean(),
+					})
+					.strict(),
+			},
+		],
 	});
 
 	/* Passthrough Copy */
