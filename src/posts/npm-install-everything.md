@@ -84,7 +84,7 @@ So it began. Throughout the day I (very irregularly) manually dispatched the wor
 
 {% image "twitch-stream.png", { dark: "twitch-stream-dark.png" } %}
 
-We also [made a website](https://everything-registry-website.pages.dev/)! Many thanks to the rest of the contributors I have mentioned so far, but notably [Evan Boehs](https://boehs.org/) for leading the charge and [PickleNik](https://github.com/PickleNik) made it look nice.
+We also [made a website](https://everything.npm.lol/)! Many thanks to the rest of the contributors I have mentioned so far, but notably [Evan Boehs](https://boehs.org/) for leading the charge and [PickleNik](https://github.com/PickleNik) made it look nice.
 
 ## Finale
 
