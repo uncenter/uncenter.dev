@@ -135,7 +135,7 @@ async function getLanguageColors(languages) {
 	const response = await EleventyFetch(
 		'https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml',
 		{
-			duration: '2w',
+			duration: '90d',
 			type: 'text',
 		},
 	);
