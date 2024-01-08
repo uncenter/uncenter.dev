@@ -36,12 +36,12 @@ const projects = {
 			link: 'https://github.com/uncenter/tnl',
 		},
 		{
-			name: 'gh-stats',
-			link: 'https://github.com/uncenter/gh-stats',
+			name: 'eleventy-plugin-validate',
+			link: 'https://github.com/uncenter/eleventy-plugin-validate',
 		},
 		{
-			name: 'dotfiles',
-			link: 'https://github.com/uncenter/dotfiles',
+			name: 'gitsnippity',
+			link: 'https://github.com/uncenter/gitsnippity',
 		},
 		{ name: 'xdirs', link: 'https://github.com/uncenter/xdirs' },
 		{
@@ -49,12 +49,32 @@ const projects = {
 			link: 'https://github.com/uncenter/detect-formatting',
 		},
 		{
-			name: 'markdown-it-kbd-better',
-			link: 'https://github.com/uncenter/markdown-it-kbd-better',
+			name: 'detect-imports',
+			link: 'https://github.com/uncenter/detect-imports',
 		},
 		{
-			name: '@uncenter/eleventy-plugin-toc',
-			link: 'https://github.com/uncenter/eleventy-plugin-toc',
+			name: 'gh-stats',
+			link: 'https://github.com/uncenter/gh-stats',
+		},
+		{
+			name: 'dotfiles',
+			link: 'https://github.com/uncenter/dotfiles',
+		},
+		{
+			name: 'templates',
+			link: 'https://github.com/uncenter/templates',
+		},
+		{
+			name: 'discord-forum-bot',
+			link: 'https://github.com/uncenter/discord-forum-bot',
+		},
+		{
+			name: 'loogu',
+			link: 'https://github.com/uncenter/loogu',
+		},
+		{
+			name: 'mailtolink',
+			link: 'https://github.com/uncenter/mailtolink',
 		},
 		{
 			name: '@uncenter/quickbench',
@@ -63,6 +83,14 @@ const projects = {
 		{
 			name: 'canvas-grade-calculator',
 			link: 'https://github.com/uncenter/canvas-grade-calculator',
+		},
+		{
+			name: 'markdown-it-kbd-better',
+			link: 'https://github.com/uncenter/markdown-it-kbd-better',
+		},
+		{
+			name: '@uncenter/eleventy-plugin-toc',
+			link: 'https://github.com/uncenter/eleventy-plugin-toc',
 		},
 		{
 			name: 'wifi-password',
