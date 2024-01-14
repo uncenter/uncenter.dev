@@ -3,7 +3,7 @@ import {
 	filters,
 	shortcodes,
 	transforms,
-} from './utils/11ty/index.js';
+} from './config/11ty/index.js';
 
 import pluginTOC from '@uncenter/eleventy-plugin-toc';
 import pluginExternalLinks from '@aloskutov/eleventy-plugin-external-links';
@@ -11,7 +11,7 @@ import pluginRSS from '@ryanccn/eleventy-plugin-rss';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
 
-import markdownLibrary from './utils/plugins/md-library.js';
+import markdownLibrary from './config/markdown/core.js';
 
 import { z } from 'zod';
 

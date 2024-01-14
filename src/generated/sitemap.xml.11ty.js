@@ -1,4 +1,5 @@
-import urlize from '../../utils/urlize.js';
+import urlize from '../../config/urlize.js';
+
 class Page {
 	data() {
 		return {

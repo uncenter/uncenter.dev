@@ -21,7 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import urlize from '../../utils/urlize.js';
+import urlize from '../../config/urlize.js';
 
 class Page {
 	data() {
