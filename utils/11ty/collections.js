@@ -2,6 +2,6 @@ const posts = (collectionApi) => {
 	return collectionApi.getFilteredByGlob('./src/posts/**/*.md');
 };
 
-module.exports = (eleventyConfig) => {
+export const collections = (eleventyConfig) => {
 	eleventyConfig.addCollection('posts', posts);
 };

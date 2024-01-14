@@ -1,4 +1,4 @@
-const urlize = require('../../utils/urlize');
+import urlize from '../../utils/urlize.js';
 class Page {
 	data() {
 		return {
@@ -24,4 +24,4 @@ class Page {
 	}
 }
 
-module.exports = Page;
+export default Page;

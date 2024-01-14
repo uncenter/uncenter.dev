@@ -1,16 +1,19 @@
-const { readFile, readdir } = require('node:fs/promises');
-const path = require('node:path');
-const postcss = require('postcss');
-const terser = require('terser');
+import { readFile, readdir } from 'node:fs/promises';
+import path from 'node:path';
+import postcss from 'postcss';
+import { minify } from 'terser';
 
-module.exports = async () => {
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+
+export default async () => {
 	const fonts = await readFile('./src/assets/fonts.css', 'utf-8');
 	const scripts = await readdir('./src/assets/scripts/');
 
 	const js = {};
 	for (const script of scripts) {
 		const file = await readFile(`./src/assets/scripts/${script}`, 'utf-8');
-		const { code } = await terser.minify(file);
+		const { code } = await minify(file);
 		const { name } = path.parse(script);
 		js[name] = code;
 	}

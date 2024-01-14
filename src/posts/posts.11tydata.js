@@ -1,10 +1,10 @@
 const isDevelopment = process.env.NODE_ENV !== 'production';
-require('dotenv').config();
+import 'dotenv/config';
 
-const { DateTime } = require('luxon');
-const getViewsForPage = require('../../utils/umami');
+import { DateTime } from 'luxon';
+import getViewsForPage from '../../utils/umami.js';
 
-module.exports = {
+export default {
 	eleventyComputed: {
 		views: async (data) => {
 			if (isDevelopment || process.env.UMAMI_SKIP) return;

@@ -2,7 +2,7 @@
 	"name": "uncenter.dev",
 	"private": true,
 	"license": "MIT",
-	"type": "commonjs",
+	"type": "module",
 	"scripts": {
 		"dev": "eleventy --serve",
 		"build": "eleventy",
@@ -11,7 +11,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@11ty/eleventy": "^2.0.1",
+		"@11ty/eleventy": "3.0.0-alpha.4",
 		"@11ty/eleventy-fetch": "^4.0.0",
 		"@11ty/eleventy-img": "^3.1.8",
 		"@aloskutov/eleventy-plugin-external-links": "^2.1.0",
@@ -21,7 +21,7 @@
 		"cssnano": "^6.0.2",
 		"dotenv": "^16.3.1",
 		"eleventy-plugin-icons": "^4.4.1",
-		"eleventy-plugin-validate": "^0.0.3",
+		"eleventy-plugin-validate": "^0.1.1",
 		"execa": "^8.0.1",
 		"html-minifier": "^4.0.0",
 		"image-size": "^1.1.0",
@@ -37,17 +37,18 @@
 		"markdown-it-emoji": "^3.0.0",
 		"markdown-it-footnote": "^4.0.0",
 		"markdown-it-kbd-better": "^1.2.5",
+		"markdown-it-shikiji": "^0.9.18",
 		"markdown-it-sub": "^2.0.0",
 		"markdown-it-sup": "^2.0.0",
 		"nanohtml": "^1.10.0",
 		"postcss": "^8.4.32",
 		"sass": "^1.69.6",
-		"shikiji": "^0.9.16",
 		"simple-icons": "^10.4.0",
 		"tailwindcss": "^3.4.0",
 		"terser": "^5.26.0",
 		"turndown": "^7.1.2",
-		"yaml": "^2.3.4"
+		"yaml": "^2.3.4",
+		"zod": "^3.22.4"
 	},
 	"devDependencies": {
 		"eslint": "^8.56.0",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	lang: 'en',
 	domain: 'uncenter.dev',
 	url: 'https://uncenter.dev',

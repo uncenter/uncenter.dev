@@ -21,8 +21,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-module.exports = async () => {
-	const { execa } = await import('execa');
+import { execa } from 'execa';
+
+export default async () => {
 	return await execa('git', ['rev-parse', '--short', 'HEAD']).then(
 		(x) => x.stdout,
 	);

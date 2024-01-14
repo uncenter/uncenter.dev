@@ -1,7 +1,7 @@
-const path = require('node:path');
-const escape = require('lodash.escape');
-const sizeOf = require('image-size');
-const processImage = require('@11ty/eleventy-img');
+import path from 'node:path';
+import escape from 'lodash.escape';
+import sizeOf from 'image-size';
+import processImage from '@11ty/eleventy-img';
 
 const IMAGE_OPTIMIZATION =
 	process.env.IMAGE_OPTIMIZATION === '0' ||
@@ -99,7 +99,7 @@ const insertImage = async function (source, alt, options) {
 `;
 };
 
-module.exports = (eleventyConfig) => {
+export const shortcodes = (eleventyConfig) => {
 	eleventyConfig.addNunjucksAsyncShortcode('image', insertImage);
 	eleventyConfig.addShortcode('log', (...args) => {
 		console.log(...args);

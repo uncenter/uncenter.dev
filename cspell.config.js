@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	version: '0.2',
 	language: 'en',
 	words: ['uncenter', 'eleventy', '11ty', 'umami', 'shortcodes', 'keycaps'],

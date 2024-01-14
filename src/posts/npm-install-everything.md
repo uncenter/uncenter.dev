@@ -10,7 +10,7 @@ comments: true
 
 :::note
 
-## An update! {data-toc-exclude}
+## An update! %data-toc-exclude%
 
 <details>
 	<summary>You might want to read the rest of the article first...</summary>

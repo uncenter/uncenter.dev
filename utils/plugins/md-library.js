@@ -1,13 +1,14 @@
-const markdownIt = require('markdown-it');
-const markdownItAnchor = require('markdown-it-anchor');
-const markdownItAttrs = require('markdown-it-attrs');
-const markdownItFootnote = require('markdown-it-footnote');
-const markdownItKbd = require('markdown-it-kbd-better');
-const markdownItEmoji = require('markdown-it-emoji').full;
-const markdownItSub = require('markdown-it-sub');
-const markdownItSup = require('markdown-it-sup');
-const markdownItContainer = require('markdown-it-container');
-const codeToolbarPlugin = require('./code-toolbar.js');
+import markdownIt from 'markdown-it';
+import markdownItAnchor from 'markdown-it-anchor';
+import markdownItAttrs from 'markdown-it-attrs';
+import markdownItFootnote from 'markdown-it-footnote';
+import markdownItKbd from 'markdown-it-kbd-better';
+import { full as markdownItEmoji } from 'markdown-it-emoji';
+import markdownItSub from 'markdown-it-sub';
+import markdownItSup from 'markdown-it-sup';
+import markdownItContainer from 'markdown-it-container';
+import markdownItShikiji from 'markdown-it-shikiji';
+import codeToolbarPlugin from './code-toolbar.js';
 
 const markdownLibrary = markdownIt({
 	html: true,
@@ -19,7 +20,10 @@ const markdownLibrary = markdownIt({
 			safariReaderFix: true,
 		}),
 	})
-	.use(markdownItAttrs)
+	.use(markdownItAttrs, {
+		leftDelimiter: '%',
+		rightDelimiter: '%',
+	})
 	.use(markdownItFootnote)
 	.use(markdownItKbd, {
 		presets: [{ name: 'icons', prefix: 'icon:' }],
@@ -41,6 +45,12 @@ const markdownLibrary = markdownIt({
 				: '</div>';
 		},
 	})
+	.use(
+		await markdownItShikiji({
+			themes: { light: 'github-light', dark: 'github-dark' },
+			defaultColor: false,
+		}),
+	)
 	.use(codeToolbarPlugin);
 
-module.exports = markdownLibrary;
+export default markdownLibrary;
