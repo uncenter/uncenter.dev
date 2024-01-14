@@ -1,27 +1,25 @@
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import postcss from 'postcss';
-import { minify } from 'terser';
+import { minifyJavascript } from '../../config/transforms/javascript.js';
+import { processCss } from '../../config/transforms/css.js';
 
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
+const SCRIPTS_PATH = './src/assets/scripts/';
+const STYLES_PATH = './src/assets/styles/';
 
 export default async () => {
-	const fonts = await readFile('./src/assets/fonts.css', 'utf-8');
-	const scripts = await readdir('./src/assets/scripts/');
-
 	const js = {};
-	for (const script of scripts) {
-		const file = await readFile(`./src/assets/scripts/${script}`, 'utf-8');
-		const { code } = await minify(file);
-		const { name } = path.parse(script);
-		js[name] = code;
+	for (const file of await readdir(SCRIPTS_PATH)) {
+		js[path.parse(file).name] = await minifyJavascript(
+			await readFile(path.join(SCRIPTS_PATH, file), 'utf-8'),
+		);
 	}
 
-	const { content: css } = await postcss([
-		require('autoprefixer'),
-		require('cssnano'),
-	]).process(fonts, { from: undefined });
+	const css = {};
+	for (const file of await readdir(STYLES_PATH)) {
+		css[path.parse(file).name] = processCss(
+			await readFile(path.join(STYLES_PATH, file), 'utf-8'),
+		);
+	}
 
 	return {
 		css,

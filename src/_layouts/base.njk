@@ -36,7 +36,7 @@ footerLinks:
 
 		<link rel="stylesheet" href="/assets/styles.css?v={{ rev }}">
 		<style>
-			{{ inlined.css | safe }}
+			{{ inlined.css['fonts'] | safe }}
 		</style>
 		<link rel="preload" as="font" type="font/woff2" href="/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 

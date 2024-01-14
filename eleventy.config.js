@@ -1,9 +1,4 @@
-import {
-	collections,
-	filters,
-	shortcodes,
-	transforms,
-} from './config/11ty/index.js';
+import { collections, filters, shortcodes } from './config/11ty/index.js';
 
 import pluginTOC from '@uncenter/eleventy-plugin-toc';
 import pluginExternalLinks from '@aloskutov/eleventy-plugin-external-links';
@@ -13,20 +8,20 @@ import pluginValidate from 'eleventy-plugin-validate';
 
 import markdownLibrary from './config/markdown/core.js';
 
+import {
+	processTailwindCss,
+	processCss,
+	processSass,
+} from './config/transforms/css.js';
+import { minifyHtml } from './config/transforms/html.js';
+
 import { z } from 'zod';
 
-import path from 'node:path';
-import * as sass from 'sass';
-import postcss from 'postcss';
-
+import 'dotenv/config';
 const isDevelopment = process.env.NODE_ENV !== 'production';
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
 
 import site from './site.config.js';
-import 'dotenv/config';
-
-import { blue } from 'kleur/colors';
+import colors from 'picocolors';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default function (eleventyConfig) {
@@ -87,8 +82,7 @@ export default function (eleventyConfig) {
 	/* Other Config */
 	eleventyConfig.addTransform('html', function (content) {
 		if (this.page.outputPath && this.page.outputPath.endsWith('.html')) {
-			content = transforms.minifyHtml(content);
-			return content;
+			return minifyHtml(content);
 		}
 		return content;
 	});
@@ -103,37 +97,22 @@ export default function (eleventyConfig) {
 	eleventyConfig.addTemplateFormats('scss');
 	eleventyConfig.addExtension('scss', {
 		outputFileExtension: 'css',
-		compile: async function (inputContent, inputPath) {
-			let { css, loadedUrls } = sass.compileString(inputContent, {
-				loadPaths: [path.parse(inputPath).dir || '.'],
-				sourceMap: false,
-			});
-
-			this.addDependencies(inputPath, loadedUrls);
-
+		compile: async function (inputContent) {
 			return async () => {
-				let plugins = [
-					require('tailwindcss/nesting'),
-					require('tailwindcss'),
-					require('autoprefixer'),
-					require('cssnano'),
-				];
-
-				const { content } = await postcss(plugins).process(css, {
-					from: undefined,
-				});
-
-				return content;
+				return processCss(
+					await processTailwindCss(await processSass(inputContent)),
+				);
 			};
 		},
 	});
 
+	// Give me the localhost URL after every rebuild so I don't have to scroll up to find it.
 	let notFirstRun = false;
 	eleventyConfig.on('eleventy.after', async ({ runMode }) => {
 		if (runMode === 'serve') {
 			if (notFirstRun)
 				console.log(
-					blue('\n[11ty] Server at http://localhost:8080/\n'),
+					colors.blue('\n[11ty] Server at http://localhost:8080/\n'),
 				);
 			notFirstRun = true;
 		}
