@@ -101,6 +101,9 @@ dependencies:
   sass:
     specifier: ^1.69.7
     version: 1.69.7
+  shikiji-transformers:
+    specifier: 0.10.0-beta.1
+    version: 0.10.0-beta.1
   simple-icons:
     specifier: ^11.1.0
     version: 11.1.0
@@ -3042,8 +3045,24 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  /shikiji-core@0.10.0-beta.1:
+    resolution: {integrity: sha512-u7rlf6PEtUCnjmuuVbt9HPEhvt+pcLkIin2yijCZAthPA7+nzUB+ourl9y/dg7AnhLssZU6LNIHZ4i3++/sj0g==}
+    dev: false
+
   /shikiji-core@0.9.19:
     resolution: {integrity: sha512-AFJu/vcNT21t0e6YrfadZ+9q86gvPum6iywRyt1OtIPjPFe25RQnYJyxHQPMLKCCWA992TPxmEmbNcOZCAJclw==}
+    dev: false
+
+  /shikiji-transformers@0.10.0-beta.1:
+    resolution: {integrity: sha512-176HAjcVETtMKkBsqWfzWaegk6D+vlo2Kn3TBjoEDzjvOFrUo05tUxcrGX6C9PwV/aFwJ/4Xx3TFAtx++uD/yQ==}
+    dependencies:
+      shikiji: 0.10.0-beta.1
+    dev: false
+
+  /shikiji@0.10.0-beta.1:
+    resolution: {integrity: sha512-MP1366ldLpuq+iQstEto/p5dRV1gA2BChkVdz6HydgChfEebIA8BDREBF3BY5YhWwnU/o1u0N96N5erxe6P3Cw==}
+    dependencies:
+      shikiji-core: 0.10.0-beta.1
     dev: false
 
   /shikiji@0.9.19:

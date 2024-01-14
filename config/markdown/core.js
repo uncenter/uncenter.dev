@@ -8,7 +8,16 @@ import markdownItSub from 'markdown-it-sub';
 import markdownItSup from 'markdown-it-sup';
 import markdownItContainer from 'markdown-it-container';
 import markdownItShikiji from 'markdown-it-shikiji';
+
 import codeToolbarPlugin from './code-toolbar.js';
+
+import {
+	transformerNotationDiff,
+	transformerNotationFocus,
+	transformerNotationHighlight,
+	transformerNotationErrorLevel,
+	transformerMetaHighlight,
+} from 'shikiji-transformers';
 
 const markdownLibrary = markdownIt({
 	html: true,
@@ -49,6 +58,13 @@ const markdownLibrary = markdownIt({
 		await markdownItShikiji({
 			themes: { light: 'github-light', dark: 'github-dark' },
 			defaultColor: false,
+			transformers: [
+				transformerNotationDiff(),
+				transformerNotationFocus(),
+				transformerNotationHighlight(),
+				transformerNotationErrorLevel(),
+				transformerMetaHighlight(),
+			],
 		}),
 	)
 	.use(codeToolbarPlugin);

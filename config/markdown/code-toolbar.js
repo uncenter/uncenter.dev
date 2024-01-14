@@ -18,6 +18,10 @@ function renderCode(originalRule) {
 		const document = parseHTML(originalContent).document;
 		const code = document.querySelector('code').textContent;
 
+		for (const span of document.querySelectorAll('span')) {
+			if (span.textContent === '') span.remove();
+		}
+
 		const codeId = crypto
 			.createHash('md5')
 			.update(code)
@@ -26,7 +30,7 @@ function renderCode(originalRule) {
 
 		return html`
 			<div class="code-block" id="${codeId}">
-				${raw(originalContent)}
+				${raw(document.documentElement.outerHTML)}
 				<div class="toolbar">
 					<button
 						title="Copy code to clipboard"

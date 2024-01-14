@@ -68,7 +68,7 @@ export default function (eleventyConfig) {
 						title: z.string(),
 						description: z.string(),
 						date: z.date(),
-						edited: z.date(),
+						edited: z.date().optional(),
 						comments: z.boolean(),
 					})
 					.strict(),
