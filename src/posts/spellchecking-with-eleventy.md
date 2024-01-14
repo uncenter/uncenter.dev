@@ -28,7 +28,7 @@ npm install cspell --save-dev
 	// ...
 	"scripts": {
 		// ...
-		"spell": "cspell src/posts/**/*.md"
+		"spell": "cspell src/posts/**/*.md" // [!code focus]
 	}
 }
 ```
@@ -114,14 +114,13 @@ command = "node ./utils/get-repos.js && npm run spell && npm run build"
 Finally, the config file allows you to define regular expression patterns to ignore. I added patterns to ignore words in Nunjucks expressions, Markdown code blocks and inline code, and proper nouns (words that start with a capital letter).
 
 ```js
-	{% raw %}// ...
 	ignoreRegExpList: [
 		'nunjucksExpression',
 		'markdownCodeBlock',
 		'markdownInlineCode',
 		'properNouns',
 	],
-	patterns: [
+	patterns: [{% raw %}
 		{
 			name: 'nunjucksExpression',
 			pattern: /{%.*?%}/gis,
@@ -147,7 +146,7 @@ I'm surprised that there isn't a pattern for Markdown code blocks by default; I 
 
 One other neat thing about cSpell is that you can define words to ignore per file. For example, you could ignore the word `supercalifragilisticexpialidocious` in just one file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
 
-```md
+```md {6}
 ---
 tags: [...]
 title: Magna voluptate officia cillum Lorem proident.
