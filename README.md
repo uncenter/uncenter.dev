@@ -1,6 +1,6 @@
 # uncenter.dev
 
-[![Eleventy](https://img.shields.io/badge/Eleventy-2.0.1-333333.svg?style=flat-square)](https://11ty.dev)
+[![Eleventy](https://img.shields.io/badge/Eleventy-3.0.0--alpha.4-333333.svg?style=flat-square)](https://11ty.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 
 ## Features
