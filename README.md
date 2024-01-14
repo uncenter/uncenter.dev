@@ -5,11 +5,11 @@
 
 ## Features
 
--   **Syntax highlighting** with [`shikiji`](https://github.com/antfu/shikiji).
+-   **Syntax highlighting** with [`markdown-it-shikiji`](https://shikiji.netlify.app/packages/markdown-it).
 -   **Optimized images** with [`@11ty/eleventy-img`](https://github.com/11ty/eleventy-img).
 -   **RSS feed** using [`@ryanccn/eleventy-plugin-rss`](https://github.com/ryanccn/eleventy-plugin-rss).
 -   **Spell-checking** through [`cspell`](http://cspell.org/).
--   **Optimized CSS, JS, and HTML** using [`postcss`](https://postcss.org/), [`terser`](https://github.com/terser/terser), and [`html-minifier`](https://github.com/kangax/html-minifier).
+-   **Optimized CSS, JS, and HTML** using [PostCSS](https://postcss.org/), [Lightning CSS](https://lightningcss.dev/), [terser](https://github.com/terser/terser), and [HTMLMinifier](https://github.com/kangax/html-minifier).
 
 ## Development
 
@@ -30,8 +30,9 @@ pnpm format   # format files
 -   `src/posts/`: blog posts
 -   `images/`: images for blog posts
 -   `public/`: favicons and fonts
--   `utils/11ty/`: collections, shortcodes, filters, and transforms for 11ty
--   `utils/plugins`: markdown + eleventy plugins
+-   `config/11ty/`: collections, shortcodes, and filters for 11ty
+-   `utils/markdown`: markdown configuration
+-   `utils/transforms`: various functions for transforming/processing CSS, HTML, and JS
 
 ## License
 
