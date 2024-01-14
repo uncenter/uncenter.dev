@@ -21,8 +21,8 @@ const markdownLibrary = markdownIt({
 		}),
 	})
 	.use(markdownItAttrs, {
-		leftDelimiter: '%',
-		rightDelimiter: '%',
+		leftDelimiter: '[',
+		rightDelimiter: ']',
 	})
 	.use(markdownItFootnote)
 	.use(markdownItKbd, {
