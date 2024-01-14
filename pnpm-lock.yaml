@@ -110,9 +110,6 @@ dependencies:
   terser:
     specifier: ^5.26.0
     version: 5.26.0
-  turndown:
-    specifier: ^7.1.2
-    version: 7.1.2
   yaml:
     specifier: ^2.3.4
     version: 2.3.4
@@ -1059,10 +1056,6 @@ packages:
     engines: {node: '>= 4'}
     dependencies:
       domelementtype: 2.3.0
-    dev: false
-
-  /domino@2.1.6:
-    resolution: {integrity: sha512-3VdM/SXBZX2omc9JF9nOPCtDaYQ67BGp5CoLpIQlO2KCAPETs8TcDHacF26jXadGbvUteZzRTeos2fhID5+ucQ==}
     dev: false
 
   /domutils@2.8.0:
@@ -3416,12 +3409,6 @@ packages:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
     dependencies:
       safe-buffer: 5.2.1
-    dev: false
-
-  /turndown@7.1.2:
-    resolution: {integrity: sha512-ntI9R7fcUKjqBP6QU8rBK2Ehyt8LAzt3UBT9JR9tgo6GtuKvyUzpayWmeMKJw1DPdXzktvtIT8m2mVXz+bL/Qg==}
-    dependencies:
-      domino: 2.1.6
     dev: false
 
   /type-check@0.4.0:
