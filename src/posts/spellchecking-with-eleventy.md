@@ -146,13 +146,13 @@ I'm surprised that there isn't a pattern for Markdown code blocks by default; I 
 
 One other neat thing about cSpell is that you can define words to ignore per file. For example, you could ignore the word `supercalifragilisticexpialidocious` in just one file by adding `cSpell:ignore supercalifragilisticexpialidocious` as a comment at the top of the file:
 
-```md {6}
+```md
 ---
 tags: [...]
 title: Magna voluptate officia cillum Lorem proident.
 description: Cupidatat excepteur ullamco laboris in veniam qui officia tempor aliquip et commodo.
 date: 2000-01-01
-# cSpell:ignore supercalifragilisticexpialidocious
+# cSpell:ignore supercalifragilisticexpialidocious # [!code focus]
 ---
 ```
 
