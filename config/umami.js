@@ -3,18 +3,21 @@ import EleventyFetch from '@11ty/eleventy-fetch';
 import analytics from '../src/_data/analytics.js';
 
 async function getToken(username, password) {
-	const response = await fetch(`${analytics.url}/api/auth/login`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
+	const { token } = await EleventyFetch(`${analytics.url}/api/auth/login`, {
+		duration: '0s',
+		type: 'json',
+		fetchOptions: {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				username,
+				password,
+			}),
 		},
-		body: JSON.stringify({
-			username,
-			password,
-		}),
 	});
 
-	const { token } = await response.json();
 	return token;
 }
 
@@ -26,15 +29,20 @@ async function validateToken(token) {
 			Authorization: `Bearer ${token}`,
 		},
 	});
+
 	return response.status === 200;
 }
 
 async function getPageViews(originalUrl, originalDate, token) {
 	const url = `${analytics.url}/api/websites/${
 		analytics.websiteId
-	}/pageviews?url=${originalUrl}&startAt=${Date.parse(
-		originalDate,
-	)}&endAt=${Date.now()}&unit=day&timezone=America/New_York`;
+	}/pageviews?${new URLSearchParams({
+		url: originalUrl,
+		startAt: Date.parse(originalDate),
+		endAt: Date.now(),
+		unit: 'day',
+		timezone: 'America/New_York',
+	})}`;
 
 	return await EleventyFetch(url, {
 		duration: '12h',
