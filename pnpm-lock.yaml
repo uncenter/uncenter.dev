@@ -27,14 +27,14 @@ dependencies:
     specifier: ^4.22.2
     version: 4.22.2
   dotenv:
-    specifier: ^16.3.1
-    version: 16.3.1
+    specifier: ^16.3.2
+    version: 16.3.2
   eleventy-plugin-icons:
     specifier: ^4.4.1
     version: 4.4.1
   eleventy-plugin-validate:
-    specifier: ^0.1.1
-    version: 0.1.1
+    specifier: ^0.1.2
+    version: 0.1.2
   execa:
     specifier: ^8.0.1
     version: 8.0.1
@@ -48,14 +48,14 @@ dependencies:
     specifier: ^1.23.0
     version: 1.23.0
   linkedom:
-    specifier: ^0.16.6
-    version: 0.16.6
+    specifier: ^0.16.8
+    version: 0.16.8
   lodash.escape:
     specifier: ^4.0.1
     version: 4.0.1
   lucide-static:
-    specifier: ^0.309.0
-    version: 0.309.0
+    specifier: ^0.314.0
+    version: 0.314.0
   luxon:
     specifier: ^3.4.4
     version: 3.4.4
@@ -81,8 +81,8 @@ dependencies:
     specifier: ^1.2.5
     version: 1.2.5
   markdown-it-shikiji:
-    specifier: ^0.9.19
-    version: 0.9.19
+    specifier: ^0.10.0
+    version: 0.10.0
   markdown-it-sub:
     specifier: ^2.0.0
     version: 2.0.0
@@ -99,20 +99,20 @@ dependencies:
     specifier: ^8.4.33
     version: 8.4.33
   sass:
-    specifier: ^1.69.7
-    version: 1.69.7
+    specifier: ^1.70.0
+    version: 1.70.0
   shikiji-transformers:
-    specifier: 0.10.0-beta.1
-    version: 0.10.0-beta.1
+    specifier: 0.10.0
+    version: 0.10.0
   simple-icons:
-    specifier: ^11.1.0
-    version: 11.1.0
+    specifier: ^11.2.0
+    version: 11.2.0
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
   terser:
-    specifier: ^5.26.0
-    version: 5.26.0
+    specifier: ^5.27.0
+    version: 5.27.0
   yaml:
     specifier: ^2.3.4
     version: 2.3.4
@@ -373,7 +373,7 @@ packages:
     dependencies:
       '@jridgewell/set-array': 1.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@jridgewell/trace-mapping': 0.3.20
+      '@jridgewell/trace-mapping': 0.3.22
     dev: false
 
   /@jridgewell/resolve-uri@3.1.1:
@@ -390,15 +390,15 @@ packages:
     resolution: {integrity: sha512-UTYAUj/wviwdsMfzoSJspJxbkH5o1snzwX0//0ENX1u/55kkZZkcTZP6u9bwKGkv+dkk9at4m1Cpt0uY80kcpQ==}
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
-      '@jridgewell/trace-mapping': 0.3.20
+      '@jridgewell/trace-mapping': 0.3.22
     dev: false
 
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
     dev: false
 
-  /@jridgewell/trace-mapping@0.3.20:
-    resolution: {integrity: sha512-R8LcPeWZol2zR8mmH3JeKQ6QRCFb7XgUhV9ZlGhHLGyg4wpPiPZNQOOWhFZhxKw8u//yTbNGI42Bx/3paXEQ+Q==}
+  /@jridgewell/trace-mapping@0.3.22:
+    resolution: {integrity: sha512-Wf963MzWtA2sjrNt+g18IAln9lKnlRp+K2eH4jjIoF1wYeq3aMREpG09xhlhdzS0EjwU7qmUJYangWa+151vZw==}
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
@@ -523,6 +523,12 @@ packages:
     resolution: {integrity: sha512-nc0Axzp/0FILLEVsm4fNwLCwMttvhEI263QtVPQcbpfZZ3ts0hLsZGOpE6czNlid7CJ9MlyH8reXkpsf3YUY4w==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  /acorn@8.11.3:
+    resolution: {integrity: sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+    dev: false
 
   /ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -1077,8 +1083,8 @@ packages:
       domhandler: 5.0.3
     dev: false
 
-  /dotenv@16.3.1:
-    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+  /dotenv@16.3.2:
+    resolution: {integrity: sha512-HTlk5nmhkm8F6JcdXvHIzaorzCoziNQT9mGxLPVXW8wJF1TiGSL60ZGB4gHWabHOaMmWmhvk2/lPHfnBiT78AQ==}
     engines: {node: '>=12'}
     dev: false
 
@@ -1107,8 +1113,8 @@ packages:
       kleur: 4.1.5
     dev: false
 
-  /eleventy-plugin-validate@0.1.1:
-    resolution: {integrity: sha512-8SvVVaE4/K1OlSHPtY7+/OibkQ3NKXeXbFuX8jtz+pQnxYVCezShVD5te0vdE2UBPCdVk1W0ymZpGHvwgx+7gQ==}
+  /eleventy-plugin-validate@0.1.2:
+    resolution: {integrity: sha512-g7pnTnHUp5iEGy+iT/7PgXyoHrghwkALKYWnAIpmtQOncWvBDwbZ3LPVhILWODBrwPGeJtZ45xsLOcSKOlzUGQ==}
     dependencies:
       just-extend: 6.2.0
       kleur: 4.1.5
@@ -2021,8 +2027,8 @@ packages:
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /linkedom@0.16.6:
-    resolution: {integrity: sha512-vJ8oadtJe3DM4FNW15Fj5NLIJlJk+AOypoRxzq9prLx+gAKvHYcTfV98pzOoRkwx4ZvvYzqT1bcDKluHH72apg==}
+  /linkedom@0.16.8:
+    resolution: {integrity: sha512-+HtHVHBb3yZKlP9pgcJdi1AIG9tsAuo+Qtlz+79cCTsxgQwDzajsZjYvpp+DEckCK/zoGVhzkADniYZQ57KcFQ==}
     dependencies:
       css-select: 5.1.0
       cssom: 0.5.0
@@ -2091,8 +2097,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-static@0.309.0:
-    resolution: {integrity: sha512-KB8II+KYaAeNMeriN3uBKVbR8krMeOYfAf3k+eBzbkpn68YckZPMNPFdxZ049cp8HzulewTJsropIkKqLiG8MA==}
+  /lucide-static@0.314.0:
+    resolution: {integrity: sha512-Eqb7KkjgH/mOqdv3s0/8WZlNPjzn/Tw989FaJtIQqugBB5IGm0VIoywpQBHpJjwTLCu+QK0l6GzktKxCZD1EHQ==}
     dev: false
 
   /luxon@3.4.4:
@@ -2144,11 +2150,12 @@ packages:
       markdown-it: 13.0.2
     dev: false
 
-  /markdown-it-shikiji@0.9.19:
-    resolution: {integrity: sha512-AjGg991Tge1VbQb4whEvJ0Xa8Dopjowd0Mxy0ntzkCAuRwjNUhriGqu0AZEjM8Caab5+324VD8eEkPD7ihUIMA==}
+  /markdown-it-shikiji@0.10.0:
+    resolution: {integrity: sha512-d0sL2zLythdBLjERBUaMZspsolzs++cFPUCHCgiNlktPCmsLNZloczf8Zs0UHKGvVuYGQnEWByU9l6Zgui1czw==}
     dependencies:
       markdown-it: 14.0.0
-      shikiji: 0.9.19
+      shikiji: 0.10.0
+      shikiji-transformers: 0.10.0
     dev: false
 
   /markdown-it-sub@2.0.0:
@@ -2986,8 +2993,8 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
-  /sass@1.69.7:
-    resolution: {integrity: sha512-rzj2soDeZ8wtE2egyLXgOOHQvaC2iosZrkF6v3EUG+tBwEvhqUCzm0VP3k9gHF9LXbSrRhT5SksoI56Iw8NPnQ==}
+  /sass@1.70.0:
+    resolution: {integrity: sha512-uUxNQ3zAHeAx5nRFskBnrWzDUJrrvpCPD5FNAoRvTi0WwremlheES3tg+56PaVtCs5QDRX5CBLxxKMDJMEa1WQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -3045,30 +3052,20 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  /shikiji-core@0.10.0-beta.1:
-    resolution: {integrity: sha512-u7rlf6PEtUCnjmuuVbt9HPEhvt+pcLkIin2yijCZAthPA7+nzUB+ourl9y/dg7AnhLssZU6LNIHZ4i3++/sj0g==}
+  /shikiji-core@0.10.0:
+    resolution: {integrity: sha512-imG+bvRkuNlZUi2q9tMVfegRRouTpDxMFejpfF/6J+bFX3NDKtlW9T9iIAkBYnw4pcCtSwirW0AvkwlQR4wyxg==}
     dev: false
 
-  /shikiji-core@0.9.19:
-    resolution: {integrity: sha512-AFJu/vcNT21t0e6YrfadZ+9q86gvPum6iywRyt1OtIPjPFe25RQnYJyxHQPMLKCCWA992TPxmEmbNcOZCAJclw==}
-    dev: false
-
-  /shikiji-transformers@0.10.0-beta.1:
-    resolution: {integrity: sha512-176HAjcVETtMKkBsqWfzWaegk6D+vlo2Kn3TBjoEDzjvOFrUo05tUxcrGX6C9PwV/aFwJ/4Xx3TFAtx++uD/yQ==}
+  /shikiji-transformers@0.10.0:
+    resolution: {integrity: sha512-x9oYybeF/XOrIc6Mm8G1gU5ezunMxdgD4WwBTKrZ5tAmFFaNIWCjwZENgRt1uR4iMi0+pGH0g9bmrbraSC41nA==}
     dependencies:
-      shikiji: 0.10.0-beta.1
+      shikiji: 0.10.0
     dev: false
 
-  /shikiji@0.10.0-beta.1:
-    resolution: {integrity: sha512-MP1366ldLpuq+iQstEto/p5dRV1gA2BChkVdz6HydgChfEebIA8BDREBF3BY5YhWwnU/o1u0N96N5erxe6P3Cw==}
+  /shikiji@0.10.0:
+    resolution: {integrity: sha512-1dAzIOWbtM7B4Sem5BvE+CEdsebDsRA34SfCxM4qJ4PLgR73ZD92VEtNfbcoZ3xOLSqvtV0J9i4WpCgVsmQteg==}
     dependencies:
-      shikiji-core: 0.10.0-beta.1
-    dev: false
-
-  /shikiji@0.9.19:
-    resolution: {integrity: sha512-Kw2NHWktdcdypCj1GkKpXH4o6Vxz8B8TykPlPuLHOGSV8VkhoCLcFOH4k19K4LXAQYRQmxg+0X/eM+m2sLhAkg==}
-    dependencies:
-      shikiji-core: 0.9.19
+      shikiji-core: 0.10.0
     dev: false
 
   /signal-exit@4.1.0:
@@ -3087,8 +3084,8 @@ packages:
       simple-concat: 1.0.1
     dev: false
 
-  /simple-icons@11.1.0:
-    resolution: {integrity: sha512-1Z8ewYajktMgVGo7o85MepKUo7NEFLAvgDjftK3AmfN+bdCfIug8ncxew0TiQVFidR4JQ9whXB7uUiAmukAkPg==}
+  /simple-icons@11.2.0:
+    resolution: {integrity: sha512-ZT/+2+pSg7kGaWBorPxaktwb3pK18R945XnPU895qPzGDN1LxkHfDbejbBnAvIElYYPgUPstqUIjyPSvZPSfTg==}
     engines: {node: '>=0.12.18'}
     dev: false
 
@@ -3362,13 +3359,13 @@ packages:
       streamx: 2.15.2
     dev: false
 
-  /terser@5.26.0:
-    resolution: {integrity: sha512-dytTGoE2oHgbNV9nTzgBEPaqAWvcJNl66VZ0BkJqlvp71IjO8CxdBx/ykCNb47cLnCmCvRZ6ZR0tLkqvZCdVBQ==}
+  /terser@5.27.0:
+    resolution: {integrity: sha512-bi1HRwVRskAjheeYl291n3JC4GgO/Ty4z1nVs5AAsmonJulGxpSektecnNedrwK9C7vpvVtcX3cw00VSLt7U2A==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
       '@jridgewell/source-map': 0.3.5
-      acorn: 8.11.2
+      acorn: 8.11.3
       commander: 2.20.3
       source-map-support: 0.5.21
     dev: false
