@@ -5,7 +5,7 @@
 
 ## Features
 
--   **Syntax highlighting** with [`markdown-it-shikiji`](https://shikiji.netlify.app/packages/markdown-it).
+-   **Syntax highlighting** with [Shiki](https://shiki.style/packages/markdown-it).
 -   **Optimized images** with [`@11ty/eleventy-img`](https://github.com/11ty/eleventy-img).
 -   **RSS feed** using [`@ryanccn/eleventy-plugin-rss`](https://github.com/ryanccn/eleventy-plugin-rss).
 -   **Spell-checking** through [`cspell`](http://cspell.org/).

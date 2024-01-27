@@ -7,7 +7,7 @@ import { full as markdownItEmoji } from 'markdown-it-emoji';
 import markdownItSub from 'markdown-it-sub';
 import markdownItSup from 'markdown-it-sup';
 import markdownItContainer from 'markdown-it-container';
-import markdownItShikiji from 'markdown-it-shikiji';
+import markdownItShiki from '@shikijs/markdown-it';
 
 import codeToolbarPlugin from './code-toolbar.js';
 
@@ -17,7 +17,7 @@ import {
 	transformerNotationHighlight,
 	transformerNotationErrorLevel,
 	transformerMetaHighlight,
-} from 'shikiji-transformers';
+} from '@shikijs/transformers';
 
 const markdownLibrary = markdownIt({
 	html: true,
@@ -55,7 +55,7 @@ const markdownLibrary = markdownIt({
 		},
 	})
 	.use(
-		await markdownItShikiji({
+		await markdownItShiki({
 			themes: { light: 'github-light', dark: 'github-dark' },
 			defaultColor: false,
 			transformers: [
