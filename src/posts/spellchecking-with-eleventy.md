@@ -1,7 +1,7 @@
 ---
-tags: ['markdown', 'spellcheck']
 title: Spell-checking Markdown with cSpell
 description: A little magic to help catch typos in your blog posts.
+tags: ['markdown', 'spellcheck']
 date: 2023-03-23
 edited: 2023-05-21
 comments: true
