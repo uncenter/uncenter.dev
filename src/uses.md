@@ -12,7 +12,7 @@ description: All sorts of things that I use.
 
 -   [1Password](https://1password.com/) for password management
 -   [Arc](https://arc.net/) for browsing the web
--   [Cleanshot X](https://shottr.cc/) for screenshots
+-   [Cleanshot X](https://cleanshot.com/) for screenshots
 -   [Discord](https://discord.com/) with [Vencord](https://vencord.dev/) for messaging
 -   [Spotify](https://spotify.com/) for music
 
