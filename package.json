@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "eleventy --serve",
 		"build": "eleventy",
+		"debug": "DEBUG=Eleventy* eleventy",
 		"clean": "rimraf dist/ .cache",
 		"lint": "eslint .",
 		"format": "prettier --write ."
