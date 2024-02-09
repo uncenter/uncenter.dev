@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon';
 import urlize from '../urlize.js';
+import stringify from '../json-pretty-stringify.js';
 
 const toShortDate = (dateObject) => {
 	// 10/14/1983
@@ -50,6 +51,9 @@ export const filters = (eleventyConfig) => {
 	eleventyConfig.addFilter('toFullDateTime', toFullDateTime);
 	eleventyConfig.addFilter('capitalize', (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
+	});
+	eleventyConfig.addFilter('stringify', (value) => {
+		return stringify(value, '\t');
 	});
 	eleventyConfig.addFilter('url', urlize);
 };

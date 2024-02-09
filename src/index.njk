@@ -11,16 +11,7 @@ templateEngineOverride: njk, md
 <div class="py-4">
 
 ```js
-const whoami = {
-    name: "{{ site.author.name }}",
-    website: "{{ site.url }}",
-    occupation: "Student",
-    location: "United States",
-    languages: ["JavaScript", "TypeScript", "Rust", "Python", "HTML", "CSS"],
-    frameworks: ["SolidJS", "Eleventy", "TailwindCSS"],
-    interests: ["Web Development", "Software Development", "Open Source"],
-    learning: ["Rust", "Vue", "Fortran", "Swift"],
-};
+const whoami = {{ whoami | stringify | safe }};
 ```
 
 </div>
