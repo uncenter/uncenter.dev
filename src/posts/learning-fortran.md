@@ -46,27 +46,27 @@ end program helloworld
 ```
 
 <script>
-    window.addEventListener("DOMContentLoaded",()=>{
-    const screamingCaseToggle = document.querySelector('#toggle-screaming-case');
-    let screamingCaseEnabled = JSON.parse(localStorage.getItem("screaming-case-mode-enabled")) || false;
+	 window.addEventListener("DOMContentLoaded", () => {
+		const screamingCaseToggle = document.querySelector('#toggle-screaming-case');
+		let screamingCaseEnabled = JSON.parse(localStorage.getItem("screaming-case-mode-enabled")) || false;
 
-    function updateScreamingCaseStatus() {
-        localStorage.setItem("screaming-case-mode-enabled", screamingCaseEnabled)
-        screamingCaseToggle.textContent = screamingCaseEnabled ? 'Disable SCREAMING_CASE mode' : 'Enable SCREAMING_CASE mode';
-            for (const token of document.querySelectorAll('.code-block span.line span')) {
-				if (token.getAttribute('data-token') === 'xyz')
+		function updateScreamingCaseStatus() {
+			localStorage.setItem("screaming-case-mode-enabled", screamingCaseEnabled)
+			screamingCaseToggle.textContent = screamingCaseEnabled ? 'Disable SCREAMING_CASE mode' : 'Enable SCREAMING_CASE mode';
+			for (const token of document.querySelectorAll('.code-block span.line span')) {
+				if (token.getAttribute('style') === '--shiki-light:#D73A49;--shiki-dark:#F97583') {
 					token.textContent = screamingCaseEnabled ? token.textContent.toUpperCase() : token.textContent.toLowerCase();
 				}
-            }
-    }
+			}
+		}
 
-    updateScreamingCaseStatus();
+		updateScreamingCaseStatus();
 
-    screamingCaseToggle.addEventListener('click', () => {
-        screamingCaseEnabled = !screamingCaseEnabled;
-        updateScreamingCaseStatus();
-    })
-    });
+		screamingCaseToggle.addEventListener('click', () => {
+			screamingCaseEnabled = !screamingCaseEnabled;
+			updateScreamingCaseStatus();
+		});
+	});
 </script>
 
 ::: note
