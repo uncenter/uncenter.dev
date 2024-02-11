@@ -5,7 +5,7 @@ tags: ['npm']
 date: 2024-01-03
 edited: 2024-01-04
 comments: true
-# cSpell:ignore unpublish, unpublishing
+# spell-checker:ignore unpublish, unpublishing
 ---
 
 :::note

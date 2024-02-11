@@ -45,6 +45,7 @@ program helloworld
 end program helloworld
 ```
 
+<!-- spell-checker:disable --->
 <script>
 	 window.addEventListener("DOMContentLoaded", () => {
 		const screamingCaseToggle = document.querySelector('#toggle-screaming-case');
@@ -68,6 +69,7 @@ end program helloworld
 		});
 	});
 </script>
+<!-- spell-checker:enable --->
 
 ::: note
 Older Fortran programs required the use of [SCREAMING_CASE](https://en.wiktionary.org/wiki/screaming_snake_case) for all keywords, but in modern Fortran you can and [it is recommended](https://fortran-lang.org/learn/best_practices/style_guide/) to use lowercase (you can still use SCREAMING_CASE or any other case you want though).

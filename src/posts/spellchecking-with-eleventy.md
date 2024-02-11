@@ -156,6 +156,10 @@ date: 2000-01-01
 ---
 ```
 
+::: tip
+You can also use `spell-checker:ignore` instead of `cSpell:ignore`. For more information on per document settings, see https://cspell.org/configuration/document-settings/#in-document-settings.
+:::
+
 You don't have to put it in the front matter, but I like to keep my posts as clean & organized as possible and it looks nice there.
 
 Let me know if you have any questions or suggestions!
