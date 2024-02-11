@@ -35,7 +35,7 @@ pnpm format   # format files
 -   `config/markdown/`: markdown configuration
 -   `config/transforms/`: various functions for transforming/processing CSS, HTML, and JS
 -   `functions/`: stores [Cloudflare Pages Functions](https://developers.cloudflare.com/pages/functions/)
-     - Currently the only function in use checks to see if the request `user-agent` is from the CLI program `curl` and returns the "whoami" code block seen on the home page in JSON form (https://github.com/uncenter/uncenter.dev/issues/78).
+    -   Currently the only function in use checks to see if the request `user-agent` is from the CLI program `curl` and returns the "whoami" code block seen on the home page in JSON form (https://github.com/uncenter/uncenter.dev/issues/78).
 
 ## License
 
