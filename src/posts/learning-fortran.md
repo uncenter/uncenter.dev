@@ -74,6 +74,8 @@ Just from this small example we can gather that...
 -   Every Fortran program begins with `program <program-name>` and ends with `end program <program-name>`.
 -   To display text on the terminal we use `print *, '<message>'`.
 
+The syntax for printing is a little funky though. What is that asterisk doing there? The asterisk, aside from being used as a mathematical operator, indicates the "default". So for `print`, `*` means "print to the default output channel".
+
 ::: note
 I can't find exactly where this is documented but you don't actually need the start and end `program <program-name>`; you could write a hello world program like this, though as I just mentioned this doesn't seem to be a common practice and isn't really very useful in any practical scenario.
 
@@ -141,7 +143,7 @@ print *, 'y:'
 read *, y
 ```
 
-Notice how we can take input from the user with `read` and assign it to a value with the `read *, <variable>` syntax.
+Notice how we can take input from the user with `read` and assign it to a value with the `read *, <variable>` syntax. The asterisk here means _read_ from the default input channel.
 
 We do the same for prompting the user to select an operation.
 
