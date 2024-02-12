@@ -245,7 +245,7 @@ end select
 
 This also has the handy benefit of telling the user if they made an invalid choice while selecting the operation.
 
-That’s just a quick introduction to a few modern Fortran features: declaring variables, printing and reading to and from the terminal, `if` and `select case`, and `stop`. Next time, we’ll talk more about where Fortran is actually used, cooler things _you_ can build with it, and how the Fortran languag community is rapidly modernizing!
+That’s just a quick introduction to a few modern Fortran features: declaring variables, printing and reading to and from the terminal, `if` and `select case`, and `stop`. Next time, we’ll talk more about where Fortran is actually used, cooler things _you_ can build with it, and how the Fortran language & community are rapidly modernizing!
 
 [^1]: Ironically, in the ~3-ish months since I started writing this article, ThePrimagen has recently said he ["take[s] back everything i said about FORTRAN"](https://x.com/ThePrimeagen/status/1745542049284423973) — apparently having some interest in the language!
 [^2]: According to sources listed on [Fortran's Wikipedia](https://en.wikipedia.org/wiki/Fortran), the name might also have stood for _Formula Translating System_ or just _Formula Translation_.
