@@ -175,6 +175,17 @@ div {
 		@apply mt-0;
 	}
 
+	sup {
+		vertical-align: baseline;
+		position: relative;
+		bottom: 0.33em;
+	}
+	sub {
+		vertical-align: baseline;
+		position: relative;
+		bottom: -0.33em;
+	}
+
 	a {
 		@apply relative no-underline text-fg;
 
