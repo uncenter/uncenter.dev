@@ -6,19 +6,15 @@ date: 2024-01-31
 comments: true
 ---
 
-While I probably should be learning a language like C, Go, or whatever new trendy language the [ThePrimeagen](https://twitter.com/ThePrimeagen) mentions on Twitter (OCaml?), I'm going to attempt to learn Fortran.
-
-::: note
-Ironically, in the ~3-ish months since I started writing this article, ThePrimagen has recently ["take[n] back everything i said about FORTRAN"](https://x.com/ThePrimeagen/status/1745542049284423973) and apparently has some interest in the language!
-:::
+While I probably should be learning a language like C, Go, or whatever new trendy language the [ThePrimeagen](https://twitter.com/ThePrimeagen) mentions on Twitter (OCaml?), I'm going to attempt to learn Fortran[^1].
 
 ## A quick history
 
-Fortran, which stands for FORmula TRANslator[^1], was created at IBM by [John Backus](https://en.wikipedia.org/wiki/John_Backus) in 1957 for scientific applications and has apparently been popular for high-performance computing and benchmarking supercomputers in recent years. Fortran has had several subsequent releases since then; FORTRAN 77, Fortran 90, Fortran 95, Fortran 2003, Fortran 2008, and the latest Fortran 2018.
+Fortran, which stands for FORmula TRANslator[^2], was created at IBM by [John Backus](https://en.wikipedia.org/wiki/John_Backus) in 1957 for scientific applications and has apparently been popular for high-performance computing and benchmarking supercomputers in recent years. Fortran has had several subsequent releases since then; FORTRAN 77, Fortran 90, Fortran 95, Fortran 2003, Fortran 2008, and the latest Fortran 2018.
 
 ## Which version of Fortran?
 
-To understand what version of Fortran to learn/use, we first must understand the difference between _fixed form_ and _free form_ Fortran. The fixed form layout comes from the very beginning of Fortran, inherited from punch cards, and has odd restrictions about the column in which comments and statements are placed. You can read more about [the fixed form layout](https://fortranwiki.org/fortran/show/Fixed+form+layout) on the Fortran Wiki. The free form layout, first introduced in Fortran 90, removed special columns and added the ability to write comments wherever, and is what we'll be learning in this article. With GNU Fortran (`gfortran`) — the compiler we'll be using here — fixed form and free form layouts are distinguished by the file extension. The default version is FORTRAN 77 (fixed form) and to use the free form layout, set the file extension to `.f90` or newer. A common misconception is that `.f90` means the code is Fortran 90, but it is actually just standard practice and tells the compiler to use the free form layout. I'll leave it to the following [comment on the Fortran discussion board](https://fortran-lang.discourse.group/t/is-there-a-standard-file-suffix-for-modern-fortran-code/3550/2) to explain it better than I ever could:
+To understand what version of Fortran to learn/use, we first must understand the difference between _fixed form_ and _free form_ Fortran. The fixed form layout comes from the very beginning of Fortran, inherited from punch cards, and has odd restrictions about the column in which comments and statements are placed. You can read more about [the fixed form layout](https://fortranwiki.org/fortran/show/Fixed+form+layout) on the Fortran Wiki. The free form layout, first introduced in Fortran 90, removed special columns and added the ability to write comments wherever, and is what we'll be learning in this article. The compiler we'll be using is GNU Fortran, or `gfortran`. You can install it via Homebrew (macOS) with the [`gcc`](https://formulae.brew.sh/formula/gcc#default) formula, or [install it using a package manager for your OS](https://gcc.gnu.org/wiki/GFortranDistros). To tell `gfortran` that your code uses the free form layout, set the file extension to `.f90` or newer. The following [comment on the Fortran discussion board](https://fortran-lang.discourse.group/t/is-there-a-standard-file-suffix-for-modern-fortran-code/3550/2) explains this well.
 
 > The .f90 suffix means that the source code is free format, not that
 > the code conforms to the Fortran 90 standard. Code that uses the .f90
@@ -29,13 +25,9 @@ To understand what version of Fortran to learn/use, we first must understand the
 > than .f90. Most Fortran source code on GitHub that uses features from
 > a standard more recent than Fortran 90 still uses the .f90 suffix.
 
-::: tip
-As I just mentioned, we will be using `gfortran` later on to compile our code, so make sure to have it installed! You can install it via Homebrew (macOS) with the [`gcc`](https://formulae.brew.sh/formula/gcc#default) formula, or [install it from a package manager for your OS](https://gcc.gnu.org/wiki/GFortranDistros).
-:::
-
 ## Understanding the syntax
 
-Coming from TypeScript, and before that, Python, I'm very used to (and comfortable with) modern - you might say "aesthetic" - syntax . Although I wouldn't say Fortran syntax is quite _modern_, it seems to avoid the syntactic sugar nightmares that plague beginners in other languages[^2]. Take a look at this `helloworld.f90` example below.
+Coming from TypeScript, and before that, Python, I'm very used to (and comfortable with) modern — you might say "aesthetic" — syntax . Although I wouldn't say Fortran syntax is quite _modern_, it seems to avoid the syntactic sugar nightmares that plague beginners in other languages[^3]. Take a look at this `helloworld.f90` example below.
 
 ```f90
 program helloworld
@@ -72,7 +64,7 @@ end program helloworld
 <!-- spell-checker:enable --->
 
 ::: note
-Older Fortran programs required the use of [SCREAMING_CASE](https://en.wiktionary.org/wiki/screaming_snake_case) for all keywords, but in modern Fortran you can and [it is recommended](https://fortran-lang.org/learn/best_practices/style_guide/) to use lowercase (you can still use SCREAMING_CASE or any other case you want though).
+Older Fortran programs required the use of [SCREAMING_CASE](https://en.wiktionary.org/wiki/screaming_snake_case) for all keywords, but in modern Fortran you can and [it is recommended](https://fortran-lang.org/learn/best_practices/style_guide/) to use [snake_case](https://en.wiktionary.org/wiki/snake_case#English) (you can still use SCREAMING_CASE or any other case you want though).
 
 <button id="toggle-screaming-case">Enable SCREAMING_CASE mode</button>
 :::
@@ -83,21 +75,13 @@ Just from this small example we can gather that...
 -   To display text on the terminal we use `print *, '<message>'`.
 
 ::: note
-I can't find exactly where this is documented but you don't actually need the start and end `program <program-name>` — you could write a hello world program like this, though as I just mentioned this doesn't seem to be a common practice and isn't really very useful in any practical scenario.
+I can't find exactly where this is documented but you don't actually need the start and end `program <program-name>`; you could write a hello world program like this, though as I just mentioned this doesn't seem to be a common practice and isn't really very useful in any practical scenario.
 
 ```f90
 print *, 'Hello, world!'; end
 ```
 
 :::
-
-And before we go any further, you should know that comments begin with an exclamation mark.
-
-```f90
-program comments
-  ! I am a Fortran comment.
-end program comments
-```
 
 Here's another, slightly more complicated example.
 
@@ -133,11 +117,11 @@ program calculator
 end program calculator
 ```
 
-Starting right at the top, we have something new: `implicit none`. This is important to use in all future programs that you write.
+Starting right at the top, we have something new: `implicit none`. Added in Fortran 90, `implicit none` disables implicit typing defaults and all variables must be explicitly declared. In Fortran, implicit typing is the practice of assigning default types to variables based on the character a variable name begins with. Variables starting with `I` through `N` are `INTEGER`s, everything else is `REAL`. It is "a legacy of the past" and usage of an `implicit none` statement is "strongly advised" ([implicit none - Fortran Wiki](https://fortranwiki.org/fortran/show/implicit+none)).
 
-> In Fortran, by default the type of variables whose names start with `I...N` is `INTEGER`, and `REAL` otherwise. It is a legacy of the past and it is know strongly advised to put an `implicit none` statement in your program and in each module. ([implicit none - Fortran Wiki](https://fortranwiki.org/fortran/show/implicit+none))
-
-Added in Fortran 90, `implicit none` disables implicit typing defaults and all variables must be explicitly declared. `implicit none` needs to precede the rest of your program, so make sure to put it at the top. A common Fortran joke goes along the lines of “GOD is REAL, unless declared INTEGER," as with implicit typing, variables with names starting with the letters I through N are implicitly `INTEGER`, all others are implicitly `REAL` - the first letter of "GOD", a "G", is not within I - N and is therefore of the REAL type.
+::: note
+A common Fortran joke goes along the lines of “GOD is REAL, unless declared INTEGER"[^4] because of implicit typing!
+:::
 
 Moving on, we declare our first variables in this program.
 
@@ -146,7 +130,7 @@ real :: x, y, answer
 character(1) :: choice
 ```
 
-Here we are declaring `x`, `y`, and `answer` with the `real` type, and `choice` with the `character` type. The `real` type stores floating point numbers[^3], and `character` stores characters.
+Here we are declaring `x`, `y`, and `answer` with the `REAL` type, and `choice` with the `CHARACTER` type. The `REAL` type stores floating point numbers[^5], and `CHARACTER`... stores characters.
 
 Next, we prompt the user for our `x` and `y` values.
 
@@ -187,14 +171,14 @@ print *, 'Answer:', answer
 
 If we run this, we- wait. Did I even tell you how to compile a Fortran program yet?
 
-## How do I actually run this sh\*t?
+## How do I actually run this?
 
-To compile our `calculator.f95` program, run `gfortran -o calculator calculator.f95` . To run our program, simply run `./calculator`. If you only instruct `gfortran` of the input file, the default output executable will be named `a.out`.
+First, compile our calculator program with `gfortran -o calculator calculator.f90` . Then you can run it with `./calculator`. If you only instruct `gfortran` of the input file (`gfortran calculator.f90`), the default output executable will be named `a.out`.
 
 Let's run our program now.
 
 ```
-$ gfortran -o calculator calculator.f95
+$ gfortran -o calculator calculator.f90
 $ ./calculator
  x:
 10
@@ -261,8 +245,10 @@ end select
 
 This also has the handy benefit of telling the user if they made an invalid choice while selecting the operation.
 
-So there we have it! A quick introduction to modern Fortran; declaring variables, printing and reading to and from the terminal, `if` and `select case`, and `stop`.
+That’s just a quick introduction to a few modern Fortran features: declaring variables, printing and reading to and from the terminal, `if` and `select case`, and `stop`. Next time, we’ll talk more about where Fortran is actually used, cooler things _you_ can build with it, and how the Fortran languag community is rapidly modernizing!
 
-[^1]: According to sources listed on [Fortran's Wikipedia](https://en.wikipedia.org/wiki/Fortran), the name might also have stood for _Formula Translating System_ or just _Formula Translation_.
-[^2]: See [The Rust programming language absolutely positively sucks : r/rust](https://www.reddit.com/r/rust/comments/12b7p2p/the_rust_programming_language_absolutely/) and [Rust is a nightmare to learn coming from Java - community - The Rust Programming Language Forum](https://users.rust-lang.org/t/rust-is-a-nightmare-to-learn-coming-from-java/37650).
-[^3]: You can also use `double precision` for larger (more precise) floating point numbers.
+[^1]: Ironically, in the ~3-ish months since I started writing this article, ThePrimagen has recently said he ["take[s] back everything i said about FORTRAN"](https://x.com/ThePrimeagen/status/1745542049284423973) — apparently having some interest in the language!
+[^2]: According to sources listed on [Fortran's Wikipedia](https://en.wikipedia.org/wiki/Fortran), the name might also have stood for _Formula Translating System_ or just _Formula Translation_.
+[^3]: See [The Rust programming language absolutely positively sucks : r/rust](https://www.reddit.com/r/rust/comments/12b7p2p/the_rust_programming_language_absolutely/) and [Rust is a nightmare to learn coming from Java - community - The Rust Programming Language Forum](https://users.rust-lang.org/t/rust-is-a-nightmare-to-learn-coming-from-java/37650).
+[^4]: The first letter of "GOD", a "G", is not within I through N and is therefore of the `REAL` type ("GOD is REAL").
+[^5]: You can also use `double precision` for larger (more precise) floating point numbers.
