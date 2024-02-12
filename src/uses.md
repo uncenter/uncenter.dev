@@ -18,8 +18,8 @@ description: All sorts of things that I use.
 
 ### Development
 
--   [Visual Studio Code](https://code.visualstudio.com/) ~~since I can't figure out how to configure Neovim~~ for a feature-rich and extendable editor
--   [Ghostty](https://mitchellh.com/ghostty) for _the fastest_, feature-rich, and actively developed terminal
+-   [Neovim](https://neovim.io/) for a fast, configurable editor
+-   [Ghostty](https://mitchellh.com/ghostty) for _the fastest_, most feature-rich, and actively developed terminal
 
 ### Utilities
 
@@ -56,11 +56,11 @@ description: All sorts of things that I use.
 -   [`bat`](https://github.com/sharkdp/bat) for `cat` with syntax highlighting (viewing file contents)
 -   [`bottom`](https://github.com/ClementTsang/bottom) as a nicer `top` (system monitoring)
 -   [`dust`](https://github.com/bootandy/dust) instead of `du` (disk usage analyzer)
--   [`eza`](https://eza.rocks/) for a colorful `ls` replacement
+-   [eza](https://eza.rocks/) for a colorful `ls` replacement
 -   [`fd`](https://github.com/sharkdp/fd) for a faster `find`
 -   [`fzf`](https://github.com/junegunn/fzf) for fuzzy finding
--   [`gitui`](https://github.com/extrawurst/gitui) to make terminal Git easier
--   [`yazi`](https://github.com/sxyazi/yazi) to manage, view, and quickly edit files
+-   [Lazygit](https://github.com/jesseduffield/lazygit) to make terminal Git easier
+-   [Yazi](https://github.com/sxyazi/yazi) to manage, view, and quickly edit files
 -   [Atuin](https://atuin.sh/) for magical shell history
 -   [Fish](https://fishshell.com/) for a user-friendly & fast shell
 -   [Fisher](https://github.com/jorgebucaran/fisher) for managing Fish plugins
