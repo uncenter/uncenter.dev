@@ -104,7 +104,7 @@ async function getLanguageColors(languages) {
 	);
 }
 
-export default async function() {
+export default async function () {
 	const headers = {};
 	if (process.env.GITHUB_TOKEN) {
 		headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
