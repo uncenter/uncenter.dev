@@ -52,8 +52,8 @@
 		"zod": "^3.22.4"
 	},
 	"devDependencies": {
-		"@uncenter/eslint-config": "^0.4.1",
-		"@uncenter/prettier-config": "^0.1.0",
+		"@uncenter/eslint-config": "^0.4.2",
+		"@uncenter/prettier-config": "^0.2.0",
 		"eslint": "^8.56.0",
 		"prettier": "^3.2.5",
 		"rimraf": "^5.0.5"

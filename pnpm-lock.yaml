@@ -122,11 +122,11 @@ dependencies:
 
 devDependencies:
   '@uncenter/eslint-config':
-    specifier: ^0.4.1
-    version: 0.4.1(@typescript-eslint/parser@7.0.1)(eslint@8.56.0)(typescript@5.3.3)
+    specifier: ^0.4.2
+    version: 0.4.2(@typescript-eslint/parser@7.0.1)(eslint@8.56.0)(typescript@5.3.3)
   '@uncenter/prettier-config':
-    specifier: ^0.1.0
-    version: 0.1.0
+    specifier: ^0.2.0
+    version: 0.2.0
   eslint:
     specifier: ^8.56.0
     version: 8.56.0
@@ -725,7 +725,7 @@ packages:
       debug: 4.3.4
       eslint: 8.56.0
       graphemer: 1.4.0
-      ignore: 5.3.0
+      ignore: 5.3.1
       natural-compare: 1.4.0
       semver: 7.6.0
       ts-api-utils: 1.2.1(typescript@5.3.3)
@@ -906,8 +906,8 @@ packages:
       cheerio: 1.0.0-rc.12
     dev: false
 
-  /@uncenter/eslint-config@0.4.1(@typescript-eslint/parser@7.0.1)(eslint@8.56.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-sjoCJT11tnRzZHzhHPC917ZMdEb2T37VIP1nHJi+DVV6YIL3CDYy/8aSisOIu9THq71b7s52xlzmZVpjbJZd/A==}
+  /@uncenter/eslint-config@0.4.2(@typescript-eslint/parser@7.0.1)(eslint@8.56.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-yeAvCn1lwU386hCl9e7R/v7eww5mJTQfW00AXFZ5Q+am3mCMHvbwNj+ozoLmWamD9faKMEQ+75GMMAlh8Xun+w==}
     peerDependencies:
       eslint: '>=8.0'
       typescript: '>=4.5'
@@ -933,8 +933,8 @@ packages:
       - vitest
     dev: true
 
-  /@uncenter/prettier-config@0.1.0:
-    resolution: {integrity: sha512-GfTT9aNCi3kTYp3cWsfSeURVVs6754pfRZEDUJQBJpXy9fRNidjo25qm/ydKXjOAIDS99Pf7B44+e5e1bZ0FuA==}
+  /@uncenter/prettier-config@0.2.0:
+    resolution: {integrity: sha512-J1f/l3njz7TgIbSrLxFLpyxa42/2iR19IwmNYNBWKqud6D8ipL8RfdNxEE3G1SZoe2oH+R11YrQpNbSeKj+T7A==}
     dev: true
 
   /@ungap/structured-clone@1.2.0:
@@ -2294,7 +2294,7 @@ packages:
       array-union: 2.1.0
       dir-glob: 3.0.1
       fast-glob: 3.3.2
-      ignore: 5.3.0
+      ignore: 5.3.1
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
@@ -2367,18 +2367,11 @@ packages:
       has-symbols: 1.0.3
     dev: false
 
-  /hasown@2.0.0:
-    resolution: {integrity: sha512-vUptKVTpIJhcczKBbgnS+RtcuYMB8+oNzPK2/Hp3hanz8JmpATdmmgLgSaadVREkDm+e2giHwY3ZRkyjSIDDFA==}
-    engines: {node: '>= 0.4'}
-    dependencies:
-      function-bind: 1.1.2
-
   /hasown@2.0.1:
     resolution: {integrity: sha512-1/th4MHjnwncwXsIW6QMzlvYL9kG5e/CpVvLRZe4XPa8TOUNbCELqmvhDmnkNsAjwaG4+I8gJJL0JBvTTLO9qA==}
     engines: {node: '>= 0.4'}
     dependencies:
       function-bind: 1.1.2
-    dev: false
 
   /he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
@@ -2466,6 +2459,11 @@ packages:
 
   /ignore@5.3.0:
     resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
+    engines: {node: '>= 4'}
+    dev: true
+
+  /ignore@5.3.1:
+    resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
     dev: true
 
@@ -2593,7 +2591,7 @@ packages:
   /is-core-module@2.13.1:
     resolution: {integrity: sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==}
     dependencies:
-      hasown: 2.0.0
+      hasown: 2.0.1
 
   /is-date-object@1.0.5:
     resolution: {integrity: sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ==}
