@@ -2,10 +2,10 @@ import YAML from 'yaml';
 import EleventyFetch from '@11ty/eleventy-fetch';
 
 const projects = {
-	maintained: [
+	current: [
 		{
-			name: 'uncenter.dev',
-			link: 'https://github.com/uncenter/uncenter.dev',
+			name: 'kittysay',
+			link: 'https://github.com/uncenter/kittysay',
 			featured: true,
 		},
 		{
@@ -19,54 +19,21 @@ const projects = {
 			featured: true,
 		},
 		{
-			name: 'eleventy-plugin-icons',
-			link: 'https://github.com/uncenter/eleventy-plugin-icons',
+			name: 'ascii-to-lua-table',
+			link: 'https://github.com/uncenter/ascii-to-lua-table',
 			featured: true,
 		},
 		{
-			name: 'create-eleventy-app',
-			link: 'https://github.com/uncenter/create-eleventy-app',
-		},
-		{
-			name: 'fn',
-			link: 'https://github.com/uncenter/fn',
-		},
-		{
-			name: 'tnl',
-			link: 'https://github.com/uncenter/tnl',
+			name: 'eleventy-plugin-icons',
+			link: 'https://github.com/uncenter/eleventy-plugin-icons',
 		},
 		{
 			name: 'eleventy-plugin-validate',
 			link: 'https://github.com/uncenter/eleventy-plugin-validate',
 		},
 		{
-			name: 'gitsnippity',
-			link: 'https://github.com/uncenter/gitsnippity',
-		},
-		{ name: 'xdirs', link: 'https://github.com/uncenter/xdirs' },
-		{
-			name: 'detect-formatting',
-			link: 'https://github.com/uncenter/detect-formatting',
-		},
-		{
-			name: 'detect-imports',
-			link: 'https://github.com/uncenter/detect-imports',
-		},
-		{
 			name: 'gh-stats',
 			link: 'https://github.com/uncenter/gh-stats',
-		},
-		{
-			name: 'dotfiles',
-			link: 'https://github.com/uncenter/dotfiles',
-		},
-		{
-			name: 'templates',
-			link: 'https://github.com/uncenter/templates',
-		},
-		{
-			name: 'discord-forum-bot',
-			link: 'https://github.com/uncenter/discord-forum-bot',
 		},
 		{
 			name: 'loogu',
@@ -77,27 +44,19 @@ const projects = {
 			link: 'https://github.com/uncenter/mailtolink',
 		},
 		{
-			name: '@uncenter/quickbench',
-			link: 'https://github.com/uncenter/quickbench',
-		},
-		{
 			name: 'canvas-grade-calculator',
 			link: 'https://github.com/uncenter/canvas-grade-calculator',
 		},
 		{
-			name: 'markdown-it-kbd-better',
-			link: 'https://github.com/uncenter/markdown-it-kbd-better',
-		},
-		{
-			name: '@uncenter/eleventy-plugin-toc',
-			link: 'https://github.com/uncenter/eleventy-plugin-toc',
-		},
-		{
-			name: 'wifi-password',
-			link: 'https://github.com/uncenter/wifi-password',
+			name: 'fn',
+			link: 'https://github.com/uncenter/fn',
 		},
 	],
-	archived: [
+	other: [
+		{
+			name: 'create-eleventy-app',
+			link: 'https://github.com/uncenter/create-eleventy-app',
+		},
 		{
 			name: 'learn-eleventy',
 			link: 'https://github.com/uncenter/learn-eleventy',
@@ -145,7 +104,7 @@ async function getLanguageColors(languages) {
 	);
 }
 
-export default async function () {
+export default async function() {
 	const headers = {};
 	if (process.env.GITHUB_TOKEN) {
 		headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;

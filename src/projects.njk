@@ -6,19 +6,19 @@ description: A list of projects I've worked on.
 
 <h2>Featured</h2>
 
-{% set projectslist = projects.maintained | selectattr('featured') %}
+{% set projectslist = projects.current | selectattr('featured') %}
 {% include "projectslist.njk" %}
 
 <hr>
 
-<h2>Maintained</h2>
+<h2>Current</h2>
 
-{% set projectslist = projects.maintained | rejectattr('featured') %}
+{% set projectslist = projects.current | rejectattr('featured') %}
 {% include "projectslist.njk" %}
 
 <hr>
 
-<h2>Archived</h2>
+<h2>Other</h2>
 
-{% set projectslist = projects.archived %}
+{% set projectslist = projects.other %}
 {% include "projectslist.njk" %}
