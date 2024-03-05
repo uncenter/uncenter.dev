@@ -18,7 +18,8 @@ description: All sorts of things that I use.
 
 ### Development
 
--   [Neovim](https://neovim.io/) for a fast, configurable editor
+-   [VS Code](https://code.visualstudio.com/) as my primary IDE
+    -  [Neovim](https://neovim.io/) as a secondary IDE for a snappy editor in the terminal
 -   [Ghostty](https://mitchellh.com/ghostty) for _the fastest_, most feature-rich, and actively developed terminal
 
 ### Utilities
