@@ -17,8 +17,8 @@
 		"@11ty/eleventy-img": "^4.0.2",
 		"@aloskutov/eleventy-plugin-external-links": "^2.1.1",
 		"@ryanccn/eleventy-plugin-rss": "^1.2.2",
-		"@shikijs/markdown-it": "1.1.7",
-		"@shikijs/transformers": "1.1.7",
+		"@shikijs/markdown-it": "1.2.0",
+		"@shikijs/transformers": "1.2.0",
 		"@uncenter/eleventy-plugin-toc": "^1.0.3",
 		"browserslist": "^4.23.0",
 		"dotenv": "^16.4.5",
@@ -27,10 +27,10 @@
 		"execa": "^8.0.1",
 		"html-minifier": "^4.0.0",
 		"image-size": "^1.1.1",
-		"lightningcss": "^1.24.0",
-		"linkedom": "^0.16.8",
+		"lightningcss": "^1.24.1",
+		"linkedom": "^0.16.10",
 		"lodash.escape": "^4.0.1",
-		"lucide-static": "^0.356.0",
+		"lucide-static": "^0.358.0",
 		"luxon": "^3.4.4",
 		"markdown-it": "^14.0.0",
 		"markdown-it-anchor": "^8.6.7",
@@ -44,10 +44,10 @@
 		"nanohtml": "^1.10.0",
 		"picocolors": "^1.0.0",
 		"postcss": "^8.4.35",
-		"sass": "^1.71.1",
+		"sass": "^1.72.0",
 		"simple-icons": "^11.8.0",
 		"tailwindcss": "^3.4.1",
-		"terser": "^5.29.1",
+		"terser": "^5.29.2",
 		"yaml": "^2.4.1",
 		"zod": "^3.22.4"
 	},
@@ -58,5 +58,5 @@
 		"prettier": "^3.2.5",
 		"rimraf": "^5.0.5"
 	},
-	"packageManager": "pnpm@8.15.1"
+	"packageManager": "pnpm@8.15.4"
 }
