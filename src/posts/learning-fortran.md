@@ -47,7 +47,7 @@ end program helloworld
 			localStorage.setItem("screaming-case-mode-enabled", screamingCaseEnabled)
 			screamingCaseToggle.textContent = screamingCaseEnabled ? 'Disable SCREAMING_CASE mode' : 'Enable SCREAMING_CASE mode';
 			for (const token of document.querySelectorAll('.code-block span.line span')) {
-				if (token.getAttribute('style') === '--shiki-light:#D73A49;--shiki-dark:#F97583') {
+				if (token.getAttribute('style') === '--shiki-latte:#8839EF;--shiki-frappe:#CA9EE6;--shiki-macchiato:#C6A0F6;--shiki-mocha:#CBA6F7') {
 					token.textContent = screamingCaseEnabled ? token.textContent.toUpperCase() : token.textContent.toLowerCase();
 				}
 			}

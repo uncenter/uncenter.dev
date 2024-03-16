@@ -1,9 +1,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const { flavors } = require('@catppuccin/palette');
 
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{11ty.js,js,md,njk}'],
-	darkMode: ['class', '[theme="dark"]'],
 	theme: {
 		fontSize: {
 			'xs': '0.875rem',
@@ -17,10 +17,12 @@ export default {
 			'5xl': '3.75rem',
 		},
 		extend: {
-			colors: {
-				bg: 'var(--bg)',
-				fg: 'var(--fg)',
-			},
+			colors: Object.fromEntries(
+				flavors.latte.colorEntries.map(([name]) => [
+					name,
+					`var(--${name})`,
+				]),
+			),
 			fontFamily: {
 				display: ['"General Sans"', ...defaultTheme.fontFamily.sans],
 			},

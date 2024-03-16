@@ -80,7 +80,7 @@ footerLinks:
 		<meta name="twitter:title" content="{{ title }}">
 		<meta name="twitter:image" content="{{ '/1024w.png' | url }}">
 	</head>
-	<body class="bg-bg text-fg font-display mx-auto max-w-[120ch]">
+	<body class="flex flex-col gap-8 mx-auto px-8 py-4 text-base/7 bg-base text-text font-display max-w-[120ch]">
 		<header class="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:space-y-0 justify-between leading-6 py-8">
 			<a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
 				<img
@@ -111,7 +111,7 @@ footerLinks:
 		<footer class="flex flex-col py-8 items-center self-center w-full gap-2 leading-normal">
 			<ul id="social-icons" class="m-0 p-0 flex gap-4 justify-center list-none items-baseline">
 				<li>
-					<a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" title="GitHub" class="not-fancy dark:text-white">{% icon 'si:github' %}</a>
+					<a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" title="GitHub" class="not-fancy">{% icon 'si:github' %}</a>
 				</li>
 				<li>
 					<a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" title="Mastodon" class="not-fancy">{% icon 'si:mastodon' %}</a>
@@ -127,44 +127,16 @@ footerLinks:
 					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}" data-umami-event="footer-{{ item.title | slugify }}">{{ item.title }}</a>{% if not loop.last %} &middot; {% endif %}
 				{% endfor %}
 			</div>
-			<select aria-label="Theme selector" id="theme-selector" class="text-center text-fg bg-bg border-2 border-gray-300 rounded-md focus:outline-none mt-1">
-				<option value="light">Light</option>
-				<option value="dark">Dark</option>
-				<option value="system">System</option>
+			<select aria-label="Theme selector" id="theme-selector" class="text-center text-text bg-base border-2 border-surface0 rounded-md focus:outline-none mt-1">
+				<option value="latte">Latte</option>
+				<option value="frappe">Frappé</option>
+				<option value="macchiato">Macchiato</option>
+				<option value="mocha">Mocha</option>
 			</select>
 		</footer>
 	</body>
 	<script>
-		function loadGiscus() {
-			if (!document.querySelector('#comments'))
-				return;
-			let giscusAttributes = {
-				src: 'https://giscus.app/client.js',
-				'data-repo': '{{ site.repository }}',
-				'data-repo-id': 'R_kgDOHSjhjQ',
-				'data-category-id': 'DIC_kwDOHSjhjc4CTQUr',
-				'data-mapping': 'title',
-				'data-reactions-enabled': '1',
-				'data-emit-metadata': '0',
-				'data-input-position': 'top',
-				'data-theme': document
-					.documentElement
-					.getAttribute('theme'),
-				'data-lang': 'en',
-				crossorigin: 'anonymous',
-				async: ''
-			};
-			let giscusScript = document.createElement('script');
-			Object
-				.entries(giscusAttributes)
-				.forEach(([key, value]) => giscusScript.setAttribute(key, value),);
-			document
-				.querySelector('#comments')
-				.innerHTML = '';
-			document
-				.querySelector('#comments')
-				.appendChild(giscusScript);
-		}
+		{{ inlined.js['giscus'] | safe }}
 		{{ inlined.js['theme-update'] | safe }}
 		{{ inlined.js['code-toolbar'] | safe }}
 	</script>

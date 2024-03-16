@@ -40,7 +40,7 @@ Another note; this story was picked up by some media outlets in the cybersecurit
 
 Ten years ago, [PatrickJS](https://github.com/PatrickJS) created the `everything` package on NPM, containing every package on the NPM registry in the first 5 years of the registry's existence. The package remained the same for years, but that all changed just a few days ago with [a single tweet](https://twitter.com/trashh_dev/status/1740756965905875311).
 
-{% image "the-tweet.png", "the perfect repo doesn’t exi… (a link to Patrick's node-everything repository)",  { dark: "the-tweet-dark.png" } %}
+{% image "the-tweet.png", "the perfect repo doesn’t exi… (a link to Patrick's node-everything repository)" %}
 
 I saw the tweet on my timeline and [made a quick PR](https://github.com/everything-registry/everything/pull/6) to clean up a few things and help bring the repository up to speed. At the same time, Patrick had started an attempt to publish a `2.0.0` version of the package, but he discovered that there was now a `10` megabyte limit for the uncompressed size of a package. I [made a comment](https://github.com/everything-registry/everything/pull/6#issuecomment-1872278630) about the issue and we quickly [began brainstorming](https://github.com/everything-registry/everything/pull/6#issuecomment-1872294994) a solution.
 
@@ -48,7 +48,7 @@ I saw the tweet on my timeline and [made a quick PR](https://github.com/everythi
 
 We moved to Twitter DMs, and by this time others who saw Trash's tweet wanted to join — [Hacksore](https://hacksore.com/), and Trash himself. We came up with a plan to divide the ~2.5m packages into "scoped" groups of packages; a group for packages starting with the letter "a", the letter "b", and the rest of the alphabet, and then the numbers "0" to "9", and finally an "other" category for anything else. Since each of these scoped packages would only be a subset of the total, they would easily pass the size limit, and the main `everything` package could just depend on each of these scoped packages.
 
-{% image "plan-a.png", "A diagram of the core 'everything' package depending on many other scoped packages",  { dark: "plan-a-dark.png" } %}
+{% image "plan-a.png", "A diagram of the core 'everything' package depending on many other scoped packages" %}
 
 ## Unforseen issues
 
@@ -58,11 +58,11 @@ We moved to Twitter DMs, and by this time others who saw Trash's tweet wanted to
 
 I suggested a new, very basic plan: just split them into "chunks" (groups) of 800 dependencies.
 
-{% image "plan-b-initial.png", "A diagram of the core 'everything' package with arrows toward many 'chunked' packages", { dark: "plan-b-initial-dark.png" } %}
+{% image "plan-b-initial.png", "A diagram of the core 'everything' package with arrows toward many 'chunked' packages" %}
 
 This leaves 3246 groups though, and 3246 is still too many for our main `everything` package to hold. So we simply "chunk" the 3246 groups of 800 into groups of 800 again.
 
-{% image "plan-b.png", "A diagram of the core 'everything' package with arrows toward many 'chunked' packages, each of which in turn has arrows toward more 'sub-chunked' packages", { dark: "plan-b-dark.png" } %}
+{% image "plan-b.png", "A diagram of the core 'everything' package with arrows toward many 'chunked' packages, each of which in turn has arrows toward more 'sub-chunked' packages" %}
 
 ## 3...2...1... go!
 
@@ -82,7 +82,7 @@ I [made a quick fix](https://github.com/everything-registry/everything/commit/1a
 
 So it began. Throughout the day I (very irregularly) manually dispatched the workflow. For a while, we sat and waited. We even began an effort to actually run `npm install everything` (well, `yarn add everything`) and put up a Twitch stream of the installation on a virtual machine.
 
-{% image "twitch-stream.png", { dark: "twitch-stream-dark.png" } %}
+{% image "twitch-stream.png" %}
 
 We also [made a website](https://everything.npm.lol/)! Many thanks to the rest of the contributors I have mentioned so far, but notably [Evan Boehs](https://boehs.org/) for leading the charge and [PickleNik](https://github.com/PickleNik) made it look nice.
 
