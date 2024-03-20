@@ -77,7 +77,7 @@ Instead of manually updating my `repos.txt` dict, I wrote a script to fetch my r
 #!/usr/bin/env node
 
 const fs = require('node:fs/promises');
-const { join } = require('node:path'); // [!code highlight]
+const { join } = require('node:path');
 
 async function getRepos() {
 	try {
