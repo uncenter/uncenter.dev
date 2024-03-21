@@ -43,7 +43,7 @@ main {
   --color-btn-primary-disabled-bg: rgba(166, 227, 161, 0.4);
   --color-btn-primary-disabled-border: transparent;
   --color-action-list-item-default-hover-bg: #45475a;
-  --color-segmented-control-bg: #7f849c;
+  --color-segmented-control-bg: #585b70;
   --color-segmented-control-button-bg: #1e1e2e;
   --color-segmented-control-button-selected-border: #6c7086;
   --color-fg-default: #cdd6f4;
@@ -72,6 +72,9 @@ main {
   --color-scale-blue-8: #5895f8;
   --color-social-reaction-bg-hover: var(--color-scale-gray-7);
   --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
+}
+main .gsc-header li[aria-current="false"] {
+  --color-btn-text: #1e1e2e;
 }
 main .gsc-loading-image {
   background-image: url("https://raw.githubusercontent.com/uncenter/ctp-giscus/main/assets/loading.gif");
