@@ -73,12 +73,12 @@ main {
   --color-social-reaction-bg-hover: var(--color-scale-gray-7);
   --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
 }
-main .gsc-header li[aria-current="false"] {
-  --color-btn-text: #eff1f5;
-}
-main .gsc-loading-image {
-  background-image: url("https://raw.githubusercontent.com/uncenter/ctp-giscus/main/assets/loading.gif");
+main .BtnGroup-item:not(.BtnGroup-item--selected) {
+  --color-btn-text: #dce0e8;
 }
 main .gsc-comment-box-textarea::placeholder {
   color: #6c6f85;
+}
+main .gsc-loading-image {
+  background-image: url("https://raw.githubusercontent.com/uncenter/ctp-giscus/main/assets/loading.gif");
 }
