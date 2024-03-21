@@ -4,6 +4,7 @@ import postcss from 'postcss';
 import * as sass from 'sass';
 
 import { createRequire } from 'node:module';
+import path from 'node:path';
 const require = createRequire(import.meta.url);
 
 const targets = browserslistToTargets(browserslist('defaults'));
@@ -34,6 +35,7 @@ export async function processTailwindCss(content) {
 export async function processSass(content) {
 	const processed = await sass.compileStringAsync(content, {
 		sourceMap: false,
+		loadPaths: [path.join(import.meta.dirname, '../../node_modules/')],
 	});
 
 	return processed.css;

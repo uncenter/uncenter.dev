@@ -17,6 +17,9 @@ dependencies:
   '@aloskutov/eleventy-plugin-external-links':
     specifier: ^2.1.1
     version: 2.1.1
+  '@catppuccin/palette':
+    specifier: ^1.1.0
+    version: 1.1.0
   '@ryanccn/eleventy-plugin-rss':
     specifier: ^1.2.2
     version: 1.2.2
@@ -309,6 +312,10 @@ packages:
       chalk: 2.4.2
       js-tokens: 4.0.0
     dev: true
+
+  /@catppuccin/palette@1.1.0:
+    resolution: {integrity: sha512-ef3q3/MfdKc2EmUWiLrBrBKLFMGbukC1mzJh+QPINP7ovmUQycImSRjf/LMD4ti9lcu9NrYv4++zeoO2Z5lPxQ==}
+    dev: false
 
   /@emnapi/runtime@0.45.0:
     resolution: {integrity: sha512-Txumi3td7J4A/xTTwlssKieHKTGl3j4A1tglBx72auZ49YK7ePY6XZricgIg9mnZT4xPfA+UPCUdnhRuEFDL+w==}

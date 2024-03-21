@@ -56,7 +56,12 @@ const markdownLibrary = markdownIt({
 	})
 	.use(
 		await markdownItShiki({
-			themes: { light: 'github-light', dark: 'github-dark' },
+			themes: {
+				latte: 'catppuccin-latte',
+				frappe: 'catppuccin-frappe',
+				macchiato: 'catppuccin-macchiato',
+				mocha: 'catppuccin-mocha',
+			},
 			defaultColor: false,
 			transformers: [
 				transformerNotationDiff(),

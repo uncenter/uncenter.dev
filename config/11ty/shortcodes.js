@@ -20,27 +20,7 @@ const stringifyAttributes = (attributeMap) => {
 
 const insertImage = async function (source, alt, options) {
 	const classes = options?.classes || '';
-	const dark = options?.dark || false;
-
-	if (!dark) {
-		source = path.join('images', `${this.page.fileSlug}/${source}`);
-	} else if (dark !== -1) {
-		return (
-			(await insertImage(
-				path.join('images', `${this.page.fileSlug}/${source}`),
-				alt,
-				{ classes: classes + ' light', dark: -1 },
-			)) +
-			(await insertImage(
-				path.join('images', `${this.page.fileSlug}/${dark}`),
-				alt,
-				{
-					classes: classes + ' dark',
-					dark: -1,
-				},
-			))
-		);
-	}
+	source = path.join('images', `${this.page.fileSlug}/${source}`);
 
 	const dimensions = sizeOf(source);
 

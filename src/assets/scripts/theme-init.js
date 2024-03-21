@@ -1,47 +1,45 @@
-function getSystemTheme() {
+function getAutomaticTheme() {
 	return window.matchMedia('(prefers-color-scheme: dark)').matches
-		? 'dark'
-		: 'light';
+		? 'macchiato'
+		: 'latte';
 }
 
-function setMetaThemeColor(theme) {
-	if (theme === 'system') theme = getSystemTheme();
-	const metaThemeColor = document.querySelector("meta[name='theme-color']");
-	if (!metaThemeColor) return;
-	metaThemeColor.setAttribute(
-		'content',
-		getComputedStyle(document.documentElement).getPropertyValue(
-			`--${theme}`,
-		),
-	);
+function setMetaThemeColor() {
+	const meta = document.querySelector("meta[name='theme-color']");
+	meta &&
+		meta.setAttribute(
+			'content',
+			getComputedStyle(document.documentElement).getPropertyValue(
+				`--base`,
+			),
+		);
 }
 
 function setTheme(theme, options) {
 	const { permanent, update } = { permanent: true, update: true, ...options };
 	if (permanent) localStorage.setItem('theme', theme);
-	if (theme === 'system') theme = getSystemTheme();
+	if (theme === 'auto') theme = getAutomaticTheme();
 	document.documentElement.setAttribute('theme', theme);
-	document.documentElement.style.setProperty('color-scheme', theme);
-	setMetaThemeColor(theme);
+	document.documentElement.style.setProperty(
+		'color-scheme',
+		theme === 'latte' ? 'light' : 'dark',
+	);
+	setMetaThemeColor();
 	if (update) loadGiscus();
 }
 
-const queryParameters = new URLSearchParams(window.location.search);
-const validThemes = new Set(['light', 'dark', 'system']);
+const params = new URLSearchParams(window.location.search);
+const themes = ['latte', 'frappe', 'macchiato', 'mocha'];
 
 let theme;
-let storedTheme = localStorage.getItem('theme');
-let overrideTheme;
+let stored = localStorage.getItem('theme');
+let override = params.get('theme');
 
-if (queryParameters.has('theme')) {
-	overrideTheme = queryParameters.get('theme');
-}
-
-theme = overrideTheme || storedTheme;
-if (!theme || !validThemes.has(theme)) {
-	theme = validThemes.has(storedTheme) ? storedTheme : 'system';
+theme = override || stored;
+if (!theme || !themes.includes(theme)) {
+	theme = themes.includes(stored) ? stored : 'auto';
 }
 setTheme(theme, {
-	permanent: theme === overrideTheme ? false : true,
+	permanent: theme === override ? false : true,
 	update: false,
 });
