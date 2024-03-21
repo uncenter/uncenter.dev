@@ -9,7 +9,7 @@ function loadGiscus() {
 		'data-reactions-enabled': '1',
 		'data-emit-metadata': '0',
 		'data-input-position': 'top',
-		'data-theme': `https://feat-catppuccin.uncenter.pages.dev/giscus/${document.documentElement.getAttribute('theme')}.css`,
+		'data-theme': `https://ctp-giscus.uncenter.dev/${document.documentElement.getAttribute('theme')}.css`,
 		'data-lang': 'en',
 		'crossorigin': 'anonymous',
 		'async': '',
