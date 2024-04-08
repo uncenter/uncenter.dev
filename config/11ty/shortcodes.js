@@ -60,22 +60,18 @@ const insertImage = async function (source, alt, options) {
 		.join('\n');
 
 	return `
-<a class="no-underline ${classes}" href="${
-		(getLargestImage('webp') || base).url
-	}">
-    <picture>
-        ${sources}
-        <img ${stringifyAttributes({
-			height: base.height,
-			width: base.width,
-			src: base.url,
-			alt: escape(alt),
-			loading: 'lazy',
-			decoding: 'async',
-			sizes,
-		})}>
-    </picture>
-</a>
+<picture>
+	${sources}
+	<img ${stringifyAttributes({
+		height: base.height,
+		width: base.width,
+		src: base.url,
+		alt: escape(alt),
+		loading: 'lazy',
+		decoding: 'async',
+		sizes,
+	})}>
+</picture>
 `;
 };
 
