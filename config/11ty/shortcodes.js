@@ -1,7 +1,7 @@
 import path from 'node:path';
 import escape from 'lodash.escape';
-import sizeOf from 'image-size';
-import processImage from '@11ty/eleventy-img';
+import dimensions from 'image-size';
+import image from '@11ty/eleventy-img';
 
 const IMAGE_OPTIMIZATION =
 	process.env.IMAGE_OPTIMIZATION === '0' ||
@@ -9,39 +9,34 @@ const IMAGE_OPTIMIZATION =
 		? false
 		: true;
 
-const stringifyAttributes = (attributeMap) => {
-	return Object.entries(attributeMap)
-		.map(([attribute, value]) => {
+const stringifyAttributes = (attrs) =>
+	Object.entries(attrs)
+		.map(([attr, value]) => {
 			if (value === undefined || value === '') return '';
-			return `${attribute}="${value}"`;
+			return `${attr}="${value}"`;
 		})
 		.join(' ');
-};
 
-const insertImage = async function (source, alt, options) {
-	const classes = options?.classes || '';
+const insertImage = async function (source, alt) {
+	if (!source) throw new Error('Missing source for image shortcode');
+	if (!alt) throw new Error('Missing alt for image shortcode');
+
 	source = path.join('images', `${this.page.fileSlug}/${source}`);
 
-	const dimensions = sizeOf(source);
+	const { width } = dimensions(source);
 
-	const data = await processImage(source, {
+	const data = await image(source, {
 		widths: IMAGE_OPTIMIZATION
-			? [640, 750, 828, 1080, 1200, 1920, 2048, 3840, dimensions.width]
-					.filter((a) => a <= dimensions.width)
+			? [640, 750, 828, 1080, 1200, 1920, 2048, 3840, width]
+					.filter((a) => a <= width)
 					.sort((a, b) => a - b)
-			: [dimensions.width],
+			: [width],
 		formats: IMAGE_OPTIMIZATION ? ['avif', 'webp', 'png'] : ['png'],
 		outputDir: 'dist/assets/images/',
 		urlPath: '/assets/images/',
 	});
 
-	const getLargestImage = (format) => {
-		if (!(format in data)) return false;
-		const images = data[format];
-		return images.at(-1);
-	};
-
-	const base = getLargestImage('png');
+	const base = data['png'].at(-1);
 	const sizes = '(min-width: 80ch) 80ch, 100vw';
 
 	const sources = Object.values(data)
