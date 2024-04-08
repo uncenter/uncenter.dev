@@ -40,7 +40,7 @@ Another note; this story was picked up by some media outlets in the cybersecurit
 
 Ten years ago, [PatrickJS](https://github.com/PatrickJS) created the `everything` package on NPM, containing every package on the NPM registry in the first 5 years of the registry's existence. The package remained the same for years, but that all changed just a few days ago with [a single tweet](https://twitter.com/trashh_dev/status/1740756965905875311).
 
-{% image "the-tweet.png", "the perfect repo doesn’t exi… (a link to Patrick's node-everything repository)" %}
+{% image "the-tweet.png", "Screenshot of trash's tweet saying 'the perfect repo doesn’t exi…' followed by a link to Patrick's node-everything repository" %}
 
 I saw the tweet on my timeline and [made a quick PR](https://github.com/everything-registry/everything/pull/6) to clean up a few things and help bring the repository up to speed. At the same time, Patrick had started an attempt to publish a `2.0.0` version of the package, but he discovered that there was now a `10` megabyte limit for the uncompressed size of a package. I [made a comment](https://github.com/everything-registry/everything/pull/6#issuecomment-1872278630) about the issue and we quickly [began brainstorming](https://github.com/everything-registry/everything/pull/6#issuecomment-1872294994) a solution.
 
@@ -68,11 +68,11 @@ This leaves 3246 groups though, and 3246 is still too many for our main `everyth
 
 Set on our new plan, we updated the code and triggered [our GitHub Actions workflow](https://github.com/everything-registry/everything/blob/1aef5aa3aa5e3d0e2107063cad6ce63f9cba9b0b/.github/workflows/release.yml)...
 
-{% image "plan-b-countdown.png" %}
+{% image "plan-b-countdown.png", "Screenshot of chat messages in a Discord channel counting down before I triggered the workflow to publish our packages" %}
 
 It worked! The [GitHub Action logs](https://github.com/everything-registry/everything/actions/runs/7361935655/job/20039814620) rolled in, one after another, as the packages slowly got published. We had a brief scare after realizing that [GitHub Actions jobs and workflows have a maximum time](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration) that we might reach, but some quick calculations revealed that we had no cause for worry. Workflow jobs time out after 6 hours, and at the current rate of one package published every ~4.5 seconds, we could comfortably publish 4,800+ packages in that time.
 
-{% image "plan-b-success.png" %}
+{% image "plan-b-success.png", "Screenshot of Discord chat messages where I sent the link of the first chunk package on NPM followed by excited reactions" %}
 
 We all went back to doing other things, and I checked the logs occasionally. Half an hour later though, we ran into a different problem... we had been rate limited. In 32 minutes, we had published 454 packages: the main `everything` package, all five "chunks", but only 448 "sub-chunks". It was only a fraction (roughly 14%) of everything (hah, pun intended) we needed to publish.
 
@@ -82,7 +82,7 @@ I [made a quick fix](https://github.com/everything-registry/everything/commit/1a
 
 So it began. Throughout the day I (very irregularly) manually dispatched the workflow. For a while, we sat and waited. We even began an effort to actually run `npm install everything` (well, `yarn add everything`) and put up a Twitch stream of the installation on a virtual machine.
 
-{% image "twitch-stream.png" %}
+{% image "twitch-stream.png", "Screenshot of a Twitch.tv live stream under the account BuildFailedTV, with the stream description 'install everything and chill'" %}
 
 We also [made a website](https://everything.npm.lol/)! Many thanks to the rest of the contributors I have mentioned so far, but notably [Evan Boehs](https://boehs.org/) for leading the charge and [PickleNik](https://github.com/PickleNik) made it look nice.
 
@@ -96,13 +96,13 @@ The initial response to our endeavour was... not positive. People began coming t
 
 Thankfully, on the night of Janurary 2^nd^, GitHub reached out and let us know they were aware of the problem. On the 3^rd^ of January, we received a notice that our GitHub organization had been "flagged" and our organization and repositories were hidden. Not what we wanted to see, but progress nonetheless.
 
-{% image "org-flagged.png" %}
+{% image "org-flagged.png", "Screenshot of GitHub's permanent warning banner on my account. The text reads: The everything-registry organization has been flagged. Because of that, your organization is hidden from the public. If you believe this is a mistake, contact support to have your organization's status reviewed" %}
 
 They also began removing our organization's scoped packages on NPM, as we had suggested. The initial problem had been solved, but we are still waiting to see how NPM prevents this issue in the future. My two cents are that NPM should either a) prevent folks from publishing packages with star versions in the package.json entirely, or b) don't consider a dependent of a package if it uses a star version when tallying how many packages depend on a package for unpublishing.
 
 Lastly, I want to apologize for anyone frustrated, annoyed, or just angry at us. We made a mistake, and we've owned up to it. This all started as a harmless joke and we had no intentions of breaking, abusing, or doing any sort of damage to the registry. In short we, uhh... fucked around and found out.
 
-{% image "fuck-around-find-out.jpg" %}
+{% image "fuck-around-find-out.jpg", "A man standing next to a whiteboard with a marker pointed towards a graph illustrating how if you fuck around, you find out" %}
 
 Thanks for reading this, and have a lovely day!
 
