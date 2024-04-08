@@ -19,7 +19,7 @@ GitHub has now, a day after writing this, fully "disabled" (whatever that means)
 
 <details>
 	<summary>Email from GitHub Trust & Safety</summary>
-	{% image "github-trust-and-safety-email.png" %}
+	{% image "github-trust-and-safety-email.png", "Email from GitHub Trust & Safety (GitHub Support), dated Jan 4, 2024, 1:01PM UTC. Part of the email reads: Your GitHub and npm everything-registry orgs were disabled following reports of activity that may have been in violation of our Open Source Terms and GitHub Acceptable Use Policies." %}
 </details>
 
 All of [our scoped packages](https://www.npmjs.com/org/everything-registry) have been deleted, so unpublishing packages should no longer be an issue.
@@ -28,12 +28,12 @@ Another note; this story was picked up by some media outlets in the cybersecurit
 
 <details>
 	<summary>The aforementioned articles</summary>
-	{% image "sc-media-article.png" %}
-	{% image "checkmarx-article.png" %}
-	{% image "bleepingcomputer-article.png" %}
+	{% image "sc-media-article.png", "Screenshot of SC Media's article titled 'NPM registry prank leaves developers unable to unpublish packages'" %}
+	{% image "checkmarx-article.png", "Screenshot of Checkmarx's article titled 'When Everything Goes Wrong: NPM Dependency-Hell Campaign - 2024 Edition'" %}
+	{% image "bleepingcomputer-article.png", "Screenshot of BleepingComputer's article titled 'everything blocks devs from removing their own npm packages'" %}
 </details>
 
-{% image "tech-twitter-knows.png" %}
+{% image "tech-twitter-knows.png", "A meme with an angry man standing behind huge flames with the text: Now all of tech Twitter knows you broke NPM" %}
 
 </details>
 :::
