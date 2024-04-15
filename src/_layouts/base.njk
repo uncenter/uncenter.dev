@@ -80,9 +80,9 @@ footerLinks:
 		<meta name="twitter:title" content="{{ title }}">
 		<meta name="twitter:image" content="{{ '/1024w.png' | url }}">
 	</head>
-	<body class="flex flex-col gap-8 mx-auto px-8 py-4 text-base/7 bg-base text-text font-display max-w-[120ch]">
-		<header class="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:space-y-0 justify-between leading-6 py-8">
-			<a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
+	<body class="text-base/7 font-display border-surface2 border-solid border-2">
+		<header class="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:space-y-0 justify-between leading-6">
+			<a href="/" class="not-fancy flex flex-row items-center gap-3 p-4" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
 				<img
 					src="/square.webp"
 					class="rounded-full"
@@ -92,20 +92,20 @@ footerLinks:
 				<span class="tracking-tight text-xl">{{ site.author.name }}</span>
 			</a>
 			<nav>
-				<ul class="m-0 p-0 flex flex-col sm:flex-row gap-4 list-none items-baseline">
+				<ul class="m-0 p-0 flex flex-col sm:flex-row list-none">
 					{% for item in headerLinks %}
-						{% set classes = "not-fancy" %}
+						{% set classes = "not-fancy border-0 md:border-l-2 border-b-2 border-solid border-surface2 h-full block content-center px-4 py-2 hover:bg-mauve hover:text-crust" %}
 						{% if (page.url.includes(item.url) and item.url != "/") or (item.url == "/" and page.url == "/") %}
-							{% set classes = classes + " underline underline-offset-4 decoration-1" %}
+							{% set classes = classes + " bg-mauve text-crust" %}
 						{% endif %}
-						<li>
+						<li class="m-0">
 							<a href="{{ item.url }}" class="{{ classes }}" {% if page.url == item.url %}aria-current="page"{% else %}aria-label="Go to {{ item.title }}"{% endif %}>{{ item.title }}</a>
 						</li>
 					{% endfor %}
 				</ul>
 			</nav>
 		</header>
-		<main class="mx-auto w-[95%] md:w-[90%] max-w-[80ch]">
+		<main class="mx-auto w-[95%] md:w-[90%] max-w-[80ch] p-4">
 			{{ content | safe }}
 		</main>
 		<footer class="flex flex-col py-8 items-center self-center w-full gap-2 leading-normal">

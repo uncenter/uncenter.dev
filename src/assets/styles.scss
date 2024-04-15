@@ -20,7 +20,24 @@
 html {
 	scroll-behavior: smooth;
 	overflow-y: scroll;
+	overscroll-behavior: none;
 	text-size-adjust: none;
+	background-color: var(--base);
+	@apply p-4 md:p-8;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 120ch;
+	color: var(--text);
+	background-color: var(--base);
+	overflow: scroll;
+	height: 90vh;
+	@apply md:gap-2;
 }
 
 h1,
@@ -99,7 +116,7 @@ div {
 
 		&:not(.not-fancy) {
 			&:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
-				@apply text-blue;
+				@apply text-mauve;
 			}
 
 			text-decoration-line: underline;
