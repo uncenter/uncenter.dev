@@ -23,8 +23,9 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 import site from './site.config.js';
 import colors from 'picocolors';
 
-/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
-export default function (eleventyConfig) {
+import eleventy from '11ty.ts';
+
+export default eleventy(function (eleventyConfig) {
 	eleventyConfig.addGlobalData('site', site);
 	eleventyConfig.addPlugin(shortcodes);
 	eleventyConfig.addPlugin(collections);
@@ -129,4 +130,4 @@ export default function (eleventyConfig) {
 		templateFormats: ['md', 'njk', '11ty.js'],
 		markdownTemplateEngine: 'njk',
 	};
-}
+});

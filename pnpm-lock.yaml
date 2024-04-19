@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  11ty.ts:
+    specifier: ^0.0.1
+    version: 0.0.1(@11ty/eleventy@3.0.0-alpha.5)
   '@11ty/eleventy':
     specifier: 3.0.0-alpha.6
     version: 3.0.0-alpha.6
@@ -141,6 +144,14 @@ devDependencies:
     version: 5.0.5
 
 packages:
+
+  /11ty.ts@0.0.1(@11ty/eleventy@3.0.0-alpha.5):
+    resolution: {integrity: sha512-kzGB7oiHuQNRGplN40/rcSSvmYL22jEri7azlMaBvAQpr3poDgBtKYtSaMXdyN5xnCEYHmba7kt6viG6C5RZjg==}
+    peerDependencies:
+      '@11ty/eleventy': ^2.0.1
+    dependencies:
+      '@11ty/eleventy': 3.0.0-alpha.5
+    dev: false
 
   /@11ty/dependency-tree-esm@1.0.0:
     resolution: {integrity: sha512-Z3KN1Fkv50UM/ZzTR3VBbyOY52HnmhIVCsAV1hn2UzFsGAjyF1Cw8uohhVtheDOSuBR7ZSeo1unwkz1HxFlUtQ==}

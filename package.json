@@ -12,6 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"11ty.ts": "^0.0.1",
 		"@11ty/eleventy": "3.0.0-alpha.6",
 		"@11ty/eleventy-fetch": "^4.0.1",
 		"@11ty/eleventy-img": "^4.0.2",
