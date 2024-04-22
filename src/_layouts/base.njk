@@ -140,10 +140,10 @@ footerLinks:
 				<option value="mocha">Mocha</option>
 			</select>
 		</footer>
+		<script>
+			{{ inlined.js['giscus'] | safe }}
+			{{ inlined.js['theme-update'] | safe }}
+			{{ inlined.js['code-toolbar'] | safe }}
+		</script>
 	</body>
-	<script>
-		{{ inlined.js['giscus'] | safe }}
-		{{ inlined.js['theme-update'] | safe }}
-		{{ inlined.js['code-toolbar'] | safe }}
-	</script>
 </html>
