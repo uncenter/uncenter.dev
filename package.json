@@ -12,7 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"11ty.ts": "^0.0.1",
+		"11ty.ts": "^0.0.3",
 		"@11ty/eleventy": "3.0.0-alpha.6",
 		"@11ty/eleventy-fetch": "^4.0.1",
 		"@11ty/eleventy-img": "^4.0.2",
@@ -32,7 +32,7 @@
 		"lightningcss": "^1.24.1",
 		"linkedom": "^0.16.11",
 		"lodash.escape": "^4.0.1",
-		"lucide-static": "^0.368.0",
+		"lucide-static": "^0.372.0",
 		"luxon": "^3.4.4",
 		"markdown-it": "^14.1.0",
 		"markdown-it-anchor": "^8.6.7",
@@ -47,11 +47,11 @@
 		"picocolors": "^1.0.0",
 		"postcss": "^8.4.38",
 		"sass": "^1.75.0",
-		"simple-icons": "^11.12.0",
+		"simple-icons": "^11.13.0",
 		"tailwindcss": "^3.4.3",
-		"terser": "^5.30.3",
+		"terser": "^5.30.4",
 		"yaml": "^2.4.1",
-		"zod": "^3.22.4"
+		"zod": "^3.23.0"
 	},
 	"devDependencies": {
 		"@uncenter/eslint-config": "^0.4.1",
