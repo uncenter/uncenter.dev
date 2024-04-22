@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   11ty.ts:
-    specifier: ^0.0.1
-    version: 0.0.1(@11ty/eleventy@3.0.0-alpha.6)
+    specifier: ^0.0.3
+    version: 0.0.3(@11ty/eleventy@3.0.0-alpha.6)
   '@11ty/eleventy':
     specifier: 3.0.0-alpha.6
     version: 3.0.0-alpha.6
@@ -66,8 +66,8 @@ dependencies:
     specifier: ^4.0.1
     version: 4.0.1
   lucide-static:
-    specifier: ^0.368.0
-    version: 0.368.0
+    specifier: ^0.372.0
+    version: 0.372.0
   luxon:
     specifier: ^3.4.4
     version: 3.4.4
@@ -111,20 +111,20 @@ dependencies:
     specifier: ^1.75.0
     version: 1.75.0
   simple-icons:
-    specifier: ^11.12.0
-    version: 11.12.0
+    specifier: ^11.13.0
+    version: 11.13.0
   tailwindcss:
     specifier: ^3.4.3
     version: 3.4.3
   terser:
-    specifier: ^5.30.3
-    version: 5.30.3
+    specifier: ^5.30.4
+    version: 5.30.4
   yaml:
     specifier: ^2.4.1
     version: 2.4.1
   zod:
-    specifier: ^3.22.4
-    version: 3.22.4
+    specifier: ^3.23.0
+    version: 3.23.0
 
 devDependencies:
   '@uncenter/eslint-config':
@@ -145,8 +145,8 @@ devDependencies:
 
 packages:
 
-  /11ty.ts@0.0.1(@11ty/eleventy@3.0.0-alpha.6):
-    resolution: {integrity: sha512-kzGB7oiHuQNRGplN40/rcSSvmYL22jEri7azlMaBvAQpr3poDgBtKYtSaMXdyN5xnCEYHmba7kt6viG6C5RZjg==}
+  /11ty.ts@0.0.3(@11ty/eleventy@3.0.0-alpha.6):
+    resolution: {integrity: sha512-nZ4ohEMjKKe/pT3RrnS5mbfFDzTSLh9VKrWhA+0QKWyCmAKl9K1jkK7ul1NzSgoxHACsfNtWXj6JVzHWRLsNew==}
     peerDependencies:
       '@11ty/eleventy': ^2.0.1
     dependencies:
@@ -1605,7 +1605,7 @@ packages:
     dependencies:
       just-extend: 6.2.0
       kleur: 4.1.5
-      zod: 3.22.4
+      zod: 3.23.0
     dev: false
 
   /emoji-regex@8.0.0:
@@ -2788,8 +2788,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-static@0.368.0:
-    resolution: {integrity: sha512-XZaWkDMPfNezY8ylkXOH+6KWDkLsjiSnOcxG5OQcvQWQ0WSsSvTRRf5BQ+g4I85zBbxxqedO8KDYkse0/zRTMA==}
+  /lucide-static@0.372.0:
+    resolution: {integrity: sha512-Nhv52WMoVtelJnO6YOHi8gRPabe9RXLy9RZX4rb/IKvTHV+iVN+QE/F/uSuP9P/Qtc9xQBGfc59Mbhnkf7WK9A==}
     dev: false
 
   /luxon@3.4.4:
@@ -3740,8 +3740,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  /simple-icons@11.12.0:
-    resolution: {integrity: sha512-atQCGhobuIrxTd4rDGYCip/OZwIW4FYX3PRt4BXAZcbIW71hktvX4sF620T2QJyQsNLAYo3QpiHh8ey2IseA/g==}
+  /simple-icons@11.13.0:
+    resolution: {integrity: sha512-8YOM9r3S/LIRd+y/QFbVU0D9V6EHK9y46irUWCYjF6GVWrvKQ0L3sQ14fPNidxalOQVaFB6ibDVrZLIji6S4Cg==}
     engines: {node: '>=0.12.18'}
     dev: false
 
@@ -3979,8 +3979,8 @@ packages:
       - ts-node
     dev: false
 
-  /terser@5.30.3:
-    resolution: {integrity: sha512-STdUgOUx8rLbMGO9IOwHLpCqolkDITFFQSMYYwKE1N2lY6MVSaeoi10z/EhWxRc6ybqoVmKSkhKYH/XUpl7vSA==}
+  /terser@5.30.4:
+    resolution: {integrity: sha512-xRdd0v64a8mFK9bnsKVdoNP9GQIKUAaJPTaqEQDL4w/J8WaW4sWXXoMZ+6SimPkfT5bElreXf8m9HnmPc3E1BQ==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -4222,6 +4222,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+  /zod@3.23.0:
+    resolution: {integrity: sha512-OFLT+LTocvabn6q76BTwVB0hExEBS0IduTr3cqZyMqEDbOnYmcU+y0tUAYbND4uwclpBGi4I4UUBGzylWpjLGA==}
     dev: false
