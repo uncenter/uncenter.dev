@@ -4,9 +4,7 @@ export default {
 	name: site.author.name,
 	website: site.url,
 	occupation: 'Student',
-	location: 'United States',
-	languages: ['JavaScript', 'TypeScript', 'Rust', 'Python', 'HTML', 'CSS'],
-	frameworks: ['SolidJS', 'Eleventy', 'TailwindCSS'],
-	interests: ['Web Development', 'Software Development', 'Open Source'],
-	learning: ['Rust', 'Vue', 'Fortran', 'Swift'],
+	languages: ['JavaScript', 'TypeScript', 'Rust', 'HTML/CSS'],
+	stack: ['Vue', 'Solid', 'Eleventy', 'TailwindCSS'],
+	learning: ['Fortran', 'Swift'],
 };
