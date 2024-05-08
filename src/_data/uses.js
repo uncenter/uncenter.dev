@@ -95,7 +95,7 @@ const data = {
 			{
 				name: 'Toolcat',
 				url: 'https://toolcat.app/',
-				description: 'for miscellaneous developer utilites',
+				description: 'for miscellaneous developer utilities',
 				tags: ['paid'],
 			},
 		],

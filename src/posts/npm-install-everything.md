@@ -1,6 +1,6 @@
 ---
 title: The package that broke npm (accidentally)
-description: How we made a package that depends on every single npm package... and completey broke npm in the process.
+description: How we made a package that depends on every single npm package... and completely broke npm in the process.
 tags: ['npm']
 date: 2024-01-03
 edited: 2024-05-07
@@ -50,7 +50,7 @@ We moved to Twitter DMs, and by this time others who saw Trash's tweet wanted to
 
 {% image "plan-a.png", "A diagram of the core 'everything' package depending on many other scoped packages" %}
 
-## Unforseen issues
+## Unforeseen issues
 
 [I began implementing some code](https://github.com/everything-registry/everything/pull/7) to generate the required packages, and a few hours later we were ready to go- except we forget one thing. Or, rather, NPM didn't tell us one thing. It turns out that NPM has a limit for how many dependencies a package can have. And we were apparently _way_ over it. NPM has no apparent documentation on this and the limit wasn't visible in any public source code (the registry is private), so Hacksore [did some testing](https://github.com/Hacksore/max-npm-package-deps) and discovered the limit to be 800 dependencies. At the current range of 90k to 300k dependencies per scoped package... we needed a new plan.
 
@@ -94,7 +94,7 @@ Finally, at 11:27PM, [the final workflow run](https://github.com/everything-regi
 
 The initial response to our endeavour was... not positive. People began coming to the repository, complaining about not being able to unpublish. What?! We looked into it, and it turns out that the issue was our usage of "star" versions; that is, specifying the version not as a typical semantic version in the format of `X.Y.Z`, but as `*`. The star means "any and all" versions of a package - here is where the issue lies. NPM blocks package authors from unpublishing packages if another package depends on that version of the package. But since the star is _all_ versions, all versions of a package cannot be unpublished. This is usually harmless, but us (unintentionally) doing this on a large scale prevented _anyone_ from unpublishing. We immediately reached out to GitHub; Patrick used his network and contacts to speak to people at GitHub, and we sent multiple emails to the support and security teams on NPM. Unfortunately, these events transpired over the holidays and the NPM/GitHub teams were not responding (likely out of the office). We continued to get harsh and rude comments from random people with a little too much time on their hands... one person even [wrote a 1400 word rant](https://github.com/everything-registry/everything/issues/21) about the unpublishing issue, despite us repeatedly telling them we could do nothing further.
 
-Thankfully, on the night of Janurary 2^nd^, GitHub reached out and let us know they were aware of the problem. On the 3^rd^ of January, we received a notice that our GitHub organization had been "flagged" and our organization and repositories were hidden. Not what we wanted to see, but progress nonetheless.
+Thankfully, on the night of January 2^nd^, GitHub reached out and let us know they were aware of the problem. On the 3^rd^ of January, we received a notice that our GitHub organization had been "flagged" and our organization and repositories were hidden. Not what we wanted to see, but progress nonetheless.
 
 {% image "org-flagged.png", "Screenshot of GitHub's permanent warning banner on my account. The text reads: The everything-registry organization has been flagged. Because of that, your organization is hidden from the public. If you believe this is a mistake, contact support to have your organization's status reviewed" %}
 
