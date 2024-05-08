@@ -1,6 +1,26 @@
+// @ts-check
 import EleventyFetch from '@11ty/eleventy-fetch';
+import { z } from 'zod';
 
-const projects = {
+const schema = z.record(
+	z.array(
+		z
+			.object({
+				name: z.string().min(1),
+				link: z.string().url().startsWith('https://github.com'),
+				featured: z.boolean().default(false).optional(),
+
+				stack: z.array(z.string()).default([]).optional(),
+
+				description: z.string().optional(),
+				live: z.string().optional(),
+			})
+			.strict(),
+	),
+);
+
+/** @type {z.infer<typeof schema>} */
+const projects = schema.parse({
 	current: [
 		{
 			name: 'kittysay',
@@ -52,7 +72,6 @@ const projects = {
 			stack: ['rust'],
 		},
 		{
-			name: 'sttr-rs',
 			link: 'https://github.com/uncenter/sttr-rs',
 			stack: ['rust'],
 		},
@@ -89,7 +108,7 @@ const projects = {
 			stack: ['eleventy'],
 		},
 	],
-};
+});
 
 async function fetchRepository(username, repository, fetchOptions) {
 	const response = await EleventyFetch(
@@ -103,7 +122,6 @@ async function fetchRepository(username, repository, fetchOptions) {
 	return {
 		description: response?.description || '',
 		homepage: response?.homepage || false,
-		language: response.language,
 	};
 }
 
@@ -125,7 +143,6 @@ export default async function () {
 				headers,
 			});
 			project.description = project.description || data.description;
-			project.language = data.language;
 			if (data.homepage) project.live = data.homepage;
 		}
 	}
