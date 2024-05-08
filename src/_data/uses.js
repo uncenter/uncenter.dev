@@ -75,35 +75,27 @@ const data = {
 				name: 'Spotify',
 				url: 'https://spotify.com/',
 				description: 'for music',
-				tags: ['paid'],
+				tags: ['freemium'],
 			},
 		],
 		'Development': [
 			{
-				name: 'VS Code',
+				name: 'Visual Studio Code',
 				url: 'https://code.visualstudio.com/',
 				description: 'as my primary IDE',
-				tags: ['open-source'],
-			},
-			{
-				name: 'Neovim',
-				url: 'https://neovim.io/',
-				description:
-					'as a secondary IDE for a snappy editor in the terminal',
 				tags: ['open-source'],
 			},
 			{
 				name: 'Ghostty',
 				url: 'https://mitchellh.com/ghostty',
 				description:
-					'for the fastest, most feature-rich, and actively developed terminal',
+					'for a fast, feature-rich, and actively developed terminal',
 				tags: ['open-source'],
 			},
 			{
 				name: 'Toolcat',
 				url: 'https://toolcat.app/',
-				description:
-					'for all the utilities I could ever want - generators, converters, formatters, you name it',
+				description: 'for miscellaneous developer utilites',
 				tags: ['paid'],
 			},
 		],
@@ -117,16 +109,13 @@ const data = {
 				name: 'KnockKnock',
 				url: 'https://objective-see.org/products/knockknock.html',
 				description: 'for system scanning',
-			},
-			{
-				name: 'Maccy',
-				url: 'https://maccy.app/',
-				description: 'for quick clipboard history access',
+				tags: ['open-source'],
 			},
 			{
 				name: 'Oversight',
 				url: 'https://objective-see.org/products/oversight.html',
 				description: 'for camera and microphone monitoring',
+				tags: ['open-source'],
 			},
 			{
 				name: 'PurePaste',
@@ -140,8 +129,9 @@ const data = {
 			},
 			{
 				name: 'Rectangle',
-				url: 'https://rectangleapp.com/x',
+				url: 'https://rectangleapp.com/',
 				description: 'for window snapping',
+				tags: ['open-source'],
 			},
 			{
 				name: 'System Color Picker',
@@ -170,6 +160,12 @@ const data = {
 				tags: ['paid'],
 			},
 			{
+				name: 'uBlock Origin',
+				url: 'https://github.com/gorhill/uBlock/',
+				description: 'for advertisement and tracker blocking',
+				tags: ['open-source'],
+			},
+			{
 				name: 'Bypass Paywalls Clean',
 				url: 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean',
 				description: 'for bypassing annoying news paywalls',
@@ -188,9 +184,9 @@ const data = {
 				tags: ['open-source'],
 			},
 			{
-				name: 'uBlock Origin',
-				url: 'https://github.com/gorhill/uBlock/',
-				description: 'for advertisement and tracker blocking',
+				name: 'Catppuccin for GitHub File Explorer',
+				url: 'https://github.com/catppuccin/github-file-explorer-icons',
+				description: 'for soothing pastel icons',
 				tags: ['open-source'],
 			},
 		],
