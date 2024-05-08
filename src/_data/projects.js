@@ -72,6 +72,7 @@ const projects = schema.parse({
 			stack: ['rust'],
 		},
 		{
+			name: 'sttr-rs',
 			link: 'https://github.com/uncenter/sttr-rs',
 			stack: ['rust'],
 		},
