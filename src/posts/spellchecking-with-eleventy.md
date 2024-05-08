@@ -1,9 +1,9 @@
 ---
-title: Spell-checking Markdown with cSpell
+title: Spell-checking blog posts with cSpell
 description: A little magic to help catch typos in your blog posts.
-tags: ['markdown', 'spellcheck']
+tags: ['blogging', 'markdown']
 date: 2023-03-23
-edited: 2023-05-21
+edited: 2024-05-07
 comments: true
 ---
 

@@ -1,8 +1,9 @@
 ---
-title: Learning Fortran
-description: How hard could learning the oldest computer programming language be?
+title: Learning the oldest programming language
+description: Who needs Rust when we have Fortran?
 tags: ['fortran']
 date: 2024-01-31
+edited: 2024-05-07
 comments: true
 ---
 
