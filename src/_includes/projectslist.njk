@@ -6,19 +6,22 @@
 				<p class="mx-0 my-1">{{ project.description }}</p>
 			</div>
             <div class="flex flex-row justify-between items-center ">
-                <div class="flex flex-row gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" style="fill:{{ project.color }}" viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="9" r="5"/></svg>
-                    {{ project.language }}
+                <div class="flex flex-row gap-4">
+                    {% for item in project.stack %}
+						{%- icon "si:" + item, class='block w-5 h-5 text-text align-baseline' -%}
+					{% endfor %}
                 </div>
                 <div class="flex flex-row gap-4">
                     <div>
                         {%- icon "si:github", class='block w-5 h-5 text-text align-baseline' -%}
                     </div>
-					{% if project.live %}
+					{% if project.live and not project.live.startsWith("https://crates.io")  %}
 						{%- if project.live.startsWith("https://discord.gg") -%}
 							{%- set liveIcon = 'si:discord' -%}
 						{%- elif project.live.startsWith("https://npmjs.com") or project.live.startsWith("https://www.npmjs.com")  -%}
 							{%- set liveIcon = 'si:npm' -%}
+						{% elif project.live.startsWith("https://chrome.google.com/webstore") or project.live.startsWith("https://chromewebstore.google.com") %}
+							{%- set liveIcon = 'si:googlechrome' -%}
 						{%- else -%}
 							{%- set liveIcon = 'lucide:globe' -%}
 						{%- endif -%}
