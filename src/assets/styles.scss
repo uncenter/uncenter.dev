@@ -116,6 +116,16 @@ div {
 		}
 	}
 
+	button {
+		background-color: var(--mauve);
+		color: var(--crust);
+		border: none;
+		padding: 0.75rem 0.5rem;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		font-size: 0.9rem;
+	}
+
 	main,
 	article {
 		img {
