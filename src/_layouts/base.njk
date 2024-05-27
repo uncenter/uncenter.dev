@@ -128,6 +128,11 @@ footerLinks:
 				<a href="https://🕸💍.ws" class="not-fancy" data-umami-event="indie-webring-home">IndieWeb Webring</a>
 				<a href="https://🕸💍.ws/next" class="not-fancy" data-umami-event="indie-webring-next">→</a>
 			</div>
+			<div class="flex flex-row text-center gap-x-3 text-xs">
+				<a href="https://ctp-webr.ing/uncenter/previous" class="not-fancy" data-umami-event="catppuccin-webring-previous">←</a>
+				<a href="https://ctp-webr.ing/" class="not-fancy" data-umami-event="catppuccin-webring-home">Catppuccin Webring</a>
+				<a href="https://ctp-webr.ing/uncenter/next" class="not-fancy" data-umami-event="catppuccin-webring-next">→</a>
+			</div>
 			<div class="flex flex-row text-center gap-x-2 text-xs">
 				{% for item in footerLinks %}
 					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}" data-umami-event="footer-{{ item.title | slugify }}">{{ item.title }}</a>{% if not loop.last %} &middot; {% endif %}
