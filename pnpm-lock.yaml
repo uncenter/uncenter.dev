@@ -130,8 +130,8 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1(@typescript-eslint/parser@7.0.1(eslint@8.56.0)(typescript@5.4.5))(eslint@8.56.0)(typescript@5.4.5)
       '@uncenter/prettier-config':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.2.0
+        version: 0.2.0
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
@@ -541,8 +541,8 @@ packages:
       eslint: '>=8.0'
       typescript: '>=4.5'
 
-  '@uncenter/prettier-config@0.1.0':
-    resolution: {integrity: sha512-GfTT9aNCi3kTYp3cWsfSeURVVs6754pfRZEDUJQBJpXy9fRNidjo25qm/ydKXjOAIDS99Pf7B44+e5e1bZ0FuA==}
+  '@uncenter/prettier-config@0.2.0':
+    resolution: {integrity: sha512-J1f/l3njz7TgIbSrLxFLpyxa42/2iR19IwmNYNBWKqud6D8ipL8RfdNxEE3G1SZoe2oH+R11YrQpNbSeKj+T7A==}
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
@@ -3048,7 +3048,7 @@ snapshots:
       - supports-color
       - vitest
 
-  '@uncenter/prettier-config@0.1.0': {}
+  '@uncenter/prettier-config@0.2.0': {}
 
   '@ungap/structured-clone@1.2.0': {}
 
