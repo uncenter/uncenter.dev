@@ -8,8 +8,8 @@
 		"build": "eleventy",
 		"debug": "DEBUG=Eleventy* eleventy",
 		"clean": "rimraf dist/ .cache",
-		"lint": "eslint .",
-		"format": "prettier --write ."
+		"lint": "biome check .",
+		"format": "biome format --write ."
 	},
 	"dependencies": {
 		"11ty.ts": "^0.0.3",
@@ -53,10 +53,7 @@
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
-		"@uncenter/eslint-config": "^0.4.1",
-		"@uncenter/prettier-config": "^0.1.0",
-		"eslint": "^8.56.0",
-		"prettier": "^3.2.5",
+		"@biomejs/biome": "1.7.3",
 		"rimraf": "^5.0.7"
 	},
 	"packageManager": "pnpm@9.1.3"
