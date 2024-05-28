@@ -1,0 +1,37 @@
+name: Check
+
+on:
+  push:
+      branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    permissions:
+        contents: write
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Setup Biome
+          uses: biomejs/setup-biome@v2
+
+        - name: Run Biome
+          run: biome ci .
+
+        - name: Commit changes
+          uses: EndBug/add-and-commit@v9
+          with:
+              default_author: github_actions
+              message: "style: format with biome"
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check spelling
+        uses: streetsidesoftware/cspell-action@v6
+        with:
+          files: "**/*.md"
+          verbose: true
