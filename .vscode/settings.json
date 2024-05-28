@@ -1,3 +1,5 @@
 {
+	"prettier.enable": false,
+	"biome.enabled": true,
 	"css.customData": [".vscode/tailwind.json"]
 }

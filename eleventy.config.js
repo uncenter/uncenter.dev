@@ -1,17 +1,17 @@
 import { collections, filters, shortcodes } from './config/11ty/index.js';
 
-import pluginTOC from '@uncenter/eleventy-plugin-toc';
 import pluginExternalLinks from '@aloskutov/eleventy-plugin-external-links';
 import pluginRSS from '@ryanccn/eleventy-plugin-rss';
+import pluginTOC from '@uncenter/eleventy-plugin-toc';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
 
 import markdownLibrary from './config/markdown/core.js';
 
 import {
-	processTailwindCss,
 	processCss,
 	processSass,
+	processTailwindCss,
 } from './config/transforms/css.js';
 import { minifyHtml } from './config/transforms/html.js';
 
@@ -20,8 +20,8 @@ import { z } from 'zod';
 import 'dotenv/config';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-import site from './site.config.js';
 import colors from 'picocolors';
+import site from './site.config.js';
 
 import eleventy from '11ty.ts';
 
@@ -112,9 +112,7 @@ export default eleventy(function (eleventyConfig) {
 	eleventyConfig.on('eleventy.after', async ({ runMode }) => {
 		if (runMode === 'serve') {
 			if (notFirstRun)
-				console.log(
-					colors.blue('\n[11ty] Server at http://localhost:8080/\n'),
-				);
+				console.log(colors.blue('\n[11ty] Server at http://localhost:8080/\n'));
 			notFirstRun = true;
 		}
 	});

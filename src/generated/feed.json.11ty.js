@@ -1,5 +1,3 @@
-/* eslint-disable capitalized-comments */
-
 // Inspired by https://github.com/ryanccn/ryanccn.dev/blob/main/src/generated/feed.json.11ty.js.
 
 // MIT License

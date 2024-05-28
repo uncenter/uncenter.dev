@@ -42,7 +42,7 @@ const schema = z.record(
 /** @type {z.infer<typeof schema>} */
 const data = {
 	Apps: {
-		'General': [
+		General: [
 			{
 				name: '1Password',
 				url: 'https://1password.com/',
@@ -78,7 +78,7 @@ const data = {
 				tags: ['freemium'],
 			},
 		],
-		'Development': [
+		Development: [
 			{
 				name: 'Visual Studio Code',
 				url: 'https://code.visualstudio.com/',
@@ -99,7 +99,7 @@ const data = {
 				tags: ['paid'],
 			},
 		],
-		'Utilities': [
+		Utilities: [
 			{
 				name: 'Hyperduck',
 				url: 'https://sindresorhus.com/hyperduck',
@@ -147,8 +147,7 @@ const data = {
 			{
 				name: 'MediaMate',
 				url: 'https://wouter01.github.io/MediaMate/',
-				description:
-					'for modern, iOS-like volume and brightness controls',
+				description: 'for modern, iOS-like volume and brightness controls',
 				tags: ['paid'],
 			},
 		],

@@ -12,20 +12,15 @@ export default {
 			return getViewsForPage(data.page.url, data.page.date);
 		},
 		date: (data) => {
-			return DateTime.fromJSDate(new Date(data.date))
-				.setZone('utc')
-				.toISO();
+			return DateTime.fromJSDate(new Date(data.date)).setZone('utc').toISO();
 		},
 		edited: (data) => {
 			return data.edited
 				? DateTime.fromJSDate(
 						new Date(
-							DateTime.fromISO(
-								new Date(data.edited).toISOString(),
-								{
-									zone: 'utc',
-								},
-							),
+							DateTime.fromISO(new Date(data.edited).toISOString(), {
+								zone: 'utc',
+							}),
 						),
 					)
 						.setZone('utc')

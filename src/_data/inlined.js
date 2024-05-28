@@ -1,7 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { minifyJavascript } from '../../config/transforms/javascript.js';
 import { processCss } from '../../config/transforms/css.js';
+import { minifyJavascript } from '../../config/transforms/javascript.js';
 
 const SCRIPTS_PATH = './src/assets/scripts/';
 const STYLES_PATH = './src/assets/styles/';

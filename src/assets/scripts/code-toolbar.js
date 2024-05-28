@@ -22,9 +22,7 @@ for (const codeBlock of document.querySelectorAll('div.code-block')) {
 		const linkIcon = copyLinkButton.querySelector('svg.link');
 		const checkIcon = copyLinkButton.querySelector('svg.check');
 		const codeUrl =
-			window.location.href.split('#')[0] +
-			'#' +
-			codeBlock.getAttribute('id');
+			window.location.href.split('#')[0] + '#' + codeBlock.getAttribute('id');
 		window.location.href = codeUrl;
 		await navigator.clipboard.writeText(codeUrl);
 

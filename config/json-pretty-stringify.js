@@ -1,7 +1,7 @@
 export default function (input, space) {
 	return JSON.stringify(
 		input,
-		function (k, v) {
+		function (_k, v) {
 			if (Array.isArray(v)) {
 				let children = '';
 

@@ -1,13 +1,11 @@
+import type { EventContext } from '@cloudflare/workers-types';
 import stringify from '../config/json-pretty-stringify.js';
 import whoami from '../src/_data/whoami.js';
 
 // @ts-expect-error
-export async function onRequest(context: EventContext): PagesFunction {
+export async function onRequest(context: EventContext): Promise<Response> {
 	const { next, request } = context as {
-		next: (
-			input?: Request | string,
-			init?: RequestInit,
-		) => Promise<Response>;
+		next: (input?: Request | string, init?: RequestInit) => Promise<Response>;
 		request: Request;
 	};
 

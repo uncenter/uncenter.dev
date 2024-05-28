@@ -1,16 +1,22 @@
-lockfileVersion: '6.0'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-devDependencies:
-  '@cloudflare/workers-types':
-    specifier: ^4.20240208.0
-    version: 4.20240208.0
+importers:
+
+  .:
+    devDependencies:
+      '@cloudflare/workers-types':
+        specifier: ^4.20240208.0
+        version: 4.20240208.0
 
 packages:
 
-  /@cloudflare/workers-types@4.20240208.0:
+  '@cloudflare/workers-types@4.20240208.0':
     resolution: {integrity: sha512-MVGTTjZpJu4kJONvai5SdJzWIhOJbuweVZ3goI7FNyG+JdoQH41OoB+nMhLsX626vPLZVWGPIWsiSo/WZHzgQw==}
-    dev: true
+
+snapshots:
+
+  '@cloudflare/workers-types@4.20240208.0': {}

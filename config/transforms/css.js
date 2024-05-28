@@ -1,5 +1,5 @@
-import { transform, browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
+import { browserslistToTargets, transform } from 'lightningcss';
 import postcss from 'postcss';
 import * as sass from 'sass';
 

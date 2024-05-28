@@ -6,11 +6,11 @@ export default {
 	content: ['./src/**/*.{11ty.js,js,md,njk}'],
 	theme: {
 		fontSize: {
-			'xs': '0.875rem',
-			'sm': '1rem',
-			'base': '1.125rem',
-			'lg': '1.25rem',
-			'xl': '1.5rem',
+			xs: '0.875rem',
+			sm: '1rem',
+			base: '1.125rem',
+			lg: '1.25rem',
+			xl: '1.5rem',
 			'2xl': '1.875rem',
 			'3xl': '2.25rem',
 			'4xl': '3rem',
@@ -18,10 +18,7 @@ export default {
 		},
 		extend: {
 			colors: Object.fromEntries(
-				flavors.latte.colorEntries.map(([name]) => [
-					name,
-					`var(--${name})`,
-				]),
+				flavors.latte.colorEntries.map(([name]) => [name, `var(--${name})`]),
 			),
 			fontFamily: {
 				display: ['"General Sans"', ...defaultTheme.fontFamily.sans],

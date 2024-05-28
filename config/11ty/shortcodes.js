@@ -1,7 +1,8 @@
 import path from 'node:path';
-import escape from 'lodash.escape';
-import dimensions from 'image-size';
 import image from '@11ty/eleventy-img';
+import dimensions from 'image-size';
+// biome-ignore lint/suspicious/noShadowRestrictedNames: Eh escape sounds better.
+import escape from 'lodash.escape';
 
 const IMAGE_OPTIMIZATION =
 	process.env.IMAGE_OPTIMIZATION === '0' ||
@@ -42,9 +43,7 @@ const insertImage = async function (source, alt) {
 	const sources = Object.values(data)
 		.map((formatEntries) => {
 			const { sourceType } = formatEntries[0];
-			const srcset = formatEntries
-				.map((image) => image.srcset)
-				.join(', ');
+			const srcset = formatEntries.map((image) => image.srcset).join(', ');
 
 			return `<source ${stringifyAttributes({
 				type: sourceType,

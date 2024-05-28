@@ -9,9 +9,7 @@ function setMetaThemeColor() {
 	meta &&
 		meta.setAttribute(
 			'content',
-			getComputedStyle(document.documentElement).getPropertyValue(
-				`--base`,
-			),
+			getComputedStyle(document.documentElement).getPropertyValue(`--base`),
 		);
 }
 

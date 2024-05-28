@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
-import urlize from '../urlize.js';
 import stringify from '../json-pretty-stringify.js';
+import urlize from '../urlize.js';
 
 const toShortDate = (dateObject) => {
 	// 10/14/1983
@@ -9,9 +9,7 @@ const toShortDate = (dateObject) => {
 
 const toMedDate = (dateObject) => {
 	// Oct 14, 1983
-	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat(
-		'MMM dd, yyyy',
-	);
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat('MMM dd, yyyy');
 };
 
 const toFullDate = (dateObject) => {
