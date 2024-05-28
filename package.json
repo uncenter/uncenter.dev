@@ -20,7 +20,7 @@
 		"@catppuccin/palette": "^1.2.0",
 		"@ryanccn/eleventy-plugin-rss": "^1.2.2",
 		"@shikijs/markdown-it": "1.6.1",
-		"@shikijs/transformers": "1.6.0",
+		"@shikijs/transformers": "1.6.1",
 		"@uncenter/eleventy-plugin-toc": "^1.0.3",
 		"browserslist": "^4.23.0",
 		"dotenv": "^16.4.5",
