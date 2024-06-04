@@ -18,7 +18,7 @@ jobs:
           uses: biomejs/setup-biome@v2
 
         - name: Run Biome
-          run: biome ci .
+          run: biome ci --reporter=github
 
         - name: Commit changes
           uses: EndBug/add-and-commit@v9
