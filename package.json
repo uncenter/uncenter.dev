@@ -56,5 +56,5 @@
 		"@biomejs/biome": "1.8.1",
 		"rimraf": "^5.0.7"
 	},
-	"packageManager": "pnpm@9.1.4"
+	"packageManager": "pnpm@9.3.0"
 }
