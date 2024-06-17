@@ -22,7 +22,7 @@
 		"@shikijs/markdown-it": "1.6.2",
 		"@shikijs/transformers": "1.6.2",
 		"@uncenter/eleventy-plugin-toc": "^1.0.3",
-		"browserslist": "^4.23.0",
+		"browserslist": "^4.23.1",
 		"dotenv": "^16.4.5",
 		"eleventy-plugin-icons": "^4.5.0",
 		"eleventy-plugin-validate": "^0.1.3",
