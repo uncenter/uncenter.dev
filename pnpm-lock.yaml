@@ -120,8 +120,8 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
       terser:
-        specifier: ^5.31.1
-        version: 5.31.1
+        specifier: ^5.31.2
+        version: 5.31.2
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -1814,8 +1814,8 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  terser@5.31.1:
-    resolution: {integrity: sha512-37upzU1+viGvuFtBo9NPufCb9dwM0+l9hMxYyWfBA+fbwrPqNJAhbZ6W47bBFnZHKHTUBnMvi87434qq+qnxOg==}
+  terser@5.31.2:
+    resolution: {integrity: sha512-LGyRZVFm/QElZHy/CPr/O4eNZOZIzsrQ92y4v9UJe/pFJjypje2yI3C2FmPtvUEnhadlSbmG2nXtdcjHOjCfxw==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -3618,7 +3618,7 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  terser@5.31.1:
+  terser@5.31.2:
     dependencies:
       '@jridgewell/source-map': 0.3.6
       acorn: 8.11.3
