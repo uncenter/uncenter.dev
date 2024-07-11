@@ -2,6 +2,6 @@
 	"name": "functions",
 	"version": "0.1.0",
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20240603.0"
+		"@cloudflare/workers-types": "^4.20240701.0"
 	}
 }
