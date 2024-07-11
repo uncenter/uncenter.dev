@@ -9,14 +9,14 @@ importers:
   .:
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: ^4.20240603.0
-        version: 4.20240603.0
+        specifier: ^4.20240701.0
+        version: 4.20240701.0
 
 packages:
 
-  '@cloudflare/workers-types@4.20240603.0':
-    resolution: {integrity: sha512-KmsjZcd/dPWM51FoT08cvUGCq9l3nFEriloQ12mcdJPoW911Gi5S/9Cq4xeFvTrtk9TJ2krvxP23IeobecRmOQ==}
+  '@cloudflare/workers-types@4.20240701.0':
+    resolution: {integrity: sha512-6Cu6NIAicmb8H6CkzFdQG5Ib+TDs9HU8AKQEGlxnbvEBDmhUNpmL30ETXpLS0asdeyc+rTb2xag0hSv0Z1BflQ==}
 
 snapshots:
 
-  '@cloudflare/workers-types@4.20240603.0': {}
+  '@cloudflare/workers-types@4.20240701.0': {}
