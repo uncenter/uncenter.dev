@@ -98,21 +98,22 @@ div {
 		@apply relative no-underline text-text;
 
 		&:not(.not-fancy) {
-			&:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
-				@apply text-blue;
-			}
-
 			text-decoration-line: underline;
 			text-decoration-color: transparent;
 			text-underline-offset: 2px;
 
-			&:hover {
-				text-decoration-color: currentColor;
-			}
-
 			transition-property: color, text-decoration-color;
 			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 			transition-duration: 150ms;
+
+			&:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+				@apply text-blue;
+			}
+
+
+			&:hover {
+				text-decoration-color: currentColor;
+			}
 		}
 	}
 
