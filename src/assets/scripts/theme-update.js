@@ -6,7 +6,16 @@ window.addEventListener('DOMContentLoaded', () => {
 		document
 			.querySelector('#theme-selector')
 			.addEventListener('change', function () {
-				setTheme(this.value);
+				if (
+					'startViewTransition' in document &&
+					document.startViewTransition !== undefined
+				) {
+					document.startViewTransition(() => {
+						setTheme(this.value);
+					});
+				} else {
+					setTheme(this.value);
+				}
 			});
 	}
 	window
