@@ -21,7 +21,7 @@
 						{%- elif project.live.startsWith("https://npmjs.com") or project.live.startsWith("https://www.npmjs.com")  -%}
 							{%- set liveIcon = 'si:npm' -%}
 						{% elif project.live.startsWith("https://chrome.google.com/webstore") or project.live.startsWith("https://chromewebstore.google.com") %}
-							{%- set liveIcon = 'si:googlechrome' -%}
+							{%- set liveIcon = 'si:chromewebstore' -%}
 						{%- else -%}
 							{%- set liveIcon = 'lucide:globe' -%}
 						{%- endif -%}
