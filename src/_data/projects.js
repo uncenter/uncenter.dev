@@ -8,10 +8,7 @@ const schema = z.record(
 			.object({
 				name: z.string().min(1),
 				link: z.string().url().startsWith('https://github.com'),
-				featured: z.boolean().default(false).optional(),
-
 				stack: z.array(z.string()).default([]).optional(),
-
 				description: z.string().optional(),
 				live: z.string().optional(),
 			})
@@ -25,26 +22,22 @@ const projects = schema.parse({
 		{
 			name: 'kittysay',
 			link: 'https://github.com/uncenter/kittysay',
-			featured: true,
 			stack: ['rust'],
 		},
 		{
 			name: 'octotree',
 			link: 'https://github.com/uncenter/octotree',
-			featured: true,
 			stack: ['typescript', 'solid', 'tailwindcss'],
 		},
 		{
 			name: 'npm-on-github',
 			link: 'https://github.com/uncenter/npm-on-github',
-			featured: true,
 			stack: ['typescript', 'mockserviceworker', 'vitest'],
 		},
 		{
 			name: 'ascii-to-lua-table',
 			link: 'https://github.com/uncenter/ascii-to-lua-table',
-			featured: true,
-			stack: ['typescript', 'vuedotjs'],
+			stack: ['typescript', 'vuedotjs', 'unocss'],
 		},
 		{
 			name: 'eleventy-plugin-icons',
@@ -64,7 +57,17 @@ const projects = schema.parse({
 		{
 			name: 'json-to-nix',
 			link: 'https://github.com/uncenter/json-to-nix',
-			stack: ['typescript', 'vuedotjs'],
+			stack: ['typescript', 'vuedotjs', 'unocss'],
+		},
+		{
+			name: 'purr',
+			link: 'https://github.com/uncenter/purr',
+			stack: ['rust'],
+		},
+		{
+			name: 'nixpkgs-using',
+			link: 'https://github.com/uncenter/nixpkgs-using',
+			stack: ['rust'],
 		},
 		{
 			name: 'icnsify',
@@ -72,12 +75,10 @@ const projects = schema.parse({
 			stack: ['rust'],
 		},
 		{
-			name: 'sttr-rs',
-			link: 'https://github.com/uncenter/sttr-rs',
+			name: 'ito',
+			link: 'https://github.com/uncenter/ito',
 			stack: ['rust'],
 		},
-	],
-	old: [
 		{
 			name: 'phonetic-alphabet',
 			link: 'https://github.com/uncenter/phonetic-alphabet',
@@ -88,25 +89,26 @@ const projects = schema.parse({
 			link: 'https://github.com/uncenter/canvas-grade-calculator',
 			stack: ['javascript'],
 		},
+	],
+	catppuccin: [
 		{
-			name: 'fn',
-			link: 'https://github.com/uncenter/fn',
-			stack: ['gnubash'],
+			name: 'catppuccin/github-file-explorer-icons',
+			link: 'https://github.com/catppuccin/github-file-explorer-icons',
+			stack: ['typescript'],
 		},
 		{
-			name: 'gh-stats',
-			link: 'https://github.com/uncenter/gh-stats',
-			stack: ['python'],
+			name: 'catppuccin/userstyles',
+			link: 'https://github.com/catppuccin/userstyles',
+			stack: ['deno', 'typescript', 'sass'],
 		},
 		{
-			name: 'create-eleventy-app',
-			link: 'https://github.com/uncenter/create-eleventy-app',
-			stack: ['javascript'],
+			name: 'catppuccin/yazi',
+			link: 'https://github.com/catppuccin/yazi',
 		},
 		{
-			name: 'learn-eleventy',
-			link: 'https://github.com/uncenter/learn-eleventy',
-			stack: ['eleventy'],
+			name: 'catppuccin/giscus',
+			link: 'https://github.com/catppuccin/giscus',
+			stack: ['typescript', 'less'],
 		},
 	],
 });

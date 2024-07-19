@@ -4,21 +4,12 @@ title: Projects
 description: A list of projects I've worked on.
 ---
 
-<h2>Featured</h2>
-
-{% set projectslist = projects.current | selectattr('featured') %}
+{% set projectslist = projects.current %}
 {% include "projectslist.njk" %}
 
 <hr>
 
-<h2>Current</h2>
+<h2>Catppuccin</h2>
 
-{% set projectslist = projects.current | rejectattr('featured') %}
-{% include "projectslist.njk" %}
-
-<hr>
-
-<h2>Older</h2>
-
-{% set projectslist = projects.old %}
+{% set projectslist = projects.catppuccin %}
 {% include "projectslist.njk" %}
