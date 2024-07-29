@@ -168,7 +168,7 @@ const data = {
 			{
 				name: 'Control Panel for Twitter',
 				url: 'https://github.com/insin/control-panel-for-twitter',
-				description: 'for Twitter enhancements'
+				description: 'for Twitter enhancements',
 			},
 			{
 				name: 'Stylus',
@@ -179,7 +179,7 @@ const data = {
 			{
 				name: 'Violentmonkey',
 				url: 'https://violentmonkey.github.io',
-				description: 'for managing userscripts'
+				description: 'for managing userscripts',
 			},
 			{
 				name: 'Catppuccin for GitHub File Explorer',
