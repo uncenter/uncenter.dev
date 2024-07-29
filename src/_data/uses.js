@@ -106,31 +106,14 @@ const data = {
 				description: 'for sending URLs from my phone to computer',
 			},
 			{
-				name: 'KnockKnock',
-				url: 'https://objective-see.org/products/knockknock.html',
-				description: 'for system scanning',
-				tags: ['open-source'],
-			},
-			{
-				name: 'Oversight',
-				url: 'https://objective-see.org/products/oversight.html',
-				description: 'for camera and microphone monitoring',
-				tags: ['open-source'],
-			},
-			{
-				name: 'PurePaste',
-				url: 'https://sindresorhus.com/pure-paste',
-				description: 'for automatic clipboard cleaning',
-			},
-			{
 				name: 'Raycast',
 				url: 'https://raycast.com/',
 				description: 'for an improved Spotlight search',
 			},
 			{
-				name: 'Rectangle',
-				url: 'https://rectangleapp.com/',
-				description: 'for window snapping',
+				name: 'Loop',
+				url: 'https://github.com/MrKai77/Loop',
+				description: 'for *elegant* window snapping',
 				tags: ['open-source'],
 			},
 			{
@@ -150,6 +133,12 @@ const data = {
 				description: 'for modern, iOS-like volume and brightness controls',
 				tags: ['paid'],
 			},
+			{
+				name: 'Ice',
+				url: 'https://github.com/jordanbaird/Ice',
+				description: 'for menu bar customization',
+				tags: ['open-source'],
+			},
 		],
 		'Browser Extensions': [
 			{
@@ -165,8 +154,8 @@ const data = {
 				tags: ['open-source'],
 			},
 			{
-				name: 'Bypass Paywalls Clean',
-				url: 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean',
+				name: 'Bypass Paywalls',
+				url: 'https://github.com/iamadamdev/bypass-paywalls-chrome',
 				description: 'for bypassing annoying news paywalls',
 				tags: ['open-source'],
 			},
@@ -177,10 +166,20 @@ const data = {
 				tags: ['open-source'],
 			},
 			{
+				name: 'Control Panel for Twitter',
+				url: 'https://github.com/insin/control-panel-for-twitter',
+				description: 'for Twitter enhancements'
+			},
+			{
 				name: 'Stylus',
 				url: 'https://github.com/openstyles/stylus',
 				description: 'for theming websites with Catppuccin',
 				tags: ['open-source'],
+			},
+			{
+				name: 'Violentmonkey',
+				url: 'https://violentmonkey.github.io',
+				description: 'for managing userscripts'
 			},
 			{
 				name: 'Catppuccin for GitHub File Explorer',
