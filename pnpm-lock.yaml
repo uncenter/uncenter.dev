@@ -10,10 +10,10 @@ importers:
     dependencies:
       11ty.ts:
         specifier: ^0.0.3
-        version: 0.0.3(@11ty/eleventy@3.0.0-alpha.17)
+        version: 0.0.3(@11ty/eleventy@3.0.0-beta.1)
       '@11ty/eleventy':
-        specifier: 3.0.0-alpha.17
-        version: 3.0.0-alpha.17
+        specifier: 3.0.0-beta.1
+        version: 3.0.0-beta.1
       '@11ty/eleventy-fetch':
         specifier: ^4.0.1
         version: 4.0.1
@@ -143,8 +143,8 @@ packages:
   '@11ty/dependency-tree@3.0.1':
     resolution: {integrity: sha512-aZizxcL4Z/clm3KPRx8i9ohW9R2gLssXfUSy7qQmQRXb4CUOyvmqk2gKeJqRmXIfMi2bB9w03SgtN5v1YwqpiA==}
 
-  '@11ty/eleventy-dev-server@2.0.1':
-    resolution: {integrity: sha512-G92KbOx5vg2G3mlQQ1B0+L+Ni7pcn1yeMgQdnT8b2G20ZnbGNtuGYEPehbQV4Xqr2iAtoBfbihNskbLDoVtNOg==}
+  '@11ty/eleventy-dev-server@2.0.2':
+    resolution: {integrity: sha512-OupvJ36G+iY+AKmO3veUR7MEZUL2p9tQmodSPf05en0p8LnJltHqK11S+XQ0iGUA96qcyeTLcKQpD+/ctekgmw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -164,8 +164,8 @@ packages:
     resolution: {integrity: sha512-nULO91om7vQw4Y/UBjM8i7nJ1xl+/nyK4rImZ41lFxiY2d+XUz7ChAj1CDYFjrLZeu0utAYJTZ45LlcHTkUG4g==}
     engines: {node: '>=12'}
 
-  '@11ty/eleventy@3.0.0-alpha.17':
-    resolution: {integrity: sha512-CSRdniC1360qBYJ2ddohkIG/iMxGiYHvX62hRcz+l3vQg/71PBXsMmKiD3LoAs8zorSh/UR7dW26pcIrLaVKPw==}
+  '@11ty/eleventy@3.0.0-beta.1':
+    resolution: {integrity: sha512-iJT7vekH11l8PAUPBfUAcb5oWbYK0w4ijgwDTutUsk6tX9rp4ZRL1jdhVWvZq04/rkc55mczNFPPhHB/XO1/qw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -689,8 +689,8 @@ packages:
       supports-color:
         optional: true
 
-  debug@4.3.5:
-    resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
+  debug@4.3.6:
+    resolution: {integrity: sha512-O/09Bd4Z1fBrU4VzkhFqVgpPzaGbw6Sm9FEkBT1A/YBXQFGuuSxa1dN2nxgxS34JmKXqYx8CZAwEVoJFImUXIg==}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -1227,8 +1227,8 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
-  liquidjs@10.15.0:
-    resolution: {integrity: sha512-u5lYWhW8ioT+O3FdCcp5U+hiPEGNO4xASCFlCHA+k5rMTJwDIa2c2KF111ZDKc2xGM7LXPvMoNRIrBfbLNpRBg==}
+  liquidjs@10.16.1:
+    resolution: {integrity: sha512-1JFL/Y7ONoajrfwav37yuz5yQHU3+Pgz1XWsg9E/2T8Fp65KalNfMF8QZ3+tNETqGUIB66waOSLOi64niYZE9A==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -1677,8 +1677,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  semver@7.6.2:
-    resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
+  semver@7.6.3:
+    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -1932,9 +1932,9 @@ packages:
 
 snapshots:
 
-  11ty.ts@0.0.3(@11ty/eleventy@3.0.0-alpha.17):
+  11ty.ts@0.0.3(@11ty/eleventy@3.0.0-beta.1):
     dependencies:
-      '@11ty/eleventy': 3.0.0-alpha.17
+      '@11ty/eleventy': 3.0.0-beta.1
 
   '@11ty/dependency-tree-esm@1.0.0':
     dependencies:
@@ -1947,11 +1947,11 @@ snapshots:
     dependencies:
       '@11ty/eleventy-utils': 1.0.3
 
-  '@11ty/eleventy-dev-server@2.0.1':
+  '@11ty/eleventy-dev-server@2.0.2':
     dependencies:
       '@11ty/eleventy-utils': 1.0.3
       chokidar: 3.6.0
-      debug: 4.3.5
+      debug: 4.3.6
       dev-ip: 1.0.1
       finalhandler: 1.2.0
       mime: 3.0.0
@@ -1992,7 +1992,7 @@ snapshots:
 
   '@11ty/eleventy-plugin-bundle@2.0.2':
     dependencies:
-      debug: 4.3.5
+      debug: 4.3.6
     transitivePeerDependencies:
       - supports-color
 
@@ -2000,11 +2000,11 @@ snapshots:
     dependencies:
       normalize-path: 3.0.0
 
-  '@11ty/eleventy@3.0.0-alpha.17':
+  '@11ty/eleventy@3.0.0-beta.1':
     dependencies:
       '@11ty/dependency-tree': 3.0.1
       '@11ty/dependency-tree-esm': 1.0.0
-      '@11ty/eleventy-dev-server': 2.0.1
+      '@11ty/eleventy-dev-server': 2.0.2
       '@11ty/eleventy-plugin-bundle': 2.0.2
       '@11ty/eleventy-utils': 1.0.3
       '@11ty/lodash-custom': 4.17.21
@@ -2015,7 +2015,7 @@ snapshots:
       chardet: 2.0.0
       chokidar: 3.6.0
       cross-spawn: 7.0.3
-      debug: 4.3.5
+      debug: 4.3.6
       dependency-graph: 1.0.0
       fast-glob: 3.3.2
       filesize: 10.1.4
@@ -2025,7 +2025,7 @@ snapshots:
       iso-639-1: 3.1.2
       js-yaml: 4.1.0
       kleur: 4.1.5
-      liquidjs: 10.15.0
+      liquidjs: 10.16.1
       luxon: 3.4.4
       markdown-it: 14.1.0
       micromatch: 4.0.7
@@ -2037,7 +2037,7 @@ snapshots:
       please-upgrade-node: 3.2.0
       posthtml: 0.16.6
       posthtml-match-helper: 2.0.2(posthtml@0.16.6)
-      semver: 7.6.2
+      semver: 7.6.3
       slugify: 1.6.6
     transitivePeerDependencies:
       - bufferutil
@@ -2517,7 +2517,7 @@ snapshots:
     dependencies:
       ms: 2.1.2
 
-  debug@4.3.5:
+  debug@4.3.6:
     dependencies:
       ms: 2.1.2
 
@@ -3018,7 +3018,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  liquidjs@10.15.0:
+  liquidjs@10.16.1:
     dependencies:
       commander: 10.0.1
 
@@ -3433,7 +3433,7 @@ snapshots:
     dependencies:
       lru-cache: 6.0.0
 
-  semver@7.6.2: {}
+  semver@7.6.3: {}
 
   send@0.18.0:
     dependencies:
