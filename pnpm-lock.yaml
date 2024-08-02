@@ -69,8 +69,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1
       lucide-static:
-        specifier: ^0.407.0
-        version: 0.407.0
+        specifier: ^0.420.0
+        version: 0.420.0
       luxon:
         specifier: ^3.4.4
         version: 3.4.4
@@ -1249,8 +1249,8 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  lucide-static@0.407.0:
-    resolution: {integrity: sha512-RkFYdnnkQ5K9/V7V1yY+KiZn0Ugc9b0r9I19yuGu8TRA7HcNzcpuP8Fq0+V5ariS8JMzYMgv0sQ5Thaualskeg==}
+  lucide-static@0.420.0:
+    resolution: {integrity: sha512-F8teSsYixVK3QKJaGCclfKLBsOdK2USl20RXisTRIfq7BzN7AEk9we0W/Y+vOXQBII1Rfo2Ws35n0sH8Xl8DNw==}
 
   luxon@3.4.4:
     resolution: {integrity: sha512-zobTr7akeGHnv7eBOXcRgMeCP6+uyYsczwmeRCauvpvaAltgNyTbLH/+VaEAPUeWBT+1GuNmz4wC/6jtQzbbVA==}
@@ -3034,7 +3034,7 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide-static@0.407.0: {}
+  lucide-static@0.420.0: {}
 
   luxon@3.4.4: {}
 
