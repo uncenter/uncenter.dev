@@ -29,7 +29,7 @@
 		"execa": "^9.3.0",
 		"html-minifier": "^4.0.0",
 		"image-size": "^1.1.1",
-		"lightningcss": "^1.26.0",
+		"lightningcss": "^1.27.0",
 		"linkedom": "^0.18.3",
 		"lodash.escape": "^4.0.1",
 		"lucide-static": "^0.420.0",
