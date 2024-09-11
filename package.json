@@ -17,7 +17,7 @@
 		"@11ty/eleventy-fetch": "^4.0.1",
 		"@11ty/eleventy-img": "^4.0.2",
 		"@aloskutov/eleventy-plugin-external-links": "^2.1.1",
-		"@catppuccin/palette": "^1.2.0",
+		"@catppuccin/palette": "^1.3.0",
 		"@ryanccn/eleventy-plugin-rss": "^1.2.2",
 		"@shikijs/markdown-it": "1.17.0",
 		"@shikijs/transformers": "1.17.0",
