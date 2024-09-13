@@ -7,12 +7,9 @@
 	},
 	"formatter": {
 		"enabled": true,
+		"useEditorconfig": true,
 		"formatWithErrors": false,
-		"indentStyle": "tab",
-		"indentWidth": 2,
-		"lineEnding": "lf",
-		"lineWidth": 80,
-		"attributePosition": "auto"
+		"lineWidth": 80
 	},
 	"organizeImports": { "enabled": true },
 	"linter": {
@@ -99,8 +96,12 @@
 			"arrowParentheses": "always",
 			"bracketSpacing": true,
 			"bracketSameLine": false,
-			"quoteStyle": "single",
-			"attributePosition": "auto"
+			"quoteStyle": "single"
+		}
+	},
+	"css": {
+		"formatter": {
+			"quoteStyle": "single"
 		}
 	},
 	"overrides": [
