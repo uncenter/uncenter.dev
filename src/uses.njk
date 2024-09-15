@@ -4,19 +4,17 @@ title: Uses
 description: All sorts of things that I use.
 ---
 
+{% set useslist = uses['Apps']['General'] %}
+{% include "useslist.njk" %}
+
 <p class="mb-12">All the things I use! To see other /uses pages, check out <a href="https://uses.tech/">uses.tech</a>.</p>
-{% for category, subcategories in uses %}
+{% asyncAll category, subcategories in uses %}
 	<h2>{{ category }}</h2>
-	{% for heading, items in subcategories %}
+	{% asyncAll heading, items in subcategories %}
 		{% if items.length > 0 %}
 			<h3>{{ heading }}</h3>
-			<ul>
-				{% for item in items %}
-					<li>
-						<a href="{{ item.url }}">{{ item.name }}</a> <span>{{ item.description}}</span>
-					</li>
-				{% endfor %}
-			</ul>
+			{% set useslist = items %}
+			{% include "useslist.njk" %}
 		{% endif %}
-	{% endfor %}
-{% endfor%}
+	{% endall %}
+{% endall%}

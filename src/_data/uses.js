@@ -16,6 +16,7 @@ const schema = z.record(
 				.object({
 					name: z.string().min(1),
 					description: z.string().min(1),
+					icon: z.string().optional(),
 					url: z.string().url(),
 					tags: z.array(tags).default([]).optional(),
 					since: z
@@ -46,12 +47,14 @@ const data = {
 			{
 				name: '1Password',
 				url: 'https://1password.com/',
+				icon: '1password',
 				description: 'for password management',
 				tags: ['paid'],
 			},
 			{
 				name: 'Arc',
 				url: 'https://arc.net/',
+				icon: 'arc',
 				description: 'for browsing the web',
 			},
 			{
@@ -63,6 +66,7 @@ const data = {
 			{
 				name: 'Discord',
 				url: 'https://discord.com/',
+				icon: 'discord',
 				description: 'for messaging',
 				accessories: [
 					{
@@ -74,6 +78,7 @@ const data = {
 			{
 				name: 'Spotify',
 				url: 'https://spotify.com/',
+				icon: 'spotify',
 				description: 'for music',
 				tags: ['freemium'],
 			},
@@ -86,28 +91,24 @@ const data = {
 				tags: ['open-source'],
 			},
 			{
+				name: 'Helix',
+				url: 'https://helix-editor.com/',
+				description: 'as my potentially new primary IDE',
+				tags: ['open-source'],
+			},
+			{
 				name: 'Ghostty',
 				url: 'https://mitchellh.com/ghostty',
 				description:
 					'for a fast, feature-rich, and actively developed terminal',
 				tags: ['open-source'],
 			},
-			{
-				name: 'Toolcat',
-				url: 'https://toolcat.app/',
-				description: 'for miscellaneous developer utilities',
-				tags: ['paid'],
-			},
 		],
 		Utilities: [
 			{
-				name: 'Hyperduck',
-				url: 'https://sindresorhus.com/hyperduck',
-				description: 'for sending URLs from my phone to computer',
-			},
-			{
 				name: 'Raycast',
 				url: 'https://raycast.com/',
+				icon: 'raycast',
 				description: 'for an improved Spotlight search',
 			},
 			{
@@ -120,12 +121,6 @@ const data = {
 				name: 'System Color Picker',
 				url: 'https://sindresorhus.com/system-color-picker',
 				description: 'for a supercharged color picker',
-			},
-			{
-				name: 'Dato',
-				url: 'https://sindresorhus.com/dato',
-				description: 'to quickly view + manage calendar events',
-				tags: ['freemium'],
 			},
 			{
 				name: 'MediaMate',
@@ -144,12 +139,14 @@ const data = {
 			{
 				name: '1Password',
 				url: 'https://1password.com/downloads/browser-extension/',
+				icon: '1password',
 				description: 'for passwords',
 				tags: ['paid'],
 			},
 			{
 				name: 'uBlock Origin',
 				url: 'https://github.com/gorhill/uBlock/',
+				icon: 'ublockorigin',
 				description: 'for advertisement and tracker blocking',
 				tags: ['open-source'],
 			},
@@ -195,30 +192,35 @@ const data = {
 			{
 				name: 'Cloudflare Pages',
 				url: 'https://pages.cloudflare.com/',
+				icon: 'cloudflarepages',
 				description: 'for hosting static sites',
 			},
 
 			{
 				name: 'Cloudflare',
 				url: 'https://cloudflare.com/',
+				icon: 'cloudflare',
 				description: 'for DNS',
 			},
 
 			{
 				name: 'GitHub',
 				url: 'https://github.com/',
+				icon: 'github',
 				description: 'for project source code hosting',
 			},
 
 			{
 				name: 'Railway',
 				url: 'https://railway.app/',
+				icon: 'railway',
 				description: 'for some hosting (my analytics, for instance)',
 			},
 
 			{
 				name: 'Umami',
 				url: 'https://umami.is/',
+				icon: 'umami',
 				description: 'for simple, privacy-respecting analytics',
 				tags: ['open-source'],
 			},
@@ -226,6 +228,7 @@ const data = {
 			{
 				name: 'Vercel',
 				url: 'https://vercel.com/',
+				icon: 'vercel',
 				description: 'for some web-app hosting',
 			},
 		],
@@ -245,6 +248,7 @@ const data = {
 			{
 				name: 'MacBook Pro 13" (2020 M1)',
 				url: 'https://www.apple.com/macbook-pro-13/',
+				icon: 'apple',
 				description: 'as my daily driver',
 			},
 			{
