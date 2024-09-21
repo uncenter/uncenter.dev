@@ -30,7 +30,7 @@
 		"html-minifier": "^4.0.0",
 		"image-size": "^1.1.1",
 		"lightningcss": "^1.27.0",
-		"linkedom": "^0.18.4",
+		"linkedom": "^0.18.5",
 		"lodash.escape": "^4.0.1",
 		"lucide-static": "^0.441.0",
 		"luxon": "^3.4.4",
