@@ -30,10 +30,6 @@ export default {
 			username: 'uncenter',
 			url: 'https://ko-fi.com/uncenter',
 		},
-		liberapay: {
-			username: 'uncenter',
-			url: 'https://liberapay.com/uncenter',
-		},
 	},
 	feed: {
 		description:
