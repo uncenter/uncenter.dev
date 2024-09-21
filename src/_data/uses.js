@@ -232,34 +232,6 @@ const data = {
 			},
 		],
 	},
-	Hardware: {
-		General: [
-			{
-				name: 'MacBook Pro 13" (2020 M1)',
-				url: 'https://www.apple.com/macbook-pro-13/',
-				icon: 'apple',
-				description: 'as my daily driver',
-			},
-		],
-		Peripherals: [
-			{
-				name: 'DT 770 Pro',
-				url: 'https://north-america.beyerdynamic.com/dt-770-pro.html',
-				description: 'headphones',
-			},
-			{
-				name: 'Glorious Model O (white)',
-				url: 'https://www.gloriousgaming.com/products/glorious-model-o-white',
-				description: 'mouse',
-			},
-			{
-				name: 'Custom-built Bakeneko 65%',
-				url: 'https://cannonkeys.com/products/bakeneko65/',
-				description:
-					'keyboard, with Akko Pink switches and white/lavender keycaps',
-			},
-		],
-	},
 };
 
 export default schema.parse(data);
