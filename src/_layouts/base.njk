@@ -34,7 +34,7 @@ footerLinks:
 			{{ inlined.js['theme-init'] | safe }}
 		</script>
 
-		<link rel="stylesheet" href="/assets/styles.css?v={{ rev }}">
+		<link rel="stylesheet" href="/assets/styles.css">
 		<style>
 			{{ inlined.css['fonts'] | safe }}
 		</style>
@@ -46,11 +46,11 @@ footerLinks:
 		<meta name="generator" content="{{ eleventy.generator }}">
 		<meta name="keywords" content="{{ site.keywords | join(', ') }}">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20230717">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20230717">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20230717">
-		<link rel="manifest" href="/site.webmanifest?v=20230717">
-		<link rel="shortcut icon" href="/favicon.ico?v=20230717">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="shortcut icon" href="/favicon.ico">
 		<meta name="msapplication-TileColor" content="#2d89ef">
 		<meta name="theme-color" content="#ffffff">
 		<meta name="view-transition" content="same-origin">
@@ -123,11 +123,6 @@ footerLinks:
 					<a rel="me noreferrer" href="{{ site.author.liberapay.url }}" data-umami-event="author-liberapay" title="Liberapay" class="not-fancy">{% icon 'si:liberapay' %}</a>
 				</li>
 			</ul>
-			<div class="flex flex-row text-center gap-x-3 text-xs">
-				<a href="https://🕸💍.ws/previous" class="not-fancy" data-umami-event="indie-webring-previous">←</a>
-				<a href="https://🕸💍.ws" class="not-fancy" data-umami-event="indie-webring-home">IndieWeb Webring</a>
-				<a href="https://🕸💍.ws/next" class="not-fancy" data-umami-event="indie-webring-next">→</a>
-			</div>
 			<div class="flex flex-row text-center gap-x-3 text-xs">
 				<a href="https://ctp-webr.ing/uncenter/previous" class="not-fancy" data-umami-event="catppuccin-webring-previous">←</a>
 				<a href="https://ctp-webr.ing/" class="not-fancy" data-umami-event="catppuccin-webring-home">Catppuccin Webring</a>
