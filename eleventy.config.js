@@ -3,9 +3,9 @@ import { collections, filters, shortcodes } from './config/11ty/index.js';
 import pluginExternalLinks from '@aloskutov/eleventy-plugin-external-links';
 import pluginRSS from '@ryanccn/eleventy-plugin-rss';
 import pluginTOC from '@uncenter/eleventy-plugin-toc';
+import pluginAutoCacheBuster from 'eleventy-auto-cache-buster';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
-import pluginAutoCacheBuster from 'eleventy-auto-cache-buster';
 
 import markdownLibrary from './config/markdown/core.js';
 
@@ -46,6 +46,7 @@ export default eleventy(function (eleventyConfig) {
 		enableTarget: false,
 	});
 	eleventyConfig.addPlugin(pluginRSS);
+	eleventyConfig.addPlugin(pluginAutoCacheBuster);
 	eleventyConfig.addPlugin(pluginIcons, {
 		mode: 'inline',
 		sources: [
@@ -77,7 +78,6 @@ export default eleventy(function (eleventyConfig) {
 			},
 		],
 	});
-	eleventyConfig.addPlugin(pluginAutoCacheBuster);
 
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'public/': '.' });
