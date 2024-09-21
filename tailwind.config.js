@@ -23,9 +23,6 @@ export default {
 			fontFamily: {
 				display: ['"General Sans"', ...defaultTheme.fontFamily.sans],
 			},
-			lineHeight: {
-				none: 'unset',
-			},
 		},
 	},
 	corePlugins: {

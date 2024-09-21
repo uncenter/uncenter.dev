@@ -11,8 +11,26 @@ description: All sorts of things that I use.
 	{% asyncAll heading, items in subcategories %}
 		{% if items.length > 0 %}
 			<h3>{{ heading }}</h3>
-			{% set useslist = items %}
-			{% include "useslist.njk" %}
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-[1rem_4rem] m-0 p-0 pb-4">
+				{%- for use in items -%}
+				<div class="flex flex-col p-2 gap-2">
+					<div class="flex flex-row justify-between">
+						<div class="mr-2">
+							<a class="not-fancy no-external-link underline decoration-dashed hover:decoration-solid underline-offset-4" href="{{ use.url }}" data-umami-event="use-link-{{ use.name | slugify }}"><h4 class="font-bold text-lg m-0">{{ use.name }}</h4></a>
+							<p class="mx-0 my-1">{{ use.description }}</p>
+						</div>
+						{% if use.icon %}
+						{%- icon "si:" + use.icon, class='block size-8 text-text align-baseline' -%}
+						{% endif %}
+					</div>
+					<div class="flex flex-row gap-2 text-sm">
+					{% for tag in use.tags %}
+						<span class="leading-none p-1 border border-dashed rounded-md">{{ tag }}</span>
+					{% endfor %}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
 		{% endif %}
 	{% endall %}
 {% endall%}
