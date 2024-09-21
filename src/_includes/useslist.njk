@@ -1,6 +1,6 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[1rem_1rem] m-0 p-0">
 	{%- for use in useslist -%}
-	<div class="flex flex-col p-2 gap-2 justify-between">
+	<div class="flex flex-col p-2 gap-2">
 		<div>
 			<a class="not-fancy no-external-link underline decoration-dashed hover:decoration-solid underline-offset-4" href="{{ use.url }}" data-umami-event="use-link-{{ use.name | slugify }}"><h4 class="font-bold text-lg m-0">{{ use.name }}</h4></a>
 			<p class="mx-0 my-1">{{ use.description }}</p>
