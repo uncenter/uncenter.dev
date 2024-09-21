@@ -5,6 +5,7 @@ import pluginRSS from '@ryanccn/eleventy-plugin-rss';
 import pluginTOC from '@uncenter/eleventy-plugin-toc';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
+import pluginAutoCacheBuster from 'eleventy-auto-cache-buster';
 
 import markdownLibrary from './config/markdown/core.js';
 
@@ -76,6 +77,7 @@ export default eleventy(function (eleventyConfig) {
 			},
 		],
 	});
+	eleventyConfig.addPlugin(pluginAutoCacheBuster);
 
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'public/': '.' });
