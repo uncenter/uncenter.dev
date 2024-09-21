@@ -195,7 +195,6 @@ const data = {
 				icon: 'cloudflarepages',
 				description: 'for hosting static sites',
 			},
-
 			{
 				name: 'Cloudflare',
 				url: 'https://cloudflare.com/',
@@ -236,6 +235,14 @@ const data = {
 	Hardware: {
 		General: [
 			{
+				name: 'MacBook Pro 13" (2020 M1)',
+				url: 'https://www.apple.com/macbook-pro-13/',
+				icon: 'apple',
+				description: 'as my daily driver',
+			},
+		],
+		Peripherals: [
+			{
 				name: 'DT 770 Pro',
 				url: 'https://north-america.beyerdynamic.com/dt-770-pro.html',
 				description: 'headphones',
@@ -244,12 +251,6 @@ const data = {
 				name: 'Glorious Model O (white)',
 				url: 'https://www.gloriousgaming.com/products/glorious-model-o-white',
 				description: 'mouse',
-			},
-			{
-				name: 'MacBook Pro 13" (2020 M1)',
-				url: 'https://www.apple.com/macbook-pro-13/',
-				icon: 'apple',
-				description: 'as my daily driver',
 			},
 			{
 				name: 'Custom-built Bakeneko 65%',
