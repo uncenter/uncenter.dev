@@ -195,7 +195,6 @@ const data = {
 				icon: 'cloudflarepages',
 				description: 'for hosting static sites',
 			},
-
 			{
 				name: 'Cloudflare',
 				url: 'https://cloudflare.com/',
