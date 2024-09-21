@@ -18,6 +18,10 @@ export default {
 			username: 'uncenter',
 			url: 'https://www.github.com/uncenter',
 		},
+		twitter: {
+			username: 'uncentr',
+			url: 'https://twitter.com/uncentr',
+		},
 		mastodon: {
 			username: '@uncenter',
 			instance: 'https://fosstodon.org/',
