@@ -120,7 +120,7 @@ importers:
         specifier: ^3.4.12
         version: 3.4.13
       terser:
-        specifier: ^5.33.0
+        specifier: ^5.34.1
         version: 5.34.1
       zod:
         specifier: ^3.23.8
