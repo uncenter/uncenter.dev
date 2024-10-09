@@ -15,7 +15,7 @@
 		"11ty.ts": "^0.0.5",
 		"@11ty/eleventy": "3.0.0-beta.1",
 		"@11ty/eleventy-fetch": "^4.0.1",
-		"@11ty/eleventy-img": "^4.0.2",
+		"@11ty/eleventy-img": "^5.0.0",
 		"@aloskutov/eleventy-plugin-external-links": "^2.1.1",
 		"@catppuccin/palette": "^1.4.0",
 		"@ryanccn/eleventy-plugin-rss": "^1.2.2",
