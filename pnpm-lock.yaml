@@ -111,7 +111,7 @@ importers:
         specifier: ^8.4.47
         version: 8.4.47
       sass:
-        specifier: ^1.79.3
+        specifier: ^1.79.4
         version: 1.79.4
       simple-icons:
         specifier: ^13.10.0
