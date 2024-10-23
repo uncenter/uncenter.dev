@@ -49,7 +49,7 @@
 		"sass": "^1.80.3",
 		"simple-icons": "^13.10.0",
 		"tailwindcss": "^3.4.12",
-		"terser": "^5.33.0",
+		"terser": "^5.36.0",
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
