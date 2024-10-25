@@ -27,6 +27,11 @@ export default {
 			instance: 'https://fosstodon.org/',
 			url: 'https://fosstodon.org/@uncenter',
 		},
+		bluesky: {
+			username: '@uncenter',
+			instance: 'https://bsky.social',
+			url: 'https://bsky.app/profile/uncenter.bsky.social',
+		},
 		discord: {
 			username: 'uncenter',
 		},
