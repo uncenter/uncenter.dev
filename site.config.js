@@ -24,9 +24,7 @@ export default {
 			url: 'https://fosstodon.org/@uncenter',
 		},
 		bluesky: {
-			username: '@uncenter',
-			instance: 'https://bsky.social',
-			url: 'https://bsky.app/profile/uncenter.bsky.social',
+			url: 'https://bsky.app/profile/did:plc:rkm6m4dsc4da2yzdlvxorhf3',
 		},
 		discord: {
 			username: 'uncenter',
