@@ -11,9 +11,10 @@ permalink: /tags/{{ tag | slugify }}/
 description: Posts tagged “{{ tag }}”
 ---
 
-{% set postslist = collections[tag] | reverse %}
-{% include "postslist.njk" %}
+{{ import { listPosts } from "postslist.vto" }}
+
+{{ listPosts(collections[tag].toReversed()) }}
 
 <p>
-    <a href="/posts" class="space-x-2">{%- icon 'lucide:arrow-left' -%}<span>All posts</span></a>
+    <a href="/posts" class="space-x-2">{{ icon 'lucide:arrow-left' }}<span>All posts</span></a>
 </p>

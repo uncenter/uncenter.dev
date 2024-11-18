@@ -1,0 +1,9 @@
+---
+title: Articles
+layout: page.vto
+description: Articles about programming, linguistics, and other things.
+---
+
+{{ import { listPosts } from "postslist.vto" }}
+
+{{ listPosts(collections.posts.toReversed()) }}

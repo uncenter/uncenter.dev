@@ -7,6 +7,8 @@ import pluginAutoCacheBuster from 'eleventy-auto-cache-buster';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
 
+import { VentoPlugin } from 'eleventy-plugin-vento';
+
 import markdownLibrary from './config/markdown/core.js';
 
 import {
@@ -27,6 +29,8 @@ import site from './site.config.js';
 import eleventy from '11ty.ts';
 
 export default eleventy(function (eleventyConfig) {
+	eleventyConfig.addPlugin(VentoPlugin);
+
 	eleventyConfig.addGlobalData('site', site);
 	eleventyConfig.addPlugin(shortcodes);
 	eleventyConfig.addPlugin(collections);
@@ -127,7 +131,7 @@ export default eleventy(function (eleventyConfig) {
 			layouts: '_layouts',
 			data: '_data',
 		},
-		templateFormats: ['md', 'njk', '11ty.js'],
-		markdownTemplateEngine: 'njk',
+		templateFormats: ['md', 'vto', '11ty.js'],
+		markdownTemplateEngine: 'vto',
 	};
 });

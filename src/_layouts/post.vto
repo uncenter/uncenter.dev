@@ -1,0 +1,56 @@
+---
+layout: base.vto
+---
+
+<article>
+    <h1 style="view-transition-name: post-{{ title |> slugify }};">{{ title }}</h1>
+    <div class="flex flex-row flex-wrap gap-2 lowercase -mt-10 mb-10">
+		{{ if date }}
+			<span>
+			<time datetime="{{ date }}">{{ date | toShortDate }}</time>
+			{{ if edited && ((edited |> toShortDate) !== (date |> toShortDate)) }}
+				&nbsp;(last edited <time datetime="{{ edited }}">{{ edited |> toShortDate }}</time>)
+			{{ /if }}
+			</span>
+		{{ /if }}
+        {{ if tags }}
+            <span>&middot;</span>
+            <div class="flex flex-row flex-wrap space-x-1">
+                {{- for tag of tags -}}
+                    <span>
+                        <a href="/tags/{{ tag |> slugify }}">{{ tag }}</a>
+                        {{- if !loop.last -}},{{ /if -}}
+                    </span>
+                {{- /for -}}
+            </div>
+        {{ /if }}
+    </div>
+    {{ if content |> toc }}
+        <nav class="toc mb-10" aria-label="Table of contents">
+            {{ content |> toc |> safe }}
+        </nav>
+    {{ /if }}
+    {{ content |> safe }}
+</article>
+{{ if comments }}
+    <div id="comments" class="mt-16"></div>
+{{ /if }}
+{{ set previous = collections.posts |> getPreviousCollectionItem }}
+{{ set next = collections.posts |> getNextCollectionItem }}
+<div class="flex flex-row justify-between mt-8">
+    {{ if previous }}
+        <a class="text-center space-x-2 flex items-center" href="{{ previous.url }}" aria-label="Read previous post">
+            {{- icon 'lucide:arrow-left' -}}
+            <span>{{ previous.data.title }}</span>
+        </a>
+    {{ /if }}
+    {{ if !previous && next }}
+        <div></div>
+    {{ /if }}
+    {{ if next }}
+        <a class="text-center space-x-2 items-center" href="{{ next.url }}" aria-label="Read next post">
+            <span>{{ next.data.title }}</span>
+            {{- icon 'lucide:arrow-right' -}}
+        </a>
+    {{ /if }}
+</div>
