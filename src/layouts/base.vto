@@ -17,11 +17,8 @@ footerLinks:
    url: /sitemap.xml
 ---
 
-{% if title %}
-	{% set title = title + " - " + site.domain %}
-{% else %}
-	{% set title = site.domain %}
-{%- endif -%}
+{{ set title = title ? (title + " - " + site.domain) : site.domain }}
+{{ set description = description ? description : site.description }}
 
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
@@ -31,20 +28,20 @@ footerLinks:
 		<title>{{ title }}</title>
 
 		<script>
-			{{ inlined.js['theme-init'] | safe }}
+			{{ inlined.js['theme-init'] |> safe }}
 		</script>
 
 		<link rel="stylesheet" href="/assets/styles.css">
 		<style>
-			{{ inlined.css['fonts'] | safe }}
+			{{ inlined.css['fonts'] |> safe }}
 		</style>
 		<link rel="preload" as="font" type="font/woff2" href="/fonts/GeneralSans-Variable.woff2" crossorigin="anonymous">
 
 		<script async src="{{ analytics.script }}" data-website-id="{{ analytics.websiteId }}" data-do-not-track="true" data-domains="{{ site.domain }}"></script>
 		<meta name="author" content="{{ site.author.name }}">
-		<meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+		<meta name="description" content="{{ description }}">
 		<meta name="generator" content="{{ eleventy.generator }}">
-		<meta name="keywords" content="{{ site.keywords | join(', ') }}">
+		<meta name="keywords" content="{{ site.keywords.join(', ') }}">
 
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -58,31 +55,31 @@ footerLinks:
 		<link href="{{ site.author.github.url }}" rel="me">
 		<link href="{{ site.author.mastodon.url }}" rel="me">
 
-		<link rel="canonical" href="{{ page.url | url }}">
-		<link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' | url }}">
-		<link rel="alternate" type="application/json" href="{{ 'feed.json' | url }}">
+		<link rel="canonical" href="{{ page.url |> url }}">
+		<link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' |> url }}">
+		<link rel="alternate" type="application/json" href="{{ 'feed.json' |> url }}">
 
-		{% if layout != 'post.njk' %}
+		{{ if layout !== 'post.vto' }}
 			<meta property="og:type" content="website">
-		{% else %}
+		{{ else }}
 			<meta property="og:type" content="article">
 			<meta property="og:article:published_time" content="{{ date }}">
 			<meta property="og:article:section" content="Technology">
-			{% for keyword in tags %}
-				<meta property="og:article:tag" content="{{ keyword | capitalize }}">
-			{% endfor %}
-		{% endif %}
+			{{ for keyword of tags }}
+				<meta property="og:article:tag" content="{{ keyword |> capitalize }}">
+			{{ /for }}
+		{{ /if }}
 		<meta property="og:title" content="{{ title }}">
-		<meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-		<meta property="og:image" content="{{ '/1024w.png' | url }}">
+		<meta property="og:description" content="{{ description }}">
+		<meta property="og:image" content="{{ '/1024w.png' |> url }}">
 
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:title" content="{{ title }}">
-		<meta name="twitter:image" content="{{ '/1024w.png' | url }}">
+		<meta name="twitter:image" content="{{ '/1024w.png' |> url }}">
 	</head>
 	<body class="flex flex-col gap-8 mx-auto px-8 py-4 text-base/7 bg-base text-text font-display max-w-[120ch]">
 		<header class="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:space-y-0 justify-between leading-6 py-8">
-			<a href="/" class="not-fancy flex flex-row items-center gap-3" {% if page.url == "/" %}aria-current="page"{% else %}aria-label="Go to home page"{% endif %}>
+			<a href="/" class="not-fancy flex flex-row items-center gap-3" {{ if page.url === "/" }}aria-current="page"{{ else }}aria-label="Go to home page"{{ /if }}>
 				<img
 					src="/square.webp"
 					class="rounded-full"
@@ -93,31 +90,31 @@ footerLinks:
 			</a>
 			<nav>
 				<ul class="m-0 p-0 flex flex-col sm:flex-row gap-4 list-none items-baseline">
-					{% for item in headerLinks %}
-						{% set classes = "not-fancy" %}
-						{% if (page.url.includes(item.url) and item.url != "/") or (item.url == "/" and page.url == "/") %}
-							{% set classes = classes + " underline underline-offset-4 decoration-1" %}
-						{% endif %}
+					{{ for item of headerLinks }}
+						{{ set classes = "not-fancy" }}
+						{{ if (page.url.includes(item.url) && item.url !== "/") || (item.url === "/" && page.url === "/") }}
+							{{ set classes = classes + " underline underline-offset-4 decoration-1" }}
+						{{ /if }}
 						<li>
-							<a href="{{ item.url }}" class="{{ classes }}" {% if page.url == item.url %}aria-current="page"{% else %}aria-label="Go to {{ item.title }}"{% endif %}>{{ item.title }}</a>
+							<a href="{{ item.url }}" class="{{ classes }}" {{ if page.url == item.url }}aria-current="page"{{ else }}aria-label="Go to {{ item.title }}"{{ /if }}>{{ item.title }}</a>
 						</li>
-					{% endfor %}
+					{{ /for }}
 				</ul>
 			</nav>
 		</header>
 		<main class="mx-auto w-[95%] md:w-[90%] max-w-[80ch]">
-			{{ content | safe }}
+			{{ content |> safe }}
 		</main>
 		<footer class="flex flex-col py-8 items-center self-center w-full gap-2 leading-normal">
 			<ul id="social-icons" class="m-0 p-0 flex gap-4 justify-center list-none items-baseline">
 				<li>
-					<a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" title="GitHub" class="not-fancy">{% icon 'si:github' %}</a>
+					<a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" title="GitHub" class="not-fancy">{{ icon 'si:github' }}</a>
 				</li>
 				<li>
-					<a rel="me noreferrer" href="{{ site.author.bluesky.url }}" data-umami-event="author-bluesky" title="Bluesky" class="not-fancy">{% icon 'si:bluesky' %}</a>
+					<a rel="me noreferrer" href="{{ site.author.bluesky.url }}" data-umami-event="author-bluesky" title="Bluesky" class="not-fancy">{{ icon 'si:bluesky' }}</a>
 				</li>
 				<li>
-					<a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" title="Mastodon" class="not-fancy">{% icon 'si:mastodon' %}</a>
+					<a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" title="Mastodon" class="not-fancy">{{ icon 'si:mastodon' }}</a>
 				</li>
 			</ul>
 			<div class="flex flex-row text-center gap-x-3 text-xs">
@@ -126,9 +123,9 @@ footerLinks:
 				<a href="https://ctp-webr.ing/uncenter/next" class="not-fancy" data-umami-event="catppuccin-webring-next">→</a>
 			</div>
 			<div class="flex flex-row text-center gap-x-2 text-xs">
-				{% for item in footerLinks %}
-					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}" data-umami-event="footer-{{ item.title | slugify }}">{{ item.title }}</a>{% if not loop.last %} &middot; {% endif %}
-				{% endfor %}
+				{{ for index, item of footerLinks }}
+					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}" data-umami-event="footer-{{ item.title |> slugify }}">{{ item.title }}</a>{{ if index != (footerLinks.length - 1) }} &middot; {{ /if }}
+				{{ /for }}
 			</div>
 			<select aria-label="Theme selector" id="theme-selector" class="text-center text-text bg-base border-2 border-surface0 rounded-md focus:outline-none mt-1">
 				<option value="latte">Latte</option>
@@ -138,9 +135,9 @@ footerLinks:
 			</select>
 		</footer>
 		<script>
-			{{ inlined.js['giscus'] | safe }}
-			{{ inlined.js['theme-update'] | safe }}
-			{{ inlined.js['code-toolbar'] | safe }}
+			{{ inlined.js['giscus'] |> safe }}
+			{{ inlined.js['theme-update'] |> safe }}
+			{{ inlined.js['code-toolbar'] |> safe }}
 		</script>
 	</body>
 </html>

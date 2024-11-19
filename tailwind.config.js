@@ -3,7 +3,7 @@ const { flavors } = require('@catppuccin/palette');
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{11ty.js,js,md,njk}'],
+	content: ['./src/**/*.{11ty.js,js,md,vto}'],
 	theme: {
 		fontSize: {
 			xs: '0.875rem',

@@ -1,0 +1,20 @@
+---
+layout: page
+eleventyExcludeFromCollections: true
+pagination:
+    data: collections
+    size: 1
+    alias: tag
+eleventyComputed:
+    title: Tagged “{{ tag }}”
+permalink: /tags/{{ tag |> slugify }}/
+description: Posts tagged “{{ tag }}”
+---
+
+{{ import { PostsList } from "./components/postslist.vto" }}
+
+{{ PostsList(collections[tag].toReversed()) }}
+
+<p>
+    <a href="/posts" class="space-x-2">{{ icon 'lucide:arrow-left' }}<span>All posts</span></a>
+</p>
