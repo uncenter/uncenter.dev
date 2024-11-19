@@ -24,8 +24,8 @@ pnpm format   # format files
 
 ## Structure
 
--   `src/_layouts/`, `src/_includes/`: nunjucks templates for layouts and components
 -   `src/_data/`: data used in templates
+-   `src/layouts/`, `src/components/`: [Vento](https://vento.js.org/) layout and component templates
 -   `src/generated`: root files (feeds, sitemap, robots.txt)
 -   `src/assets/`: static assets (styling, scripts, fonts)
 -   `src/posts/`: blog posts
