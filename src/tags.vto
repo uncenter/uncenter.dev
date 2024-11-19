@@ -7,13 +7,13 @@ pagination:
     alias: tag
 eleventyComputed:
     title: Tagged “{{ tag }}”
-permalink: /tags/{{ tag | slugify }}/
+permalink: /tags/{{ tag |> slugify }}/
 description: Posts tagged “{{ tag }}”
 ---
 
-{{ import { listPosts } from "postslist.vto" }}
+{{ import { PostsList } from "./components/postslist.vto" }}
 
-{{ listPosts(collections[tag].toReversed()) }}
+{{ PostsList(collections[tag].toReversed()) }}
 
 <p>
     <a href="/posts" class="space-x-2">{{ icon 'lucide:arrow-left' }}<span>All posts</span></a>

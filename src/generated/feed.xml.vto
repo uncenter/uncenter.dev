@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: false
         <link href="{{ url }}"/>
         <updated>{{ post.date |> dateToRfc3339 }}</updated>
         <id>{{ url }}</id>
-        <content xml:lang="{{ site.lang }}" type="html">{{ post.content |> htmlToAbsoluteUrls(url) }}</content>
+        <content xml:lang="{{ site.lang }}" type="html">{{ post.content |> await htmlToAbsoluteUrls(url) |> escape }}</content>
     </entry>
     {{ /for }}
 </feed>

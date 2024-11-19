@@ -29,8 +29,6 @@ import site from './site.config.js';
 import eleventy from '11ty.ts';
 
 export default eleventy(function (eleventyConfig) {
-	eleventyConfig.addPlugin(VentoPlugin);
-
 	eleventyConfig.addGlobalData('site', site);
 	eleventyConfig.addPlugin(shortcodes);
 	eleventyConfig.addPlugin(collections);
@@ -82,6 +80,7 @@ export default eleventy(function (eleventyConfig) {
 			},
 		],
 	});
+	eleventyConfig.addPlugin(VentoPlugin);
 
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'public/': '.' });
@@ -127,8 +126,8 @@ export default eleventy(function (eleventyConfig) {
 		dir: {
 			input: 'src',
 			output: 'dist',
-			includes: '_includes',
-			layouts: '_layouts',
+			includes: 'components',
+			layouts: 'layouts',
 			data: '_data',
 		},
 		templateFormats: ['md', 'vto', '11ty.js'],

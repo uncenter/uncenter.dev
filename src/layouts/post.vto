@@ -7,29 +7,29 @@ layout: base.vto
     <div class="flex flex-row flex-wrap gap-2 lowercase -mt-10 mb-10">
 		{{ if date }}
 			<span>
-			<time datetime="{{ date }}">{{ date | toShortDate }}</time>
-			{{ if edited && ((edited |> toShortDate) !== (date |> toShortDate)) }}
-				&nbsp;(last edited <time datetime="{{ edited }}">{{ edited |> toShortDate }}</time>)
-			{{ /if }}
+				{{ set shortenedDate = date |> toShortDate }}
+				<time datetime="{{ date }}">{{ shortenedDate }}</time>
+				{{ set shortenedEdited = edited |> toShortDate }}
+				{{ if edited && (shortenedEdited !== shortenedDate) }}
+					&nbsp;(last edited <time datetime="{{ edited }}">{{ shortenedEdited }}</time>)
+				{{ /if }}
 			</span>
 		{{ /if }}
-        {{ if tags }}
-            <span>&middot;</span>
-            <div class="flex flex-row flex-wrap space-x-1">
-                {{- for tag of tags -}}
-                    <span>
-                        <a href="/tags/{{ tag |> slugify }}">{{ tag }}</a>
-                        {{- if !loop.last -}},{{ /if -}}
-                    </span>
-                {{- /for -}}
-            </div>
-        {{ /if }}
+		{{ if tags }}
+			<span>&middot;</span>
+			<div class="flex flex-row flex-wrap space-x-1">
+					{{- for index, tag of tags -}}
+							<span>
+									<a href="/tags/{{ tag |> slugify }}">{{ tag }}</a>
+									{{- if index != (tags.length - 1) -}},{{ /if -}}
+							</span>
+					{{- /for -}}
+			</div>
+		{{ /if }}
     </div>
-    {{ if content |> toc }}
-        <nav class="toc mb-10" aria-label="Table of contents">
-            {{ content |> toc |> safe }}
-        </nav>
-    {{ /if }}
+		<nav class="toc mb-10" aria-label="Table of contents">
+				{{ content |> toc |> safe }}
+		</nav>
     {{ content |> safe }}
 </article>
 {{ if comments }}

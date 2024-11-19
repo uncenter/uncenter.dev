@@ -93,7 +93,7 @@ footerLinks:
 					{{ for item of headerLinks }}
 						{{ set classes = "not-fancy" }}
 						{{ if (page.url.includes(item.url) && item.url !== "/") || (item.url === "/" && page.url === "/") }}
-							{{ classes += " underline underline-offset-4 decoration-1" }}
+							{{ set classes = classes + " underline underline-offset-4 decoration-1" }}
 						{{ /if }}
 						<li>
 							<a href="{{ item.url }}" class="{{ classes }}" {{ if page.url == item.url }}aria-current="page"{{ else }}aria-label="Go to {{ item.title }}"{{ /if }}>{{ item.title }}</a>
@@ -123,8 +123,8 @@ footerLinks:
 				<a href="https://ctp-webr.ing/uncenter/next" class="not-fancy" data-umami-event="catppuccin-webring-next">→</a>
 			</div>
 			<div class="flex flex-row text-center gap-x-2 text-xs">
-				{{ for item of footerLinks }}
-					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}" data-umami-event="footer-{{ item.title |> slugify }}">{{ item.title }}</a>{{ if !loop.last }} &middot; {{ /if }}
+				{{ for index, item of footerLinks }}
+					<a class="not-fancy underline underline-offset-2" href="{{ item.url }}" data-umami-event="footer-{{ item.title |> slugify }}">{{ item.title }}</a>{{ if index != (footerLinks.length - 1) }} &middot; {{ /if }}
 				{{ /for }}
 			</div>
 			<select aria-label="Theme selector" id="theme-selector" class="text-center text-text bg-base border-2 border-surface0 rounded-md focus:outline-none mt-1">

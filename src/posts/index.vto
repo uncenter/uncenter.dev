@@ -4,6 +4,6 @@ layout: page.vto
 description: Articles about programming, linguistics, and other things.
 ---
 
-{{ import { listPosts } from "postslist.vto" }}
+{{ import { PostsList } from "../components/postslist.vto" }}
 
-{{ listPosts(collections.posts.toReversed()) }}
+{{ PostsList(collections.posts.toReversed()) }}
