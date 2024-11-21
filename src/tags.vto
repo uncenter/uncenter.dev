@@ -11,10 +11,10 @@ permalink: /tags/{{ tag |> slugify }}/
 description: Posts tagged “{{ tag }}”
 ---
 
-{{ import { PostsList } from "./components/postslist.vto" }}
+{{ import { PostList } from "./components/postlist.vto" }}
 
-{{ PostsList(collections[tag].toReversed()) }}
+{{ PostList(collections[tag].toReversed()) }}
 
 <p>
-    <a href="/posts" class="space-x-2">{{ icon 'lucide:arrow-left' }}<span>All posts</span></a>
+	<a href="/posts" class="space-x-2">{{ icon 'lucide:arrow-left' }}<span>All posts</span></a>
 </p>

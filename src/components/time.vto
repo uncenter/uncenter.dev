@@ -1,0 +1,12 @@
+{{ export function Time(written, edited) }}
+{{ if written }}
+	<span>
+		{{ set shortWritten = written |> toShortDate }}
+		{{ set shortEdited = edited |> toShortDate }}
+		<time datetime="{{ written }}">{{ shortWritten }}</time>
+		{{- if edited && (edited !== written) -}}
+			&nbsp;(last edited <time datetime="{{ edited }}">{{ shortEdited }}</time>)
+		{{- /if -}}
+	</span>
+{{ /if }}
+{{ /export }}

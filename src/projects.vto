@@ -4,12 +4,12 @@ title: Projects
 description: A list of projects I've worked on.
 ---
 
-{{ import { ProjectsList } from "./components/projectslist.vto" }}
+{{ import { ProjectList } from "./components/projectlist.vto" }}
 
-{{ await ProjectsList(projects.current) }}
+{{ await ProjectList(projects.current) }}
 
 <hr>
 
 <h2>Catppuccin</h2>
 
-{{ await ProjectsList(projects.catppuccin) }}
+{{ await ProjectList(projects.catppuccin) }}

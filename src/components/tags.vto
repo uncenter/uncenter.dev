@@ -1,0 +1,13 @@
+{{ export function Tags(tags) }}
+{{- if tags -}}
+	<span>&middot;</span>
+	<div class="flex flex-row flex-wrap space-x-1">
+		{{- for index, tag of tags -}}
+		<span>
+			<a href="/tags/{{ tag |> slugify }}">{{ tag }}</a>
+			{{- index != (tags.length - 1) ? ',' : '' -}}
+		</span>
+		{{- /for -}}
+	</div>
+{{- /if -}}
+{{ /export }}

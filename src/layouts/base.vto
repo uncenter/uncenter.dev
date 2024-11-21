@@ -15,6 +15,16 @@ footerLinks:
    url: /privacy/
  - title: Sitemap
    url: /sitemap.xml
+socialLinks:
+ - title: GitHub
+   slug: github
+   icon: github
+ - title: Bluesky
+   slug: bluesky
+   icon: bluesky
+ - title: Mastodon
+   slug: mastodon
+   icon: mastodon
 ---
 
 {{ set title = title ? (title + " - " + site.domain) : site.domain }}
@@ -107,15 +117,11 @@ footerLinks:
 		</main>
 		<footer class="flex flex-col py-8 items-center self-center w-full gap-2 leading-normal">
 			<ul id="social-icons" class="m-0 p-0 flex gap-4 justify-center list-none items-baseline">
-				<li>
-					<a rel="me noreferrer" href="{{ site.author.github.url }}" data-umami-event="author-github" title="GitHub" class="not-fancy">{{ icon 'si:github' }}</a>
-				</li>
-				<li>
-					<a rel="me noreferrer" href="{{ site.author.bluesky.url }}" data-umami-event="author-bluesky" title="Bluesky" class="not-fancy">{{ icon 'si:bluesky' }}</a>
-				</li>
-				<li>
-					<a rel="me noreferrer" href="{{ site.author.mastodon.url }}" data-umami-event="author-mastodon" title="Mastodon" class="not-fancy">{{ icon 'si:mastodon' }}</a>
-				</li>
+				{{ for item of socialLinks }}
+					<li>
+						<a rel="me noreferrer" href="{{ site.author[item.slug].url }}" data-umami-event="author-{{ item.slug }}" title="{{ item.title }}" class="not-fancy">{{ icon 'si:' + item.icon }}</a>
+					</li>
+				{{ /for }}
 			</ul>
 			<div class="flex flex-row text-center gap-x-3 text-xs">
 				<a href="https://ctp-webr.ing/uncenter/previous" class="not-fancy" data-umami-event="catppuccin-webring-previous">←</a>
