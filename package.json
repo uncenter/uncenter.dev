@@ -30,7 +30,7 @@
 		"eleventy-plugin-vento": "^4.0.1",
 		"html-minifier": "^4.0.0",
 		"image-size": "^1.1.1",
-		"lightningcss": "^1.28.1",
+		"lightningcss": "^1.28.2",
 		"linkedom": "^0.18.5",
 		"lodash.escape": "^4.0.1",
 		"lucide-static": "^0.460.0",
