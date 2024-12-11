@@ -23,6 +23,10 @@ html {
 	text-size-adjust: none;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 h1,
 h2,
 h3,
