@@ -29,7 +29,7 @@
 		"eleventy-plugin-validate": "^0.1.3",
 		"eleventy-plugin-vento": "^4.0.1",
 		"html-minifier": "^4.0.0",
-		"image-size": "^1.1.1",
+		"image-size": "^1.2.0",
 		"lightningcss": "^1.28.1",
 		"linkedom": "^0.18.5",
 		"lodash.escape": "^4.0.1",
