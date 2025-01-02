@@ -45,8 +45,8 @@ importers:
         specifier: ^16.4.5
         version: 16.4.5
       eleventy-auto-cache-buster:
-        specifier: ^0.6.1
-        version: 0.6.1
+        specifier: ^0.7.0
+        version: 0.7.0
       eleventy-plugin-icons:
         specifier: ^4.5.1
         version: 4.5.1
@@ -912,8 +912,8 @@ packages:
   electron-to-chromium@1.5.62:
     resolution: {integrity: sha512-t8c+zLmJHa9dJy96yBZRXGQYoiCEnHYgFwn1asvSPZSUdVxnB62A4RASd7k41ytG3ErFBA0TpHlKg9D9SQBmLg==}
 
-  eleventy-auto-cache-buster@0.6.1:
-    resolution: {integrity: sha512-4pFanOJYIMMSN6Z9dODfl2Cb92vXwqUSqi6r7MthRV4wGS0dDxJ8TrDPLuu8uSlQyjoEmfwWTNnJhNSWB0neAg==}
+  eleventy-auto-cache-buster@0.7.0:
+    resolution: {integrity: sha512-OcICXm0XwbPJxhrCZyKU2cC3w9ciRUEUl1SBOKgImeroF5OwnaJ2xho/c0V+NRJ+NILXnCq9YR0Yr1dZ+yGP1w==}
 
   eleventy-plugin-icons@4.5.1:
     resolution: {integrity: sha512-rwvLa05i6371avfdzt19KzBiVQc/9OLV7OGaD0X0sYzMFu6h+QkhtOGDTCOibUe5FXKDQGly3DQ0Us3IQlsKuw==}
@@ -2938,7 +2938,7 @@ snapshots:
 
   electron-to-chromium@1.5.62: {}
 
-  eleventy-auto-cache-buster@0.6.1:
+  eleventy-auto-cache-buster@0.7.0:
     dependencies:
       glob: 10.4.5
 
