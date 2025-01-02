@@ -66,8 +66,8 @@ importers:
         specifier: ^1.28.1
         version: 1.28.1
       linkedom:
-        specifier: ^0.18.5
-        version: 0.18.5
+        specifier: ^0.18.6
+        version: 0.18.6
       lodash.escape:
         specifier: ^4.0.1
         version: 4.0.1
@@ -1372,8 +1372,8 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  linkedom@0.18.5:
-    resolution: {integrity: sha512-JGLaGGtqtu+eOhYrC1wkWYTBcpVWL4AsnwAtMtgO1Q0gI0PuPJKI0zBBE+a/1BrhOE3Uw8JI/ycByAv5cLrAuQ==}
+  linkedom@0.18.6:
+    resolution: {integrity: sha512-6G8euAJ84s7MTXTli5JIOO5tzEpyoUBw2/zcqAunSurbCtC83YcgrK+VTcO8HZ/rdR3eaaZM573FP9rNo1uXIA==}
 
   linkify-it@4.0.1:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
@@ -3375,7 +3375,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  linkedom@0.18.5:
+  linkedom@0.18.6:
     dependencies:
       css-select: 5.1.0
       cssom: 0.5.0
