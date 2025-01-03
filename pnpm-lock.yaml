@@ -54,8 +54,8 @@ importers:
         specifier: ^0.1.3
         version: 0.1.3
       eleventy-plugin-vento:
-        specifier: ^4.0.1
-        version: 4.0.1
+        specifier: ^4.1.0
+        version: 4.1.0
       html-minifier:
         specifier: ^4.0.0
         version: 4.0.0
@@ -936,8 +936,8 @@ packages:
   eleventy-plugin-validate@0.1.3:
     resolution: {integrity: sha512-UGzW91YbEeWwGRUy0njDbCTNKuNl8DVmgxGhbyqbDPisSZcqDRtc8Gq5hcURRihvi2t6eD+gZi8G87h4qDSNpg==}
 
-  eleventy-plugin-vento@4.0.1:
-    resolution: {integrity: sha512-gD7Udj/0uE2tiSQUech5mwVTfeD9T2AmVAIuhxtd7hOgN2/MRsptdJHcdanYZLAEd8VmJff3q949sPKPVYZnJQ==}
+  eleventy-plugin-vento@4.1.0:
+    resolution: {integrity: sha512-obW0BsJZgyHRWn/mzfwvW2mTZIXqG0as6DX0OuLYxYHVNZk8z/giWW9cOnr9VG/vLSZT9GIBsTdYcPnanoIhTg==}
     engines: {node: '>=18'}
 
   emoji-regex-xs@1.0.0:
@@ -2079,8 +2079,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  ventojs@1.12.11:
-    resolution: {integrity: sha512-76lCfS0/7dFV40fCTz5tTcruCoSCl+preV2upitB2pvh6ntGS5VikCQ4YPgqR+/BfVDxZRF4IQGJ2hmDWF6KhA==}
+  ventojs@1.12.12:
+    resolution: {integrity: sha512-ScA0aR+MvoJxzlxGSO1i93I+upWEwytDnimcwiyM+25mr8Le7QdIKdjG+36FE5agRLpbvzNOtSo9xGmKAhcpeQ==}
 
   vfile-message@4.0.2:
     resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
@@ -2983,10 +2983,10 @@ snapshots:
       kleur: 4.1.5
       zod: 3.24.1
 
-  eleventy-plugin-vento@4.0.1:
+  eleventy-plugin-vento@4.1.0:
     dependencies:
       debug: 4.3.7
-      ventojs: 1.12.11
+      ventojs: 1.12.12
     transitivePeerDependencies:
       - supports-color
 
@@ -4145,7 +4145,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  ventojs@1.12.11:
+  ventojs@1.12.12:
     dependencies:
       '@deno/shim-deno': 0.18.2
       estree-walker: 3.0.3
