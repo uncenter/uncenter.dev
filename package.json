@@ -27,7 +27,7 @@
 		"eleventy-auto-cache-buster": "^0.7.0",
 		"eleventy-plugin-icons": "^4.5.1",
 		"eleventy-plugin-validate": "^0.1.3",
-		"eleventy-plugin-vento": "^4.0.1",
+		"eleventy-plugin-vento": "^4.1.1",
 		"html-minifier": "^4.0.0",
 		"image-size": "^1.2.0",
 		"lightningcss": "^1.28.2",
