@@ -54,8 +54,8 @@ importers:
         specifier: ^0.1.3
         version: 0.1.3
       eleventy-plugin-vento:
-        specifier: ^4.0.1
-        version: 4.0.1
+        specifier: ^4.1.1
+        version: 4.1.1
       html-minifier:
         specifier: ^4.0.0
         version: 4.0.0
@@ -833,6 +833,15 @@ packages:
       supports-color:
         optional: true
 
+  debug@4.4.0:
+    resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
   define-data-property@1.1.4:
     resolution: {integrity: sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A==}
     engines: {node: '>= 0.4'}
@@ -936,8 +945,8 @@ packages:
   eleventy-plugin-validate@0.1.3:
     resolution: {integrity: sha512-UGzW91YbEeWwGRUy0njDbCTNKuNl8DVmgxGhbyqbDPisSZcqDRtc8Gq5hcURRihvi2t6eD+gZi8G87h4qDSNpg==}
 
-  eleventy-plugin-vento@4.0.1:
-    resolution: {integrity: sha512-gD7Udj/0uE2tiSQUech5mwVTfeD9T2AmVAIuhxtd7hOgN2/MRsptdJHcdanYZLAEd8VmJff3q949sPKPVYZnJQ==}
+  eleventy-plugin-vento@4.1.1:
+    resolution: {integrity: sha512-qPgaF6HqcxPvUGE2IjPCSOkXZ9jSr35e6igtcRxLn4aBJTT6JW4DAwQAuCfYomeg9lDMCIFHe8K5fukv/oTuGQ==}
     engines: {node: '>=18'}
 
   emoji-regex-xs@1.0.0:
@@ -2079,8 +2088,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  ventojs@1.12.11:
-    resolution: {integrity: sha512-76lCfS0/7dFV40fCTz5tTcruCoSCl+preV2upitB2pvh6ntGS5VikCQ4YPgqR+/BfVDxZRF4IQGJ2hmDWF6KhA==}
+  ventojs@1.12.14:
+    resolution: {integrity: sha512-Frlrkgc9X92q6H/kEY+VfASf10i4xiZ7EFkKSh7Da3n1dWxVH+1gEq1NKzflhpIKx8d+uGfopRrgNdnDoBBLew==}
 
   vfile-message@4.0.2:
     resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
@@ -2879,6 +2888,10 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
+  debug@4.4.0:
+    dependencies:
+      ms: 2.1.3
+
   define-data-property@1.1.4:
     dependencies:
       es-define-property: 1.0.0
@@ -2983,10 +2996,10 @@ snapshots:
       kleur: 4.1.5
       zod: 3.24.1
 
-  eleventy-plugin-vento@4.0.1:
+  eleventy-plugin-vento@4.1.1:
     dependencies:
-      debug: 4.3.7
-      ventojs: 1.12.11
+      debug: 4.4.0
+      ventojs: 1.12.14
     transitivePeerDependencies:
       - supports-color
 
@@ -4145,7 +4158,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  ventojs@1.12.11:
+  ventojs@1.12.14:
     dependencies:
       '@deno/shim-deno': 0.18.2
       estree-walker: 3.0.3
