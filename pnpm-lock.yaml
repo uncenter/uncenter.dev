@@ -15,8 +15,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       '@11ty/eleventy-fetch':
-        specifier: ^5.0.1
-        version: 5.0.1
+        specifier: ^5.0.2
+        version: 5.0.2
       '@11ty/eleventy-img':
         specifier: ^5.0.0
         version: 5.0.0
@@ -155,8 +155,8 @@ packages:
     resolution: {integrity: sha512-yIiLM5ziBmg86i4TlXpBdcIygJHvh/GgPJyAiFOckO9H4y9cQDM8eIcJCUQ4Mum0NEVui/OjhEut2R08xw0vlQ==}
     engines: {node: '>=14'}
 
-  '@11ty/eleventy-fetch@5.0.1':
-    resolution: {integrity: sha512-n79UhOAWG7XcJkRIoV8cZBpKgGln6mn+2UgsZkP6Xjgg8BqiMfxlYMJrNobSDdw3utyRAs8w/ZAPXoc18qrvMw==}
+  '@11ty/eleventy-fetch@5.0.2':
+    resolution: {integrity: sha512-yu7oZ5iv7zvFDawSYcN19cz7ddJB7OXPGZ47z/MzYmLa2LkpJm0KnZW2xGwpKvVrXd+tyb96ts6AqlkJT/ibwQ==}
     engines: {node: '>=18'}
 
   '@11ty/eleventy-img@5.0.0':
@@ -2189,7 +2189,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@11ty/eleventy-fetch@5.0.1':
+  '@11ty/eleventy-fetch@5.0.2':
     dependencies:
       '@rgrove/parse-xml': 4.2.0
       debug: 4.3.7
