@@ -27,8 +27,8 @@ importers:
         specifier: ^1.7.1
         version: 1.7.1
       '@ryanccn/eleventy-plugin-rss':
-        specifier: ^1.2.2
-        version: 1.2.2
+        specifier: github:uncenter/ryanccn-eleventy-plugin-rss
+        version: https://codeload.github.com/uncenter/ryanccn-eleventy-plugin-rss/tar.gz/52ad9af1d922a59bb61c2761a67b61d33dea9527
       '@shikijs/markdown-it':
         specifier: 1.26.1
         version: 1.26.1
@@ -494,8 +494,9 @@ packages:
     resolution: {integrity: sha512-UuBOt7BOsKVOkFXRe4Ypd/lADuNIfqJXv8GvHqtXaTYXPPKkj2nS2zPllVsrtRjcomDhIJVBnZwfmlI222WH8g==}
     engines: {node: '>=14.0.0'}
 
-  '@ryanccn/eleventy-plugin-rss@1.2.2':
-    resolution: {integrity: sha512-/xjQmv73q+Cl8YAshWXrM1+mfilDYBtWmfkJ1wbCMJ4kabKYg7ekLWjtyjQ6G4yiWKlz5Fx/cm8Szr5IrYCALQ==}
+  '@ryanccn/eleventy-plugin-rss@https://codeload.github.com/uncenter/ryanccn-eleventy-plugin-rss/tar.gz/52ad9af1d922a59bb61c2761a67b61d33dea9527':
+    resolution: {tarball: https://codeload.github.com/uncenter/ryanccn-eleventy-plugin-rss/tar.gz/52ad9af1d922a59bb61c2761a67b61d33dea9527}
+    version: 1.2.2
 
   '@shikijs/core@1.26.1':
     resolution: {integrity: sha512-yeo7sG+WZQblKPclUOKRPwkv1PyoHYkJ4gP9DzhFJbTdueKR7wYTI1vfF/bFi1NTgc545yG/DzvVhZgueVOXMA==}
@@ -2535,7 +2536,7 @@ snapshots:
 
   '@rgrove/parse-xml@4.2.0': {}
 
-  '@ryanccn/eleventy-plugin-rss@1.2.2':
+  '@ryanccn/eleventy-plugin-rss@https://codeload.github.com/uncenter/ryanccn-eleventy-plugin-rss/tar.gz/52ad9af1d922a59bb61c2761a67b61d33dea9527':
     dependencies:
       debug: 4.3.7
       posthtml: 0.16.6
