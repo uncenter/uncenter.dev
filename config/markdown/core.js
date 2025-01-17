@@ -56,6 +56,7 @@ const markdownLibrary = markdownIt({
 	})
 	.use(
 		await markdownItShiki({
+			langs: ['md', 'js', 'json', 'toml', 'sh', 'f90'],
 			themes: {
 				latte: 'catppuccin-latte',
 				frappe: 'catppuccin-frappe',
