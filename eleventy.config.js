@@ -7,10 +7,10 @@ import pluginAutoCacheBuster from 'eleventy-auto-cache-buster';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
 
-import { VentoPlugin } from 'eleventy-plugin-vento';
+import { VentoPlugin as pluginVento } from 'eleventy-plugin-vento';
+import { eleventyImageTransformPlugin as pluginImageTransform } from '@11ty/eleventy-img';
 
 import markdownLibrary from './config/markdown/core.js';
-
 import {
 	processCss,
 	processSass,
@@ -25,7 +25,6 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 import colors from 'picocolors';
 import site from './site.config.js';
-
 import eleventy from '11ty.ts';
 
 export default eleventy(function (eleventyConfig) {
@@ -80,7 +79,20 @@ export default eleventy(function (eleventyConfig) {
 			},
 		],
 	});
-	eleventyConfig.addPlugin(VentoPlugin);
+	eleventyConfig.addPlugin(pluginVento);
+	eleventyConfig.addPlugin(pluginImageTransform, {
+		widths: [640, 750, 828, 1080, 1200, 1920, 2048, 3840, 'auto'],
+		formats: ['avif', 'webp', 'png'],
+		outputDir: 'dist/assets/images/',
+		urlPath: '/assets/images/',
+		htmlOptions: {
+			imgAttributes: {
+				loading: 'lazy',
+				decoding: 'async',
+			},
+			pictureAttributes: {},
+		},
+	});
 
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'public/': '.' });
