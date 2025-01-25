@@ -7,8 +7,8 @@ import pluginAutoCacheBuster from 'eleventy-auto-cache-buster';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
 
-import { VentoPlugin as pluginVento } from 'eleventy-plugin-vento';
 import { eleventyImageTransformPlugin as pluginImageTransform } from '@11ty/eleventy-img';
+import { VentoPlugin as pluginVento } from 'eleventy-plugin-vento';
 
 import markdownLibrary from './config/markdown/core.js';
 import {
@@ -23,9 +23,9 @@ import { z } from 'zod';
 import 'dotenv/config';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
+import eleventy from '11ty.ts';
 import colors from 'picocolors';
 import site from './site.config.js';
-import eleventy from '11ty.ts';
 
 export default eleventy(function (eleventyConfig) {
 	eleventyConfig.addGlobalData('site', site);
