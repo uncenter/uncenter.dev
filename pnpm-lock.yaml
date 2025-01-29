@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  ventojs:
+    hash: 0e632d13b8ceea485050f4de545f89b2c7364b1f45e7bb46c259009a30236987
+    path: patches/ventojs.patch
+
 importers:
 
   .:
@@ -2910,7 +2915,7 @@ snapshots:
   eleventy-plugin-vento@4.1.1:
     dependencies:
       debug: 4.4.0
-      ventojs: 1.12.14
+      ventojs: 1.12.14(patch_hash=0e632d13b8ceea485050f4de545f89b2c7364b1f45e7bb46c259009a30236987)
     transitivePeerDependencies:
       - supports-color
 
@@ -4020,7 +4025,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  ventojs@1.12.14:
+  ventojs@1.12.14(patch_hash=0e632d13b8ceea485050f4de545f89b2c7364b1f45e7bb46c259009a30236987):
     dependencies:
       '@deno/shim-deno': 0.18.2
       estree-walker: 3.0.3
