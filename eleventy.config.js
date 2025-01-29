@@ -47,6 +47,12 @@ export default eleventy(function (eleventyConfig) {
 		enableTarget: false,
 	});
 	eleventyConfig.addPlugin(pluginRSS);
+	eleventyConfig.addFilter('dateToRfc3339', pluginRSS.dateToRfc3339);
+	eleventyConfig.addFilter(
+		'getNewestCollectionItemDate',
+		pluginRSS.getNewestCollectionItemDate,
+	);
+
 	eleventyConfig.addPlugin(pluginAutoCacheBuster);
 	eleventyConfig.addPlugin(pluginIcons, {
 		mode: 'inline',
