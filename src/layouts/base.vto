@@ -27,8 +27,8 @@ socialLinks:
    icon: mastodon
 ---
 
-{{ set title = title ? (title + " - " + site.domain) : site.domain }}
-{{ set description = description ? description : site.description }}
+{{ set title = it.title ? (it.title + " - " + site.domain) : site.domain }}
+{{ set description = it.description || site.description }}
 
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
