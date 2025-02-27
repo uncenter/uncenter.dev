@@ -152,7 +152,8 @@ tags: [...]
 title: Magna voluptate officia cillum Lorem proident.
 description: Cupidatat excepteur ullamco laboris in veniam qui officia tempor aliquip et commodo.
 date: 2000-01-01
-# cSpell:ignore supercalifragilisticexpialidocious # [!code focus]
+# [!code focus]
+# cSpell:ignore supercalifragilisticexpialidocious
 ---
 ```
 
