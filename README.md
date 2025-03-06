@@ -8,7 +8,7 @@
 
 -   **Syntax highlighting** with [Shiki](https://shiki.style/packages/markdown-it).
 -   **Optimized images** with [`@11ty/eleventy-img`](https://github.com/11ty/eleventy-img).
--   **RSS feed** using [`@ryanccn/eleventy-plugin-rss`](https://github.com/ryanccn/eleventy-plugin-rss).
+-   **RSS feed** using [`@11ty/eleventy-plugin-rss`](https://github.com/11ty/eleventy-plugin-rss).
 -   **Spell-checking** through [`cspell`](http://cspell.org/).
 -   **Optimized CSS, JS, and HTML** using [PostCSS](https://postcss.org/), [Lightning CSS](https://lightningcss.dev/), [terser](https://github.com/terser/terser), and [HTMLMinifier](https://github.com/kangax/html-minifier).
 
