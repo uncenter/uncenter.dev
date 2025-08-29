@@ -6,6 +6,7 @@ import pluginTOC from '@uncenter/eleventy-plugin-toc';
 import pluginAutoCacheBuster from 'eleventy-auto-cache-buster';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
+import pluginDirOutput from '@11ty/eleventy-plugin-directory-output';
 
 import { eleventyImageTransformPlugin as pluginImageTransform } from '@11ty/eleventy-img';
 import { VentoPlugin as pluginVento } from 'eleventy-plugin-vento';
@@ -113,6 +114,7 @@ export default eleventy(function (eleventyConfig) {
 
 	eleventyConfig.setLibrary('md', markdownLibrary);
 	eleventyConfig.setQuietMode(isDevelopment);
+	eleventyConfig.addPlugin(pluginDirOutput);
 	eleventyConfig.setServerOptions({
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,
