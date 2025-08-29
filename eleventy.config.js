@@ -1,12 +1,12 @@
 import { collections, filters, shortcodes } from './config/11ty/index.js';
 
+import pluginDirOutput from '@11ty/eleventy-plugin-directory-output';
 import pluginRSS from '@11ty/eleventy-plugin-rss';
 import pluginExternalLinks from '@aloskutov/eleventy-plugin-external-links';
 import pluginTOC from '@uncenter/eleventy-plugin-toc';
 import pluginAutoCacheBuster from 'eleventy-auto-cache-buster';
 import pluginIcons from 'eleventy-plugin-icons';
 import pluginValidate from 'eleventy-plugin-validate';
-import pluginDirOutput from '@11ty/eleventy-plugin-directory-output';
 
 import { eleventyImageTransformPlugin as pluginImageTransform } from '@11ty/eleventy-img';
 import { VentoPlugin as pluginVento } from 'eleventy-plugin-vento';
