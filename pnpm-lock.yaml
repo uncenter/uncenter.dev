@@ -120,8 +120,8 @@ importers:
         specifier: ^5.37.0
         version: 5.37.0
       zod:
-        specifier: ^3.24.1
-        version: 3.24.1
+        specifier: ^3.25.76
+        version: 3.25.76
     devDependencies:
       '@11ty/eleventy-plugin-directory-output':
         specifier: ^1.0.2
@@ -2008,8 +2008,8 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
-  zod@3.24.1:
-    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -2816,7 +2816,7 @@ snapshots:
     dependencies:
       just-extend: 6.2.0
       kleur: 4.1.5
-      zod: 3.24.1
+      zod: 3.25.76
 
   eleventy-plugin-vento@4.2.0:
     dependencies:
@@ -3920,6 +3920,6 @@ snapshots:
 
   yaml@2.7.0: {}
 
-  zod@3.24.1: {}
+  zod@3.25.76: {}
 
   zwitch@2.0.4: {}
