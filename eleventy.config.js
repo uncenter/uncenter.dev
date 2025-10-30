@@ -1,6 +1,5 @@
 import { collections, filters, shortcodes } from './config/11ty/index.js';
 
-import pluginDirOutput from '@11ty/eleventy-plugin-directory-output';
 import pluginRSS from '@11ty/eleventy-plugin-rss';
 import pluginExternalLinks from '@aloskutov/eleventy-plugin-external-links';
 import pluginTOC from '@uncenter/eleventy-plugin-toc';
@@ -114,7 +113,6 @@ export default eleventy(function (eleventyConfig) {
 
 	eleventyConfig.setLibrary('md', markdownLibrary);
 	eleventyConfig.setQuietMode(isDevelopment);
-	eleventyConfig.addPlugin(pluginDirOutput);
 	eleventyConfig.setServerOptions({
 		port: process.env.PORT || 8080,
 		portReassignmentRetryCount: 0,
