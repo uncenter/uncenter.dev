@@ -5,6 +5,7 @@ export default {
 		'uncenter',
 		'eleventy',
 		'11ty',
+		'learneleventy',
 		'umami',
 		'shortcodes',
 		'keycaps',
