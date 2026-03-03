@@ -18,4 +18,4 @@ My final update on the course is that this weekend, after [much](https://bsky.ap
 The old course domain — [learn-eleventy.pages.dev](https://learn-eleventy.pages.dev) — is still active and up to date, though this might change to redirect to the new domain soon.
 :::
 
-Thanks for reading all the way to this point! If you are an Eleventy user, or want to learn to become one, I hope this course can still be a valuable resource for you and the community at large. ❤️
+If you are an Eleventy user, or want to learn to become one, I hope this course can be a valuable resource for you! ❤️
