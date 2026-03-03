@@ -4,7 +4,7 @@ import { toAbsoluteUrl } from '../url.js';
 
 const toShortDate = (dateObject) => {
 	// 10/14/1983
-	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat('MM/dd/yyyy');
+	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat('yyyy/MM/dd');
 };
 
 const toMedDate = (dateObject) => {
@@ -22,7 +22,7 @@ const toFullDate = (dateObject) => {
 const toShortDateTime = (dateObject) => {
 	// 10/14/1983, 10:30 PM
 	return DateTime.fromISO(dateObject, { zone: 'utc' }).toFormat(
-		'MM/dd/yyyy, hh:mm a',
+		'yyyy/MM/dd, hh:mm a',
 	);
 };
 
