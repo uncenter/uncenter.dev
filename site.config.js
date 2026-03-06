@@ -4,13 +4,11 @@ export default {
 	url: 'https://uncenter.dev',
 	repository: `uncenter/uncenter.dev`,
 	description:
-		'Open source software developer, geography nerd, and high school student.',
+		'Hobbyist software developer & university student.',
 	keywords: [
 		'Software',
 		'Developer',
 		'Programming',
-		'Technology',
-		'JavaScript',
 	],
 	author: {
 		name: 'uncenter',
@@ -32,6 +30,6 @@ export default {
 	},
 	feed: {
 		description:
-			'Articles about programming, geography, and other interests of mine.',
+			'Articles about programming, software development, and other interests of mine.',
 	},
 };
