@@ -3,13 +3,8 @@ export default {
 	domain: 'uncenter.dev',
 	url: 'https://uncenter.dev',
 	repository: `uncenter/uncenter.dev`,
-	description:
-		'Hobbyist software developer & university student.',
-	keywords: [
-		'Software',
-		'Developer',
-		'Programming',
-	],
+	description: 'Hobbyist software developer & university student.',
+	keywords: ['Software', 'Developer', 'Programming'],
 	author: {
 		name: 'uncenter',
 		github: {
