@@ -53,7 +53,7 @@
 		"zod": "^3.24.1"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.2"
+		"@biomejs/biome": "2.4.6"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
