@@ -24,8 +24,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       '@11ty/eleventy-plugin-rss':
-        specifier: ^2.0.3
-        version: 2.0.3
+        specifier: ^2.0.4
+        version: 2.0.4
       '@aloskutov/eleventy-plugin-external-links':
         specifier: ^2.1.1
         version: 2.1.1
@@ -163,8 +163,8 @@ packages:
   '@11ty/eleventy-plugin-directory-output@1.0.2':
     resolution: {integrity: sha512-Q+ruZwZ1ow92mRqhwMW80VMF81Okl8HWthZx+dFrVIlLTkyIGQQMsrzJLwztA8KStJlJFGjzp3R1BQmz+R/cew==}
 
-  '@11ty/eleventy-plugin-rss@2.0.3':
-    resolution: {integrity: sha512-ubK97uahCLpKhORLfblgxLcoaNqTcKde1cH8CeRKNTFoUuuDSEjWZtodV9fKrg+uOp5X74dO43z1/io6hhs5Bw==}
+  '@11ty/eleventy-plugin-rss@2.0.4':
+    resolution: {integrity: sha512-LF60sGVlxGTryQe3hTifuzrwF8R7XbrNsM2xfcDcNMSliLN4kmB+7zvoLRySRx0AQDjqhPTAeeeT0ra6/9zHUQ==}
 
   '@11ty/eleventy-utils@2.0.0':
     resolution: {integrity: sha512-rKny6X7+ARuke0TaA6FwNv2PWJCNSdPQqbqDgaZgi+bPXwnPRTEi3CWzvr6vVgh/1XpO1G4FhRPreLhtcwHUyg==}
@@ -2109,9 +2109,9 @@ snapshots:
       kleur: 4.1.5
       strip-color: 0.1.0
 
-  '@11ty/eleventy-plugin-rss@2.0.3':
+  '@11ty/eleventy-plugin-rss@2.0.4':
     dependencies:
-      '@11ty/eleventy-utils': 2.0.0
+      '@11ty/eleventy-utils': 2.0.1
       '@11ty/posthtml-urls': 1.0.1
       debug: 4.4.0
       posthtml: 0.16.6
