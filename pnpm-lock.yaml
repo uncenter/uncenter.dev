@@ -18,8 +18,8 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1
       '@11ty/eleventy-img':
-        specifier: ^6.0.1
-        version: 6.0.1
+        specifier: ^6.0.4
+        version: 6.0.4
       '@11ty/eleventy-plugin-directory-output':
         specifier: ^1.0.2
         version: 1.0.2
@@ -152,8 +152,8 @@ packages:
     resolution: {integrity: sha512-/xFJLCrqKlcnRKIfO9Qjd1QOs4IpvypljXET955+EgdRPFA+h8Or6bDnZBbcwr6KS7yeUuzp5k1DhXgbentSTA==}
     engines: {node: '>=18'}
 
-  '@11ty/eleventy-img@6.0.1':
-    resolution: {integrity: sha512-Ktr1C42cu7rHR7M0lT+JfMjWaOIwS2rXqzrXkNfKAEljgJxCPVg2vsWr5iyPBg2IL7OY8ipPCr5jbovMAz6B9w==}
+  '@11ty/eleventy-img@6.0.4':
+    resolution: {integrity: sha512-jSy9BmubVs0mN76dcXWfSYDgRU+1+/rq/SxUR3MgIvTUAJRDop5pFW+Z1f56CDcOlEHaiPqHgnfOlqRmJvXl7g==}
     engines: {node: '>=18'}
 
   '@11ty/eleventy-plugin-bundle@3.0.1':
@@ -1139,8 +1139,8 @@ packages:
   hyperx@2.5.4:
     resolution: {integrity: sha512-iOkSh7Yse7lsN/B9y7OsevLWjeXPqGuHQ5SbwaiJM5xAhWFqhoN6erpK1dQsS12OFU36lyai1pnx1mmzWLQqcA==}
 
-  image-size@1.2.0:
-    resolution: {integrity: sha512-4S8fwbO6w3GeCVN6OPtA9I5IGKkcDMPcKndtUlpJuCwu7JLjtj7JZpwqLuyY2nrmQT3AWsCJLSKPsc2mPBSl3w==}
+  image-size@1.2.1:
+    resolution: {integrity: sha512-rH+46sQJ2dlwfjfhCyNx5thzrv+dtmBIhPHk0zgRUukHzZ/kRueTJXoYYsclBaKcSMBWuGbOFXtioLpzTb5euw==}
     engines: {node: '>=16.x'}
     hasBin: true
 
@@ -1761,11 +1761,6 @@ packages:
   semver-compare@1.0.0:
     resolution: {integrity: sha512-YM3/ITh2MJ5MtzaM429anh+x2jiLVjqILF4m4oyQB18W7Ggea7BfqdH/wGMK7dDiMghv/6WG7znWMwUDzJiXow==}
 
-  semver@7.6.3:
-    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.7.1:
     resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
@@ -2045,20 +2040,20 @@ snapshots:
 
   '@11ty/dependency-tree-esm@2.0.0':
     dependencies:
-      '@11ty/eleventy-utils': 2.0.1
+      '@11ty/eleventy-utils': 2.0.7
       acorn: 8.14.0
       dependency-graph: 1.0.0
       normalize-path: 3.0.0
 
   '@11ty/dependency-tree@4.0.0':
     dependencies:
-      '@11ty/eleventy-utils': 2.0.1
+      '@11ty/eleventy-utils': 2.0.7
 
   '@11ty/eleventy-dev-server@2.0.7':
     dependencies:
-      '@11ty/eleventy-utils': 2.0.1
+      '@11ty/eleventy-utils': 2.0.7
       chokidar: 3.6.0
-      debug: 4.4.0
+      debug: 4.4.3
       finalhandler: 1.3.1
       mime: 3.0.0
       minimist: 1.2.8
@@ -2083,14 +2078,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@11ty/eleventy-img@6.0.1':
+  '@11ty/eleventy-img@6.0.4':
     dependencies:
       '@11ty/eleventy-fetch': 5.1.1
-      '@11ty/eleventy-utils': 2.0.0
+      '@11ty/eleventy-utils': 2.0.7
       brotli-size: 4.0.0
-      debug: 4.4.0
+      debug: 4.4.3
       entities: 6.0.0
-      image-size: 1.2.0
+      image-size: 1.2.1
       p-queue: 6.6.2
       sharp: 0.33.5
     transitivePeerDependencies:
@@ -2098,7 +2093,7 @@ snapshots:
 
   '@11ty/eleventy-plugin-bundle@3.0.1(posthtml@0.16.6)':
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.3
       posthtml-match-helper: 2.0.3(posthtml@0.16.6)
     transitivePeerDependencies:
       - posthtml
@@ -3044,7 +3039,7 @@ snapshots:
     dependencies:
       hyperscript-attribute-to-property: 1.0.2
 
-  image-size@1.2.0:
+  image-size@1.2.1:
     dependencies:
       queue: 6.0.2
 
@@ -3602,13 +3597,11 @@ snapshots:
 
   semver-compare@1.0.0: {}
 
-  semver@7.6.3: {}
-
   semver@7.7.1: {}
 
   send@1.1.0:
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.3
       destroy: 1.2.0
       encodeurl: 2.0.0
       escape-html: 1.0.3
@@ -3629,7 +3622,7 @@ snapshots:
     dependencies:
       color: 4.2.3
       detect-libc: 2.0.3
-      semver: 7.6.3
+      semver: 7.7.1
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.33.5
       '@img/sharp-darwin-x64': 0.33.5
