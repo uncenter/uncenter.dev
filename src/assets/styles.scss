@@ -189,7 +189,7 @@ div.code-block {
 	@apply relative;
 
 	pre.shiki {
-		@apply overflow-auto text-xs leading-6 relative;
+		@apply bg-mantle overflow-auto text-xs leading-6 relative;
 
 		code {
 			@apply block p-4 [tab-size:2] font-mono;
