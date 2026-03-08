@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       11ty.ts:
-        specifier: ^0.0.5
-        version: 0.0.5(@11ty/eleventy@3.0.1-alpha.5)
+        specifier: ^0.0.7
+        version: 0.0.7(@11ty/eleventy@3.0.1-alpha.5)
       '@11ty/eleventy':
         specifier: 3.0.1-alpha.5
         version: 3.0.1-alpha.5
@@ -132,10 +132,10 @@ importers:
 
 packages:
 
-  11ty.ts@0.0.5:
-    resolution: {integrity: sha512-KctAFaK0Iin2bCkGSiOSTYWEKHMwnV/0bazCef0q8NXT5mahr4OJqqcs6r29BW7gIzKxXpNDro5sfGDKxinL0g==}
+  11ty.ts@0.0.7:
+    resolution: {integrity: sha512-71Jqaimpefof8pt51lIy59Ea2GqU9Bmp3mejWznxVPxxhKBbWBIKBdVsxWSRJSoudUw3KPzpSaThw+KqR3yo3w==}
     peerDependencies:
-      '@11ty/eleventy': ^2.0.1
+      '@11ty/eleventy': ^3.0.0
 
   '@11ty/dependency-tree-esm@2.0.0':
     resolution: {integrity: sha512-+4ySOON4aEAiyAGuH6XQJtxpGSpo6nibfG01krgix00sqjhman2+UaDUopq6Ksv8/jBB3hqkhsHe3fDE4z8rbA==}
@@ -2039,7 +2039,7 @@ packages:
 
 snapshots:
 
-  11ty.ts@0.0.5(@11ty/eleventy@3.0.1-alpha.5):
+  11ty.ts@0.0.7(@11ty/eleventy@3.0.1-alpha.5):
     dependencies:
       '@11ty/eleventy': 3.0.1-alpha.5
 
