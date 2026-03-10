@@ -21,6 +21,7 @@ import { minifyHtml } from './config/transforms/html.js';
 
 import { z } from 'zod';
 
+import * as fs from 'node:fs';
 import 'dotenv/config';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -87,10 +88,13 @@ export default eleventy(function (eleventyConfig) {
 		],
 	});
 	eleventyConfig.addPlugin(pluginVento);
+
+	const ELEVENTY_IMG_TMP = '.cache/eleventy-img/'; // persisted cache directory in prod
+	const ELEVENTY_IMG_DEST = 'dist/assets/images/'; // actual dest
 	eleventyConfig.addPlugin(pluginImageTransform, {
 		widths: [640, 750, 828, 1080, 1200, 1920, 2048, 3840, 'auto'],
 		formats: ['avif', 'webp', 'png'],
-		outputDir: 'dist/assets/images/',
+		outputDir: isDevelopment ? ELEVENTY_IMG_DEST : ELEVENTY_IMG_TMP, // use actual output directory in dev, use cached in prod
 		urlPath: '/assets/images/',
 		htmlOptions: {
 			imgAttributes: {
@@ -100,6 +104,11 @@ export default eleventy(function (eleventyConfig) {
 			pictureAttributes: {},
 		},
 	});
+	if (!isDevelopment) {
+		eleventyConfig.on('eleventy.after', () => {
+			fs.cpSync(ELEVENTY_IMG_TMP, ELEVENTY_IMG_DEST, { recursive: true }); // copy from temporary cache directory to final dest
+		});
+	}
 
 	/* Passthrough Copy */
 	eleventyConfig.addPassthroughCopy({ 'public/': '.' });
