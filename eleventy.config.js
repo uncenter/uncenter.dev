@@ -22,8 +22,10 @@ import { minifyHtml } from './config/transforms/html.js';
 import { z } from 'zod';
 
 import * as fs from 'node:fs';
-import 'dotenv/config';
+import * as process from 'node:process';
+
 const isDevelopment = process.env.NODE_ENV !== 'production';
+if (isDevelopment) process.loadEnvFile();
 
 import eleventy from '11ty.ts';
 import colors from 'picocolors';

@@ -1,5 +1,4 @@
 const isDevelopment = process.env.NODE_ENV !== 'production';
-import 'dotenv/config';
 
 import { DateTime } from 'luxon';
 import getViewsForPage from '../../config/umami.js';
