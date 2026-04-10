@@ -22,7 +22,7 @@
 		"@catppuccin/palette": "^1.7.1",
 		"@shikijs/markdown-it": "4.0.1",
 		"@shikijs/transformers": "4.0.1",
-		"@uncenter/eleventy-plugin-toc": "^2.0.0",
+		"@uncenter/eleventy-plugin-toc": "^2.1.1",
 		"browserslist": "^4.24.4",
 		"eleventy-auto-cache-buster": "^0.7.0",
 		"eleventy-plugin-icons": "^4.5.7",
