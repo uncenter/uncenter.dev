@@ -72,14 +72,14 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       markdown-it:
-        specifier: ^14.1.0
-        version: 14.1.0
+        specifier: ^14.1.1
+        version: 14.1.1
       markdown-it-anchor:
         specifier: ^9.2.0
-        version: 9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
+        version: 9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.1)
       markdown-it-attrs:
         specifier: ^4.3.1
-        version: 4.3.1(markdown-it@14.1.0)
+        version: 4.3.1(markdown-it@14.1.1)
       markdown-it-container:
         specifier: ^4.0.0
         version: 4.0.0
@@ -1377,10 +1377,6 @@ packages:
     resolution: {integrity: sha512-FtwnEuuK+2yVU7goGn/MJ0WBZMM9ZPgU9spqlFs7/A/pDIUNSOQZhUgOqYCficIuR2QaFnrt8LHqBWsbTAoI5w==}
     hasBin: true
 
-  markdown-it@14.1.0:
-    resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
-    hasBin: true
-
   markdown-it@14.1.1:
     resolution: {integrity: sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==}
     hasBin: true
@@ -2118,7 +2114,7 @@ snapshots:
       kleur: 4.1.5
       liquidjs: 10.21.0
       luxon: 3.5.0
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
       micromatch: 4.0.8
       minimist: 1.2.8
       moo: 0.5.2
@@ -3164,14 +3160,14 @@ snapshots:
     dependencies:
       sourcemap-codec: 1.4.8
 
-  markdown-it-anchor@9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.0):
+  markdown-it-anchor@9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.1):
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
 
-  markdown-it-attrs@4.3.1(markdown-it@14.1.0):
+  markdown-it-attrs@4.3.1(markdown-it@14.1.1):
     dependencies:
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
 
   markdown-it-container@4.0.0: {}
 
@@ -3194,15 +3190,6 @@ snapshots:
       linkify-it: 4.0.1
       mdurl: 1.0.1
       uc.micro: 1.0.6
-
-  markdown-it@14.1.0:
-    dependencies:
-      argparse: 2.0.1
-      entities: 4.5.0
-      linkify-it: 5.0.0
-      mdurl: 2.0.0
-      punycode.js: 2.3.1
-      uc.micro: 2.1.0
 
   markdown-it@14.1.1:
     dependencies:
